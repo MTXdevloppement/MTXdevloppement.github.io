@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiroir — Vos papiers, rangés. Vos échéances, rappelées. · MTX Studio</title>
+<meta name="description" content="Tiroir, le tiroir à papiers du foyer dans l’iPhone : scan et lecture du texte sur l’appareil, rangement par catégorie, rappels d’échéances, dossiers prêts à envoyer, filigrane de protection et grand rangement. Sans compte, sans serveur.">
+<meta name="theme-color" content="#F6F1E7">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Tiroir">
+<meta property="og:title" content="Tiroir — Vos papiers, rangés. Vos échéances, rappelées.">
+<meta property="og:description" content="Scannez un papier : Tiroir le range, lit ses dates et vous prévient au bon moment pour agir. Vos papiers ne quittent pas votre iPhone.">
+<meta property="og:image" content="assets/img/tiroir-icone-1024.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="L’icône de Tiroir : un tiroir à poignée laiton d’où dépassent deux feuilles.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/tiroir-icone.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/tiroir-icone-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+(function(r) {
+  r.classList.add('js');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('anim');
+  r.dataset.ui = matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair';
+})(document.documentElement);
+</script>
+<script src="assets/js/main.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css">
+<script src="../../assets/js/projet.js" defer></script>
+</head>
+<body id="haut">
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>MTX Studio</a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=tiroir">Démarrer un projet</a></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="gFond" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#4A5FB3"/><stop offset="1" stop-color="#202C5E"/></linearGradient>
+  <linearGradient id="gFacade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCF8F0"/><stop offset="1" stop-color="#E8DECB"/></linearGradient>
+  <linearGradient id="gLaiton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5C766"/><stop offset="1" stop-color="#C7862A"/></linearGradient>
+</defs>
+
+<symbol id="logo" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="230" fill="url(#gFond)"/>
+  <rect x="150" y="470" width="724" height="400" rx="70" fill="#141C45" opacity=".5"/>
+  <g transform="rotate(7 600 430)"><rect x="420" y="236" width="360" height="330" rx="30" fill="#F4DDA9"/><rect x="470" y="300" width="170" height="22" rx="11" fill="#B9802C" opacity=".55"/></g>
+  <g transform="rotate(-5 470 420)"><rect x="258" y="196" width="440" height="380" rx="32" fill="#fff"/><rect x="314" y="266" width="210" height="30" rx="15" fill="#33458C"/><rect x="314" y="330" width="330" height="20" rx="10" fill="#33458C" opacity=".2"/><rect x="314" y="374" width="290" height="20" rx="10" fill="#33458C" opacity=".2"/><rect x="314" y="418" width="312" height="20" rx="10" fill="#33458C" opacity=".2"/></g>
+  <rect x="140" y="512" width="744" height="360" rx="68" fill="url(#gFacade)"/>
+  <rect x="142" y="514" width="740" height="356" rx="66" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="4"/>
+  <rect x="382" y="650" width="260" height="70" rx="35" fill="url(#gLaiton)"/>
+  <rect x="408" y="664" width="208" height="14" rx="7" fill="#fff" opacity=".4"/>
+</symbol>
+
+<symbol id="tiroir-art" viewBox="130 180 770 700">
+  <g transform="rotate(7 600 430)"><rect x="420" y="236" width="360" height="330" rx="30" fill="#F4DDA9"/><rect x="470" y="300" width="170" height="22" rx="11" fill="#B9802C" opacity=".55"/></g>
+  <g transform="rotate(-5 470 420)"><rect x="258" y="196" width="440" height="380" rx="32" fill="#fff"/><rect x="314" y="266" width="210" height="30" rx="15" fill="#33458C"/><rect x="314" y="330" width="330" height="20" rx="10" fill="#33458C" opacity=".2"/><rect x="314" y="374" width="290" height="20" rx="10" fill="#33458C" opacity=".2"/></g>
+  <rect x="140" y="512" width="744" height="360" rx="68" fill="url(#gFacade)"/>
+  <rect x="382" y="650" width="260" height="70" rx="35" fill="url(#gLaiton)"/>
+</symbol>
+
+<symbol id="i-maison" viewBox="0 0 24 24"><path d="M3.5 10.6 12 3.6l8.5 7v8.9a1.5 1.5 0 0 1-1.5 1.5h-4.2v-6.2H9.2V21H5a1.5 1.5 0 0 1-1.5-1.5z" fill="currentColor"/></symbol>
+<symbol id="i-docs" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M9.5 2.8h6.2l4.3 4.3v9.6a1.8 1.8 0 0 1-1.8 1.8H9.5a1.8 1.8 0 0 1-1.8-1.8V4.6a1.8 1.8 0 0 1 1.8-1.8z"/><path d="M4.5 7v12.2A2 2 0 0 0 6.5 21.2h9"/></g></symbol>
+<symbol id="i-calendrier" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g><circle cx="8" cy="14.5" r="1.2" fill="currentColor"/><circle cx="12" cy="14.5" r="1.2" fill="currentColor"/></symbol>
+<symbol id="i-dossier" viewBox="0 0 24 24"><path d="M3 7.4A2.4 2.4 0 0 1 5.4 5h3.9c.6 0 1.1.2 1.5.6l1.6 1.6h6.2A2.4 2.4 0 0 1 21 9.6v8A2.4 2.4 0 0 1 18.6 20H5.4A2.4 2.4 0 0 1 3 17.6z" fill="currentColor"/></symbol>
+<symbol id="i-reglages" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="6.2"/><circle cx="12" cy="12" r="2.3"/><path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.4 5.4l1.8 1.8M16.8 16.8l1.8 1.8M5.4 18.6l1.8-1.8M16.8 7.2l1.8-1.8"/></g></symbol>
+
+<symbol id="c-identite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2.6"/><circle cx="8.6" cy="10.6" r="2"/><path d="M5.8 15.8c.5-1.5 1.5-2.3 2.8-2.3s2.3.8 2.8 2.3M14 10h4M14 13.4h3"/></g></symbol>
+<symbol id="c-sante" viewBox="0 0 24 24"><path d="M12 20.4S4 15.6 4 9.8A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.4c0 5.8-8 10.6-8 10.6z" fill="currentColor"/></symbol>
+<symbol id="c-logement" viewBox="0 0 24 24"><use href="#i-maison"/></symbol>
+<symbol id="c-travail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.6"/><path d="M9 7V5.6A1.6 1.6 0 0 1 10.6 4h2.8A1.6 1.6 0 0 1 15 5.6V7M3 12.5h18"/></g></symbol>
+<symbol id="c-impots" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 12 4l9 5.2z"/><path d="M5.5 11.5v6M10 11.5v6M14 11.5v6M18.5 11.5v6M3 20.2h18"/></g></symbol>
+<symbol id="c-banque" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="M3 10h18M6.5 14.6h4"/></g></symbol>
+<symbol id="c-vehicule" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16v-3.8l2-5.1A1.6 1.6 0 0 1 8 6h8a1.6 1.6 0 0 1 1.5 1.1l2 5.1V16a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1zM4.5 12.2h15M7 17v2M17 17v2"/></g><circle cx="8" cy="14.4" r="1" fill="currentColor"/><circle cx="16" cy="14.4" r="1" fill="currentColor"/></symbol>
+<symbol id="c-achats" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M5.4 8h13.2l-1 12.2H6.4z"/><path d="M9 10V6.6a3 3 0 0 1 6 0V10" stroke-linecap="round"/></g></symbol>
+<symbol id="c-contrats" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h7.2l4.2 4.2v12.3a1.5 1.5 0 0 1-1.5 1.5H6.6a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 6.6 3z"/><path d="M8.4 16.6c1-1.6 1.8-1.6 2.3 0s1.3 1.2 2-.2 1.3-.6 2.8.2M8.4 9h5"/></g></symbol>
+<symbol id="c-famille" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.4 12 5l9.5 4.4L12 13.8z"/><path d="M6.5 11.4V16c1.6 1.4 3.5 2.1 5.5 2.1s3.9-.7 5.5-2.1v-4.6M21.5 9.4v5"/></g></symbol>
+<symbol id="c-autres" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></g></symbol>
+
+<symbol id="i-scan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 8.2V5.6A1.6 1.6 0 0 1 5.6 4h2.6M15.8 4h2.6A1.6 1.6 0 0 1 20 5.6v2.6M20 15.8v2.6a1.6 1.6 0 0 1-1.6 1.6h-2.6M8.2 20H5.6A1.6 1.6 0 0 1 4 18.4v-2.6M8.5 9h7M8.5 12h7M8.5 15h4.5"/></g></symbol>
+<symbol id="i-texte" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 8.2V5.6A1.6 1.6 0 0 1 5.6 4h2.6M15.8 4h2.6A1.6 1.6 0 0 1 20 5.6v2.6M20 15.8v2.6a1.6 1.6 0 0 1-1.6 1.6h-2.6M8.2 20H5.6A1.6 1.6 0 0 1 4 18.4v-2.6M8.5 8.5h7M12 8.5v7.5"/></g></symbol>
+<symbol id="i-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.6"/><path d="m4 17.2 5-4.6 3.5 3 3-2.6 4.5 4.2"/></g><circle cx="9" cy="9.6" r="1.6" fill="currentColor"/></symbol>
+<symbol id="i-crayon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17z"/><path d="m14.5 7.5 3 3"/></g></symbol>
+<symbol id="i-loupe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.3"/><path d="m15.3 15.3 5 5"/></g></symbol>
+<symbol id="i-cloche" viewBox="0 0 24 24"><path d="M12 2.8a6 6 0 0 1 6 6v4.6l1.6 2.4c.4.7 0 1.5-.8 1.5H5.2c-.8 0-1.2-.8-.8-1.5L6 13.4V8.8a6 6 0 0 1 6-6zM9.6 18.8h4.8a2.4 2.4 0 0 1-4.8 0z" fill="currentColor"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m9 4.5 7.5 7.5L9 19.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-g" viewBox="0 0 24 24"><path d="m15 4.5-7.5 7.5 7.5 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-fleche" viewBox="0 0 24 24"><path d="M5 12h13m-5-5.5L18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-fleche-bas" viewBox="0 0 24 24"><path d="M12 5v13m-5.5-5L12 18.5l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-partage" viewBox="0 0 24 24"><path d="M12 14.5V3.5m0 0L8.3 7.2M12 3.5l3.7 3.7M8 10H6.6c-.9 0-1.6.7-1.6 1.6v7.3c0 .9.7 1.6 1.6 1.6h10.8c.9 0 1.6-.7 1.6-1.6v-7.3c0-.9-.7-1.6-1.6-1.6H16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-cadenas" viewBox="0 0 24 24"><path d="M7.5 10V7.6a4.5 4.5 0 0 1 9 0V10h.6c1 0 1.9.9 1.9 1.9v7.2c0 1-.9 1.9-1.9 1.9H6.9c-1 0-1.9-.9-1.9-1.9v-7.2c0-1 .9-1.9 1.9-1.9zm2.2 0h4.6V7.6a2.3 2.3 0 0 0-4.6 0z" fill="currentColor"/></symbol>
+<symbol id="i-visage" viewBox="0 0 24 24"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 8.5v1.6M15.5 8.5v1.6M12 8.5v4.3c0 .5-.4.9-.9.9h-.5M8.6 15.6a5 5 0 0 0 6.8 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-corbeille" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M9.5 6.5V4.5h5v2M6.5 6.5l.9 12.6a1.5 1.5 0 0 0 1.5 1.4h6.2a1.5 1.5 0 0 0 1.5-1.4l.9-12.6M10 10.5v6M14 10.5v6"/></g></symbol>
+<symbol id="i-boite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v9.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V9M10 13h4"/></g></symbol>
+<symbol id="i-sauvegarde" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10m0 0-4-4m4 4 4-4"/><path d="M4.5 14.5v3A2.5 2.5 0 0 0 7 20h10a2.5 2.5 0 0 0 2.5-2.5v-3"/></g></symbol>
+<symbol id="i-micro" viewBox="0 0 24 24"><path d="M12 2.5a3.5 3.5 0 0 1 3.5 3.5v5.5a3.5 3.5 0 0 1-7 0V6A3.5 3.5 0 0 1 12 2.5zM5.5 11h2a4.5 4.5 0 0 0 9 0h2a6.5 6.5 0 0 1-5.5 6.4v2.6h3V22h-8v-2h3v-2.6A6.5 6.5 0 0 1 5.5 11z" fill="currentColor"/></symbol>
+<symbol id="i-nuage-barre" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.5H7.5a4 4 0 0 1-.7-7.9M9.6 6.7a5.6 5.6 0 0 1 7.8 4.6 3.4 3.4 0 0 1 1.5 6.2M4 4l16 16"/></g></symbol>
+<symbol id="i-puce" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9.5 3v3M14.5 3v3M9.5 18v3M14.5 18v3M3 9.5h3M3 14.5h3M18 9.5h3M18 14.5h3"/></g></symbol>
+<symbol id="i-bouclier" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.4v5.8c0 4.7 3.2 8.6 7.5 10.3 4.3-1.7 7.5-5.6 7.5-10.3V5.4z" fill="currentColor"/><path d="m8.6 12 2.4 2.4 4.4-4.6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-etincelles" viewBox="0 0 24 24"><path d="M10 3c.6 3.7 2.3 5.4 6 6-3.7.6-5.4 2.3-6 6-.6-3.7-2.3-5.4-6-6 3.7-.6 5.4-2.3 6-6zm8 9c.3 2 1.2 2.9 3.2 3.2-2 .3-2.9 1.2-3.2 3.2-.3-2-1.2-2.9-3.2-3.2 2-.3 2.9-1.2 3.2-3.2zM17.5 2c.2 1.2.8 1.8 2 2-1.2.2-1.8.8-2 2-.2-1.2-.8-1.8-2-2 1.2-.2 1.8-.8 2-2z" fill="currentColor"/></symbol>
+<symbol id="i-filigrane" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h7.2l4.2 4.2v12.3a1.5 1.5 0 0 1-1.5 1.5H6.6a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 6.6 3z"/><path d="m8 17.5 8-8M8 13l4.5-4.5"/></g></symbol>
+<symbol id="i-pdf" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.3 2h7.2c.5 0 .9.2 1.2.5l4.8 4.8c.3.3.5.7.5 1.2v11.2c0 1.3-1 2.3-2.3 2.3H6.3C5 22 4 21 4 19.7V4.3C4 3 5 2 6.3 2zM7.5 13v4h1.3v-1.3h.8a1.4 1.4 0 0 0 0-2.7zm1.3 1.1h.7a.3.3 0 0 1 0 .6h-.7zm3-1.1v4h1.4a2 2 0 0 0 0-4zm1.3 1.1h.1a.9.9 0 0 1 0 1.8h-.1zm3-1.1v4h1.3v-1.5h1.3v-1h-1.3v-.5h1.5v-1z" fill="currentColor"/></symbol>
+<symbol id="i-personnes" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="9" cy="8" r="3.4"/><path d="M2.6 19c.6-3.5 3.1-5.4 6.4-5.4s5.8 1.9 6.4 5.4z"/><circle cx="17" cy="9" r="2.6" opacity=".6"/><path d="M16.6 13.6c2.7.1 4.4 1.8 4.8 4.4h-4.1c-.2-1.8-.5-3.1-.7-4.4" opacity=".6"/></g></symbol>
+<symbol id="i-etoile" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17l-5.7 3.1 1.2-6.3L2.9 9.4l6.3-.8z" fill="currentColor"/></symbol>
+<symbol id="i-copie" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="8" y="8" width="12.5" height="12.5" rx="2.4"/><path d="M16 8V5.9A2.4 2.4 0 0 0 13.6 3.5H5.9A2.4 2.4 0 0 0 3.5 5.9v7.7A2.4 2.4 0 0 0 5.9 16H8"/></g></symbol>
+<symbol id="i-oeil" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><path d="M2.5 12c1.6-3.6 5.2-6.5 9.5-6.5s7.9 2.9 9.5 6.5c-1.6 3.6-5.2 6.5-9.5 6.5S4.1 15.6 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-horloge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></g></symbol>
+<symbol id="i-annuler" viewBox="0 0 24 24"><path d="M9 6 4.5 10.5 9 15M5 10.5h9.5a5 5 0 0 1 0 10H11" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-repete" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H19m-3-3 3 3-3 3M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H5m3 3-3-3 3-3"/></g></symbol>
+<symbol id="i-pomme" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.5 2.1-3.7 2.2-3.8a4.7 4.7 0 0 0-3.7-2c-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9a4.9 4.9 0 0 0-4.1 2.5c-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4a10 10 0 0 0 1.4-2.8 4.3 4.3 0 0 1-2.5-4.1zM13.9 5.1A4.3 4.3 0 0 0 14.9 2a4.4 4.4 0 0 0-2.9 1.5 4.1 4.1 0 0 0-1 3c1.1.1 2.2-.6 2.9-1.4z" fill="currentColor"/></symbol>
+<symbol id="i-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-lune" viewBox="0 0 24 24"><path d="M20 14.6A8.5 8.5 0 0 1 9.4 4a8.5 8.5 0 1 0 10.6 10.6z" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav">
+  <a class="nav-logo" href="#haut" aria-label="Tiroir, retour en haut"><svg><use href="#logo"/></svg><span>Tiroir</span></a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#ranger">Ranger</a>
+    <a href="#echeances">Échéances</a>
+    <a href="#retrouver">Retrouver</a>
+    <a href="#dossiers">Dossiers</a>
+    <a href="#rangement">Rangement</a>
+    <a href="#confidentialite">Confidentialité</a>
+    <a href="#plus">Tiroir+</a>
+  </nav>
+  <a class="btn btn-main btn-sm" href="#telecharger"><svg><use href="#i-pomme"/></svg>Bientôt sur l’App Store</a>
+</header>
+
+<main id="contenu">
+
+<section class="hero s-papier" aria-label="Tiroir">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <p class="hero-eyebrow rise"><svg><use href="#logo"/></svg>Tiroir · pour iPhone et iPad</p>
+      <h1 class="hero-title"><span class="rise" style="--d:.08s">Vos papiers, rangés.</span> <span class="rise serif" style="--d:.18s">Vos échéances, rappelées.</span></h1>
+      <p class="hero-lead rise" style="--d:.3s">Scannez un papier&#8239;: Tiroir le range, lit ses dates et vous prévient <b>six mois</b> avant que le passeport expire, <b>deux mois</b> avant la date limite pour résilier votre assurance.</p>
+      <div class="hero-btns rise" style="--d:.4s">
+        <a class="btn btn-main magnet" href="#ranger">Ouvrir le tiroir<svg class="dn"><use href="#i-fleche-bas"/></svg></a>
+        <a class="btn btn-ghost magnet" href="#plus">Découvrir Tiroir+</a>
+      </div>
+      <ul class="hero-points rise" style="--d:.5s">
+        <li><svg><use href="#i-check"/></svg>Gratuit et sans limite</li>
+        <li><svg><use href="#i-check"/></svg>Aucun compte</li>
+        <li><svg><use href="#i-check"/></svg>Rien ne sort de l’iPhone</li>
+      </ul>
+    </div>
+
+    <div class="hero-stage" aria-hidden="true">
+      <div class="h-dedans">
+      <div class="h-papiers">
+        <span class="h-pap hp-1" style="--k:var(--c-identite)"><i class="hp-ic"><svg><use href="#c-identite"/></svg></i><b>Passeport</b><small>Camille Martin</small><em class="hp-l"></em><em class="hp-l c"></em><em class="hp-due bientot">Expire dans 5 mois</em></span>
+        <span class="h-pap hp-2" style="--k:var(--c-logement)"><i class="hp-ic"><svg><use href="#c-logement"/></svg></i><b>Assurance habitation</b><small>Assurances du Lac</small><em class="hp-l"></em><em class="hp-l c"></em><em class="hp-due urgence">Résilier avant reconduction</em></span>
+        <span class="h-pap hp-3" style="--k:var(--c-achats)"><i class="hp-ic"><svg><use href="#c-achats"/></svg></i><b>Facture d’achat</b><small>Lave-linge · 449&#8239;€</small><em class="hp-l"></em><em class="hp-l c"></em><em class="hp-due">Garantie légale : 2 ans</em></span>
+      </div>
+
+      <div class="hero-phone-move">
+      <div class="iphone tilt hero-phone">
+        <div class="screen">
+          <div class="app app-accueil">
+            <div class="sbar"><span>9:41</span><i class="sb-r"></i></div>
+            <div class="pane-scroll">
+              <h3 class="lt">Tiroir</h3>
+              <div class="h-carte">
+                <svg class="h-carte-art"><use href="#tiroir-art"/></svg>
+                <small>Bonjour Camille</small>
+                <p><b>42</b><span>papiers<br>rangés</span></p>
+                <em>2 échéances en retard</em>
+                <span class="h-carte-btn"><svg><use href="#i-scan"/></svg>Scanner un papier</span>
+              </div>
+              <div class="u-sh2"><span><small>À ne pas manquer</small><b>2 échéances en retard</b></span><em>Tout voir</em></div>
+              <div class="u-card u-list">
+                <div class="u-row"><i class="tile" style="--k:var(--c-vehicule)"><svg><use href="#c-vehicule"/></svg></i><span><b>Contrôle technique</b><small>Citadine · AB-123-CD</small></span><em class="due urgence">Retard 4 j</em></div>
+                <div class="u-row"><i class="tile" style="--k:var(--c-logement)"><svg><use href="#c-logement"/></svg></i><span><b>Paiement : Taxe foncière</b><small>Tout le foyer</small></span><em class="due urgence">Retard 2 j</em></div>
+                <div class="u-row"><i class="tile" style="--k:var(--c-logement)"><svg><use href="#c-logement"/></svg></i><span><b>Résilier avant reconduction : Assurance habitation</b><small>Assurances du Lac</small></span><em class="due bientot">3 jours</em></div>
+              </div>
+              <div class="qa-grid">
+                <span><i class="tile" style="--k:var(--u-acc)"><svg><use href="#i-scan"/></svg></i><b>Scanner</b><small>Plusieurs pages</small></span>
+                <span><i class="tile" style="--k:var(--c-achats)"><svg><use href="#i-photo"/></svg></i><b>Importer</b><small>Photo, PDF, saisie</small></span>
+                <span><i class="tile" style="--k:var(--bientot)"><svg><use href="#i-calendrier"/></svg></i><b>Échéance</b><small>Un rappel au bon moment</small></span>
+                <span><i class="tile" style="--k:#C4852A"><svg><use href="#i-dossier"/></svg></i><b>Dossier</b><small>Location, prêt, école…</small></span>
+              </div>
+            </div>
+            <div class="tabbar"><span class="on"><svg><use href="#i-maison"/></svg>Accueil</span><span><svg><use href="#i-docs"/></svg>Documents</span><span><svg><use href="#i-calendrier"/></svg>Échéances</span><span><svg><use href="#i-dossier"/></svg>Dossiers</span><span><svg><use href="#i-reglages"/></svg>Réglages</span></div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      </div>
+
+      <div class="h-tiroir"><i class="h-poignee"></i></div>
+    </div>
+  </div>
+
+  <div class="ui-theme" id="ui-theme" role="radiogroup" aria-label="Apparence des écrans de l’app">
+    <span>Écrans</span>
+    <button type="button" role="radio" data-ui="clair" aria-checked="true"><svg><use href="#i-soleil"/></svg>Clair</button><button type="button" role="radio" data-ui="sombre" aria-checked="false"><svg><use href="#i-lune"/></svg>Sombre</button>
+  </div>
+</section>
+
+<section class="section constat s-encre" aria-labelledby="constat-t">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Le constat</p>
+    <h2 class="sr-only" id="constat-t">Le constat</h2>
+    <p class="manif" id="manif">Carte d’identité, passeport, carte grise, bulletins de salaire, avis d’imposition, quittances, contrats, factures et garanties&#8239;: <span class="k">chaque foyer garde des dizaines de papiers.</span> Une partie dort dans une boîte à chaussures, une autre dans les e-mails, une autre dans la pellicule, au milieu des photos de vacances.</p>
+    <ul class="maux">
+      <li data-reveal data-glow><span class="mal-ic"><svg><use href="#i-docs"/></svg></span><b>Éparpillés</b><p>Une boîte, une messagerie, une pellicule&#8239;: jamais au même endroit.</p></li>
+      <li data-reveal data-glow style="--d:.06s"><span class="mal-ic"><svg><use href="#i-horloge"/></svg></span><b>Oubliés</b><p>Le passeport périmé trois semaines avant le départ, quand le rendez-vous en mairie demande souvent plusieurs semaines d’attente. La date pour résilier, laissée filer.</p></li>
+      <li data-reveal data-glow style="--d:.12s"><span class="mal-ic"><svg><use href="#i-loupe"/></svg></span><b>Introuvables au mauvais moment</b><p>Un dossier de location demande cinq pièces précises, à envoyer le soir même.</p></li>
+      <li data-reveal data-glow style="--d:.18s"><span class="mal-ic"><svg><use href="#i-boite"/></svg></span><b>Gardés trop longtemps, ou jetés trop tôt</b><p>Personne ne sait combien de temps garder une facture d’électricité.</p></li>
+    </ul>
+    <p class="constat-fin" data-reveal>Les coffres-forts numériques existants stockent les fichiers dans le cloud, demandent un compte et ne disent pas quand agir. <b>Tiroir range, lit, prévient, et ne montre rien à personne.</b></p>
+  </div>
+</section>
+
+<section class="section fonctions s-papier" id="fonctions" aria-labelledby="fonctions-t">
+  <div class="wrap">
+    <p class="eyebrow center" data-reveal>Les fonctions</p>
+    <h2 class="title center split" id="fonctions-t">Tout ce qu’un tiroir à papiers devrait faire.</h2>
+    <div class="fn-grid">
+      <article class="fn" data-reveal data-glow>
+        <span class="fn-n">01</span><h3><svg><use href="#i-scan"/></svg>Ranger</h3>
+        <ul><li>Scanner plusieurs pages d’un coup, importer, ou saisir à la main</li><li>Lecture du texte sur l’appareil, en français</li><li>Une trentaine de papiers courants reconnus</li><li>Onze catégories, une personne du foyer par papier</li></ul>
+        <a class="fn-l" href="#ranger">Essayer le scan<svg><use href="#i-fleche"/></svg></a>
+      </article>
+      <article class="fn" data-reveal data-glow style="--d:.06s">
+        <span class="fn-n">02</span><h3><svg><use href="#i-cloche"/></svg>Être prévenu</h3>
+        <ul><li>Expiration, renouvellement, fin de garantie, résiliation, paiement, rendez-vous</li><li>Rappels locaux au bon moment, heure réglable</li><li>Contrats et abonnements&#8239;: total mensuel et annuel, date limite pour résilier</li><li>«&#8239;C’est fait&#8239;» en un geste</li></ul>
+        <a class="fn-l" href="#echeances">Voir l’échéancier<svg><use href="#i-fleche"/></svg></a>
+      </article>
+      <article class="fn" data-reveal data-glow style="--d:.12s">
+        <span class="fn-n">03</span><h3><svg><use href="#i-loupe"/></svg>Retrouver et partager</h3>
+        <ul><li>Recherche dans tout le texte des documents</li><li>Références sensibles masquées, copie en un geste</li><li>Partage en PDF, avec ou sans filigrane</li><li>Dossiers prêts à envoyer&#8239;: location, prêt, voyage…</li></ul>
+        <a class="fn-l" href="#retrouver">Chercher un papier<svg><use href="#i-fleche"/></svg></a>
+      </article>
+      <article class="fn" data-reveal data-glow style="--d:.18s">
+        <span class="fn-n">04</span><h3><svg><use href="#i-bouclier"/></svg>Garder l’esprit tranquille</h3>
+        <ul><li>Verrouillage Face ID, Touch ID ou code</li><li>Grand rangement d’après les durées de conservation</li><li>Corbeille de 30 jours, chaque suppression annulable</li><li>Sauvegarde dans un fichier, où vous voulez</li></ul>
+        <a class="fn-l" href="#rangement">Faire le grand rangement<svg><use href="#i-fleche"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="chap s-encre" id="ranger">
+  <div class="wrap">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-scan"/></svg>Ranger</p>
+      <h2 class="title split">Le scan fait <em class="serif">le travail.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Vous scannez&#8239;: Tiroir lit le texte sur l’iPhone, reconnaît le type de papier et propose le titre, la personne, l’émetteur, les dates et le montant. Chaque proposition est marquée «&#8239;détecté&#8239;» et reste modifiable. Vous vérifiez, vous enregistrez.</p>
+    </header>
+
+    <div class="scan" data-reveal="device">
+      <div class="scan-papier-zone">
+        <div class="seg seg-dark" id="scan-choix" role="radiogroup" aria-label="Papier à scanner"></div>
+        <div class="feuille-wrap"><div class="feuille" id="scan-feuille" aria-hidden="true"></div><i class="scan-ligne" id="scan-ligne" aria-hidden="true"></i></div>
+        <div class="scan-actions">
+          <button type="button" class="btn btn-main" id="scan-go"><svg><use href="#i-scan"/></svg>Scanner ce papier</button>
+          <p class="scan-etat" id="scan-etat" aria-live="polite">Choisissez un papier, puis scannez-le.</p>
+        </div>
+      </div>
+      <div class="scan-phone">
+        <div class="iphone tilt">
+          <div class="screen"><div class="app" id="scan-app"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="facons">
+      <li data-reveal><span class="f-ic"><svg><use href="#i-scan"/></svg></span><b>Scanner</b><p>Plusieurs pages d’un coup, avec la caméra de documents d’iOS&#8239;: recadrage et redressement automatiques.</p></li>
+      <li data-reveal style="--d:.06s"><span class="f-ic"><svg><use href="#i-photo"/></svg></span><b>Importer</b><p>Des photos ou des PDF, depuis Fichiers, Mail ou la pellicule.</p></li>
+      <li data-reveal style="--d:.12s"><span class="f-ic"><svg><use href="#i-crayon"/></svg></span><b>Saisir</b><p>Un papier à la main, quand vous n’avez que l’information.</p></li>
+      <li data-reveal style="--d:.18s"><span class="f-ic"><svg><use href="#i-personnes"/></svg></span><b>Le foyer</b><p>Chaque papier appartient à une personne&#8239;: vous, votre conjoint, vos enfants. Deux personnes en gratuit.</p></li>
+    </ul>
+
+    <div class="cats" data-reveal>
+      <p class="cats-t"><b>Onze catégories</b> pour tout ranger</p>
+      <ul class="cats-l">
+        <li style="--k:var(--c-identite)"><i class="tile"><svg><use href="#c-identite"/></svg></i>Identité</li>
+        <li style="--k:var(--c-sante)"><i class="tile"><svg><use href="#c-sante"/></svg></i>Santé</li>
+        <li style="--k:var(--c-logement)"><i class="tile"><svg><use href="#c-logement"/></svg></i>Logement</li>
+        <li style="--k:var(--c-travail)"><i class="tile"><svg><use href="#c-travail"/></svg></i>Travail</li>
+        <li style="--k:var(--c-impots)"><i class="tile"><svg><use href="#c-impots"/></svg></i>Impôts</li>
+        <li style="--k:var(--c-banque)"><i class="tile"><svg><use href="#c-banque"/></svg></i>Banque</li>
+        <li style="--k:var(--c-vehicule)"><i class="tile"><svg><use href="#c-vehicule"/></svg></i>Véhicule</li>
+        <li style="--k:var(--c-achats)"><i class="tile"><svg><use href="#c-achats"/></svg></i>Achats et garanties</li>
+        <li style="--k:var(--c-contrats)"><i class="tile"><svg><use href="#c-contrats"/></svg></i>Contrats</li>
+        <li style="--k:var(--c-famille)"><i class="tile"><svg><use href="#c-famille"/></svg></i>Famille et études</li>
+        <li style="--k:var(--c-autres)"><i class="tile"><svg><use href="#c-autres"/></svg></i>Autres</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="types" aria-label="Une trentaine de papiers courants reconnus, par exemple">
+    <p class="types-t wrap" data-reveal>Une trentaine de papiers courants reconnus, par exemple&#8239;:</p>
+    <div class="types-piste">
+      <ul class="types-l">
+        <li>Carte d’identité</li><li>Passeport</li><li>Permis de conduire</li><li>Titre de séjour</li><li>Livret de famille</li><li>Carte Vitale</li><li>Attestation de mutuelle</li><li>Ordonnance</li><li>Bail</li><li>Quittance de loyer</li><li>Assurance habitation</li><li>Facture d’énergie</li><li>Bulletin de salaire</li><li>Contrat de travail</li><li>Avis d’imposition</li><li>RIB</li><li>Relevé de compte</li><li>Carte grise</li><li>Assurance auto</li><li>Contrôle technique</li><li>Facture d’achat</li><li>Garantie</li><li>Contrat d’abonnement</li><li>Diplôme</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap s-papier" id="echeances">
+  <div class="wrap chap-grid">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-cloche"/></svg>Être prévenu</p>
+      <h2 class="title split">L’échéance plutôt <em class="serif">que l’archive.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Un papier compte surtout pour ce qu’il impose&#8239;: renouveler, résilier, payer, faire contrôler. Tiroir transforme chaque date importante en rappel, au bon moment pour agir. Touchez le rond d’une échéance pour la marquer «&#8239;C’est fait&#8239;».</p>
+      <ul class="puces" data-reveal style="--d:.16s">
+        <li><svg><use href="#i-check"/></svg>En retard, cette semaine, ce mois-ci, plus tard</li>
+        <li><svg><use href="#i-check"/></svg>Une échéance qui se répète crée la suivante toute seule</li>
+        <li><svg><use href="#i-check"/></svg>Chaque mois, chaque année, tous les deux ans</li>
+      </ul>
+    </header>
+    <div class="stage" data-reveal="device">
+      <div class="iphone tilt">
+        <div class="screen"><div class="app" id="ech-app"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap prev-grid">
+    <div class="pan rappels" data-reveal data-glow>
+      <h3>Des rappels au bon moment</h3>
+      <p class="pan-sub">Le moment dépend du papier. Choisissez-en un&#8239;:</p>
+      <div class="seg" id="rap-choix" role="radiogroup" aria-label="Type de papier"></div>
+      <div class="frise" id="rap-frise" aria-live="polite"></div>
+      <p class="rap-note" id="rap-note"></p>
+      <label class="rap-heure"><svg><use href="#i-horloge"/></svg>Heure des rappels
+        <select id="rap-heure"><option value="8">8 h 00</option><option value="9" selected>9 h 00</option><option value="12">12 h 00</option><option value="18">18 h 00</option><option value="20">20 h 00</option></select>
+      </label>
+    </div>
+
+    <div class="pan contrats" data-reveal data-glow style="--d:.08s">
+      <h3>Contrats et abonnements</h3>
+      <p class="pan-sub">Coût, périodicité, date anniversaire et préavis&#8239;: Tiroir fait les comptes et vous dit jusqu’à quand résilier.</p>
+      <div class="seg" id="ctr-vue" role="radiogroup" aria-label="Afficher les montants">
+        <button type="button" role="radio" aria-checked="true" data-v="mois">Par mois</button><button type="button" role="radio" aria-checked="false" data-v="an">Par an</button>
+      </div>
+      <ul class="ctr-l" id="ctr-l"></ul>
+      <p class="ctr-total"><span>Total</span><b class="num" id="ctr-total">0&#8239;€</b></p>
+    </div>
+
+    <div class="pan garantie" data-reveal data-glow style="--d:.16s">
+      <h3>Fin de garantie légale</h3>
+      <p class="pan-sub">Sur une facture d’achat, Tiroir propose la fin de la garantie légale&#8239;: deux ans pour un bien neuf.</p>
+      <div class="gar-carte">
+        <span class="tile" style="--k:var(--c-achats)"><svg><use href="#c-achats"/></svg></span>
+        <span><b>Lave-linge 8&#8239;kg</b><small>Acheté le <span id="gar-achat">3 mars</span></small></span>
+      </div>
+      <div class="gar-barre"><i id="gar-jauge"></i></div>
+      <p class="gar-txt" id="gar-txt">Garanti jusqu’au 3 mars</p>
+    </div>
+  </div>
+</section>
+
+<section class="chap s-encre" id="retrouver">
+  <div class="wrap chap-grid inv">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-loupe"/></svg>Retrouver et partager</p>
+      <h2 class="title split">Retrouvé en <em class="serif">trois secondes.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Tiroir cherche dans les titres, les notes, les émetteurs et tout le texte lu sur vos documents. Tapez un mot, puis ouvrez la fiche.</p>
+      <div class="sugg" data-reveal style="--d:.14s"><span>Essayez&#8239;:</span><div id="rech-sugg"></div></div>
+      <ul class="puces" data-reveal style="--d:.18s">
+        <li><svg><use href="#i-check"/></svg>Pages en grand, compte à rebours avant expiration</li>
+        <li><svg><use href="#i-check"/></svg>IBAN et numéros masqués, copiés en un geste</li>
+        <li><svg><use href="#i-check"/></svg>Texte reconnu sélectionnable</li>
+        <li><svg><use href="#i-check"/></svg>Catégories, personnes du foyer, favoris</li>
+      </ul>
+    </header>
+    <div class="stage" data-reveal="device">
+      <div class="iphone tilt">
+        <div class="screen"><div class="app" id="rech-app"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chap s-papier" id="dossiers">
+  <div class="wrap">
+    <header class="chap-h center-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-dossier"/></svg>Dossiers</p>
+      <h2 class="title split">Le dossier, <em class="serif">prêt à envoyer.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Location, prêt, inscription scolaire, voyage, sinistre&#8239;: Tiroir connaît les pièces demandées, retrouve les bonnes (les trois derniers bulletins de salaire, le dernier avis d’imposition) et en fait un seul PDF propre.</p>
+    </header>
+
+    <div class="dossier" data-reveal="device">
+      <div class="iphone tilt">
+        <div class="screen"><div class="app" id="dos-app"></div></div>
+      </div>
+      <div class="dos-cote">
+        <div class="dos-modeles" id="dos-modeles" role="radiogroup" aria-label="Modèle de dossier"></div>
+        <ol class="dos-etapes" id="dos-etapes">
+          <li data-e="0"><b>Choisir un modèle</b><span>Tiroir sait quelles pièces sont demandées.</span></li>
+          <li data-e="1"><b>Remplir</b><span>Il retrouve chaque pièce, les plus récentes d’abord, et signale ce qui manque.</span></li>
+          <li data-e="2"><b>Exporter <em class="plus-mini">Tiroir+</em></b><span>Un seul PDF, avec page de garde, sommaire et filigrane.</span></li>
+        </ol>
+        <div class="pdf" id="dos-pdf" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <p class="modeles" data-reveal>Ou un dossier libre, avec les pièces de votre choix.</p>
+  </div>
+</section>
+
+<section class="chap s-encre" id="filigrane">
+  <div class="wrap chap-grid">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-filigrane"/></svg>Partager</p>
+      <h2 class="title split">Une copie n’est jamais <em class="serif">un original volé.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Partagez une page ou un document en PDF. Tout partage peut porter un filigrane «&#8239;Copie destinée à … — date&#8239;», pour qu’une copie de pièce d’identité ne puisse pas resservir ailleurs. <b>Le filigrane est gratuit.</b></p>
+      <form class="fil-ctl" id="fil-form" data-reveal style="--d:.16s" autocomplete="off">
+        <label class="switch"><input type="checkbox" id="fil-on" checked><i></i><span>Ajouter le filigrane</span></label>
+        <label class="champ"><span>Copie destinée à</span><input id="fil-dest" type="text" value="Agence Les Tilleuls" maxlength="38"></label>
+      </form>
+    </header>
+    <div class="stage fil-stage" data-reveal="device">
+      <figure class="carte-id" id="fil-carte">
+        <div class="ci-tete"><span>Pièce d’identité</span><em>Spécimen</em></div>
+        <div class="ci-corps">
+          <span class="ci-photo" aria-hidden="true"><svg viewBox="0 0 60 74"><circle cx="30" cy="27" r="13"/><path d="M6 74c2-15 11-23 24-23s22 8 24 23z"/></svg></span>
+          <dl class="ci-infos">
+            <div><dt>Nom</dt><dd>MARTIN</dd></div>
+            <div><dt>Prénom</dt><dd>Camille</dd></div>
+            <div><dt>Né(e) le</dt><dd>14.05.1991</dd></div>
+            <div><dt>N°</dt><dd>X4RT8•••••</dd></div>
+          </dl>
+        </div>
+        <div class="ci-bas" aria-hidden="true"><i></i><i></i></div>
+        <div class="fil-calque" id="fil-calque" aria-hidden="true"></div>
+        <figcaption class="sr-only" id="fil-desc">Pièce d’identité fictive de Camille Martin, avec le filigrane «&#8239;Copie destinée à Agence Les Tilleuls&#8239;».</figcaption>
+      </figure>
+      <p class="fil-legende" id="fil-legende" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section class="chap s-papier" id="rangement">
+  <div class="wrap chap-grid inv">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-boite"/></svg>Grand rangement</p>
+      <h2 class="title split">Dire ce qu’on <em class="serif">peut jeter.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">D’après les durées de conservation publiées par l’administration, Tiroir indique les papiers qui peuvent partir. Il arrondit toujours à la fin de l’année, pour ne jamais conseiller de jeter trop tôt.</p>
+      <ul class="puces" data-reveal style="--d:.16s">
+        <li><svg><use href="#i-check"/></svg>Corbeille de 30 jours</li>
+        <li><svg><use href="#i-check"/></svg>Chaque suppression peut être annulée</li>
+      </ul>
+    </header>
+    <div class="stage" data-reveal="device">
+      <div class="pan gr" data-glow>
+        <div class="gr-tete">
+          <span><b>Votre tiroir</b><small id="gr-sous">9 papiers</small></span>
+          <button type="button" class="btn btn-main btn-sm" id="gr-go"><svg><use href="#i-boite"/></svg>Lancer le grand rangement</button>
+        </div>
+        <ul class="gr-l" id="gr-l" aria-live="polite"></ul>
+        <div class="gr-pied" id="gr-pied" hidden>
+          <p id="gr-bilan"></p>
+          <button type="button" class="btn btn-danger btn-sm" id="gr-jeter"><svg><use href="#i-corbeille"/></svg>Mettre à la corbeille</button>
+        </div>
+        <div class="gr-toast" id="gr-toast" hidden><span id="gr-toast-t"></span><button type="button" id="gr-annuler"><svg><use href="#i-annuler"/></svg>Annuler</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="durees" data-reveal>
+      <h3 class="durees-t">Les durées de conservation utilisées</h3>
+      <p class="durees-s">Indicatives, d’après les durées publiées par service-public.fr.</p>
+      <table class="dur-table">
+        <caption class="sr-only">Durées de conservation conseillées, par papier</caption>
+        <thead><tr><th scope="col">Papier</th><th scope="col">Conservation conseillée</th></tr></thead>
+        <tbody>
+          <tr style="--v:.1"><th scope="row">Taxe foncière</th><td><i class="dur-b" aria-hidden="true"></i>1 an</td></tr>
+          <tr style="--v:.1"><th scope="row">Factures de téléphone et d’internet</th><td><i class="dur-b" aria-hidden="true"></i>1 an</td></tr>
+          <tr style="--v:.22"><th scope="row">Avis d’imposition, déclaration</th><td><i class="dur-b" aria-hidden="true"></i>3 ans</td></tr>
+          <tr style="--v:.22"><th scope="row">Quittances de loyer</th><td><i class="dur-b" aria-hidden="true"></i>3 ans</td></tr>
+          <tr style="--v:.34"><th scope="row">Factures d’électricité, de gaz, d’eau</th><td><i class="dur-b" aria-hidden="true"></i>5 ans</td></tr>
+          <tr style="--v:.34"><th scope="row">Relevés de compte</th><td><i class="dur-b" aria-hidden="true"></i>5 ans</td></tr>
+          <tr style="--v:.5"><th scope="row">Bail, état des lieux</th><td><i class="dur-b" aria-hidden="true"></i>Durée de la location + 3 ans</td></tr>
+          <tr style="--v:.5"><th scope="row">Contrat d’assurance</th><td><i class="dur-b" aria-hidden="true"></i>Durée du contrat + 2 ans</td></tr>
+          <tr style="--v:.56"><th scope="row">Facture d’achat</th><td><i class="dur-b" aria-hidden="true"></i>Tant qu’on garde l’objet (au moins jusqu’à la fin de la garantie)</td></tr>
+          <tr style="--v:.7"><th scope="row">Papiers d’identité</th><td><i class="dur-b" aria-hidden="true"></i>Tant qu’ils sont valides</td></tr>
+          <tr style="--v:.86"><th scope="row">Bulletins de salaire, contrat de travail</th><td><i class="dur-b" aria-hidden="true"></i>Jusqu’à la retraite (à garder)</td></tr>
+          <tr style="--v:1"><th scope="row">État civil, livret de famille, diplômes, carnet de santé</th><td><i class="dur-b" aria-hidden="true"></i>Toute la vie</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section tranquille s-encre" aria-labelledby="tranquille-t">
+  <div class="wrap">
+    <p class="eyebrow center" data-reveal>Garder l’esprit tranquille</p>
+    <h2 class="title center split" id="tranquille-t">Fermé à clé, même ouvert.</h2>
+    <div class="bento">
+      <div class="bt bt-face" data-reveal data-glow>
+        <button type="button" class="face" id="face" aria-pressed="false" aria-label="Simuler le déverrouillage de Tiroir par Face ID"><svg class="face-g"><use href="#i-visage"/></svg><svg class="face-ok"><use href="#i-check"/></svg></button>
+        <b>Verrouillage Face ID, Touch ID ou code</b>
+        <p>Gratuit. Le contenu est aussi masqué dans le sélecteur d’apps. Touchez le visage pour essayer.</p>
+      </div>
+      <div class="bt" data-reveal data-glow style="--d:.05s">
+        <span class="bt-ic laiton"><svg><use href="#i-cadenas"/></svg></span>
+        <b>Compartiment secret <em class="plus-mini">Tiroir+</em></b>
+        <p>Des documents qu’on ne voit qu’après une nouvelle vérification Face ID.</p>
+      </div>
+      <div class="bt" data-reveal data-glow style="--d:.1s">
+        <span class="bt-ic"><svg><use href="#i-corbeille"/></svg></span>
+        <b>Corbeille de 30 jours</b>
+        <p>Chaque suppression peut être annulée. Rien ne disparaît par mégarde.</p>
+      </div>
+      <div class="bt" data-reveal data-glow style="--d:.15s">
+        <span class="bt-ic"><svg><use href="#i-sauvegarde"/></svg></span>
+        <b>Sauvegarde</b>
+        <p>Dans un fichier à garder où vous voulez&#8239;: Fichiers, iCloud Drive, clé USB. Chiffrée par mot de passe avec Tiroir+. Et des sauvegardes automatiques quotidiennes des informations, sur l’iPhone.</p>
+      </div>
+      <div class="bt bt-siri" data-reveal data-glow style="--d:.2s">
+        <span class="bt-ic"><svg><use href="#i-micro"/></svg></span>
+        <b>Raccourcis Siri</b>
+        <p class="siri-l"><span>«&#8239;Scanner un document avec Tiroir&#8239;»</span><span>«&#8239;Mes prochaines échéances dans Tiroir&#8239;»</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section prive s-papier" id="confidentialite" aria-labelledby="prive-t">
+  <div class="wrap prive-in">
+    <div class="prive-tete">
+      <p class="eyebrow" data-reveal>Confidentialité</p>
+      <h2 class="title split" id="prive-t">Rien ne sort <em class="serif">de l’iPhone.</em></h2>
+      <p class="lead" data-reveal style="--d:.1s">Aucun compte, aucun serveur Tiroir, aucun SDK tiers, aucune publicité. Vos papiers ne sont visibles que par vous.</p>
+      <a class="btn btn-ghost" href="confidentialite.html" data-reveal style="--d:.16s">Lire la politique de confidentialité<svg><use href="#i-fleche"/></svg></a>
+    </div>
+    <ul class="prive-l">
+      <li data-reveal><svg><use href="#i-nuage-barre"/></svg><b>Aucun compte, aucun serveur</b><span>Rien à créer, rien à synchroniser chez nous&#8239;: il n’y a pas de «&#8239;chez nous&#8239;».</span></li>
+      <li data-reveal style="--d:.05s"><svg><use href="#i-cadenas"/></svg><b>Chiffré par iOS</b><span>Les fichiers bénéficient de la protection complète des données&#8239;: lisibles seulement téléphone déverrouillé.</span></li>
+      <li data-reveal style="--d:.1s"><svg><use href="#i-puce"/></svg><b>Lu sur l’appareil</b><span>La reconnaissance du texte d’Apple fonctionne sur l’iPhone, sans envoyer vos papiers nulle part.</span></li>
+      <li data-reveal style="--d:.15s"><svg><use href="#i-bouclier"/></svg><b>Rien à revendre</b><span>Aucune publicité, aucune revente de données&#8239;: nous n’en avons aucune.</span></li>
+    </ul>
+    <p class="prive-note" data-reveal>Tiroir ne remplace pas les originaux et n’est pas un coffre-fort numérique certifié&#8239;: c’est un outil d’organisation.</p>
+  </div>
+</section>
+
+<section class="section plus s-encre" id="plus" aria-labelledby="plus-t">
+  <div class="wrap">
+    <p class="eyebrow center laiton-t" data-reveal><svg class="eb-ic"><use href="#i-etincelles"/></svg>Tiroir+</p>
+    <h2 class="title center split" id="plus-t">Pour le foyer qui gère tout.</h2>
+    <p class="lead center" data-reveal style="--d:.1s">Le tiroir de base est <b>gratuit et sans limite</b>&#8239;: scan, lecture du texte, documents illimités, catégories, échéances, rappels, contrats, recherche, partage avec filigrane, Face ID, grand rangement, corbeille, sauvegarde simple.</p>
+
+    <ul class="plus-f">
+      <li data-reveal data-glow><span class="bt-ic laiton"><svg><use href="#i-pdf"/></svg></span><b>Dossiers prêts à envoyer</b><small>Un seul PDF avec page de garde, sommaire et filigrane.</small></li>
+      <li data-reveal data-glow style="--d:.05s"><span class="bt-ic laiton"><svg><use href="#i-personnes"/></svg></span><b>Tout le foyer</b><small>Plus de deux personnes.</small></li>
+      <li data-reveal data-glow style="--d:.1s"><span class="bt-ic laiton"><svg><use href="#i-cadenas"/></svg></span><b>Compartiment secret</b><small>Des documents protégés par une vérification de plus.</small></li>
+      <li data-reveal data-glow style="--d:.15s"><span class="bt-ic laiton"><svg><use href="#i-sauvegarde"/></svg></span><b>Sauvegarde chiffrée</b><small>Un fichier de sauvegarde protégé par mot de passe.</small></li>
+    </ul>
+
+    <div class="offres" id="offres" role="radiogroup" aria-label="Formules Tiroir+">
+      <button type="button" class="offre" role="radio" aria-checked="false" data-reveal><span class="of-t">Mensuel</span><b class="of-p">1,99&#8239;€<small> par mois</small></b><span class="of-s">Sans engagement</span></button>
+      <button type="button" class="offre vedette" role="radio" aria-checked="true" data-reveal style="--d:.06s"><span class="of-badge">7 jours offerts</span><span class="of-t">Annuel</span><b class="of-p">14,99&#8239;€<small> par an</small></b><span class="of-s">Soit 1,25&#8239;€ par mois</span></button>
+      <button type="button" class="offre" role="radio" aria-checked="false" data-reveal style="--d:.12s"><span class="of-t">À vie</span><b class="of-p">34,99&#8239;€<small> une fois</small></b><span class="of-s">Un seul paiement, pour toujours</span></button>
+    </div>
+    <p class="plus-note" data-reveal>Partage familial activé. Achats gérés par l’App Store&#8239;; les abonnements se renouvellent automatiquement et se résilient à tout moment dans les réglages de votre identifiant Apple, au moins 24&#8239;h avant la fin de la période. Aucune publicité, aucune revente de données&#8239;: il n’y a rien à revendre.</p>
+  </div>
+</section>
+
+<section class="section faq s-papier" id="faq" aria-labelledby="faq-t">
+  <div class="wrap faq-wrap">
+    <div data-reveal>
+      <p class="eyebrow">Questions</p>
+      <h2 class="title" id="faq-t">Bon à savoir.</h2>
+    </div>
+    <div class="faq-l" data-reveal>
+      <details>
+        <summary>Mes papiers sont-ils envoyés quelque part&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Non. Tiroir n’a ni compte ni serveur&#8239;: le scan, la lecture du texte, la recherche et les rappels se font sur l’iPhone. Vos documents ne quittent l’appareil que lorsque vous les partagez vous-même, ou que vous enregistrez un fichier de sauvegarde à l’endroit de votre choix.</p></div>
+      </details>
+      <details>
+        <summary>Et si je perds mon iPhone&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Vos fichiers sont chiffrés par iOS et ne sont lisibles que téléphone déverrouillé&#8239;; Tiroir peut en plus se verrouiller par Face ID, Touch ID ou code. Pour ne rien perdre, enregistrez régulièrement une sauvegarde dans un fichier, sur iCloud Drive ou une clé USB. Avec Tiroir+, elle est chiffrée par mot de passe.</p></div>
+      </details>
+      <details>
+        <summary>Tiroir remplace-t-il mes originaux&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Non. Tiroir est un outil d’organisation, pas un coffre-fort numérique certifié. Gardez les originaux qui doivent l’être&#8239;: Tiroir vous aide à savoir lesquels, et jusqu’à quand.</p></div>
+      </details>
+      <details>
+        <summary>D’où viennent les durées de conservation&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Des durées publiées par service-public.fr. Elles sont indicatives, et Tiroir les arrondit toujours à la fin de l’année pour ne jamais conseiller de jeter trop tôt.</p></div>
+      </details>
+      <details>
+        <summary>Le filigrane est-il payant&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Non, le filigrane «&#8239;Copie destinée à … — date&#8239;» est gratuit sur tout partage. Tiroir+ ajoute l’export d’un dossier complet en un seul PDF, avec page de garde et sommaire.</p></div>
+      </details>
+      <details>
+        <summary>Combien de personnes dans le foyer&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Deux personnes en gratuit, par exemple vous et votre conjoint. Avec Tiroir+, tout le foyer&#8239;: enfants compris.</p></div>
+      </details>
+      <details>
+        <summary>Sur quels appareils&#8239;?<i></i></summary>
+        <div class="faq-a"><p>iPhone et iPad, avec iOS 27 ou plus récent. Tiroir n’a pas de serveur, donc pas de synchronisation&#8239;: vos documents restent sur l’appareil où vous les rangez.</p></div>
+      </details>
+      <details>
+        <summary>Comment résilier Tiroir+&#8239;?<i></i></summary>
+        <div class="faq-a"><p>Les achats passent par l’App Store. Un abonnement se résilie à tout moment dans Réglages, sous votre nom, puis Abonnements. La formule à vie se paie une seule fois.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta s-laiton" id="telecharger" aria-labelledby="cta-t">
+  <div class="wrap center">
+    <div class="cta-icone" aria-hidden="true">
+      <i class="cta-feuille f1"></i><i class="cta-feuille f2"></i>
+      <img src="assets/img/tiroir-icone-240.webp" alt="" width="120" height="120">
+    </div>
+    <h2 class="title cta-title" id="cta-t" data-reveal>Rangé une bonne fois, <em class="serif">rappelé à temps.</em></h2>
+    <p class="lead center" data-reveal style="--d:.1s">Tiroir arrive bientôt sur iPhone et iPad.</p>
+    <div class="cta-btns" data-reveal style="--d:.18s">
+      <span class="store"><svg><use href="#i-pomme"/></svg><span><small>Bientôt sur l’</small>App Store</span></span>
+      <a class="btn btn-ghost-encre" href="#haut">Revenir en haut<svg class="up"><use href="#i-fleche-bas"/></svg></a>
+    </div>
+    <p class="cta-note" data-reveal style="--d:.24s">iOS 27 ou plus récent. Gratuit, avec Tiroir+ en option.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="nav-logo" href="#haut"><svg><use href="#logo"/></svg><span>Tiroir</span></a>
+    <nav class="foot-l" aria-label="Liens du pied de page">
+      <a href="#ranger">Fonctions</a>
+      <a href="#plus">Tiroir+</a>
+      <a href="#faq">Questions</a>
+      <a href="confidentialite.html">Confidentialité</a>
+    </nav>
+    <p>Une app MTX Studio.</p>
+    <p class="foot-legal">© <span id="annee">2026</span> MTX Studio. Apple, iPhone, iPad, Face ID, Touch ID, Siri, iCloud Drive et App Store sont des marques d’Apple Inc. Les écrans présentés sont des reconstitutions de l’app&#8239;; les personnes, organismes, documents et montants sont fictifs. Durées de conservation indicatives, d’après service-public.fr.</p>
+  </div>
+</footer>
+
+<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-tiroir.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Tiroir range vos papiers et rappelle vos échéances.</h2>
+    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-tags">App iPhone et iPad · Papiers du foyer<br>SwiftUI · VisionKit · lecture du texte sur l’appareil</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=tiroir">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

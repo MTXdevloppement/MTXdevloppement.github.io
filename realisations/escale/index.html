@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escale — Le carnet de voyage · MTX Studio</title>
+<meta name="description" content="Escale, le carnet de voyage privé pour iPhone : programme jour par jour, billets hors connexion, tracé GPS, valise, budget, comptes entre amis, souvenirs et affiche du voyage. Sans compte, sans serveur.">
+<meta name="theme-color" content="#0b1d22">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Escale — Le carnet de voyage">
+<meta property="og:description" content="Le parcours, les étapes, la valise, le budget et les souvenirs d’un voyage, réunis au même endroit. Vos données restent sur votre iPhone.">
+<meta property="og:image" content="assets/img/escale-icone-512.png">
+<link rel="icon" href="assets/img/escale-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+(function(r) {
+  r.classList.add('js');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('anim');
+})(document.documentElement);
+</script>
+<script src="assets/js/main.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css">
+<script src="../../assets/js/projet.js" defer></script>
+</head>
+<body id="haut">
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>MTX Studio</a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=escale">Démarrer un projet</a></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="gIcone" cx=".72" cy=".2" r="1.05"><stop offset="0" stop-color="#3a5a50"/><stop offset=".45" stop-color="#22494a"/><stop offset="1" stop-color="#14333a"/></radialGradient>
+</defs>
+
+<symbol id="logo" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22.5" fill="url(#gIcone)"/>
+  <path d="M0 66 15 62l26-2 8 3 23-6 13 5 15-6v43H0z" fill="#16363b"/>
+  <path d="M0 77 17 70l16 4 14-8 18 7 17-7 18 5v29H0z" fill="#0f272e"/>
+  <circle cx="74.2" cy="27.2" r="8.9" fill="#f3c178"/>
+  <path d="M42.3 52 36 56l-1.1 6.3-5.6 5 2.5 6.4-8.4 6" fill="none" stroke="#f6eedf" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="23" cy="80.2" r="1.25" fill="#f6eedf"/>
+  <path d="M38.5 40a15.1 15.1 0 0 1 30.2 0L53.6 74z" fill="#f6eedf"/>
+  <circle cx="53.6" cy="39.6" r="7.4" fill="#22494a"/>
+  <circle cx="53.6" cy="39.6" r="2.3" fill="#f3c178"/>
+</symbol>
+
+<symbol id="i-valise" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M9.5 2.5h5c.8 0 1.5.7 1.5 1.5v2h1c1.7 0 3 1.3 3 3v8.5c0 1.6-1.2 2.9-2.8 3l-.2.9h-1.6l-.2-.9H8.8l-.2.9H7l-.2-.9C5.2 20.4 4 19.1 4 17.5V9c0-1.7 1.3-3 3-3h1V4c0-.8.7-1.5 1.5-1.5zm.5 2V6h4V4.5zM8.2 9.5v8h1.6v-8zm6 0v8h1.6v-8z"/></symbol>
+<symbol id="i-carte" viewBox="0 0 24 24"><path d="M2.5 6.2 8.5 3.5l7 2.8 6-2.6v14.1l-6 2.7-7-2.8-6 2.6zm6.9-.5v12.5l5.2 2.1V7.8z"/></symbol>
+<symbol id="i-photos" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 2.5h12c1.4 0 2.5 1.1 2.5 2.5v10c0 1.4-1.1 2.5-2.5 2.5H7c-1.4 0-2.5-1.1-2.5-2.5V5c0-1.4 1.1-2.5 2.5-2.5zm-.5 10.4V15c0 .3.2.5.5.5h12c.3 0 .5-.2.5-.5v-1.3l-3.3-3.3-3 3-2-2zM10 5.3a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM2.5 8v10.5c0 1.7 1.3 3 3 3H17v-1.8H5.5c-.7 0-1.2-.5-1.2-1.2V8z"/></symbol>
+<symbol id="i-profil" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 4.2a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zM6.3 17.6A7.9 7.9 0 0 0 12 20c2.2 0 4.2-.9 5.7-2.4-1.3-1.6-3.4-2.6-5.7-2.6s-4.4 1-5.7 2.6z"/></symbol>
+
+<symbol id="i-avion" viewBox="0 0 24 24"><path d="M10.6 2.9c0-.8.6-1.4 1.4-1.4s1.4.6 1.4 1.4v5.7l7.6 4.6v2.1l-7.6-2.4v4.9l2.3 1.7v1.7L12 20.4l-3.7.8v-1.7l2.3-1.7v-4.9L3 15.3v-2.1l7.6-4.6z"/></symbol>
+<symbol id="i-train" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 2.5h8c2.2 0 4 1.8 4 4v8.5c0 1.6-1.1 3-2.6 3.4l1.8 2.6h-2.4l-1.5-2.3H8.7l-1.5 2.3H4.8l1.8-2.6A3.5 3.5 0 0 1 4 15V6.5c0-2.2 1.8-4 4-4zM6.2 7v4.3h11.6V7zm1.6 6.6a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm8.4 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></symbol>
+<symbol id="i-lit" viewBox="0 0 24 24"><path d="M2 5h2v7h7V8h7.5c2 0 3.5 1.5 3.5 3.5V19h-2v-2.5H4V19H2zm5.5 2.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></symbol>
+<symbol id="i-bateau" viewBox="0 0 24 24"><path d="M11 2h2v2.5h4l1 5 2.5 1-2.4 6.3c-.9.2-1.8-.1-2.6-.7-1 .8-2.2 1.2-3.5 1.2s-2.5-.4-3.5-1.2c-.8.6-1.7.9-2.6.7L3.5 10.5 6 9.5l1-5h4zM8.8 6.5l-.6 2.3L12 7.3l3.8 1.5-.6-2.3zM2.5 19.5c1.2 0 2-.6 2.9-1.2 1 .7 1.9 1.2 3.3 1.2s2.3-.5 3.3-1.2c1 .7 1.9 1.2 3.3 1.2s2.3-.5 3.3-1.2c.9.6 1.7 1.2 2.9 1.2v1.8c-1.2 0-2.1-.4-2.9-.9-1 .6-2 .9-3.3.9s-2.3-.3-3.3-.9c-1 .6-2 .9-3.3.9s-2.3-.3-3.3-.9c-.8.5-1.7.9-2.9.9z"/></symbol>
+<symbol id="i-voiture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.3 4h9.4c.9 0 1.6.5 1.9 1.3l1.6 4.2c1.1.4 1.8 1.4 1.8 2.6V18c0 .6-.4 1-1 1h-1.5c-.6 0-1-.4-1-1v-1.2H5.5V18c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1v-5.9c0-1.2.7-2.2 1.8-2.6l1.6-4.2C5.7 4.5 6.4 4 7.3 4zm.3 2-1.2 3.3h11.2L16.4 6zM6 11.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm12 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></symbol>
+<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3.5 5h17c.8 0 1.5.7 1.5 1.5v3a2.5 2.5 0 0 0 0 5v3c0 .8-.7 1.5-1.5 1.5h-17c-.8 0-1.5-.7-1.5-1.5v-3a2.5 2.5 0 0 0 0-5v-3C2 5.7 2.7 5 3.5 5zm11 2.4v1.7h1.6V7.4zm0 3.8v1.6h1.6v-1.6zm0 3.7v1.7h1.6v-1.7z"/></symbol>
+<symbol id="i-fourchette" viewBox="0 0 24 24"><path d="M5 2.5h1.6v6h1.2v-6h1.6v6h1.2v-6H12v7.2c0 1.6-1.1 2.9-2.6 3.3V21.5H7.4V13C5.9 12.6 4.8 11.3 4.8 9.7zM16.8 2.5c1.8 0 3.2 2.3 3.2 6.2 0 2.5-.9 3.8-2.2 4.2v8.6h-2V2.6z"/></symbol>
+<symbol id="i-sac" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.5a4 4 0 0 1 4 4V7h2.6c.6 0 1.1.5 1.2 1.1l1 11.6c.1 1-.7 1.8-1.7 1.8H4.9c-1 0-1.8-.8-1.7-1.8l1-11.6C4.3 7.5 4.8 7 5.4 7H8v-.5a4 4 0 0 1 4-4zm-2 4.5h4v-.5a2 2 0 1 0-4 0z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.3 2h7.2c.5 0 .9.2 1.2.5l4.8 4.8c.3.3.5.7.5 1.2v11.2c0 1.3-1 2.3-2.3 2.3H6.3C5 22 4 21 4 19.7V4.3C4 3 5 2 6.3 2zm1.9 9.3a.9.9 0 0 0 0 1.8h7.6a.9.9 0 0 0 0-1.8zm0 3.6a.9.9 0 0 0 0 1.8h7.6a.9.9 0 0 0 0-1.8z"/></symbol>
+
+<symbol id="i-jumelles" viewBox="0 0 24 24"><path d="M7 4h3v3.5h4V4h3l1.6 7.4A4.5 4.5 0 1 1 13.5 16v-3.5h-3V16a4.5 4.5 0 1 1-5.1-4.6zm-1.5 9.6a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2zm13 0a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2z"/></symbol>
+<symbol id="i-colonnes" viewBox="0 0 24 24"><path d="M12 2 21.5 7v1.8h-19V7zM4.5 10.5h2.4v7H4.5zm4.2 0h2.4v7H8.7zm4.2 0h2.4v7h-2.4zm4.2 0h2.4v7h-2.4zM2.5 19h19v2.5h-19z"/></symbol>
+<symbol id="i-feuille" viewBox="0 0 24 24"><path d="M20.5 3.5C20.5 14 15.6 19 9.8 19c-1.4 0-2.6-.3-3.6-.9L4 20.5 2.6 19.1l2.3-2.3C4.3 15.8 4 14.6 4 13.3 4 7.4 10.3 3.5 20.5 3.5zM7.4 15.4c2.2-3.1 5-5.4 8.6-7.2-4.1 1.2-7.3 3.5-9.6 6.4z"/></symbol>
+<symbol id="i-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><g stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+<symbol id="i-vent" viewBox="0 0 24 24"><path d="M3 9h11.5a2.8 2.8 0 1 0-2.8-2.8M3 13h15a3 3 0 1 1-3 3M3 17h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-etincelles" viewBox="0 0 24 24"><path d="M10 3c.6 3.7 2.3 5.4 6 6-3.7.6-5.4 2.3-6 6-.6-3.7-2.3-5.4-6-6 3.7-.6 5.4-2.3 6-6zm8 9c.3 2 1.2 2.9 3.2 3.2-2 .3-2.9 1.2-3.2 3.2-.3-2-1.2-2.9-3.2-3.2 2-.3 2.9-1.2 3.2-3.2zM17.5 2c.2 1.2.8 1.8 2 2-1.2.2-1.8.8-2 2-.2-1.2-.8-1.8-2-2 1.2-.2 1.8-.8 2-2z"/></symbol>
+<symbol id="i-rando" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2.2"/><path d="m11.5 7.5 3.2.6 1.5 3.4 2.6 1-.6 1.6-3.3-1.2-.8-1.6-.9 3.6 2.6 2.6.8 4.5h-1.9l-.7-3.6-2.9-2.4-1 3.4-3 2.6-1.3-1.3 2.6-2.4zm-2.5.3 1.4.5-1.6 5.3-1.7-.5z"/></symbol>
+<symbol id="i-nuage" viewBox="0 0 24 24"><path d="M7.5 19.5a4.5 4.5 0 0 1-.8-8.9 6 6 0 0 1 11.3 1.5 3.7 3.7 0 0 1-.5 7.4z"/></symbol>
+
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m9 4.5 7.5 7.5L9 19.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-g" viewBox="0 0 24 24"><path d="m15 4.5-7.5 7.5 7.5 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-fleche-bas" viewBox="0 0 24 24"><path d="M12 4v15m0 0-6-6m6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-fleche-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-localisation" viewBox="0 0 24 24"><path d="M20.6 3.4 13 21.2l-2.2-7.9L2.8 11z"/></symbol>
+<symbol id="i-coeur" viewBox="0 0 24 24"><path d="M12 20.5S3 15.2 3 9a4.8 4.8 0 0 1 9-2.4A4.8 4.8 0 0 1 21 9c0 6.2-9 11.5-9 11.5z"/></symbol>
+<symbol id="i-calendrier" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 2.5h2v1.8h6V2.5h2v1.8h1.2c1.5 0 2.8 1.3 2.8 2.8v11.1c0 1.5-1.3 2.8-2.8 2.8H5.8C4.3 21 3 19.7 3 18.2V7.1c0-1.5 1.3-2.8 2.8-2.8H7zM5 9.5v8.7c0 .4.4.8.8.8h12.4c.4 0 .8-.4.8-.8V9.5z"/></symbol>
+<symbol id="i-trace" viewBox="0 0 24 24"><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/><path d="M7.5 17.5c4 0 3-5 5.5-6.5s4-.5 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.5 2.5"/></symbol>
+<symbol id="i-epingle" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.3a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4z"/></symbol>
+<symbol id="i-euro" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm1.3 4.5c-2.6 0-4.6 1.6-5.2 4H6.8v1.5h1.1v1h-1.1v1.5h1.3c.6 2.4 2.6 4 5.2 4 1.4 0 2.6-.4 3.5-1.2l-.9-1.4c-.7.5-1.6.8-2.5.8-1.6 0-2.8-.9-3.3-2.2h3.6V13H9v-1h3.9v-1.5H9.3c.5-1.3 1.7-2.2 3.3-2.2.9 0 1.8.3 2.5.8l.9-1.4c-.9-.8-2.1-1.2-3.5-1.2z"/></symbol>
+<symbol id="i-groupe" viewBox="0 0 24 24"><circle cx="9" cy="7.5" r="3.5"/><circle cx="17" cy="8.5" r="2.7"/><path d="M2 19.5c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5zm15.2 0c0-2.2-.8-4.2-2.2-5.6.6-.2 1.3-.4 2-.4 2.8 0 5 2.2 5 5v1z"/></symbol>
+<symbol id="i-trombone" viewBox="0 0 24 24"><path d="m19 11.5-7.2 7.2a4.6 4.6 0 0 1-6.5-6.5l7.6-7.6a3 3 0 0 1 4.3 4.3l-7.3 7.3a1.5 1.5 0 0 1-2.1-2.1l6.6-6.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-partage" viewBox="0 0 24 24"><path d="M12 14.5V3.5m0 0L8.3 7.2M12 3.5l3.7 3.7M8 10H6.6c-.9 0-1.6.7-1.6 1.6v7.3c0 .9.7 1.6 1.6 1.6h10.8c.9 0 1.6-.7 1.6-1.6v-7.3c0-.9-.7-1.6-1.6-1.6H16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-loupe" viewBox="0 0 24 24"><path d="M10.5 3.5a7 7 0 0 1 5.6 11.2l4.3 4.3-1.5 1.5-4.3-4.3A7 7 0 1 1 10.5 3.5zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></symbol>
+<symbol id="i-cadenas" viewBox="0 0 24 24"><path d="M7.5 10V7.6a4.5 4.5 0 0 1 9 0V10h.6c1 0 1.9.9 1.9 1.9v7.2c0 1-.9 1.9-1.9 1.9H6.9c-1 0-1.9-.9-1.9-1.9v-7.2c0-1 .9-1.9 1.9-1.9zm2.2 0h4.6V7.6a2.3 2.3 0 0 0-4.6 0z"/></symbol>
+<symbol id="i-visage" viewBox="0 0 24 24"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 8.5v1.6M15.5 8.5v1.6M12 8.5v4.3c0 .5-.4.9-.9.9h-.5M8.6 15.6a5 5 0 0 0 6.8 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-oeil-barre" viewBox="0 0 24 24"><path d="M4 4l16 16M9.9 5.4C10.6 5.1 11.3 5 12 5c5 0 8.5 4.6 9.5 7-.5 1-1.4 2.4-2.6 3.6M6.2 6.9C4.4 8.2 3.1 10.1 2.5 12c1 2.4 4.5 7 9.5 7 1.6 0 3.1-.5 4.4-1.2M9.9 9.9a3 3 0 0 0 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-wifi-barre" viewBox="0 0 24 24"><path d="M2.5 9.2a13.5 13.5 0 0 1 4.6-3M10.6 5a13.5 13.5 0 0 1 10.9 4.2M5.6 12.5a9 9 0 0 1 3.6-2.3M14.6 10.3a9 9 0 0 1 3.8 2.2M8.8 15.7a4.5 4.5 0 0 1 6.4 0M3.5 3.5l17 17" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="19" r="1.7"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9.2a13.5 13.5 0 0 1 19 0M5.6 12.5a9 9 0 0 1 12.8 0M8.8 15.7a4.5 4.5 0 0 1 6.4 0" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><circle cx="12" cy="19" r="1.7"/></symbol>
+<symbol id="i-micro" viewBox="0 0 24 24"><path d="M12 2.5a3.5 3.5 0 0 1 3.5 3.5v5.5a3.5 3.5 0 0 1-7 0V6A3.5 3.5 0 0 1 12 2.5zM5.5 11h2a4.5 4.5 0 0 0 9 0h2a6.5 6.5 0 0 1-5.5 6.4v2.6h3V22h-8v-2h3v-2.6A6.5 6.5 0 0 1 5.5 11z"/></symbol>
+<symbol id="i-pomme" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.5 2.1-3.7 2.2-3.8a4.7 4.7 0 0 0-3.7-2c-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9a4.9 4.9 0 0 0-4.1 2.5c-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4a10 10 0 0 0 1.4-2.8 4.3 4.3 0 0 1-2.5-4.1zM13.9 5.1A4.3 4.3 0 0 0 14.9 2a4.4 4.4 0 0 0-2.9 1.5 4.1 4.1 0 0 0-1 3c1.1.1 2.2-.6 2.9-1.4z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 4.6c0-1 1.1-1.6 1.9-1.1l10.4 6.4c.8.5.8 1.7 0 2.2L9.4 18.5c-.8.5-1.9-.1-1.9-1.1z"/></symbol>
+<symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.5c5.5 0 9.5 3.9 9.5 8.5 0 3-2.2 4.6-4.6 4.6h-1.7c-1 0-1.6.9-1.2 1.8l.4.8c.6 1.4-.4 3.3-2.4 3.3-5.3 0-9.5-4.3-9.5-9.5S6.7 2.5 12 2.5zM7.5 9.3a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zm3-3.6a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zm4.6.4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 1 1 0 19 9.5 9.5 0 0 1 0-19zM3 12h18M12 2.8c-2.6 2.6-3.8 5.6-3.8 9.2s1.2 6.6 3.8 9.2c2.6-2.6 3.8-5.6 3.8-9.2S14.6 5.4 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-pdf" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.3 2h7.2c.5 0 .9.2 1.2.5l4.8 4.8c.3.3.5.7.5 1.2v11.2c0 1.3-1 2.3-2.3 2.3H6.3C5 22 4 21 4 19.7V4.3C4 3 5 2 6.3 2zM7.5 13v4h1.3v-1.3h.8a1.4 1.4 0 0 0 0-2.7zm1.3 1.1h.7a.3.3 0 0 1 0 .6h-.7zm3-1.1v4h1.4a2 2 0 0 0 0-4zm1.3 1.1h.1a.9.9 0 0 1 0 1.8h-.1zm3-1.1v4h1.3v-1.5h1.3v-1h-1.3v-.5h1.5v-1z"/></symbol>
+<symbol id="i-sauvegarde" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 1-8.5 6h2.2A7 7 0 1 0 12 5v2.5L8 4.2 12 1zm-.9 4.5h1.8v4.1l3 1.8-.9 1.6-3.9-2.3z"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="#haut" aria-label="Escale, retour en haut"><svg><use href="#logo"/></svg><span>Escale</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#programme">Programme</a>
+      <a href="#vol">Billets</a>
+      <a href="#survol">Carte</a>
+      <a href="#valise">Valise</a>
+      <a href="#budget">Budget</a>
+      <a href="#souvenirs">Souvenirs</a>
+      <a href="#plus">Escale+</a>
+    </nav>
+    <a class="nav-cta" href="#telecharger">Bientôt sur iPhone</a>
+  </div>
+  <i class="nav-progress" aria-hidden="true"></i>
+</header>
+
+<main id="contenu">
+
+<section class="hero" id="accueil" aria-label="Escale" data-scope>
+  <div class="hero-pin">
+    <div class="paysage" aria-hidden="true">
+      <div class="hero-photo"><img src="assets/img/photos/hero-manarola-1280.webp" srcset="assets/img/photos/hero-manarola-1280.webp 1280w, assets/img/photos/hero-manarola-2400.webp 2400w" sizes="100vw" width="2400" height="1601" alt="" fetchpriority="high" decoding="async"></div>
+      <i class="hero-voile"></i>
+      <i class="hero-nuit"></i>
+      <div class="vol-hero">
+        <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice"><path id="arc-hero" d="M-60 520C260 300 560 210 840 230s460 120 680 20" fill="none" stroke="rgba(246,238,223,.38)" stroke-width="1.6" stroke-dasharray="2 9" stroke-linecap="round"/></svg>
+        <i class="avion-hero" id="avion-hero"><svg><use href="#i-avion"/></svg></i>
+      </div>
+    </div>
+
+    <div class="hero-copy" data-p="copy">
+      <p class="hero-eyebrow rise"><svg><use href="#logo"/></svg>Escale 3 · pour iPhone</p>
+      <h1 class="hero-title"><span class="rise" style="--d:.1s">Chaque voyage</span> <span class="rise" style="--d:.2s"><em>mérite son carnet.</em></span></h1>
+      <p class="hero-lead rise" style="--d:.32s">Du billet montré sans réseau au comptoir aux souvenirs du dernier soir, tout le voyage tient dans un carnet. Et ce carnet ne regarde que vous.</p>
+      <div class="hero-btns rise" style="--d:.42s">
+        <a class="btn btn-main magnet" href="#programme">Partir<svg><use href="#i-fleche-bas"/></svg></a>
+        <a class="btn btn-ghost magnet" href="#plus">Découvrir Escale+</a>
+      </div>
+    </div>
+
+    <div class="hero-phone" data-p="phone">
+      <div class="phone" data-tilt>
+        <div class="ph-screen">
+          <div class="app app-home" id="home">
+            <div class="sbar"><span>9:41</span><span class="sb-r"><svg><use href="#i-wifi"/></svg><i class="batt"><i></i></i></span></div>
+            <div class="scroll">
+              <p class="eb">Bientôt sur la route</p>
+              <h3 class="lt">Lisbonne, Portugal</h3>
+              <div class="trip-card" id="home-card" style="--c0:#fab3ad;--c1:#9e73b3;--c2:#2e3366">
+                <svg class="tc-art" viewBox="0 0 300 236" preserveAspectRatio="none" aria-hidden="true">
+                  <defs><linearGradient id="gTheme" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="s0"/><stop offset=".55" class="s1"/><stop offset="1" class="s2"/></linearGradient></defs>
+                  <rect width="300" height="236" fill="url(#gTheme)"/>
+                  <circle class="tc-sun" cx="236" cy="62" r="34"/>
+                  <path class="l1" d="M0 142C48 60 84 170 141 109s102-60 159-21V236H0z"/>
+                  <path class="l2" d="M0 170C48 88 84 198 141 137s102-60 159-21V236H0z"/>
+                  <path class="l3" d="M0 198C48 116 84 226 141 165s102-60 159-21V236H0z"/>
+                  <path d="M51 168C110 112 172 190 234 124" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.6" stroke-dasharray="3 7" stroke-linecap="round"/>
+                  <rect width="300" height="236" fill="url(#gOmbre)"/>
+                  <linearGradient id="gOmbre" x1="0" y1="0" x2="0" y2="1"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".38"/></linearGradient>
+                </svg>
+                <span class="badge on-dark"><i></i>Dans 24 jours</span>
+                <b class="tc-title">Lisbonne en novembre</b>
+                <span class="tc-dest"><svg><use href="#i-localisation"/></svg>Lisbonne, Portugal</span>
+                <span class="tc-foot"><span>17 nov. 2026 — 21 nov. 2026</span><i><svg><use href="#i-fleche-ne"/></svg></i></span>
+              </div>
+              <div class="tiles">
+                <span class="tile"><i><svg><use href="#i-trace"/></svg></i><b>6,6 km</b><small>Parcourus</small></span>
+                <span class="tile"><i><svg><use href="#i-epingle"/></svg></i><b>3</b><small>Étapes</small></span>
+                <span class="tile"><i><svg><use href="#i-ticket"/></svg></i><b>3</b><small>Billets</small></span>
+              </div>
+              <div class="sh"><span><small>Dans l’ordre du voyage</small><b>Les étapes</b></span><em>Tout voir</em></div>
+              <div class="card tl">
+                <div class="tl-row"><i class="tl-ic"><svg><use href="#i-jumelles"/></svg></i><span><b>Alfama</b><small>Ruelles et miradouros</small><small>Monter jusqu’au Miradouro de Santa Luzia…</small></span><time>17 nov.</time></div>
+                <div class="tl-row"><i class="tl-ic"><svg><use href="#i-fourchette"/></svg></i><span><b>Pastéis de Belém</b><small>Rua de Belém 84</small></span><time>18 nov.</time></div>
+                <div class="tl-row"><i class="tl-ic"><svg><use href="#i-colonnes"/></svg></i><span><b>Sintra</b><small>Palais de Pena</small><small>Réserver l’entrée à l’avance.</small><em class="todo"><svg><use href="#i-epingle"/></svg>À placer sur la carte</em></span><time>19 nov.</time></div>
+              </div>
+            </div>
+            <nav class="tabbar" aria-hidden="true"><span class="on"><svg><use href="#i-valise"/></svg>Voyages</span><span><svg><use href="#i-carte"/></svg>Carte</span><span><svg><use href="#i-photos"/></svg>Souvenirs</span><span><svg><use href="#i-profil"/></svg>Profil</span></nav>
+          </div>
+          <i class="island" aria-hidden="true"></i><i class="homebar" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="themes" data-p="themes">
+        <p><svg><use href="#i-palette"/></svg>Habillez le carnet&#8239;: <b id="theme-name">Aurore</b></p>
+        <div class="swatches" id="swatches" role="radiogroup" aria-label="Thème du voyage"></div>
+      </div>
+    </div>
+
+    <p class="hero-hint" aria-hidden="true"><span>Faites défiler</span><i></i></p>
+  </div>
+</section>
+
+<section class="manif" aria-label="En bref">
+  <div class="wrap">
+    <p class="manif-txt" id="manif">Un voyage, c’est <span class="k1">un programme,</span> <span class="k2">des billets</span><span class="pastille" aria-hidden="true"><img src="assets/img/photos/pastille-gare.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span>, <span class="k3">un sentier</span><span class="pastille" aria-hidden="true"><img src="assets/img/photos/pastille-sentier.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span>, une valise<span class="pastille" aria-hidden="true"><img src="assets/img/photos/pastille-valise.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span>, un budget et des souvenirs<span class="pastille" aria-hidden="true"><img src="assets/img/photos/pastille-souvenir.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span>. Escale les garde ensemble, sans compte ni serveur&#8239;: tout reste sur votre iPhone.</p>
+    <ul class="chiffres">
+      <li data-reveal><b class="num" data-compte="10">10</b><span>thèmes pour habiller vos carnets</span></li>
+      <li data-reveal style="--d:.06s"><b class="num" data-compte="9">9</b><span>types de réservation, du vol au restaurant</span></li>
+      <li data-reveal style="--d:.12s"><b class="num" data-compte="14">14</b><span>jours de sauvegardes automatiques</span></li>
+      <li data-reveal style="--d:.18s"><b class="num" data-compte="0">0</b><span>compte à créer, aucune donnée collectée</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chap" id="programme" data-scope>
+  <div class="wrap chap-grid">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-calendrier"/></svg>Programme</p>
+      <h2 class="title split" data-reveal>Le voyage, jour par jour.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Réservations, visites à faire et souvenirs rangés par journée. Pendant le voyage, Escale s’ouvre sur <b>Aujourd’hui</b>. Touchez une étape pour la marquer comme faite.</p>
+      <ul class="puces" data-reveal style="--d:.16s">
+        <li><svg><use href="#i-check"/></svg>Avant le départ, chaque jour, après le retour</li>
+        <li><svg><use href="#i-check"/></svg>Étapes faites ou à faire, en un geste</li>
+        <li><svg><use href="#i-check"/></svg>Siri&#8239;: «&#8239;Ouvre mon voyage dans Escale&#8239;»</li>
+      </ul>
+    </header>
+
+    <div class="stage duo" data-reveal="device">
+      <figure class="toile" aria-hidden="true">
+        <img src="assets/img/photos/vernazza-grand.webp" width="1700" height="1134" alt="" loading="lazy" decoding="async">
+      </figure>
+      <p class="notif" aria-hidden="true"><svg class="notif-ic"><use href="#logo"/></svg><span><small>Escale<em>maintenant</em></small><b>Un souvenir de Cinque Terre, Italie&#8239;?</b>Une photo, une phrase&#8239;: gardez une trace de cette journée.</span></p>
+      <div class="phone" data-tilt>
+        <div class="ph-screen">
+          <div class="app app-prog" id="prog">
+            <div class="sbar"><span>9:41</span><span class="sb-r"><svg><use href="#i-wifi"/></svg><i class="batt"><i></i></i></span></div>
+            <div class="navb"><span class="nb-back"><svg><use href="#i-chev-g"/></svg>L’été en Ligurie</span><button type="button" class="nb-today" id="prog-today">Aujourd’hui</button></div>
+            <h3 class="lt pad">Programme</h3>
+            <div class="days" id="prog-days" role="tablist" aria-label="Jours du voyage"></div>
+            <div class="scroll" id="prog-list" aria-live="polite"></div>
+            <nav class="tabbar" aria-hidden="true"><span class="on"><svg><use href="#i-valise"/></svg>Voyages</span><span><svg><use href="#i-carte"/></svg>Carte</span><span><svg><use href="#i-photos"/></svg>Souvenirs</span><span><svg><use href="#i-profil"/></svg>Profil</span></nav>
+          </div>
+          <i class="island" aria-hidden="true"></i><i class="homebar" aria-hidden="true"></i>
+        </div>
+      </div>
+      <i class="halo" aria-hidden="true"></i>
+    </div>
+  </div>
+</section>
+
+<section class="vol" id="vol" data-scope>
+  <div class="vol-pin">
+    <div class="vol-ciel" aria-hidden="true"><img src="assets/img/photos/ciel-avion-1280.webp" srcset="assets/img/photos/ciel-avion-1280.webp 1280w, assets/img/photos/ciel-avion-2400.webp 2400w" sizes="100vw" width="2400" height="1602" alt="" loading="lazy" decoding="async"></div>
+    <div class="nuages" aria-hidden="true">
+      <i class="nu n1" data-v="-.9"></i><i class="nu n2" data-v="-1.6"></i><i class="nu n3" data-v="-.5"></i><i class="nu n4" data-v="-2.2"></i><i class="nu n5" data-v="-1.2"></i><i class="nu n6" data-v="-2.8"></i>
+    </div>
+
+    <div class="vol-copy">
+      <p class="chap-k"><svg><use href="#i-ticket"/></svg>Billets et réservations</p>
+      <h2 class="title">Votre billet, même sans réseau.</h2>
+      <p class="lead">Vols, trains, hôtels&#8239;: le numéro bien lisible au comptoir, les billets disponibles hors connexion, et tout se range dans le programme.</p>
+    </div>
+
+    <svg class="vol-carte" id="vol-carte" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path id="vol-arc" d="M150 440C330 120 800 40 1040 230" fill="none" stroke="rgba(246,238,223,.22)" stroke-width="2" stroke-dasharray="3 10" stroke-linecap="round"/>
+    </svg>
+    <svg class="vol-carte vol-calque-trace" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path id="vol-trace" d="M150 440C330 120 800 40 1040 230" fill="none" stroke="#f3c178" stroke-width="2.6" stroke-linecap="round"/>
+    </svg>
+    <svg class="vol-carte" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <g class="vol-pt"><circle cx="150" cy="440" r="7"/><text x="150" y="486" text-anchor="middle">Paris CDG</text><text x="150" y="508" text-anchor="middle" class="h">07:25</text></g>
+      <g class="vol-pt" id="vol-arrivee"><circle cx="1040" cy="230" r="7"/><text x="1040" y="164" text-anchor="middle">Lisbonne LIS</text><text x="1040" y="188" text-anchor="middle" class="h">09:05</text></g>
+    </svg>
+    <div class="vol-calque" id="vol-calque" aria-hidden="true">
+      <i class="vol-onde" style="--x:150;--y:440"></i>
+      <i class="vol-onde arr" id="vol-onde-arr" style="--x:1040;--y:230"></i>
+      <span class="vol-avion" id="vol-avion"><i></i><svg><use href="#i-avion"/></svg></span>
+    </div>
+
+    <div class="vol-hud" aria-hidden="true">
+      <span><small>Vol</small><b>TP 433</b></span>
+      <span><small>Altitude</small><b id="vol-alt">0 m</b></span>
+      <span><small>Restant</small><b id="vol-reste">1 h 40</b></span>
+    </div>
+
+    <div class="billet-zone" id="billet-zone">
+      <button type="button" class="billet" id="billet" aria-pressed="false" aria-label="Retourner la carte d’embarquement" data-tilt>
+        <span class="bi-face bi-avant">
+          <span class="bi-top"><span class="ic-tile" style="--k:#3378cc"><svg><use href="#i-avion"/></svg></span><span><b>Vol Paris – Lisbonne</b><small>TAP Air Portugal · TP 433</small></span><em>17 nov.</em></span>
+          <span class="bi-route"><span><b>CDG</b><small>Paris · 07:25</small></span><i><svg><use href="#i-avion"/></svg></i><span class="r"><b>LIS</b><small>Lisbonne · 09:05</small></span></span>
+          <span class="bi-sep"></span>
+          <span class="bi-bas"><span><small>Réservation</small><b>K7Q2PZ</b></span><span><small>Terminal</small><b>1</b></span><span><small>Bagage</small><b>Cabine</b></span><span class="hc"><svg><use href="#i-wifi-barre"/></svg>Hors connexion</span></span>
+        </span>
+        <span class="bi-face bi-dos">
+          <small>Montrez ce code au comptoir</small>
+          <b class="bi-code">K7Q2PZ</b>
+          <span class="bi-barres" aria-hidden="true"></span>
+          <span class="bi-pj"><svg><use href="#i-trombone"/></svg>Billet-TP433.pdf · disponible sans réseau</span>
+        </span>
+      </button>
+      <p class="billet-hint">Touchez le billet pour le retourner</p>
+    </div>
+  </div>
+</section>
+
+<section class="types" aria-label="Types de réservation">
+  <div class="wrap">
+    <ul class="types-l" id="types">
+      <li data-reveal style="--k:#3378cc"><span class="ic-tile"><svg><use href="#i-avion"/></svg></span>Vol</li>
+      <li data-reveal style="--k:#338c80;--d:.04s"><span class="ic-tile"><svg><use href="#i-train"/></svg></span>Train</li>
+      <li data-reveal style="--k:#338c80;--d:.08s"><span class="ic-tile"><svg><use href="#i-train"/></svg></span>Bus</li>
+      <li data-reveal style="--k:#1a739e;--d:.12s"><span class="ic-tile"><svg><use href="#i-bateau"/></svg></span>Bateau</li>
+      <li data-reveal style="--k:#737385;--d:.16s"><span class="ic-tile"><svg><use href="#i-voiture"/></svg></span>Location de voiture</li>
+      <li data-reveal style="--k:#8c66b8;--d:.2s"><span class="ic-tile"><svg><use href="#i-lit"/></svg></span>Hébergement</li>
+      <li data-reveal style="--k:#f5b85e;--d:.24s"><span class="ic-tile"><svg><use href="#i-ticket"/></svg></span>Activité</li>
+      <li data-reveal style="--k:#e87557;--d:.28s"><span class="ic-tile"><svg><use href="#i-fourchette"/></svg></span>Restaurant</li>
+      <li data-reveal style="--k:#80858f;--d:.32s"><span class="ic-tile"><svg><use href="#i-doc"/></svg></span>Autre</li>
+    </ul>
+  </div>
+</section>
+
+<section class="survol" id="survol" data-scope>
+  <div class="survol-pin">
+    <div class="sv-cam" id="sv-cam" aria-hidden="true">
+      <div class="sv-plan" id="sv-plan">
+        <svg class="sv-carte" viewBox="0 0 1000 700">
+          <defs>
+            <linearGradient id="gMer" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14495a"/><stop offset="1" stop-color="#0b2a36"/></linearGradient>
+            <radialGradient id="gColline" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4f7a52"/><stop offset="1" stop-color="#2b4d3c" stop-opacity="0"/></radialGradient>
+            <pattern id="pVagues" width="40" height="18" patternUnits="userSpaceOnUse"><path d="M0 9c5-4 10-4 15 0s10 4 15 0 10-4 15 0" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1.2"/></pattern>
+            <pattern id="pTerrasses" width="26" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)"><path d="M0 6h26" stroke="rgba(214,226,160,.12)" stroke-width="1.3"/></pattern>
+          </defs>
+          <rect width="1000" height="700" fill="url(#gMer)"/>
+          <rect width="1000" height="700" fill="url(#pVagues)"/>
+          <path class="sv-terre" d="M0 0H1000V640C975 625 955 612 930 600S880 572 850 560 815 548 790 528 742 498 712 482 690 462 660 446 612 418 585 404 560 392 540 372 505 356 470 340 420 320 385 306 345 290 300 262 260 248 225 236 190 214 160 206 125 214 90 196 50 178 0 170Z"/>
+          <path d="M0 0H1000V640C975 625 955 612 930 600S880 572 850 560 815 548 790 528 742 498 712 482 690 462 660 446 612 418 585 404 560 392 540 372 505 356 470 340 420 320 385 306 345 290 300 262 260 248 225 236 190 214 160 206 125 214 90 196 50 178 0 170Z" fill="url(#pTerrasses)"/>
+          <ellipse cx="300" cy="120" rx="220" ry="120" fill="url(#gColline)"/>
+          <ellipse cx="640" cy="230" rx="260" ry="140" fill="url(#gColline)"/>
+          <ellipse cx="880" cy="380" rx="180" ry="120" fill="url(#gColline)"/>
+          <path class="sv-cote" d="M1000 640C975 625 955 612 930 600S880 572 850 560 815 548 790 528 742 498 712 482 690 462 660 446 612 418 585 404 560 392 540 372 505 356 470 340 420 320 385 306 345 290 300 262 260 248 225 236 190 214 160 206 125 214 90 196 50 178 0 170"/>
+          <path class="sv-rail" d="M120 188C260 230 330 270 400 285s150 70 180 82 120 70 160 90 70 60 90 70"/>
+          <path class="sv-sentier-fond" id="sv-sentier-fond" d="M150 200C200 170 260 230 300 240S360 260 395 295C430 300 470 290 500 320S540 350 560 378C600 380 640 410 660 430S690 450 700 462C730 470 770 490 790 505S805 525 815 535"/>
+          <text class="sv-mer" x="210" y="520">Mer Ligure</text>
+          <text class="sv-lieu" x="700" y="440">Corniglia</text>
+        </svg>
+        <svg class="sv-trace" viewBox="0 0 1000 700" aria-hidden="true"><path class="sv-sentier" id="sv-sentier" d="M150 200C200 170 260 230 300 240S360 260 395 295C430 300 470 290 500 320S540 350 560 378C600 380 640 410 660 430S690 450 700 462C730 470 770 490 790 505S805 525 815 535"/></svg>
+        <span class="sv-pin" style="left:150px;top:200px" data-i="0"><i><svg><use href="#i-soleil"/></svg></i><b>Levanto</b></span>
+        <span class="sv-pin" style="left:395px;top:295px" data-i="1"><i><svg><use href="#i-soleil"/></svg></i><b>Monterosso</b></span>
+        <span class="sv-pin" style="left:560px;top:378px" data-i="2"><i><svg><use href="#i-fourchette"/></svg></i><b>Vernazza</b></span>
+        <span class="sv-pin" style="left:815px;top:535px" data-i="3"><i><svg><use href="#i-vent"/></svg></i><b>Manarola</b></span>
+        <span class="sv-moi" id="sv-moi"></span>
+      </div>
+    </div>
+    <i class="sv-vignette" aria-hidden="true"></i>
+
+    <div class="sv-copy">
+      <p class="chap-k"><svg><use href="#i-carte"/></svg>Carte et GPS</p>
+      <h2 class="title">Survolez le chemin parcouru.</h2>
+      <p class="lead">Chaque enregistrement forme un segment, sans ligne droite entre deux sessions. Les étapes et les souvenirs se posent sur la carte.</p>
+    </div>
+
+    <aside class="sv-fiche" id="sv-fiche" aria-live="polite">
+      <span class="sv-photo"><img id="sv-img" src="assets/img/photos/levanto.webp" width="600" height="900" alt="" decoding="async"></span>
+      <span class="sv-jour" id="sv-jour">Jour 1 · 3 août</span>
+      <b id="sv-nom">Levanto</b>
+      <small id="sv-detail">La porte des Cinque Terre</small>
+      <p id="sv-souvenir">«&#8239;Premier café face à la mer, sans regarder l’heure.&#8239;»</p>
+      <span class="sv-humeur" id="sv-humeur"><svg><use href="#i-soleil"/></svg><span>Lumineux</span></span>
+    </aside>
+
+    <div class="sv-hud">
+      <span><small>Distance</small><b class="num" id="sv-km">0,0 km</b></span>
+      <span><small>Étapes</small><b class="num" id="sv-etapes">0 / 4</b></span>
+      <button type="button" class="sv-rec" id="sv-rec" aria-pressed="false"><i></i><span id="sv-rec-l">Enregistrer</span><b class="num" id="sv-chrono">00:00</b></button>
+    </div>
+  </div>
+</section>
+
+<section class="gps" aria-label="GPS">
+  <div class="wrap">
+    <ul class="specs">
+      <li data-reveal><b>Pendant l’utilisation, jamais «&#8239;Toujours&#8239;»</b><span>La localisation n’est demandée qu’au démarrage du suivi, et continue écran verrouillé avec l’indicateur d’iOS.</span></li>
+      <li data-reveal style="--d:.05s"><b>Points imprécis écartés</b><span>Au-delà de 50&#8239;m d’incertitude, le point est ignoré. Votre tracé reste propre.</span></li>
+      <li data-reveal style="--d:.1s"><b>Recherche Apple Plans</b><span>Tapez «&#8239;Pastéis de Belém&#8239;»&#8239;: position, adresse et catégorie sont déduites. Bouton Itinéraire vers Plans.</span></li>
+      <li data-reveal style="--d:.15s"><b>Export GPX <em class="plus-mini">Escale+</em></b><span>Vos tracés dans Komoot, Strava ou votre montre. Une trace par session.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chap" id="valise" data-scope>
+  <div class="wrap chap-grid inv">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-valise"/></svg>Valise</p>
+      <h2 class="title split" data-reveal>Rien d’oublié. Pas même la crème solaire.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Cochez ce qui est prêt, ajoutez une liste type d’un geste&#8239;: Escale n’ajoute que ce qui manque. La veille du départ, un rappel dit ce qu’il reste à préparer.</p>
+      <div class="modeles" data-reveal style="--d:.16s" id="modeles" aria-label="Listes types"></div>
+    </header>
+
+    <div class="stage duo gauche" data-reveal="device">
+      <figure class="toile" aria-hidden="true">
+        <img src="assets/img/photos/valise-ouverte.webp" width="1500" height="1002" alt="" loading="lazy" decoding="async">
+      </figure>
+      <p class="notif" aria-hidden="true"><svg class="notif-ic"><use href="#logo"/></svg><span><small>Escale<em>18:00</em></small><b>Départ demain&#8239;: L’été en Ligurie</b><span id="v-notif">Encore 4 choses à préparer dans votre valise.</span></span></p>
+      <div class="phone" data-tilt>
+        <div class="ph-screen">
+          <div class="app app-valise" id="valise-app">
+            <div class="sbar"><span>9:41</span><span class="sb-r"><svg><use href="#i-wifi"/></svg><i class="batt"><i></i></i></span></div>
+            <div class="navb"><span class="nb-back"><svg><use href="#i-chev-g"/></svg>L’été en Ligurie</span><span class="nb-r"><svg><use href="#i-plus"/></svg></span></div>
+            <h3 class="lt pad">Valise</h3>
+            <div class="v-head card">
+              <svg class="anneau" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" class="fond"/><circle cx="22" cy="22" r="18" class="val" id="v-anneau"/></svg>
+              <span><b id="v-titre">2 sur 6 prêts</b><small id="v-sous">Encore 4 objets à préparer</small></span>
+            </div>
+            <form class="v-ajout" id="v-form" autocomplete="off"><input id="v-input" type="text" placeholder="Ajouter un objet…" aria-label="Ajouter un objet à la valise"><button type="submit" aria-label="Ajouter"><svg><use href="#i-plus"/></svg></button></form>
+            <div class="scroll"><ul class="v-liste card" id="v-liste" aria-label="Objets de la valise"></ul><p class="v-fini" id="v-fini" hidden><svg><use href="#i-check"/></svg>Tout est prêt&#8239;!</p></div>
+          </div>
+          <i class="island" aria-hidden="true"></i><i class="homebar" aria-hidden="true"></i>
+        </div>
+      </div>
+      <i class="halo" aria-hidden="true"></i>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="budget" data-scope>
+  <div class="wrap">
+    <header class="chap-h center-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-euro"/></svg>Budget et comptes</p>
+      <h2 class="title split" data-reveal>Voyager à plusieurs, sans compter.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Notez qui a payé&#8239;: Escale calcule la part de chacun et propose les remboursements en un minimum de virements. En euros comme en yens.</p>
+    </header>
+
+    <figure class="b-photo" data-reveal aria-hidden="true">
+      <img src="assets/img/photos/diner-vernazza.webp" width="1800" height="1091" alt="" loading="lazy" decoding="async">
+      <figcaption class="b-photo-dep"><span class="ic-tile" style="--k:#e8755a"><svg><use href="#i-fourchette"/></svg></span><span><b>Dîner à Vernazza</b><small>Repas · payé par Léa</small></span><em>96&#8239;€</em></figcaption>
+    </figure>
+
+    <div class="budget" data-reveal="device">
+      <form class="b-saisie pan" id="b-form" autocomplete="off" data-glow>
+        <h3>Nouvelle dépense</h3>
+        <label class="b-champ"><span>Libellé</span><input id="b-lib" type="text" placeholder="Glaces à Vernazza" maxlength="40"></label>
+        <div class="b-ligne">
+          <label class="b-champ"><span>Montant</span><input id="b-montant" type="text" inputmode="decimal" placeholder="24" required></label>
+          <label class="b-champ"><span>Devise</span><select id="b-devise"><option value="EUR">€ Euro</option><option value="JPY">¥ Yen</option><option value="MAD">DH Dirham</option><option value="USD">$ Dollar</option></select></label>
+        </div>
+        <div class="b-champ"><span>Catégorie</span><div class="seg" id="b-cat" role="radiogroup" aria-label="Catégorie"></div></div>
+        <div class="b-champ"><span>Payé par</span><div class="seg" id="b-payeur" role="radiogroup" aria-label="Payé par"></div></div>
+        <p class="b-conv" id="b-conv" aria-live="polite"></p>
+        <button class="btn btn-main" type="submit"><svg><use href="#i-plus"/></svg>Ajouter</button>
+      </form>
+
+      <div class="b-vue pan" data-glow>
+        <div class="b-donut-zone">
+          <div class="donut-wrap"><div class="donut" id="b-donut"></div><span class="donut-txt"><small>Dépensé</small><b class="num" id="b-total">0 €</b><em id="b-reste">sur 1 200 €</em></span></div>
+          <ul class="b-leg" id="b-leg"></ul>
+        </div>
+        <div class="b-barre"><i id="b-jauge"></i></div>
+        <ul class="b-liste" id="b-liste" aria-live="polite"></ul>
+      </div>
+
+      <div class="b-comptes pan" data-glow>
+        <h3><svg><use href="#i-groupe"/></svg>Comptes entre voyageurs <em class="plus-mini">Escale+</em></h3>
+        <ul class="voyageurs" id="b-voyageurs"></ul>
+        <p class="b-eq-t">Pour équilibrer</p>
+        <ul class="virements" id="b-virements" aria-live="polite"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="souv" id="souvenirs" data-scope>
+  <div class="souv-pin">
+    <div class="souv-tete wrap">
+      <p class="chap-k"><svg><use href="#i-photos"/></svg>Souvenirs</p>
+      <h2 class="title">Quelques mots, une humeur, et la journée reste.</h2>
+    </div>
+    <div class="souv-piste" id="souv-piste"></div>
+    <div class="souv-barre wrap"><i id="souv-avance"></i></div>
+  </div>
+</section>
+
+<section class="section trouve" aria-label="Photos retrouvées">
+  <div class="wrap trouve-in">
+    <div>
+      <p class="eyebrow" data-reveal>Photos retrouvées <em class="plus-mini">Escale+</em></p>
+      <h2 class="title split" data-reveal>Vos photos, rangées par jour.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Escale retrouve les photos prises pendant le voyage et en fait un souvenir par jour. Elles ne quittent jamais votre iPhone.</p>
+      <button type="button" class="btn btn-small magnet" id="trouve-go" data-reveal style="--d:.16s"><svg><use href="#i-loupe"/></svg>Retrouver les photos</button>
+    </div>
+    <div class="pellicule" id="pellicule" data-reveal="device" aria-label="Démonstration : photos du voyage rangées par jour">
+      <span class="col-j" style="--c:0">Jour 1 · 3 août</span><span class="col-j" style="--c:1">Jour 2 · 4 août</span><span class="col-j" style="--c:2">Jour 3 · 5 août</span>
+    </div>
+  </div>
+</section>
+
+<section class="chap affiche-s" id="affiche" data-scope>
+  <div class="wrap chap-grid">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-partage"/></svg>L’affiche du voyage</p>
+      <h2 class="title split" data-reveal>Votre tracé, vos chiffres, prêts pour la story.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Une affiche au format 9:16, à partager ou à imprimer. Survolez-la, changez de style et de voyage.</p>
+      <div class="aff-ctl" data-reveal style="--d:.16s">
+        <div class="seg" id="aff-style" role="radiogroup" aria-label="Style de l’affiche">
+          <button type="button" role="radio" aria-checked="true" data-s="photo">Photo</button><button type="button" role="radio" aria-checked="false" data-s="papier">Papier<i class="plus-pt"></i></button><button type="button" role="radio" aria-checked="false" data-s="nuit">Nuit<i class="plus-pt"></i></button>
+        </div>
+        <div class="seg" id="aff-voyage" role="radiogroup" aria-label="Voyage">
+          <button type="button" role="radio" aria-checked="true" data-v="ligurie">Ligurie</button><button type="button" role="radio" aria-checked="false" data-v="lisbonne">Lisbonne</button>
+        </div>
+        <p class="aff-note">Papier et Nuit, sans la mention Escale, avec Escale+.</p>
+      </div>
+    </header>
+    <div class="stage" data-reveal="device">
+      <div class="affiche" id="affiche-el" data-style="photo" data-tilt style="--c0:#f0ab7d;--c1:#bf6b57;--c2:#1a4a54">
+        <div class="af-art" aria-hidden="true"><img src="assets/img/photos/affiche-ligurie.webp" width="540" height="960" alt="" decoding="async"></div>
+        <span class="af-k">Carnet de voyage</span>
+        <b class="af-titre" id="af-titre">L’été en Ligurie</b>
+        <span class="af-dest" id="af-dest">Cinque Terre, Italie · août 2026</span>
+        <svg class="af-trace" viewBox="0 0 300 150" aria-hidden="true"><path id="af-trace" d="M14 40C50 20 70 60 98 62S130 70 150 92C170 96 190 88 206 104S226 118 236 130C252 132 266 138 286 140"/><circle cx="14" cy="40" r="4"/><circle cx="286" cy="140" r="4"/></svg>
+        <span class="af-chiffres" id="af-chiffres"><span><b>5</b>jours</span><span><b>23,4</b>km</span><span><b>4</b>étapes</span><span><b>12</b>souvenirs</span></span>
+        <span class="af-pied"><svg><use href="#logo"/></svg>Escale · carnet de voyage</span>
+        <i class="af-reflet" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bilan" id="bilan">
+  <div class="wrap">
+    <p class="eyebrow center" data-reveal>Bilan</p>
+    <h2 class="title center serif split" data-reveal>Tout ce chemin.</h2>
+    <p class="lead center" data-reveal style="--d:.1s">Voyages, jours, kilomètres, pays, photos&#8239;: au retour, Escale fait les comptes. Exemple de bilan.</p>
+    <ul class="voyages" aria-label="Exemples de carnets terminés">
+      <li data-reveal style="--r:-9deg;--y:30px"><img src="assets/img/photos/voyage-santorin.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>Les Cyclades</b><small>Grèce · 2021</small></span></li>
+      <li data-reveal style="--r:-5deg;--y:10px;--d:.05s"><img src="assets/img/photos/voyage-islande.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>Road trip en Islande</b><small>Islande · 2022</small></span></li>
+      <li data-reveal style="--r:-1.5deg;--y:0px;--d:.1s"><img src="assets/img/photos/voyage-marrakech.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>Marrakech</b><small>Maroc · 2023</small></span></li>
+      <li data-reveal style="--r:1.5deg;--y:0px;--d:.15s"><img src="assets/img/photos/voyage-kyoto.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>Kyoto au printemps</b><small>Japon · 2024</small></span></li>
+      <li data-reveal style="--r:5deg;--y:10px;--d:.2s"><img src="assets/img/photos/voyage-new-york.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>New York en été</b><small>États-Unis · 2025</small></span></li>
+      <li data-reveal style="--r:9deg;--y:30px;--d:.25s"><img src="assets/img/photos/voyage-ligurie.webp" width="420" height="560" alt="" loading="lazy" decoding="async"><span><b>L’été en Ligurie</b><small>Italie · 2026</small></span></li>
+    </ul>
+    <ul class="bil-g">
+      <li data-reveal data-glow><b class="num" data-compte="14">14</b><span>Voyages</span></li>
+      <li data-reveal data-glow style="--d:.05s"><b class="num" data-compte="96">96</b><span>Jours en voyage</span></li>
+      <li data-reveal data-glow style="--d:.1s"><b class="num" data-compte="1284">1284</b><span>Kilomètres parcourus</span></li>
+      <li data-reveal data-glow style="--d:.15s"><b class="num" data-compte="11">11</b><span>Pays</span></li>
+    </ul>
+    <div class="annees" data-reveal id="annees" aria-label="Jours de voyage par année">
+      <div style="--v:.32"><i></i><span>2021</span></div><div style="--v:.48"><i></i><span>2022</span></div><div style="--v:.41"><i></i><span>2023</span></div><div style="--v:.7"><i></i><span>2024</span></div><div style="--v:.62"><i></i><span>2025</span></div><div style="--v:.94"><i></i><span>2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section prive" id="confidentialite" data-scope>
+  <div class="wrap">
+    <h2 class="title center split" data-reveal>Vos données restent sur votre iPhone.</h2>
+    <div class="prive-grid">
+      <div class="pv" data-reveal data-glow><svg><use href="#i-oeil-barre"/></svg><b>Aucun compte, aucun serveur</b><p>Pas de SDK tiers, pas de publicité, pas de revente de données. La carte et la recherche de lieux utilisent Apple Plans.</p></div>
+      <div class="pv pv-face" data-reveal data-glow style="--d:.06s">
+        <button type="button" class="face" id="face" aria-label="Simuler le déverrouillage par Face ID"><svg class="face-g"><use href="#i-visage"/></svg><svg class="face-ok"><use href="#i-check"/></svg></button>
+        <b>Verrouillage Face ID <em class="plus-mini">Escale+</em></b><p>Votre journal reste privé, même téléphone déverrouillé. Touchez le visage pour essayer.</p>
+      </div>
+      <div class="pv" data-reveal data-glow style="--d:.12s"><svg><use href="#i-sauvegarde"/></svg><b>Sauvegardé chaque jour</b><p>Quatorze jours de sauvegardes, restaurables depuis Profil. Un carnet illisible est mis de côté, jamais écrasé.</p></div>
+    </div>
+  </div>
+  <div class="siri" aria-label="Raccourcis Siri">
+    <div class="siri-l"><span><svg><use href="#i-micro"/></svg>«&#8239;Ajoute un souvenir à Escale&#8239;»</span><span><svg><use href="#i-micro"/></svg>«&#8239;Où en est mon budget dans Escale&#8239;»</span><span><svg><use href="#i-micro"/></svg>«&#8239;Ouvre mon voyage dans Escale&#8239;»</span><span><svg><use href="#i-micro"/></svg>«&#8239;Ajoute une dépense à Escale&#8239;»</span><span><svg><use href="#i-micro"/></svg>«&#8239;Nouveau souvenir dans Escale&#8239;»</span><span><svg><use href="#i-micro"/></svg>«&#8239;Budget du voyage dans Escale&#8239;»</span></div>
+  </div>
+</section>
+
+<section class="section plus" id="plus">
+  <div class="wrap">
+    <p class="eyebrow center" data-reveal><svg class="eb-ic"><use href="#i-etincelles"/></svg>Escale+</p>
+    <h2 class="title center split" data-reveal>Pour ceux qui voyagent à plusieurs, loin, et souvent.</h2>
+    <p class="lead center" data-reveal style="--d:.1s">Le carnet de base reste gratuit et sans limite&#8239;: voyages, étapes, souvenirs, carte, GPS, valise, budget, réservations, carnet PDF et sauvegardes.</p>
+
+    <ul class="plus-f" id="plus-f">
+      <li data-reveal data-glow><span class="ic-tile" style="--k:#1f8080"><svg><use href="#i-groupe"/></svg></span><b>Comptes entre amis</b><small>Qui a payé quoi, et les remboursements en un minimum de virements.</small></li>
+      <li data-reveal data-glow style="--d:.04s"><span class="ic-tile" style="--k:#3378cc"><svg><use href="#i-euro"/></svg></span><b>Dépenses en devises</b><small>Saisissez en yens ou en dirhams, Escale convertit dans votre devise.</small></li>
+      <li data-reveal data-glow style="--d:.08s"><span class="ic-tile" style="--k:#e87557"><svg><use href="#i-loupe"/></svg></span><b>Photos retrouvées</b><small>Les photos prises pendant le voyage, rangées par jour.</small></li>
+      <li data-reveal data-glow style="--d:.12s"><span class="ic-tile" style="--k:#8c66b8"><svg><use href="#i-partage"/></svg></span><b>Affiches sans filigrane</b><small>Trois styles d’affiche à partager, sans la mention Escale.</small></li>
+      <li data-reveal data-glow style="--d:.16s"><span class="ic-tile" style="--k:#db7d99"><svg><use href="#i-palette"/></svg></span><b>Thèmes exclusifs</b><small>Sakura, Glacier, Terracotta et Olivier pour vos carnets.</small></li>
+      <li data-reveal data-glow style="--d:.2s"><span class="ic-tile" style="--k:#4d5c94"><svg><use href="#i-visage"/></svg></span><b>Verrouillage Face ID</b><small>Votre journal reste privé, même téléphone déverrouillé.</small></li>
+      <li data-reveal data-glow style="--d:.24s"><span class="ic-tile" style="--k:#338c50"><svg><use href="#i-trace"/></svg></span><b>Export GPX</b><small>Vos tracés dans Komoot, Strava ou votre montre.</small></li>
+    </ul>
+
+    <div class="offres" role="radiogroup" aria-label="Formules Escale+" id="offres">
+      <button type="button" class="offre" role="radio" aria-checked="false" data-reveal data-tilt><span class="of-t">Mensuel</span><b class="of-p">2,99&#8239;€<small> par mois</small></b><span class="of-s">Idéal le temps d’un voyage</span><span class="of-cta">S’abonner pour un mois</span></button>
+      <button type="button" class="offre vedette" role="radio" aria-checked="true" data-reveal data-tilt style="--d:.06s"><span class="of-badge">Le plus choisi</span><span class="of-t">Annuel</span><b class="of-p">19,99&#8239;€<small> par an</small></b><span class="of-s">Soit 1,67&#8239;€ par mois · 7 jours offerts</span><span class="of-cta">Essayer 7 jours gratuitement</span></button>
+      <button type="button" class="offre" role="radio" aria-checked="false" data-reveal data-tilt style="--d:.12s"><span class="of-t">À vie</span><b class="of-p">49,99&#8239;€<small> une fois</small></b><span class="of-s">Un seul paiement, pour toujours</span><span class="of-cta">Acheter Escale+ à vie</span></button>
+    </div>
+    <p class="plus-note" data-reveal>Partage familial inclus. Renouvellement automatique, résiliable à tout moment dans Réglages › Abonnements, au moins 24&#8239;h avant la fin de la période. Merci de soutenir une app indépendante, sans publicité ni revente de données.</p>
+  </div>
+</section>
+
+<section class="section cta" id="telecharger">
+  <div class="cta-photo" aria-hidden="true"><img src="assets/img/photos/route-1280.webp" srcset="assets/img/photos/route-1280.webp 1280w, assets/img/photos/route-2400.webp 2400w" sizes="100vw" width="2400" height="1601" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <div class="cta-logo" data-reveal>
+      <i class="cta-onde"></i><i class="cta-onde o2"></i>
+      <svg class="cta-icon"><use href="#logo"/></svg>
+    </div>
+    <h2 class="title center serif" data-reveal style="--d:.05s">Bon voyage.</h2>
+    <p class="lead center" data-reveal style="--d:.1s">Escale arrive bientôt sur iPhone.</p>
+    <div class="cta-btns" data-reveal style="--d:.15s">
+      <span class="store magnet"><svg><use href="#i-pomme"/></svg><span><small>Bientôt sur l’</small>App Store</span></span>
+      <a class="btn btn-ghost" href="#haut">Revenir en haut<svg class="up"><use href="#i-fleche-bas"/></svg></a>
+    </div>
+    <p class="cta-note" data-reveal style="--d:.2s">iOS 27 ou plus récent. Gratuit, avec Escale+ en option.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="nav-logo" href="#haut"><svg><use href="#logo"/></svg><span>Escale</span></a>
+    <p>Une app MTX Studio.</p>
+    <p class="foot-legal">© <span id="annee">2026</span> MTX Studio. Apple, iPhone, Face ID, Siri, Apple Plans et App Store sont des marques d’Apple Inc. Les écrans présentés sont des reconstitutions de l’app ; les voyages, montants et chiffres sont des exemples, les photos viennent d’Unsplash.</p>
+  </div>
+</footer>
+
+<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-escale.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Escale tient tout le voyage, du billet aux souvenirs.</h2>
+    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-tags">App iPhone · Carnet de voyage<br>SwiftUI · MapKit · PhotoKit · StoreKit 2</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=escale">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · MTX Studio</title>
+<meta name="description" content="Décrivez votre projet : MTX Studio vous répond sous 48 h avec une première proposition.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Contact · MTX Studio">
+<meta property="og:description" content="Décrivez votre projet : MTX Studio vous répond sous 48 h avec une première proposition.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/img/mtx-icone.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/mtx.css">
+<script src="assets/js/mtx.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wide nav-in">
+    <a href="index.html" class="logo" aria-label="MTX Studio, accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      MTX Studio
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="formules.html">Formules</a></li>
+        <li><a href="studio.html">Studio</a></li>
+      </ul>
+    </nav>
+    <div class="nav-r">
+      <a href="contact.html" class="btn btn-blue btn-sm" aria-current="page">Démarrer un projet</a>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Menu">
+  <a href="index.html">Accueil</a><a href="services.html">Services</a><a href="realisations.html">Réalisations</a><a href="formules.html">Formules</a><a href="studio.html">Studio</a><a href="contact.html" aria-current="page">Contact</a>
+</nav>
+
+<main id="top">
+  <header class="phead w" id="contact">
+    <p class="eyebrow">Contact</p>
+    <h1 class="h-xl">Parlons de<br><span class="grad">votre projet.</span></h1>
+    <p class="lead">Décrivez votre idée. On vous répond sous 48 h avec une première proposition.</p>
+  </header>
+
+  <section aria-label="Formulaire de contact">
+    <div class="w">
+      <form class="form-card" id="form" novalidate>
+        <p class="grp-t">Vous êtes</p>
+        <div class="choice">
+          <input type="radio" name="profil" id="c-pro" value="pro" checked><label for="c-pro">Professionnel</label>
+          <input type="radio" name="profil" id="c-part" value="part"><label for="c-part">Particulier</label>
+        </div>
+        <p class="grp-t">Votre besoin</p>
+        <div class="choice">
+          <input type="checkbox" name="b" id="c-web" checked><label for="c-web">Site web</label>
+          <input type="checkbox" name="b" id="c-app"><label for="c-app">Application</label>
+          <input type="checkbox" name="b" id="c-ia"><label for="c-ia">Solution IA</label>
+          <input type="checkbox" name="b" id="c-nsp"><label for="c-nsp">Je ne sais pas encore</label>
+        </div>
+        <div class="two" style="margin-top:12px">
+          <div class="fld"><input id="f-name" name="name" placeholder=" " autocomplete="name"><label for="f-name">Nom</label></div>
+          <div class="fld"><input id="f-mail" name="email" type="email" placeholder=" " autocomplete="email"><label for="f-mail">E-mail</label></div>
+        </div>
+        <div class="fld"><textarea id="f-msg" name="msg" rows="4" placeholder=" "></textarea><label for="f-msg">Votre projet en quelques lignes</label></div>
+        <input class="honey" id="f-honey" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-foot">
+          <span class="status" id="status" role="status"><small>Réponse sous 48 h, sans engagement.</small></span>
+          <button class="btn btn-blue" type="submit">Envoyer</button>
+        </div>
+        <p class="form-legal">Vos informations servent uniquement à répondre à votre demande. Elles passent par le relais FormSubmit avant d’arriver dans notre messagerie. <a href="confidentialite.html">Politique de confidentialité</a></p>
+      </form>
+      <p class="mail">Ou écrivez-nous : <code id="mail">mtxstudio@proton.me</code><button class="copy" id="copy" type="button">Copier</button></p>
+      <p class="zone">Rendez-vous en visio, partout en France.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wide">
+    <div class="fcols">
+      <div><h4>Services</h4><a href="services.html#sites-web">Sites web</a><a href="services.html#applications">Applications</a><a href="services.html#solutions-ia">Solutions IA</a></div>
+      <div><h4>Réalisations</h4><a href="realisations/memora/index.html">Memora</a><a href="realisations/triade/index.html">Triade</a><a href="realisations/foulee/index.html">Foulée</a><a href="realisations/synapse/index.html">Synapse</a><a href="realisations/elan/index.html">Élan</a><a href="realisations/viewer/index.html">MTX Viewer</a><a href="realisations/escale/index.html">Escale</a><a href="realisations/maillon/index.html">Maillon</a><a href="realisations/tiroir/index.html">Tiroir</a><a href="realisations/mue/index.html">Mue</a><a href="realisations/triade-mac/index.html">Triade pour Mac</a><a href="realisations/volta/index.html">Volta</a><a href="realisations.html">Toutes les réalisations</a></div>
+      <div><h4>Pour vous</h4><a href="formules.html?profil=pro">Professionnels</a><a href="formules.html?profil=part">Particuliers</a></div>
+      <div><h4>Studio</h4><a href="studio.html#methode">Méthode</a><a href="studio.html#fondateur">Fondateur</a></div>
+      <div><h4>Contact</h4><a href="contact.html">Démarrer un projet</a><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a></nav><span>Conçu et développé par MTX Studio.</span></div>
+  </div>
+</footer>
+</body>
+</html>

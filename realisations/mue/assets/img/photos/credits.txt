@@ -1,0 +1,3 @@
+Photo d'exemple du site Mue — Unsplash, licence Unsplash (https://unsplash.com/license).
+photo.webp : Lenin Estrada, https://unsplash.com/photos/_LdSmr08lAk (recadrée 600:380).
+photo-detouree.webp : la même, sujet détouré avec Vision (VNGenerateForegroundInstanceMaskRequest).

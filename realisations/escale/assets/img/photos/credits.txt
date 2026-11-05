@@ -1,0 +1,34 @@
+Photos d'exemple du site Escale — Unsplash, licence Unsplash (https://unsplash.com/license).
+Les fichiers « -p » sont des vignettes, « affiche-* » des recadrages 9:16 des photos vernazza et lisbonne.
+
+levanto         Artiom Vallat          https://unsplash.com/photos/iTktHVyI0Ys
+monterosso      Daniel Rickard         https://unsplash.com/photos/QA0iSOnR_g4
+vernazza        Wojciech Wyszkowski    https://unsplash.com/photos/BOn6KwTsJLk
+pesto           Nerfee Mirandilla      https://unsplash.com/photos/cBrhiz8XHAs
+sentier         Josh Hild              https://unsplash.com/photos/N3e9vYJGZ1w
+manarola-soir   Marco Grosso           https://unsplash.com/photos/bIjSZN7MTWw
+riomaggiore     Robert Anitei          https://unsplash.com/photos/RAFoYsscEJ8
+corniglia       35MM North             https://unsplash.com/photos/lYC8HzGmbYs
+focaccia        Lucia Gherra           https://unsplash.com/photos/UFv76iOCKmA
+port            Sean Sweeney           https://unsplash.com/photos/HC338Uz4zGc
+manarola        Tom Podmore            https://unsplash.com/photos/tnAtAIG_9Mo
+corniglia-mer   Amandine VEYRON        https://unsplash.com/photos/AH7hRkXMF0E
+lisbonne        Maksim Shutov          https://unsplash.com/photos/Emb4F5nAX6o
+
+Ajouts du 5 novembre 2026 (photos réparties sur toute la page) :
+hero-manarola-*     Marc Zimmer            https://unsplash.com/photos/JAJzmRREjPI
+ciel-avion-*        Nikola Ancevski        https://unsplash.com/photos/er7TM4GPqWg
+route-*             Gilberto Parada        https://unsplash.com/photos/2_0yendZrko
+vernazza-grand      Wojciech Wyszkowski    https://unsplash.com/photos/BOn6KwTsJLk
+valise-ouverte      Arnel Hasanovic        https://unsplash.com/photos/Nl-SXO4FAHw
+diner-vernazza      Zoshua Colah           https://unsplash.com/photos/tpwBvCO28Jg
+pastille-gare       Filiz Elaerts          https://unsplash.com/photos/dEynWl5UwL0
+pastille-sentier    Josh Hild              https://unsplash.com/photos/N3e9vYJGZ1w (recadrage de « sentier »)
+pastille-valise     Shawn Augustine        https://unsplash.com/photos/rWDmSDfTlos
+pastille-souvenir   Rirri                  https://unsplash.com/photos/fdogTkCRHG4
+voyage-kyoto        Roméo A.               https://unsplash.com/photos/SlIl9eZjWUc
+voyage-marrakech    Don Fontijn            https://unsplash.com/photos/BeMc6A68Mpg
+voyage-islande      norbert velescu        https://unsplash.com/photos/vNwvj8Ez7IE
+voyage-new-york     Robert Bye             https://unsplash.com/photos/WTPp4wgourk
+voyage-santorin     Tânia Mousinho         https://unsplash.com/photos/vF0l0bqLRKY
+voyage-ligurie      Robert Anitei          https://unsplash.com/photos/RAFoYsscEJ8 (recadrage de « riomaggiore »)

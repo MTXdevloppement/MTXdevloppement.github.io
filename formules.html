@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formules · MTX Studio</title>
+<meta name="description" content="Site web, application ou solution IA : la formule adaptée aux professionnels comme aux particuliers.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Formules · MTX Studio">
+<meta property="og:description" content="Site web, application ou solution IA : la formule adaptée aux professionnels comme aux particuliers.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/img/mtx-icone.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/mtx.css">
+<script src="assets/js/mtx.js" defer></script>
+<script src="assets/js/formules.js" defer></script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wide nav-in">
+    <a href="index.html" class="logo" aria-label="MTX Studio, accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      MTX Studio
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="formules.html" aria-current="page">Formules</a></li>
+        <li><a href="studio.html">Studio</a></li>
+      </ul>
+    </nav>
+    <div class="nav-r">
+      <a href="contact.html" class="btn btn-blue btn-sm">Démarrer un projet</a>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Menu">
+  <a href="index.html">Accueil</a><a href="services.html">Services</a><a href="realisations.html">Réalisations</a><a href="formules.html" aria-current="page">Formules</a><a href="studio.html">Studio</a><a href="contact.html">Contact</a>
+</nav>
+
+<main id="top">
+  <header class="phead w">
+    <p class="eyebrow">Formules</p>
+    <h1 class="h-l">Quelle solution<br>pour vous ?</h1>
+    <div><div class="seg" id="seg" role="group" aria-label="Type de client">
+      <span class="thumb" aria-hidden="true"></span>
+      <button type="button" aria-pressed="true" data-k="pro">Professionnels</button>
+      <button type="button" aria-pressed="false" data-k="part">Particuliers</button>
+    </div></div>
+  </header>
+
+  <section aria-label="Comparatif des formules">
+    <div class="wide">
+      <div class="cmp" id="cmp">
+        <div class="col">
+          <span class="ic" style="background:linear-gradient(180deg,#0a84ff,#0040dd)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8h18M8 21h8"/></svg></span>
+          <h2 class="h3">Site web</h2><p class="tag" data-pro="Vitrine, e-commerce, landing" data-part="Portfolio, événement, blog">Vitrine, e-commerce, landing</p>
+          <ul class="cmp-list" data-pro="Design sur mesure|Référencement Google|Formulaire et prise de contact|Statistiques de visite" data-part="Design à votre image|Nom de domaine inclus|Galerie photo ou vidéo|Modifiable en autonomie"></ul>
+          <div class="cta"><a href="contact.html?profil=pro&amp;besoin=web" data-besoin="web" class="btn btn-blue">Demander un devis</a><a href="services.html#sites-web" class="more">En savoir plus</a></div>
+        </div>
+        <div class="col">
+          <span class="ic" style="background:linear-gradient(180deg,#30d158,#248a3d)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+          <h2 class="h3">Application</h2><p class="tag" data-pro="Gestion, réservation, espace client" data-part="Suivi, organisation, MVP">Gestion, réservation, espace client</p>
+          <ul class="cmp-list" data-pro="iPhone, iPad, Mac et web|Connexion à vos outils|Comptes et rôles utilisateurs|Évolutions continues" data-part="iPhone, iPad, Mac ou web|Interface simple et claire|Données synchronisées|Accompagnement au lancement"></ul>
+          <div class="cta"><a href="contact.html?profil=pro&amp;besoin=app" data-besoin="app" class="btn btn-blue">Demander un devis</a><a href="services.html#applications" class="more">En savoir plus</a></div>
+        </div>
+        <div class="col">
+          <span class="ic" style="background:var(--glow)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span>
+          <h2 class="h3">Solution IA</h2><p class="tag" data-pro="Chatbot, automatisation, devis" data-part="Assistant, rédaction, initiation">Chatbot, automatisation, devis</p>
+          <ul class="cmp-list" data-pro="Windows, macOS, Linux et web|Branchée à vos documents et outils|Conforme au RGPD|Formation de vos équipes" data-part="Windows, macOS, Linux ou web|Assistant personnel et privé|Tâches administratives automatisées|Prise en main guidée"></ul>
+          <div class="cta"><a href="contact.html?profil=pro&amp;besoin=ia" data-besoin="ia" class="btn btn-blue">Demander un devis</a><a href="services.html#solutions-ia" class="more">En savoir plus</a></div>
+        </div>
+      </div>
+      <div class="sec-foot"><a href="studio.html#methode" class="more">Comment se déroule un projet</a></div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="cta-t">
+    <div class="w fade">
+      <h2 class="h-xl" id="cta-t">Une hésitation&#8239;?<br><span class="grad">On choisit ensemble.</span></h2>
+      <p class="lead">Décrivez votre idée. On vous répond sous 48 h avec une première proposition.</p>
+      <div class="cta"><a href="contact.html" class="btn btn-blue">Démarrer un projet</a><a href="realisations.html" class="more">Voir nos réalisations</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wide">
+    <div class="fcols">
+      <div><h4>Services</h4><a href="services.html#sites-web">Sites web</a><a href="services.html#applications">Applications</a><a href="services.html#solutions-ia">Solutions IA</a></div>
+      <div><h4>Réalisations</h4><a href="realisations/memora/index.html">Memora</a><a href="realisations/triade/index.html">Triade</a><a href="realisations/foulee/index.html">Foulée</a><a href="realisations/synapse/index.html">Synapse</a><a href="realisations/elan/index.html">Élan</a><a href="realisations/viewer/index.html">MTX Viewer</a><a href="realisations/escale/index.html">Escale</a><a href="realisations/maillon/index.html">Maillon</a><a href="realisations/tiroir/index.html">Tiroir</a><a href="realisations/mue/index.html">Mue</a><a href="realisations/triade-mac/index.html">Triade pour Mac</a><a href="realisations/volta/index.html">Volta</a><a href="realisations.html">Toutes les réalisations</a></div>
+      <div><h4>Pour vous</h4><a href="formules.html?profil=pro">Professionnels</a><a href="formules.html?profil=part">Particuliers</a></div>
+      <div><h4>Studio</h4><a href="studio.html#methode">Méthode</a><a href="studio.html#fondateur">Fondateur</a></div>
+      <div><h4>Contact</h4><a href="contact.html">Démarrer un projet</a><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a></nav><span>Conçu et développé par MTX Studio.</span></div>
+  </div>
+</footer>
+</body>
+</html>

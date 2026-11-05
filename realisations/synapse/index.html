@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Synapse — Retiens tout, pour de bon · MTX Studio</title>
+<meta name="description" content="Synapse, l'app iPhone de cartes mémoire à répétition espacée : chaque carte revient juste avant que tu l'oublies. 100 % locale, sans compte, sans publicité.">
+<meta name="theme-color" content="#07060d">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Synapse — Retiens tout, pour de bon">
+<meta property="og:description" content="Cartes mémoire, textes à trous, réponses à taper : Synapse calcule le moment idéal pour revoir chaque carte.">
+<meta property="og:image" content="assets/img/synapse-icone-512.png">
+<link rel="icon" href="assets/img/synapse-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script>
+document.documentElement.classList.add('js');
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css">
+<script src="../../assets/js/projet.js" defer></script>
+</head>
+<body id="haut">
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>MTX Studio</a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=synapse">Démarrer un projet</a></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="gLogoBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26104f"/><stop offset="1" stop-color="#08080f"/></linearGradient>
+  <linearGradient id="gLogoCard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <linearGradient id="gFlame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde047"/><stop offset=".55" stop-color="#fb923c"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+  <linearGradient id="gCurve" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".35"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></linearGradient>
+</defs>
+
+<symbol id="logo" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22.5" fill="url(#gLogoBg)"/>
+  <rect x="40" y="18" width="40" height="56" rx="8" fill="#1b1b2a" stroke="#22d3ee" stroke-opacity=".7" stroke-width="1.2" transform="rotate(14 60 46)"/>
+  <rect x="22" y="22" width="44" height="60" rx="8" fill="url(#gLogoCard)" transform="rotate(-6 44 52)"/>
+  <g stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M44 52 34 40M44 52 57 45M44 52 38 66M44 52 54 67M34 40 57 45M38 66 54 67"/></g>
+  <g fill="#fff"><circle cx="34" cy="40" r="4.2"/><circle cx="57" cy="45" r="4.2"/><circle cx="38" cy="66" r="4.2"/><circle cx="54" cy="67" r="4.2"/><circle cx="44" cy="52" r="6"/></g>
+  <circle cx="44" cy="52" r="2.6" fill="#7c4ce6"/>
+</symbol>
+
+<symbol id="sb" viewBox="0 0 76 14">
+  <g fill="#fff"><rect x="0" y="8.5" width="3" height="4" rx=".8"/><rect x="4.7" y="6.5" width="3" height="6" rx=".8"/><rect x="9.4" y="4" width="3" height="8.5" rx=".8"/><rect x="14.1" y="1.5" width="3" height="11" rx=".8"/></g>
+  <g fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round"><path d="M23.4 5.6a9 9 0 0 1 12.7 0"/><path d="M25.9 8.2a5.4 5.4 0 0 1 7.7 0"/></g><circle cx="29.75" cy="11.3" r="1.7" fill="#fff"/>
+  <rect x="45.5" y="1" width="25" height="12" rx="3.8" fill="none" stroke="#fff" stroke-opacity=".45"/><rect x="47.5" y="3" width="15" height="8" rx="2" fill="#fff"/><rect x="71.8" y="4.8" width="1.6" height="4.4" rx=".8" fill="#fff" fill-opacity=".45"/>
+</symbol>
+
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path fill="url(#gFlame)" d="M12.6 2.2c.4 3.3 3.1 4.9 4.6 7.6 1.9 3.4.6 9.6-5.3 10.9-4.3.9-8.2-2.4-7.6-6.9.3-2.5 1.8-4.2 3.1-5.4-.1 1.6.4 3 1.6 3.6-.3-3.6 1.4-7.1 3.6-9.8Z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.7L9 3.94a1 1 0 0 0-1.5.86Z"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-stack" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><rect x="6" y="5" width="12" height="2" rx="1" opacity=".6"/><rect x="8" y="2.5" width="8" height="1.6" rx=".8" opacity=".35"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1.2"/><rect x="10" y="7" width="4" height="14" rx="1.2"/><rect x="17" y="3" width="4" height="18" rx="1.2"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><path d="M10.3 2h3.4l.5 2.6c.7.3 1.3.6 1.9 1.1l2.5-.9 1.7 3-2 1.7c.1.7.1 1.3 0 2l2 1.7-1.7 3-2.5-.9c-.6.5-1.2.8-1.9 1.1l-.5 2.6h-3.4l-.5-2.6c-.7-.3-1.3-.6-1.9-1.1l-2.5.9-1.7-3 2-1.7a6 6 0 0 1 0-2l-2-1.7 1.7-3 2.5.9c.6-.5 1.2-.8 1.9-1.1L10.3 2Zm1.7 6.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9h3.5L12 5v14l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z"/><path d="M9.5 18.5a2.5 2.5 0 0 0 5 0"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+<symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9.5h18M3 14.5h18M9.5 9.5V20" stroke="currentColor" stroke-width="2"/></symbol>
+<symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3v11M7.5 9.5 12 14l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15v3a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 18v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9z"/><path d="M19 15l.9 2.1 2.1.9-2.1.9L19 21l-.9-2.1-2.1-.9 2.1-.9z" opacity=".7"/></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 10h1M9.5 10h1M13 10h1M16.5 10h1M7.5 14h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-cloze" viewBox="0 0 24 24"><path d="M3 7h6M15 7h6M3 12h4M17 12h4M3 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><rect x="10" y="9.5" width="6" height="5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2 1.6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.8"/></symbol>
+<symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 3.5 3.5L15 14l5 4.5"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h1.5M6.5 8v8M10 5v14M13.5 8.5v7M17 6.5v11M20.5 10.5v3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-bug" viewBox="0 0 24 24"><ellipse cx="12" cy="13.5" rx="6" ry="7"/><circle cx="12" cy="6" r="3"/><path d="M3.5 10l3 1.5M20.5 10l-3 1.5M3 15h3M21 15h-3M4 20l3-2M20 20l-3-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4.5h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+<symbol id="i-user-off" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.2-3.6 4.2-5.5 8-5.5s6.8 1.9 8 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.6 9.1 4.7 4.7 0 0 0 7 18.5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M4 18h16M7 14.5a5 5 0 0 1 10 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M12 3v4M5 7.5l2 2M19 7.5l-2 2M2.5 21.5h19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="#haut" aria-label="Synapse, retour en haut"><svg><use href="#logo"/></svg><span>Synapse</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#methode">Méthode</a>
+      <a href="#essayer">Essayer</a>
+      <a href="#cartes">Cartes</a>
+      <a href="#statistiques">Statistiques</a>
+      <a href="#fonctions">Fonctions</a>
+    </nav>
+    <a class="nav-cta magnet" href="#telecharger"><span>Bientôt sur iPhone</span></a>
+  </div>
+</header>
+
+<main id="contenu">
+
+<section class="hero" data-scope>
+  <canvas class="neurons" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="wrap hero-head">
+    <p class="hero-badge rise" style="--d:.05s"><svg><use href="#logo"/></svg><span>Synapse pour iPhone</span><i></i><span class="hero-badge-tag">Répétition espacée</span></p>
+    <h1 class="hero-title">
+      <span class="line"><span class="w" style="--d:.12s">Retiens</span> <span class="w" style="--d:.2s">tout.</span></span>
+      <span class="line"><em class="w serif grad" style="--d:.34s">Pour de bon.</em></span>
+    </h1>
+    <p class="hero-lead rise" style="--d:.55s">Synapse te ramène chaque carte <strong>juste avant</strong> que tu l'oublies. Quelques minutes par jour, au bon moment, plutôt que des heures de relecture la veille de l'examen.</p>
+    <div class="hero-cta rise" style="--d:.68s">
+      <a class="btn btn-main magnet" href="#telecharger"><span>Bientôt sur iPhone</span></a>
+      <a class="btn btn-ghost" href="#essayer">Essayer une révision<svg><use href="#i-chev-d"/></svg></a>
+    </div>
+  </div>
+
+  <div class="hero-stage" aria-hidden="true">
+    <div class="par par-l" data-par="-1"><div class="phone-in" style="--d:.55s"><div class="tilt">
+      <div class="iphone side"><div class="screen">
+        <div class="ui scr-decks">
+          <div class="nr nr-end"><svg><use href="#i-plus"/></svg></div>
+          <h3 class="lt">Synapse</h3>
+          <div class="today">
+            <div class="today-top">
+              <div><small>Bonsoir</small><b>34 cartes à réviser</b></div>
+              <span class="flame"><svg><use href="#i-flame"/></svg><em>12 j</em></span>
+            </div>
+            <div class="today-counts"><span style="--c:#60a5fa"><b>8</b>Nouvelles</span><span style="--c:#f87171"><b>3</b>Apprentissage</span><span style="--c:#34d399"><b>23</b>À réviser</span></div>
+            <div class="today-meta"><span>✓ 41 aujourd'hui</span><span>◷ 9 min</span></div>
+            <div class="today-btn"><svg><use href="#i-play"/></svg>Réviser tout</div>
+          </div>
+          <div class="decks-head"><b>Mes paquets</b></div>
+          <ul class="decks">
+            <li><span class="dk-ic" style="--c:#22d3ee">🌍</span><span class="dk-tx"><b>Capitales du monde</b><small>40 cartes <i style="--p:.62;--c:#22d3ee"></i></small></span><span class="dk-n"><b class="n">5</b><b class="l">0</b><b class="r">9</b></span></li>
+            <li><span class="dk-ic" style="--c:#f472b6">🇬🇧</span><span class="dk-tx"><b>Anglais essentiel</b><small>80 cartes <i style="--p:.41;--c:#f472b6"></i></small></span><span class="dk-n"><b class="n">3</b><b class="l">2</b><b class="r">11</b></span></li>
+            <li><span class="dk-ic" style="--c:#8b5cf6">🧠</span><span class="dk-tx"><b>Culture générale</b><small>24 cartes <i style="--p:.28;--c:#8b5cf6"></i></small></span><span class="dk-n"><b class="n">0</b><b class="l">1</b><b class="r">3</b></span></li>
+            <li><span class="dk-ic" style="--c:#34d399">🧪</span><span class="dk-tx"><b>Symboles chimiques</b><small>20 cartes <i style="--p:.75;--c:#34d399"></i></small></span><span class="dk-n"><b class="n">0</b><b class="l">0</b><b class="r">0</b></span></li>
+          </ul>
+          <div class="tabbar"><span class="on"><svg><use href="#i-stack"/></svg>Paquets</span><span><svg><use href="#i-search"/></svg>Parcourir</span><span><svg><use href="#i-chart"/></svg>Statistiques</span><span><svg><use href="#i-gear"/></svg>Réglages</span></div>
+          <div class="sb"><span class="sb-time">21:47</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
+        </div>
+      </div></div>
+    </div></div></div>
+
+    <div class="par par-c" data-par="0"><div class="phone-in" style="--d:.3s"><div class="tilt">
+      <div class="iphone"><div class="screen">
+        <div class="ui scr-review" data-review="auto"></div>
+      </div></div>
+    </div></div></div>
+
+    <div class="par par-r" data-par="1"><div class="phone-in" style="--d:.7s"><div class="tilt">
+      <div class="iphone side"><div class="screen">
+        <div class="ui scr-stats" data-stats-screen></div>
+      </div></div>
+    </div></div></div>
+
+    <div class="float-notif">
+      <span class="n-ic"><svg><use href="#logo"/></svg></span>
+      <span class="n-tx"><span class="n-row"><b>Synapse</b><small>maintenant</small></span><b>C'est l'heure de réviser 🧠</b><span>34 cartes t'attendent. Quelques minutes suffisent pour garder ta série.</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="manifeste" aria-label="Le principe">
+  <div class="wrap">
+    <p class="mani-text" data-words>Sans révision, <span class="g">une bonne partie</span> de ce que tu viens d'apprendre s'efface en quelques jours. Sauf si tu le revois <span class="g">au bon moment.</span> Synapse calcule ce moment, carte par carte, pour toi.</p>
+  </div>
+</section>
+
+<section class="curve" id="methode">
+  <div class="curve-sticky">
+    <div class="wrap curve-grid">
+      <div class="curve-text">
+        <p class="eyebrow">La méthode</p>
+        <h2 class="title">Chaque révision <em class="serif">ralentit</em> l'oubli.</h2>
+        <ol class="curve-steps">
+          <li class="curve-step is-active"><span class="num">1</span><div><h3>Tu apprends</h3><p>Sans rappel, la mémoire s'effondre en quelques jours : c'est la courbe de l'oubli.</p></div></li>
+          <li class="curve-step"><span class="num">2</span><div><h3>Premier rappel, le lendemain</h3><p>Synapse te ramène la carte au moment où elle commence à t'échapper.</p></div></li>
+          <li class="curve-step"><span class="num">3</span><div><h3>Des intervalles qui s'allongent</h3><p>3 jours, 8 jours, 3 semaines… À chaque bonne réponse, l'écart grandit.</p></div></li>
+          <li class="curve-step"><span class="num">4</span><div><h3>Ancré pour des mois</h3><p>Une poignée de révisions suffit. Le reste du temps, tu apprends du nouveau.</p></div></li>
+        </ol>
+      </div>
+      <figure class="curve-fig">
+        <div class="curve-hud">
+          <div><small>Rétention</small><b data-retention>100 %</b></div>
+          <div><small>Révisions</small><b data-reviews>0</b></div>
+          <div><small>Jour</small><b data-day>0</b></div>
+        </div>
+        <svg class="curve-svg" viewBox="0 0 640 360" role="img" aria-label="Courbe de rétention : sans révision la mémoire chute vers 10 %, avec Synapse elle remonte à chaque révision et décroît de plus en plus lentement.">
+          <g class="curve-grid-lines">
+            <line x1="40" y1="30" x2="620" y2="30"/><line x1="40" y1="105" x2="620" y2="105"/><line x1="40" y1="180" x2="620" y2="180"/><line x1="40" y1="255" x2="620" y2="255"/><line x1="40" y1="330" x2="620" y2="330"/>
+          </g>
+          <g class="curve-axis">
+            <text x="32" y="34" text-anchor="end">100 %</text><text x="32" y="184" text-anchor="end">50 %</text><text x="32" y="334" text-anchor="end">0 %</text>
+          </g>
+          <g class="curve-days" data-days></g>
+          <path class="curve-forget" data-forget d=""/>
+          <path class="curve-area" data-area d=""/>
+          <path class="curve-line" data-line d=""/>
+          <g data-dots></g>
+          <circle class="curve-head" data-head r="7" cx="40" cy="30"/>
+        </svg>
+        <figcaption><span class="lg lg-a"></span>Avec Synapse <span class="lg lg-b"></span>Sans révision</figcaption>
+      </figure>
+    </div>
+    <div class="curve-progress" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<section class="section try" id="essayer" data-scope>
+  <div class="wrap try-grid">
+    <div class="try-text" data-reveal>
+      <p class="eyebrow">Essaie maintenant</p>
+      <h2 class="title">Une vraie session,<br>ici même.</h2>
+      <p class="lead">Retourne la carte, puis dis honnêtement si tu t'en souvenais. Les intervalles affichés sous les boutons sont calculés par le même algorithme que dans l'app.</p>
+      <ul class="try-keys">
+        <li><kbd>Espace</kbd> Afficher la réponse</li>
+        <li><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> Noter la carte</li>
+      </ul>
+      <div class="rates-legend">
+        <span style="--c:#ef4444"><b>À revoir</b>revient dans la minute</span>
+        <span style="--c:#f59e0b"><b>Difficile</b>intervalle un peu allongé</span>
+        <span style="--c:#10b981"><b>Correct</b>intervalle × facilité</span>
+        <span style="--c:#3b82f6"><b>Facile</b>encore plus loin</span>
+      </div>
+    </div>
+    <div class="try-phone" data-reveal>
+      <div class="try-halo" aria-hidden="true"></div>
+      <div class="tilt tilt-soft">
+        <div class="iphone big"><div class="screen">
+          <div class="ui scr-review" data-review="interactive" role="application" aria-label="Démonstration interactive d'une session de révision"></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="types" id="cartes">
+  <div class="types-sticky">
+    <div class="wrap types-head">
+      <p class="eyebrow">Quatre façons d'apprendre</p>
+      <h2 class="title">Des cartes qui s'adaptent<br>à <em class="serif">ce que</em> tu apprends.</h2>
+    </div>
+    <div class="types-track" data-track>
+
+      <article class="type-panel" data-scope>
+        <div class="type-copy">
+          <span class="type-ic"><svg><use href="#i-stack"/></svg></span>
+          <h3>Basique</h3>
+          <p>Une question, une réponse. Le classique, enrichi de Markdown et d'images.</p>
+        </div>
+        <div class="type-demo demo-flip" tabindex="0" aria-label="Carte basique : survole ou touche pour la retourner">
+          <div class="flip">
+            <div class="fc fc-front"><span class="badge" style="--c:#22d3ee">🌍 Capitales</span><p>Capitale : <strong>Japon</strong></p><small>Survole pour retourner</small></div>
+            <div class="fc fc-back"><span class="badge" style="--c:#22d3ee">🌍 Capitales</span><p>Capitale : <strong>Japon</strong></p><hr><p class="ans">Tokyo</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="type-panel" data-scope>
+        <div class="type-copy">
+          <span class="type-ic"><svg><use href="#i-swap"/></svg></span>
+          <h3>Recto / verso</h3>
+          <p>Une note, deux cartes : du français vers l'anglais, et l'inverse. Lecture vocale dans chaque langue.</p>
+        </div>
+        <div class="type-demo demo-swap">
+          <div class="mini mini-a"><span class="badge" style="--c:#f472b6">Recto → verso</span><p>la plage</p><b>the beach</b></div>
+          <span class="swap-ic"><svg><use href="#i-swap"/></svg></span>
+          <div class="mini mini-b"><span class="badge" style="--c:#8b5cf6">Verso → recto</span><p>the beach</p><b>la plage</b><i class="speak"><svg><use href="#i-speaker"/></svg></i></div>
+        </div>
+      </article>
+
+      <article class="type-panel" data-scope>
+        <div class="type-copy">
+          <span class="type-ic"><svg><use href="#i-cloze"/></svg></span>
+          <h3>Texte à trous</h3>
+          <p>Masque les mots-clés d'une phrase avec <code>{{c1::…}}</code>. Chaque trou devient sa propre carte.</p>
+        </div>
+        <div class="type-demo demo-cloze">
+          <p>Le cœur humain possède <span class="hole" data-n="1"><i>[ … ]</i><b>4</b></span> cavités : deux <span class="hole" data-n="2"><i>[ … ]</i><b>oreillettes</b></span> et deux <span class="hole" data-n="3"><i>[ … ]</i><b>ventricules</b></span>.</p>
+          <div class="cloze-tags"><span class="badge" style="--c:#8b5cf6">Trou 1</span><span class="badge" style="--c:#8b5cf6">Trou 2</span><span class="badge" style="--c:#8b5cf6">Trou 3</span><small>= 3 cartes</small></div>
+        </div>
+      </article>
+
+      <article class="type-panel" data-scope>
+        <div class="type-copy">
+          <span class="type-ic"><svg><use href="#i-keyboard"/></svg></span>
+          <h3>Saisie</h3>
+          <p>Tape la réponse au clavier. Synapse la compare en ignorant majuscules et accents.</p>
+        </div>
+        <div class="type-demo demo-type">
+          <span class="badge" style="--c:#34d399">🧪 Chimie</span>
+          <p>Symbole chimique : <strong>Or</strong></p>
+          <div class="type-field"><span data-typing></span><i class="caret"></i></div>
+          <div class="type-result"><svg><use href="#i-check"/></svg>Bonne réponse !</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section stats" id="statistiques" data-scope>
+  <div class="wrap stats-grid">
+    <div class="stats-phone" data-reveal>
+      <div class="tilt tilt-soft">
+        <div class="iphone"><div class="screen">
+          <div class="ui scr-stats" data-stats-screen data-live></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="stats-text">
+      <div data-reveal>
+        <p class="eyebrow">Statistiques</p>
+        <h2 class="title">Regarde ta mémoire <em class="serif">grandir.</em></h2>
+        <p class="lead">Carte d'activité, prévisions sur 30 jours, taux de rétention, meilleure heure d'étude : tout est calculé sur ton iPhone, à partir de tes réponses.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi" data-reveal style="--d:.05s"><b data-count="92" data-suffix=" %">0 %</b><span>de rétention moyenne visée</span></div>
+        <div class="kpi" data-reveal style="--d:.12s"><b data-count="30" data-suffix=" j">0 j</b><span>de prévisions de révisions</span></div>
+        <div class="kpi" data-reveal style="--d:.19s"><b data-count="26" data-suffix=" sem.">0 sem.</b><span>d'activité sur la carte de chaleur</span></div>
+        <div class="kpi" data-reveal style="--d:.26s"><b data-count="7">0</b><span>graphiques pour comprendre ta progression</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bento" id="fonctions">
+  <div class="wrap">
+    <div class="center" data-reveal>
+      <p class="eyebrow">Tout ce qu'il faut</p>
+      <h2 class="title">Tout pour tenir<br><em class="serif">ta série.</em></h2>
+    </div>
+    <div class="bento-grid">
+      <article class="tile t-wide" data-reveal>
+        <div class="tile-ic" style="--c:#8b5cf6"><svg><use href="#i-target"/></svg></div>
+        <h3>Un algorithme que tu règles</h3>
+        <p>Étapes d'apprentissage, facilité, bonus, intervalle maximum, modificateur global : les réglages fins d'Anki, avec des valeurs par défaut qui marchent.</p>
+        <div class="algo-chips"><span>1 min</span><span>10 min</span><span>1 j</span><span>3 j</span><span>8 j</span><span>21 j</span><span>2 mois</span></div>
+      </article>
+      <article class="tile" data-reveal style="--d:.06s">
+        <div class="tile-ic" style="--c:#22d3ee"><svg><use href="#i-table"/></svg></div>
+        <h3>Import CSV</h3>
+        <p>Récupère tes paquets Anki (texte brut), Quizlet ou Excel en quelques secondes.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.12s">
+        <div class="tile-ic" style="--c:#34d399"><svg><use href="#i-save"/></svg></div>
+        <h3>Sauvegarde complète</h3>
+        <p>Un fichier JSON avec cartes, images et historique. Tu le gardes où tu veux.</p>
+      </article>
+      <article class="tile" data-reveal>
+        <div class="tile-ic" style="--c:#f472b6"><svg><use href="#i-speaker"/></svg></div>
+        <h3>Lecture à voix haute</h3>
+        <p>13 langues, hors ligne, une langue pour le recto et une pour le verso.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.06s">
+        <div class="tile-ic" style="--c:#f59e0b"><svg><use href="#i-bell"/></svg></div>
+        <h3>Rappel quotidien</h3>
+        <p>Une notification locale à l'heure de ton choix, avec le nombre de cartes du jour.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.12s">
+        <div class="tile-ic" style="--c:#60a5fa"><svg><use href="#i-wave"/></svg></div>
+        <h3>« Réviser avec Synapse »</h3>
+        <p>Lance une session depuis Siri, Raccourcis ou Toucher le dos.</p>
+      </article>
+      <article class="tile t-wide t-night" data-reveal>
+        <div class="tile-ic" style="--c:#a78bfa"><svg><use href="#i-moon"/></svg></div>
+        <h3>Ta journée commence quand tu veux</h3>
+        <p>Tu révises tard le soir ou la nuit ? Choisis l'heure de bascule : les réponses données avant comptent pour la veille, et ta série reste intacte.</p>
+        <div class="dial" aria-hidden="true"><span class="dial-hand"></span><b>4 h</b></div>
+      </article>
+      <article class="tile" data-reveal style="--d:.06s">
+        <div class="tile-ic" style="--c:#ef4444"><svg><use href="#i-bug"/></svg></div>
+        <h3>Sangsues repérées</h3>
+        <p>Les cartes oubliées trop souvent sont signalées : reformule-les plutôt que de t'acharner.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.12s">
+        <div class="tile-ic" style="--c:#14b8a6"><svg><use href="#i-photo"/></svg></div>
+        <h3>Images &amp; Markdown</h3>
+        <p>Schémas, photos, <b>gras</b> et <i>italique</i> pour des cartes lisibles d'un coup d'œil.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section prive" id="confidentialite" data-scope>
+  <div class="wrap prive-grid">
+    <h2 class="prive-lines" aria-label="Pas de compte. Pas de serveur. Pas de traqueur.">
+      <span class="pl" data-reveal><svg><use href="#i-user-off"/></svg>Pas de compte.</span>
+      <span class="pl" data-reveal style="--d:.1s"><svg><use href="#i-cloud-off"/></svg>Pas de serveur.</span>
+      <span class="pl" data-reveal style="--d:.2s"><svg><use href="#i-eye-off"/></svg>Pas de traqueur.</span>
+    </h2>
+    <div class="prive-side" data-reveal style="--d:.25s">
+      <div class="lock"><svg><use href="#i-lock"/></svg></div>
+      <p class="lead">Tes cartes, tes réponses et tes statistiques restent sur ton iPhone. Aucune publicité, aucune connexion requise. Tu exportes une sauvegarde quand tu veux, où tu veux.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="wrap faq-wrap">
+    <div data-reveal>
+      <p class="eyebrow">Questions</p>
+      <h2 class="title">Bon à savoir.</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <details>
+        <summary>Qu'est-ce que la répétition espacée ?<i></i></summary>
+        <div class="faq-a"><p>Une méthode d'apprentissage qui espace les révisions d'une même information de plus en plus. Revoir une carte juste avant de l'oublier renforce durablement le souvenir, avec beaucoup moins de temps de révision qu'une relecture classique.</p></div>
+      </details>
+      <details>
+        <summary>Puis-je reprendre mes paquets Anki ?<i></i></summary>
+        <div class="faq-a"><p>Oui, via l'export « texte brut » d'Anki (fichier .txt ou .csv) : Synapse détecte le séparateur et te laisse choisir les colonnes du recto, du verso et des étiquettes. Les fichiers .apkg ne sont pas pris en charge.</p></div>
+      </details>
+      <details>
+        <summary>Mes cartes sont-elles synchronisées entre appareils ?<i></i></summary>
+        <div class="faq-a"><p>Non : Synapse fonctionne entièrement en local, sans compte. Pour changer d'iPhone, exporte une sauvegarde JSON et restaure-la sur le nouvel appareil.</p></div>
+      </details>
+      <details>
+        <summary>Combien de temps faut-il y consacrer ?<i></i></summary>
+        <div class="faq-a"><p>Avec 20 nouvelles cartes par jour, compte une dizaine de minutes au début, puis environ 200 révisions quotidiennes au bout d'un mois. Tu ajustes les limites pour chaque paquet.</p></div>
+      </details>
+      <details>
+        <summary>Que se passe-t-il si je saute un jour ?<i></i></summary>
+        <div class="faq-a"><p>Rien de grave : les cartes en retard sont présentées en priorité, et l'algorithme tient compte du retard pour calculer le prochain intervalle.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="telecharger" data-scope>
+  <div class="wrap center">
+    <div class="cta-icon" aria-hidden="true">
+      <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
+      <svg><use href="#logo"/></svg>
+    </div>
+    <h2 class="title cta-title" data-reveal>Ta mémoire mérite<br><em class="serif grad">mieux qu'un bachotage.</em></h2>
+    <p class="lead center" data-reveal style="--d:.1s">Synapse arrive bientôt sur iPhone. iOS 27 ou plus récent.</p>
+    <div class="cta-btns" data-reveal style="--d:.2s">
+      <a class="btn btn-main magnet" href="#haut"><span>Bientôt sur l'App Store</span></a>
+      <a class="btn btn-ghost" href="#essayer">Refaire une session<svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="nav-logo" href="#haut"><svg><use href="#logo"/></svg><span>Synapse</span></a>
+    <p>© <span id="annee">2026</span> Synapse. Conçu par MTX Studio pour iPhone.</p>
+    <p class="foot-legal">Apple, iPhone et App Store sont des marques d'Apple Inc. Anki est une marque de son éditeur. Les écrans présentés sont des reconstitutions de l'app.</p>
+  </div>
+</footer>
+
+<template id="tpl-review">
+  <div class="rv-top">
+    <span class="rv-round"><svg><use href="#i-x"/></svg></span>
+    <span class="rv-counts"><b class="c-new">0</b><b class="c-learn">0</b><b class="c-rev">0</b></span>
+    <span class="rv-round"><svg><use href="#i-more"/></svg></span>
+  </div>
+  <div class="rv-prog"><i></i></div>
+  <div class="rv-stage"></div>
+  <div class="rv-bottom">
+    <div class="rv-typed"><input class="rv-input" type="text" placeholder="Ta réponse…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Ta réponse"></div>
+    <button class="rv-show" type="button">Afficher la réponse</button>
+    <div class="rv-rates">
+      <button type="button" data-r="1" style="--c:#ef4444"><small></small>À revoir</button>
+      <button type="button" data-r="2" style="--c:#f59e0b"><small></small>Difficile</button>
+      <button type="button" data-r="3" style="--c:#10b981"><small></small>Correct</button>
+      <button type="button" data-r="4" style="--c:#3b82f6"><small></small>Facile</button>
+    </div>
+  </div>
+  <div class="rv-done">
+    <div class="done-badge"><svg><use href="#i-check"/></svg></div>
+    <h4>Session terminée</h4>
+    <p data-done-msg>Excellent travail !</p>
+    <div class="done-tiles"><span><b data-done-n>0</b>cartes</span><span><b data-done-acc>0 %</b>réussite</span></div>
+    <button class="rv-again" type="button">Recommencer</button>
+  </div>
+  <div class="sb"><span class="sb-time">21:48</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
+</template>
+
+<template id="tpl-stats">
+  <h3 class="lt lt-top">Statistiques</h3>
+  <div class="seg"><span>7 j</span><span class="on">30 j</span><span>3 mois</span><span>1 an</span></div>
+  <div class="st-kpis">
+    <div><i style="--c:#8b5cf6">✓</i><b data-k="612">612</b><small>Réponses</small></div>
+    <div><i style="--c:#22d3ee">◷</i><b>2 h 14</b><small>Temps d'étude</small></div>
+    <div><i style="--c:#10b981">◎</i><b data-k="91" data-s=" %">91 %</b><small>Rétention</small></div>
+    <div><i style="--c:#fb923c">✦</i><b data-k="12" data-s=" j">12 j</b><small>Série</small></div>
+  </div>
+  <div class="st-panel">
+    <b>Activité</b><small>26 dernières semaines</small>
+    <div class="heat"></div>
+  </div>
+  <div class="st-panel">
+    <b>Prévisions</b><small>30 prochains jours</small>
+    <div class="fbars"></div>
+  </div>
+  <div class="tabbar"><span><svg><use href="#i-stack"/></svg>Paquets</span><span><svg><use href="#i-search"/></svg>Parcourir</span><span class="on"><svg><use href="#i-chart"/></svg>Statistiques</span><span><svg><use href="#i-gear"/></svg>Réglages</span></div>
+  <div class="sb"><span class="sb-time">21:49</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
+</template>
+
+<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-synapse.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Synapse ramène chaque carte juste avant l’oubli.</h2>
+    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-tags">App iPhone · Apprentissage<br>SwiftUI · SwiftData · Swift Charts</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=synapse">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Photos de couverture des entreprises fictives du site Maillon — Unsplash, licence Unsplash (https://unsplash.com/license).
+Elles illustrent un métier et ne représentent pas ces entreprises.
+
+arg.webp       serjan midili                    https://unsplash.com/photos/mLx6oMw32PI
+volt.webp      mostafa mahmoudi                 https://unsplash.com/photos/47jO5Y8nsYo
+ferrand.webp   Gowtham AGM                      https://unsplash.com/photos/MXPWld5uysw
+peintres.webp  Andrew Itaga                     https://unsplash.com/photos/rMVjOX8nm2U
+bois.webp      Gustavo Sánchez                  https://unsplash.com/photos/Cg1Rv6Yk5Yg
+aqua.webp      Samuel Sianipar                  https://unsplash.com/photos/scUBcasSvbE
+jardins.webp   Point3D Commercial Imaging Ltd.  https://unsplash.com/photos/8c4kyStDeAE

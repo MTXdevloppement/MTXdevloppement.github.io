@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volta — Stock, devis et budget du service électricité · MTX Studio</title>
+<meta name="description" content="Volta, outil Mac sur mesure : stock de matériel électrique, demandes de devis aux fournisseurs et suivi du budget. 100 % local, testé à 50 000 articles et 500 000 mouvements.">
+<meta name="theme-color" content="#07101f">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/img/icone.png" type="image/png">
+<link rel="stylesheet" href="assets/css/socle.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>
+(function(r) {
+  r.classList.add('js');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('anim');
+})(document.documentElement);
+</script>
+<script src="assets/js/socle.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css">
+<script src="../../assets/js/projet.js" defer></script>
+</head>
+<body id="haut">
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>MTX Studio</a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=volta">Démarrer un projet</a></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true">
+<symbol id="i-pomme" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9C5.9 6.8 4 7.9 3 9.7c-2.1 3.6-.5 9 1.5 11.9 1 1.4 2.2 3 3.7 3 1.5-.1 2-1 3.8-1s2.3 1 3.8.9c1.6 0 2.6-1.4 3.5-2.9 1.1-1.6 1.6-3.2 1.6-3.3-.1 0-3.1-1.2-3.1-4.7zM13.6 4.9c.8-1 1.4-2.4 1.2-3.8-1.2.1-2.6.8-3.4 1.8-.8.9-1.4 2.3-1.3 3.6 1.3.1 2.7-.6 3.5-1.6z"/></symbol>
+<symbol id="i-fleche-bas" viewBox="0 0 24 24"><path d="M12 4v15m0 0-6-6m6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-grille" viewBox="0 0 24 24"><path d="M4 3h6.5c.6 0 1 .4 1 1v6.5c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1zm9.5 0H20c.6 0 1 .4 1 1v6.5c0 .6-.4 1-1 1h-6.5c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1zM4 12.5h6.5c.6 0 1 .4 1 1V20c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1v-6.5c0-.6.4-1 1-1zm9.5 0H20c.6 0 1 .4 1 1V20c0 .6-.4 1-1 1h-6.5c-.6 0-1-.4-1-1v-6.5c0-.6.4-1 1-1z"/></symbol>
+<symbol id="i-boite" viewBox="0 0 24 24"><path d="M12 2 21 6.5v11L12 22l-9-4.5v-11zm0 2.2L5.6 7.4 12 10.6l6.4-3.2zM4.5 8.9v7.7l6.7 3.4v-7.8zm15 0-6.7 3.3V20l6.7-3.4z"/></symbol>
+<symbol id="i-personnes" viewBox="0 0 24 24"><circle cx="9" cy="7.5" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5z"/><circle cx="17" cy="8.5" r="2.6"/><path d="M16.8 13.4c2.7.2 4.7 2.7 4.7 5.6h-4.6c0-2.2-.8-4.2-2.1-5.6z"/></symbol>
+<symbol id="i-enveloppe" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M5 5h14c1.4 0 2.5 1.1 2.5 2.5v9c0 1.4-1.1 2.5-2.5 2.5H5c-1.4 0-2.5-1.1-2.5-2.5v-9C2.5 6.1 3.6 5 5 5zm-.2 2.6 7.2 5 7.2-5-.6-.6H5.4z"/></symbol>
+<symbol id="i-euro" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm1.3 4.5c-2.6 0-4.6 1.6-5.2 4H6.8v1.5h1.1v1h-1.1v1.5h1.3c.6 2.4 2.6 4 5.2 4 1.4 0 2.6-.4 3.5-1.2l-.9-1.4c-.7.5-1.6.8-2.5.8-1.6 0-2.8-.9-3.3-2.2h3.6V13H9v-1h3.9v-1.5H9.3c.5-1.3 1.7-2.2 3.3-2.2.9 0 1.8.3 2.5.8l.9-1.4c-.9-.8-2.1-1.2-3.5-1.2z"/></symbol>
+<symbol id="i-loupe" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 6 12l4.3 4.3-1.5 1.5-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></symbol>
+<symbol id="i-oeil" viewBox="0 0 24 24"><path d="M12 5c5 0 9 4.3 10 7-1 2.7-5 7-10 7S3 14.7 2 12c1-2.7 5-7 10-7zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-eclair" viewBox="0 0 24 24"><path d="M13.5 2 4 13.5h6.5L9.5 22 20 9.5h-6.6z"/></symbol>
+<symbol id="i-nuage-barre" viewBox="0 0 24 24"><path d="M3.3 2 22 20.7 20.6 22l-2.6-2.6H7a5 5 0 0 1-1.7-9.7L1.9 3.4zm15.8 15.2L8.6 6.7A6.5 6.5 0 0 1 18.4 10 4.6 4.6 0 0 1 22 14.5c0 1.1-.4 2.1-1 2.9z"/></symbol>
+<symbol id="i-horloge" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1 4.5v6.3l4.6 2.8 1-1.6-3.6-2.2V6.5z"/></symbol>
+<symbol id="i-liste" viewBox="0 0 24 24"><path d="M4 5h2.5v2.5H4zm5 .3h11v2H9zM4 10.8h2.5v2.5H4zm5 .2h11v2H9zM4 16.5h2.5V19H4zm5 .3h11v2H9z"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="#haut" aria-label="Volta, retour en haut"><img src="assets/img/icone.webp" width="360" height="360" alt=""><span>Volta</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#tableau">Tableau de bord</a>
+      <a href="#stock">Stock</a>
+      <a href="#devis">Devis</a>
+      <a href="#budget">Budget</a>
+    </nav>
+    <a class="nav-cta" href="#telecharger">Outil sur mesure</a>
+  </div>
+  <i class="nav-progress" aria-hidden="true"></i>
+</header>
+
+<main id="contenu">
+
+<section class="hero" id="accueil" aria-label="Volta" data-scope>
+  <div class="hero-halo" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap hero-copy">
+    <p class="hero-eyebrow rise"><img src="assets/img/icone.webp" width="360" height="360" alt="">Volta · outil sur mesure pour Mac</p>
+    <h1 class="hero-title"><span class="rise" style="--d:.08s;display:block">Le magasin,</span><span class="rise grad" style="--d:.18s;display:block">sous contrôle.</span></h1>
+    <p class="hero-lead rise" style="--d:.3s">Le stock de matériel électrique, les demandes de devis aux fournisseurs et le budget d’un service technique hospitalier, dans une seule app Mac. <b>100&#8239;% local, testé à 50&#8239;000 articles.</b></p>
+    <div class="hero-btns rise" style="--d:.4s">
+      <a class="btn btn-main magnet" href="#tableau">Voir le tableau de bord<svg><use href="#i-fleche-bas"/></svg></a>
+    </div>
+  </div>
+
+  <div class="hero-stage rise" style="--d:.5s" id="tableau-scene">
+    <div class="echelle" style="--ratio:1100/680">
+      <div class="plateau" style="--pw:1100px;--ph:680px">
+        <div class="win vapp" id="tdb">
+          <aside class="v-side">
+            <span class="feux"><i></i><i></i><i></i></span>
+            <a class="v-nav on" href="#tableau"><svg><use href="#i-grille"/></svg>Tableau de bord</a>
+            <a class="v-nav" href="#stock"><svg><use href="#i-boite"/></svg>Stock</a>
+            <a class="v-nav" href="#tableau"><svg><use href="#i-personnes"/></svg>Fournisseurs</a>
+            <a class="v-nav" href="#devis"><svg><use href="#i-enveloppe"/></svg>Devis</a>
+            <a class="v-nav" href="#budget"><svg><use href="#i-euro"/></svg>Budget</a>
+          </aside>
+          <div class="v-main">
+            <div class="v-bar"><div><b>Tableau de bord</b><small>mardi 3 novembre 2026</small></div><button type="button" class="v-btn" id="tdb-edit" aria-pressed="false">Modifier la disposition</button><button type="button" class="v-btn" id="tdb-reset" hidden>Réinitialiser</button></div>
+            <div class="cartes" id="cartes">
+              <article class="cv" data-c="valeur"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#0a84ff"></i>Valeur du stock</h4><b class="cv-n" data-v="59.2" data-f="k">59,2 k€</b><small>362 articles en stock</small><small class="bas">↘ −4,4 % en 30 jours</small></article>
+              <article class="cv" data-c="commander"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#ff9f0a"></i>À commander</h4><b class="cv-n orange" data-v="70">70</b><small>20 % des articles · dont 12 en rupture</small><span class="cv-jauge"><i style="--w:66%;--c:#ff9f0a"></i><i style="--w:18%;--c:#ff453a"></i></span><small>37 sans demande de devis en cours</small></article>
+              <article class="cv" data-c="ruptures"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#ff453a"></i>Ruptures prévues</h4><b class="cv-n orange" data-v="10">10</b><small>épuisés avant la livraison d’une commande passée aujourd’hui</small>
+                <ul class="cv-liste"><li>CAB-00026 · Fil H07V-U 1,5 mm² bleu<em>3 j</em></li><li>CNX-00001 · Bornes automatiques 3 entrées<em>4 j</em></li><li>APP-00032 · Prise 2P+T encastrée<em>6 j</em></li></ul></article>
+              <article class="cv large" data-c="conso"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#30d158"></i>Consommation</h4><b class="cv-n" data-v="25600.64" data-f="eur">25 600,64 €</b><small>sortie du stock sur 30 jours · ↗ +8 % sur les 30 précédents</small>
+                <div class="barres" id="barres-conso"></div></article>
+              <article class="cv" data-c="relancer"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#bf5af2"></i>Devis à relancer</h4><b class="cv-n" data-v="4">4</b><small>sans réponse après 7 jours</small>
+                <ul class="cv-liste"><li>DDV-2026-0021 · Batifil Pro<em>12 j</em></li><li>DDV-2026-0024 · Distrilec<em>9 j</em></li></ul></article>
+              <article class="cv" data-c="budget"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#0a84ff"></i>Budget</h4><b class="cv-n" data-v="80" data-f="pc">80 %</b><small>du budget 2026 utilisé</small><span class="cv-jauge"><i style="--w:79%;--c:#0a84ff"></i><i style="--w:1%;--c:#64d2ff"></i><em style="--x:84%"></em></span><small>repère : 84 % de l’exercice écoulé</small></article>
+              <article class="cv large" data-c="categories"><button type="button" class="cv-oeil" aria-label="Masquer la carte"><svg><use href="#i-oeil"/></svg></button>
+                <h4><i style="--c:#64d2ff"></i>Dépenses par catégorie</h4><small>achats reçus sur l’exercice, face à leur enveloppe</small>
+                <ul class="cats"><li><span>Câbles et conducteurs</span><i style="--w:84%"></i><em>62 k€</em></li><li><span>Appareillage</span><i style="--w:86%"></i><em>23,4 k€</em></li><li><span>Protection</span><i style="--w:71%"></i><em>18,9 k€</em></li><li><span>Éclairage</span><i style="--w:58%"></i><em>14,2 k€</em></li></ul></article>
+            </div>
+            <div class="masquees" id="masquees" hidden><span>Cartes masquées&#8239;:</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manif" aria-label="En bref">
+  <div class="wrap">
+    <p class="manif-txt" id="manif">Un tableur partagé, des bons papier, des devis dans la messagerie&#8239;: le magasin tenait comme il pouvait. Volta remet tout au même endroit. <span class="k1">Le stock,</span> <span class="k2">les devis,</span> <span class="k3">le budget&#8239;:</span> chaque chiffre se recalcule seul, sur le Mac du service.</p>
+    <ul class="chiffres">
+      <li data-reveal><b class="num" data-compte="9">9</b><span>cartes au tableau de bord</span></li>
+      <li data-reveal style="--d:.06s"><b class="num" data-compte="50000">50 000</b><span>articles au banc d’essai</span></li>
+      <li data-reveal style="--d:.12s"><b class="num" data-compte="500000">500 000</b><span>mouvements, sans ralentir</span></li>
+      <li data-reveal style="--d:.18s"><b class="num" data-compte="131">131</b><span>tests automatiques</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chap" id="tableau" data-scope>
+  <div class="wrap">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-grille"/></svg>Tableau de bord</p>
+      <h2 class="title split" data-reveal>Neuf cartes. Un coup d’œil.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Chaque carte a son chiffre clé, ce qu’il mesure et un point de comparaison. Un clic ouvre la vue détaillée, déjà filtrée. Plus haut, touchez <b>Modifier la disposition</b>&#8239;: masquez une carte, puis réinitialisez.</p>
+    </header>
+    <ul class="specs">
+      <li data-reveal><b>Ruptures prévues</b><span>Les articles épuisés avant la livraison d’une commande passée aujourd’hui, d’après le délai du fournisseur.</span></li>
+      <li data-reveal style="--d:.05s"><b>Consommation</b><span>La valeur sortie sur 30 jours, comparée aux 30 précédents, semaine par semaine.</span></li>
+      <li data-reveal style="--d:.1s"><b>Devis à relancer</b><span>Les consultations restées sans réponse après le délai de relance.</span></li>
+      <li data-reveal style="--d:.15s"><b>À votre main</b><span>Glissez, agrandissez ou masquez les cartes&#8239;: la disposition est retrouvée au lancement.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chap" id="stock" data-tint="2" data-scope>
+  <div class="wrap">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-boite"/></svg>Stock</p>
+      <h2 class="title split" data-reveal>Chaque article, à sa place.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Cherchez <code>mm2</code>, Volta trouve «&#8239;mm²&#8239;». Choisissez un article, puis faites une sortie&#8239;: le stock obtenu s’affiche pendant la frappe, et «&#8239;Annuler&#8239;» reste possible.</p>
+    </header>
+    <div class="stage" data-reveal="device" id="stock-scene">
+      <div class="echelle" style="--ratio:1100/600">
+        <div class="plateau" style="--pw:1100px;--ph:600px">
+          <div class="win vapp stock">
+            <div class="v-main">
+              <div class="v-bar"><span class="feux"><i></i><i></i><i></i></span><div><b>Stock</b></div><span class="v-seg"><i class="on">Articles</i><i>Journal</i></span>
+                <label class="v-cherche"><svg><use href="#i-loupe"/></svg><input type="search" id="st-q" placeholder="Référence, désignation, fabricant" autocomplete="off" aria-label="Rechercher un article (démonstration)"></label></div>
+              <div class="st-etats" id="st-etats"></div>
+              <div class="st-corps">
+                <div class="st-table" role="table" aria-label="Articles en stock (démonstration)">
+                  <div class="st-l st-t" role="row"><span>État</span><span>Référence</span><span>Désignation</span><span>Catégorie</span><span class="n">Stock</span><span class="n">Seuil</span></div>
+                  <div id="st-lignes"></div>
+                </div>
+                <aside class="st-fiche" id="st-fiche"></aside>
+              </div>
+              <div class="v-bandeau" id="st-bandeau"><svg><use href="#i-check"/></svg><span></span><button type="button" id="st-annuler">Annuler</button></div>
+              <div class="feuille" id="st-feuille" hidden>
+                <div class="fe-in">
+                  <b>Sortie de stock</b>
+                  <p id="fe-art"></p>
+                  <label>Quantité <input type="number" id="fe-q" min="1" value="10"></label>
+                  <p class="fe-obt">Stock obtenu&#8239;: <span id="fe-avant"></span> → <b id="fe-apres"></b></p>
+                  <label>Motif <span class="fe-sel">Chantier — Bâtiment B, 2ᵉ étage</span></label>
+                  <div class="fe-b"><button type="button" class="v-btn" id="fe-non">Annuler</button><button type="button" class="v-btn bleu" id="fe-oui">Enregistrer</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="specs">
+      <li data-reveal><b>Recherche instantanée</b><span>Référence, désignation, fabricant&#8239;; accents et exposants ignorés.</span></li>
+      <li data-reveal style="--d:.05s"><b>Pastilles d’état</b><span>En rupture, sous le seuil, à commander, rupture prévue&#8239;: un clic filtre la liste.</span></li>
+      <li data-reveal style="--d:.1s"><b>Inventaire guidé</b><span>Article par article au clavier, comptage à l’aveugle possible, écarts validés en une fois.</span></li>
+      <li data-reveal style="--d:.15s"><b>Tout est tracé</b><span>Une erreur et sa correction restent dans le journal des mouvements.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chap" id="devis" data-tint="3" data-scope>
+  <div class="wrap">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-enveloppe"/></svg>Fournisseurs et devis</p>
+      <h2 class="title split" data-reveal>Une demande de devis, en un clic.</h2>
+      <p class="lead" data-reveal style="--d:.1s">Touchez <b>Préparer les demandes</b> (⇧⌘R)&#8239;: une demande par fournisseur pour les articles à commander. Puis cliquez une carte pour la faire avancer, jusqu’à la réception en stock.</p>
+    </header>
+    <div class="stage" data-reveal="device" id="devis-scene">
+      <div class="echelle" style="--ratio:1100/560">
+        <div class="plateau" style="--pw:1100px;--ph:560px">
+          <div class="win vapp devis">
+            <div class="v-main">
+              <div class="v-bar"><span class="feux"><i></i><i></i><i></i></span><div><b>Devis</b><small id="dv-resume"></small></div><button type="button" class="v-btn bleu" id="dv-preparer">Préparer les demandes&#8239;⇧⌘R</button></div>
+              <div class="tableau-dv" id="dv-colonnes"></div>
+              <div class="v-bandeau" id="dv-bandeau"><svg><use href="#i-check"/></svg><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="duo">
+      <article class="pan" data-reveal>
+        <div><h3>Le comparatif, ligne par ligne.</h3><p>Prix, délai, validité&#8239;: le meilleur prix de chaque ligne ressort, et la meilleure offre complète aussi.</p></div>
+        <table class="compar" aria-label="Comparatif de devis (démonstration)">
+          <thead><tr><th>Article</th><th>Lumière &amp; Câbles</th><th>Distrilec</th><th>Sud Appareillage</th></tr></thead>
+          <tbody>
+            <tr><td>Câble R2V 3G2,5 mm² (100 m)</td><td class="top">118,40 €</td><td>124,90 €</td><td>129,00 €</td></tr>
+            <tr><td>Fil H07V-U 1,5 mm² (100 m)</td><td>24,60 €</td><td class="top">22,80 €</td><td>25,10 €</td></tr>
+            <tr><td>Bornes automatiques ×50</td><td>31,20 €</td><td>33,00 €</td><td class="top">29,90 €</td></tr>
+            <tr class="tot"><td>Offre complète</td><td class="best">174,20 €</td><td>180,70 €</td><td>184,00 €</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="pan" data-reveal style="--d:.08s">
+        <div><h3>Envoyé par Apple Mail.</h3></div>
+        <ul class="tick">
+          <li>Brouillon pré-rempli ou envoi automatique, au choix</li>
+          <li>Modèles d’objet et de corps à variables&#8239;: <code>{articles}</code>, <code>{numero}</code>, <code>{signature}</code></li>
+          <li>Accepter un devis refuse les autres et alimente le budget engagé</li>
+          <li>La réception fait entrer les articles en stock au prix du devis</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="budget" data-scope>
+  <div class="wrap">
+    <header class="chap-h">
+      <p class="chap-k" data-reveal><svg><use href="#i-euro"/></svg>Budget</p>
+      <h2 class="title split" data-reveal>Prévu, engagé, consommé, restant.</h2>
+      <p class="lead" data-reveal style="--d:.1s">La projection de fin d’exercice passe à l’orange au-delà de 100&#8239;% du prévu, au rouge au-delà de 110&#8239;%. Ajoutez une grosse commande&#8239;: tout se recalcule.</p>
+    </header>
+    <div class="stage" data-reveal="device" id="budget-scene">
+      <div class="echelle" style="--ratio:1100/600">
+        <div class="plateau" style="--pw:1100px;--ph:600px">
+          <div class="win vapp budget">
+            <div class="v-main">
+              <div class="v-bar"><span class="feux"><i></i><i></i><i></i></span><div><b>Budget 2026</b><small>du 01/01/2026 au 31/12/2026 · 307 jours écoulés sur 365 (84 %)</small></div></div>
+              <div class="bg-kpi">
+                <div><small>Prévu</small><b id="k-prevu">319 000,00 €</b><em>enveloppe globale</em></div>
+                <div><small>Consommé</small><b id="k-conso">251 927,59 €</b><em>achats reçus</em></div>
+                <div><small>Engagé</small><b id="k-engage">2 925,27 €</b><em>devis acceptés, non reçus</em></div>
+                <div><small>Restant</small><b id="k-reste">64 147,14 €</b><em>après engagements</em></div>
+                <div class="proj"><small>Projection fin de période</small><b id="k-proj">302 448,30 €</b><em id="k-proj-pc">94,8 % du prévu</em></div>
+              </div>
+              <div class="bg-graph"><svg id="bg-svg" viewBox="0 0 1040 300" aria-label="Achats cumulés face au prévu" role="img"></svg></div>
+              <div class="bg-ctl">
+                <label>Commande exceptionnelle à engager <output id="bg-plus-v">0 €</output><input type="range" id="bg-plus" min="0" max="60000" step="500" value="0"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="specs">
+      <li data-reveal><b>Périodes</b><span>Année, trimestre ou mois, calés sur le début d’exercice.</span></li>
+      <li data-reveal style="--d:.05s"><b>Enveloppes</b><span>Une globale et, au besoin, une par catégorie. Les écarts sont signalés.</span></li>
+      <li data-reveal style="--d:.1s"><b>Règles claires</b><span>Engagé&#8239;: devis acceptés. Consommé&#8239;: achats reçus. Restant&#8239;: le reste.</span></li>
+      <li data-reveal style="--d:.15s"><b>Export PDF</b><span>Le budget de la période, prêt à transmettre.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section reste" data-scope>
+  <div class="wrap">
+    <p class="eyebrow center" data-reveal>Et tout le reste</p>
+    <h2 class="title center split" data-reveal>Rapide au clavier, sûr en coulisses.</h2>
+    <div class="raccourcis" data-reveal>
+      <span class="rk"><kbd>⌘</kbd><kbd>E</kbd><small>Sortie de stock</small></span>
+      <span class="rk"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>E</kbd><small>Entrée en stock</small></span>
+      <span class="rk"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>I</kbd><small>Inventaire guidé</small></span>
+      <span class="rk"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd><small>À commander</small></span>
+      <span class="rk"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd><small>Préparer les devis</small></span>
+      <span class="rk"><kbd>⌘</kbd><kbd>1…5</kbd><small>Changer de section</small></span>
+    </div>
+    <ul class="specs">
+      <li data-reveal><b>Import CSV</b><span>Le fichier Excel du service, repris en quelques secondes.</span></li>
+      <li data-reveal style="--d:.05s"><b>Exports</b><span>Articles et mouvements en CSV, état du stock et budget en PDF.</span></li>
+      <li data-reveal style="--d:.1s"><b>Sauvegardes</b><span>Celle du jour, automatique, et une sauvegarde complète restaurable (⌥⌘S).</span></li>
+      <li data-reveal style="--d:.15s"><b>Réglages complets</b><span>Thème, couleur d’accent, densité, exercice budgétaire, e-mail.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section prive" id="donnees">
+  <div class="wrap">
+    <h2 class="title center split" data-reveal>Les données restent dans le service.</h2>
+    <div class="prive-grid">
+      <div class="pv" data-reveal><svg><use href="#i-nuage-barre"/></svg><b>100&#8239;% local</b><p>Une base sur le Mac du service&#8239;: pas de compte, pas de cloud, pas d’abonnement.</p></div>
+      <div class="pv" data-reveal style="--d:.06s"><svg><use href="#i-horloge"/></svg><b>Sauvegardé chaque jour</b><p>Et une sauvegarde complète restaurable, quand vous voulez.</p></div>
+      <div class="pv" data-reveal style="--d:.12s"><svg><use href="#i-liste"/></svg><b>Chaque mouvement tracé</b><p>Entrées, sorties, ajustements, inventaires&#8239;: rien ne se perd, rien ne s’efface.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="telecharger">
+  <div class="wrap">
+    <img class="cta-logo" src="assets/img/icone.webp" width="360" height="360" alt="" data-reveal>
+    <h2 class="title center" data-reveal style="--d:.05s">Volta.</h2>
+    <p class="lead center" data-reveal style="--d:.1s">Un outil sur mesure, conçu pour un service. Le vôtre a le sien en tête&#8239;?</p>
+    <div class="cta-btns" data-reveal style="--d:.15s">
+      <a class="btn btn-main" href="../../contact.html?projet=volta">Parlons de votre outil</a>
+      <a class="btn btn-ghost" href="#haut">Revenir en haut<svg class="up"><use href="#i-fleche-bas"/></svg></a>
+    </div>
+    <p class="cta-note" data-reveal style="--d:.2s">macOS 27 ou plus récent. Données de démonstration&#8239;: fournisseurs et montants fictifs.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="nav-logo" href="#haut"><img src="assets/img/icone.webp" width="360" height="360" alt=""><span>Volta</span></a>
+    <p>Un outil sur mesure MTX Studio.</p>
+    <p class="foot-legal">© <span id="annee">2026</span> MTX Studio. Apple, Mac, macOS et Apple Mail sont des marques d’Apple Inc. Les écrans présentés sont des reconstitutions de l’app, avec des données de démonstration.</p>
+  </div>
+</footer>
+
+<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-volta.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Volta tient le magasin du service électricité.</h2>
+    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-tags">Outil Mac sur mesure · Stock et achats<br>SwiftUI · SQLite (GRDB) · Swift Charts · Apple Mail</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=volta">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

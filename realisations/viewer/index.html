@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MTX Viewer — Vos sites, inspectés sur iPhone · MTX Studio</title>
+<meta name="description" content="MTX Viewer, l'outil iPhone du studio : ouvrez un dossier de site, une page HTML ou votre serveur de dev, et inspectez-le sur un vrai iPhone. Console, éléments, réseau, source, audit et stockage intégrés.">
+<meta name="theme-color" content="#05081a">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MTX Viewer — Vos sites, inspectés sur iPhone">
+<meta property="og:description" content="Ouvrez votre site sur un vrai iPhone et voyez ce qui cloche avant votre client : console, éléments, réseau, source, audit et stockage.">
+<meta property="og:image" content="assets/img/viewer-icone-512.png">
+<link rel="icon" href="assets/img/viewer-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script>
+document.documentElement.classList.add('js');
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css">
+<script src="../../assets/js/projet.js" defer></script>
+</head>
+<body id="haut">
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6.5" fill="#f5f5f7"/><path d="M6 16.5V8l3.5 4.6L13 8v8.5M15.5 8l3.5 8.5M19 8l-3.5 8.5" fill="none" stroke="#000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>MTX Studio</a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=viewer">Démarrer un projet</a></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="gLogo" cx=".5" cy=".95" r=".95"><stop offset="0" stop-color="#3b5bff"/><stop offset=".45" stop-color="#1c25b8"/><stop offset="1" stop-color="#060a24"/></radialGradient>
+</defs>
+<symbol id="logo" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22.5" fill="url(#gLogo)"/><rect x="16" y="22" width="68" height="56" rx="9" fill="#0b0f22" stroke="#4d5cff" stroke-opacity=".55" stroke-width="1.2"/>
+  <circle cx="25" cy="30.5" r="2.4" fill="#ff5f57"/><circle cx="32.5" cy="30.5" r="2.4" fill="#febc2e"/><circle cx="40" cy="30.5" r="2.4" fill="#28c840"/>
+  <path fill="#fff" d="M28 62V45h4.2l3.8 9.6 3.8-9.6H44v17h-3.4V51.4L37.3 60h-2.6l-3.3-8.6V62Zm19.5 0V48.1h-5.1V45h13.6v3.1h-5.1V62Zm8.6 0 5.4-8.7-5-8.3h4l3.1 5.5 3.1-5.5h3.9l-5 8.3 5.4 8.7h-4l-3.4-6-3.4 6Z"/>
+  <rect x="35" y="67" width="30" height="3.4" rx="1.7" fill="#6e70ff"/>
+</symbol>
+
+<symbol id="sb" viewBox="0 0 76 14">
+  <g fill="currentColor"><rect x="0" y="8.5" width="3" height="4" rx=".8"/><rect x="4.7" y="6.5" width="3" height="6" rx=".8"/><rect x="9.4" y="4" width="3" height="8.5" rx=".8"/><rect x="14.1" y="1.5" width="3" height="11" rx=".8"/></g>
+  <g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M23.4 5.6a9 9 0 0 1 12.7 0"/><path d="M25.9 8.2a5.4 5.4 0 0 1 7.7 0"/></g><circle cx="29.75" cy="11.3" r="1.7" fill="currentColor"/>
+  <rect x="45.5" y="1" width="25" height="12" rx="3.8" fill="none" stroke="currentColor" stroke-opacity=".45"/><rect x="47.5" y="3" width="19" height="8" rx="2" fill="currentColor"/><rect x="71.8" y="4.8" width="1.6" height="4.4" rx=".8" fill="currentColor" fill-opacity=".45"/>
+</symbol>
+
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="i-xc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M9.4 9.4a2.7 2.7 0 1 1 3.7 2.5c-.7.3-1.1.9-1.1 1.6v.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M2.5 6.5A2 2 0 0 1 4.5 4.5h4.6l2 2.2h8.4a2 2 0 0 1 2 2v9.8a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2Z"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v13a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20.5v-16A2 2 0 0 1 6 2.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M13.5 2.8V8h5.2M8.5 12.5h7M8.5 16h7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-iphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.9"/><rect x="10" y="4.2" width="4" height="1.4" rx=".7"/></symbol>
+<symbol id="i-tablet" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="19.4" cy="12" r=".9"/></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M2 18.5h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-display" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 16.5v3.5M8 20.5h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 3 2.5 8 12 13l9.5-5Z"/><path d="M4.4 12 2.5 13 12 18l9.5-5-1.9-1L12 16Z" opacity=".7"/><path d="M4.4 16.6 2.5 17.6 12 22.6l9.5-5-1.9-1L12 20.6Z" opacity=".45"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.8 6 3.8 9.5S14.6 18.7 12 21.5C9.4 18.7 8.2 15.5 8.2 12S9.4 5.3 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+<symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M6.5 9l3 3-3 3M12 15h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.8 4.5l-3.6 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrows" viewBox="0 0 24 24"><path d="M7.5 20V4.5M3.5 8.5l4-4 4 4M16.5 4v15.5M12.5 15.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-seal" viewBox="0 0 24 24"><path d="M12 2l2.3 1.7 2.8-.2 1 2.6 2.4 1.5-.6 2.8 1.2 2.6-2 2 .1 2.8-2.7.8-1.5 2.4-2.7-.9-2.6 1.2-1.9-2.1-2.8-.3-.6-2.8L2 14.7l1-2.7-.8-2.7 2.2-1.7.4-2.8 2.8-.4L9.3 2.2Z"/><path d="M8 12.2l2.7 2.7L16.2 9.4" fill="none" stroke="var(--seal-c, #fff)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-drive" viewBox="0 0 24 24"><rect x="2.5" y="13" width="19" height="7" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M4 13l2.6-7.2A1.6 1.6 0 0 1 8.1 4.8h7.8a1.6 1.6 0 0 1 1.5 1L20 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><circle cx="17.5" cy="16.5" r="1.1"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><path d="M10.3 2h3.4l.5 2.6c.7.3 1.3.6 1.9 1.1l2.5-.9 1.7 3-2 1.7c.1.7.1 1.3 0 2l2 1.7-1.7 3-2.5-.9c-.6.5-1.2.8-1.9 1.1l-.5 2.6h-3.4l-.5-2.6c-.7-.3-1.3-.6-1.9-1.1l-2.5.9-1.7-3 2-1.7a6 6 0 0 1 0-2l-2-1.7 1.7-3 2.5.9c.6-.5 1.2-.8 1.9-1.1L10.3 2Zm1.7 6.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z" fill-rule="evenodd"/></symbol>
+<symbol id="i-viewfinder" viewBox="0 0 24 24"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.4"/></symbol>
+<symbol id="i-reload" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4v4.5H15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-pass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-warn" viewBox="0 0 24 24"><path d="M10.3 3.2a2 2 0 0 1 3.4 0l8.4 14.6a2 2 0 0 1-1.7 3H3.6a2 2 0 0 1-1.7-3Z"/><path d="M12 8.5v5" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="#fff"/></symbol>
+<symbol id="s-fail" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></symbol>
+<symbol id="s-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.6" r="1.4" fill="#fff"/><path d="M12 11v6.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.3"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+<symbol id="i-access" viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="2.2"/><path d="M4 8.5c2.6.8 5.3 1.2 8 1.2s5.4-.4 8-1.2M12 9.7v4.8M12 14.5 8.6 21M12 14.5l3.4 6.5" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 3.5 3.5L15 14l5 4.5"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4l-1 1M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1-1" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-speed" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M12 17l4.5-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17" r="1.8"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M9 3h6l-1 6 3.5 3.5v1.5H6.5v-1.5L10 9Z"/><path d="M12 14v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.8 8 10 4.6-1.2 8-5 8-10v-6Z"/><path d="M8.6 12l2.4 2.4 4.6-4.6" fill="none" stroke="#05081a" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15.8 8.2 13.4 13.4 8.2 15.8l2.4-5.2Z"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a13.5 13.5 0 0 1 19 0M5.8 12.4a8.8 8.8 0 0 1 12.4 0M9.1 15.7a4.1 4.1 0 0 1 5.8 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="19" r="1.6"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+<symbol id="i-user-off" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.2-3.6 4.2-5.5 8-5.5s6.8 1.9 8 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.6 9.1 4.7 4.7 0 0 0 7 18.5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="#haut" aria-label="MTX Viewer, retour en haut"><svg><use href="#logo"/></svg><span>MTX Viewer</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#bibliotheque">Ouvrir</a>
+      <a href="#inspecteur">Inspecteur</a>
+      <a href="#ecrans">Écrans</a>
+      <a href="#audit">Audit</a>
+      <a href="#fonctions">Fonctions</a>
+    </nav>
+    <a class="nav-cta magnet" href="#telecharger"><span>Bientôt sur iPhone</span></a>
+  </div>
+</header>
+
+<main id="contenu">
+
+<section class="hero" data-scope>
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="wrap hero-head">
+    <p class="hero-badge rise" style="--d:.05s"><svg><use href="#logo"/></svg><span>MTX Viewer pour iPhone</span><i></i><span class="hero-badge-tag">Outil du studio</span></p>
+    <h1 class="hero-title">
+      <span class="line"><span class="w" style="--d:.12s">Testez</span> <span class="w" style="--d:.2s">sur</span> <span class="w" style="--d:.26s">iPhone.</span></span>
+      <span class="line"><em class="w serif grad" style="--d:.38s">Avant votre client.</em></span>
+    </h1>
+    <p class="hero-lead rise" style="--d:.55s">MTX Viewer ouvre votre dossier de site, une page HTML ou votre serveur de dev <strong>sur un vrai iPhone</strong>, avec console, éléments, réseau, source, audit et stockage sous le pouce, sans Mac à brancher.</p>
+    <div class="hero-cta rise" style="--d:.68s">
+      <a class="btn btn-main magnet" href="#telecharger"><span>Bientôt sur iPhone</span></a>
+      <a class="btn btn-ghost" href="#inspecteur">Ouvrir l’inspecteur<svg><use href="#i-chev-d"/></svg></a>
+    </div>
+  </div>
+
+  <div class="hero-stage" aria-hidden="true">
+    <div class="par par-l" data-par="-1"><div class="phone-in" style="--d:.55s"><div class="tilt">
+      <div class="iphone side"><div class="screen">
+        <div class="ui light scr-lib" data-lib></div>
+      </div></div>
+    </div></div></div>
+
+    <div class="par par-c" data-par="0"><div class="phone-in" style="--d:.3s"><div class="tilt">
+      <div class="iphone"><div class="screen">
+        <div class="ui light scr-browser" data-browser="auto"></div>
+      </div></div>
+    </div></div></div>
+
+    <div class="par par-r" data-par="1"><div class="phone-in" style="--d:.7s"><div class="tilt">
+      <div class="iphone side"><div class="screen">
+        <div class="ui light scr-audit" data-audit-screen></div>
+      </div></div>
+    </div></div></div>
+
+    <div class="float-chip">
+      <span class="chip-ic"><svg><use href="#i-arrows"/></svg></span>
+      <span class="chip-tx"><small>Réseau · 6 requêtes</small><b><code>index.html</code> <em>200</em> 18 KB</b></span>
+    </div>
+  </div>
+</section>
+
+<section class="manifeste" aria-label="Le principe">
+  <div class="wrap">
+    <p class="mani-text" data-words>Un site se juge sur l’écran où il sera vu. Pas dans un simulateur, pas en rétrécissant une fenêtre : <span class="g">sur un vrai iPhone,</span> avec les vrais outils pour comprendre <span class="g">ce qui cloche.</span></p>
+  </div>
+</section>
+
+<section class="section open" id="bibliotheque" data-scope>
+  <div class="wrap">
+    <div class="open-head" data-reveal>
+      <p class="eyebrow">Ouvrir un site</p>
+      <h2 class="title">Votre dossier.<br><em class="serif">Tel quel.</em></h2>
+      <p class="lead">Pas d’export, pas d’hébergement de test : MTX Viewer lit vos fichiers là où ils sont. Le site reste lié, et vos modifications apparaissent en rechargeant.</p>
+    </div>
+    <div class="open-grid">
+      <article class="open-card" data-reveal>
+        <span class="oc-ic"><svg><use href="#i-folder"/></svg></span>
+        <h3>Un dossier de site</h3>
+        <p>Choisissez le dossier qui contient <code>index.html</code>, dans iCloud Drive ou sur l’iPhone.</p>
+        <div class="oc-demo oc-path"><span><svg><use href="#i-folder"/></svg>iCloud Drive</span><svg class="sep"><use href="#i-chev-r"/></svg><span>Sites</span><svg class="sep"><use href="#i-chev-r"/></svg><b>atelier-lune</b></div>
+      </article>
+      <article class="open-card" data-reveal style="--d:.06s">
+        <span class="oc-ic"><svg><use href="#i-iphone"/></svg></span>
+        <h3>Sur cet iPhone</h3>
+        <p>Glissez vos dossiers dans « Sur mon iPhone › MTX Viewer » : ils apparaissent tout seuls, même sans réseau.</p>
+        <div class="oc-demo oc-files"><i></i><i></i><i></i><i></i></div>
+      </article>
+      <article class="open-card" data-reveal style="--d:.12s">
+        <span class="oc-ic"><svg><use href="#i-stack"/></svg></span>
+        <h3>Plusieurs sites d’un coup</h3>
+        <p>Ouvrez un dossier parent : sans <code>index.html</code>, MTX Viewer affiche l’index cliquable de tous les sites qu’il contient.</p>
+        <div class="oc-demo oc-index"><span>adam-coaching</span><span>la-trattoria</span><span>la-fabrique</span><span>maquette-type</span></div>
+      </article>
+      <article class="open-card" data-reveal style="--d:.18s">
+        <span class="oc-ic"><svg><use href="#i-wifi"/></svg></span>
+        <h3>Votre serveur de dev</h3>
+        <p>Live Server, Vite… Entrez l’adresse de votre Mac sur le Wi-Fi et travaillez en direct.</p>
+        <div class="oc-demo oc-url"><svg><use href="#i-globe"/></svg><span data-typing-url></span><i class="caret"></i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section insp" id="inspecteur" data-scope>
+  <div class="wrap insp-grid">
+    <div class="insp-text" data-reveal>
+      <p class="eyebrow">Essayez maintenant</p>
+      <h2 class="title">Six outils,<br><em class="serif">à portée de pouce.</em></h2>
+      <p class="lead">L’inspecteur s’ouvre à mi-hauteur : la page reste utilisable au-dessus. Touchez un onglet, ici ou dans l’iPhone.</p>
+      <div class="tool-list" role="tablist" aria-label="Outils de l’inspecteur" data-tools>
+        <button type="button" role="tab" data-tab="console" aria-selected="true"><svg><use href="#i-terminal"/></svg><span><b>Console</b><small>Journaux, erreurs, et du JavaScript exécuté pour de vrai.</small></span></button>
+        <button type="button" role="tab" data-tab="elements" aria-selected="false"><svg><use href="#i-code"/></svg><span><b>Éléments</b><small>L’arbre de la page. Touchez un nœud, il s’allume.</small></span></button>
+        <button type="button" role="tab" data-tab="reseau" aria-selected="false"><svg><use href="#i-arrows"/></svg><span><b>Réseau</b><small>Chaque requête, son statut, son poids. Filtres par type.</small></span></button>
+        <button type="button" role="tab" data-tab="source" aria-selected="false"><svg><use href="#i-doc"/></svg><span><b>Source</b><small>Les fichiers du site, lisibles sur l’iPhone.</small></span></button>
+        <button type="button" role="tab" data-tab="audit" aria-selected="false"><svg><use href="#i-seal"/></svg><span><b>Audit</b><small>SEO, accessibilité, images, liens : un score.</small></span></button>
+        <button type="button" role="tab" data-tab="stockage" aria-selected="false"><svg><use href="#i-drive"/></svg><span><b>Stockage</b><small>localStorage et cookies, isolés par site.</small></span></button>
+      </div>
+    </div>
+    <div class="insp-phone" data-reveal>
+      <div class="insp-halo" aria-hidden="true"></div>
+      <div class="tilt tilt-soft">
+        <div class="iphone big"><div class="screen">
+          <div class="ui light scr-browser" data-browser="interactive" role="application" aria-label="Démonstration interactive de l’inspecteur"></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section screens" id="ecrans" data-scope>
+  <div class="wrap">
+    <div class="center" data-reveal>
+      <p class="eyebrow">Taille d’écran</p>
+      <h2 class="title">Un iPhone.<br><em class="serif">Quatre écrans.</em></h2>
+      <p class="lead center">Simulez une tablette, un portable ou un grand écran depuis l’iPhone pour vérifier vos points de rupture, sans changer d’appareil.</p>
+    </div>
+    <div class="vp" data-reveal style="--d:.1s">
+      <div class="seg vp-seg" role="radiogroup" aria-label="Taille simulée" data-sizes>
+        <button type="button" role="radio" aria-checked="true" data-w="393"><svg><use href="#i-iphone"/></svg>Mobile (natif)</button>
+        <button type="button" role="radio" aria-checked="false" data-w="820"><svg><use href="#i-tablet"/></svg>Tablette · 820 px</button>
+        <button type="button" role="radio" aria-checked="false" data-w="1440"><svg><use href="#i-laptop"/></svg>Laptop · 1440 px</button>
+        <button type="button" role="radio" aria-checked="false" data-w="1920"><svg><use href="#i-display"/></svg>Desktop · 1920 px</button>
+      </div>
+      <div class="vp-frame">
+        <div class="vp-bar"><i></i><i></i><i></i><span class="vp-url"><svg><use href="#i-lock"/></svg>atelier-lune · index.html</span><b data-vp-w>393 px</b></div>
+        <div class="vp-stage" data-vp-stage><div class="vp-page" data-vp-page></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section audit" id="audit" data-scope>
+  <div class="wrap audit-grid">
+    <div class="audit-text">
+      <div data-reveal>
+        <p class="eyebrow">Audit</p>
+        <h2 class="title">Avant de livrer,<br><em class="serif">un dernier contrôle.</em></h2>
+        <p class="lead">Titre, description, Open Graph, débordements horizontaux, zones tactiles, images trop lourdes, liens cassés, erreurs JavaScript : MTX Viewer passe la page au crible et donne un score.</p>
+      </div>
+      <div class="audit-cats" data-reveal style="--d:.1s">
+        <span><svg><use href="#i-search"/></svg>SEO &amp; partage</span><span><svg><use href="#i-iphone"/></svg>Responsive &amp; mobile</span><span><svg><use href="#i-access"/></svg>Accessibilité</span><span><svg><use href="#i-photo"/></svg>Images</span><span><svg><use href="#i-link"/></svg>Liens</span><span><svg><use href="#i-speed"/></svg>Performance &amp; erreurs</span>
+      </div>
+    </div>
+    <div class="report" data-reveal style="--d:.1s">
+      <div class="report-top">
+        <div class="ring" data-ring><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="ring-v" cx="60" cy="60" r="52"/></svg><b data-score>0</b></div>
+        <div><b>Score qualité</b><small data-score-msg>Analyse de la page…</small></div>
+        <button class="btn btn-ghost btn-sm" type="button" data-rerun><svg><use href="#i-reload"/></svg>Relancer</button>
+      </div>
+      <ul class="report-list" data-report aria-live="polite"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section bento" id="fonctions">
+  <div class="wrap">
+    <div class="center" data-reveal>
+      <p class="eyebrow">Tout ce qu’il faut</p>
+      <h2 class="title">De quoi livrer<br><em class="serif">sans mauvaise surprise.</em></h2>
+    </div>
+    <div class="bento-grid">
+      <article class="tile t-wide t-safari" data-reveal>
+        <div class="tile-ic" style="--c:#5ee0ff"><svg><use href="#i-compass"/></svg></div>
+        <h3>Et Safari sur le Mac, si besoin</h3>
+        <p>Pour aller plus loin, l’inspecteur web de Safari se branche sur la page ouverte dans MTX Viewer.</p>
+        <ol class="safari-steps">
+          <li><b>1</b>Sur l’iPhone : activez « Inspecteur web » dans les réglages de Safari.</li>
+          <li><b>2</b>Branchez l’iPhone au Mac, ou passez par le Wi-Fi.</li>
+          <li><b>3</b>Sur le Mac : affichez les fonctionnalités pour les développeurs web.</li>
+          <li><b>4</b>Menu Développement › votre iPhone › MTX Viewer › la page.</li>
+        </ol>
+      </article>
+      <article class="tile" data-reveal style="--d:.06s">
+        <div class="tile-ic" style="--c:#6e70ff"><svg><use href="#i-viewfinder"/></svg></div>
+        <h3>Sélecteur d’élément</h3>
+        <p>Touchez le viseur, puis un élément de la page : styles, règles CSS et dimensions s’affichent.</p>
+      </article>
+      <article class="tile" data-reveal>
+        <div class="tile-ic" style="--c:#34d399"><svg><use href="#i-shield"/></svg></div>
+        <h3>Un site, un espace</h3>
+        <p>localStorage et cookies sont isolés par site : deux projets ne se marchent jamais dessus.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.06s">
+        <div class="tile-ic" style="--c:#3b9bff"><svg><use href="#i-reload"/></svg></div>
+        <h3>Rechargez, c’est à jour</h3>
+        <p>Le dossier reste lié : enregistrez sur le Mac, rechargez sur l’iPhone.</p>
+      </article>
+      <article class="tile" data-reveal style="--d:.12s">
+        <div class="tile-ic" style="--c:#f59e0b"><svg><use href="#i-pin"/></svg></div>
+        <h3>Journaux conservés</h3>
+        <p>Gardez la console et le réseau d’une page à l’autre pour suivre un parcours complet.</p>
+      </article>
+      <article class="tile t-wide" data-reveal>
+        <div class="tile-ic" style="--c:#a5b4fc"><svg><use href="#i-photo"/></svg></div>
+        <h3>Une galerie de vos réalisations</h3>
+        <p>Récents et « Sur cet iPhone », chaque site avec sa miniature : la bibliothèque devient un portfolio à montrer en rendez-vous, même hors ligne.</p>
+        <div class="thumbs" aria-hidden="true"><i style="--a:#ff6a3d;--b:#1a0b05">Foulée</i><i style="--a:#34d399;--b:#04140d">Memora</i><i style="--a:#8b5cf6;--b:#0a0816">Synapse</i><i style="--a:#3b82f6;--b:#050a1c">Triade</i><i style="--a:#ffb45e;--b:#14090f">Élan</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section prive" id="confidentialite" data-scope>
+  <div class="wrap prive-grid">
+    <h2 class="prive-lines" aria-label="Pas de compte. Pas d’envoi. Pas de traqueur.">
+      <span class="pl" data-reveal><svg><use href="#i-user-off"/></svg>Pas de compte.</span>
+      <span class="pl" data-reveal style="--d:.1s"><svg><use href="#i-cloud-off"/></svg>Pas d’envoi.</span>
+      <span class="pl" data-reveal style="--d:.2s"><svg><use href="#i-eye-off"/></svg>Pas de traqueur.</span>
+    </h2>
+    <div class="prive-side" data-reveal style="--d:.25s">
+      <div class="lock"><svg><use href="#i-lock"/></svg></div>
+      <p class="lead">Vos fichiers sont lus sur l’iPhone et n’en sortent pas. Les maquettes de vos clients restent les leurs : rien n’est envoyé, rien n’est hébergé ailleurs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="wrap faq-wrap">
+    <div data-reveal>
+      <p class="eyebrow">Questions</p>
+      <h2 class="title">Bon à savoir.</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <details>
+        <summary>Quels sites peut-on ouvrir ?<i></i></summary>
+        <div class="faq-a"><p>Un dossier contenant un <code>index.html</code>, une page HTML seule, un site en ligne ou votre serveur de dev local. Les sites statiques (HTML, CSS, JavaScript) s’ouvrent directement depuis leurs fichiers.</p></div>
+      </details>
+      <details>
+        <summary>Mes modifications apparaissent-elles tout de suite ?<i></i></summary>
+        <div class="faq-a"><p>Oui : un dossier ouvert depuis Fichiers reste lié. Enregistrez sur le Mac, rechargez dans MTX Viewer. Avec un serveur de dev, le rechargement automatique de votre outil fonctionne comme d’habitude.</p></div>
+      </details>
+      <details>
+        <summary>La console exécute-t-elle vraiment du JavaScript ?<i></i></summary>
+        <div class="faq-a"><p>Oui, dans la page ouverte, avec son résultat affiché comme dans un navigateur de bureau. Les erreurs de la page et les ressources qui échouent y apparaissent aussi.</p></div>
+      </details>
+      <details>
+        <summary>Faut-il un Mac ?<i></i></summary>
+        <div class="faq-a"><p>Non. L’inspecteur intégré suffit pour l’essentiel. Le Mac n’est utile que pour ouvrir l’inspecteur web de Safari sur la page, ou pour servir un site depuis votre serveur de dev.</p></div>
+      </details>
+      <details>
+        <summary>Mes fichiers sont-ils envoyés quelque part ?<i></i></summary>
+        <div class="faq-a"><p>Non. MTX Viewer lit les fichiers sur l’iPhone, sans compte ni serveur. Seuls les sites en ligne que vous ouvrez vous-même passent par le réseau.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="telecharger" data-scope>
+  <div class="wrap center">
+    <div class="cta-icon" aria-hidden="true">
+      <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
+      <svg><use href="#logo"/></svg>
+    </div>
+    <h2 class="title cta-title" data-reveal>Né au studio<br><em class="serif grad">pour livrer juste.</em></h2>
+    <p class="lead center" data-reveal style="--d:.1s">L’outil avec lequel nous vérifions chacun de nos sites, bientôt sur iPhone. iOS 27 ou plus récent.</p>
+    <div class="cta-btns" data-reveal style="--d:.2s">
+      <a class="btn btn-main magnet" href="#haut"><span>Bientôt sur l’App Store</span></a>
+      <a class="btn btn-ghost" href="#inspecteur">Rouvrir l’inspecteur<svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="nav-logo" href="#haut"><svg><use href="#logo"/></svg><span>MTX Viewer</span></a>
+    <p>© <span id="annee">2026</span> MTX Viewer. Conçu par MTX Studio pour iPhone.</p>
+    <p class="foot-legal">Apple, iPhone, Safari, iCloud Drive et App Store sont des marques d’Apple Inc. « Atelier Lune » est un site d’exemple. Les écrans présentés sont des reconstitutions de l’app ; les photos du site d’exemple viennent d’Unsplash.</p>
+  </div>
+</footer>
+
+<template id="tpl-browser">
+  <div class="br-top">
+    <span class="br-round"><svg><use href="#i-x"/></svg></span>
+    <div class="br-title"><b>Atelier Lune</b><small><svg><use href="#i-folder"/></svg>index.html<svg class="chev"><use href="#i-chev-d"/></svg></small></div>
+    <span class="br-round"><svg><use href="#i-iphone"/></svg></span>
+    <span class="br-round"><svg><use href="#i-more"/></svg></span>
+  </div>
+  <div class="br-load"><i></i></div>
+  <div class="br-page" data-page></div>
+  <div class="sheet">
+    <div class="sh-grab"></div>
+    <div class="sh-head"><span class="sh-l"><svg><use href="#i-gear"/></svg></span><b data-sheet-title>Console</b><span class="sh-r"><svg><use href="#i-xc"/></svg></span></div>
+    <div class="sh-tabs" data-sheet-tabs>
+      <button type="button" data-tab="console" class="on"><svg><use href="#i-terminal"/></svg>Console<em data-badge-console>1</em></button>
+      <button type="button" data-tab="elements"><svg><use href="#i-code"/></svg>Éléments</button>
+      <button type="button" data-tab="reseau"><svg><use href="#i-arrows"/></svg>Réseau<em>1</em></button>
+      <button type="button" data-tab="source"><svg><use href="#i-doc"/></svg>Source</button>
+      <button type="button" data-tab="audit"><svg><use href="#i-seal"/></svg>Audit</button>
+      <button type="button" data-tab="stockage"><svg><use href="#i-drive"/></svg>Stockage</button>
+    </div>
+    <div class="sh-body" data-sheet-body></div>
+  </div>
+  <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
+</template>
+
+<template id="tpl-site">
+  <div class="ms" data-n="1">
+    <header class="ms-nav" data-n="2"><b class="ms-logo" data-n="3"><i></i>Atelier Lune</b><nav class="ms-links"><a>Créations</a><a>Ateliers</a><a>Boutique</a><a>Contact</a></nav><span class="ms-burger"><i></i><i></i></span></header>
+    <section class="ms-hero" data-n="4">
+      <div class="ms-copy"><p class="ms-kicker">Céramique · Lyon</p><h1 class="ms-title" data-n="5">Des pièces tournées à la main.</h1><p class="ms-lead" data-n="6">Bols, tasses et vases façonnés à l’atelier, en petites séries.</p><a class="ms-btn" data-n="7">Réserver un atelier</a></div>
+      <div class="ms-visual" data-n="8"><img src="assets/img/atelier-lune/atelier-1.webp" width="1000" height="667" alt="Vases en grès de l’atelier" decoding="async"></div>
+    </section>
+    <section class="ms-grid" data-n="9"><figure><img src="assets/img/atelier-lune/bol-lune.webp" width="853" height="480" alt="" decoding="async"><figcaption>Bol Lune</figcaption></figure><figure><img src="assets/img/atelier-lune/vase-sauge.webp" width="721" height="480" alt="" decoding="async"><figcaption>Vase Sauge</figcaption></figure><figure><img src="assets/img/atelier-lune/tasse-brume.webp" width="721" height="480" alt="" decoding="async"><figcaption>Tasse Brume</figcaption></figure><figure><img src="assets/img/atelier-lune/pichet-ble.webp" width="721" height="480" alt="" decoding="async"><figcaption>Pichet Blé</figcaption></figure></section>
+  </div>
+</template>
+
+<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-viewer.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">MTX Viewer inspecte vos sites sur un vrai iPhone, sans Mac.</h2>
+    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-tags">Outil maison · Développement web<br>SwiftUI · WebKit</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=viewer">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

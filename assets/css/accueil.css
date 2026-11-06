@@ -7,7 +7,7 @@
 .stage{position:absolute;left:50%;top:0;width:100vw;height:100vh;height:100svh;transform-origin:50% 0;will-change:transform;z-index:3}
 .device{position:absolute;inset:0;border-radius:var(--r,32px);overflow:hidden;background:#0a0a0b;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 40px 120px rgba(0,0,0,.8)}
 .device::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(41,151,255,.18),transparent 70%);pointer-events:none}
-.device::after{content:"";position:absolute;inset:0;z-index:6;background:#000;opacity:var(--dim,0);pointer-events:none}
+.device-dim{position:absolute;inset:0;z-index:6;background:#000;opacity:0;pointer-events:none}   
 .dbar{height:40px;display:flex;align-items:center;gap:8px;padding:0 18px;border-bottom:1px solid var(--line)}
 .dbar i{width:11px;height:11px;border-radius:50%;background:#333}
 .dbar span{margin-inline:auto;font-size:12px;color:var(--dim);padding:4px 60px;border-radius:7px;background:rgba(255,255,255,.05)}
@@ -55,7 +55,7 @@
 .eq.eq-ctrl-below .eq-ctrl{grid-area:4/1;justify-self:start;margin-top:20px}
 .eq:not(.is-live) .eq-ctrl{display:none}
 .eq-play{display:grid;place-items:center;width:32px;height:32px;border:0;border-radius:50%;background:rgba(255,255,255,.1);cursor:pointer;transition:background .3s,transform .25s var(--spring)}
-.eq-play:hover{background:rgba(255,255,255,.18)}
+@media (hover: hover) { .eq-play:hover {background:rgba(255,255,255,.18)} }
 .eq-play:active{transform:scale(.92)}
 .eq-play svg{width:12px;height:12px}
 .eq-dots{display:flex;align-items:center}
@@ -64,7 +64,7 @@
 .eq-dots button::before{background:rgba(255,255,255,.35);transition:background .3s}
 .eq-dots button::after{background:#fff;transform-origin:0 50%;transform:scaleX(var(--p,0))}
 .eq-dots button[aria-current="true"]{width:48px}
-.eq-dots button:hover::before{background:rgba(255,255,255,.6)}
+@media (hover: hover) { .eq-dots button:hover::before {background:rgba(255,255,255,.6)} }
 .hero-copy .lead,.hero-copy .cta{animation:eqIn 1s .22s var(--spring) backwards}
 .hero-copy .cta{animation-delay:.3s}
 
@@ -240,7 +240,7 @@
 
 .bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
 .tile{position:relative;border-radius:28px;background:var(--tile);overflow:hidden;padding:clamp(24px,3vw,40px);min-height:300px;display:flex;flex-direction:column;transition:transform .7s var(--spring),background .5s}
-.tile:hover{transform:scale(1.015);background:var(--tile-2)}
+@media (hover: hover) { .tile:hover {transform:scale(1.015);background:var(--tile-2)} }
 .tile .eyebrow{font-size:14px;margin-bottom:8px}
 .tile p{color:var(--gray);margin:12px 0 0;max-width:36ch}
 .tile .more{margin-top:14px;font-size:15px}
@@ -251,15 +251,15 @@
 .t-e{grid-column:span 2}
 .t-f{grid-column:span 6;min-height:auto;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .tile .vis{margin-top:auto;padding-top:28px;transition:transform .9s var(--spring)}
-.tile:hover .vis{transform:translateY(-6px) scale(1.03)}
-.tile:hover .vis.sites,.tile:hover .vis.kit,.tile:hover .vis.rs{transform:translateY(-4px)}   
+@media (hover: hover) { .tile:hover .vis {transform:translateY(-6px) scale(1.03)} }
+@media (hover: hover) { .tile:hover .vis.sites, .tile:hover .vis.kit, .tile:hover .vis.rs {transform:translateY(-4px)} }   
 .big-num{font-size:clamp(64px,8vw,104px);font-weight:700;letter-spacing:-.05em;line-height:1;margin-top:auto}
 .tile p.big-num{color:#fff}
 .t-e p.h-s{color:#fff}
 .t-e h3.h-s{color:var(--gray);font-size:clamp(14px,1.5vw,16px);white-space:nowrap}
 
 .tp{flex:none;display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#f5f5f7;cursor:pointer;transition:background .3s,transform .25s var(--spring)}
-.tp:hover{background:rgba(255,255,255,.18)}
+@media (hover: hover) { .tp:hover {background:rgba(255,255,255,.18)} }
 .tp:active{transform:scale(.92)}
 .tp svg{width:11px;height:11px}
 
@@ -324,12 +324,12 @@
 .t-c .vis.apps{margin-top:0}
 .t-c>.more{margin-top:auto;padding-top:20px}   
 .apps a{display:grid;justify-items:center;gap:6px;min-width:0;font-size:11px;color:var(--gray);text-align:center;transition:color .3s}
-.apps a:hover{color:var(--fg)}
+@media (hover: hover) { .apps a:hover {color:var(--fg)} }
 .apps a span{max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .app-img{width:52px;height:52px;border-radius:12px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 6px 16px rgba(0,0,0,.35);transition:transform .5s var(--spring)}
 .apps .app-img{width:48px;height:48px;border-radius:11px}
-.apps .mac .app-img{border-radius:0;box-shadow:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}   
-a:hover>.app-img{transform:translateY(-3px) scale(1.06)}
+.apps .mac .app-img{border-radius:0;box-shadow:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}   @media (hover: hover) { 
+a:hover>.app-img {transform:translateY(-3px) scale(1.06)} }
 
 .kit{--k-bg:#f5e6d0;--k-soft:#e3c79f;--k-acc:#8a4b22;--k-ink:#3b2416;--k-on:#fff8ee;--k-r:980px;--k-ri:14px;--k-font:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--k-fs:italic;--k-fw:700;--k-tt:none;--k-ls:0em}
 .kit[data-t="1"]{--k-bg:#ecf8ef;--k-soft:#a8e2bb;--k-acc:#1f8a45;--k-ink:#0e2a18;--k-on:#fff;--k-r:10px;--k-ri:12px;--k-font:var(--f);--k-fs:normal;--k-fw:650;--k-ls:-.03em}
@@ -404,16 +404,14 @@ a:hover>.app-img{transform:translateY(-3px) scale(1.06)}
   .rs-hero{flex-direction:column;gap:7px}
   .rs-txt{flex:none}
   .rs-cards{grid-template-columns:1fr 1fr}
-  .rs-cards i:nth-child(3){display:none}
-}
+  .rs-cards i:nth-child(3){display:none}}
 @container rs (max-width:135px){
   .rs-links,.rs-cta{display:none}
   .rs-burger{display:grid}
   .rs-txt i{height:7px}
   .rs-btn{width:100%;height:11px}
   .rs-cards{grid-template-columns:1fr}
-  .rs-cards i:nth-child(2){display:none}
-}
+  .rs-cards i:nth-child(2){display:none}}
 .rs-w{position:absolute;right:0;bottom:-2px;padding:2px 7px;border-radius:5px;background:rgba(41,151,255,.16);color:var(--link);font-size:10.5px;font-weight:600;font-variant-numeric:tabular-nums;transform:translateY(100%)}
 
 .gallery{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:max(var(--g),calc((100vw - 1180px)/2));scroll-padding-inline:max(var(--g),calc((100vw - 1180px)/2));-webkit-overflow-scrolling:touch}
@@ -426,14 +424,14 @@ a:hover>.app-img{transform:translateY(-3px) scale(1.06)}
 .dots button::before,.dots button::after{content:"";position:absolute;left:4px;right:4px;top:50%;height:6px;margin-top:-3px;border-radius:6px}
 .dots button::before{background:rgba(255,255,255,.32);transition:background .3s}
 .dots button::after{background:#fff;transform-origin:0 50%;transform:scaleX(var(--p,0))}
-.dots button:hover::before{background:rgba(255,255,255,.6)}
+@media (hover: hover) { .dots button:hover::before {background:rgba(255,255,255,.6)} }
 .dots button.on{width:36px}
 .dots button.sm{transform:scale(.6)}
 .dots button.off{opacity:0;transform:scale(.3);pointer-events:none}
 .dots-n{font-size:12px;font-weight:500;color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:0;white-space:nowrap}
 .dots-n b{font-weight:600;color:var(--gray)}
 .play{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);display:grid;place-items:center;cursor:pointer;transition:background .3s,transform .25s var(--spring)}
-.play:hover{background:rgba(255,255,255,.14)}
+@media (hover: hover) { .play:hover {background:rgba(255,255,255,.14)} }
 .play:active{transform:scale(.94)}
 .play svg{width:13px;height:13px}
 
@@ -456,5 +454,11 @@ a:hover>.app-img{transform:translateY(-3px) scale(1.06)}
   .t-a{min-height:380px}
   .pa-steps{display:none}
   .bstage{aspect-ratio:1.6}
-  .bstage .bshot.pan{animation:none}
-}
+  .bstage .bshot.pan{animation:none}}
+@media (hover:none) and (pointer:coarse){
+  .t-ai::after{display:none}   
+  .dt{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(28,28,30,.96)}
+  .ps-tag{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(20,16,12,.84)}
+  .eq-ctrl,.dots,.play{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.1)}
+  .ai-list li{cursor:pointer}
+  .ai-list li:active{background:rgba(255,255,255,.1)}}

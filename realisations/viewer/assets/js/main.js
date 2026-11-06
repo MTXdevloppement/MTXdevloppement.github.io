@@ -1,5 +1,15 @@
 (() => {
   'use strict';
+  const sansBarreSafari = fn => {
+    const tactile = matchMedia('(hover: none) and (pointer: coarse)').matches;
+    let l = innerWidth, h = innerHeight;
+    return e => {
+      if (tactile && innerWidth === l && Math.abs(innerHeight - h) < 160) return;
+      l = innerWidth;
+      h = innerHeight;
+      fn(e);
+    };
+  };
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pointeurFin = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -588,7 +598,22 @@
     mots = $$('.m', manifeste);
   }
   const hero = $('.hero');
-  if (pointeurFin && !reduit) {
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
+  if (!reduit) {
     const tiltsAccueil = $$('.tilt', hero);
     const incliner = (els, ry, rx) => els.forEach((t => {
       t.style.setProperty('--ry', ry);
@@ -767,14 +792,14 @@
   addEventListener('scroll', surDefilement, {
     passive: true
   });
-  addEventListener('resize', (() => {
+  addEventListener('resize', sansBarreSafari((() => {
     clearTimeout(delaiRedim);
     delaiRedim = setTimeout((() => {
       mesurer();
       majVp();
       surDefilement();
     }), 120);
-  }));
+  })));
   addEventListener('load', (() => {
     mesurer();
     majVp();

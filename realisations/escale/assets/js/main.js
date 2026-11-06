@@ -222,7 +222,22 @@
       passive: true
     });
   }
-  if (survolable && !reduit) {
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
+  if (!reduit) {
     $$('[data-tilt]').forEach((el => {
       const max = el.classList.contains('phone') ? 7 : 10;
       const estBillet = el.classList.contains('billet');
@@ -1223,7 +1238,8 @@
       }
     }
   }
-  const LISSAGE = 85;
+  const tactile = matchMedia('(hover: none) and (pointer: coarse)').matches;
+  const LISSAGE = tactile ? 0 : 85;
   let yLisse = scrollY, tPrec = 0, enBoucle = false;
   function image(t) {
     const y = scrollY;
@@ -1232,7 +1248,7 @@
     const dt = tPrec ? Math.min(t - tPrec, 64) : 16.7;
     tPrec = t;
     const ecart = y - yLisse;
-    if (Math.abs(ecart) < .35 || Math.abs(ecart) > hauteur * 2.5) yLisse = y; else yLisse += ecart * (1 - Math.exp(-dt / LISSAGE));
+    if (!LISSAGE || Math.abs(ecart) < .35 || Math.abs(ecart) > hauteur * 2.5) yLisse = y; else yLisse += ecart * (1 - Math.exp(-dt / LISSAGE));
     rendre(yLisse);
     if (yLisse !== y) requestAnimationFrame(image); else {
       enBoucle = false;
@@ -1277,7 +1293,13 @@
     addEventListener('scroll', demander, {
       passive: true
     });
-    addEventListener('resize', remesurer);
+    let largeurVue = innerWidth, hauteurVue = innerHeight;
+    addEventListener('resize', (() => {
+      if (tactile && innerWidth === largeurVue && Math.abs(innerHeight - hauteurVue) < 160) return;
+      largeurVue = innerWidth;
+      hauteurVue = innerHeight;
+      remesurer();
+    }));
     addEventListener('load', remesurer);
     new ResizeObserver(remesurer).observe(document.body);
   }

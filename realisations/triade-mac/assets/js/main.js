@@ -1,5 +1,15 @@
 (() => {
   'use strict';
+  const sansBarreSafari = fn => {
+    const tactile = matchMedia('(hover: none) and (pointer: coarse)').matches;
+    let l = innerWidth, h = innerHeight;
+    return e => {
+      if (tactile && innerWidth === l && Math.abs(innerHeight - h) < 160) return;
+      l = innerWidth;
+      h = innerHeight;
+      fn(e);
+    };
+  };
   const racine = document.documentElement;
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const tactile = matchMedia('(hover: none)').matches;
@@ -134,11 +144,11 @@
   }), {
     passive: true
   });
-  addEventListener('resize', (() => {
+  addEventListener('resize', sansBarreSafari((() => {
     vh = innerHeight;
     heros.mesurer();
     surDefilement();
-  }), {
+  })), {
     passive: true
   });
   const heros = (() => {
@@ -171,8 +181,29 @@
       }
       return [ x, y ];
     }
+    const telephone = matchMedia('(max-width: 699px)');
+    function placerEventail() {
+      fan.style.top = fan.style.bottom = fan.style.width = fan.style.marginLeft = '';
+      pin.classList.remove('hero-serre');
+      if (!telephone.matches) return;
+      let bas = copie.offsetTop + copie.offsetHeight + 14;
+      let place = Math.min(pin.clientHeight, innerHeight) - bas - 24;
+      if (place < 170) {
+        pin.classList.add('hero-serre');
+        bas = copie.offsetTop + copie.offsetHeight + 14;
+        place = Math.min(pin.clientHeight, innerHeight) - bas - 24;
+      }
+      const l = Math.round(Math.max(130, Math.min(fan.offsetWidth, place)));
+      Object.assign(fan.style, {
+        top: bas + 'px',
+        bottom: 'auto',
+        width: l + 'px',
+        marginLeft: -l / 2 + 'px'
+      });
+    }
     function mesurer() {
       if (reduit) return;
+      placerEventail();
       const fw = fan.offsetWidth;
       const [fx, fy] = decalage(fan, pin);
       const [dx, dy] = decalage(appareil, pin);
@@ -3053,7 +3084,22 @@
       occupe = false;
     }));
   })();
-  if (!tactile) {
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
+  {
     $$('.pan').forEach((p => p.addEventListener('pointermove', (e => {
       const r = p.getBoundingClientRect();
       p.style.setProperty('--mx', `${e.clientX - r.left}px`);

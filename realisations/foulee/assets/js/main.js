@@ -615,7 +615,7 @@
       tous.forEach((x => x.setAttribute('aria-pressed', String(x === b))));
       carte.dataset.format = b.dataset.format;
     }))));
-    if (reduit || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (reduit) return;
     let raf = 0;
     let evt = null;
     scene.addEventListener('pointermove', (e => {
@@ -693,7 +693,7 @@
     const cartes = $$('.b-card');
     if (!cartes.length) return;
     $$('.sp i').forEach(((b, i) => b.style.setProperty('--k', i)));
-    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    {
       for (const carte of cartes) {
         let raf = 0;
         let evt = null;
@@ -915,6 +915,21 @@
     const s = document.getElementById(id);
     if (s) obsSections.observe(s);
   }));
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
   initDuel();
   initPlanificateur();
   initPartage();

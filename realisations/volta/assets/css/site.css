@@ -13,7 +13,7 @@
 .v-side .feux { margin: 0 0 18px 6px; }
 .v-nav { display: flex; align-items: center; gap: 9px; height: 30px; padding: 0 9px; border-radius: 7px; font-size: 13px; color: rgba(255, 255, 255, .86); transition: background-color .2s; }
 .v-nav svg { width: 15px; height: 15px; color: var(--sys); }
-.v-nav:hover { background: rgba(255, 255, 255, .06); }
+@media (hover: hover) { .v-nav:hover { background: rgba(255, 255, 255, .06); } }
 .v-nav.on { background: rgba(255, 255, 255, .12); }
 .v-main { position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
 .v-bar { flex: none; height: 54px; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-bottom: 1px solid rgba(255, 255, 255, .07); }
@@ -21,7 +21,7 @@
 .v-bar b { font-size: 15px; font-weight: 700; }
 .v-bar small { font-size: 11px; color: rgba(255, 255, 255, .5); }
 .v-btn { height: 26px; padding: 0 11px; border-radius: 6px; font-size: 12.5px; background: rgba(255, 255, 255, .12); color: #fff; transition: background-color .2s, transform .15s; white-space: nowrap; }
-.v-btn:hover { background: rgba(255, 255, 255, .18); }
+@media (hover: hover) { .v-btn:hover { background: rgba(255, 255, 255, .18); } }
 .v-btn:active { transform: scale(.97); }
 .v-btn.bleu, .v-btn[aria-pressed="true"] { background: var(--sys); }
 .v-btn:disabled { opacity: .45; cursor: default; }
@@ -72,7 +72,7 @@
 .cv-oeil svg { width: 14px; height: 14px; }
 .cartes.edit .cv { animation: tremble .28s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -60ms); }
 .cartes.edit .cv-oeil { opacity: 1; transform: none; }
-.cartes.edit .cv:hover { box-shadow: inset 0 0 0 1.5px var(--sys); }
+@media (hover: hover) { .cartes.edit .cv:hover { box-shadow: inset 0 0 0 1.5px var(--sys); } }
 @keyframes tremble { from { rotate: -.35deg; } to { rotate: .35deg; } }
 .cv.cache { display: none; }
 .masquees { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0 18px 16px; font-size: 12px; color: rgba(255, 255, 255, .55); }
@@ -92,7 +92,7 @@
 .st-l span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .st-l .n { text-align: right; font-variant-numeric: tabular-nums; }
 .st-l:nth-child(even) { background: rgba(255, 255, 255, .03); }
-.st-l:hover { background: rgba(255, 255, 255, .07); }
+@media (hover: hover) { .st-l:hover { background: rgba(255, 255, 255, .07); } }
 .st-l.sel { background: var(--sys); }
 .st-t { height: 26px; font-size: 11px; font-weight: 650; color: rgba(255, 255, 255, .5); cursor: default; border-bottom: 1px solid rgba(255, 255, 255, .08); background: none !important; }
 .st-l mark { background: rgba(255, 214, 10, .35); color: inherit; border-radius: 2px; }
@@ -135,7 +135,7 @@
 .col-dv h5 { display: flex; justify-content: space-between; align-items: center; margin: 0 2px 2px; font-size: 11.5px; font-weight: 650; color: rgba(255, 255, 255, .65); }
 .col-dv h5 em { font-style: normal; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--c) 30%, transparent); color: #fff; font-variant-numeric: tabular-nums; }
 .dv { display: flex; flex-direction: column; gap: 3px; padding: 9px 10px; border-radius: 8px; background: #2c2c30; box-shadow: inset 3px 0 0 var(--c), 0 4px 12px rgba(0, 0, 0, .25); font-size: 11.5px; cursor: pointer; text-align: left; color: #fff; will-change: transform; transition: box-shadow .2s; }
-.dv:hover { box-shadow: inset 3px 0 0 var(--c), 0 0 0 1px rgba(255, 255, 255, .2), 0 6px 16px rgba(0, 0, 0, .3); }
+@media (hover: hover) { .dv:hover { box-shadow: inset 3px 0 0 var(--c), 0 0 0 1px rgba(255, 255, 255, .2), 0 6px 16px rgba(0, 0, 0, .3); } }
 .dv b { font-size: 11px; font-weight: 700; font-family: var(--mono); letter-spacing: -.02em; }
 .dv span { color: rgba(255, 255, 255, .75); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dv small { color: rgba(255, 255, 255, .45); }
@@ -184,5 +184,9 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bo
 .rk { display: flex; align-items: center; gap: 5px; padding: 10px 14px; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 .rk kbd { display: grid; place-items: center; min-width: 34px; height: 34px; padding: 0 7px; border-radius: 8px; font: 600 15px/1 var(--font); color: var(--text); background: linear-gradient(180deg, #26304a, #1a2238); box-shadow: 0 3px 0 #0a0f1c; }
 .rk small { margin-left: 8px; font-size: 13px; color: var(--text-2); }
-.rk:hover kbd { transform: translateY(2px); box-shadow: 0 1px 0 #0a0f1c; background: linear-gradient(180deg, #5a4a10, #3d3208); }
+@media (hover: hover) { .rk:hover kbd { transform: translateY(2px); box-shadow: 0 1px 0 #0a0f1c; background: linear-gradient(180deg, #5a4a10, #3d3208); } }
 .rk kbd { transition: transform .12s, box-shadow .12s, background .2s; }
+
+@media (hover: none) and (pointer: coarse) {
+  a, button, [role="button"], label, summary, input[type="range"] { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+}

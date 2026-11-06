@@ -415,8 +415,10 @@
     api.tilt = k => {
       if (!reduce) opX.style.transform = k > 0 ? `rotate(${(k * 45).toFixed(2)}deg)` : '';
     };
-    let rz;
+    let rz, fitW = innerWidth;
     addEventListener('resize', (() => {
+      if (innerWidth === fitW) return;
+      fitW = innerWidth;
       clearTimeout(rz);
       rz = setTimeout(fit, 150);
     }));
@@ -432,7 +434,10 @@
     return api;
   })();
   const hero = $('#hero'), copy = $('#heroCopy'), stage = $('#stage'), device = $('#device'), cap = $('#stageCap');
-  let ticking = false, lastP = -1, lastW = 0;
+  const dimEl = device.appendChild(document.createElement('i'));
+  dimEl.className = 'device-dim';
+  dimEl.setAttribute('aria-hidden', 'true');
+  let ticking = false, lastP = -1, lastW = 0, lastRad = -1, lastDim = '';
   function frame() {
     ticking = false;
     const vh = innerHeight, vw = innerWidth;
@@ -447,7 +452,11 @@
       const s = s0 + (1 - s0) * e;
       const top0 = copyH + 36;
       stage.style.transform = `translate(-50%, ${(1 - e) * top0}px) scale(${s})`;
-      device.style.setProperty('--r', `${(1 - e) * 32 / s}px`);
+      const rad = Math.round((1 - e) * 32 / s);
+      if (rad !== lastRad) {
+        lastRad = rad;
+        device.style.borderRadius = rad + 'px';
+      }
       const cp = clamp(p / .3);
       copy.style.opacity = 1 - cp;
       copy.style.transform = `translateY(${-cp * 60}px) scale(${1 - cp * .06})`;
@@ -459,7 +468,11 @@
       const k = clamp((p - .7) / .2);
       cap.style.opacity = k;
       cap.style.transform = `translateY(${(1 - k) * 30}px)`;
-      device.style.setProperty('--dim', (k * .45).toFixed(3));
+      const dim = (k * .45).toFixed(2);
+      if (dim !== lastDim) {
+        lastDim = dim;
+        dimEl.style.opacity = dim;
+      }
     }
     const wr = wordsEl.getBoundingClientRect();
     if (wr.top < vh * 1.5 && wr.bottom > -vh * .5) {
@@ -482,7 +495,16 @@
   addEventListener('scroll', onScroll, {
     passive: true
   });
-  addEventListener('resize', relayout);
+  let rlW = innerWidth, rlH = innerHeight;
+  addEventListener('resize', (() => {
+    if (innerWidth === rlW && Math.abs(innerHeight - rlH) < 160) {
+      onScroll();
+      return;
+    }
+    rlW = innerWidth;
+    rlH = innerHeight;
+    relayout();
+  }));
   frame();
   function cycler({root: root, btn: btn, n: n, ms: ms, step: step, progress: progress, labels: labels}) {
     let i = 0, playing = !reduce, seen = false, raf = 0, last = 0, el = 0;
@@ -637,7 +659,12 @@
         }), 900);
       }
     });
-    items.forEach(((li, k) => li.addEventListener('mouseenter', (() => cyc.go(k)))));
+    items.forEach(((li, k) => {
+      li.addEventListener('pointerenter', (e => {
+        if (e.pointerType === 'mouse') cyc.go(k);
+      }));
+      li.addEventListener('click', (() => cyc.go(k)));
+    }));
   })();
   const MARQUES = [ {
     nom: 'Maison Arlette',

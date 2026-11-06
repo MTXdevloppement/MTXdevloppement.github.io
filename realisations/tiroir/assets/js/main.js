@@ -1208,7 +1208,22 @@
     rootMargin: '0px 0px -6% 0px'
   });
   $$('[data-reveal], .split, .durees, .garantie').forEach((el => io.observe(el)));
-  if (fine && !reduced) {
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
+  if (!reduced) {
     $$('.tilt').forEach((el => {
       const zone = el.closest('.stage, .scan-phone, .hero-stage, .dossier') || el;
       const max = 7;
@@ -1304,7 +1319,14 @@
     clearTimeout(rt);
     rt = setTimeout(measure, 120);
   };
-  addEventListener('resize', remeasure);
+  const tactile = matchMedia('(hover: none) and (pointer: coarse)').matches;
+  let largeurVue = innerWidth, hauteurVue = innerHeight;
+  addEventListener('resize', (() => {
+    if (tactile && innerWidth === largeurVue && Math.abs(innerHeight - hauteurVue) < 160) return;
+    largeurVue = innerWidth;
+    hauteurVue = innerHeight;
+    remeasure();
+  }));
   new ResizeObserver(remeasure).observe(document.body);
   $('#annee').textContent = Y;
   measure();

@@ -1,5 +1,15 @@
 (() => {
   'use strict';
+  const sansBarreSafari = fn => {
+    const tactile = matchMedia('(hover: none) and (pointer: coarse)').matches;
+    let l = innerWidth, h = innerHeight;
+    return e => {
+      if (tactile && innerWidth === l && Math.abs(innerHeight - h) < 160) return;
+      l = innerWidth;
+      h = innerHeight;
+      fn(e);
+    };
+  };
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const tactile = matchMedia('(hover: none)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -130,11 +140,11 @@
   }), {
     passive: true
   });
-  addEventListener('resize', (() => {
+  addEventListener('resize', sansBarreSafari((() => {
     vh = innerHeight;
     mesurer();
     surDefilement();
-  }), {
+  })), {
     passive: true
   });
   if ('ResizeObserver' in window) {
@@ -142,7 +152,22 @@
     echelles.forEach((e => ro.observe(e)));
   }
   mesurer();
-  if (!tactile) {
+  if (matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('pointerdown', (e => {
+      if (e.pointerType !== 'touch' || !e.isPrimary) return;
+      e.target.dispatchEvent(new PointerEvent('pointermove', {
+        bubbles: true,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        pointerId: e.pointerId,
+        pointerType: 'touch',
+        isPrimary: true
+      }));
+    }), {
+      passive: true
+    });
+  }
+  {
     $$('.pan').forEach((p => p.addEventListener('pointermove', (e => {
       const r = p.getBoundingClientRect();
       p.style.setProperty('--mx', `${e.clientX - r.left}px`);

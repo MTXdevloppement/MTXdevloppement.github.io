@@ -16,16 +16,16 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-logo svg{width:20px;height:20px}
 .mtx-links{display:flex;gap:28px}
 .mtx-links a{transition:color .3s}
-.mtx-links a:hover,.mtx-links a[aria-current]{color:#fff}
+.mtx-links a[aria-current] {color:#fff}
+@media (hover: hover) { .mtx-links a:hover {color:#fff} }
 .mtx-right{flex:1 1 0;display:flex;justify-content:flex-end;align-items:center;gap:16px}
 .mtx-back{display:none;align-items:center;gap:4px;color:#2997ff;font-size:14px}
 .mtx-back::before{content:"‹";font-size:1.4em;line-height:.8;transform:translateY(-.04em)}
 .mtx-cta{display:inline-flex;align-items:center;min-height:28px;padding:0 14px;border-radius:980px;background:#0071e3;color:#fff!important;font-size:12.5px;font-weight:500;white-space:nowrap;transition:background .3s}
-.mtx-cta:hover{background:#0077ed}
+@media (hover: hover) { .mtx-cta:hover {background:#0077ed} }
 @media (max-width:900px){
   .mtx-links,.mtx-cta{display:none}
-  .mtx-back{display:inline-flex}
-}
+  .mtx-back{display:inline-flex}}
 
 .mtx-pf{position:relative;z-index:1;background:#000;color:#f5f5f7;border-top:1px solid rgba(255,255,255,.1);padding:clamp(72px,12vh,128px) 0 28px;font-size:17px;line-height:1.47}
 .mtx-pf-w{max-width:980px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
@@ -36,10 +36,10 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-pf-tags{margin:14px 0 0;color:#6e6e73;font-size:14px}
 .mtx-pf-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:32px}
 .mtx-btn{display:inline-flex;align-items:center;min-height:44px;padding:11px 22px;border-radius:980px;background:#0071e3;color:#fff!important;font-size:17px;font-weight:500;letter-spacing:-.02em;transition:background .3s,box-shadow .3s}
-.mtx-btn:hover{background:#0077ed;box-shadow:0 8px 30px rgba(0,113,227,.35)}
+@media (hover: hover) { .mtx-btn:hover {background:#0077ed;box-shadow:0 8px 30px rgba(0,113,227,.35)} }
 .mtx-more{display:inline-flex;align-items:center;gap:2px;color:#2997ff!important;font-size:17px;letter-spacing:-.02em}
 .mtx-more::after{content:"›";font-size:1.25em;line-height:1;transform:translateY(-.03em)}
-.mtx-more:hover{text-decoration:underline!important;text-underline-offset:3px}
+@media (hover: hover) { .mtx-more:hover {text-decoration:underline!important;text-underline-offset:3px} }
 .mtx-pf-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:48px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:#86868b;font-size:12px}
 .mtx-pf-bot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
-.mtx-pf-bot a:hover{color:#f5f5f7}
+@media (hover: hover) { .mtx-pf-bot a:hover {color:#f5f5f7} }

@@ -461,7 +461,9 @@
     pile.addEventListener('pointerenter', interet, { once: true });
     pile.addEventListener('focusin', interet, { once: true });
     pile.addEventListener('touchstart', interet, { once: true, passive: true });
-    window.addEventListener('load', () => surInactivite(() => creerCouches(false, ['carte', 'pause']), 3000), { once: true });
+    const co = navigator.connection;
+    const econome = co && (co.saveData || /(^|-)2g|3g/.test(co.effectiveType || ''));
+    if (!econome) window.addEventListener('load', () => surInactivite(() => creerCouches(false, ['carte', 'pause']), 3000), { once: true });
   })();
 
   (function ile() {
@@ -645,7 +647,7 @@
       telActif = diapos[n].tel;
       for (let k = n - 1; k <= n + 1; k++) diapos[k]?.charger();
       compte.textContent = `${n + 1} / ${items.length}`;
-      leg.innerHTML = items[n].legende;
+      leg.innerHTML = `<span>${items[n].legende}</span>`;
       prec.disabled = n === 0;
       suiv.disabled = n === items.length - 1;
       diapos.forEach((d, k) => d.el.setAttribute('aria-hidden', String(k !== n)));

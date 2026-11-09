@@ -13,8 +13,8 @@
 <script>(function(r){r.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)r.classList.add('anim')})(document.documentElement)</script>
 <script src="assets/js/socle.js" defer></script>
 <script src="assets/js/site.js" defer></script>
-<link rel="stylesheet" href="../../assets/css/projet.css">
-<script src="../../assets/js/projet.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=11">
+<script src="../../assets/js/projet.js?v=11" defer></script>
 </head>
 <body id="haut">
 <div class="mtx-gbar">
@@ -171,8 +171,8 @@
               <defs>
                 <pattern id="damier" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#e9e9ee"/><rect width="10" height="10" fill="#cfcfd6"/><rect x="10" y="10" width="10" height="10" fill="#cfcfd6"/></pattern></defs>
               <rect width="600" height="380" fill="url(#damier)"/>
-              <g class="rt-fond"><image href="assets/img/photos/photo.webp" width="600" height="380" preserveAspectRatio="xMidYMid slice"/></g>
-              <g class="rt-sujet"><image href="assets/img/photos/photo-detouree.webp" width="600" height="380" preserveAspectRatio="xMidYMid slice"/></g>
+              <g class="rt-fond"><image data-href="assets/img/photos/photo.webp" width="600" height="380" preserveAspectRatio="xMidYMid slice"/></g>
+              <g class="rt-sujet"><image data-href="assets/img/photos/photo-detouree.webp" width="600" height="380" preserveAspectRatio="xMidYMid slice"/></g>
             </svg>
           </div>
           <div class="rt-panneau">
@@ -254,7 +254,7 @@
 
 <section class="section cta" id="telecharger">
   <div class="wrap">
-    <img class="cta-logo" src="assets/img/icone.webp" width="360" height="360" alt="" data-reveal>
+    <img class="cta-logo" src="assets/img/icone.webp" width="360" height="360" loading="lazy" alt="" data-reveal>
     <h2 class="title center" data-reveal style="--d:.05s">Mue.</h2>
     <p class="lead center" data-reveal style="--d:.1s">Vos fichiers changent de peau, sans quitter votre Mac.</p>
     <div class="cta-btns" data-reveal style="--d:.15s">
@@ -269,7 +269,7 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="nav-logo" href="#haut"><img src="assets/img/icone.webp" width="360" height="360" alt=""><span>Mue</span></a>
+    <a class="nav-logo" href="#haut"><img src="assets/img/icone.webp" width="360" height="360" loading="lazy" alt=""><span>Mue</span></a>
     <p>Une app MTX Studio.</p>
     <p class="foot-legal">© <span id="annee">2026</span> MTX Studio. Apple, Mac, macOS, Finder et AirDrop sont des marques d’Apple Inc. Les écrans présentés sont des reconstitutions de l’app ; la photo d’exemple vient d’Unsplash et son détourage a été fait avec Vision, comme dans Mue.</p>
   </div>

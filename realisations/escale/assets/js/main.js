@@ -263,7 +263,7 @@
   const listeProg = $('#prog-list');
   let jourActif = 2;
   jours.innerHTML = PROG.map((d, i) => `<button type="button" class="day${i === 2 ? ' today' : ''}" role="tab" aria-selected="${i === jourActif}" data-i="${i}">${d.j}<b>${d.n}</b></button>`).join('');
-  const vignette = (it) => it.ph ? `<img src="assets/img/photos/${it.ph}-p.webp" width="240" height="160" alt="" decoding="async">` : paysage(it.p, { w: 60, h: 60, soleil: [.7, .3] });
+  const vignette = (it) => it.ph ? `<img src="assets/img/photos/${it.ph}-p.webp" width="240" height="160" alt="" loading="lazy" decoding="async">` : paysage(it.p, { w: 60, h: 60, soleil: [.7, .3] });
   function rendreJour() {
     const d = PROG[jourActif];
     $$('.day', jours).forEach((b, i) => b.setAttribute('aria-selected', i === jourActif));
@@ -666,7 +666,13 @@
     { j: 'Jour 4 · 6 août', n: 'Manarola', d: 'Le sentier des vignes', s: 'Le dernier détour, celui qui valait le plus.', h: ['Libre', 'i-vent'], ph: 'manarola' }
   ];
   const svImg = $('#sv-img');
-  (window.requestIdleCallback || ((f) => setTimeout(f, 300)))(() => ETAPES.forEach((e) => { new Image().src = `assets/img/photos/${e.ph}.webp`; }));
+  const prechargerEtapes = () => ETAPES.forEach((e) => { new Image().src = `assets/img/photos/${e.ph}.webp`; });
+  if ('IntersectionObserver' in window) {
+    const ioEtapes = new IntersectionObserver((en) => {
+      if (en.some((x) => x.isIntersecting)) { ioEtapes.disconnect(); prechargerEtapes(); }
+    }, { rootMargin: '1500px 0px' });
+    ioEtapes.observe(svImg);
+  } else (window.requestIdleCallback || ((f) => setTimeout(f, 300)))(prechargerEtapes);
   const fiche = $('#sv-fiche');
   const svCopie = $('.sv-copy');
   const svKm = $('#sv-km'), svEtapes = $('#sv-etapes');

@@ -278,6 +278,16 @@
   }
 
 
+  function affichesVideos() {
+    const videos = $$('video[data-poster]');
+    const poser = (v) => { v.poster = v.dataset.poster; delete v.dataset.poster; };
+    if (!('IntersectionObserver' in window)) { videos.forEach(poser); return; }
+    const io = new IntersectionObserver((entrees) => entrees.forEach((en) => {
+      if (en.isIntersecting) { io.unobserve(en.target); poser(en.target); }
+    }), { rootMargin: '1500px 0px' });
+    videos.forEach((v) => io.observe(v));
+  }
+
   function brancherVideos() {
     const videos = $$('[data-video]');
     if (reduit() || !('IntersectionObserver' in window)) return;
@@ -338,6 +348,7 @@
   brancherHistoire();
   brancherTailles();
   brancherAudit();
+  affichesVideos();
   brancherVideos();
 
   const frappe = $('[data-frappe]');

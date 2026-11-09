@@ -472,3 +472,17 @@
     }, 1700);
   })();
 })();
+
+(() => {
+  const images = [...document.querySelectorAll('image[data-href]')];
+  if (!images.length) return;
+  const poser = (im) => { im.setAttribute('href', im.getAttribute('data-href')); im.removeAttribute('data-href'); };
+  if (!('IntersectionObserver' in window)) { images.forEach(poser); return; }
+  const dessins = [...new Set(images.map((im) => im.ownerSVGElement).filter(Boolean))];
+  const io = new IntersectionObserver((entrees) => entrees.forEach((en) => {
+    if (!en.isIntersecting) return;
+    io.unobserve(en.target);
+    en.target.querySelectorAll('image[data-href]').forEach(poser);
+  }), { rootMargin: '1500px 0px' });
+  dessins.forEach((d) => io.observe(d));
+})();

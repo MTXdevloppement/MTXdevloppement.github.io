@@ -95,7 +95,7 @@ html.anime .heros-scene{position:sticky;top:0}
 .fiche dt{color:var(--gris-p)}
 .heros-actions{grid-column:10/13;justify-self:end;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px 22px}
 .lance{position:absolute;inset:0;z-index:5;pointer-events:none;visibility:hidden}
-.lance-fond{position:absolute;inset:0;background:#000;will-change:clip-path}
+.lance-fond{position:absolute;inset:0;background:#000}
 .lance-x{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform,opacity}
 html.anime .heros.ouvre .lance{visibility:visible}
 html.anime .heros.ouvre .icone-mtx{visibility:hidden}
@@ -108,8 +108,8 @@ html.anime .heros.ouvre .icone-mtx{visibility:hidden}
 @media (max-width:760px), (max-width:1100px) and (max-aspect-ratio:4/5){
   .heros-grille{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;padding-top:calc(var(--barre-h) + 2.5vh)}
   .heros-titre{grid-column:1;grid-row:1;align-self:start;font-size:clamp(52px,17.4vw,170px)}
-  .heros-icone{grid-column:1;grid-row:2;justify-self:end;align-self:center;margin-right:2vw}
-  .icone-mtx{width:clamp(96px,30vw,230px)}
+  .heros-icone{grid-column:1;grid-row:2;justify-self:center;align-self:center}
+  .icone-mtx{width:clamp(96px,min(38vw,21svh),230px)}
   .heros-pied{grid-row:3;grid-template-columns:1fr;row-gap:16px;margin-top:12px}
   .heros-accroche,.fiche,.heros-actions{grid-column:1}
   .heros-actions{margin-top:2px;gap:6px 20px}
@@ -133,15 +133,22 @@ html.anime .chap-in{position:sticky;top:0;height:100vh;height:100svh;padding:cal
 .chap-tech{max-width:40ch;margin-top:14px;font-size:12.5px;line-height:1.6;color:var(--gris)}
 .chap-ouvrir{margin-top:30px}
 .chap-cadre{grid-column:6/13;justify-self:end;position:relative;display:block;width:min(100%,calc((100svh - 200px) * 1.6));aspect-ratio:16/10;border-radius:14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.chap-cadre::before{content:"";position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
-.chap-ecran{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:var(--noir-3);will-change:clip-path}
-.chap-ecran img{width:100%;height:100%;object-fit:cover;object-position:top;transform-origin:50% 0;will-change:transform}
-.chap-icone{position:absolute;left:50%;top:50%;width:var(--ic,120px);height:var(--ic,120px);margin:calc(var(--ic,120px) / -2) 0 0 calc(var(--ic,120px) / -2);border-radius:22.5%;opacity:0;pointer-events:none;will-change:transform,opacity}
+.chap-ecran{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:var(--noir-3)}
+.chap-ecran::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);pointer-events:none;transition:box-shadow .3s var(--ease)}
+.chap-ecran picture{position:absolute;inset:0;display:block}
+.chap-ecran img{width:100%;height:100%;object-fit:cover;object-position:top;transform-origin:50% 0}
+.chap-icone{position:absolute;left:50%;top:50%;width:var(--ic,120px);height:var(--ic,120px);margin:calc(var(--ic,120px) / -2) 0 0 calc(var(--ic,120px) / -2);border-radius:22.5%;opacity:0;pointer-events:none}
 html.anime .chap-icone{opacity:1}
+html.anime .chap.proche .chap-ecran img{will-change:transform}
+html.anime .chap.proche .chap-icone{will-change:transform,opacity}
 .chap-survol{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#000;color:var(--blanc);font-size:13px;opacity:0;transform:translateY(8px);transition:opacity .3s var(--ease),transform .35s var(--ease);pointer-events:none}
 @media (hover:hover){
   .chap-cadre:hover .chap-survol{opacity:1;transform:none}
-  .chap-cadre:hover::before{box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+  .chap-cadre:hover .chap-ecran::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+}
+@media (min-width:1180px){
+  .chap-fiche{grid-column:1/5}
+  .chap-cadre{grid-column:5/13}
 }
 @media (max-width:860px){
   .chap-in{grid-template-columns:1fr;align-content:center;row-gap:22px}
@@ -153,6 +160,16 @@ html.anime .chap-icone{opacity:1}
   .chap-titre{font-size:18px;margin-top:10px}
   .chap-tech{margin-top:10px;font-size:12px}
   .chap-ouvrir{margin-top:20px}
+}
+@media (max-width:600px){
+  .chap-cadre{aspect-ratio:auto;height:clamp(200px,calc(100svh - 440px),540px)}
+}
+@media (max-width:960px) and (max-height:520px) and (orientation:landscape){
+  html.anime .chap{height:auto}
+  html.anime .chap-in,.chap-in{position:relative;height:auto;grid-template-columns:repeat(12,minmax(0,1fr));padding:32px var(--gout)}
+  .chap-fiche{grid-column:1/6;grid-row:1;padding-right:12px}
+  .chap-cadre{grid-column:6/13;grid-row:1;width:100%;aspect-ratio:16/10;height:auto}
+  .chap-nom{font-size:clamp(34px,6vw,48px)}
 }
 
 .dock{display:none}
@@ -248,7 +265,7 @@ html.anime .chap-icone{opacity:1}
 .texte-corps{grid-column:4/11;font-size:17px;line-height:1.6}
 .texte-corps h2{margin:2.4em 0 .7em;padding-top:16px;border-top:1px solid var(--filet-p);font-size:22px;font-weight:600;letter-spacing:-.03em}
 .texte-corps h2:first-child{margin-top:0}
-.texte-corps p+p,.texte-corps ul+p,.texte-corps p+ul{margin-top:.9em}
+.texte-corps p+p,.texte-corps ul+p,.texte-corps p+ul,.texte-corps p+dl,.texte-corps dl+p{margin-top:.9em}
 .texte-corps ul{padding-left:1.1em;list-style:disc}
 .texte-corps li+li{margin-top:.35em}
 .texte-corps a{text-decoration-thickness:1px;text-underline-offset:3px}
@@ -258,7 +275,11 @@ html.anime .chap-icone{opacity:1}
 @media (max-width:860px){.texte-corps{grid-column:1/-1}.texte-corps dl{grid-template-columns:1fr;gap:2px}.texte-corps dd{margin-bottom:10px}}
 .page-texte .pied{background:var(--noir)}
 
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:var(--ease)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}
+  @view-transition{navigation:none}
 }
 @media print{.barre,.dock,.lance,.croix{display:none}.heros,.realisations,.contact,.pied{background:#fff;color:#000}}

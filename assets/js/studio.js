@@ -29,10 +29,13 @@
       lignes.forEach((l) => (l.style.display = 'inline-block'));
       const large = Math.max(...lignes.map((l) => l.getBoundingClientRect().width));
       lignes.forEach((l) => (l.style.display = ''));
-      const zone = titre.parentElement.getBoundingClientRect().height;
-      let cible = fs * (dispo / large) * 0.995;
-      const parHauteur = window.innerWidth > 760 ? (zone * 0.98) / (lignes.length * 0.9) : Infinity;
-      cible = Math.min(cible, parHauteur, 236);
+      const grille = titre.parentElement, gs = getComputedStyle(grille);
+      const pied = $('.heros-pied', grille);
+      const libre = grille.clientHeight - parseFloat(gs.paddingTop) - parseFloat(gs.paddingBottom)
+        - (pied ? pied.offsetHeight + parseFloat(getComputedStyle(pied).marginTop) : 0)
+        - (parseFloat(gs.getPropertyValue('--reserve-icone')) || 0);
+      const parHauteur = Math.max(36, libre / (lignes.length * 0.86 + 0.06));
+      const cible = Math.min(fs * (dispo / large) * 0.995, parHauteur, 236);
       titre.style.fontSize = cible.toFixed(1) + 'px';
     }
     if (adresse) {
@@ -174,7 +177,7 @@
   }
   function allerA(chap, doux = true) {
     const top = chap.getBoundingClientRect().top + window.scrollY;
-    const y = anime ? top + chap.offsetHeight * 0.84 - window.innerHeight : top;
+    const y = anime ? top + chap.offsetHeight * 0.88 - window.innerHeight : top;
     window.scrollTo({ top: y, behavior: doux && anime ? 'smooth' : 'auto' });
   }
   docks.forEach((d) => d.addEventListener('click', (ev) => {

@@ -421,7 +421,7 @@ kbd { display: inline-grid; place-items: center; min-width: 28px; height: 28px; 
 @media (hover: hover) { .rates-legend span:hover { transform: translateY(-3px); background: color-mix(in srgb, var(--c) 15%, transparent); } }
 .rates-legend b { font-size: 15px; color: var(--c); }
 .try-phone { position: relative; }
-.try-halo { position: absolute; inset: -12% -30%; border-radius: 50%; background: radial-gradient(closest-side, rgba(139, 92, 246, .3), rgba(34, 211, 238, .08) 60%, transparent); pointer-events: none; } 
+.try-halo { position: absolute; inset: -12% -30%; border-radius: 50%; background: radial-gradient(closest-side, rgba(139, 92, 246, .3), rgba(34, 211, 238, .08) 60%, transparent); pointer-events: none; }
 .tilt-soft { transition: transform 1s var(--ease); }
 
 .types { position: relative; }
@@ -470,7 +470,7 @@ code { padding: 2px 7px; border-radius: 6px; font: 500 .88em ui-monospace, "SF M
 .swap-ic { position: relative; z-index: 2; width: 44px; height: 44px; margin: -8px 0; display: grid; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--violet), var(--cyan)); box-shadow: 0 0 0 6px var(--bg), 0 10px 30px rgba(139, 92, 246, .5); animation: spinSwap 6s var(--ease-io) infinite; }
 .swap-ic svg { width: 20px; height: 20px; transform: rotate(90deg); }
 @keyframes swapA { 0%, 40% { transform: translate(-30px, 10px) rotate(-3deg); } 50%, 90% { transform: translate(-16px, 24px) rotate(-1deg) scale(.96); opacity: .7; } 100% { transform: translate(-30px, 10px) rotate(-3deg); } }
-@keyframes swapAz { 0%, 40% { z-index: 1; } 100% { z-index: auto; } } 
+@keyframes swapAz { 0%, 40% { z-index: 1; } 100% { z-index: auto; } }
 @keyframes swapB { 0%, 40% { transform: translate(30px, -10px) rotate(3deg); opacity: .7; } 50%, 90% { transform: translate(18px, -24px) rotate(1deg) scale(1.03); opacity: 1; } 100% { transform: translate(30px, -10px) rotate(3deg); opacity: .7; } }
 @keyframes spinSwap { 0%, 40% { transform: rotate(0); } 50%, 90% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
 

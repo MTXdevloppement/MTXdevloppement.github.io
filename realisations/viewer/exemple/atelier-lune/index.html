@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Atelier Lune — site d’exemple</title>
+<style>
+  :root { --terre: #8a4b2a; --encre: #231c17; --sable: #f4efe7; --gris: #6d6259; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 16px/1.5 "Iowan Old Style", "Palatino Linotype", Georgia, serif; color: var(--encre); background: var(--sable); }
+  img { display: block; width: 100%; height: auto; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; }
+  .logo { font-weight: 700; font-size: 19px; display: flex; gap: 10px; align-items: center; }
+  .logo::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--terre); }
+  .liens { display: none; gap: 26px; font-size: 15px; }
+  .burger { width: 26px; height: 12px; border-block: 2px solid var(--encre); }
+  .heros { display: grid; gap: 22px; padding: 18px 20px 34px; }
+  .kicker { font: 600 11px/1 system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--terre); }
+  h1 { font-size: 36px; line-height: 1.05; font-weight: 600; margin-top: 12px; }
+  .lead { color: var(--gris); margin-top: 12px; }
+  .btn { display: inline-block; margin-top: 18px; padding: 12px 20px; border-radius: 99px; background: var(--encre); color: var(--sable); font: 600 14px system-ui, sans-serif; }
+  .heros img { border-radius: 14px; aspect-ratio: 4 / 3; object-fit: cover; }
+  section { padding: 30px 20px; }
+  h2 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grille figure img { border-radius: 10px; aspect-ratio: 1; object-fit: cover; }
+  figcaption { font: 13px system-ui, sans-serif; margin-top: 6px; }
+  .planning { min-width: 470px; border-collapse: collapse; font: 14px system-ui, sans-serif; }
+  .planning td, .planning th { border-bottom: 1px solid #d9cfc2; padding: 10px 12px 10px 0; text-align: left; }
+  footer { padding: 30px 20px 50px; font: 13px system-ui, sans-serif; color: var(--gris); }
+  @media (min-width: 700px) {
+    .liens { display: flex; } .burger { display: none; }
+    .nav, .heros, section, footer { padding-inline: 40px; }
+    .heros { grid-template-columns: 1fr 1fr; align-items: center; }
+    h1 { font-size: 46px; }
+    .grille { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (min-width: 1100px) {
+    .nav, .heros, section, footer { padding-inline: 8vw; }
+    h1 { font-size: 64px; }
+    .heros { grid-template-columns: 5fr 6fr; gap: 60px; padding-block: 40px 70px; }
+  }
+  @media (min-width: 1600px) {
+    body { font-size: 18px; }
+    h1 { font-size: 84px; }
+    .grille { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <span class="logo">Atelier Lune</span>
+    <nav class="liens"><span>Créations</span><span>Ateliers</span><span>Boutique</span><span>Contact</span></nav>
+    <span class="burger" aria-hidden="true"></span>
+  </header>
+  <main>
+    <div class="heros">
+      <div>
+        <p class="kicker">Céramique · grès émaillé</p>
+        <h1>Des pièces tournées à la main.</h1>
+        <p class="lead">Bols, tasses et vases façonnés à l’atelier, en petites séries.</p>
+        <span class="btn">Réserver un atelier</span>
+      </div>
+      <img src="img/atelier-1.webp" width="1000" height="667" alt="Étagère de vases en grès">
+    </div>
+    <section>
+      <h2>Les créations</h2>
+      <div class="grille">
+        <figure><img src="img/bol-lune.webp" width="853" height="480" alt=""><figcaption>Bol Lune</figcaption></figure>
+        <figure><img src="img/vase-sauge.webp" width="721" height="480" alt=""><figcaption>Vase Sauge</figcaption></figure>
+        <figure><img src="img/tasse-brume.webp" width="721" height="480" alt=""><figcaption>Tasse Brume</figcaption></figure>
+        <figure><img src="img/pichet-ble.webp" width="721" height="480" alt=""><figcaption>Pichet Blé</figcaption></figure>
+      </div>
+    </section>
+    <section>
+      <h2>Prochains ateliers</h2>
+      <table class="planning">
+        <tr><th>Date</th><th>Atelier</th><th>Durée</th><th>Places</th></tr>
+        <tr><td>Sam. 14</td><td>Initiation tournage</td><td>3 h</td><td>4</td></tr>
+        <tr><td>Sam. 21</td><td>Émaillage</td><td>2 h</td><td>6</td></tr>
+        <tr><td>Sam. 28</td><td>Bols à thé</td><td>3 h</td><td>2</td></tr>
+      </table>
+    </section>
+  </main>
+  <footer>Atelier Lune est un site d’exemple. Photos&nbsp;: Unsplash (Chloe Bolton, Viviane Okubo, Annie Spratt, Stephanie Sarlos).</footer>
+</body>
+</html>

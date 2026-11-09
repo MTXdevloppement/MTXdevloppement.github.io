@@ -3,655 +3,427 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Foulée — Courez contre votre record · MTX Studio</title>
-<meta name="description" content="Foulée, l'app de course pour iPhone et Apple Watch : courez contre votre record sur vos parcours favoris, guidé à la voix, avec Apple Santé et une image à partager.">
-<meta name="theme-color" content="#000000">
+<title>Foulée — Votre record court avec vous · MTX Studio</title>
+<meta name="description" content="Foulée, l’app de course pour iPhone et Apple Watch : sur votre parcours, l’écart avec votre record s’affiche en direct et s’annonce à chaque kilomètre.">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Foulée — Courez contre votre record">
-<meta property="og:description" content="Sur votre boucle habituelle, Foulée compare chaque mètre à votre record et vous dit à la voix si vous êtes en avance. iPhone et Apple Watch.">
-<link rel="icon" href="assets/img/foulee-icone.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css">
-<script>
-document.documentElement.classList.add('js');
-</script>
-<script src="assets/js/main.js" defer></script>
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Foulée — Votre record court avec vous">
+<meta property="og:description" content="Sur votre boucle habituelle, Foulée vous compare à votre meilleur passage, au même point du parcours, et vous l’annonce à la voix. iPhone et Apple Watch.">
+<meta property="og:image" content="assets/img/og-foulee.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/icone/foulee.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icone/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/mona-sans-italique-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/plaque-donnees.js" defer></script>
 <link rel="stylesheet" href="../../assets/css/projet.css">
 <script src="../../assets/js/projet.js" defer></script>
 </head>
-<body id="haut">
+<body>
 <div class="mtx-gbar">
   <div class="mtx-gbar-in">
-    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg>Studio</a>
-    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../services.html">Services</a><a href="../../realisations.html" aria-current="true">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a></nav>
-    <div class="mtx-right"><a class="mtx-back" href="../../realisations.html">Réalisations</a><a class="mtx-cta" href="../../contact.html?projet=foulee">Démarrer un projet</a></div>
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../index.html#realisations" aria-current="true">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../index.html#r-foulee">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></div>
   </div>
 </div>
 
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <linearGradient id="gMarque" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c1f"/><stop offset="1" stop-color="#ff2e5c"/></linearGradient>
-  <linearGradient id="gTrace" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff7a2e"/><stop offset="1" stop-color="#ff2e5c"/></linearGradient>
-  <linearGradient id="gDiag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c1f"/><stop offset="1" stop-color="#ff2e5c"/></linearGradient>
-  <filter id="fLueur" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="fLueur-flou" stdDeviation="10"/></filter>
-  <path id="r-parc" pathLength="1" fill="none" d="M323.3 374.3c-1.5 .2-5.9 .6-8.9 .9-3 .3-6 .5-8.9 .8-3 .3-6 .6-9 1-2.9 .4-5.9 .8-8.8 1.1-3 .3-6 .5-9 .7-3 .2-6 .3-9 .6-2.9 .3-5.9 .8-8.9 1.1-2.9 .3-5.9 .9-8.9 .8-2.9-.1-6-.4-8.8-1.4-2.8-1-5.3-2.8-7.8-4.4-2.4-1.7-4.7-3.7-7-5.6-2.3-1.9-4.4-4.1-6.6-6.1-2.2-2-4.5-3.9-6.6-6-2.2-2.1-4.3-4.2-6.4-6.4-2.1-2.1-4.2-4.2-6.2-6.4-2.1-2.2-4.1-4.4-6-6.7-2-2.2-3.9-4.5-5.8-6.8-2-2.3-3.9-4.6-5.7-7-1.8-2.3-3.5-4.8-5.2-7.2-1.8-2.5-3.5-5-5.2-7.4-1.7-2.5-3.5-4.9-5.1-7.3-1.7-2.5-3.4-5-5-7.5-1.6-2.6-3.1-5.1-4.5-7.8-1.4-2.6-2.7-5.4-3.9-8.1-1.2-2.7-2.3-5.5-3.3-8.3-1.1-2.8-2.1-5.6-3.2-8.4-1.1-2.8-2.2-5.5-3.4-8.3-1.2-2.7-2.6-5.4-3.8-8.2-1.2-2.7-2.2-5.5-3.4-8.2-1.2-2.8-2.4-5.5-3.5-8.3-1.1-2.8-2.2-5.6-3-8.4-.8-2.9-1.3-5.9-1.6-8.9-.3-2.9-.2-5.9-.1-8.9 0-3 .1-6 .5-9 .5-2.9 1.1-5.9 1.9-8.7 .9-2.9 2-5.7 3.2-8.4 1.2-2.8 2.5-5.5 4.1-8 1.5-2.6 3.4-4.9 5-7.4 1.7-2.5 3.2-5.1 5-7.5 1.7-2.4 3.6-4.8 5.6-7 2.1-2.2 4.2-4.3 6.4-6.3 2.3-1.9 4.6-3.8 7.1-5.5 2.4-1.8 4.9-3.4 7.5-4.9 2.5-1.6 5.2-3 7.8-4.3 2.7-1.4 5.4-2.7 8.2-3.9 2.7-1.1 5.5-2.2 8.3-3.1 2.9-1 5.8-1.8 8.7-2.6 2.8-.8 5.8-1.4 8.6-2.2 2.9-.8 5.8-1.7 8.7-2.3 2.9-.6 5.9-.9 8.9-1.4 2.9-.5 5.9-.9 8.8-1.3 3-.5 6-.9 8.9-1.2 3-.3 6-.6 9-.8 3-.1 6-.1 9-.3 2.9-.1 5.9-.4 8.9-.5 3-.1 6-.1 9-.1 3 0 6 0 9 .1 3 0 5.9 .1 8.9 .2 3 .1 6 .2 9 .4 3 .2 6 .4 8.9 .6 3 .3 6 .5 9 .8 3 .4 5.9 .8 8.9 1.3 2.9 .5 5.9 1 8.8 1.6 2.9 .6 5.9 1.2 8.8 1.8 2.9 .7 5.8 1.2 8.8 1.9 2.9 .7 5.8 1.4 8.6 2.3 2.9 .9 5.7 1.9 8.5 2.9 2.8 1 5.6 2.1 8.4 3.2 2.8 1 5.6 2.1 8.4 3.1 2.8 1.1 5.7 1.9 8.5 3.1 2.7 1.2 5.4 2.6 8 3.9 2.7 1.4 5.4 2.8 7.9 4.3 2.6 1.5 5.1 3.1 7.6 4.8 2.5 1.6 4.9 3.4 7.3 5.2 2.4 1.7 4.9 3.4 7.2 5.3 2.3 2 4.4 4.1 6.5 6.3 2 2.2 3.9 4.5 5.7 6.9 1.8 2.3 3.6 4.8 5.3 7.2 1.6 2.5 3.2 5 4.8 7.6 1.6 2.5 3.1 5.1 4.5 7.7 1.4 2.7 2.7 5.4 4 8.1 1.3 2.7 2.7 5.3 3.8 8.1 1.1 2.8 2 5.7 2.8 8.5 .8 2.9 1.4 5.8 2 8.8 .7 2.9 1.3 5.8 1.9 8.7 .6 3 1.4 5.9 1.8 8.8 .3 3 .4 6 .4 9-.1 3-.5 6-.9 8.9-.3 3-.7 6-1.3 8.9-.5 2.9-1.1 5.9-1.8 8.8-.8 2.9-1.7 5.7-2.7 8.5-1 2.8-2.2 5.6-3.4 8.3-1.2 2.8-2.3 5.6-3.6 8.2-1.4 2.7-2.8 5.4-4.3 7.9-1.5 2.6-3.2 5.1-4.9 7.6-1.7 2.4-3.6 4.8-5.5 7.1-1.9 2.2-3.9 4.5-6 6.6-2.1 2.1-4.4 4-6.7 6-2.3 1.9-4.6 3.8-6.9 5.7-2.3 1.9-4.7 3.7-6.9 5.7-2.3 2-4.3 4.2-6.5 6.2-2.2 2.1-4.2 4.3-6.6 6.1-2.4 1.7-5 3.4-7.7 4.5-2.7 1.1-5.8 1.7-8.7 2.1-2.9 .5-6 .5-8.9 .7-3 .3-6 .6-9 .9-3 .2-5.9 .7-8.9 .9-3 .2-6 0-9 .1-3 .2-5.9 .5-8.9 .7-3 .2-6 .5-9 .7-2.9 .3-5.9 .6-8.9 .9-3 .2-6 .3-8.9 .6-3 .3-6.3 .4-9 1.1-2.7 .8-4.6 2.6-7.3 3.3-2.7 .7-7.4 .8-8.9 .9"/>
-  <pattern id="ptIlots" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="60" height="60" fill="#191b1f"/><rect x="5" y="5" width="50" height="50" rx="5" fill="#212429"/><rect x="11" y="11" width="16" height="13" rx="2" fill="#262a30"/><rect x="31" y="31" width="18" height="15" rx="2" fill="#262a30"/></pattern>
-</defs>
-
-<symbol id="logo" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="22.5" fill="url(#gMarque)"/>
-  <path d="M24 76C24 52 50 70 50 52S76 48 76 26" fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round"/>
-  <circle cx="24" cy="76" r="6.5" fill="#ff4a3c" stroke="#fff" stroke-width="5"/>
-  <circle cx="76" cy="26" r="8.5" fill="#fff"/>
-</symbol>
-
-<symbol id="plan" viewBox="0 0 600 900" overflow="visible">
-  <rect x="-400" y="-300" width="1400" height="1500" fill="url(#ptIlots)"/>
-  <path d="M500 900c-30-160 60-260 120-330v330z" fill="#13283c"/>
-  <path d="M-10 640c120-30 230-10 330 60s180 100 290 80" fill="none" stroke="#13283c" stroke-width="34"/>
-  <g fill="none" stroke="#33363d" stroke-linecap="round"><path d="M-400 517.7 1000 382.3" stroke-width="12"/><path d="M74.2-300 155.8 1200" stroke-width="10"/><path d="M-400 808.9 1000 741.1" stroke-width="10"/><path d="M482.6-300 417.4 1200" stroke-width="12"/></g>
-  <path d="M120 245c-30-60 10-130 90-150 80-20 190-10 250 40 60 50 70 130 30 190-40 60-130 90-220 80-80-10-130-100-150-160z" fill="#16301f"/>
-  <path d="M168 205c10-40 60-70 120-72s110 20 130 60-10 90-70 105-160 0-180-93z" fill="#1b3a26"/>
-  <g fill="none" stroke="#24442f" stroke-width="3" stroke-linecap="round"><path d="M326 400c-4-60 6-128-2-188s-8-70-4-100"/><path d="M150 212c60-14 120 4 180-6s100-10 152 2"/><path d="M408 368c10-40 30-60 60-80"/></g>
-  <path d="M196 270c14-12 40-14 62-8 20 6 30 18 44 22 14 5 22 16 18 30-4 15-22 22-40 24-20 2-38-4-54-12-17-9-34-18-38-32-3-11 0-18 8-24z" fill="#13283c"/>
-  <g font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-weight="600" font-size="13" letter-spacing=".3" style="opacity:var(--etiquettes,1)"><text x="232" y="172" fill="#4c8a62">Parc de la Tête d'Or</text><text x="238" y="303" fill="#45719a" font-style="italic" font-size="12">Lac</text><text fill="#7c8088" transform="translate(180 468) rotate(-5.5)">Boulevard des Belges</text><text x="26" y="675" fill="#45719a" font-style="italic">Rhône</text></g>
-</symbol>
-
-
-<symbol id="sb" viewBox="0 0 76 14">
-  <g fill="#fff"><rect x="0" y="8.5" width="3" height="4" rx=".8"/><rect x="4.7" y="6.5" width="3" height="6" rx=".8"/><rect x="9.4" y="4" width="3" height="8.5" rx=".8"/><rect x="14.1" y="1.5" width="3" height="11" rx=".8"/></g>
-  <g fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round"><path d="M23.4 5.6a9 9 0 0 1 12.7 0"/><path d="M25.9 8.2a5.4 5.4 0 0 1 7.7 0"/></g><circle cx="29.75" cy="11.3" r="1.7" fill="#fff"/>
-  <rect x="45.5" y="1" width="25" height="12" rx="3.8" fill="none" stroke="#fff" stroke-opacity=".45"/><rect x="47.5" y="3" width="15" height="8" rx="2" fill="#fff"/><rect x="71.8" y="4.8" width="1.6" height="4.4" rx=".8" fill="#fff" fill-opacity=".45"/>
-</symbol>
-
-<symbol id="i-run" viewBox="0 0 24 24"><circle cx="14.6" cy="3.9" r="2.2"/><path d="M10.3 7.4c1-.6 2.3-.5 3.1.3l1.9 2c.4.4.9.6 1.4.6h2.1a1.1 1.1 0 0 1 0 2.2h-2.4c-.9 0-1.7-.3-2.3-.9l-.6-.6-1.1 3.4 2.4 1.9c.4.3.6.8.6 1.3v4.1a1.1 1.1 0 0 1-2.2 0v-3.6l-2.6-2-1 2.5c-.3.7-.9 1.1-1.6 1.1H4.6a1.1 1.1 0 0 1 0-2.2h2.9l2.1-5.4-1 .5-1.1 2.1a1.1 1.1 0 1 1-2-1l1.3-2.5c.2-.4.5-.7.9-.9z"/></symbol>
-<symbol id="i-chart" viewBox="0 0 24 24"><rect x="4" y="11" width="3.4" height="7" rx="1"/><rect x="10.3" y="5" width="3.4" height="13" rx="1"/><rect x="16.6" y="8" width="3.4" height="10" rx="1"/><rect x="2.5" y="19.6" width="19" height="1.7" rx=".85"/></symbol>
-<symbol id="i-courbe" viewBox="0 0 24 24"><circle cx="5" cy="18.5" r="2.6"/><circle cx="19" cy="5.5" r="2.6"/><path d="M5 16c0-5 7-2.5 7-6.5S19 9 19 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
-<symbol id="i-coeur" viewBox="0 0 24 24"><path d="M12 20.6 4.4 13.2A4.9 4.9 0 0 1 11.3 6l.7.7.7-.7a4.9 4.9 0 0 1 6.9 7.2z"/></symbol>
-<symbol id="i-perso" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 4.2a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8zm0 13.8c-2.4 0-4.6-1-6.1-2.7.9-1.9 3.4-3 6.1-3s5.2 1.1 6.1 3A8.2 8.2 0 0 1 12 20z"/></symbol>
-<symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 4.6c0-1 1.1-1.6 1.9-1.1l10.4 6.4c.8.5.8 1.7 0 2.2L9.4 18.5c-.8.5-1.9-.1-1.9-1.1z"/></symbol>
-<symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4" width="4.6" height="16" rx="1.4"/><rect x="13.9" y="4" width="4.6" height="16" rx="1.4"/></symbol>
-<symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5"/></symbol>
-<symbol id="i-cadenas" viewBox="0 0 24 24"><path d="M7.5 10V7.6a4.5 4.5 0 0 1 9 0V10h.6c1 0 1.9.9 1.9 1.9v7.2c0 1-.9 1.9-1.9 1.9H6.9c-1 0-1.9-.9-1.9-1.9v-7.2c0-1 .9-1.9 1.9-1.9zm2.2 0h4.6V7.6a2.3 2.3 0 0 0-4.6 0z"/></symbol>
-<symbol id="i-voix" viewBox="0 0 24 24"><path d="M4 9.2h3.3L11.6 5c.6-.6 1.6-.2 1.6.7v12.6c0 .9-1 1.3-1.6.7l-4.3-4.2H4c-.6 0-1-.4-1-1V10.2c0-.6.4-1 1-1z"/><path d="M16.2 8.6a5 5 0 0 1 0 6.8M18.8 6a8.6 8.6 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-<symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
-<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-infini" viewBox="0 0 24 24"><path d="M12 12c-2-2.6-3.6-4-5.6-4a4 4 0 0 0 0 8c2 0 3.6-1.4 5.6-4zm0 0c2 2.6 3.6 4 5.6 4a4 4 0 0 0 0-8c-2 0-3.6 1.4-5.6 4z" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
-<symbol id="i-gribouille" viewBox="0 0 24 24"><path d="M3.5 15c3-6 6-9 7.5-7.6S8 15 9.6 16s4.6-6.3 6.6-5.2-1.7 5.4-.4 6.4 3.2-1.7 4.7-3.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-drapeau" viewBox="0 0 24 24"><path d="M5 3.5c.6 0 1 .4 1 1V5c2.6-1.6 5-.6 7 .3 2 .9 3.8 1.6 5.6.3.6-.4 1.4 0 1.4.8v8.2c0 .3-.2.6-.4.8-2.5 1.8-4.8.9-6.9 0-2-.9-3.8-1.6-5.7-.2v5.3a1 1 0 0 1-2 0v-16c0-.6.4-1 1-1z"/></symbol>
-<symbol id="i-damier" viewBox="0 0 24 24"><rect x="4" y="2.5" width="2.2" height="19" rx="1.1"/><path d="M6.2 3.6h13.3v9.6H6.2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.2 3.6h4.4v3.2H6.2zM15 3.6h4.5v3.2H15zM10.6 6.8H15V10h-4.4zM6.2 10h4.4v3.2H6.2zM15 10h4.5v3.2H15z"/></symbol>
-<symbol id="i-trophee" viewBox="0 0 24 24"><path d="M7 3h10v1.5h2.6c.5 0 .9.4.9.9v1.7a4.4 4.4 0 0 1-4.1 4.4A5.5 5.5 0 0 1 13 14.4V17h3v2.2H8V17h3v-2.6a5.5 5.5 0 0 1-3.4-2.9A4.4 4.4 0 0 1 3.5 7.1V5.4c0-.5.4-.9.9-.9H7zm10 3.2v3.4a2.3 2.3 0 0 0 1.4-2.1V6.2zM5.6 6.2v1.3c0 .9.6 1.8 1.4 2.1V6.2z"/><rect x="6.5" y="20" width="11" height="1.8" rx=".9"/></symbol>
-<symbol id="i-etoile" viewBox="0 0 24 24"><path d="m12 2.8 2.7 5.6 6.1.8-4.5 4.3 1.1 6.1L12 16.7l-5.4 2.9 1.1-6.1-4.5-4.3 6.1-.8z"/></symbol>
-<symbol id="i-pas" viewBox="0 0 24 24"><path d="M8.2 2.5c2 0 3.2 2.2 3 5-.2 2.4-1 3.6-1.2 5.4H5.6C5.4 11.2 4.6 10 4.6 7.6c0-3 1.6-5.1 3.6-5.1zM5.8 14.3h4.2c0 1.9-.7 3.5-2.1 3.5s-2.1-1.4-2.1-3.5zm10-8.8c2 0 3.6 2.1 3.6 5.1 0 2.4-.8 3.6-1 5.3h-4.4c-.2-1.8-1-3-1.2-5.4-.2-2.8 1-5 3-5zm-2.4 11.8h4.2c0 2.1-.7 3.5-2.1 3.5s-2.1-1.6-2.1-3.5z"/></symbol>
-<symbol id="i-flamme" viewBox="0 0 24 24"><path d="M12.6 2.4c.4 3-1.1 4.6-2.6 6.3-1.4 1.6-2.9 3.3-2.9 6.1a5 5 0 0 0 10 0c0-2-1-3.6-1.9-4.6.1 1.4-.5 2.6-1.6 3 .4-2.3-.1-4.4-1.2-6.3-.6-1.2-1.1-2.6.2-4.5z"/><path d="M12 21.6a6.7 6.7 0 0 1-6.7-6.8" fill="none"/></symbol>
-<symbol id="i-montagne" viewBox="0 0 24 24"><path d="M2.5 19.5 9 8.5l3.2 5.4 2.6-3.9 6.7 9.5z"/></symbol>
-<symbol id="i-chrono" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 1.8h4v1.9h-1v1.4a8.4 8.4 0 1 1-2 0V3.7h-1zm2 5.2a6.4 6.4 0 1 0 0 12.8A6.4 6.4 0 0 0 12 7zm-.9 2.3h1.8v4.5h-1.8z"/></symbol>
-<symbol id="i-allure" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 3.5A9.5 9.5 0 0 0 4 18.1c.2.3.5.4.8.4h14.4c.3 0 .6-.1.8-.4A9.5 9.5 0 0 0 12 3.5zm0 2a7.5 7.5 0 0 1 6.7 11h-4l3-6.4c.3-.6-.4-1.1-.9-.7l-5.3 4.6a2 2 0 0 0 .8 2.5H5.3A7.5 7.5 0 0 1 12 5.5z"/></symbol>
-<symbol id="i-regle" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.5 8.5h19v7h-19zm2 2v3h15v-3h-1.6v1.6h-1.4v-1.6h-1.6v2.4h-1.4v-2.4h-1.6v1.6h-1.4v-1.6H8.9v2.4H7.5v-2.4H6.1v1.6H4.5z"/></symbol>
-<symbol id="i-repeter" viewBox="0 0 24 24"><path d="M5 11V9.5A3.5 3.5 0 0 1 8.5 6H17l-2.3-2.3M19 13v1.5a3.5 3.5 0 0 1-3.5 3.5H7l2.3 2.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-partage" viewBox="0 0 24 24"><path d="M12 14.5V3.5m0 0L8.3 7.2M12 3.5l3.7 3.7M8 10H6.6c-.9 0-1.6.7-1.6 1.6v7.3c0 .9.7 1.6 1.6 1.6h10.8c.9 0 1.6-.7 1.6-1.6v-7.3c0-.9-.7-1.6-1.6-1.6H16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 2.5h7.2l5.3 5.3v12.1c0 .9-.7 1.6-1.6 1.6H6.5c-.9 0-1.6-.7-1.6-1.6V4.1c0-.9.7-1.6 1.6-1.6zm6.5 1.8v4.5h4.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 11v6.4m0 0-2.4-2.4m2.4 2.4 2.4-2.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
-<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
-<symbol id="i-annuler" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4.5 9H15a5 5 0 0 1 0 10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-boucle" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-aller" viewBox="0 0 24 24"><path d="M4 8h14m0 0-3.5-3.5M18 8l-3.5 3.5M20 16H6m0 0 3.5-3.5M6 16l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-corbeille" viewBox="0 0 24 24"><path d="M4.5 6.5h15M9.5 6.5V4.6c0-.6.5-1.1 1.1-1.1h2.8c.6 0 1.1.5 1.1 1.1v1.9m-8 0 .9 12.6c.1 1 .9 1.9 2 1.9h5.2c1 0 1.9-.8 2-1.9l.9-12.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><g stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
-<symbol id="i-lune" viewBox="0 0 24 24"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6z"/></symbol>
-<symbol id="i-moitie" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.8a9.2 9.2 0 1 0 0 18.4 9.2 9.2 0 0 0 0-18.4zm0 2v14.4a7.2 7.2 0 0 0 0-14.4z"/></symbol>
-<symbol id="i-montre" viewBox="0 0 24 24"><path d="M8.6 2h6.8l.6 3H8z"/><path d="M8 19h8l-.6 3H8.6z"/><rect x="5.5" y="4.6" width="13" height="14.8" rx="3.6"/></symbol>
-<symbol id="i-iphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="10" y="3.6" width="4" height="1.4" rx=".7"/></symbol>
-<symbol id="i-bouclier" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.4v5.8c0 4.8 3.2 8.8 7.5 10.3 4.3-1.5 7.5-5.5 7.5-10.3V5.4zm-1.1 12.8-3.2-3.2 1.5-1.5 1.7 1.7 4-4 1.5 1.5z"/></symbol>
-<symbol id="i-sync" viewBox="0 0 24 24"><path d="M4.5 10.5A7.6 7.6 0 0 1 18 7.2M19.5 13.5A7.6 7.6 0 0 1 6 16.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M18.6 3.6v4.3h-4.3M5.4 20.4v-4.3h4.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-pomme" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.5 2.1-3.7 2.2-3.8a4.7 4.7 0 0 0-3.7-2c-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9a4.9 4.9 0 0 0-4.1 2.5c-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4a10 10 0 0 0 1.4-2.8 4.3 4.3 0 0 1-2.5-4.1zM13.9 5.1A4.3 4.3 0 0 0 14.9 2a4.4 4.4 0 0 0-2.9 1.5 4.1 4.1 0 0 0-1 3c1.1.1 2.2-.6 2.9-1.4z"/></symbol>
-<symbol id="i-gps" viewBox="0 0 24 24"><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="10" y="10" width="4" height="10" rx="1"/><rect x="17" y="5" width="4" height="15" rx="1"/></symbol>
-<symbol id="i-alerte" viewBox="0 0 24 24"><path d="M10.4 3.9c.7-1.2 2.5-1.2 3.2 0l7.6 13.5c.7 1.2-.2 2.7-1.6 2.7H4.4c-1.4 0-2.3-1.5-1.6-2.7zM11 9v5h2V9zm1 6.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></symbol>
-<symbol id="i-cible" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.6"/></symbol>
+  <defs>
+    <linearGradient id="gFoulee" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c1f"/><stop offset="1" stop-color="#ff2e5c"/></linearGradient>
+    <symbol id="i-logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="23" fill="url(#gFoulee)"/><path d="M24 76C24 52 50 70 50 52C50 34 76 48 76 26" fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round"/><circle cx="24" cy="76" r="6.5" fill="#ff5c1f" stroke="#fff" stroke-width="5"/><circle cx="76" cy="26" r="8.5" fill="#fff"/></symbol>
+    <symbol id="i-lecture" viewBox="0 0 24 24"><path d="M7 4.6v14.8a1 1 0 0 0 1.5.86l12.2-7.4a1 1 0 0 0 0-1.72L8.5 3.74A1 1 0 0 0 7 4.6Z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4" width="4.6" height="16" rx="1.4" fill="currentColor"/><rect x="13.9" y="4" width="4.6" height="16" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-rejouer" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.8h3.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-voix" viewBox="0 0 24 24"><path d="M3.5 9.2h3.3L11.5 5v14l-4.7-4.2H3.5Z" fill="currentColor"/><path d="M15 8.6a4.8 4.8 0 0 1 0 6.8M17.8 6a8.6 8.6 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-muet" viewBox="0 0 24 24"><path d="M3.5 9.2h3.3L11.5 5v14l-4.7-4.2H3.5Z" fill="currentColor"/><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-drapeau" viewBox="0 0 24 24"><path d="M5 21V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 4.5h12.5v9H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 4.5h3.1v3H6zm6.2 0h3.1v3h-3.1zM9.1 7.5h3.1v3H9.1zm6.2 0h3.2v3h-3.2zM6 10.5h3.1v3H6zm6.2 0h3.1v3h-3.1z" fill="currentColor"/></symbol>
+    <symbol id="i-compteur" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 12 3.6-3.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-coureur" viewBox="0 0 24 24"><circle cx="14.6" cy="4.2" r="2.2" fill="currentColor"/><path d="m8.3 21 2.9-5.4 2.6 2.1V22m-6.6-9.6 2.3-3.6 4 .5 2.3 3.4 3 1.2M11.5 8.8l-1.3 5.8" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-coeur" viewBox="0 0 24 24"><path d="M12 20.3S3.6 15 3.6 9.1A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 8.4 2.5c0 5.9-8.4 11.2-8.4 11.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-parcours" viewBox="0 0 24 24"><circle cx="6" cy="17.5" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6.5" r="2.6" fill="currentColor"/><path d="M7.6 15.6c1-3.2 3.4-2.2 5-4.6s1.6-3.6 3.2-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-coche" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="currentColor"/><path d="m7.6 12.2 3 3 5.8-6.2" fill="none" stroke="#0a0a0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bas" viewBox="0 0 24 24"><path d="M12 5v13m-5.5-5.5L12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-croix" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-cadenas-ouvert" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="13" height="10.5" rx="2.4" fill="currentColor"/><path d="M14.6 10.5V7.4a3.9 3.9 0 0 1 7.8 0V9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-metronome" viewBox="0 0 24 24"><path d="M9.6 3h4.8l4.4 18H5.2Z" fill="currentColor"/><path d="m12 16 5.6-9.5" stroke="#000" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pas" viewBox="0 0 24 24"><ellipse cx="8" cy="8.5" rx="3.4" ry="5.2" fill="currentColor"/><ellipse cx="16" cy="12.5" rx="3.4" ry="5.2" fill="currentColor"/><rect x="5.6" y="15" width="4.8" height="3.6" rx="1.6" fill="currentColor"/><rect x="13.6" y="19" width="4.8" height="3" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-flamme" viewBox="0 0 24 24"><path d="M12 2.5s6.5 5 6.5 11.2A6.5 6.5 0 0 1 12 21a6.5 6.5 0 0 1-6.5-7.3c.3-3 2.4-4.6 2.4-4.6s.2 2.6 2 3.4C11 9 12 2.5 12 2.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-montagne" viewBox="0 0 24 24"><path d="m1.5 19.5 7-11 3.6 5.4 2.6-3.6 7.8 9.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-trophee" viewBox="0 0 24 24"><path d="M7 3.5h10v6.2a5 5 0 0 1-10 0Z" fill="currentColor"/><path d="M7 5.5H4.2v1.7A3.4 3.4 0 0 0 7.6 10.6M17 5.5h2.8v1.7a3.4 3.4 0 0 1-3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.6 14.4h2.8v3.4h2.8v2.7H7.8v-2.7h2.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-agrandir" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M10 19.5H4.5V14M19.5 4.5l-6 6M4.5 19.5l6-6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gauche" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-droite" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
 </svg>
 
-<a class="skip" href="#contenu">Aller au contenu</a>
+<a class="evitement" href="#contenu">Aller au contenu</a>
 
-<header class="nav">
-  <div class="nav-in">
-    <a class="nav-logo" href="#haut" aria-label="Foulée, retour en haut"><svg><use href="#logo"/></svg><span>Foulée</span></a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#courir">Courir</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#planifier">Planifier</a>
-      <a href="#partager">Partager</a>
-      <a href="#sante">Santé</a>
-      <a href="#montre">Apple Watch</a>
-    </nav>
-    <a class="nav-cta" href="#telecharger">Bientôt sur iPhone</a>
-  </div>
-  <i class="nav-progress" aria-hidden="true"></i>
+<header class="barre" id="barre">
+  <a class="marque" href="#haut" aria-label="Foulée, retour en haut">
+    <svg class="marque-icone" aria-hidden="true"><use href="#i-logo"/></svg>
+    <span class="marque-nom">Foulée</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#planche">La planche</a>
+    <a href="#pendant">Pendant</a>
+    <a href="#apres">Après</a>
+    <a href="#donnees">Vos données</a>
+  </nav>
+  <a class="barre-cta" href="#planche">Rejouer une course</a>
 </header>
 
 <main id="contenu">
 
-<section class="hero" data-scope>
-  <div class="hero-photo" aria-hidden="true"><img src="assets/img/photos/parc-crepuscule-1280.webp" srcset="assets/img/photos/parc-crepuscule-1280.webp 1280w, assets/img/photos/parc-crepuscule-2400.webp 2400w" sizes="100vw" width="2400" height="1079" alt="" fetchpriority="high" decoding="async"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <svg class="hero-traces" viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <path pathLength="1" d="M-40 400C160 360 220 220 400 240S640 420 820 330 1060 120 1440 160"/>
-    <path pathLength="1" d="M-40 470C200 470 300 330 500 360S780 500 980 420 1240 300 1440 330"/>
-    <path pathLength="1" d="M-40 300C120 250 260 120 440 150S700 300 900 230 1180 60 1440 90"/>
-  </svg>
-
-  <div class="wrap hero-head">
-    <p class="hero-badge rise" style="--d:.05s"><svg><use href="#logo"/></svg><span>Foulée pour iPhone et Apple Watch</span></p>
-    <h1 class="hero-title"><span class="w" style="--d:.12s">Votre</span> <span class="w" style="--d:.2s">boucle.</span><br><span class="w" style="--d:.3s">Votre</span> <span class="w grad" style="--d:.38s">record.</span></h1>
-    <p class="hero-lead rise" style="--d:.5s">Foulée reconnaît la boucle que vous courez chaque semaine, compare chaque mètre à votre meilleur passage et vous l’annonce à la voix : «&nbsp;12&nbsp;secondes d’avance&nbsp;».</p>
-    <div class="hero-cta rise" style="--d:.62s">
-      <a class="btn btn-main" href="#telecharger">Bientôt sur iPhone</a>
-      <a class="btn btn-ghost" href="#courir">Voir une course<svg><use href="#i-chev-d"/></svg></a>
+<section class="heros" id="haut" aria-labelledby="titre-heros">
+  <div class="heros-texte">
+    <p class="surtitre">Course à pied · iPhone et Apple Watch</p>
+    <h1 class="heros-titre" id="titre-heros">Votre record court avec&nbsp;vous.</h1>
+    <p class="heros-accroche">Sur votre boucle habituelle, Foulée vous compare à votre meilleur passage, au même point du parcours&#8239;: l’écart s’affiche en vert ou en rouge, et la voix l’annonce à chaque kilomètre.</p>
+    <div class="heros-actions">
+      <a class="bouton bouton-principal" href="#planche"><svg aria-hidden="true"><use href="#i-lecture"/></svg>Rejouer la course de ce matin</a>
+      <p class="bientot">Bientôt sur l’App Store</p>
     </div>
   </div>
 
-  <div class="hero-stage" aria-hidden="true">
-    <div class="par par-l" data-par="-1"><div class="phone-in" style="--d:.55s">
-      <div class="iphone side"><div class="screen">
-        <div class="ui scr-act">
-          <h3 class="lt">Activités</h3>
-          <div class="a-week">
-            <small>CETTE SEMAINE</small>
-            <div class="a-week-km"><b>32,6</b><span>km</span><em>3 h 02<br><i>5 courses</i></em></div>
-            <div class="a-bars"><i style="--v:.42"></i><i style="--v:.55"></i><i style="--v:.3"></i><i style="--v:.7"></i><i style="--v:.62"></i><i style="--v:.5"></i><i style="--v:.82"></i><i style="--v:.66"></i><i style="--v:.74"></i><i class="on" style="--v:.92"></i></div>
-          </div>
-          <p class="a-mois"><span>Octobre 2026</span><span>61,4 km · 9</span></p>
-          <ul class="a-rows">
-            <li><span class="vign"><svg class="parc" viewBox="107.1 38.9 410 410"><use href="#r-parc"/></svg></span><span class="a-tx"><b>Sortie longue du dimanche</b><small>11 oct. · 9:12</small><em><i><svg><use href="#i-courbe"/></svg>10,34 km</i><i><svg><use href="#i-chrono"/></svg>54:24</i><i><svg><use href="#i-allure"/></svg>5:16/km</i></em></span></li>
-            <li><span class="vign"><svg viewBox="0 0 100 100"><path d="M17.7 86c0-.6-.1-2.7-.1-4-.1-1.3-.1-2.7-.1-4 0-1.4-.1-2.7-.1-4-.1-1.4 0-2.7-.1-4 0-1.4-.1-2.7-.2-4.1-.1-1.3-.2-2.6-.3-4-.2-1.3-.7-2.9-.4-4 .3-1 1-1.7 2-2.2 .9-.4 2.6-.5 3.9-.6 1.4-.2 2.7-.2 4-.2 1.4-.1 3.1 .2 4-.3 1-.6 1.7-1.9 1.9-3.1 .3-1.1-.3-2.6-.4-4-.1-1.3-.2-2.6-.3-4-.2-1.3-.3-2.6-.4-4-.2-1.3-.3-2.6-.4-4-.1-1.3-.3-2.6-.4-4-.1-1.3-.3-2.6-.4-4 0-1.3 .1-2.6 .1-4 .1-1.3-.4-3.2 .2-4 .7-.8 2.5-.6 3.8-.9 1.3-.3 2.6-.6 4-.8 1.3-.2 2.6-.3 3.9-.4 1.4-.1 2.7 0 4.1 0 1.3-.1 2.6-.2 4-.3 1.3-.1 2.6-.4 3.9-.6 1.4-.2 2.7-.4 4-.5 1.4-.2 2.7-.3 4-.4 1.3 0 3-.6 3.7 .1 .7 .7 .5 2.6 .7 4 .2 1.3 .3 2.6 .5 3.9 .1 1.4 .2 2.7 .4 4 .2 1.4 .1 3.2 .8 3.9 .7 .8 2.2 .6 3.4 .5 1.3-.1 2.6-.7 3.9-1 1.3-.3 2.7-.6 4-.8 1.3-.2 3.1-.9 4-.4 .8 .6 1 2.3 1.3 3.6 .2 1.2 .2 2.6 .4 4 .1 1.3 .3 2.6 .4 4 .2 1.3 .3 2.6 .5 4 .1 1.3 .2 2.6 .4 4 .1 1.3 .3 2.6 .4 4 .1 1.3 .2 2.6 .3 4 .1 1.3 .1 2.6 .3 4 .1 1.3 .9 2.9 .5 3.9-.3 1.1-1.6 1.8-2.7 2.3-1.2 .4-2.7 .3-4 .4-1.4 .2-2.7 .2-4 .4-1.4 .1-2.7 .2-4 .4-1.4 .1-2.7 .2-4 .4-1.4 .1-2.7 .3-4 .4-1.3 .2-2.7 .4-4 .6-1.3 .1-2.7 .2-4 .5-1.2 .2-2.8 .2-3.4 1.1-.7 .8-.4 2.6-.5 3.9 0 1.3 .1 2.7 .2 4 .1 1.3 .6 3 .2 4-.4 1-1.5 1.7-2.6 2.1-1.1 .4-2.7 .1-4 .1-1.4 .1-2.7 .1-4 .2-1.4 .1-2.7 .2-4 .3-1.4 0-2.7 .1-4.1 .2-1.3 .1-2.6 .1-4 .2-1.3 0-2.6 .1-4 .2-1.3 .1-2.6 .4-3.9 .6-1.4 .2-3.3 .7-4 .8"/></svg></span><span class="a-tx"><b>Course du vendredi soir</b><small>9 oct. · 19:04</small><em><i><svg><use href="#i-courbe"/></svg>5,24 km</i><i><svg><use href="#i-chrono"/></svg>25:54</i><i><svg><use href="#i-allure"/></svg>4:57/km</i></em></span></li>
-            <li><span class="vign"><svg viewBox="0 0 100 100"><path d="M11.8 83.8c.5-.4 2-1.8 3-2.7 1-.9 2-1.7 3-2.6 .9-1 1.9-2 2.7-3 .7-1.1 1.3-2.4 2-3.5 .7-1.1 1.4-2.2 2.2-3.3 .8-1.1 1.7-2.1 2.5-3.2 .8-1 1.6-2.1 2.3-3.3 .7-1.1 1.4-2.2 2.1-3.4 .7-1.1 1.4-2.3 2.1-3.4 .7-1.1 1.4-2.3 2.2-3.3 .8-1.1 1.7-2.1 2.6-3.1 .9-1 1.8-2 2.7-3 .9-1 1.8-1.9 2.8-2.9 .9-.9 2-1.7 3-2.6 1-.9 2-1.8 3-2.7 1-.8 2-1.7 3.1-2.6 1-.8 2-1.6 3.1-2.4 1.1-.8 2.2-1.6 3.3-2.3 1.2-.7 2.4-1.3 3.5-1.9 1.2-.7 2.4-1.3 3.5-2 1.2-.7 2.2-1.6 3.2-2.4 1-.9 2-1.8 3-2.7 1-.8 2.1-1.6 3.2-2.4 1-.8 2.1-1.6 3.2-2.5 1-.8 2-1.9 3.1-2.5 1.1-.7 2.4-1.4 3.5-1.2 1.1 .2 2.7 1.3 3 2.3 .4 1-.2 2.4-.8 3.5-.5 1.1-1.6 2.1-2.5 3.2-.8 1-1.6 2-2.6 3-1 .9-2 1.7-3.1 2.5-1 .8-2.1 1.6-3.2 2.4-1.2 .7-2.4 1.3-3.5 2-1.1 .7-2.3 1.4-3.4 2.1-1.1 .8-2.2 1.6-3.2 2.4-1.1 .8-2.2 1.5-3.3 2.3-1.1 .8-2.1 1.6-3.2 2.5-1 .8-1.9 1.8-2.9 2.7-1.1 .9-2.1 1.7-3.1 2.6-1 .8-2.1 1.6-3.1 2.5-.9 1-1.8 2-2.6 3.1-.8 1.1-1.4 2.3-2.2 3.3-.7 1.1-1.6 2.2-2.4 3.2-.9 1-1.8 2-2.7 3-.8 1-1.6 2.1-2.4 3.2-.7 1.1-1.3 2.3-1.9 3.5-.7 1.2-1.3 2.4-2 3.5-.7 1.1-1.6 2.2-2.4 3.2-.8 1.1-1.7 2.1-2.5 3.1-.9 1.1-1.6 2.2-2.4 3.3-.9 1-1.8 2-2.7 2.9-.9 1-1.9 1.9-2.8 2.9-1 .9-2.4 2.4-2.9 2.8"/></svg></span><span class="a-tx"><b>Fractionné aux quais</b><small>7 oct. · 7:30</small><em><i><svg><use href="#i-courbe"/></svg>7,66 km</i><i><svg><use href="#i-chrono"/></svg>38:12</i><i><svg><use href="#i-allure"/></svg>4:59/km</i></em></span></li>
-            <li><span class="vign"><svg class="parc" viewBox="107.1 38.9 410 410"><use href="#r-parc"/></svg></span><span class="a-tx"><b>Deux tours du parc</b><small>3 oct. · 18:40</small><em><i><svg><use href="#i-courbe"/></svg>10,34 km</i><i><svg><use href="#i-chrono"/></svg>56:14</i><i><svg><use href="#i-allure"/></svg>5:26/km</i></em></span></li>
-            <li><span class="vign"><svg viewBox="0 0 100 100"><path d="M29.7 90c-.1-.6-.5-2.6-.7-3.9-.3-1.3-.6-2.6-.8-3.9-.3-1.3-.4-2.6-.6-3.9-.2-1.3-.3-2.7-.5-4-.2-1.3-.4-2.6-.5-3.9-.1-1.4-.2-2.7-.2-4 0-1.3 .3-2.7 .4-4 .1-1.3 .1-2.6 .2-4 .1-1.3 0-2.6 .2-3.9 .2-1.4 .6-2.6 .9-3.9 .3-1.3 .7-2.6 1-3.9 .3-1.3 1-2.6 1-3.9-.1-1.2-.8-2.5-1.1-3.8-.4-1.3-.8-2.5-1.2-3.8-.4-1.3-.7-2.5-1.1-3.8-.4-1.3-.8-2.6-1.1-3.8-.3-1.3-.8-2.7-.6-3.9 .2-1.2 1.3-2.3 2-3.4 .7-1.1 1.5-2.2 2.3-3.2 .8-1.1 1.5-2.4 2.5-3.1 1-.8 2.4-1 3.6-1.4 1.3-.4 2.6-.5 3.9-.9 1.3-.3 2.6-.7 3.9-1 1.3-.3 2.6-.7 3.9-.8 1.3-.1 2.6 .3 3.9 .4 1.3 .2 2.7 .4 4 .6 1.3 .2 2.6 .4 3.9 .6 1.3 .3 2.6 .4 3.9 .8 1.3 .4 2.4 1.1 3.7 1.6 1.2 .5 2.4 1.1 3.6 1.6 1.2 .6 2.5 1.1 3.6 1.8 1.1 .7 2.1 1.5 3 2.4 1 .9 1.8 2 2.6 3.1 .8 1 1.6 2.1 2.3 3.2 .7 1.1 1.6 2.3 1.8 3.5 .2 1.3-.3 2.6-.4 3.9-.2 1.3-.3 2.6-.5 3.9-.1 1.3 .1 2.9-.4 4-.6 1.1-1.8 1.8-2.8 2.6-1 .8-2.2 1.4-3.4 2.1-1.1 .7-2.1 1.7-3.3 2.2-1.2 .5-2.5 .6-3.8 .8-1.3 .1-2.6 .1-4 .3-1.3 .2-2.6 .5-3.9 .6-1.3 .2-2.7 .4-4 .3-1.3-.1-2.5-.7-3.8-1.1-1.3-.3-2.6-.7-3.8-1.1-1.3-.4-2.6-.7-3.8-1.2-1.3-.5-2.4-1.1-3.6-1.7-1.3-.5-2.5-1-3.7-1.5-1.3-.5-2.7-1.6-3.8-1.4-1 .2-1.8 1.6-2.3 2.7-.5 1.1-.5 2.6-.8 3.9-.2 1.3-.6 2.6-.7 4-.1 1.3 .2 2.6 .3 3.9 .1 1.4 .3 2.7 .4 4 .2 1.3 .3 2.6 .5 3.9 .3 1.4 .7 2.6 1 3.9 .3 1.3 .7 2.6 1 3.9 .3 1.3 .7 2.5 .9 3.9 .3 1.3 .5 2.6 .7 3.9 .2 1.3 .4 2.6 .6 3.9 .2 1.3 .5 3.3 .5 4"/></svg></span><span class="a-tx"><b>Semi d'entraînement</b><small>26 sept. · 8:05</small><em><i><svg><use href="#i-courbe"/></svg>21,17 km</i><i><svg><use href="#i-chrono"/></svg>1:59:48</i></em></span></li>
-          </ul>
-          <div class="tabbar"><span><svg><use href="#i-run"/></svg>Courir</span><span class="on"><svg><use href="#i-chart"/></svg>Activités</span><span><svg><use href="#i-courbe"/></svg>Parcours</span><span><svg><use href="#i-coeur"/></svg>Santé</span><span><svg><use href="#i-perso"/></svg>Profil</span></div>
-          <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
-        </div>
-      </div></div>
-    </div></div>
+  <figure class="heros-tel tel apparait vu" style="--l: clamp(15rem, 25vw, 22.5rem)">
+    <div class="tel-corps"><div class="tel-verre"><div class="ecran-pile" id="proto" data-ecran="stats">
+      <picture><source type="image/avif" srcset="assets/img/ecrans/course-stats-520.avif 520w, assets/img/ecrans/course-stats-860.avif 860w" sizes="(max-width: 760px) 64vw, 360px"><img class="tel-ecran" src="assets/img/ecrans/course-stats-860.webp" srcset="assets/img/ecrans/course-stats-520.webp 520w, assets/img/ecrans/course-stats-860.webp 860w" sizes="(max-width: 760px) 64vw, 360px" width="860" height="1870" alt="Écran de course de Foulée : 6,42 kilomètres, 33 minutes 24, allure moyenne 5:12 par kilomètre, cadence 174 pas par minute ; parcours « Deux tours de la Tête d’Or », reste 1,74 km, moins 8 secondes sur le record, en vert." fetchpriority="high"></picture>
+    </div></div></div>
+    <figcaption class="proto-aide">Écran manipulable, comme dans l’app&#8239;: <b>Carte</b>, <b>Pause</b>, <b>Verrouiller</b>.</figcaption>
+    <p class="visuellement-cache" id="proto-annonce" aria-live="polite"></p>
+  </figure>
 
-    <div class="par par-c" data-par="0"><div class="phone-in" style="--d:.32s">
-      <div class="iphone"><div class="screen">
-        <div class="ui scr-run">
-          <div class="r-top"><span class="gps"><svg><use href="#i-gps"/></svg>GPS</span><span class="seg"><b>Stats</b><span>Carte</span></span><span class="r-x"><svg><use href="#i-x"/></svg></span></div>
-          <span class="pastille"><svg><use href="#i-courbe"/></svg>Deux tours du parc de la Tête d'Or</span>
-          <div class="r-big"><b data-live="distance">6,42</b><small>KILOMÈTRES</small></div>
-          <div class="r-grid">
-            <span><b data-live="temps">34:01</b><small>TEMPS</small></span>
-            <span><b><i data-live="moy">5:18</i><u>/km</u></b><small>ALLURE MOY.</small></span>
-            <span><b><i data-live="allure">5:05</i><u>/km</u></b><small>ALLURE</small></span>
-            <span><b><i data-live="cadence">174</i><u>pas/min</u></b><small>CADENCE</small></span>
-          </div>
-          <div class="r-pills"><span><svg><use href="#i-montagne"/></svg><i data-live="deniv">46</i> m D+</span><span><svg><use href="#i-pas"/></svg><i data-live="pas">5 727</i> pas</span></div>
-          <div class="r-card"><div class="r-card-h"><b>Reste <i data-live="reste">3,92 km</i></b><em data-live="ecart" class="avance">−0:12 vs record</em></div><span class="barre"><i data-live-prog style="--p:.62"></i></span></div>
-          <div class="r-split"><span><svg><use href="#i-drapeau"/></svg>Km <i data-live="km">6</i></span><span><b data-live="split">5:12</b> /km <em data-live="splitEcart" class="avance">−0:06</em></span></div>
-          <div class="r-bottom"><span class="r-sec"><i><svg><use href="#i-cadenas"/></svg></i>Verrouiller</span><span class="r-pause"><svg><use href="#i-pause"/></svg></span><span class="r-sec"><i><svg><use href="#i-voix"/></svg></i>Voix</span></div>
-          <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
-        </div>
-      </div></div>
-    </div>
-    <div class="float-la">
-      <div class="la-h"><svg><use href="#logo"/></svg><b>FOULÉE</b><span>2 tours du parc</span><em><i></i>EN COURS</em></div>
-      <div class="la-v"><span><b data-live="distance">6,42</b><small>KM</small></span><span><b data-live="temps">34:01</b><small>TEMPS</small></span><span><b data-live="moy">5:18</b><small>/KM MOY.</small></span></div>
-      <div class="la-f"><span><svg><use href="#i-allure"/></svg><i data-live="allure">5:05</i> /km</span><span><svg><use href="#i-drapeau"/></svg>Reste <i data-live="reste">3,92 km</i></span><em data-live="ecart" class="avance">−0:12 vs record</em></div>
-    </div>
-    </div>
-
-    <div class="par par-r" data-par="1"><div class="phone-in" style="--d:.65s">
-      <div class="iphone side wait"><div class="screen" data-clone="#sante-ui"></div></div>
-    </div></div>
+  <div class="heros-plaque" aria-hidden="true">
+    <div class="regle" data-regle="heros"></div>
   </div>
+
+  <dl class="heros-fiche">
+    <div><dt>Parcours</dt><dd>Deux tours de la Tête d’Or</dd></div>
+    <div><dt>Vous, à 6,42&#8239;km</dt><dd class="chiffre orange">33:24</dd></div>
+    <div><dt>Record, même point</dt><dd class="chiffre">33:32</dd></div>
+    <div><dt>Écart</dt><dd class="chiffre avance">−0:08</dd></div>
+  </dl>
 </section>
 
-<section class="manifeste">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal>Pourquoi Foulée</p>
-    <p class="mani-text"><span class="m">Vous</span> <span class="m">courez</span> <span class="m">souvent</span> <span class="m">la</span> <span class="m">même</span> <span class="m">boucle</span><span class="m mot-photo" aria-hidden="true"><img src="assets/img/photos/pastille-boucle.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span><span class="m">.</span> <span class="m">Foulée</span> <span class="m">la</span> <span class="m g">reconnaît,</span> <span class="m">garde</span> <span class="m">chaque</span> <span class="m">passage</span> <span class="m">et</span> <span class="m">vous</span> <span class="m">dit,</span> <span class="m">à</span> <span class="m">la</span> <span class="m">voix</span><span class="m mot-photo" aria-hidden="true"><img src="assets/img/photos/pastille-voix.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span><span class="m">,</span> <span class="m">si</span> <span class="m">vous</span> <span class="m">êtes</span> <span class="m">en</span> <span class="m">avance</span> <span class="m">sur</span> <span class="m">votre</span> <span class="m g">record.</span> <span class="m">Le</span> <span class="m">reste</span> <span class="m">du</span> <span class="m">temps,</span> <span class="m">elle</span> <span class="m">se</span> <span class="m">fait</span> <span class="m">oublier</span> <span class="m">dans</span> <span class="m">la</span> <span class="m">poche</span> <span class="m">ou</span> <span class="m">au</span> <span class="m">poignet</span><span class="m mot-photo" aria-hidden="true"><img src="assets/img/photos/pastille-poignet.webp" width="280" height="140" alt="" loading="lazy" decoding="async"></span><span class="m">.</span></p>
-    <div class="chiffres">
-      <div data-reveal><b><i data-compte="30">30</i> s</b><span>de course perdues, au plus, si l’app se ferme en route</span></div>
-      <div data-reveal style="--d:.08s"><b><i data-compte="15">15</i> min</b><span>de résumé sur l’écran verrouillé après l’arrivée</span></div>
-      <div data-reveal style="--d:.16s"><b data-compte="0">0</b><span>compte à créer, tout reste sur l'iPhone</span></div>
-    </div>
-  </div>
-</section>
+<section class="planche" id="planche" aria-labelledby="titre-planche">
+  <header class="entete">
+    <p class="etiquette"><span class="num">01</span> La planche · démonstration</p>
+    <h2 class="titre expo" id="titre-planche">Lundi, 7&#8239;h&#8239;42&#8239;: deux tours de la Tête&nbsp;d’Or.</h2>
+    <p class="chapeau">Rejouez la course de ce matin face au record du 28&nbsp;octobre, sur le vrai tracé du parc. Toutes les 60&nbsp;secondes, chaque passage laisse une marque&#8239;: quand les marques orange prennent de l’avance, vous allez plus vite.</p>
+  </header>
 
-<section class="story" id="courir">
-  <div class="wrap story-intro"><p class="eyebrow">Courir</p><h2 class="title">Démarrez.<br>Foulée s’occupe du reste.</h2></div>
-  <div class="story-sticky">
-    <div class="wrap story-grid">
-      <div class="story-text">
-        <div class="story-head"><p class="eyebrow">Courir</p><h2 class="title">Démarrez.<br>Foulée s’occupe du reste.</h2></div>
-        <ol class="story-steps">
-          <li class="story-step is-active"><span class="num">1</span><div><h3>Touchez Démarrer</h3><p>Choisissez un parcours ou un objectif, le GPS se cale, et c’est parti après le compte à rebours.</p></div></li>
-          <li class="story-step"><span class="num">2</span><div><h3>Courez, tout est mesuré</h3><p>Temps, distance, allure, cadence en direct. La voix annonce chaque kilomètre, même téléphone dans la poche.</p></div></li>
-          <li class="story-step"><span class="num">3</span><div><h3>Le bilan vous attend</h3><p>À l’arrivée : splits, records battus, carte colorée selon l’allure et une image prête à partager.</p></div></li>
-        </ol>
-        <div class="story-progress" aria-hidden="true"><i></i></div>
-      </div>
-
-      <div class="story-phone" aria-hidden="true">
-        <div class="sc-photos">
-          <img class="sc-1" src="assets/img/photos/course-lacage.webp" width="1200" height="750" alt="" loading="lazy" decoding="async">
-          <img class="sc-2" src="assets/img/photos/course-elan.webp" width="1200" height="801" alt="" loading="lazy" decoding="async">
-          <img class="sc-3" src="assets/img/photos/course-etirement.webp" width="1200" height="757" alt="" loading="lazy" decoding="async">
-        </div>
-        <div class="iphone"><div class="screen">
-          <div class="ui scr-story" id="story-ui" data-step="0">
-            <div class="scr-courir">
-              <svg class="map-bg" viewBox="110.1 -85.2 404.3 876.5" preserveAspectRatio="xMidYMid slice"><use href="#plan" width="600" height="900"/><use href="#r-parc" class="c-trace"/><g class="c-depart" transform="translate(323.3 374.3)"><circle r="11.8"/><use href="#i-drapeau" x="-5.8" y="-5.8" width="11.6" height="11.6"/></g><text class="m-label" x="323.3" y="403.3" font-size="11.3">Départ</text></svg>
-              <div class="me" style="--x:235px;--y:499px"><i></i></div>
-              <div class="c-top"><span class="c-brand"><svg><use href="#logo"/></svg>FOULÉE</span><span class="c-mini"><b>8 431</b><small>pas auj.</small></span><span class="c-sep"></span><span class="c-mini"><b>32,6 km</b><small>cette semaine</small></span></div>
-              <div class="c-panel">
-                <div class="chips"><span class="puce on"><svg><use href="#i-courbe"/></svg>Deux tours du parc<svg class="dn"><use href="#i-chev-d"/></svg></span><span class="puce"><svg><use href="#i-infini"/></svg>Sans objectif<svg class="dn"><use href="#i-chev-d"/></svg></span></div>
-                <div class="c-row">
-                  <span class="gps-ind"><i></i><i></i><i></i><small>GPS</small></span>
-                  <span class="start"><span class="start-halo"></span><svg><use href="#i-play"/></svg>DÉMARRER</span>
-                  <span class="voix-b"><i><svg><use href="#i-voix"/></svg></i><small>Voix</small></span>
-                </div>
-              </div>
-              <span class="tap tap-start"></span>
-              <div class="tabbar"><span class="on"><svg><use href="#i-run"/></svg>Courir</span><span><svg><use href="#i-chart"/></svg>Activités</span><span><svg><use href="#i-courbe"/></svg>Parcours</span><span><svg><use href="#i-coeur"/></svg>Santé</span><span><svg><use href="#i-perso"/></svg>Profil</span></div>
-            </div>
-
-            <div class="scr-run inside">
-              <div class="r-top"><span class="gps"><svg><use href="#i-gps"/></svg>GPS</span><span class="seg"><b>Stats</b><span>Carte</span></span><span class="r-x"><svg><use href="#i-x"/></svg></span></div>
-              <span class="pastille"><svg><use href="#i-courbe"/></svg>Deux tours du parc de la Tête d'Or</span>
-              <div class="r-big"><b data-live="distance">6,42</b><small>KILOMÈTRES</small></div>
-              <div class="r-grid">
-                <span><b data-live="temps">34:01</b><small>TEMPS</small></span>
-                <span><b><i data-live="moy">5:18</i><u>/km</u></b><small>ALLURE MOY.</small></span>
-                <span><b><i data-live="allure">5:05</i><u>/km</u></b><small>ALLURE</small></span>
-                <span><b><i data-live="cadence">174</i><u>pas/min</u></b><small>CADENCE</small></span>
-              </div>
-              <div class="r-pills"><span><svg><use href="#i-montagne"/></svg><i data-live="deniv">46</i> m D+</span><span><svg><use href="#i-pas"/></svg><i data-live="pas">5 727</i> pas</span></div>
-              <div class="r-card"><div class="r-card-h"><b>Reste <i data-live="reste">3,92 km</i></b><em data-live="ecart" class="avance">−0:12 vs record</em></div><span class="barre"><i data-live-prog style="--p:.62"></i></span></div>
-              <div class="r-split"><span><svg><use href="#i-drapeau"/></svg>Km <i data-live="km">6</i></span><span><b data-live="split">5:12</b> /km <em data-live="splitEcart" class="avance">−0:06</em></span></div>
-              <div class="r-bottom"><span class="r-sec"><i><svg><use href="#i-cadenas"/></svg></i>Verrouiller</span><span class="r-pause"><svg><use href="#i-pause"/></svg></span><span class="r-sec"><i><svg><use href="#i-voix"/></svg></i>Voix</span></div>
-              <div class="voix-bulle"><svg><use href="#i-voix"/></svg><span>« 6 kilomètres. Allure moyenne 5 minutes 18. 12 secondes d’avance sur votre record. »</span></div>
-            </div>
-
-            <div class="cd"><span>3</span><span>2</span><span>1</span><small>Touchez pour passer</small></div>
-
-            <div class="scr-fin">
-              <div class="f-nav"><b>Course terminée</b><span>Terminé</span></div>
-              <div class="f-bravo"><svg><use href="#i-trophee"/></svg><div><b>Bravo&#8239;!</b><small>Nouveau record sur 10 km&#8239;: 52:17</small></div></div>
-              <div class="f-map"><svg viewBox="-23.2 81.6 671 390" preserveAspectRatio="xMidYMid slice"><use href="#plan" width="600" height="900"/><g class="f-trace"><use href="#r-parc" style="--a:.0000;--o:0;--l:.1103;stroke:#408cff"/><use href="#r-parc" style="--a:.1103;--o:-.1103;--l:.0077;stroke:#40cc80"/><use href="#r-parc" style="--a:.1180;--o:-.1180;--l:.0145;stroke:#ffc71a"/><use href="#r-parc" style="--a:.1325;--o:-.1325;--l:.0106;stroke:#40cc80"/><use href="#r-parc" style="--a:.1431;--o:-.1431;--l:.0135;stroke:#408cff"/><use href="#r-parc" style="--a:.1567;--o:-.1567;--l:.0097;stroke:#40cc80"/><use href="#r-parc" style="--a:.1663;--o:-.1663;--l:.0145;stroke:#ffc71a"/><use href="#r-parc" style="--a:.1809;--o:-.1809;--l:.0232;stroke:#40cc80"/><use href="#r-parc" style="--a:.2041;--o:-.2041;--l:.0242;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.2282;--o:-.2282;--l:.0106;stroke:#ffc71a"/><use href="#r-parc" style="--a:.2389;--o:-.2389;--l:.0397;stroke:#40cc80"/><use href="#r-parc" style="--a:.2785;--o:-.2785;--l:.0358;stroke:#ffc71a"/><use href="#r-parc" style="--a:.3143;--o:-.3143;--l:.0261;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.3404;--o:-.3404;--l:.0222;stroke:#ffc71a"/><use href="#r-parc" style="--a:.3627;--o:-.3627;--l:.0290;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.3917;--o:-.3917;--l:.0271;stroke:#40cc80"/><use href="#r-parc" style="--a:.4188;--o:-.4188;--l:.0164;stroke:#ffc71a"/><use href="#r-parc" style="--a:.4352;--o:-.4352;--l:.0145;stroke:#40cc80"/><use href="#r-parc" style="--a:.4497;--o:-.4497;--l:.0387;stroke:#408cff"/><use href="#r-parc" style="--a:.4884;--o:-.4884;--l:.0368;stroke:#40cc80"/><use href="#r-parc" style="--a:.5251;--o:-.5251;--l:.0232;stroke:#ffc71a"/><use href="#r-parc" style="--a:.5484;--o:-.5484;--l:.0251;stroke:#40cc80"/><use href="#r-parc" style="--a:.5735;--o:-.5735;--l:.0329;stroke:#ffc71a"/><use href="#r-parc" style="--a:.6064;--o:-.6064;--l:.0164;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.6228;--o:-.6228;--l:.0377;stroke:#ff2e5c"/><use href="#r-parc" style="--a:.6605;--o:-.6605;--l:.0464;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.7070;--o:-.7070;--l:.0068;stroke:#ffc71a"/><use href="#r-parc" style="--a:.7137;--o:-.7137;--l:.0116;stroke:#40cc80"/><use href="#r-parc" style="--a:.7253;--o:-.7253;--l:.0068;stroke:#ffc71a"/><use href="#r-parc" style="--a:.7321;--o:-.7321;--l:.0232;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.7553;--o:-.7553;--l:.0068;stroke:#ffc71a"/><use href="#r-parc" style="--a:.7621;--o:-.7621;--l:.0203;stroke:#40cc80"/><use href="#r-parc" style="--a:.7824;--o:-.7824;--l:.0155;stroke:#ff2e5c"/><use href="#r-parc" style="--a:.7979;--o:-.7979;--l:.0358;stroke:#ff6b1a"/><use href="#r-parc" style="--a:.8337;--o:-.8337;--l:.1393;stroke:#ff2e5c"/><use href="#r-parc" style="--a:.9729;--o:-.9729;--l:.0271;stroke:#408cff"/></g><circle class="f-dep" cx="323.3" cy="374.3" r="13"/><g transform="translate(312.8 377)"><g class="f-arr"><circle r="19.5"/><use href="#i-damier" x="-11" y="-11" width="22" height="22"/></g></g></svg><span class="f-leg">Lent <i></i><i></i><i></i><i></i><i></i> Rapide</span></div>
-              <div class="f-titre"><b>Sortie longue du dimanche</b><small>Dimanche 11 octobre · 9:12</small></div>
-              <div class="f-stats">
-                <div class="f-km"><b>10,34</b><span>km</span></div>
-                <div class="f-grid"><span><small>TEMPS</small><b>54:24</b></span><span><small>ALLURE MOY.</small><b>5:16<u>/km</u></b></span><span><small>VITESSE</small><b>11,4<u>km/h</u></b></span><span><small>DÉNIVELÉ +</small><b>67<u>m</u></b></span><span><small>CALORIES</small><b>744<u>kcal</u></b></span><span><small>FC MOY.</small><b class="rouge">154<u>bpm</u></b></span></div>
-              </div>
-              <div class="f-actions"><span class="on"><svg><use href="#i-partage"/></svg>Partager</span><span><svg><use href="#i-etoile"/></svg>Parcours</span><span><svg><use href="#i-doc"/></svg>GPX</span></div>
-            </div>
-            <span class="tap tap-partage"></span>
-            <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
-          </div>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section parc" id="parcours" data-scope>
-  <div class="wrap">
-    <div class="split rev">
-      <div class="split-text">
-        <p class="eyebrow" data-reveal>Parcours favoris</p>
-        <h2 class="title" data-reveal style="--d:.05s">Courez contre votre record.</h2>
-        <p class="lead" data-reveal style="--d:.1s">Enregistrez un parcours, refaites-le quand vous voulez. Foulée compare chaque mètre à votre record et vous dit, en direct et à la voix, combien vous avez d’avance. Toutes vos courses sur ce tracé sont rattachées toutes seules.</p>
-
-        <div class="course-card" data-reveal style="--d:.15s">
-          <svg id="duel" viewBox="69 66 488 384" role="img" aria-label="Simulation : votre course face à votre record sur le tour du parc">
-            <use href="#plan" width="600" height="900"/>
-            <use href="#r-parc" class="d-route"/>
-            <use href="#r-parc" class="d-ecart neutre" id="duel-gap"/>
-            <use href="#r-parc" class="d-trace" id="duel-trace"/>
-            <g class="d-depart" transform="translate(323.3 374.3)"><rect x="-1.5" y="-25" width="3" height="25" rx="1.5"/><path d="M1.5-25h14l-3.5 5.5 3.5 5.5h-14z"/></g>
-            <g id="duel-fantome" transform="translate(323.3 374.3)"><circle r="11" fill="#fff" fill-opacity=".14"/><circle r="6.5" fill="#d9d9de" stroke="#fff" stroke-width="2"/></g>
-            <g id="duel-vous" transform="translate(323.3 374.3)"><circle class="halo" r="15"/><circle r="7.5" fill="#ff5c1f" stroke="#fff" stroke-width="3"/></g>
-          </svg>
-          <div class="cc-leg"><span><i class="vous"></i>Vous</span><span><i class="fantome"></i>Record · 54:24</span></div>
-          <div class="cc-bar">
-            <span>Distance<b id="duel-dist">0,00 km</b></span>
-            <span>Écart<b id="duel-ecart">0:00</b></span>
-            <span>Temps<b id="duel-temps">0:00</b></span>
-          </div>
-          <div class="cc-fin" id="duel-fin"><svg><use href="#i-trophee"/></svg><span></span></div>
-        </div>
-        <div class="allures" role="group" aria-label="Votre allure pour la simulation" data-reveal style="--d:.2s">
-          <span>Votre allure</span>
-          <button type="button" data-allure="305" aria-pressed="true">5:05</button>
-          <button type="button" data-allure="320">5:20</button>
-          <button type="button" data-allure="335">5:35</button>
-        </div>
-      </div>
-
-      <div class="split-phone avec-photo" data-reveal="phone">
-        <figure class="toile" aria-hidden="true"><img src="assets/img/photos/coureur-pont.webp" width="1280" height="854" alt="" loading="lazy" decoding="async"></figure>
-        <div class="iphone"><div class="screen">
-          <div class="ui scr-parc" id="parc-ui">
-            <div class="nr"><svg><use href="#i-chev-r" class="flip"/></svg><span></span><svg><use href="#i-etoile"/></svg></div>
-            <div class="p-map"><svg viewBox="-12.2 68 649 352" preserveAspectRatio="xMidYMid slice"><use href="#plan" width="600" height="900"/><use href="#r-parc" class="p-trace"/><circle class="p-dep" cx="323.3" cy="374.3" r="12.6"/><text class="m-label" x="323.3" y="410.3" font-size="19.8">Départ</text></svg></div>
-            <div class="p-titre"><b>Deux tours du parc de la Tête d'Or</b><small><svg><use href="#i-run"/></svg>Depuis une course · 3 oct. 2026</small></div>
-            <div class="p-stats"><span><small>DISTANCE</small><b>10,34<u>km</u></b></span><span><small>PASSAGES</small><b id="parc-nb">3</b></span><span><small>RECORD</small><b class="orange" id="parc-record">54:24</b></span></div>
-            <div class="p-btn"><svg><use href="#i-play"/></svg>Courir ce parcours</div>
-            <div class="p-h"><b>Passages</b><span class="p-seg"><i>Récents</i><i class="on">Meilleurs</i></span></div>
-            <ul class="p-list" id="parc-list">
-              <li data-t="3264"><span class="rang"><svg><use href="#i-trophee"/></svg></span><span class="p-tx"><b>Dimanche 11 octobre</b><small>5:16 /km · ♥ 154</small></span><span class="p-t"><b>54:24</b><em>Record</em></span></li>
-              <li data-t="3374"><span class="rang">2</span><span class="p-tx"><b>Samedi 3 octobre</b><small>5:26 /km</small></span><span class="p-t"><b>56:14</b><em class="retard">+1:50</em></span></li>
-              <li data-t="3460"><span class="rang">3</span><span class="p-tx"><b>Vendredi 25 septembre</b><small>5:34 /km</small></span><span class="p-t"><b>57:40</b><em class="retard">+3:16</em></span></li>
-            </ul>
-            <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
-          </div>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section plan" id="planifier" data-scope>
-  <div class="wrap">
-    <p class="eyebrow center" data-reveal>Planifier</p>
-    <h2 class="title center" data-reveal style="--d:.05s">Tracez ce soir.<br>Courez-le demain.</h2>
-    <p class="lead center" data-reveal style="--d:.1s">Touchez la carte pour poser vos étapes : le tracé suit les rues, la distance et la durée se calculent au fur et à mesure. Essayez.</p>
-
-    <div class="planner" data-reveal style="--d:.15s">
-      <div class="pl-carte" id="pl-carte">
-        <svg id="pl-svg" viewBox="0 0 600 380" aria-label="Carte du planificateur : cliquez pour ajouter une étape">
-          <use href="#plan" y="-120" width="600" height="900"/>
-          <path id="pl-route-ombre" d="" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <path id="pl-route" d="" fill="none" stroke="url(#gTrace)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <g id="pl-etapes"></g>
-          <circle id="pl-fantome" r="7" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-dasharray="3 3"/>
-        </svg>
-        <p class="pl-astuce" id="pl-astuce"><svg><use href="#i-plus"/></svg>Cliquez sur la carte pour ajouter une étape</p>
-      </div>
-      <div class="pl-panneau">
-        <div class="pl-stats">
-          <span><small>DISTANCE</small><b><i id="pl-dist">0,00</i><u>km</u></b></span>
-          <span><small>ESTIMATION</small><b id="pl-duree">0:00</b></span>
-          <span><small>ÉTAPES</small><b id="pl-nb">0</b></span>
-        </div>
-        <label class="pl-allure"><span>Allure habituelle <b id="pl-allure-txt">5:30 /km</b></span><input type="range" id="pl-allure" min="240" max="420" step="5" value="330"></label>
-        <label class="pl-switch"><span>Suivre les rues</span><input type="checkbox" id="pl-rues" checked><i></i></label>
-        <div class="pl-outils">
-          <button type="button" data-outil="annuler"><svg><use href="#i-annuler"/></svg>Annuler</button>
-          <button type="button" data-outil="boucler"><svg><use href="#i-boucle"/></svg>Boucler</button>
-          <button type="button" data-outil="aller"><svg><use href="#i-aller"/></svg>Aller-retour</button>
-          <button type="button" data-outil="effacer"><svg><use href="#i-corbeille"/></svg>Effacer</button>
-        </div>
-        <button type="button" class="btn btn-main pl-save" id="pl-save"><svg><use href="#i-etoile"/></svg>Enregistrer le parcours</button>
-        <p class="pl-ok" id="pl-ok" role="status"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section partage" id="partager" data-scope>
-  <div class="wrap split">
-    <div class="split-text">
-      <p class="eyebrow" data-reveal>Partager</p>
-      <h2 class="title" data-reveal style="--d:.05s">Votre course, prête pour la story.</h2>
-      <p class="lead" data-reveal style="--d:.1s">À chaque arrivée, Foulée compose une image avec votre tracé, vos chiffres et son logo. Choisissez le style et le format, partagez en un geste ou posez le sticker transparent sur votre photo.</p>
-      <div class="pt-choix" data-reveal style="--d:.15s">
-        <div class="pt-groupe" role="group" aria-label="Style de l'image">
-          <button type="button" data-style="carte" aria-pressed="true"><i class="sw sw-carte"></i>Carte</button>
-          <button type="button" data-style="nuit"><i class="sw sw-nuit"></i>Nuit</button>
-          <button type="button" data-style="jour"><i class="sw sw-jour"></i>Jour</button>
-          <button type="button" data-style="sticker"><i class="sw sw-sticker"></i>Sticker</button>
-        </div>
-        <div class="pt-groupe pt-formats" role="group" aria-label="Format de l'image">
-          <button type="button" data-format="post" aria-pressed="true">Post 4:5</button>
-          <button type="button" data-format="story">Story 9:16</button>
-          <button type="button" data-format="carre">Carré</button>
-        </div>
-      </div>
-    </div>
-    <div class="pt-scene" data-reveal="phone">
-      <div class="pt-carte" id="pt-carte" data-style="carte" data-format="post">
-        <div class="pt-fond">
-          <svg class="pt-plan" viewBox="75.3 10.4 474 592.5" preserveAspectRatio="xMidYMid slice" style="--u:1.32"><use href="#plan" width="600" height="900"/><g class="pt-route"><use href="#r-parc" class="pt-bord"/><use href="#r-parc" class="pt-ligne"/><circle class="bl" cx="323.3" cy="374.3" r="10.5"/><circle class="dep" cx="323.3" cy="374.3" r="7.9"/><circle class="bl arr-bl" cx="312.8" cy="377" r="10.5"/><circle class="arr" cx="312.8" cy="377" r="7.9"/></g></svg>
-          <img class="pt-photo" src="assets/img/photos/rhone-tete-dor.webp" width="600" height="900" alt="" loading="lazy" decoding="async">
-        </div>
-        <div class="pt-h"><svg><use href="#logo"/></svg><b>FOULÉE</b><span>11 octobre<small>9:12</small></span></div>
-        <svg class="pt-trace" viewBox="120.7 96.6 383.2 294.7" preserveAspectRatio="xMidYMid meet" style="--u:1.27"><use href="#r-parc" class="pt-lueur"/><use href="#r-parc" class="pt-ligne"/><circle class="dep" cx="323.3" cy="374.3" r="7"/><circle class="arr" cx="312.8" cy="377" r="8.3"/></svg>
-        <div class="pt-b">
-          <b class="pt-nom">Sortie longue du dimanche</b>
-          <div class="pt-v"><span><small>DISTANCE</small><b>10,34<u>km</u></b></span><span><small>TEMPS</small><b>54:24</b></span><span><small>ALLURE</small><b>5:16<u>/km</u></b></span></div>
-          <div class="pt-m"><span><svg><use href="#i-montagne"/></svg>67 m</span><span><svg><use href="#i-coeur"/></svg>154 bpm</span><span><svg><use href="#i-flamme"/></svg>744 kcal</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section sante" id="sante" data-scope>
-  <div class="wrap split">
-    <div class="split-phone" data-reveal="phone">
-      <div class="iphone"><div class="screen">
-        <div class="ui scr-sante" id="sante-ui">
-          <h3 class="lt">Santé</h3>
-          <div class="s-card s-jour">
-            <small class="s-sur">AUJOURD'HUI</small>
-            <div class="s-jour-in">
-              <div class="s-anneau"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="fond"/><circle cx="60" cy="60" r="50" class="prog" pathLength="1"/></svg><span><svg><use href="#i-pas"/></svg><b data-compte="8431">8 431</b><small>pas</small></span></div>
-              <ul class="s-lignes">
-                <li style="--c:#ff5c1f"><i><svg><use href="#i-run"/></svg></i><span><b>6,12<u>km</u></b><small>Marche et course</small></span></li>
-                <li style="--c:#ff2e5c"><i><svg><use href="#i-flamme"/></svg></i><span><b>486<u>kcal</u></b><small>Énergie active</small></span></li>
-                <li style="--c:#2ecc71"><i><svg><use href="#i-chrono"/></svg></i><span><b>42<u>min</u></b><small>Exercice</small></span></li>
-                <li style="--c:#0a84ff"><i><svg><use href="#i-montagne"/></svg></i><span><b>11</b><small>Étages montés</small></span></li>
-              </ul>
-            </div>
-            <p class="s-msg">Encore 1 569 pas pour atteindre votre objectif.</p>
-          </div>
-          <div class="s-card">
-            <div class="s-h"><b>7 derniers jours</b><span>moy. 9 284 pas</span></div>
-            <div class="s-bars"><i style="--v:.56" data-v="8 420"></i><i class="ok" style="--v:.82" data-v="12 310"></i><i style="--v:.41" data-v="6 150"></i><i class="ok" style="--v:.7" data-v="10 480"></i><i style="--v:.33" data-v="4 920"></i><i class="ok" style="--v:.99" data-v="14 870"></i><i style="--v:.56" data-v="8 431"></i><em></em></div>
-            <div class="s-jours"><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span><span>L</span></div>
-          </div>
-          <div class="s-card">
-            <b class="s-t">Forme</b>
-            <div class="s-forme"><span style="--c:#ff4545"><small><svg><use href="#i-coeur"/></svg>FC AU REPOS</small><b>52<u>bpm</u></b></span><span style="--c:#ff2e5c"><small>VFC</small><b>61<u>ms</u></b></span><span style="--c:#2ecc71"><small>VO2 MAX</small><b>48,6<u>ml/kg/min</u></b></span><span style="--c:#0a84ff"><small>POIDS</small><b>71,4<u>kg</u></b></span></div>
-          </div>
-          <div class="tabbar"><span><svg><use href="#i-run"/></svg>Courir</span><span><svg><use href="#i-chart"/></svg>Activités</span><span><svg><use href="#i-courbe"/></svg>Parcours</span><span class="on"><svg><use href="#i-coeur"/></svg>Santé</span><span><svg><use href="#i-perso"/></svg>Profil</span></div>
-          <div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="island"></div><div class="home-ind"></div>
-        </div>
-      </div></div>
-    </div>
-    <div class="split-text">
-      <p class="eyebrow" data-reveal>Apple Santé</p>
-      <h2 class="title" data-reveal style="--d:.05s">Toute votre forme, au même endroit.</h2>
-      <p class="lead" data-reveal style="--d:.1s">Pas du jour, énergie, FC au repos, VO2 max : Foulée lit vos données Santé et les met en regard de vos courses. Et la synchronisation va dans les deux sens.</p>
-      <ul class="sync" data-reveal style="--d:.15s">
-        <li><span class="sync-ic"><svg><use href="#i-sync"/></svg></span><div><b>Import automatique</b><p>Les courses que d’autres apps (Exercice, Nike Run Club, Strava…) enregistrent dans Santé arrivent avec leur tracé, sans doublon.</p></div></li>
-        <li><span class="sync-ic"><svg><use href="#i-coeur"/></svg></span><div><b>Fréquence cardiaque</b><p>Courez avec l’iPhone et la montre au poignet : la FC mesurée par l’Apple Watch s’ajoute à votre course.</p></div></li>
-        <li><span class="sync-ic"><svg><use href="#i-pas"/></svg></span><div><b>Pas et cadence en direct</b><p>Les capteurs de mouvement comptent chaque pas et affichent votre cadence pendant que vous courez.</p></div></li>
+  <div class="planche-grille">
+    <div class="plaque" id="plaque">
+      <svg class="plaque-carte" id="plaque-carte" role="img" aria-labelledby="plaque-desc" preserveAspectRatio="xMidYMid meet">
+        <desc id="plaque-desc">Carte du parc de la Tête d’Or, à Lyon, avec le parcours de deux tours. Le point orange est la course du jour, le cercle blanc le record ; des marques jalonnent leur position toutes les 60 secondes.</desc>
+      </svg>
+      <div class="decompte" id="decompte" aria-hidden="true"></div>
+      <ul class="legende" aria-hidden="true">
+        <li><i class="pastille-vous"></i>Vous · lundi 9&nbsp;novembre</li>
+        <li><i class="pastille-record"></i>Record · mercredi 28&nbsp;octobre</li>
+        <li><i class="pastille-parcours"></i>Parcours enregistré</li>
       </ul>
+      <noscript><p class="sans-js">La démonstration a besoin de JavaScript. Les écrans réels de l’app sont plus bas.</p></noscript>
     </div>
-  </div>
-</section>
 
-<section class="section montre" id="montre" data-scope>
-  <div class="wrap">
-    <p class="eyebrow center" data-reveal>Apple Watch et écran verrouillé</p>
-    <h2 class="title center" data-reveal style="--d:.05s">Au poignet ou dans la poche.</h2>
-    <p class="lead center" data-reveal style="--d:.1s">Lancez la course depuis la montre, sans iPhone. Ou gardez le téléphone en poche : chrono, distance et écart au record restent sur l’écran verrouillé et dans la Dynamic Island.</p>
-
-    <div class="duo" data-reveal style="--d:.15s">
-      <div class="watch-zone">
-        <div class="watch">
-          <div class="w-ecran" id="w-ecran" data-page="0">
-            <div class="w-pages">
-              <div class="w-page w-metriques">
-                <small class="w-titre">Deux tours du parc</small>
-                <b class="w-chrono" data-live="temps">34:01</b>
-                <span><b data-live="distance">6,42</b><u>KM</u></span>
-                <span><b data-live="moy">5:18</b><u>MOY./KM</u></span>
-                <span><b data-live="allure">5:05</b><u>ALLURE</u></span>
-                <span class="w-fc"><b data-live="fc">156</b><svg><use href="#i-coeur"/></svg><em>−<i data-live="reste">3,92 km</i></em></span>
-              </div>
-              <div class="w-page w-details">
-                <span style="--c:#ff5c1f"><small>CADENCE</small><b data-live="cadence">174</b><u>pas/min</u></span>
-                <span style="--c:#ff2e5c"><small>PAS</small><b data-live="pas">5 727</b><u>au total</u></span>
-                <span style="--c:#ff9f0a"><small>CALORIES</small><b data-live="kcal">412</b><u>kcal</u></span>
-                <span style="--c:#2ecc71"><small>DÉNIVELÉ</small><b data-live="deniv">46</b><u>m</u></span>
-              </div>
-              <div class="w-page w-carte"><svg viewBox="90.8 -30.5 443 549" preserveAspectRatio="xMidYMid slice"><use href="#plan" width="600" height="900"/><use href="#r-parc" class="w-prevu"/><use href="#r-parc" class="w-fait"/><g class="w-moi" id="w-moi" transform="translate(423.1 135.2)"><circle r="13.5"/><circle r="9.5"/></g></svg></div>
-            </div>
-            <div class="w-points"><button type="button" aria-label="Métriques" aria-pressed="true"></button><button type="button" aria-label="Détails"></button><button type="button" aria-label="Carte"></button></div>
-          </div>
-        </div>
-        <p class="duo-leg"><svg><use href="#i-montre"/></svg>Touchez les points pour changer de page</p>
+    <aside class="tableau" aria-label="Mesures de la course rejouée">
+      <p class="tableau-parcours"><svg aria-hidden="true"><use href="#i-parcours"/></svg>Deux tours de la Tête d’Or</p>
+      <p class="tableau-km"><span class="chiffre" data-v="km">6,42</span><span class="unite">Kilomètres</span></p>
+      <div class="tableau-ligne">
+        <p><span class="chiffre" data-v="temps">33:24</span><span class="unite">Temps</span></p>
+        <p><span class="chiffre" data-v="moyenne">5:12</span><small>/km</small><span class="unite">Allure moy.</span></p>
       </div>
-
-      <div class="lock-zone">
-        <div class="iphone"><div class="screen">
-          <div class="ui scr-lock">
-            <div class="ile-dyn"><svg><use href="#i-run"/></svg><b><i data-live="distance">6,42</i> km</b></div>
-            <div class="lk-heure"><small>lundi 12 octobre</small><b>9:41</b></div>
-            <div class="la la-lock">
-              <div class="la-h"><svg><use href="#logo"/></svg><b>FOULÉE</b><span>2 tours du parc</span><em><i></i>EN COURS</em></div>
-              <div class="la-v"><span><b data-live="distance">6,42</b><small>KM</small></span><span><b data-live="temps">34:01</b><small>TEMPS</small></span><span><b data-live="moy">5:18</b><small>/KM MOY.</small></span></div>
-              <div class="la-f"><span><svg><use href="#i-allure"/></svg><i data-live="allure">5:05</i> /km</span><em data-live="ecart" class="avance">−0:12 vs record</em></div>
-            </div>
-            <div class="lk-bas"><span><svg><use href="#i-soleil"/></svg></span><span><svg><use href="#i-voix"/></svg></span></div>
-            <div class="sb"><span class="sb-time"></span><svg class="sb-ic"><use href="#sb"/></svg></div><div class="home-ind"></div>
-          </div>
-        </div></div>
-        <p class="duo-leg"><svg><use href="#i-iphone"/></svg>Activité en direct, sur l’écran verrouillé et dans la Dynamic Island</p>
+      <div class="carte-reste">
+        <p><b data-v="reste">Reste 1,74&#8239;km</b><em class="avance" data-v="ecart">−0:08 vs record</em></p>
+        <span class="barre-prog"><i data-v="prog" style="--p:.787"></i></span>
       </div>
-    </div>
-  </div>
-</section>
+      <p class="carte-km"><svg aria-hidden="true"><use href="#i-drapeau"/></svg><b data-v="kmNom">Km 6</b><span data-v="kmAllure">5:10 /km</span><em class="avance" data-v="kmDelta">−0:01</em></p>
 
-<section class="section bento" id="fonctions" data-scope>
-  <div class="wrap">
-    <p class="eyebrow center" data-reveal>Et tout le reste</p>
-    <h2 class="title center" data-reveal style="--d:.05s">Des splits au GPX, rien ne se perd.</h2>
-    <div class="bento-grid">
-      <article class="b-card wide" data-reveal>
-        <h3>Splits au kilomètre</h3>
-        <p>Chaque kilomètre, son allure et son dénivelé. Le plus rapide ressort, les écarts se lisent d’un coup d’œil.</p>
-        <div class="b-vis splits">
-          <div class="sp"><i style="--v:.42" data-a="5:34"></i><i style="--v:.6" data-a="5:21"></i><i style="--v:.68" data-a="5:15"></i><i style="--v:.74" data-a="5:11"></i><i style="--v:.54" data-a="5:25"></i><i style="--v:.64" data-a="5:18"></i><i style="--v:.79" data-a="5:07"></i><i style="--v:.72" data-a="5:12"></i><i style="--v:.86" data-a="5:02"></i><i class="best" style="--v:1" data-a="4:52"></i></div>
-          <div class="sp-axe"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-        </div>
-      </article>
-      <article class="b-card" data-reveal style="--d:.06s">
-        <h3>Guidage vocal</h3>
-        <p>À chaque kilomètre, la voix baisse votre musique le temps de l’annonce.</p>
-        <div class="b-vis voix-vis">
-          <div class="onde"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <p class="annonce" id="annonce">« 5 kilomètres. Temps : 26 minutes 30. »</p>
-        </div>
-      </article>
-      <article class="b-card" data-reveal>
-        <h3>Records personnels</h3>
-        <p>1 km, 5 km, 10 km, semi, marathon : battus, ils sont fêtés.</p>
-        <div class="b-vis records">
-          <ul><li><svg><use href="#i-trophee"/></svg><span>1 km<small>4:23 /km</small></span><b>4:23</b></li><li><svg><use href="#i-trophee"/></svg><span>5 km<small>4:57 /km</small></span><b>24:46</b></li><li class="neuf"><svg><use href="#i-trophee"/></svg><span>10 km<small>Nouveau&#8239;!</small></span><b>52:17</b></li><li><svg><use href="#i-trophee"/></svg><span>Semi<small>5:40 /km</small></span><b>1:59:24</b></li></ul>
-        </div>
-      </article>
-      <article class="b-card" data-reveal style="--d:.06s">
-        <h3>Objectifs</h3>
-        <p>Une distance ou une durée, et une barre qui se remplit.</p>
-        <div class="b-vis objectif">
-          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" class="fond"/><circle cx="60" cy="60" r="48" class="prog" pathLength="1"/></svg>
-          <span><b>10 km</b><small>Objectif atteint</small></span>
-        </div>
-      </article>
-      <article class="b-card" data-reveal style="--d:.12s">
-        <h3>Clair, sombre ou système</h3>
-        <p>L’app suit votre iPhone, ou le thème que vous préférez.</p>
-        <div class="b-vis themes">
-          <div class="mini" id="mini-theme" data-theme="sombre"><span class="mini-h"><i></i><i></i></span><span class="mini-km">10,34<small>km</small></span><span class="mini-g"><i></i><i></i><i></i></span><span class="mini-btn"></span></div>
-          <div class="theme-seg" role="group" aria-label="Thème de l'aperçu"><button type="button" data-t="systeme"><svg><use href="#i-moitie"/></svg></button><button type="button" data-t="clair"><svg><use href="#i-soleil"/></svg></button><button type="button" data-t="sombre" aria-pressed="true"><svg><use href="#i-lune"/></svg></button></div>
-        </div>
-      </article>
-      <article class="b-card wide" data-reveal>
-        <h3>Hors parcours&#8239;? Vous le savez tout de suite.</h3>
-        <p>Si vous quittez le tracé, l’iPhone et la montre vibrent et la voix vous prévient. Elle vous dit aussi quand vous l’avez retrouvé.</p>
-        <div class="b-vis hors">
-          <div class="hors-scene" id="hors">
-            <svg viewBox="0 0 520 190" aria-hidden="true">
-              <rect width="520" height="190" fill="url(#ptIlots)"/>
-              <path class="hors-rues" d="M0 60H520M0 120H520M240 0V190M420 0V190"/>
-              <path class="hors-prevu" id="hors-prevu" d="M0 120H226q14 0 14-14V74q0-14 14-14H520"/>
-              <path class="hors-trace" id="hors-trace" d="M0 120H406q14 0 14-14V74q0-14 14-14H505"/>
-              <path class="hors-rouge" id="hors-rouge" d="M0 120H406q14 0 14-14V74q0-14 14-14H505"/>
-              <g class="hors-ondes" id="hors-ondes" transform="translate(277.5 120)"><circle r="9"/><circle r="9"/></g>
-              <g class="hors-moi" id="hors-moi" transform="translate(505 60)"><circle r="9.5"/><circle r="6.5"/></g>
-            </svg>
-            <span class="hors-badge"><svg><use href="#i-alerte"/></svg>Hors parcours</span>
-            <span class="hors-ok"><svg><use href="#i-check"/></svg>De retour sur le parcours</span>
+      <div class="direct">
+        <p class="direct-legende" aria-hidden="true">Écran verrouillé</p>
+        <div class="activite" aria-hidden="true">
+          <p class="activite-tete"><svg class="activite-logo"><use href="#i-logo"/></svg><b>FOULÉE</b><span>Deux tours de la Tête…</span><em data-v="statut"><i></i>EN COURS</em></p>
+          <div class="activite-chiffres">
+            <p><span class="chiffre" data-v="km2">6,42</span><small>KM</small></p>
+            <p><span class="chiffre" data-v="temps2">33:24</span><small>TEMPS</small></p>
+            <p class="droite"><span class="chiffre" data-v="moyenne2">5:12</span><small>/KM MOY.</small></p>
           </div>
-          <p class="hors-voix" id="hors-voix"><svg><use href="#i-voix"/></svg><span>« Attention, vous quittez le parcours. »</span></p>
+          <p class="activite-pied"><span class="a-allure"><svg><use href="#i-compteur"/></svg><b data-v="allure">4:58</b>&#8239;/km</span><span class="a-fin avance"><svg><use href="#i-coche"/></svg>Course terminée</span><span><svg><use href="#i-drapeau"/></svg><b data-v="reste2">Reste 1,74 km</b></span><em class="avance" data-v="ecart2">−0:08 vs record</em></p>
         </div>
-      </article>
-      <article class="b-card" data-reveal style="--d:.06s">
-        <h3>Export GPX</h3>
-        <p>Vos traces vous appartiennent : un fichier standard, vers Strava, Garmin ou ailleurs.</p>
-        <div class="b-vis gpx">
-          <span class="fichier"><svg><use href="#i-doc"/></svg><b>Sortie-longue.gpx</b><small>1 642 points · 214 Ko</small></span>
+        <p class="direct-legende" aria-hidden="true">Dynamic Island <span class="ile-indice">· maintenez pour l’ouvrir</span></p>
+        <div class="ile-zone">
+          <button class="ile" id="ile" type="button" aria-expanded="false" aria-label="Dynamic Island : ouvrir la vue détaillée">
+            <span class="ile-forme" aria-hidden="true">
+              <span class="ile-compacte"><svg><use href="#i-coureur"/></svg><span data-v="ile">6,42 km</span></span>
+              <span class="ile-ouverte">
+                <span class="ie-haut">
+                  <span><span class="chiffre" data-v="km2">6,42</span><small>KM</small></span>
+                  <span class="ie-titre">Deux tours de la Tête d’Or</span>
+                  <span class="ie-droite"><span class="chiffre" data-v="temps2">33:24</span><small>TEMPS</small></span>
+                </span>
+                <span class="ie-bas"><span><svg><use href="#i-compteur"/></svg><b data-v="allure">4:58</b>&#8239;/km</span><span><svg><use href="#i-drapeau"/></svg><b data-v="reste2">Reste 1,74 km</b></span><em class="avance" data-v="ecart2">−0:08 vs record</em></span>
+              </span>
+            </span>
+          </button>
         </div>
-      </article>
+      </div>
+    </aside>
+
+    <div class="commandes">
+      <button class="bouton bouton-principal depart" id="depart" type="button"><svg aria-hidden="true"><use href="#i-lecture"/></svg><span>Départ</span></button>
+      <button class="bouton-voix" id="voix" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#i-muet"/></svg><span>Voix</span></button>
+      <label class="curseur">
+        <span class="curseur-nom">Distance</span>
+        <input type="range" id="curseur" min="0" max="8160" step="10" value="6420" aria-valuetext="6,42 kilomètres">
+      </label>
+    </div>
+
+    <div class="regle-planche">
+      <div class="regle" data-regle="planche" aria-hidden="true"></div>
+    </div>
+
+    <p class="annonce" id="annonce" aria-live="polite"><span class="annonce-tete">Guidage vocal</span><span id="annonce-texte">«&#8239;6 kilomètres. Temps&#8239;: 31 minutes 18 secondes. Allure moyenne&#8239;: 5 minutes 13 par kilomètre. Dernier kilomètre en 5 minutes 10 secondes. 7 secondes d’avance sur votre record.&#8239;»</span></p>
+  </div>
+  <p class="note">Données de démonstration&#8239;: tracé réel du parc (OpenStreetMap), temps générés dans l’app et exportés tels quels. Les captures de cette page viennent des mêmes courses.</p>
+</section>
+
+<section class="pendant" id="pendant" aria-labelledby="titre-pendant">
+  <div class="pendant-colle">
+    <header class="entete">
+      <p class="etiquette"><span class="num">02</span> Pendant la course</p>
+      <h2 class="titre expo" id="titre-pendant">L’écart vous suit, même téléphone en&nbsp;poche.</h2>
+      <p class="chapeau">Écran de course, écran verrouillé, Dynamic Island, voix&#8239;: distance, temps, allure et écart au record restent sous les yeux, ou dans les oreilles.</p>
+      <p class="aide"><svg aria-hidden="true"><use href="#i-agrandir"/></svg>Touchez un écran pour l’agrandir, puis glissez de l’un à l’autre.</p>
+    </header>
+    <div class="planche-contact" id="planche-contact" tabindex="0" aria-label="Écrans de Foulée pendant une course, à faire défiler">
+      <ol class="pellicule" id="pellicule">
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/courir-520.avif 520w, assets/img/ecrans/courir-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/courir-860.webp" srcset="assets/img/ecrans/courir-520.webp 520w, assets/img/ecrans/courir-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Courir : carte du parc, choix du parcours et de l’objectif, bouton Démarrer, signal GPS et bouton Voix."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;1 — Courir.</b> Parcours, objectif, voix et signal GPS se règlent avant le départ.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/course-stats-520.avif 520w, assets/img/ecrans/course-stats-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/course-stats-860.webp" srcset="assets/img/ecrans/course-stats-520.webp 520w, assets/img/ecrans/course-stats-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Statistiques en course : 6,42 km, 33:24, allure 4:58, cadence 174, reste 1,74 km, moins 8 secondes sur le record ; kilomètre 6 couru en 5:10."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;2 — Stats.</b> L’écart au record en vert, et chaque kilomètre comparé au précédent.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/course-carte-520.avif 520w, assets/img/ecrans/course-carte-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/course-carte-860.webp" srcset="assets/img/ecrans/course-carte-520.webp 520w, assets/img/ecrans/course-carte-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Carte en course : le tracé orange longe le Rhône au nord du parc, avec distance, temps et allure en bas de l’écran."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;3 — Carte.</b> Votre tracé en orange, par-dessus le parcours enregistré.</p>
+        </li>
+        <li class="vue vue-ile">
+          <div class="ile-cadre">
+            <picture><source type="image/avif" srcset="assets/img/ecrans/ile-compacte.avif"><img src="assets/img/ecrans/ile-compacte.webp" width="1206" height="210" loading="lazy" decoding="async" alt="Dynamic Island : icône de course et 6,42 km en orange."></picture>
+            <div class="ile-etendue" role="img" aria-label="Dynamic Island ouverte : 6,42 km, le parcours, 33:24, allure 4:58 par kilomètre, reste 1,74 km, moins 8 secondes sur le record.">
+              <div class="ie-haut">
+                <p><span class="chiffre">6,42</span><small>KM</small></p>
+                <p class="ie-titre">Deux tours de la Tête d’Or</p>
+                <p class="ie-droite"><span class="chiffre">33:24</span><small>TEMPS</small></p>
+              </div>
+              <p class="ie-bas"><span><svg aria-hidden="true"><use href="#i-compteur"/></svg>4:58&#8239;/km</span><span><svg aria-hidden="true"><use href="#i-drapeau"/></svg>Reste 1,74&#8239;km</span><em class="avance">−0:08 vs record</em></p>
+            </div>
+          </div>
+          <p class="vue-legende"><b>Fig.&nbsp;4 — Dynamic Island.</b> La distance reste en haut de l’écran&#8239;; un appui long montre l’écart.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/pause-520.avif 520w, assets/img/ecrans/pause-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/pause-860.webp" srcset="assets/img/ecrans/pause-520.webp 520w, assets/img/ecrans/pause-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Écran de pause orange : 6,42 kilomètres, boutons Maintenir pour terminer et Reprendre."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;5 — Pause.</b> Il faut maintenir pour terminer&#8239;: un appui de travers n’arrête rien.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="section prive" id="confidentialite">
-  <div class="wrap">
-    <div class="prive-ic" data-reveal><svg><use href="#i-bouclier"/></svg></div>
-    <h2 class="title center" data-reveal style="--d:.05s">Vos courses restent chez vous.</h2>
-    <p class="lead center" data-reveal style="--d:.1s">Pas de compte, pas de serveur Foulée, pas de publicité. Vos traces ne quittent votre iPhone que si vous les partagez ou les enregistrez dans Santé.</p>
-    <div class="prive-grid">
-      <div class="pv" data-reveal><svg><use href="#i-iphone"/></svg><b>Tout sur l’iPhone</b><p>Courses, parcours et records sont enregistrés localement, dans un format simple et exportable.</p></div>
-      <div class="pv" data-reveal style="--d:.06s"><svg><use href="#i-coeur"/></svg><b>Santé, si vous le voulez</b><p>Chaque autorisation se donne et se retire séparément, dans l’app Santé.</p></div>
-      <div class="pv" data-reveal style="--d:.12s"><svg><use href="#i-partage"/></svg><b>Vous décidez du partage</b><p>L’image et le GPX ne partent que lorsque vous touchez Partager.</p></div>
+<section class="apres" id="apres" aria-labelledby="titre-apres">
+  <header class="entete">
+    <p class="etiquette"><span class="num">03</span> Après</p>
+    <h2 class="titre expo" id="titre-apres">Huit kilomètres, huit lignes, un&nbsp;record.</h2>
+    <p class="chapeau">À l’arrivée, la course se range d’elle-même&#8239;: la carte, les splits, les courbes, puis sa place parmi vos passages sur ce parcours.</p>
+  </header>
+
+  <div class="bilan">
+    <div class="bilan-tel">
+      <figure class="tel"><div class="tel-corps"><div class="tel-verre">
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-carte-520.avif 520w, assets/img/ecrans/detail-carte-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran actif" data-ecran="0" src="assets/img/ecrans/detail-carte-860.webp" srcset="assets/img/ecrans/detail-carte-520.webp 520w, assets/img/ecrans/detail-carte-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-splits-520.avif 520w, assets/img/ecrans/detail-splits-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran" data-ecran="1" src="assets/img/ecrans/detail-splits-860.webp" srcset="assets/img/ecrans/detail-splits-520.webp 520w, assets/img/ecrans/detail-splits-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-graphes-520.avif 520w, assets/img/ecrans/detail-graphes-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran" data-ecran="2" src="assets/img/ecrans/detail-graphes-860.webp" srcset="assets/img/ecrans/detail-graphes-520.webp 520w, assets/img/ecrans/detail-graphes-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+      </div></div></figure>
     </div>
+
+    <ol class="etapes">
+      <li class="etape" data-ecran="0">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-carte-520.avif 520w, assets/img/ecrans/detail-carte-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-carte-520.webp" srcset="assets/img/ecrans/detail-carte-520.webp 520w, assets/img/ecrans/detail-carte-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Détail de la course du lundi matin : carte du parc avec le tracé coloré du lent au rapide, 8,16 km en 42:16, allure moyenne 5:11, fréquence cardiaque moyenne 154."></picture></div></div></figure>
+        <h3>Le tracé, coloré selon l’allure.</h3>
+        <p>À l’arrivée, la carte passe du plus lent au plus rapide, kilomètre après kilomètre. Un toucher l’ouvre en grand. En dessous&#8239;: temps, allure, vitesse, dénivelé, calories, pas, cadence et fréquence cardiaque.</p>
+      </li>
+      <li class="etape" data-ecran="1">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-splits-520.avif 520w, assets/img/ecrans/detail-splits-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-splits-520.webp" srcset="assets/img/ecrans/detail-splits-520.webp 520w, assets/img/ecrans/detail-splits-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Splits : neuf lignes de 5:29 à 5:02 par kilomètre, le septième kilomètre, le plus rapide, en orange ; au-dessus, le parcours avec la mention Record du parcours."></picture></div></div></figure>
+        <h3>Un kilomètre, une ligne.</h3>
+        <p>Les splits rangent la course&#8239;: 5:29 pour se lancer, 5:02 au septième kilomètre, le plus rapide, mis en couleur. Le dénivelé de chaque kilomètre est noté à côté.</p>
+      </li>
+      <li class="etape" data-ecran="2">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-graphes-520.avif 520w, assets/img/ecrans/detail-graphes-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-graphes-520.webp" srcset="assets/img/ecrans/detail-graphes-520.webp 520w, assets/img/ecrans/detail-graphes-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Graphiques d’allure, d’altitude et de fréquence cardiaque, puis la carte Notes."></picture></div></div></figure>
+        <h3>Allure, altitude, cœur.</h3>
+        <p>Les courbes sont cadrées sur vos vraies valeurs, sans s’écraser contre zéro. Si l’Apple Watch était à votre poignet, sa fréquence cardiaque rejoint la course iPhone par Apple Santé. Une note, et c’est rangé.</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="passages">
+    <div class="passages-texte">
+      <h3 class="sous-titre">Cinq passages, un classement.</h3>
+      <p>Chaque course faite sur le tracé rejoint le parcours toute seule, à son rang, avec son écart au record. Ce lundi, le record a changé de main&#8239;: 12&nbsp;secondes de mieux qu’au 28&nbsp;octobre.</p>
+      <table class="classement">
+        <caption class="visuellement-cache">Passages sur le parcours Deux tours de la Tête d’Or</caption>
+        <thead><tr><th scope="col">Rang</th><th scope="col">Passage</th><th scope="col">Temps</th><th scope="col">Écart</th></tr></thead>
+        <tbody>
+          <tr class="premier"><td>1</td><th scope="row"><span class="date-longue">Lundi 9 novembre</span><span class="date-courte" aria-hidden="true">Lun. 9 nov.</span></th><td class="chiffre">42:16</td><td class="orange">Record</td></tr>
+          <tr><td>2</td><th scope="row"><span class="date-longue">Mercredi 28 octobre</span><span class="date-courte" aria-hidden="true">Mer. 28 oct.</span></th><td class="chiffre">42:28</td><td class="chiffre retard">+0:12</td></tr>
+          <tr><td>3</td><th scope="row"><span class="date-longue">Mercredi 21 octobre</span><span class="date-courte" aria-hidden="true">Mer. 21 oct.</span></th><td class="chiffre">43:10</td><td class="chiffre retard">+0:54</td></tr>
+          <tr><td>4</td><th scope="row"><span class="date-longue">Mercredi 14 octobre</span><span class="date-courte" aria-hidden="true">Mer. 14 oct.</span></th><td class="chiffre">44:36</td><td class="chiffre retard">+2:20</td></tr>
+          <tr><td>5</td><th scope="row"><span class="date-longue">Mercredi 7 octobre</span><span class="date-courte" aria-hidden="true">Mer. 7 oct.</span></th><td class="chiffre">45:16</td><td class="chiffre retard">+3:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="tel passages-tel apparait" style="--l: clamp(14rem, 24vw, 20rem)" data-legende="<b>Le parcours.</b> Courbe de progression et passages classés, du record au cinquième."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/passages-520.avif 520w, assets/img/ecrans/passages-860.avif 860w" sizes="(max-width: 760px) 62vw, 320px"><img class="tel-ecran" src="assets/img/ecrans/passages-860.webp" srcset="assets/img/ecrans/passages-520.webp 520w, assets/img/ecrans/passages-860.webp 860w" sizes="(max-width: 760px) 62vw, 320px" width="860" height="1870" loading="lazy" decoding="async" alt="Parcours Deux tours de la Tête d’Or : courbe de progression et liste des passages, du record 42:16 au cinquième à 45:16."></picture></div></div></figure>
   </div>
 </section>
 
-<section class="section cta" id="telecharger" data-scope>
-  <div class="cta-photo" aria-hidden="true"><img src="assets/img/photos/fin-silhouette-1280.webp" srcset="assets/img/photos/fin-silhouette-1280.webp 1280w, assets/img/photos/fin-silhouette-2400.webp 2400w" sizes="100vw" width="2400" height="1601" alt="" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <div class="cta-logo" data-reveal>
-      <svg class="cta-orbite" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="120" pathLength="1"/><circle cx="150" cy="150" r="142" pathLength="1"/></svg>
-      <svg class="cta-icon"><use href="#logo"/></svg>
-    </div>
-    <h2 class="title center" data-reveal style="--d:.05s">Foulée.</h2>
-    <p class="lead center" data-reveal style="--d:.1s">Chaque foulée compte. Bientôt sur iPhone et Apple Watch.</p>
-    <div class="cta-btns" data-reveal style="--d:.15s">
-      <span class="store"><svg><use href="#i-pomme"/></svg><span><small>Bientôt sur l’</small>App Store</span></span>
-      <a class="btn btn-ghost" href="#haut">Revenir en haut<svg class="up"><use href="#i-chev-d"/></svg></a>
-    </div>
-    <p class="cta-note" data-reveal style="--d:.2s">iOS 27 et watchOS 27 ou plus récents.</p>
+<section class="avant" id="avant" aria-labelledby="titre-avant">
+  <div class="avant-texte">
+    <p class="etiquette"><span class="num">04</span> Avant</p>
+    <h2 class="titre expo" id="titre-avant">Une boucle se trace en quelques&nbsp;touches.</h2>
+    <p class="chapeau">Touchez la carte pour placer le départ, puis chaque étape&#8239;: le tracé suit les rues et la durée s’estime d’après votre allure habituelle. Boucler, aller-retour, annuler&#8239;; le parcours rejoint ensuite vos favoris, et la montre.</p>
+    <ul class="faits">
+      <li><b class="chiffre">3,14&#8239;km</b><span>cinq étapes, en suivant les allées du parc</span></li>
+      <li><b class="chiffre">17:16</b><span>durée estimée à votre allure habituelle</span></li>
+      <li><b>5&#8239;km · 10&#8239;km · Semi · Marathon</b><span>objectifs prêts, sinon une distance au demi-kilomètre près ou une durée</span></li>
+    </ul>
+  </div>
+  <div class="avant-tels">
+    <figure class="tel apparait" style="--l: clamp(14rem, 23vw, 19.5rem)" data-legende="<b>Planifier.</b> Une boucle de 3,14&#8239;km tracée dans le parc, estimée à 17:16."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/planificateur-520.avif 520w, assets/img/ecrans/planificateur-860.avif 860w" sizes="(max-width: 760px) 58vw, 312px"><img class="tel-ecran" src="assets/img/ecrans/planificateur-860.webp" srcset="assets/img/ecrans/planificateur-520.webp 520w, assets/img/ecrans/planificateur-860.webp 860w" sizes="(max-width: 760px) 58vw, 312px" width="860" height="1870" loading="lazy" decoding="async" alt="Planificateur : boucle orange de 3,14 km tracée dans le parc en suivant les allées, 4 étapes numérotées, estimation 17:16 ; boutons Annuler, Boucler, Aller-retour, Effacer et Enregistrer le parcours."></picture></div></div></figure>
+    <figure class="tel apparait decale" style="--l: clamp(12.5rem, 19vw, 16.5rem)" data-legende="<b>Parcours.</b> Vos boucles, leurs passages et leur record."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/parcours-liste-520.avif 520w, assets/img/ecrans/parcours-liste-860.avif 860w" sizes="(max-width: 760px) 50vw, 264px"><img class="tel-ecran" src="assets/img/ecrans/parcours-liste-860.webp" srcset="assets/img/ecrans/parcours-liste-520.webp 520w, assets/img/ecrans/parcours-liste-860.webp 860w" sizes="(max-width: 760px) 50vw, 264px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Parcours : Deux tours de la Tête d’Or, 8,15 km, 5 passages, record 42:16 ; Tour du lac, 2,92 km, planifié ; carte Planifier un parcours."></picture></div></div></figure>
+  </div>
+</section>
+
+<section class="ailleurs" id="ailleurs" aria-labelledby="titre-ailleurs">
+  <header class="entete">
+    <p class="etiquette"><span class="num">05</span> Au poignet, dans Santé, en story</p>
+    <h2 class="titre expo" id="titre-ailleurs">Partie de la montre, rangée dans&nbsp;Santé.</h2>
+    <p class="chapeau">La course continue ailleurs que sur l’écran de course&#8239;: au poignet pendant la sortie, dans Apple Santé après, et en image quand vous voulez la montrer.</p>
+  </header>
+  <div class="trois">
+    <article class="bloc bloc-montre">
+      <div class="bloc-visuel"><div class="montre-zone">
+        <div class="montre" id="montre" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Réplique de l’Apple Watch pendant la course : glissez ou utilisez les flèches pour changer de page">
+          <div class="montre-boitier"><div class="montre-ecran">
+            <div class="m-piste" id="m-piste">
+              <section class="m-page m-controles" aria-label="Commandes">
+                <p class="m-btn"><button class="m-ctrl m-terminer" type="button" data-m="terminer" aria-label="Terminer la course"><svg aria-hidden="true"><use href="#i-croix"/></svg></button><small>Terminer</small></p>
+                <p class="m-btn"><button class="m-ctrl m-pause" type="button" data-m="pause" aria-label="Mettre en pause"><svg aria-hidden="true"><use href="#i-pause"/></svg></button><small data-m="pause-lib">Pause</small></p>
+              </section>
+              <section class="m-page m-metriques" aria-label="Mesures">
+                <p class="m-titre" id="m-titre">Deux tours de la Tête…</p>
+                <p class="m-chrono chiffre" id="m-chrono">33:24</p>
+                <p class="m-ligne"><span class="chiffre" id="m-km">6,42</span><small>KM</small></p>
+                <p class="m-ligne"><span class="chiffre" id="m-moy">5:12</span><small>MOY./KM</small></p>
+                <p class="m-ligne"><span class="chiffre" id="m-allure">4:58</span><small>ALLURE</small></p>
+                <p class="m-bas"><span class="chiffre" id="m-fc">158</span><svg class="m-coeur" aria-hidden="true"><use href="#i-coeur"/></svg><span class="m-reste chiffre" id="m-reste">−1,74 km</span></p>
+              </section>
+              <section class="m-page m-details" aria-label="Détails">
+                <p class="m-tuile" style="--c: var(--orange)"><small><svg aria-hidden="true"><use href="#i-metronome"/></svg>CADENCE</small><b id="m-cadence">174</b><span>pas/min</span></p>
+                <p class="m-tuile" style="--c: var(--rose)"><small><svg aria-hidden="true"><use href="#i-pas"/></svg>PAS</small><b id="m-pas">5&#8239;744</b><span>au total</span></p>
+                <p class="m-tuile" style="--c: #ff9f0a"><small><svg aria-hidden="true"><use href="#i-flamme"/></svg>CALORIES</small><b id="m-kcal">465</b><span>kcal</span></p>
+                <p class="m-tuile" style="--c: var(--avance)"><small><svg aria-hidden="true"><use href="#i-montagne"/></svg>DÉNIVELÉ</small><b id="m-dplus">3</b><span>m</span></p>
+              </section>
+              <section class="m-page m-carte" aria-label="Carte du parcours"><svg class="m-carte-svg" id="m-carte" role="img" aria-label="Carte : le parcours en pointillé gris, votre tracé en orange"></svg></section>
+            </div>
+            <div class="m-couche m-dialogue" id="m-dialogue" role="alertdialog" aria-label="Terminer la course ?" hidden>
+              <p class="m-question">Terminer la course&#8239;?</p>
+              <button class="m-choix m-choix-rouge" type="button" data-m="confirmer">Terminer</button>
+              <button class="m-choix" type="button" data-m="continuer">Continuer</button>
+            </div>
+            <div class="m-couche m-resume" id="m-resume" hidden>
+              <p class="m-bravo"><svg aria-hidden="true"><use href="#i-trophee"/></svg>Bravo&#8239;!</p>
+              <svg class="m-forme" id="m-forme" aria-hidden="true" preserveAspectRatio="xMidYMid meet"></svg>
+              <dl class="m-stats" id="m-stats"></dl>
+              <p class="m-envoyee"><svg aria-hidden="true"><use href="#i-coche"/></svg>Envoyée à l’iPhone et enregistrée dans Santé</p>
+              <button class="m-ok" type="button" data-m="ok">OK</button>
+            </div>
+          </div></div>
+          <span class="montre-couronne"></span><span class="montre-bouton"></span>
+        </div>
+        <p class="m-points" id="m-points" aria-label="Pages de la montre"></p>
+      </div></div>
+      <h3>Au poignet, sans le téléphone.</h3>
+      <p>Lancez la course depuis l’Apple Watch&#8239;: chrono, distance, allures, fréquence cardiaque et distance restante sur le parcours, du 41 au 49&nbsp;mm. Glissez pour les commandes, la cadence, les calories et la carte. Hors du tracé, elle vibre. À l’arrivée, la course part vers l’iPhone et dans Santé.</p>
+    </article>
+    <article class="bloc">
+      <div class="bloc-visuel"><figure class="tel apparait" style="--l: clamp(12rem, 16vw, 15rem)"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/sante-520.avif 520w, assets/img/ecrans/sante-860.avif 860w" sizes="(max-width: 760px) 58vw, 240px"><img class="tel-ecran" src="assets/img/ecrans/sante-860.webp" srcset="assets/img/ecrans/sante-520.webp 520w, assets/img/ecrans/sante-860.webp 860w" sizes="(max-width: 760px) 58vw, 240px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Santé : anneau de 7 842 pas, 5,93 km de marche et course, 412 kcal, 38 minutes d’exercice, 9 étages ; pas des 7 derniers jours."></picture></div></div></figure></div>
+      <h3>Vos autres apps comptent aussi.</h3>
+      <p>Les courses enregistrées par Exercice, Nike Run Club ou Strava arrivent dans Foulée par Apple Santé, avec leur tracé&#8239;; les doublons sont ignorés. Vos courses Foulée y partent en retour, avec la fréquence cardiaque de la montre.</p>
+    </article>
+    <article class="bloc">
+      <div class="bloc-visuel"><figure class="tel apparait" style="--l: clamp(12rem, 16vw, 15rem)"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/partage-520.avif 520w, assets/img/ecrans/partage-860.avif 860w" sizes="(max-width: 760px) 58vw, 240px"><img class="tel-ecran" src="assets/img/ecrans/partage-860.webp" srcset="assets/img/ecrans/partage-520.webp 520w, assets/img/ecrans/partage-860.webp 860w" sizes="(max-width: 760px) 58vw, 240px" width="860" height="1870" loading="lazy" decoding="async" alt="Écran Partager : image de la course du lundi matin sur la carte du parc, 8,16 km, 42:16, 5:11 par kilomètre ; formats Post 4:5, Story 9:16, Carré ; styles Carte, Nuit, Jour, Sticker."></picture></div></div></figure></div>
+      <h3>Une image prête pour la story.</h3>
+      <p>Tracé, chiffres et logo sur une seule image&#8239;: quatre styles (Carte, Nuit, Jour, Sticker) et trois formats (post 4:5, story 9:16, carré), sans passer par un réseau social.</p>
+    </article>
+  </div>
+</section>
+
+<section class="donnees" id="donnees" aria-labelledby="titre-donnees">
+  <div class="donnees-texte">
+    <p class="etiquette"><span class="num">06</span> Vos données</p>
+    <h2 class="titre expo" id="titre-donnees">Vos courses restent sur votre&nbsp;iPhone.</h2>
+    <p class="chapeau">Aucun compte à créer. Chaque course est un fichier dans l’app, que vous exportez en GPX quand vous voulez. Si l’app s’arrête en pleine sortie, la course est récupérée au lancement suivant.</p>
+  </div>
+  <div class="fichiers" role="img" aria-label="Arborescence des fichiers de Foulée sur l’iPhone : index.json, parcours.json, encours.json et un fichier par course dans le dossier courses.">
+    <p class="fichiers-tete">Application Support / Foulee</p>
+    <ul>
+      <li><span>index.json</span><em>résumés des courses</em></li>
+      <li><span>parcours.json</span><em>vos parcours et leurs passages</em></li>
+      <li><span>encours.json</span><em>copie de secours, toutes les 30&#8239;s</em></li>
+      <li class="dossier"><span>courses /</span><em>une course par fichier</em>
+        <ul><li><span>F8FAD84F….json</span><em>Course du lundi matin · 1&#8239;265 points</em></li></ul>
+      </li>
+    </ul>
+    <pre class="extrait" aria-hidden="true"><code>{ "lat": 45.78452, "lon": 4.85803,
+  "dist": 6419.2, "tps": 2004,
+  "vitesse": 3.36, "segment": 0 }</code></pre>
+    <p class="fichiers-pied">Un point de la course, au 6,42<sup>e</sup>&nbsp;kilomètre&#8239;: position, distance et temps cumulés. C’est tout ce qu’il faut pour comparer deux passages.</p>
+  </div>
+</section>
+
+<section class="fin" id="fin" aria-labelledby="titre-fin">
+  <div class="regle" data-regle="fin" aria-hidden="true"></div>
+  <h2 class="fin-titre expo" id="titre-fin">Le record vous attend sur la&nbsp;boucle.</h2>
+  <p class="chapeau">Foulée est en test sur iPhone et Apple Watch (iOS et watchOS&nbsp;27). Elle arrive bientôt sur l’App Store&#8239;; en attendant, rejouez la course de ce matin ou écrivez-nous.</p>
+  <div class="fin-actions">
+    <a class="bouton bouton-principal" href="#planche"><svg aria-hidden="true"><use href="#i-rejouer"/></svg>Rejouer la course</a>
+    <a class="bouton bouton-second" href="mailto:mtxstudio@proton.me?subject=Foul%C3%A9e%20%E2%80%94%20essais">Écrire à MTX Studio</a>
+    <p class="bientot">Bientôt sur l’App Store</p>
   </div>
 </section>
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <a class="nav-logo" href="#haut"><svg><use href="#logo"/></svg><span>Foulée</span></a>
-    <p>Une app conçue par MTX Studio.</p>
-    <p class="foot-legal">© <span id="annee">2026</span> Foulée. Apple, iPhone, Apple Watch et App Store sont des marques d’Apple Inc. Les écrans présentés sont des reconstitutions de l’app ; les photos viennent d’Unsplash.</p>
-  </div>
+<footer class="pied">
+  <a class="marque" href="#haut" aria-label="Foulée, retour en haut"><svg class="marque-icone" aria-hidden="true"><use href="#i-logo"/></svg><span class="marque-nom">Foulée</span></a>
+  <p>Une app de <a href="https://mtxdevloppement.github.io/">MTX Studio</a>. Captures réalisées dans le simulateur iOS avec des données de démonstration&#8239;; fond de carte de la planche © contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>&#8239;; cartes des captures&#8239;: Plans d’Apple. Police Mona Sans (SIL OFL, licence dans <code>assets/fonts/OFL.txt</code>).</p>
+  <p>© 2026 MTX Studio</p>
 </footer>
-
 <section class="mtx-pf" aria-labelledby="mtx-pf-t">
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
     <h2 class="mtx-pf-t" id="mtx-pf-t">Foulée vous fait courir contre votre propre record.</h2>
-    <p class="mtx-pf-sub">L’app et son site vitrine ont été imaginés, dessinés et développés au studio.</p>
+    <p class="mtx-pf-sub">L’app et son site ont été dessinés et codés au studio, par la même personne.</p>
     <p class="mtx-pf-tags">App iPhone et Apple Watch · Course à pied<br>SwiftUI · HealthKit · watchOS · Live Activities</p>
-    <div class="mtx-pf-cta"><a class="mtx-btn" href="../../contact.html?projet=foulee">Démarrer un projet similaire</a><a class="mtx-more" href="../../realisations.html">Toutes les réalisations</a></div>
-    <div class="mtx-pf-bot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../services.html">Services</a><a href="../../realisations.html">Réalisations</a><a href="../../formules.html">Formules</a><a href="../../studio.html">Studio</a><a href="../../contact.html">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Politique de confidentialité</a></nav></div>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../viewer/index.html"><img src="../../assets/img/realisations/icone-viewer.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : MTX Viewer</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../index.html#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../index.html#realisations">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
   </div>
 </section>
 </body>

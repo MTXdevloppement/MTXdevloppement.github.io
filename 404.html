@@ -1,54 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page introuvable · MTX Studio</title>
-<meta name="description" content="Cette page n’existe pas ou a changé d’adresse.">
+<meta name="description" content="Cette page n’existe pas sur le site de MTX Studio.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#ebeae6">
 <link rel="icon" href="/assets/img/mtx-icone.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/css/mtx.css">
-<script src="/assets/js/mtx.js" defer></script>
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/studio.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/studio.js" defer></script>
 </head>
-<body>
-<header class="nav" id="nav">
-  <div class="wide nav-in">
-    <a href="/index.html" class="logo" aria-label="MTX Studio, accueil">
-      <svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg>
-      Studio
-    </a>
-    <nav aria-label="Navigation principale">
-      <ul class="nav-links">
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/realisations.html">Réalisations</a></li>
-        <li><a href="/formules.html">Formules</a></li>
-        <li><a href="/studio.html">Studio</a></li>
-      </ul>
-    </nav>
-    <div class="nav-r">
-      <a href="/contact.html" class="btn btn-blue btn-sm">Démarrer un projet</a>
-      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i></button>
-    </div>
-  </div>
-</header>
-<nav class="mmenu" id="mmenu" aria-label="Menu">
-  <a href="/index.html">Accueil</a><a href="/services.html">Services</a><a href="/realisations.html">Réalisations</a><a href="/formules.html">Formules</a><a href="/studio.html">Studio</a><a href="/contact.html">Contact</a>
-</nav>
+<body class="page-texte">
+<a class="evitement" href="#contenu">Aller au contenu</a>
 
-<main id="top">
-  <header class="phead w" style="min-height:70vh;min-height:70svh">
-    <p class="eyebrow">Erreur 404</p>
-    <h1 class="h-l">Cette page<br><span class="silver">n’existe pas.</span></h1>
-    <p class="lead">L’adresse a peut-être changé, ou une lettre s’est glissée de travers. Les apps du studio, elles, sont toutes là.</p>
-    <div class="cta"><a href="/realisations.html" class="btn btn-blue">Voir les réalisations</a><a href="/index.html" class="more">Revenir à l’accueil</a></div>
+<header class="barre" data-barre data-defaut="clair" data-theme="clair">
+  <a class="logo" href="/index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#logo-x)"/></g></svg><span>Studio</span></a>
+  <nav class="barre-nav" aria-label="Sections">
+    <a href="/index.html#realisations">Réalisations</a>
+    <a href="/index.html#studio">Studio</a>
+    <a href="/index.html#contact">Contact</a>
+  </nav>
+  <a class="barre-mail mono" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>
+</header>
+
+<main id="contenu" class="texte" data-fond="clair">
+  <header class="texte-tete">
+    <p class="sur mono">Erreur 404</p>
+    <h1>Cette page n’existe pas.</h1>
+    <p>Les apps du studio, elles, sont toutes là.</p>
   </header>
+  <div class="texte-corps">
+    <p>L’adresse a peut-être changé, ou une lettre s’est glissée de travers. Les pages Services, Formules et Contact de l’ancien site n’existent plus&#8239;: tout tient désormais sur l’accueil.</p>
+    <p style="margin-top:2em;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center"><a class="bouton" href="/index.html#realisations">Voir les réalisations</a><a class="lien" href="/index.html">Revenir à l’accueil</a></p>
+  </div>
 </main>
 
-<footer>
-  <div class="wide">
-    <div class="fbot"><span>© 2026 MTX Studio. Tous droits réservés.</span><nav aria-label="Informations légales"><a href="/mentions-legales.html">Mentions légales</a><a href="/confidentialite.html">Politique de confidentialité</a></nav><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></div>
+<footer class="pied" data-fond="noir">
+  <div class="pied-grille">
+    <div class="pied-marque">
+      <svg class="pied-icone" viewBox="0 0 100 100" aria-hidden="true"><use href="#x-mtx"/></svg>
+      <p>Des apps iPhone et Mac, et leurs sites, dessinées et codées par Matheo Merchez.</p>
+    </div>
+    <nav aria-labelledby="pied-apps"><h2 class="pied-t mono" id="pied-apps">Studio</h2><ul>
+      <li><a href="/index.html#realisations">Réalisations</a></li>
+      <li><a href="/index.html#studio">Studio</a></li>
+      <li><a href="/index.html#contact">Contact</a></li>
+    </ul></nav>
+    <nav aria-labelledby="pied-infos"><h2 class="pied-t mono" id="pied-infos">Informations</h2><ul>
+      <li><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></li>
+      <li><a href="/mentions-legales.html">Mentions légales</a></li>
+      <li><a href="/confidentialite.html">Confidentialité</a></li>
+    </ul></nav>
   </div>
+  <p class="pied-bas mono"><span>© 2026 MTX Studio</span><span>Police Geist (SIL OFL), hébergée avec le site</span></p>
 </footer>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient>
+    <symbol id="x-trait" viewBox="0 0 100 100"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
+    <symbol id="x-mtx" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#000"/><use href="#x-trait"/></symbol>
+  </defs>
+</svg>
 </body>
 </html>

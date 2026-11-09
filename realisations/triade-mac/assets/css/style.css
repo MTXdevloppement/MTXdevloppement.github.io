@@ -640,7 +640,7 @@ html[data-ui="sombre"] .ss-grid td.big { color: #7fb0e8; }
 .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 
 .fan { position: relative; z-index: 4; width: 100%; max-width: 520px; aspect-ratio: 1; justify-self: center; perspective: 1400px; pointer-events: none; }
-.fan .sheet { pointer-events: auto; }   
+.fan .sheet { pointer-events: auto; }
 .sheet {
   --k: var(--bleu); --x: -34%; --y: 6%; --r: -14deg;
   position: absolute; left: 25%; top: 15%; width: 50%; height: 70%; border-radius: 26px; color: #fff;

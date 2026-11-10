@@ -1,0 +1,15 @@
+{
+  "name": "MTX Studio",
+  "short_name": "MTX Studio",
+  "description": "Applications natives pour iPhone, iPad, Apple Watch et Mac, chacune avec son site.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#f4f4f2",
+  "theme_color": "#f4f4f2",
+  "icons": [
+    { "src": "/assets/img/mtx-icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,374 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MTX Studio · Apps iPhone et Mac, de l’icône au site</title>
-<meta name="description" content="MTX Studio dessine et code des apps pour iPhone, iPad, Apple Watch et Mac, puis le site de chacune. Ouvrez-les et essayez leurs démos.">
-<meta name="theme-color" content="#ebeae6">
+<title>MTX Studio · Des applications utiles au quotidien</title>
+<meta name="description" content="MTX Studio imagine des applications simples et soignées pour iPhone, iPad, Apple Watch et Mac. Découvrez 12 projets conçus pour vous accompagner au quotidien.">
+<meta name="author" content="Matheo Merchez">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://mtxdevloppement.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="MTX Studio">
-<meta property="og:title" content="MTX Studio · De l’icône au site">
-<meta property="og:description" content="Des apps pour iPhone, iPad, Apple Watch et Mac, dessinées et codées par Matheo Merchez, chacune avec son site.">
+<meta property="og:title" content="MTX Studio · Des applications utiles au quotidien">
+<meta property="og:description" content="MTX Studio imagine des applications simples et soignées pour iPhone, iPad, Apple Watch et Mac. Découvrez 12 projets conçus pour vous accompagner au quotidien.">
 <meta property="og:url" content="https://mtxdevloppement.github.io/">
 <meta property="og:image" content="https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MTX Studio, de l’icône au site">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MTX Studio · Des applications utiles au quotidien">
+<meta name="twitter:description" content="MTX Studio imagine des applications simples et soignées pour iPhone, iPad, Apple Watch et Mac. Découvrez 12 projets conçus pour vous accompagner au quotidien.">
+<meta name="twitter:image" content="https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/img/mtx-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/studio.css?v=12">
-<script>(function(d){d.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('anime')})(document.documentElement)</script>
-<script src="assets/js/studio.js?v=12" defer></script>
+<link rel="manifest" href="site.webmanifest">
+<script>(function(d){try{var t=localStorage.getItem('mtx-theme');if(t==='dark'||t==='light')d.dataset.theme=t}catch(e){}d.classList.add('js')})(document.documentElement)</script>
+<link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://db.onlinewebfonts.com/t/5ac3fe7c6abd2f62067f266d89671492.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://db.onlinewebfonts.com/t/1aa3377e489837a26d019bba501e779d.woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=5">
+<script src="assets/js/site.js?v=5" defer></script>
+<link rel="preload" as="image" href="assets/img/accueil-poster.webp" type="image/webp" fetchpriority="high">
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/realisations/*"},"eagerness":"moderate"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mtxdevloppement.github.io/#studio","name":"MTX Studio","legalName":"Matheo Merchez EI","url":"https://mtxdevloppement.github.io/","logo":"https://mtxdevloppement.github.io/assets/img/apple-touch-icon.png","image":"https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png","email":"mtxstudio@proton.me","slogan":"De l’icône au site","description":"MTX Studio imagine et développe des applications simples et soignées pour accompagner le quotidien sur iPhone, iPad, Apple Watch et Mac.","founder":{"@type":"Person","@id":"https://mtxdevloppement.github.io/#matheo","name":"Matheo Merchez","jobTitle":"Fondateur, designer et développeur"},"knowsAbout":["Développement d’applications iOS","Développement d’applications macOS","Swift","SwiftUI","watchOS","Design d’interface","Création de sites web"],"knowsLanguage":"fr","contactPoint":{"@type":"ContactPoint","email":"mtxstudio@proton.me","contactType":"sales","availableLanguage":["fr"]}},{"@type":"WebSite","@id":"https://mtxdevloppement.github.io/#site","url":"https://mtxdevloppement.github.io/","name":"MTX Studio","inLanguage":"fr-FR","publisher":{"@id":"https://mtxdevloppement.github.io/#studio"}},{"@type":"WebPage","@id":"https://mtxdevloppement.github.io/#page","url":"https://mtxdevloppement.github.io/","name":"MTX Studio · Des applications utiles au quotidien","isPartOf":{"@id":"https://mtxdevloppement.github.io/#site"},"about":{"@id":"https://mtxdevloppement.github.io/#studio"},"inLanguage":"fr-FR","primaryImageOfPage":"https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png"},{"@type":"ItemList","@id":"https://mtxdevloppement.github.io/#realisations","name":"Réalisations de MTX Studio","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"GoRun","description":"GoRun vous fait courir contre votre propre record.","url":"https://mtxdevloppement.github.io/realisations/foulee/"},{"@type":"ListItem","position":2,"name":"MTX Viewer","description":"MTX Viewer inspecte un site web sur iPhone et iPad, sans Mac.","url":"https://mtxdevloppement.github.io/realisations/viewer/"}]},{"@type":"FAQPage","@id":"https://mtxdevloppement.github.io/#questions","mainEntity":[{"@type":"Question","name":"Que fait MTX Studio ?","acceptedAnswer":{"@type":"Answer","text":"MTX Studio imagine et développe des applications pour iPhone, iPad, Apple Watch et Mac. Découvrez des projets conçus pour simplifier le quotidien, avec des aperçus et des démos à explorer."}},{"@type":"Question","name":"Qui se trouve derrière MTX Studio ?","acceptedAnswer":{"@type":"Answer","text":"MTX Studio a été fondé par Matheo Merchez, qui imagine et développe les applications du studio. Votre projet est suivi directement avec lui, du premier échange à la mise en ligne."}},{"@type":"Question","name":"Pour quels appareils le studio développe-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Pour l’iPhone, l’iPad, l’Apple Watch et le Mac, avec les outils d’Apple : SwiftUI, UIKit, AppKit, WidgetKit, HealthKit, MapKit ou StoreKit 2. Les sites, eux, sont écrits en HTML, CSS et JavaScript."}},{"@type":"Question","name":"Le studio crée-t-il aussi des outils sur mesure ?","acceptedAnswer":{"@type":"Answer","text":"Oui. MTX Studio étudie les idées d’applications et accompagne leur conception, de la définition du besoin à la mise en ligne."}},{"@type":"Question","name":"Peut-on déjà essayer les apps ?","acceptedAnswer":{"@type":"Answer","text":"Les apps arrivent bientôt sur l’App Store. En attendant, chaque site propose des démos qui tournent dans la page, et les captures sortent des apps elles-mêmes, remplies de données de démonstration."}},{"@type":"Question","name":"Comment proposer un projet d’application ?","acceptedAnswer":{"@type":"Answer","text":"Écrivez à mtxstudio@proton.me en décrivant l’app que vous avez en tête : à quoi elle sert, pour quels appareils, et pour quand."}}]}]}</script>
 </head>
 <body>
-<a class="evitement" href="#contenu">Aller au contenu</a>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
 
-<header class="barre" data-barre>
-  <a class="logo" href="#haut" aria-label="MTX Studio, haut de page"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#logo-x)"/></g></svg><span>Studio</span></a>
-  <nav class="barre-nav" aria-label="Sections">
-    <a href="#realisations">Réalisations</a>
-    <a href="#studio">Studio</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="barre-mail mono" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>
+<video class="background-video" data-scrub muted playsinline disablepictureinpicture preload="none" poster="assets/img/accueil-poster.webp" aria-hidden="true" tabindex="-1">
+  <source src="assets/video/accueil-720.mp4#t=0.001" type="video/mp4" media="(max-width: 767px)">
+  <source src="assets/video/accueil-1440.mp4#t=0.001" type="video/mp4">
+</video>
+
+<header class="navbar" data-navbar>
+  <a class="brand" href="#haut" aria-label="MTX Studio, haut de page"><span>MTX Studio</span><svg class="brand-mark" viewBox="0 0 56 70" aria-hidden="true"><use href="#x-glyph"/></svg></a>
+  <nav class="desktop-links" aria-label="Navigation principale"><a href="#realisations" data-nav="realisations">Réalisations</a>   •   <a href="#studio" data-nav="studio">Studio</a>   •   <a href="#questions" data-nav="questions">Questions</a>   •   <a href="#contact" data-nav="contact">Contact</a></nav>
+  <div class="nav-actions">
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button>
+    <a class="pill pill-black nav-cta" href="mailto:mtxstudio@proton.me">Écrire au studio</a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle><span></span><span></span><span></span></button>
+  </div>
 </header>
+
+<nav class="mobile-overlay" id="menu-mobile" aria-label="Navigation mobile" data-menu>
+  <a href="#realisations" data-close-menu>Réalisations</a>
+  <a href="#studio" data-close-menu>Studio</a>
+  <a href="#questions" data-close-menu>Questions</a>
+  <a href="#contact" data-close-menu>Contact</a>
+  <a class="mobile-contact" href="mailto:mtxstudio@proton.me" data-close-menu>Écrire au studio</a>
+  <p class="mobile-meta">mtxstudio@proton.me</p>
+</nav>
 
 <main id="contenu">
 
-  <section class="heros" id="haut" data-fond="clair" data-heros aria-labelledby="titre">
-    <div class="heros-scene" data-scene>
-      <div class="heros-grille">
-        <h1 class="heros-titre" id="titre" data-ajuste><span class="ligne">De l’icône</span> <span class="ligne">au site.</span></h1>
+  <!-- Héros ============================================================ -->
+  <section class="hero" id="haut" data-video-zone aria-labelledby="titre">
+    <div class="video-wash" aria-hidden="true"></div>
+    <div class="hero-content">
 
-        <figure class="heros-icone" aria-hidden="true">
-          <span class="icone-mtx" data-icone><svg viewBox="0 0 100 100"><use href="#x-mtx"/></svg></span>
-          <figcaption class="icone-nom">MTX Studio</figcaption>
-        </figure>
+      <p class="hero-kicker">Matheo Merchez <span aria-hidden="true">·</span> Fondateur de MTX Studio</p>
+      <h1 class="hero-title" id="titre">
+        <span class="hero-big">Des apps utiles, <br>bien pensées.</span>
+        <span class="hero-sub" data-typewriter>MTX Studio imagine des applications simples et soignées pour accompagner votre quotidien, sur votre iPhone, iPad, Apple Watch et Mac.</span>
+      </h1>
 
-        <div class="heros-pied">
-          <p class="heros-accroche">MTX Studio dessine et code des apps pour iPhone, iPad, Apple Watch et Mac, puis le site de chacune, avec des démos à essayer dans la page.</p>
-          <dl class="fiche mono">
-            <div><dt>Studio</dt><dd>Matheo Merchez</dd></div>
-            <div><dt>Apps</dt><dd>iPhone · iPad · Apple Watch · Mac</dd></div>
+      <div class="actions" data-actions>
+        <a class="pill pill-black" href="#realisations">Voir les 2 réalisations</a>
+        <a class="pill pill-white" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AAppareils%20vis%C3%A9s%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%29%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Proposer un projet</a>
+        <a class="pill pill-white" href="#studio">Découvrir le studio</a>
+        <button class="pill pill-outline" type="button" data-copy="mtxstudio@proton.me" data-copy-label="pill">
+          <span>Écrire&#8239;: <span class="pill-email" data-copy-text>mtxstudio@proton.me</span></span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="3.6" y="0.6" width="7.8" height="7.8" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M8.4 9.4v.6a1.4 1.4 0 0 1-1.4 1.4H2A1.4 1.4 0 0 1 .6 10V5A1.4 1.4 0 0 1 2 3.6h.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <dl class="hero-facts" aria-label="Le studio en bref">
+      <div><dt>Studio</dt><dd>MTX Studio</dd></div>
+      <div><dt>Apps</dt><dd>iPhone, iPad, Apple Watch, Mac</dd></div>
+      <div><dt>Langage</dt><dd>Swift</dd></div>
+      <div><dt>Réalisations</dt><dd>2 apps, 2 sites</dd></div>
+    </dl>
+  </section>
+
+  <div class="sheet">
+
+    <!-- Réalisations ===================================================== -->
+    <section class="section" id="realisations" data-section aria-labelledby="titre-realisations">
+      <div class="wrap">
+        <div class="eyebrow reveal">
+          <p class="eyebrow-label"><span>Réalisations</span></p>
+          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Bientôt sur l’App Store</p>
+        </div>
+        <div class="head-row">
+          <h2 class="display reveal" id="titre-realisations">Ouvrez-en une.</h2>
+          <p class="lead reveal">GoRun vous accompagne dans vos courses. MTX Viewer vous permet d’explorer un site depuis votre iPhone ou iPad. Découvrez les deux projets avec leurs aperçus et démos.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filtrer les réalisations par appareil" data-filters>
+          <button class="pill pill-line filter" type="button" data-filter="all" aria-pressed="true">Toutes</button>
+          <button class="pill pill-line filter" type="button" data-filter="iphone" aria-pressed="false">iPhone</button>
+          <button class="pill pill-line filter" type="button" data-filter="ipad" aria-pressed="false">iPad</button>
+          <button class="pill pill-line filter" type="button" data-filter="watch" aria-pressed="false">Apple Watch</button>
+          <p class="filter-status" aria-live="polite" data-filter-status>2 réalisations</p>
+        </div>
+
+        <div class="works" data-works>
+<article class="work reveal" id="r-foulee" data-platforms="iphone watch">
+  <a class="work-link" href="realisations/foulee/index.html" aria-label="GoRun, ouvrir le site" aria-describedby="r-foulee-d">
+    <figure class="work-media">
+      <picture>
+        <source media="(max-width: 639px)" type="image/avif" srcset="assets/img/realisations/mobile-foulee.avif">
+        <source media="(max-width: 639px)" type="image/webp" srcset="assets/img/realisations/mobile-foulee.webp">
+        <source type="image/avif" srcset="assets/img/realisations/site-foulee.avif 1440w, assets/img/realisations/site-foulee-2160.avif 2160w" sizes="(min-width: 1520px) 740px, (min-width: 768px) 48vw, 100vw">
+        <img src="assets/img/realisations/site-foulee.webp" width="1440" height="900" alt="Aperçu du site de GoRun — App iPhone et Apple Watch · Course à pied" loading="lazy" decoding="async">
+      </picture>
+      <span class="pill work-cta">Ouvrir le site<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </figure>
+    <div class="work-body">
+      <img class="work-icon" src="assets/img/realisations/icone-foulee.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
+      <div class="work-head">
+        <h3 class="work-name">GoRun</h3>
+        <p class="work-cat">App iPhone et Apple Watch · Course à pied</p>
+      </div>
+      <span class="work-num" aria-hidden="true">01</span>
+    </div>
+    <p class="work-title" id="r-foulee-d">GoRun vous fait courir contre votre propre record.</p>
+    <p class="work-tech">SwiftUI, HealthKit, watchOS, Live Activities</p>
+  </a>
+</article>
+<article class="work reveal" id="r-viewer" data-platforms="iphone ipad">
+  <a class="work-link" href="realisations/viewer/index.html" aria-label="MTX Viewer, ouvrir le site" aria-describedby="r-viewer-d">
+    <figure class="work-media">
+      <picture>
+        <source media="(max-width: 639px)" type="image/avif" srcset="assets/img/realisations/mobile-viewer.avif">
+        <source media="(max-width: 639px)" type="image/webp" srcset="assets/img/realisations/mobile-viewer.webp">
+        <source type="image/avif" srcset="assets/img/realisations/site-viewer.avif 1440w, assets/img/realisations/site-viewer-2160.avif 2160w" sizes="(min-width: 1520px) 740px, (min-width: 768px) 48vw, 100vw">
+        <img src="assets/img/realisations/site-viewer.webp" width="1440" height="900" alt="Aperçu du site de MTX Viewer — App iPhone et iPad · Développement web" loading="lazy" decoding="async">
+      </picture>
+      <span class="pill work-cta">Ouvrir le site<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </figure>
+    <div class="work-body">
+      <img class="work-icon" src="assets/img/realisations/icone-viewer.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
+      <div class="work-head">
+        <h3 class="work-name">MTX Viewer</h3>
+        <p class="work-cat">App iPhone et iPad · Développement web</p>
+      </div>
+      <span class="work-num" aria-hidden="true">02</span>
+    </div>
+    <p class="work-title" id="r-viewer-d">MTX Viewer inspecte un site web sur iPhone et iPad, sans Mac.</p>
+    <p class="work-tech">SwiftUI, WebKit</p>
+  </a>
+</article>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="works-foot reveal">
+          <p>Tout ce qui est montré ici existe&#8239;: les captures sortent des apps, les démos tournent dans la page.</p>
+          <p>Une app en tête&#8239;? <a href="#contact">Écrire au studio</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio =========================================================== -->
+    <section class="section" id="studio" data-section aria-labelledby="titre-studio">
+      <div class="wrap">
+        <div class="eyebrow reveal">
+          <p class="eyebrow-label"><span>Studio</span></p>
+        </div>
+        <div class="head-row">
+          <h2 class="display reveal" id="titre-studio">Des idées claires, des apps faciles à vivre.</h2>
+          <p class="lead reveal">MTX Studio conçoit des applications qui rendent un service concret. Chaque projet est pensé pour être agréable à regarder, facile à comprendre et simple à utiliser.</p>
+        </div>
+
+        <ol class="facts">
+          <li class="fact reveal"><h3 class="fact-k">01 — Pour tous les jours</h3><p class="fact-v">Des idées utiles transformées en applications pour le sport, les voyages, la maison et le travail.</p></li>
+          <li class="fact reveal"><h3 class="fact-k">02 — Simples à prendre en main</h3><p class="fact-v">Des parcours clairs et des détails soignés pour trouver rapidement ce qu’il vous faut.</p></li>
+          <li class="fact reveal"><h3 class="fact-k">03 — Du concret</h3><p class="fact-v">Explorez les aperçus et les démos pour découvrir chaque application avant de l’essayer.</p></li>
+        </ol>
+
+        <div class="process">
+          <p class="process-label reveal">De l’icône au site</p>
+          <p class="process-text" data-unblur>De la première idée aux derniers détails&#8239;: <span class="w-accent">chaque application est conçue avec soin.</span></p>
+        </div>
+
+        <div class="studio-grid">
+          <p class="lead reveal">Une question ou une idée d’application&#8239;? MTX Studio vous accompagne de la première discussion jusqu’à la mise en ligne.</p>
+          <dl class="profile reveal">
+            <div><dt>Studio</dt><dd>MTX Studio</dd></div>
+            <div><dt>Apps</dt><dd>iPhone, iPad, Apple Watch, Mac</dd></div>
             <div><dt>Langage</dt><dd>Swift</dd></div>
+            <div><dt>Sites</dt><dd>HTML, CSS, JavaScript</dd></div>
+            <div><dt>Réalisations</dt><dd>2 apps, 2 sites</dd></div>
           </dl>
-          <div class="heros-actions">
-            <a class="bouton" href="#realisations">Voir les réalisations<svg class="fl fl-bas" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v9.5M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="lien" href="#contact">Écrire au studio</a>
+        </div>
+
+        <div class="tools reveal">
+          <p class="tools-label"><span>Les outils du studio</span><span>Frameworks Apple et web</span></p>
+          <div class="marquee">
+            <div class="marquee-track">
+              <div class="marquee-group"><span class="pill pill-white">Swift</span><span class="pill pill-white">SwiftUI</span><span class="pill pill-white">UIKit</span><span class="pill pill-white">AppKit</span><span class="pill pill-white">HealthKit</span><span class="pill pill-white">Live Activities</span><span class="pill pill-white">WebKit</span><span class="pill pill-white">MapKit</span><span class="pill pill-white">PhotoKit</span><span class="pill pill-white">StoreKit 2</span><span class="pill pill-white">SwiftData</span><span class="pill pill-white">Supabase</span><span class="pill pill-white">Swift Charts</span><span class="pill pill-white">WidgetKit</span><span class="pill pill-white">App Intents</span><span class="pill pill-white">VisionKit</span><span class="pill pill-white">ImageIO</span><span class="pill pill-white">AVFoundation</span><span class="pill pill-white">Vision</span><span class="pill pill-white">NSDocument</span><span class="pill pill-white">SQLite (GRDB)</span><span class="pill pill-white">HTML</span><span class="pill pill-white">CSS</span><span class="pill pill-white">JavaScript</span></div>
+              <div class="marquee-group" aria-hidden="true"><span class="pill pill-white">Swift</span><span class="pill pill-white">SwiftUI</span><span class="pill pill-white">UIKit</span><span class="pill pill-white">AppKit</span><span class="pill pill-white">HealthKit</span><span class="pill pill-white">Live Activities</span><span class="pill pill-white">WebKit</span><span class="pill pill-white">MapKit</span><span class="pill pill-white">PhotoKit</span><span class="pill pill-white">StoreKit 2</span><span class="pill pill-white">SwiftData</span><span class="pill pill-white">Supabase</span><span class="pill pill-white">Swift Charts</span><span class="pill pill-white">WidgetKit</span><span class="pill pill-white">App Intents</span><span class="pill pill-white">VisionKit</span><span class="pill pill-white">ImageIO</span><span class="pill pill-white">AVFoundation</span><span class="pill pill-white">Vision</span><span class="pill pill-white">NSDocument</span><span class="pill pill-white">SQLite (GRDB)</span><span class="pill pill-white">HTML</span><span class="pill pill-white">CSS</span><span class="pill pill-white">JavaScript</span></div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="lance" aria-hidden="true" data-lance>
-        <div class="lance-fond" data-lance-fond></div>
-        <svg class="lance-x" viewBox="0 0 100 100" data-lance-x><use href="#x-trait"/></svg>
+    <!-- Questions fréquentes ============================================= -->
+    <section class="section" id="questions" data-section aria-labelledby="titre-questions">
+      <div class="wrap faq-grid">
+        <div class="faq-head">
+          <div class="eyebrow reveal">
+            <p class="eyebrow-label"><span>Questions</span></p>
+          </div>
+          <h2 class="display reveal" id="titre-questions">Questions fréquentes.</h2>
+          <p class="lead reveal">L’essentiel sur les applications, les appareils compatibles et vos idées de projet. Une autre question&#8239;? <a href="#contact">Écrivez au studio</a>.</p>
+        </div>
+        <div class="faq reveal">
+            <details class="faq-item" name="faq" open>
+              <summary><h3>Que fait MTX Studio&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">MTX Studio conçoit et développe des applications natives pour iPhone, iPad, Apple Watch et Mac, écrites en Swift. Chaque app reçoit aussi son propre site, avec sa police, ses couleurs et des démos qui répondent comme l’app.</p>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary><h3>Qui se trouve derrière MTX Studio&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">MTX Studio a été fondé par Matheo Merchez, qui imagine et développe les applications du studio. Votre projet est suivi directement avec lui, du premier échange à la mise en ligne.</p>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary><h3>Pour quels appareils le studio développe-t-il&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">Pour l’iPhone, l’iPad, l’Apple Watch et le Mac, avec les outils d’Apple&#8239;: SwiftUI, UIKit, AppKit, WidgetKit, HealthKit, MapKit ou StoreKit 2. Les sites, eux, sont écrits en HTML, CSS et JavaScript.</p>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary><h3>Le studio crée-t-il aussi des outils sur mesure&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">Oui. MTX Studio étudie les idées d’applications et accompagne leur conception, de la définition du besoin à la mise en ligne.</p>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary><h3>Peut-on déjà essayer les apps&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">Les apps arrivent bientôt sur l’App Store. En attendant, chaque site propose des démos qui tournent dans la page, et les captures sortent des apps elles-mêmes, remplies de données de démonstration.</p>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary><h3>Comment proposer un projet d’application&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+              <p class="faq-a">Écrivez à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a> en décrivant l’app que vous avez en tête&#8239;: à quoi elle sert, pour quels appareils, et pour quand.</p>
+            </details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Contact ============================================================ -->
+  <section class="section contact" id="contact" data-section aria-labelledby="titre-contact">
+    <div class="window" data-video-zone>
+      <div class="video-wash" aria-hidden="true"></div>
+      <div class="window-inner">
+        <div class="eyebrow">
+          <p class="eyebrow-label"><span>Contact</span></p>
+        </div>
+        <h2 class="display contact-title" id="titre-contact">Écrire au studio.</h2>
+        <blockquote class="quote">
+          <p>Un projet en tête&#8239;? Parlons de l’idée, de vos besoins et de la meilleure façon de la concrétiser.</p>
+          <footer>MTX Studio · Matheo Merchez</footer>
+        </blockquote>
+        <div class="actions">
+          <a class="pill pill-black pill-lg" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AAppareils%20vis%C3%A9s%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%29%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Proposer un projet</a>
+          <a class="pill pill-white pill-lg" href="mailto:mtxstudio@proton.me?subject=Bonjour%20MTX%20Studio">Dire bonjour</a>
+          <button class="pill pill-outline pill-lg" type="button" data-copy="mtxstudio@proton.me" data-copy-label="pill">
+            <span data-copy-text>Copier l’adresse</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="3.6" y="0.6" width="7.8" height="7.8" rx="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M8.4 9.4v.6a1.4 1.4 0 0 1-1.4 1.4H2A1.4 1.4 0 0 1 .6 10V5A1.4 1.4 0 0 1 2 3.6h.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="realisations" id="realisations" data-fond="noir" aria-labelledby="titre-realisations">
-    <header class="tete tete-noir">
-      <p class="sur mono">Réalisations <span class="sur-etat">Bientôt sur l’App Store</span></p>
-      <div class="tete-ligne">
-        <h2 class="titre-section" id="titre-realisations">Ouvrez-en une.</h2>
-        <p class="tete-accroche">Chaque app a son site, avec sa police, ses couleurs et des démos qui répondent comme l’app. Les captures viennent des apps elles-mêmes, remplies de données de démonstration.</p>
-      </div>
-    </header>
-
-    <div class="chapitres">
-<article class="chap" id="r-foulee" data-chap aria-labelledby="r-foulee-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>01</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-foulee-t">Foulée</h3>
-      <p class="chap-cat mono">App iPhone et Apple Watch · Course à pied</p>
-      <p class="chap-titre">Foulée vous fait courir contre votre propre record.</p>
-      <p class="chap-tech mono">SwiftUI · HealthKit · watchOS · Live Activities</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/foulee/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Foulée</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/foulee/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-foulee.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-foulee.webp"><source type="image/avif" srcset="assets/img/realisations/site-foulee.avif 1440w, assets/img/realisations/site-foulee-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-foulee.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-foulee.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-viewer" data-chap aria-labelledby="r-viewer-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>02</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-viewer-t">MTX Viewer</h3>
-      <p class="chap-cat mono">App iPhone et iPad · Développement web</p>
-      <p class="chap-titre">MTX Viewer inspecte un site web sur iPhone et iPad, sans Mac.</p>
-      <p class="chap-tech mono">SwiftUI · WebKit</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/viewer/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de MTX Viewer</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/viewer/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-viewer.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-viewer.webp"><source type="image/avif" srcset="assets/img/realisations/site-viewer.avif 1440w, assets/img/realisations/site-viewer-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-viewer.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-viewer.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-escale" data-chap aria-labelledby="r-escale-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>03</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-escale-t">Escale</h3>
-      <p class="chap-cat mono">App iPhone · Carnet de voyage</p>
-      <p class="chap-titre">Escale tient tout le voyage, du billet aux souvenirs.</p>
-      <p class="chap-tech mono">SwiftUI · MapKit · PhotoKit · StoreKit 2</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/escale/index.html" data-ouvrir>Ouvrir le site<span class="vh"> d’Escale</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/escale/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-escale.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-escale.webp"><source type="image/avif" srcset="assets/img/realisations/site-escale.avif 1440w, assets/img/realisations/site-escale-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-escale.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-escale.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-memora" data-chap aria-labelledby="r-memora-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>04</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-memora-t">Memora</h3>
-      <p class="chap-cat mono">App iPhone · Carnet de lieux</p>
-      <p class="chap-titre">Memora vous fait signe devant vos bonnes adresses.</p>
-      <p class="chap-tech mono">SwiftUI · SwiftData · MapKit · Supabase</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/memora/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Memora</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/memora/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-memora.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-memora.webp"><source type="image/avif" srcset="assets/img/realisations/site-memora.avif 1440w, assets/img/realisations/site-memora-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-memora.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-memora.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-triade" data-chap aria-labelledby="r-triade-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>05</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-triade-t">Triade</h3>
-      <p class="chap-cat mono">App iPhone et iPad · Bureautique</p>
-      <p class="chap-titre">Triade ouvre, corrige et renvoie vos fichiers Office, même hors ligne.</p>
-      <p class="chap-tech mono">SwiftUI · UIKit · Word, Excel et PowerPoint</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/triade/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Triade</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/triade/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-triade.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-triade.webp"><source type="image/avif" srcset="assets/img/realisations/site-triade.avif 1440w, assets/img/realisations/site-triade-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-triade.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-triade.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-synapse" data-chap aria-labelledby="r-synapse-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>06</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-synapse-t">Synapse</h3>
-      <p class="chap-cat mono">App iPhone · Apprentissage</p>
-      <p class="chap-titre">Synapse ramène chaque carte juste avant l’oubli.</p>
-      <p class="chap-tech mono">SwiftUI · SwiftData · Swift Charts</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/synapse/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Synapse</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/synapse/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-synapse.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-synapse.webp"><source type="image/avif" srcset="assets/img/realisations/site-synapse.avif 1440w, assets/img/realisations/site-synapse-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-synapse.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-synapse.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-elan" data-chap aria-labelledby="r-elan-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>07</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-elan-t">Élan</h3>
-      <p class="chap-cat mono">App iPhone et widgets · Motivation</p>
-      <p class="chap-titre">Élan glisse une phrase du jour sur votre écran.</p>
-      <p class="chap-tech mono">SwiftUI · WidgetKit · App Intents</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/elan/index.html" data-ouvrir>Ouvrir le site<span class="vh"> d’Élan</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/elan/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-elan.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-elan.webp"><source type="image/avif" srcset="assets/img/realisations/site-elan.avif 1440w, assets/img/realisations/site-elan-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-elan.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-elan.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-maillon" data-chap aria-labelledby="r-maillon-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>08</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-maillon-t">Maillon</h3>
-      <p class="chap-cat mono">App iPhone · Bâtiment</p>
-      <p class="chap-titre">Maillon rémunère la recommandation d’un bon artisan.</p>
-      <p class="chap-tech mono">SwiftUI · paiement sous séquestre · indice de confiance</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/maillon/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Maillon</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/maillon/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-maillon.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-maillon.webp"><source type="image/avif" srcset="assets/img/realisations/site-maillon.avif 1440w, assets/img/realisations/site-maillon-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-maillon.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-maillon.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-tiroir" data-chap aria-labelledby="r-tiroir-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>09</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-tiroir-t">Tiroir</h3>
-      <p class="chap-cat mono">App iPhone et iPad · Papiers du foyer</p>
-      <p class="chap-titre">Tiroir range vos papiers et rappelle vos échéances.</p>
-      <p class="chap-tech mono">SwiftUI · VisionKit · lecture du texte sur l’appareil</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/tiroir/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Tiroir</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/tiroir/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-tiroir.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-tiroir.webp"><source type="image/avif" srcset="assets/img/realisations/site-tiroir.avif 1440w, assets/img/realisations/site-tiroir-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-tiroir.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-tiroir.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-mue" data-chap aria-labelledby="r-mue-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>10</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-mue-t">Mue</h3>
-      <p class="chap-cat mono">App Mac · Conversion de fichiers</p>
-      <p class="chap-titre">Mue convertit un fichier d’un geste, sans ouvrir d’app.</p>
-      <p class="chap-tech mono">SwiftUI · AppKit · ImageIO · AVFoundation · Vision</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/mue/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Mue</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/mue/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-mue.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-mue.webp"><source type="image/avif" srcset="assets/img/realisations/site-mue.avif 1440w, assets/img/realisations/site-mue-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-mue.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-mue.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-triade-mac" data-chap aria-labelledby="r-triade-mac-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>11</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-triade-mac-t">Triade pour Mac</h3>
-      <p class="chap-cat mono">App Mac · Bureautique</p>
-      <p class="chap-titre">Triade devient une vraie app Mac.</p>
-      <p class="chap-tech mono">AppKit · SwiftUI · NSDocument · Swift Charts</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/triade-mac/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Triade pour Mac</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/triade-mac/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-triade-mac.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-triade-mac.webp"><source type="image/avif" srcset="assets/img/realisations/site-triade-mac.avif 1440w, assets/img/realisations/site-triade-mac-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-triade-mac.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-triade-mac.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-<article class="chap" id="r-volta" data-chap aria-labelledby="r-volta-t">
-  <div class="chap-in">
-    <div class="chap-fiche">
-      <p class="chap-num mono"><span>12</span><span class="chap-total" data-total></span></p>
-      <h3 class="chap-nom" id="r-volta-t">Volta</h3>
-      <p class="chap-cat mono">Outil Mac sur mesure · Stock et achats</p>
-      <p class="chap-titre">Volta tient le magasin du service électricité.</p>
-      <p class="chap-tech mono">SwiftUI · SQLite (GRDB) · Swift Charts · Apple Mail</p>
-      <a class="bouton bouton-clair chap-ouvrir" href="realisations/volta/index.html" data-ouvrir>Ouvrir le site<span class="vh"> de Volta</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <a class="chap-cadre" href="realisations/volta/index.html" data-ouvrir tabindex="-1" aria-hidden="true">
-      <span class="chap-ecran"><picture><source media="(max-width: 600px)" type="image/avif" srcset="assets/img/realisations/mobile-volta.avif"><source media="(max-width: 600px)" type="image/webp" srcset="assets/img/realisations/mobile-volta.webp"><source type="image/avif" srcset="assets/img/realisations/site-volta.avif 1440w, assets/img/realisations/site-volta-2160.avif 2160w" sizes="(min-width: 1180px) min(61vw, 1040px), (min-width: 861px) 56vw, 100vw"><img src="assets/img/realisations/site-volta.webp" width="1440" height="900" alt="" loading="lazy" decoding="async"></picture></span>
-      <img class="chap-icone" src="assets/img/realisations/icone-volta.webp" width="160" height="160" alt="" loading="lazy" decoding="async">
-      <span class="chap-survol mono">Ouvrir le site <svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
-  </div>
-</article>
-    </div>
-
-    <nav class="dock" aria-label="Aller à une réalisation" data-dockbar>
-<a href="#r-foulee" data-dock><img src="assets/img/realisations/icone-foulee.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Foulée</span></a>
-<a href="#r-viewer" data-dock><img src="assets/img/realisations/icone-viewer.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">MTX Viewer</span></a>
-<a href="#r-escale" data-dock><img src="assets/img/realisations/icone-escale.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Escale</span></a>
-<a href="#r-memora" data-dock><img src="assets/img/realisations/icone-memora.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Memora</span></a>
-<a href="#r-triade" data-dock><img src="assets/img/realisations/icone-triade.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Triade</span></a>
-<a href="#r-synapse" data-dock><img src="assets/img/realisations/icone-synapse.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Synapse</span></a>
-<a href="#r-elan" data-dock><img src="assets/img/realisations/icone-elan.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Élan</span></a>
-<a href="#r-maillon" data-dock><img src="assets/img/realisations/icone-maillon.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Maillon</span></a>
-<a href="#r-tiroir" data-dock><img src="assets/img/realisations/icone-tiroir.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Tiroir</span></a>
-<a href="#r-mue" data-dock><img src="assets/img/realisations/icone-mue.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Mue</span></a>
-<a href="#r-triade-mac" data-dock><img src="assets/img/realisations/icone-triade-mac.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Triade pour Mac</span></a>
-<a href="#r-volta" data-dock><img src="assets/img/realisations/icone-volta.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><span class="dock-nom">Volta</span></a>
-    </nav>
-  </section>
-
-  <section class="studio" id="studio" data-fond="clair" aria-labelledby="titre-studio">
-    <div class="croix" aria-hidden="true" data-croix>
-      <div class="bande bande-dessin"><div class="piste" data-piste="1"><span>l’icône</span><span>chaque écran</span><span>la police</span><span>les couleurs</span><span>les animations</span><span>les maquettes</span><span>le site</span><span>les démos</span><span>l’icône</span><span>chaque écran</span><span>la police</span><span>les couleurs</span><span>les animations</span><span>les maquettes</span><span>le site</span><span>les démos</span><span>l’icône</span><span>chaque écran</span><span>la police</span><span>les couleurs</span></div></div>
-      <div class="bande bande-code mono"><div class="piste" data-piste="-1">
-<span>Swift</span><span>SwiftUI</span><span>HealthKit</span><span>Live Activities</span><span>WebKit</span><span>MapKit</span><span>PhotoKit</span><span>StoreKit 2</span><span>SwiftData</span><span>Supabase</span><span>UIKit</span><span>Swift Charts</span><span>WidgetKit</span><span>App Intents</span><span>VisionKit</span><span>AppKit</span><span>ImageIO</span><span>AVFoundation</span><span>Vision</span><span>NSDocument</span><span>SQLite (GRDB)</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Swift</span><span>SwiftUI</span><span>HealthKit</span><span>Live Activities</span><span>WebKit</span><span>MapKit</span><span>PhotoKit</span><span>StoreKit 2</span><span>SwiftData</span><span>Supabase</span><span>UIKit</span><span>Swift Charts</span><span>WidgetKit</span><span>App Intents</span><span>VisionKit</span><span>AppKit</span><span>ImageIO</span><span>AVFoundation</span><span>Vision</span><span>NSDocument</span><span>SQLite (GRDB)</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
-      </div></div>
-      <span class="croix-coeur"><svg viewBox="0 0 100 100"><use href="#x-mtx"/></svg></span>
-    </div>
-
-    <div class="studio-texte">
-      <p class="sur mono">Studio</p>
-      <div class="tete-ligne">
-        <h2 class="titre-section" id="titre-studio">Celui qui dessine est celui qui code.</h2>
-        <p class="tete-accroche">MTX Studio, c’est Matheo Merchez. L’icône, chaque écran, le code Swift, le site et ses démos passent par la même personne, du premier croquis à la mise en ligne.</p>
-      </div>
-      <ol class="faits">
-        <li><span class="mono">01 — Natif</span><p>Des apps écrites en Swift pour iPhone, iPad, Apple Watch et Mac, avec les outils d’Apple&#8239;: SwiftUI, AppKit, WidgetKit, HealthKit.</p></li>
-        <li><span class="mono">02 — Un site par app</span><p>Chaque site a sa police, ses couleurs et ses démos, dessinées pour son app. On s’y promène comme dans l’app.</p></li>
-        <li><span class="mono">03 — Sur pièces</span><p>Tout ce qui est montré ici existe&#8239;: les captures sortent des apps, les démos tournent dans la page.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="contact" id="contact" data-fond="noir" aria-labelledby="titre-contact">
-    <div class="contact-haut">
-      <p class="sur mono">Contact</p>
-      <h2 class="contact-titre" id="titre-contact">Écrire au studio.</h2>
-    </div>
-    <a class="adresse mono" href="mailto:mtxstudio@proton.me" data-adresse><span data-ajuste-ligne>mtxstudio@proton.me</span></a>
-    <div class="contact-bas">
-      <blockquote class="citation">
-        <p>«&#8239;Quand vous écrivez au studio, c’est moi qui vous réponds.&#8239;»</p>
-        <footer class="mono">Matheo Merchez, fondateur</footer>
-      </blockquote>
-      <div class="contact-actions">
-        <a class="bouton bouton-clair" href="mailto:mtxstudio@proton.me">Écrire un e-mail<svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <button class="bouton bouton-trait" type="button" data-copier="mtxstudio@proton.me" hidden><span data-copier-texte>Copier l’adresse</span></button>
-        <p class="copie-etat mono" role="status" aria-live="polite" data-copier-etat></p>
-      </div>
+    <div class="wrap address-block">
+      <a class="address" href="mailto:mtxstudio@proton.me" data-fit><span class="address-line" data-fit-line>mtxstudio@proton.me</span></a>
+      <p class="copy-status" role="status" aria-live="polite" data-copy-status></p>
     </div>
   </section>
 </main>
 
-<footer class="pied" data-fond="noir">
-  <div class="pied-grille">
-    <div class="pied-marque">
-      <svg class="pied-icone" viewBox="0 0 100 100" aria-hidden="true"><use href="#x-mtx"/></svg>
-      <p>Des apps iPhone et Mac, et leurs sites, dessinées et codées par Matheo Merchez.</p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-pitch">MTX Studio imagine et développe des applications utiles, soignées et faciles à prendre en main.</p>
+        <a class="footer-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>
+      </div>
+      <nav class="footer-col" aria-labelledby="pied-apps"><h2 id="pied-apps">Réalisations</h2><ul class="footer-apps"><li><a href="realisations/foulee/index.html">GoRun</a></li><li><a href="realisations/viewer/index.html">MTX Viewer</a></li></ul></nav>
+      <nav class="footer-col" aria-labelledby="pied-studio"><h2 id="pied-studio">Studio</h2><ul>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#questions">Questions fréquentes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></nav>
+      <nav class="footer-col" aria-labelledby="pied-infos"><h2 id="pied-infos">Informations</h2><ul>
+        <li><a href="mailto:mtxstudio@proton.me">Écrire au studio</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+      </ul></nav>
     </div>
-    <nav aria-labelledby="pied-apps"><h2 class="pied-t mono" id="pied-apps">Réalisations</h2><ul class="pied-apps">
-<li><a href="realisations/foulee/index.html">Foulée</a></li><li><a href="realisations/viewer/index.html">MTX Viewer</a></li><li><a href="realisations/escale/index.html">Escale</a></li><li><a href="realisations/memora/index.html">Memora</a></li><li><a href="realisations/triade/index.html">Triade</a></li><li><a href="realisations/synapse/index.html">Synapse</a></li><li><a href="realisations/elan/index.html">Élan</a></li><li><a href="realisations/maillon/index.html">Maillon</a></li><li><a href="realisations/tiroir/index.html">Tiroir</a></li><li><a href="realisations/mue/index.html">Mue</a></li><li><a href="realisations/triade-mac/index.html">Triade pour Mac</a></li><li><a href="realisations/volta/index.html">Volta</a></li>
-    </ul></nav>
-    <nav aria-labelledby="pied-infos"><h2 class="pied-t mono" id="pied-infos">Informations</h2><ul>
-      <li><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></li>
-      <li><a href="mentions-legales.html">Mentions légales</a></li>
-      <li><a href="confidentialite.html">Confidentialité</a></li>
-    </ul></nav>
+    <p class="footer-word" aria-hidden="true" data-fit><span data-fit-line>MTX Studio<svg viewBox="0 0 56 70"><use href="#x-glyph"/></svg></span></p>
+    <div class="footer-bottom">
+      <span>© 2026 MTX Studio · Matheo Merchez EI</span>
+      <span>Apps natives en Swift · iPhone, iPad, Apple Watch, Mac</span>
+      <button class="footer-theme" type="button" data-theme-toggle><span data-theme-label>Thème sombre</span></button>
+      <a href="#contenu" data-top>Haut de page ↑</a>
+    </div>
   </div>
-  <p class="pied-bas mono"><span>© 2026 MTX Studio</span><span>Police Geist (SIL OFL), hébergée avec le site</span></p>
 </footer>
 
-<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<p class="sr-only" aria-live="polite" data-live></p>
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient>
-    <symbol id="x-trait" viewBox="0 0 100 100"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
-    <symbol id="x-mtx" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#000"/><use href="#x-trait"/></symbol>
+    <symbol id="x-glyph" viewBox="22 15 56 70"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
 </body>

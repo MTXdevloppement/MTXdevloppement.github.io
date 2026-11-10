@@ -1,95 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Confidentialité · MTX Studio</title>
 <meta name="description" content="Ce que fait MTX Studio des messages reçus, ce que le site ne collecte pas, et comment exercer vos droits.">
-<meta name="theme-color" content="#ebeae6">
+<link rel="canonical" href="https://mtxdevloppement.github.io/confidentialite.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Confidentialité · MTX Studio">
+<meta property="og:description" content="Ce que fait MTX Studio des messages reçus, ce que le site ne collecte pas, et comment exercer vos droits.">
+<meta property="og:url" content="https://mtxdevloppement.github.io/confidentialite.html">
+<meta property="og:image" content="https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MTX Studio, de l’icône au site">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Confidentialité · MTX Studio">
+<meta name="twitter:description" content="Ce que fait MTX Studio des messages reçus, ce que le site ne collecte pas, et comment exercer vos droits.">
+<meta name="twitter:image" content="https://mtxdevloppement.github.io/assets/img/og-mtx-studio.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/img/mtx-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/studio.css?v=12">
-<script>document.documentElement.classList.add('js')</script>
-<script src="assets/js/studio.js?v=12" defer></script>
+<link rel="manifest" href="site.webmanifest">
+<script>(function(d){try{var t=localStorage.getItem('mtx-theme');if(t==='dark'||t==='light')d.dataset.theme=t}catch(e){}d.classList.add('js')})(document.documentElement)</script>
+<link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://db.onlinewebfonts.com/t/5ac3fe7c6abd2f62067f266d89671492.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://db.onlinewebfonts.com/t/1aa3377e489837a26d019bba501e779d.woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=5">
+<script src="assets/js/site.js?v=5" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtxdevloppement.github.io/"},{"@type":"ListItem","position":2,"name":"Confidentialité","item":"https://mtxdevloppement.github.io/confidentialite.html"}]}</script>
 </head>
-<body class="page-texte">
-<a class="evitement" href="#contenu">Aller au contenu</a>
+<body class="page-text">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
 
-<header class="barre" data-barre data-defaut="clair" data-theme="clair">
-  <a class="logo" href="index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#logo-x)"/></g></svg><span>Studio</span></a>
-  <nav class="barre-nav" aria-label="Sections">
-    <a href="index.html#realisations">Réalisations</a>
-    <a href="index.html#studio">Studio</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-  <a class="barre-mail mono" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>
+<header class="navbar is-solid" data-navbar>
+  <a class="brand" href="index.html" aria-label="MTX Studio, accueil"><span>MTX Studio</span><svg class="brand-mark" viewBox="0 0 56 70" aria-hidden="true"><use href="#x-glyph"/></svg></a>
+  <nav class="desktop-links" aria-label="Navigation principale"><a href="index.html#realisations" data-nav="realisations">Réalisations</a>, <a href="index.html#studio" data-nav="studio">Studio</a>, <a href="index.html#questions" data-nav="questions">Questions</a>, <a href="index.html#contact" data-nav="contact">Contact</a></nav>
+  <div class="nav-actions">
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button>
+    <a class="pill pill-black nav-cta" href="mailto:mtxstudio@proton.me">Écrire au studio</a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle><span></span><span></span><span></span></button>
+  </div>
 </header>
 
-<main id="contenu" class="texte" data-fond="clair">
-  <header class="texte-tete">
-    <p class="sur mono">Informations légales</p>
-    <h1>Confidentialité.</h1>
-    <p>Ce que le site collecte (rien), ce que deviennent vos messages, et comment exercer vos droits.</p>
-  </header>
-  <div class="texte-corps">
-    <h2>En bref</h2>
-    <ul>
-      <li>Le site ne collecte rien par lui-même&#8239;: il n’a ni formulaire, ni cookie, ni outil de statistiques.</li>
-      <li>Si vous écrivez à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>, votre message sert uniquement à vous répondre. Il n’est ni vendu ni cédé.</li>
-    </ul>
-    <h2>Responsable du traitement</h2>
-    <dl>
-      <dt>Responsable</dt><dd>Matheo Merchez EI (MTX Studio)</dd>
-      <dt>Adresse</dt><dd>à compléter</dd>
-      <dt>E-mail</dt><dd><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></dd>
-    </dl>
-    <h2>Quand vous nous écrivez</h2>
-    <p>Le site propose un seul moyen de contact&#8239;: l’adresse e-mail du studio. Le lien «&#8239;Écrire un e-mail&#8239;» ouvre votre propre messagerie, et le bouton «&#8239;Copier l’adresse&#8239;» la place dans votre presse-papiers&#8239;; rien ne passe par le site.</p>
-    <p>Nous recevons ce que contient votre message&#8239;: votre adresse e-mail, votre nom s’il y figure, votre texte et ses pièces jointes. Ces informations servent à vous répondre et, si un échange se poursuit, à le suivre. Ce traitement repose sur notre intérêt légitime à répondre aux messages reçus (article 6.1.f du RGPD), ou sur les mesures précontractuelles prises à votre demande (article 6.1.b). Nous ne les utilisons pas pour de la prospection.</p>
-    <p>Les messages arrivent chez Proton (Proton AG, Suisse), la messagerie du studio. La Suisse bénéficie d’une décision d’adéquation de la Commission européenne. Seul le fondateur du studio, Matheo Merchez, les lit.</p>
-    <h2>Hébergement du site</h2>
-    <p>Le site est hébergé par GitHub Pages (GitHub, Inc., États-Unis). Pour afficher les pages et protéger le site, GitHub enregistre des données techniques de connexion, dont l’adresse IP des visiteurs. GitHub adhère au cadre de protection des données UE–États-Unis (Data Privacy Framework). Voir sa <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité</a>.</p>
-    <h2>Polices de caractères</h2>
-    <p>Les polices Geist et Geist Mono sont hébergées sur le site lui-même, comme ses images. Pour les afficher, votre navigateur ne contacte aucun service tiers. Les sites des apps présentés dans les réalisations ne chargent pas non plus de police externe.</p>
-    <h2>Cookies et stockage local</h2>
-    <p>Le site ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience ou de publicité. Seuls les sites de Triade et de Triade pour Mac, dans les réalisations, mémorisent dans votre navigateur le thème d’aperçu que vous choisissez. Cette préférence ne quitte pas votre appareil et s’efface avec vos données de navigation.</p>
-    <h2>Combien de temps nous gardons vos messages</h2>
-    <ul>
-      <li>Message resté sans suite&#8239;: supprimé au plus tard 3 ans après notre dernier échange.</li>
-      <li>Message devenu collaboration&#8239;: conservé le temps de celle-ci. Les factures sont ensuite archivées 10 ans, comme la loi l’impose.</li>
-      <li>Données techniques de l’hébergeur&#8239;: selon la politique de GitHub.</li>
-    </ul>
-    <h2>Vos droits</h2>
-    <p>Vous pouvez accéder à vos données, les faire rectifier ou effacer, en limiter l’usage, vous opposer à leur traitement ou en demander une copie dans un format courant (portabilité). Écrivez à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>&#8239;: nous répondons sous un mois au plus.</p>
-    <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL&#8239;: <a href="https://www.cnil.fr">cnil.fr</a>, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.</p>
-    <p class="maj mono">Mise à jour le 9 novembre 2026. Toute modification de cette politique est publiée sur cette page.</p>
+<nav class="mobile-overlay" id="menu-mobile" aria-label="Navigation mobile" data-menu>
+  <a href="index.html#realisations" data-close-menu>Réalisations</a>
+  <a href="index.html#studio" data-close-menu>Studio</a>
+  <a href="index.html#questions" data-close-menu>Questions</a>
+  <a href="index.html#contact" data-close-menu>Contact</a>
+  <a class="mobile-contact" href="mailto:mtxstudio@proton.me" data-close-menu>Écrire au studio</a>
+  <p class="mobile-meta">mtxstudio@proton.me</p>
+</nav>
+
+<main id="contenu" class="text-main">
+  <div class="text-grid">
+    <header class="text-head">
+      <nav aria-label="Fil d’Ariane"><ol class="crumbs"><li><a href="index.html">MTX Studio</a></li><li aria-current="page">Confidentialité</li></ol></nav>
+      <h1 class="display">Confidentialité.</h1>
+      <p class="lead">Ce que le site collecte (rien), ce que deviennent vos messages, et comment exercer vos droits.</p>
+    </header>
+
+    <div class="text-body">
+      <h2>En bref</h2>
+      <ul>
+        <li>Le site ne collecte rien par lui-même&#8239;: il n’a ni formulaire, ni cookie, ni outil de statistiques.</li>
+        <li>Pour s’afficher, les pages du studio chargent leur police depuis un service tiers&#8239;; le détail est plus bas. La vidéo d’accueil et les images sont hébergées avec le site.</li>
+        <li>Si vous écrivez à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>, votre message sert uniquement à vous répondre. Il n’est ni vendu ni cédé.</li>
+      </ul>
+
+      <h2>Responsable du traitement</h2>
+      <dl>
+        <div><dt>Responsable</dt><dd>Matheo Merchez EI (MTX Studio)</dd></div>
+        <div><dt>Adresse</dt><dd class="todo">à compléter</dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></dd></div>
+      </dl>
+
+      <h2>Quand vous nous écrivez</h2>
+      <p>Le site propose un seul moyen de contact&#8239;: l’adresse e-mail du studio. Les liens «&#8239;Écrire un e-mail&#8239;» ouvrent votre propre messagerie, et les boutons «&#8239;Copier l’adresse&#8239;» la placent dans votre presse-papiers&#8239;; rien ne passe par le site.</p>
+      <p>Nous recevons ce que contient votre message&#8239;: votre adresse e-mail, votre nom s’il y figure, votre texte et ses pièces jointes. Ces informations servent à vous répondre et, si un échange se poursuit, à le suivre. Ce traitement repose sur notre intérêt légitime à répondre aux messages reçus (article 6.1.f du RGPD), ou sur les mesures précontractuelles prises à votre demande (article 6.1.b). Nous ne les utilisons pas pour de la prospection.</p>
+      <p>Les messages arrivent chez Proton (Proton AG, Suisse), la messagerie du studio. La Suisse bénéficie d’une décision d’adéquation de la Commission européenne. Seul le fondateur du studio, Matheo Merchez, les lit.</p>
+
+      <h2>Hébergement du site</h2>
+      <p>Le site est hébergé par GitHub Pages (GitHub, Inc., États-Unis). Pour afficher les pages et protéger le site, GitHub enregistre des données techniques de connexion, dont l’adresse IP des visiteurs. GitHub adhère au cadre de protection des données UE–États-Unis (Data Privacy Framework). Voir sa <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité</a>.</p>
+
+      <h2>Police des pages du studio</h2>
+      <p>Les pages du studio affichent la police Helvetica Now Display, chargée depuis le service Online Web Fonts (db.onlinewebfonts.com). Pour vous envoyer ces fichiers, ce service reçoit l’adresse IP de votre appareil et les informations techniques habituelles de votre navigateur. Le site ne lui transmet rien d’autre.</p>
+      <p>Les polices Geist et Geist Mono, employées par les sites des apps présentés dans les réalisations, sont hébergées avec le site, comme les images et la vidéo d’accueil&#8239;: pour les afficher, votre navigateur ne contacte aucun service tiers.</p>
+
+      <h2>Cookies et stockage local</h2>
+      <p>Le site ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience ou de publicité. Si vous changez de thème (clair ou sombre) avec le bouton prévu, les pages du studio mémorisent ce choix dans le stockage local de votre navigateur. Ces préférences ne quittent pas votre appareil et s’effacent avec vos données de navigation.</p>
+
+      <h2>Combien de temps nous gardons vos messages</h2>
+      <ul>
+        <li>Message resté sans suite&#8239;: supprimé au plus tard 3 ans après notre dernier échange.</li>
+        <li>Message devenu collaboration&#8239;: conservé le temps de celle-ci. Les factures sont ensuite archivées 10 ans, comme la loi l’impose.</li>
+        <li>Données techniques de l’hébergeur et du service de police&#8239;: selon leurs propres politiques.</li>
+      </ul>
+
+      <h2>Vos droits</h2>
+      <p>Vous pouvez accéder à vos données, les faire rectifier ou effacer, en limiter l’usage, vous opposer à leur traitement ou en demander une copie dans un format courant (portabilité). Écrivez à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>&#8239;: nous répondons sous un mois au plus.</p>
+      <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL&#8239;: <a href="https://www.cnil.fr">cnil.fr</a>, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.</p>
+
+      <p class="updated">Mise à jour le 10 novembre 2026. Toute modification de cette politique est publiée sur cette page.</p>
+    </div>
   </div>
 </main>
 
-<footer class="pied" data-fond="noir">
-  <div class="pied-grille">
-    <div class="pied-marque">
-      <svg class="pied-icone" viewBox="0 0 100 100" aria-hidden="true"><use href="#x-mtx"/></svg>
-      <p>Des apps iPhone et Mac, et leurs sites, dessinées et codées par Matheo Merchez.</p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-pitch">MTX Studio imagine et développe des applications utiles, soignées et faciles à prendre en main.</p>
+        <a class="footer-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a>
+      </div>
+      <nav class="footer-col" aria-labelledby="pied-apps"><h2 id="pied-apps">Réalisations</h2><ul class="footer-apps"><li><a href="realisations/foulee/index.html">GoRun</a></li><li><a href="realisations/viewer/index.html">MTX Viewer</a></li></ul></nav>
+      <nav class="footer-col" aria-labelledby="pied-studio"><h2 id="pied-studio">Studio</h2><ul>
+        <li><a href="index.html#realisations">Réalisations</a></li>
+        <li><a href="index.html#studio">Studio</a></li>
+        <li><a href="index.html#questions">Questions fréquentes</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul></nav>
+      <nav class="footer-col" aria-labelledby="pied-infos"><h2 id="pied-infos">Informations</h2><ul>
+        <li><a href="mailto:mtxstudio@proton.me">Écrire au studio</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+      </ul></nav>
     </div>
-    <nav aria-labelledby="pied-apps"><h2 class="pied-t mono" id="pied-apps">Réalisations</h2><ul class="pied-apps">
-<li><a href="realisations/foulee/index.html">Foulée</a></li><li><a href="realisations/viewer/index.html">MTX Viewer</a></li><li><a href="realisations/escale/index.html">Escale</a></li><li><a href="realisations/memora/index.html">Memora</a></li><li><a href="realisations/triade/index.html">Triade</a></li><li><a href="realisations/synapse/index.html">Synapse</a></li><li><a href="realisations/elan/index.html">Élan</a></li><li><a href="realisations/maillon/index.html">Maillon</a></li><li><a href="realisations/tiroir/index.html">Tiroir</a></li><li><a href="realisations/mue/index.html">Mue</a></li><li><a href="realisations/triade-mac/index.html">Triade pour Mac</a></li><li><a href="realisations/volta/index.html">Volta</a></li>
-    </ul></nav>
-    <nav aria-labelledby="pied-infos"><h2 class="pied-t mono" id="pied-infos">Informations</h2><ul>
-      <li><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></li>
-      <li><a href="mentions-legales.html">Mentions légales</a></li>
-      <li><a href="confidentialite.html">Confidentialité</a></li>
-    </ul></nav>
+    <p class="footer-word" aria-hidden="true" data-fit><span data-fit-line>MTX Studio<svg viewBox="0 0 56 70"><use href="#x-glyph"/></svg></span></p>
+    <div class="footer-bottom">
+      <span>© 2026 MTX Studio · Matheo Merchez EI</span>
+      <span>Apps natives en Swift · iPhone, iPad, Apple Watch, Mac</span>
+      <button class="footer-theme" type="button" data-theme-toggle><span data-theme-label>Thème sombre</span></button>
+      <a href="#contenu" data-top>Haut de page ↑</a>
+    </div>
   </div>
-  <p class="pied-bas mono"><span>© 2026 MTX Studio</span><span>Police Geist (SIL OFL), hébergée avec le site</span></p>
 </footer>
-
-<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<p class="sr-only" aria-live="polite" data-live></p>
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient>
-    <symbol id="x-trait" viewBox="0 0 100 100"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
-    <symbol id="x-mtx" viewBox="0 0 100 100"><rect width="100" height="100" rx="22.5" fill="#000"/><use href="#x-trait"/></symbol>
+    <symbol id="x-glyph" viewBox="22 15 56 70"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
 </body>

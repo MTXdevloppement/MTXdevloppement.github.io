@@ -592,7 +592,7 @@
     function construire() {
       dlg = document.createElement('dialog');
       dlg.className = 'loupe';
-      dlg.setAttribute('aria-label', 'Écrans de Foulée, agrandis');
+      dlg.setAttribute('aria-label', 'Écrans de GoRun, agrandis');
       dlg.innerHTML = `<div class="loupe-voile"></div>
         <div class="loupe-scene"><div class="loupe-piste"></div></div>
         <div class="loupe-haut loupe-chrome"><p class="loupe-compte" aria-live="polite"></p><button class="loupe-bouton" type="button" data-loupe="fermer" aria-label="Fermer"><svg aria-hidden="true"><use href="#i-croix"/></svg></button></div>

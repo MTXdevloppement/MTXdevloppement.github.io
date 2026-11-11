@@ -1,4 +1,35 @@
 (() => {
+  // Thème clair / sombre, commun à tout le site MTX Studio (même clé que l'accueil).
+  // Le script en tête de page pose déjà data-theme avant l'affichage ; ici, le bouton et le suivi du système.
+  const racine = document.documentElement;
+  const systeme = matchMedia('(prefers-color-scheme: dark)');
+  const lire = () => { try { return localStorage.getItem('mtx-theme'); } catch { return null; } };
+  const boutonsTheme = [...document.querySelectorAll('[data-mtx-theme]')];
+  const majTheme = () => {
+    const sombre = racine.dataset.theme !== 'light';
+    const libelle = sombre ? 'Passer au thème clair' : 'Passer au thème sombre';
+    boutonsTheme.forEach((b) => { b.setAttribute('aria-label', libelle); b.title = libelle; });
+    // La barre du navigateur prend la couleur du fond de la page.
+    const fond = getComputedStyle(document.body).backgroundColor;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => { m.content = fond; });
+  };
+  const poser = (theme) => {
+    racine.dataset.theme = theme;
+    majTheme();
+  };
+  boutonsTheme.forEach((b) => b.addEventListener('click', () => {
+    const suivant = racine.dataset.theme === 'light' ? 'dark' : 'light';
+    // Le choix est mémorisé tout de suite ; la transition n'est qu'un effet visuel.
+    try { localStorage.setItem('mtx-theme', suivant); } catch { /* stockage indisponible : le choix vaut pour cette page */ }
+    const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (document.startViewTransition && !calme && !document.hidden) document.startViewTransition(() => poser(suivant));
+    else poser(suivant);
+  }));
+  // Sans choix mémorisé, la page suit le réglage du système, y compris s'il change.
+  systeme.addEventListener('change', () => { if (!lire()) poser(systeme.matches ? "dark" : "light"); });
+  addEventListener('storage', (e) => { if (e.key === 'mtx-theme' && (e.newValue === 'dark' || e.newValue === 'light')) poser(e.newValue); });
+  majTheme();
+
   const pf = document.querySelector('.mtx-pf');
   const script = document.querySelector('script[src*="assets/js/projet.js"]');
   if (pf && script && 'FontFace' in window && document.fonts) {

@@ -3,6 +3,10 @@ html{overflow-x:clip}
 body > .nav{position:sticky;top:0;margin-bottom:calc(-1 * var(--mtx-nav-h,57px))}
 body > .nav.mtx-centree{top:14px;margin-left:50%}
 
+/* Couleurs du bandeau et du pied MTX Studio : sombres par défaut, claires avec le thème clair. */
+.mtx-gbar,.mtx-pf{--mtx-fond:#000;--mtx-encre:#f2f1ed;--mtx-doux:rgba(242,241,237,.78);--mtx-gris:#9b9a95;--mtx-fort:#fff;--mtx-filet:rgba(255,255,255,.12);--mtx-souligne:rgba(242,241,237,.35)}
+:root[data-theme="light"] .mtx-gbar,:root[data-theme="light"] .mtx-pf{--mtx-fond:#f5f5f3;--mtx-encre:#111113;--mtx-doux:rgba(17,17,19,.74);--mtx-gris:#5f5e5a;--mtx-fort:#000;--mtx-filet:rgba(0,0,0,.1);--mtx-souligne:rgba(17,17,19,.3)}
+
 .mtx-gbar,.mtx-pf{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;text-align:left;box-sizing:border-box}
 .mtx-pf{font-family:"MTX Geist",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;content-visibility:auto;contain-intrinsic-size:auto 640px}
 .mtx-gbar *,.mtx-pf *{box-sizing:border-box}
@@ -10,45 +14,55 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-gbar svg,.mtx-pf img,.mtx-pf svg{display:block}
 .mtx-gbar :focus-visible,.mtx-pf :focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:6px}
 
-.mtx-gbar{position:relative;z-index:200;height:44px;background:#000;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(242,241,237,.78);font-size:13px;line-height:1}
+.mtx-gbar{position:relative;z-index:200;height:44px;background:var(--mtx-fond);border-bottom:1px solid var(--mtx-filet);color:var(--mtx-doux);font-size:13px;line-height:1}
 .mtx-gbar-in{max-width:1680px;height:100%;margin:0 auto;padding:0 clamp(16px,4vw,56px);display:flex;align-items:center;gap:28px}
-.mtx-gbar .mtx-logo{flex:1 1 0;display:flex;align-items:center;gap:6px;min-width:max-content;min-height:44px;color:#f2f1ed;font-size:16px;font-weight:600;letter-spacing:-.035em}
+.mtx-gbar .mtx-logo{flex:1 1 0;display:flex;align-items:center;gap:6px;min-width:max-content;min-height:44px;color:var(--mtx-encre);font-size:16px;font-weight:600;letter-spacing:-.035em}
 .mtx-logo svg{flex:none;width:33px;height:12.5px}
 .mtx-links{display:flex;gap:28px}
 .mtx-links a{display:inline-flex;align-items:center;min-height:44px;transition:color .25s}
-.mtx-links a[aria-current]{color:#fff}
-.mtx-right{flex:1 1 0;display:flex;justify-content:flex-end;align-items:center;gap:16px}
+.mtx-links a[aria-current]{color:var(--mtx-fort)}
+.mtx-right{flex:1 1 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
 .mtx-mail{display:inline-flex;align-items:center;min-height:44px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;letter-spacing:-.02em;transition:color .25s}
-.mtx-back{display:none;align-items:center;gap:4px;min-height:44px;color:#f2f1ed;font-size:14px}
+.mtx-back{display:none;align-items:center;gap:4px;min-height:44px;color:var(--mtx-encre);font-size:14px}
 .mtx-back::before{content:"‹";font-size:1.4em;line-height:.8;transform:translateY(-.04em)}
-@media (hover:hover){.mtx-links a:hover,.mtx-mail:hover{color:#fff}}
+
+/* Bouton thème clair / sombre */
+.mtx-theme{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;margin:0 -12px 0 0;padding:0;border:0;border-radius:50%;background:none;color:var(--mtx-doux);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:color .25s}
+.mtx-theme svg{grid-area:1/1;width:17px;height:17px;transition:opacity .25s,transform .45s cubic-bezier(.2,.7,0,1)}
+.mtx-i-lune,:root[data-theme="light"] .mtx-i-soleil{opacity:0;transform:rotate(-50deg) scale(.55)}
+:root[data-theme="light"] .mtx-i-lune{opacity:1;transform:none}
+.mtx-theme:active svg{transform:scale(.88)}
+@media (hover:hover){.mtx-links a:hover,.mtx-mail:hover,.mtx-theme:hover{color:var(--mtx-fort)}}
 @media (max-width:900px){
   .mtx-links,.mtx-mail{display:none}
   .mtx-back{display:inline-flex}
 }
 
-.mtx-pf{position:relative;z-index:1;background:#000;color:#f2f1ed;border-top:1px solid rgba(255,255,255,.12);padding:clamp(72px,12vh,128px) 0 28px;font-size:17px;line-height:1.5}
+.mtx-pf{position:relative;z-index:1;background:var(--mtx-fond);color:var(--mtx-encre);border-top:1px solid var(--mtx-filet);padding:clamp(72px,12vh,128px) 0 28px;font-size:17px;line-height:1.5}
 .mtx-pf-w{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
-.mtx-pf-eye{display:flex;align-items:center;gap:12px;margin:0 0 20px;color:#9b9a95;font-family:"MTX Geist Mono",ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
-.mtx-pf-eye img{width:40px;height:40px;border-radius:22.5%;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.mtx-pf-eye{display:flex;align-items:center;gap:12px;margin:0 0 20px;color:var(--mtx-gris);font-family:"MTX Geist Mono",ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+.mtx-pf-eye img{width:40px;height:40px;border-radius:22.5%;box-shadow:0 0 0 1px var(--mtx-filet)}
 .mtx-pf-t{margin:0;max-width:20ch;font-size:clamp(32px,4.6vw,60px);font-weight:600;line-height:1;letter-spacing:-.05em;text-wrap:balance}
-.mtx-pf-sub{margin:18px 0 0;max-width:46ch;color:#9b9a95;font-size:clamp(17px,1.4vw,20px);line-height:1.45}
-.mtx-pf-tags{margin:16px 0 0;color:#9b9a95;font-family:"MTX Geist Mono",ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;letter-spacing:-.02em}
+.mtx-pf-sub{margin:18px 0 0;max-width:46ch;color:var(--mtx-gris);font-size:clamp(17px,1.4vw,20px);line-height:1.45}
+.mtx-pf-tags{margin:16px 0 0;color:var(--mtx-gris);font-family:"MTX Geist Mono",ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;letter-spacing:-.02em}
 .mtx-pf-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;margin-top:36px}
-.mtx-btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:6px 20px 6px 7px;border-radius:999px;background:#f2f1ed;color:#000!important;font-size:16px;font-weight:500;letter-spacing:-.015em;transition:background .3s}
+.mtx-btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:6px 20px 6px 7px;border-radius:999px;background:var(--mtx-encre);color:var(--mtx-fond)!important;font-size:16px;font-weight:500;letter-spacing:-.015em;transition:background .3s}
 .mtx-btn img{width:38px;height:38px;border-radius:22.5%}
 .mtx-btn .fl{width:16px;height:16px;transition:transform .35s cubic-bezier(.2,.7,0,1)}
-.mtx-more{display:inline-flex;align-items:center;min-height:44px;color:#f2f1ed!important;font-size:16px;text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:5px;text-decoration-color:rgba(242,241,237,.35)!important}
+.mtx-more{display:inline-flex;align-items:center;min-height:44px;color:var(--mtx-encre)!important;font-size:16px;text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:5px;text-decoration-color:var(--mtx-souligne)!important}
 @media (hover:hover){
-  .mtx-btn:hover{background:#fff}
+  .mtx-btn:hover{background:var(--mtx-fort)}
   .mtx-btn:hover .fl{transform:translateX(3px)}
-  .mtx-more:hover{text-decoration-color:#f2f1ed!important}
+  .mtx-more:hover{text-decoration-color:var(--mtx-encre)!important}
 }
-.mtx-pf-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:56px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:#9b9a95;font-size:12.5px}
+.mtx-pf-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--mtx-filet);color:var(--mtx-gris);font-size:12.5px}
 .mtx-pf-bot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
 .mtx-pf-bot a{display:inline-flex;align-items:center;min-height:32px}
-@media (hover:hover){.mtx-pf-bot a:hover{color:#f2f1ed}}
+@media (hover:hover){.mtx-pf-bot a:hover{color:var(--mtx-encre)}}
 
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.2,.7,0,1)}
-@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+@media (prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+  .mtx-theme svg{transition:none}
+}

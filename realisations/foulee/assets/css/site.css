@@ -59,6 +59,7 @@
   --bord: max(var(--marge), calc((100vw - var(--max)) / 2));
   --barre-h: 3.75rem;
   --courbe: cubic-bezier(.2, .7, .1, 1);
+  --fantome: 243 242 238;
   color-scheme: dark;
 }
 
@@ -272,14 +273,14 @@ main > section { padding-inline: var(--bord); }
   0% {
     opacity: 1;
     box-shadow:
-      calc(var(--l) * -.16) 0 0 rgba(243, 242, 238, .06),
-      calc(var(--l) * -.32) 0 0 rgba(243, 242, 238, .04),
-      calc(var(--l) * -.48) 0 0 rgba(243, 242, 238, .025);
+      calc(var(--l) * -.16) 0 0 rgb(var(--fantome) / .06),
+      calc(var(--l) * -.32) 0 0 rgb(var(--fantome) / .04),
+      calc(var(--l) * -.48) 0 0 rgb(var(--fantome) / .025);
   }
   65% { opacity: 1; }
   100% {
     opacity: 0;
-    box-shadow: 0 0 0 rgba(243, 242, 238, 0), 0 0 0 rgba(243, 242, 238, 0), 0 0 0 rgba(243, 242, 238, 0);
+    box-shadow: 0 0 0 rgb(var(--fantome) / 0), 0 0 0 rgb(var(--fantome) / 0), 0 0 0 rgb(var(--fantome) / 0);
   }
 }
 
@@ -288,11 +289,11 @@ main > section { padding-inline: var(--bord); }
 @keyframes expo-titre {
   from {
     opacity: .5; transform: translateX(-.3em);
-    text-shadow: -.12em 0 rgba(243, 242, 238, .28), -.24em 0 rgba(243, 242, 238, .15), -.36em 0 rgba(243, 242, 238, .07);
+    text-shadow: -.12em 0 rgb(var(--fantome) / .28), -.24em 0 rgb(var(--fantome) / .15), -.36em 0 rgb(var(--fantome) / .07);
   }
   to {
     opacity: 1; transform: none;
-    text-shadow: 0 0 rgba(243, 242, 238, 0), 0 0 rgba(243, 242, 238, 0), 0 0 rgba(243, 242, 238, 0);
+    text-shadow: 0 0 rgb(var(--fantome) / 0), 0 0 rgb(var(--fantome) / 0), 0 0 rgb(var(--fantome) / 0);
   }
 }
 
@@ -1071,3 +1072,83 @@ html.loupe-ouverte { overflow: hidden; }
   .tel-corps, .ile-forme, .m-ctrl, .loupe-bouton { transition: none !important; }
   .maintien.tenu .maintien-anneau circle { transition: stroke-dashoffset var(--duree, 1.2s) linear !important; }
 }
+
+/* ======================================================================
+   Thème clair (bouton du bandeau MTX Studio, ou réglage du système)
+   La page passe sur papier clair. L'app GoRun, elle, reste sombre :
+   téléphones, montre, île dynamique, activité en direct et loupe gardent
+   leurs couleurs d'origine, comme sur l'iPhone.
+   ====================================================================== */
+:root[data-theme="light"] {
+  --plaque: #f3f2ee;
+  --surface: #ffffff;
+  --surface-2: #ebe9e3;
+  --filet: #dddbd3;
+  --filet-2: #c6c4bc;
+  --texte: #0e0e10;
+  --texte-2: #4a4a52;
+  --texte-3: #5d5d65;
+  --discret: #6a6a72;
+  --orange: #f0501a;
+  --orange-texte: #b83a0a;
+  --rose: #e8244f;
+  --avance: #0e7a43;
+  --retard: #c92727;
+  --fantome: 14 14 16;
+  color-scheme: light;
+}
+:root[data-theme="light"] :is(.tel, .montre, .activite, .ile, .ile-etendue, .loupe) {
+  --plaque: #0a0a0b;
+  --surface: #121214;
+  --surface-2: #18181b;
+  --filet: #26262a;
+  --filet-2: #34343a;
+  --texte: #f3f2ee;
+  --texte-2: #a1a1a8;
+  --texte-3: #8e8e96;
+  --discret: #6b6b72;
+  --orange: #ff5c1f;
+  --rose: #ff2e5c;
+  --avance: #2ecc70;
+  --retard: #ff4545;
+  color-scheme: dark;
+}
+
+/* Page */
+:root[data-theme="light"] .barre { background: rgba(243, 242, 238, .9); }
+:root[data-theme="light"] .bouton-principal { box-shadow: 0 10px 26px -14px rgba(232, 70, 30, .7); }
+:root[data-theme="light"] .bouton-voix { background: rgba(0, 0, 0, .06); }
+:root[data-theme="light"] .barre-prog { background: rgba(0, 0, 0, .08); }
+:root[data-theme="light"] .curseur input[type="range"]::-webkit-slider-thumb { box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+:root[data-theme="light"] .extrait { background: var(--plaque); }
+
+/* Petits textes orange : une nuance plus foncée pour rester lisibles sur le papier */
+:root[data-theme="light"] :is(.orange, .etiquette .num, .annonce-tete, .tableau-parcours, .classement .premier td:first-child, .fichiers li.dossier ul li span) { color: var(--orange-texte); }
+:root[data-theme="light"] .tableau-parcours { color: #a8350a; background: rgba(240, 80, 26, .1); }
+@media (hover: hover) { :root[data-theme="light"] .barre-cta:hover { border-color: var(--orange-texte); color: var(--orange-texte); } }
+
+/* Carte de la planche, en version plan imprimé */
+:root[data-theme="light"] .plaque { background: #e9e7e0; }
+:root[data-theme="light"] .plaque-carte .fond > rect { fill: #e9e7e0; }
+:root[data-theme="light"] .plaque-carte .eau { fill: #cbd9e6; stroke: #b5c6d6; }
+:root[data-theme="light"] .plaque-carte .parc { fill: #d9e3d0; stroke: #c3d0b8; }
+:root[data-theme="light"] .plaque-carte .allees { stroke: #c7d3bd; }
+:root[data-theme="light"] .plaque-carte .rue { stroke: #faf9f6; }
+:root[data-theme="light"] .plaque-carte .rue-s { stroke: #fcfbf9; }
+:root[data-theme="light"] .plaque-carte .rue-p { stroke: #ffffff; }
+:root[data-theme="light"] .plaque-carte .quadrillage { stroke: #000; stroke-opacity: .05; }
+:root[data-theme="light"] .plaque-carte .parcours { stroke: #8a8a91; }
+:root[data-theme="light"] .plaque-carte .m-jour { stroke: #e9e7e0; }
+:root[data-theme="light"] .plaque-carte .nom-lieu { fill: #66707c; }
+:root[data-theme="light"] .decompte { background: rgba(243, 242, 238, .6); }
+:root[data-theme="light"] .plaque-hud p { background: rgba(255, 255, 255, .88); }
+
+/* Appareils posés sur le papier : des ombres plus légères */
+:root[data-theme="light"] .tel-corps {
+  box-shadow:
+    inset 0 0 0 .35cqw rgba(255, 255, 255, .08),
+    0 2cqw 6cqw -1cqw rgba(0, 0, 0, .3),
+    0 14cqw 26cqw -8cqw rgba(0, 0, 0, .4);
+}
+:root[data-theme="light"] .montre-boitier { box-shadow: inset 0 0 0 .7cqw rgba(255, 255, 255, .07), 0 6cqw 14cqw -4cqw rgba(0, 0, 0, .4); }
+

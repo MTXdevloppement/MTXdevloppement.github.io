@@ -769,3 +769,49 @@ body { background: var(--graphite); color: var(--craie); }
 .confiance { background: var(--noir); border: 1px solid var(--graphite-3); }
 .confiance-detail code { color: var(--craie); }
 .iphone { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 40px 70px -40px rgba(0, 0, 0, .8); }
+
+/* ======================================================================
+   Thème clair (bouton du bandeau MTX Studio, ou réglage du système)
+   Le même monochrome, inversé : papier clair, encre graphite. Les iPhone
+   restent des appareils sombres ; leurs écrans sont des captures réelles.
+   ====================================================================== */
+:root[data-theme="light"] {
+  --noir: #fbfbf9;
+  --bleu: #0f0f11;
+  --graphite: #f4f4f2;
+  --graphite-2: #e9e9e6;
+  --graphite-3: #d8d8d3;
+  --rendu: #ececea;
+  --rendu-2: #d8d8d3;
+  --craie: #0f0f11;
+  --craie-2: #3c3c42;
+  --gris: #57575e;
+  --gris-nuit: #64646b;
+  --pervenche: #2f2f35;
+  --ok: #0f9e6e;
+  --avert: #d38a00;
+  --erreur: #d93d66;
+  color-scheme: light;
+}
+:root[data-theme="light"] .heros-envers {
+  background-color: #ebebe8;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, .07) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, .03) 1px, transparent 1px);
+}
+:root[data-theme="light"] .heros-envers .titre-geant { -webkit-text-stroke-color: rgba(15, 15, 17, .7); }
+:root[data-theme="light"] .heros-envers .ligne { outline-color: rgba(15, 15, 17, .28); }
+:root[data-theme="light"] .annot { border-color: rgba(15, 15, 17, .5); background: rgba(0, 0, 0, .03); }
+:root[data-theme="light"] .annot-marge { background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, .14) 0 2px, transparent 2px 8px); }
+:root[data-theme="light"] .annot-padding { background: rgba(0, 0, 0, .06); }
+:root[data-theme="light"] .cadre-inspection,
+:root[data-theme="light"] .cadre-inspection[data-sombre] { background: rgba(0, 0, 0, .04); }
+:root[data-theme="light"] .regle-curseur { background: rgba(0, 0, 0, .06); }
+:root[data-theme="light"] .statut .pastille { box-shadow: 0 0 0 3px rgba(15, 15, 17, .14); }
+:root[data-theme="light"] .rapport-groupe li { border-bottom-color: rgba(0, 0, 0, .08); }
+@media (hover: hover) { :root[data-theme="light"] .regle-choix:hover { border-top-color: rgba(15, 15, 17, .4); } }
+/* Appareils et boutons posés sur les vidéos : toujours sombres */
+:root[data-theme="light"] .film-bouton { color: #f4f4f2; }
+:root[data-theme="light"] .iphone { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 40px 70px -40px rgba(0, 0, 0, .35); }

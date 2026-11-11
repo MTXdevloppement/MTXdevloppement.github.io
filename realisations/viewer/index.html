@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)</script>
   <title>MTX Viewer — Explorez vos sites web sur iPhone et iPad · MTX Studio</title>
   <meta name="description" content="Ouvrez un site ou un projet sur iPhone et iPad. Explorez son code, repérez les erreurs et vérifiez son affichage sur plusieurs écrans. Bientôt sur l’App Store.">
   <meta name="theme-color" content="#09090A">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <meta property="og:type" content="website">
@@ -16,18 +17,18 @@
   <meta property="og:image" content="https://mtxdevloppement.github.io/realisations/viewer/assets/img/icone-512.png">
   <meta property="og:url" content="https://mtxdevloppement.github.io/realisations/viewer/">
   <link rel="canonical" href="https://mtxdevloppement.github.io/realisations/viewer/">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
   <script defer src="assets/js/main.js"></script>
-<link rel="stylesheet" href="../../assets/css/projet.css?v=11">
-<script src="../../assets/js/projet.js?v=11" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=12">
+<script src="../../assets/js/projet.js?v=13" defer></script>
 </head>
 <body>
 <div class="mtx-gbar">
   <div class="mtx-gbar-in">
     <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
     <nav class="mtx-links" aria-label="MTX Studio"><a href="../../index.html#realisations" aria-current="true">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav>
-    <div class="mtx-right"><a class="mtx-back" href="../../index.html#r-viewer">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a></div>
+    <div class="mtx-right"><a class="mtx-back" href="../../index.html#r-viewer">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
   </div>
 </div>
   <a class="evitement" href="#contenu">Aller au contenu</a>

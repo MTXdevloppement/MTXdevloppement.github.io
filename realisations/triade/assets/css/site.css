@@ -17,14 +17,23 @@
   --courbe:cubic-bezier(.2,.7,0,1);
   --marge:clamp(18px,4.2vw,56px);
   --outil:var(--bleu);--outil-t:var(--bleu-t);
-  color-scheme:light dark;
+  color-scheme:light;
+}
+/* Thème sombre : choisi par le bouton du bandeau (data-theme), sinon par le système. */
+:root[data-theme="dark"]{
+  --papier:#0B1024;--papier-2:#10163A;--carte:#151C40;--encre:#F1EEE6;--gris:#AAB0C6;--filet:#262E55;
+  --bleu-t:#84ABFF;--vert-t:#54D390;--orange-t:#FF9D63;
+  --nuit:#060A1B;--nuit-carte:#111735;--nuit-filet:#222A4E;
+  --ombre:0,0,0;
+  color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --papier:#0B1024;--papier-2:#10163A;--carte:#151C40;--encre:#F1EEE6;--gris:#AAB0C6;--filet:#262E55;
     --bleu-t:#84ABFF;--vert-t:#54D390;--orange-t:#FF9D63;
     --nuit:#060A1B;--nuit-carte:#111735;--nuit-filet:#222A4E;
     --ombre:0,0,0;
+    color-scheme:dark;
   }
 }
 body[data-outil="tableur"]{--outil:var(--vert);--outil-t:var(--vert-t)}

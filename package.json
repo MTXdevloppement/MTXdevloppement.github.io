@@ -1,7 +1,7 @@
 {
   "name": "mtx-studio-site-v5",
   "private": true,
-  "description": "Site MTX Studio V5 : accueil et sites des réalisations (GoRun, MTX Viewer, Triade). Site statique, sans dépendance.",
+  "description": "Site MTX Studio V5 : accueil et sites des réalisations (GoRun, MTX Viewer, Triade, Sténo). Site statique, sans dépendance.",
   "scripts": {
     "dev": "python3 -m http.server 8765 --bind 127.0.0.1",
     "check": "node outils/verifier.mjs"

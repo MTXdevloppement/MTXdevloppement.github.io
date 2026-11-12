@@ -17,11 +17,11 @@
   <meta property="og:image" content="https://mtxdevloppement.github.io/realisations/viewer/assets/img/icone-512.png">
   <meta property="og:url" content="https://mtxdevloppement.github.io/realisations/viewer/">
   <link rel="canonical" href="https://mtxdevloppement.github.io/realisations/viewer/">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
   <script>document.documentElement.classList.add('js');</script>
-  <script defer src="assets/js/main.js"></script>
-<link rel="stylesheet" href="../../assets/css/projet.css?v=12">
-<script src="../../assets/js/projet.js?v=13" defer></script>
+  <script defer src="assets/js/main.js?v=2"></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=15" defer></script>
 </head>
 <body>
 <div class="mtx-gbar">
@@ -121,9 +121,18 @@
           </ul>
         </div>
         <figure class="ouvrir-ecran">
-          <div class="iphone" data-inspecter data-nom="figure.iphone">
-            <img src="assets/img/ecrans/bibliotheque.webp" srcset="assets/img/ecrans/bibliotheque-360.webp 360w, assets/img/ecrans/bibliotheque.webp 720w" sizes="(min-width: 960px) 330px, 72vw" width="720" height="1561" loading="lazy" decoding="async" alt="Bibliothèque de MTX Viewer : la rubrique « Sur cet iPhone » montre trois sites avec leur miniature, Atelier Lune, Café Rivage et Nuits Claires.">
-          </div>
+          <!-- La maquette pivote avec la souris (projet.js) ; le cadre de sélection passe d'un site à l'autre (main.js). -->
+          <div class="ouvrir-rig"><div class="ouvrir-pose mtx-pose" data-mtx-pose data-scene-ouvrir data-site="0">
+            <div class="iphone mtx-flotte">
+              <span class="iphone-touche" aria-hidden="true"></span>
+              <div class="iphone-vitre mtx-reflet">
+                <img src="assets/img/ecrans/bibliotheque.webp" srcset="assets/img/ecrans/bibliotheque-360.webp 360w, assets/img/ecrans/bibliotheque.webp 720w" sizes="(min-width: 960px) 330px, 72vw" width="720" height="1561" loading="lazy" decoding="async" alt="Bibliothèque de MTX Viewer : la rubrique « Sur cet iPhone » montre trois sites avec leur miniature, Atelier Lune, Café Rivage et Nuits Claires.">
+              </div>
+              <div class="iphone-plan" aria-hidden="true"><span class="vol-cadre"><b data-scene-nom>atelier-lune · 179 × 229</b></span></div>
+            </div>
+            <p class="vol vol-fichier mtx-flotte-2" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1.8 4.2c0-.7.5-1.2 1.2-1.2h3l1.4 1.6H13c.7 0 1.2.5 1.2 1.2v6c0 .7-.5 1.2-1.2 1.2H3c-.7 0-1.2-.5-1.2-1.2Z"/></svg><span data-scene-dossier>atelier-lune</span><i>›</i><b>index.html</b></p>
+            <p class="vol vol-etat mtx-flotte-3" aria-hidden="true"><i></i>Hors ligne · <b>3</b> sites</p>
+          </div></div>
           <figcaption>La bibliothèque&nbsp;: chaque site avec sa miniature.</figcaption>
         </figure>
       </div>
@@ -403,7 +412,7 @@
   </footer>
 
   <div class="cadre-inspection" data-cadre-inspection aria-hidden="true"><span></span></div>
-<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+<section class="mtx-pf" data-mtx-app="MTX Viewer" aria-labelledby="mtx-pf-t">
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-viewer.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
     <h2 class="mtx-pf-t" id="mtx-pf-t">MTX Viewer inspecte un site web sur iPhone et iPad, sans Mac.</h2>

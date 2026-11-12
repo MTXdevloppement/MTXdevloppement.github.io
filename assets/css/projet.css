@@ -38,7 +38,7 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
   .mtx-back{display:inline-flex}
 }
 
-.mtx-pf{position:relative;z-index:1;background:var(--mtx-fond);color:var(--mtx-encre);border-top:1px solid var(--mtx-filet);padding:clamp(72px,12vh,128px) 0 28px;font-size:17px;line-height:1.5}
+.mtx-pf{--mtx-pf-pt:clamp(72px,12vh,128px);position:relative;z-index:1;background:var(--mtx-fond);color:var(--mtx-encre);border-top:1px solid var(--mtx-filet);padding:var(--mtx-pf-pt) 0 28px;font-size:17px;line-height:1.5}
 .mtx-pf-w{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
 .mtx-pf-eye{display:flex;align-items:center;gap:12px;margin:0 0 20px;color:var(--mtx-gris);font-family:"MTX Geist Mono",ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
 .mtx-pf-eye img{width:40px;height:40px;border-radius:22.5%;box-shadow:0 0 0 1px var(--mtx-filet)}
@@ -59,6 +59,98 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-pf-bot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
 .mtx-pf-bot a{display:inline-flex;align-items:center;min-height:32px}
 @media (hover:hover){.mtx-pf-bot a:hover{color:var(--mtx-encre)}}
+
+/* Scène du pied : le téléphone du studio sur un nouveau message qui s'écrit, la même maquette que la fenêtre
+   « Contact » de l'accueil. Elle est posée par projet.js ; sans JavaScript, le pied reste tel quel.
+   Cotes des appareils en em : 1 em = largeur d'écran / 27. */
+.mtx-pf{--mtx-pw:clamp(210px,62vw,264px);--mtx-degrade:linear-gradient(90deg,#2997ff 0%,#a78bfa 40%,#ff6ec7 75%,#ffb86b 100%);--mtx-halo:rgba(255,255,255,.1);--mtx-ombre:rgba(0,0,0,.66);--mtx-bracelet:#2c2c2e;--mtx-bracelet-bord:#19191b;--mtx-mail-fond:#1c1c1e;--mtx-mail-encre:#fff;--mtx-mail-doux:rgba(235,235,245,.6);--mtx-mail-filet:rgba(120,120,128,.36);--mtx-mail-bleu:#0a84ff}
+:root[data-theme="light"] .mtx-pf{--mtx-halo:#fff;--mtx-ombre:rgba(0,0,0,.3);--mtx-bracelet:#f1efea;--mtx-bracelet-bord:#cbc9c3;--mtx-mail-fond:#fff;--mtx-mail-encre:#000;--mtx-mail-doux:rgba(60,60,67,.6);--mtx-mail-filet:rgba(60,60,67,.18);--mtx-mail-bleu:#007aff}
+
+/* Téléphone : le haut de la maquette au-dessus du texte, coupé par un fondu. */
+.mtx-sc{position:relative;height:calc(var(--mtx-pw)*1.44);margin:calc(-1*var(--mtx-pf-pt)) calc(-1*clamp(16px,4vw,56px)) 30px;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.mtx-sc::after{content:"";position:absolute;z-index:2;left:0;right:0;bottom:0;height:34%;background:linear-gradient(0deg,var(--mtx-fond) 4%,transparent);pointer-events:none}
+.mtx-sc span,.mtx-sc b{display:block}
+.mtx-sc-halo{position:absolute;left:56%;top:50%;width:calc(var(--mtx-pw)*3.4);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,var(--mtx-halo),transparent);pointer-events:none}
+.mtx-sc-rig{position:absolute;left:56%;top:calc(30.41em + 26px);width:0;height:0;font-size:calc(var(--mtx-pw)/27);perspective:150em}
+.mtx-sc-pose{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;transform:rotateX(7deg) rotateY(-4deg);will-change:transform}
+.mtx-sc-ombre{position:absolute;left:-13em;top:28.6em;width:26em;height:4.6em;border-radius:50%;background:var(--mtx-ombre);filter:blur(1.7em);transition:opacity .7s ease .2s}
+
+.mtx-tel{position:absolute;left:-14.55em;top:-30.41em;display:block;width:29.1em;height:60.82em;padding:.3em;border-radius:5.05em;background:linear-gradient(140deg,#77787d 0%,#2a2a2d 22%,#1b1b1d 50%,#2f2f32 78%,#85868c 100%);box-shadow:0 2.6em 5em -1.6em var(--mtx-ombre),0 .8em 1.6em -.6em rgba(0,0,0,.3),inset 0 0 0 .06em rgba(255,255,255,.2);cursor:pointer;animation:mtx-flotte 9s ease-in-out infinite}
+.mtx-pf .mtx-tel:focus-visible{outline:.2em solid var(--mtx-encre);outline-offset:.5em;border-radius:5.05em}
+.mtx-tel-touches,.mtx-tel-touches::before,.mtx-tel-touches::after{position:absolute;width:.34em;border-radius:.2em;background:linear-gradient(90deg,#55565a,#2a2a2d)}
+.mtx-tel-touches{left:-.3em;top:11.4em;height:2.3em}
+.mtx-tel-touches::before{content:"";left:0;top:4.2em;height:4.3em;box-shadow:0 5.3em 0 #3a3a3d}
+.mtx-tel-touches::after{content:"";left:29.36em;top:5.6em;height:6.8em;background:linear-gradient(90deg,#2a2a2d,#55565a)}
+.mtx-tel-bord{height:100%;padding:.75em;border-radius:4.75em;background:#050506}
+.mtx-tel-ecran{position:relative;height:100%;border-radius:4em;overflow:hidden;isolation:isolate;background:#000;color:#fff;line-height:1.2;letter-spacing:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif}
+/* Reflet de la vitre : il glisse avec l'angle de la maquette (--mtx-gl). */
+.mtx-tel-ecran::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;border-radius:inherit;background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.09) 46%,rgba(255,255,255,.02) 53%,transparent 63%);background-size:280% 100%;background-position:calc(50% + var(--mtx-gl,0)*1%) 0}
+.mtx-sc .mtx-tel-etat{position:absolute;z-index:2;top:0;left:0;right:0;height:4.2em;display:flex;align-items:center;justify-content:space-between;padding:0 2.35em 0 3.4em}
+.mtx-tel-heure{font-size:1.28em;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.mtx-sc .mtx-tel-ind{display:flex;align-items:center;gap:.45em}
+.mtx-tel-ind svg{width:auto;height:.94em;fill:currentColor}
+.mtx-tel-barre{position:absolute;z-index:6;left:50%;bottom:.62em;width:9.2em;height:.36em;margin-left:-4.6em;border-radius:1em;background:var(--mtx-mail-encre)}
+
+.mtx-msg{position:absolute;inset:5.1em 0 0;padding:1.4em 1.8em;border-radius:1.7em 1.7em 0 0;background:var(--mtx-mail-fond);color:var(--mtx-mail-encre)}
+.mtx-sc .mtx-msg-haut{display:flex;align-items:center;justify-content:space-between}
+.mtx-msg-haut>span:first-child{padding:.3em 0;font-size:1.36em;color:var(--mtx-mail-bleu)}
+.mtx-sc .mtx-msg-envoi{display:grid;place-items:center;width:2.9em;height:2.9em;border-radius:50%;background:var(--mtx-degrade);transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.mtx-msg-envoi svg{width:1.7em;height:1.7em;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.mtx-sc .mtx-msg-titre{margin:.45em 0 .4em;font-size:2.5em;font-weight:700;letter-spacing:-.02em}
+.mtx-sc .mtx-msg-ligne{display:flex;align-items:baseline;gap:.5em;padding:.72em 0;border-bottom:.06em solid var(--mtx-mail-filet);font-size:1.3em;white-space:nowrap}
+.mtx-msg-ligne span{color:var(--mtx-mail-doux)}
+.mtx-sc .mtx-msg-ligne b{padding:.08em .55em;border-radius:1em;font-weight:400;color:var(--mtx-mail-bleu);background:color-mix(in srgb,var(--mtx-mail-bleu) 14%,transparent)}
+.mtx-sc .mtx-msg-corps{padding-top:.95em;font-size:1.3em;line-height:1.42}
+.mtx-sc .mtx-msg-curseur{display:inline-block;width:.12em;height:1.15em;margin-left:.08em;vertical-align:-.2em;background:var(--mtx-mail-bleu);animation:mtx-curseur 1s step-end infinite}
+@media (hover:hover){.mtx-tel:hover .mtx-msg-envoi{transform:scale(1.14)}}
+.mtx-tel:active .mtx-msg-envoi{transform:scale(.92)}
+
+.mtx-montre{position:absolute;left:-23.4em;top:-15.5em;width:12.2em;height:14.8em;transform:translateZ(6em) rotate(-7deg);color:#fff;line-height:1.2;letter-spacing:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Rounded","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;animation:mtx-flotte 9s ease-in-out -3.5s infinite}
+.mtx-montre-bracelet{position:absolute;left:1.75em;right:1.75em;top:-6.6em;bottom:-6.6em;border-radius:1.4em;background:linear-gradient(90deg,var(--mtx-bracelet-bord),var(--mtx-bracelet) 20%,var(--mtx-bracelet) 80%,var(--mtx-bracelet-bord));-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 76%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 76%,transparent 100%)}
+.mtx-montre-boite{position:absolute;inset:0;padding:.28em;border-radius:3.7em;background:linear-gradient(140deg,#85868c 0%,#2a2a2d 25%,#1b1b1d 55%,#3a3a3d 80%,#92939a 100%);box-shadow:0 1.5em 2.8em -1em var(--mtx-ombre),0 .5em 1em -.4em rgba(0,0,0,.35)}
+.mtx-sc .mtx-montre-ecran{display:flex;flex-direction:column;height:100%;padding:.9em 1.05em .85em;border:.6em solid #060607;border-radius:3.45em;background:#000;overflow:hidden}
+.mtx-montre-date{font-size:1.02em;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:#ffb86b;white-space:nowrap}
+.mtx-sc .mtx-montre-heure{margin-top:auto;font-size:3.2em;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.mtx-sc .mtx-montre-pied{display:flex;align-items:center;gap:.4em;margin-top:.45em;font-size:.9em;opacity:.72;white-space:nowrap}
+.mtx-montre-pied svg{flex:none;width:.8em;height:1em}
+.mtx-montre-couronne{position:absolute;right:-.85em;top:3.2em;width:1em;height:2.5em;border-radius:.3em .45em .45em .3em;background:linear-gradient(180deg,#92939a,#3a3a3d 28%,#2a2a2d 72%,#77787d)}
+.mtx-montre-bouton{position:absolute;right:-.4em;top:8em;width:.5em;height:3.4em;border-radius:0 .3em .3em 0;background:#3a3a3d}
+
+/* Entrée en scène, puis arrêt quand le pied sort de l'écran. */
+.mtx-sc .mtx-tel,.mtx-sc .mtx-montre,.mtx-sc .mtx-sc-ombre{opacity:0}
+.mtx-sc.est-pret .mtx-tel{opacity:1;transition:opacity .7s ease}
+.mtx-sc.est-pret .mtx-montre{opacity:1;transition:opacity .6s ease .55s}
+.mtx-sc.est-pret .mtx-sc-ombre{opacity:1}
+.mtx-sc.est-hors *,.mtx-sc.est-hors *::before,.mtx-sc.est-hors *::after{animation-play-state:paused!important}
+@keyframes mtx-flotte{0%,100%{translate:0 0}50%{translate:0 -.7em}}
+@keyframes mtx-curseur{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Ordinateur : le texte à gauche, la maquette à droite, coupée par le filet du bas comme par la fenêtre « Contact ». */
+@media (min-width:901px){
+  .mtx-pf{--mtx-pw:clamp(200px,22vw,290px)}
+  .mtx-pf-w.mtx-avec-sc{display:grid;grid-template-columns:minmax(0,1fr) calc(var(--mtx-pw)*1.62);column-gap:clamp(20px,3vw,48px)}
+  .mtx-avec-sc>.mtx-pf-bot{grid-column:1/-1}
+  .mtx-sc{grid-column:2;grid-row:1/span 5;height:auto;margin:calc(-1*var(--mtx-pf-pt)) 0 -56px;overflow:visible;clip-path:inset(0 -100vw)}
+  .mtx-sc::after{display:none}
+  .mtx-sc-halo,.mtx-sc-rig{left:calc(100% - var(--mtx-pw)*.6)}
+  .mtx-sc-rig{top:max(50%,calc(30.41em + 36px))}
+  .mtx-sc-pose{transform:rotateX(5deg) rotateY(-8deg)}
+  .mtx-montre{left:-25.5em;top:8.4em}
+}
+@media print{.mtx-sc{display:none}}
+
+/* Maquettes des premiers écrans : la pose de la scène du pied, appliquée à la maquette propre à chaque site.
+   projet.js écrit --mtx-rx, --mtx-ry (degrés) et --mtx-gl sur [data-mtx-pose] ; chaque site règle l'angle de
+   repos avec --mtx-bx et --mtx-by. Sans JavaScript ou en mouvement réduit, la maquette garde son angle de repos. */
+.mtx-pose{transform-style:preserve-3d;transform:rotateX(calc((var(--mtx-bx,5) + var(--mtx-rx,0))*1deg)) rotateY(calc((var(--mtx-by,-8) + var(--mtx-ry,0))*1deg))}
+.mtx-flotte{animation:mtx-flotte-px 9s ease-in-out infinite}
+.mtx-flotte-2{animation:mtx-flotte-px 9s ease-in-out -3.5s infinite}
+.mtx-flotte-3{animation:mtx-flotte-px 9s ease-in-out -6s infinite}
+.est-hors :is(.mtx-flotte,.mtx-flotte-2,.mtx-flotte-3){animation-play-state:paused}
+/* Reflet de la vitre : il glisse avec l'angle de la maquette. */
+.mtx-reflet::after{content:"";position:absolute;inset:0;z-index:40;pointer-events:none;border-radius:inherit;background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.09) 46%,rgba(255,255,255,.02) 53%,transparent 63%);background-size:280% 100%;background-position:calc(50% + var(--mtx-gl,0)*1%) 0}
+@keyframes mtx-flotte-px{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media (prefers-reduced-motion:reduce){.mtx-flotte,.mtx-flotte-2,.mtx-flotte-3{animation:none}}
 
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.2,.7,0,1)}

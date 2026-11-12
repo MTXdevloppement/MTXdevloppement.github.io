@@ -103,6 +103,41 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .f-tableur{--r:0deg;--y:-30%;z-index:2;background:linear-gradient(170deg,#2FC27A,#1A9E5C 60%)}
 .f-diapo{--r:19deg;z-index:1;background:linear-gradient(170deg,#FF8C4D,#E86B2B 60%)}
 
+/* La scène du héros : posée en volume, elle pivote avec la souris (pose commune, projet.css). Les trois feuilles
+   sont en retrait derrière le téléphone, chacune à sa profondeur, et un extrait de chaque outil flotte devant lui,
+   dans sa voix : serif pour le texte, chasse fixe pour le tableur, linéale pour la présentation. */
+.hero .scene{perspective:1500px;padding:0}
+.scene-pose{position:relative;display:grid;place-items:center;width:100%;padding:calc(var(--tel)*.22) 0 calc(var(--tel)*.08);--mtx-bx:5;--mtx-by:-5}
+.scene-pose .eventail{transform-style:preserve-3d}
+.hero .feuille{--z:-40px;transform:translate3d(0,var(--y),var(--z)) rotate(var(--r)) scale(var(--e))}
+.hero .f-tableur{--z:-75px}
+.hero .f-diapo{--z:-110px}
+.tel-touche{position:absolute;z-index:-1;right:calc(var(--tel)*-.014);top:27%;width:calc(var(--tel)*.016);height:11%;border-radius:2px;background:linear-gradient(90deg,#1b1f2c,#3a4053)}
+.tel-vitre{position:relative;display:block;overflow:hidden;border-radius:calc(var(--tel)*.137)}
+.vol{position:absolute;z-index:3;display:flex;align-items:center;gap:9px;height:42px;margin:0;padding:0 16px 0 9px;border-radius:13px;white-space:nowrap;pointer-events:none;
+  background:var(--carte);color:var(--encre);box-shadow:inset 0 0 0 1px var(--filet),0 18px 36px -16px rgba(var(--ombre),.5)}
+.vol svg{flex:none;width:26px;height:26px;padding:4px 5px;border-radius:8px;background:var(--c);color:#fff}
+.vol-texte{--c:var(--bleu);top:16%;left:-4px;transform:translateZ(70px);font:italic 400 19px/1 var(--serif);letter-spacing:-.005em}
+.vol-texte i{display:inline-block;width:1.5px;height:1em;margin-left:3px;vertical-align:-.14em;background:var(--bleu);animation:vol-curseur 1.1s step-end infinite}
+.vol-tableur{--c:var(--vert);top:52%;right:-4px;transform:translateZ(100px);font:500 12.5px/1 var(--mono);letter-spacing:-.01em}
+.vol-diapo{--c:var(--orange);bottom:11%;left:-4px;transform:translateZ(46px);font:650 13.5px/1 var(--sans);letter-spacing:-.005em}
+@media (max-width:1100px){
+  .vol{height:34px;gap:7px;padding:0 12px 0 6px;border-radius:11px}
+  .vol svg{width:22px;height:22px;padding:3px 4px;border-radius:7px}
+  .vol-texte{font-size:16px}
+  .vol-tableur{font-size:11px}
+  .vol-diapo{font-size:12px}
+}
+@media (max-width:860px){.vol-tableur{right:8px}}
+@keyframes vol-curseur{50%{opacity:0}}
+@media (min-width:861px){
+  .scene-pose{--mtx-bx:4;--mtx-by:-10}
+  .vol-texte{top:17%;left:clamp(-118px,10px - 9vw,-40px)}
+  .vol-tableur{right:clamp(-64px,22px - 6vw,-8px)}
+  .vol-diapo{left:clamp(-76px,10px - 6vw,-20px)}
+}
+@media print{.vol{display:none}}
+
 /* Promesse ------------------------------------------------------------ */
 .hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(20px,4vw,64px);align-items:center;max-width:1280px;margin:0 auto;padding:clamp(28px,5vw,64px) var(--marge) clamp(48px,7vw,88px)}
 .hero-texte{display:grid;gap:clamp(18px,2.2vw,28px);justify-items:start}
@@ -327,11 +362,17 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
 .js .entete [data-apparait]:nth-child(2){transition-delay:.06s}
 .js .entete [data-apparait]:nth-child(3){transition-delay:.12s}
 @media (prefers-reduced-motion:no-preference){
-  .hero .feuille{animation:deploie 1s var(--courbe) both}
-  .hero .f-tableur{animation-delay:.08s}
-  .hero .f-diapo{animation-delay:.16s}
-  .hero .telephone{animation:pose .9s var(--courbe) both}
-  @keyframes deploie{from{transform:translateY(-6%) rotate(0) scale(.9)}}
+  .hero .feuille{animation:deploie 1s var(--courbe) both,mtx-flotte-px 9s ease-in-out -3.5s infinite}
+  .hero .f-tableur{animation-delay:.08s,-5s}
+  .hero .f-diapo{animation-delay:.16s,-6.5s}
+  .hero .telephone{animation:pose .9s var(--courbe) both,mtx-flotte-px 9s ease-in-out infinite}
+  .hero .est-hors :is(.feuille,.telephone,.vol-texte i){animation-play-state:paused}
+  .hero .vol{animation-name:mtx-flotte-px,vol-entre;animation-duration:9s,.7s;animation-timing-function:ease-in-out,var(--courbe);animation-iteration-count:infinite,1;animation-fill-mode:none,backwards}
+  .hero .vol-texte{animation-delay:-3.5s,.5s}
+  .hero .vol-tableur{animation-delay:-6s,.65s}
+  .hero .vol-diapo{animation-delay:0s,.8s}
+  @keyframes vol-entre{from{opacity:0;scale:.82}}
+  @keyframes deploie{from{transform:translate3d(0,-6%,var(--z)) rotate(0) scale(.9)}}
   @keyframes pose{from{transform:translateY(26px)}}
   .eventail-appel .feuille{--r:0deg}
   .eventail-appel.vu .f-texte{--r:-19deg}

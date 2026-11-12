@@ -20,12 +20,12 @@
 <link rel="apple-touch-icon" href="assets/img/icone/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/mona-sans-italique-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 <script>document.documentElement.classList.add('js')</script>
-<script src="assets/js/site.js" defer></script>
+<script src="assets/js/site.js?v=2" defer></script>
 <script src="assets/js/plaque-donnees.js" defer></script>
-<link rel="stylesheet" href="../../assets/css/projet.css?v=12">
-<script src="../../assets/js/projet.js?v=13" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=15" defer></script>
 </head>
 <body>
 <div class="mtx-gbar">
@@ -95,9 +95,23 @@
   </div>
 
   <figure class="heros-tel tel apparait vu" style="--l: clamp(15rem, min(25vw, (100svh - 15rem) / 2.081), 22.5rem)">
-    <div class="tel-corps"><div class="tel-verre"><div class="ecran-pile" id="proto" data-ecran="stats">
+    <!-- La maquette pivote avec la souris (projet.js) ; la montre suit la course du téléphone. -->
+    <div class="heros-pose mtx-pose" data-mtx-pose>
+    <div class="tel-corps mtx-flotte"><span class="heros-touche" aria-hidden="true"></span><div class="tel-verre"><div class="ecran-pile mtx-reflet" id="proto" data-ecran="stats">
       <picture><source type="image/avif" srcset="assets/img/ecrans/course-stats-520.avif 520w, assets/img/ecrans/course-stats-860.avif 860w" sizes="(max-width: 760px) 64vw, 360px"><img class="tel-ecran" src="assets/img/ecrans/course-stats-860.webp" srcset="assets/img/ecrans/course-stats-520.webp 520w, assets/img/ecrans/course-stats-860.webp 860w" sizes="(max-width: 760px) 64vw, 360px" width="860" height="1870" alt="Écran de course de GoRun : 6,42 kilomètres, 33 minutes 24, allure moyenne 5:12 par kilomètre, cadence 174 pas par minute ; parcours « Deux tours de la Tête d’Or », reste 1,74 km, moins 8 secondes sur le record, en vert." fetchpriority="high"></picture>
     </div></div></div>
+    <div class="montre heros-montre en-vue mtx-flotte-2" id="heros-montre" aria-hidden="true">
+      <div class="montre-boitier"><div class="montre-ecran mtx-reflet"><div class="m-page">
+        <p class="m-titre">Deux tours de la Tête…</p>
+        <p class="m-chrono chiffre">33:24</p>
+        <p class="m-ligne"><span class="chiffre">6,42</span><small>KM</small></p>
+        <p class="m-ligne"><span class="chiffre">5:12</span><small>MOY./KM</small></p>
+        <p class="m-ligne"><span class="chiffre">4:58</span><small>ALLURE</small></p>
+        <p class="m-bas"><span class="chiffre" data-hm-fc>158</span><svg class="m-coeur"><use href="#i-coeur"/></svg><span class="m-reste chiffre">−1,74 km</span></p>
+      </div></div></div>
+      <span class="montre-couronne"></span><span class="montre-bouton"></span>
+    </div>
+    </div>
     <figcaption class="proto-aide">Écran manipulable, comme dans l’app&#8239;: <b>Carte</b>, <b>Pause</b>, <b>Verrouiller</b>.</figcaption>
     <p class="visuellement-cache" id="proto-annonce" aria-live="polite"></p>
   </figure>
@@ -419,7 +433,7 @@
   <p>Une app de <a href="https://mtxdevloppement.github.io/">MTX Studio</a>. Captures réalisées dans le simulateur iOS avec des données de démonstration&#8239;; fond de carte de la planche © contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>&#8239;; cartes des captures&#8239;: Plans d’Apple. Police Mona Sans (SIL OFL, licence dans <code>assets/fonts/OFL.txt</code>).</p>
   <p>© 2026 MTX Studio</p>
 </footer>
-<section class="mtx-pf" aria-labelledby="mtx-pf-t">
+<section class="mtx-pf" data-mtx-app="GoRun" aria-labelledby="mtx-pf-t">
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
     <h2 class="mtx-pf-t" id="mtx-pf-t">GoRun vous fait courir contre votre propre record.</h2>

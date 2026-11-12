@@ -317,6 +317,23 @@
     etapes[0].classList.add('actif');
   }
 
+  // La montre du héros : le cœur bat tant que la course tourne, et s'arrête avec la pause du téléphone.
+  (function montreHeros() {
+    const montre = $('#heros-montre'), pile = $('#proto');
+    if (!montre || !pile) return;
+    const fc = $('[data-hm-fc]', montre);
+    const suivre = () => montre.classList.toggle('en-pause', !['stats', 'carte'].includes(pile.dataset.ecran));
+    new MutationObserver(suivre).observe(pile, { attributes: true, attributeFilter: ['data-ecran'] });
+    suivre();
+    if (mqReduit.matches) return;
+    let n = 158;
+    setInterval(() => {
+      if (document.hidden || montre.classList.contains('en-pause')) return;
+      n = Math.max(155, Math.min(162, n + Math.round(Math.random() * 2 - 1)));
+      fc.textContent = n;
+    }, 1300);
+  })();
+
   (function prototype() {
     const pile = $('#proto');
     if (!pile) return;

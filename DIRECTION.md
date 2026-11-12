@@ -10,8 +10,8 @@ Le studio fabrique des apps pour iPhone, iPad, Apple Watch et Mac. Le premier é
 métier : un iPhone dont l’écran d’accueil ne contient que les apps du studio, et une Apple Watch à côté.
 On touche une icône, l’app s’ouvre avec le zoom d’iOS et déroule ses vraies captures ; un lien mène à son
 site. C’est le slogan « De l’icône au site » rejoué par le visiteur, et l’écho du titre de la section
-suivante, « Ouvrez-en une. ». L’idée ne tient que pour ce studio : ce sont ses trois icônes, ses captures,
-et l’emplacement vide « Votre app » est l’appel au projet.
+suivante, « Ouvrez-en une. ». L’idée ne tient que pour ce studio : ce sont ses icônes (quatre depuis Sténo), ses
+captures, et l’emplacement vide « Votre app », passé dans le dock quand la rangée s’est remplie, est l’appel au projet.
 
 ## 2. Composition
 
@@ -21,6 +21,15 @@ et l’emplacement vide « Votre app » est l’appel au projet.
   et touchable. La légende passe au-dessus du nom du fondateur.
 - La scène est fixe, comme l’était la vidéo : la feuille des réalisations glisse par-dessus, et la fenêtre
   « Contact » la laisse réapparaître, cette fois sur un nouveau message adressé au studio.
+- Sites des réalisations : la même maquette (téléphone sur un nouveau message, montre à l’heure) est posée
+  dans le pied commun « Une réalisation MTX Studio » par `assets/js/projet.js`. Le message cite l’app du site
+  (`data-mtx-app`) ; le téléphone est un lien qui ouvre l’e-mail. Sans JavaScript, le pied reste tel quel.
+- Maquettes des sites des réalisations : chaque site reprend la pose de cette scène (pivot à la souris,
+  flottement, reflet de la vitre) avec les classes communes `mtx-pose`, `mtx-flotte` et `mtx-reflet`, et y
+  ajoute ce qui lui est propre. Sténo : les éléments relevés flottent devant le téléphone. GoRun : l’Apple
+  Watch suit la course du téléphone. MTX Viewer (section « Ouvrir un site ») : un cadre de sélection passe
+  d’un site de la bibliothèque à l’autre. Triade : les trois feuilles en retrait, un extrait de chaque outil
+  devant.
 
 ## 3. Palette
 

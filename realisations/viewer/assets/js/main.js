@@ -351,6 +351,23 @@
   affichesVideos();
   brancherVideos();
 
+  // Scène « Ouvrir » : le cadre de sélection passe d'un site de la bibliothèque à l'autre, et l'étiquette du
+  // fichier suit. À l'arrêt hors de l'écran ; en mouvement réduit, le cadre reste sur le premier site.
+  const sceneOuvrir = $('[data-scene-ouvrir]');
+  if (sceneOuvrir && !reduit() && 'IntersectionObserver' in window) {
+    const sites = ['atelier-lune', 'cafe-rivage', 'nuits-claires'];
+    const nom = $('[data-scene-nom]', sceneOuvrir), dossier = $('[data-scene-dossier]', sceneOuvrir);
+    let n = 0, visible = false;
+    new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0.3 }).observe(sceneOuvrir);
+    setInterval(() => {
+      if (!visible || document.hidden) return;
+      n = (n + 1) % sites.length;
+      sceneOuvrir.dataset.site = n;
+      nom.textContent = `${sites[n]} · 179 × 229`;
+      dossier.textContent = sites[n];
+    }, 2800);
+  }
+
   const frappe = $('[data-frappe]');
   if (frappe) {
     $$('span', frappe).forEach((s, i) => s.style.setProperty('--i', i));

@@ -53,6 +53,10 @@ en HTML/SVG d'après l'icône.
 - Démonstrations de l'assistant : suite de captures qui s'enchaînent, avec légende, pause et étapes.
 - Interrupteur « mode Avion » : la liste de ce qui fonctionne ne change pas.
 - Apparition des titres au défilement (un seul effet, sobre), déploiement de l'éventail à l'arrivée.
+- Scène du héros en volume : elle pivote avec la souris (pose commune du site MTX Studio), les trois feuilles
+  sont en retrait derrière le téléphone, chacune à sa profondeur, et un extrait de chaque outil flotte devant
+  lui dans sa voix (« Madame, Monsieur, » en serif, `=SOMME(B4:B31)` en chasse fixe, « Projet de boulangerie »
+  en linéale).
 - Courbe `cubic-bezier(.2,.7,0,1)`, 0,35 à 0,7 s. Avec `prefers-reduced-motion`, pas de lecture automatique
   ni de déplacement : l'état final est affiché et les étapes se passent à la main.
 

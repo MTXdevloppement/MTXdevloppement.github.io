@@ -65,12 +65,22 @@
         ['tableur', 'Un devis dans le tableur'],
       ],
     },
+    steno: {
+      name: 'Sténo', site: 'realisations/steno/index.html', link: ['Ouvrir le site', ' de Sténo'],
+      icon: 'assets/img/realisations/icone-steno.webp', bg: '#f2f2f7', bar: '#000',
+      base: 'realisations/steno/assets/img/ecrans/', avif: true,
+      shots: [
+        ['memos', 'Les mémos, analysés sur l’iPhone'],
+        ['memo', 'Tâches, personnes et dates relevées'],
+        ['taches', 'Les tâches, rangées par échéance'],
+      ],
+    },
     mail: {
       name: 'Nouveau message', site: MAIL, link: ['Écrire au studio', ''],
       legend: 'À : mtxstudio@proton.me', shots: [],
     },
   };
-  const ORDER = ['gorun', 'viewer', 'triade'];
+  const ORDER = ['gorun', 'viewer', 'triade', 'steno'];
 
   let current = null;       // app ouverte
   let source = null;        // icône d’où part le zoom

@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)</script>
+<title>Sténo : des notes extraites de vos mémos vocaux sur iPhone</title>
+<meta name="description" content="Sténo transcrit vos mémos vocaux sur l’iPhone et en relève personnes, tâches, décisions et dates avec Apple Intelligence. Rien ne quitte l’appareil.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtxdevloppement.github.io/realisations/steno/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Sténo — Parlez. Sténo note.">
+<meta property="og:description" content="Un mémo vocal devient des notes rangées : personnes citées, tâches, décisions, dates. Sur l’iPhone, sans compte ni serveur.">
+<meta property="og:url" content="https://mtxdevloppement.github.io/realisations/steno/">
+<meta property="og:image" content="https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sténo : une phrase dictée dont les mots se rangent en tâches, personnes et dates">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sténo — Parlez. Sténo note.">
+<meta name="twitter:description" content="Un mémo vocal devient des notes rangées : personnes citées, tâches, décisions, dates. Sur l’iPhone, sans compte ni serveur.">
+<meta name="twitter:image" content="https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="icon" href="assets/img/steno-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<script>document.documentElement.classList.add('js')</script>
+<script src="assets/js/releve.js?v=1" defer></script>
+<script src="assets/js/site.js?v=1" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=15" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtxdevloppement.github.io/realisations/steno/#app","name":"Sténo","alternateName":"Sténo — Notes de mémos vocaux","description":"App iPhone et iPad qui transcrit les mémos vocaux sur l’appareil et en relève les personnes citées, les tâches, les décisions et les dates avec Apple Intelligence.","applicationCategory":"ProductivityApplication","applicationSubCategory":"Prise de notes","operatingSystem":"iOS 27, iPadOS 27","softwareVersion":"1.0","inLanguage":"fr","url":"https://mtxdevloppement.github.io/realisations/steno/","image":"https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png","author":{"@type":"Organization","@id":"https://mtxdevloppement.github.io/#studio","name":"MTX Studio","url":"https://mtxdevloppement.github.io/"},"featureList":["Transcription sur l’appareil","Relevé des tâches, personnes, décisions et dates","Questions posées à un mémo","Rédaction de comptes rendus","Raccourcis, Siri, bouton Action","Widgets et activité en direct"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtxdevloppement.github.io/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtxdevloppement.github.io/#realisations"},{"@type":"ListItem","position":3,"name":"Sténo","item":"https://mtxdevloppement.github.io/realisations/steno/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il Apple Intelligence pour utiliser Sténo ?","acceptedAnswer":{"@type":"Answer","text":"Non. Sans Apple Intelligence, l’analyse locale de Sténo relève quand même les personnes, les tâches, les dates et les chiffres. Avec le modèle d’Apple, les titres, les résumés et le relevé sont plus fins, et vous pouvez interroger un mémo ou faire rédiger un compte rendu."}},{"@type":"Question","name":"Mes mémos quittent-ils mon iPhone ?","acceptedAnswer":{"@type":"Answer","text":"Non. L’enregistrement, la transcription et l’analyse se font sur l’appareil. Sténo n’a ni compte ni serveur, et aucun mémo n’est envoyé sur Internet."}},{"@type":"Question","name":"Comment envoyer un mémo depuis Dictaphone ?","acceptedAnswer":{"@type":"Answer","text":"Ouvrez le mémo dans Dictaphone, touchez Partager, puis choisissez Sténo. Vous pouvez aussi utiliser l’action « Extraire les notes d’un mémo vocal » dans Raccourcis."}},{"@type":"Question","name":"Que relève Sténo dans un mémo ?","acceptedAnswer":{"@type":"Answer","text":"Dix familles d’éléments : tâches, dates, personnes, décisions, questions, idées, lieux, organisations, chiffres et coordonnées. Chaque élément garde la phrase d’origine et, quand l’audio est conservé, l’instant où elle a été dite."}},{"@type":"Question","name":"Sténo fonctionne-t-il sur iPad ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Sténo est une app pour iPhone et iPad, sous iOS 27 et iPadOS 27."}},{"@type":"Question","name":"Quand Sténo sera-t-il disponible ?","acceptedAnswer":{"@type":"Answer","text":"Sténo arrive bientôt sur l’App Store. Un message à mtxstudio@proton.me suffit pour être prévenu le jour de la sortie."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../index.html#realisations" aria-current="true">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../index.html#r-steno">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="s-logo" viewBox="0 0 64 44"><g fill="currentColor"><rect x="0" y="12" width="7" height="20" rx="3.5"/><rect x="11.500" y="0" width="7" height="44" rx="3.5"/><rect x="23" y="8" width="7" height="28" rx="3.5"/><rect x="36" y="6.500" width="25" height="7" rx="3.5"/><rect x="36" y="18.500" width="16" height="7" rx="3.5"/><rect x="36" y="30.500" width="21.500" height="7" rx="3.5"/></g></symbol>
+    <symbol id="s-fleche" viewBox="0 0 16 16"><path d="M3 8h9.500M8.500 3.500 13 8l-4.500 4.500" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-coche" viewBox="0 0 16 16"><path d="m3.200 8.400 3 3 6.400-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-micro" viewBox="0 0 24 24"><path d="M12 2.500a3.500 3.500 0 0 0-3.500 3.500v5.500a3.500 3.500 0 0 0 7 0V6A3.500 3.500 0 0 0 12 2.500Z" fill="currentColor"/><path d="M5.500 11a6.500 6.500 0 0 0 13 0M12 17.500v4M8.500 21.500h7" fill="none" stroke="currentColor" stroke-width="1.900" stroke-linecap="round"/></symbol>
+    <symbol id="s-pause" viewBox="0 0 16 16"><rect x="3.400" y="2.600" width="3.400" height="10.800" rx="1.100" fill="currentColor"/><rect x="9.200" y="2.600" width="3.400" height="10.800" rx="1.100" fill="currentColor"/></symbol>
+    <symbol id="s-lecture" viewBox="0 0 16 16"><path d="M4.600 2.900v10.200a.6.6 0 0 0 .9.500l8-5.100a.6.6 0 0 0 0-1l-8-5.100a.6.6 0 0 0-.9.500Z" fill="currentColor"/></symbol>
+    <symbol id="s-stop" viewBox="0 0 16 16"><rect x="3.200" y="3.200" width="9.600" height="9.600" rx="2.200" fill="currentColor"/></symbol>
+    <symbol id="s-rejouer" viewBox="0 0 16 16"><path d="M2.800 8a5.200 5.200 0 1 0 1.700-3.850M2.600 2.300v2.600h2.600" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-chevron" viewBox="0 0 16 16"><path d="m3.500 6 4.500 4.500L12.500 6" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-corbeille" viewBox="0 0 16 16"><path d="M2.800 4.300h10.400M6.300 4.300V2.900h3.400v1.400M4.100 4.300l.6 8.300a1 1 0 0 0 1 .9h4.600a1 1 0 0 0 1-.9l.6-8.300M6.600 6.800v4M9.400 6.800v4" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-partager" viewBox="0 0 16 16"><path d="M8 10V2.200M5.300 4.600 8 2l2.700 2.600M4.200 7.300H3.600a1 1 0 0 0-1 1v4.800a1 1 0 0 0 1 1h8.800a1 1 0 0 0 1-1V8.300a1 1 0 0 0-1-1h-.6" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-etincelles" viewBox="0 0 16 16"><path d="M6.300 2.200 7.500 5.800 11 7l-3.500 1.200-1.200 3.600L5.100 8.200 1.600 7l3.500-1.200ZM12.200 9.600l.6 1.700 1.700.6-1.700.6-.6 1.700-.6-1.700-1.700-.6 1.700-.6Z" fill="currentColor"/></symbol>
+    <symbol id="s-crayon" viewBox="0 0 16 16"><path d="M9.800 3.200 12.800 6.200 6 13H3v-3ZM8.500 13h4.700" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-onde" viewBox="0 0 16 16"><path d="M2 6.500v3M4.800 4v8M7.600 2v12M10.400 5v6M13.200 6.800v2.400" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round"/></symbol>
+    <symbol id="s-cadenas" viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.400"/><path d="M5.300 7V5.200a2.700 2.700 0 0 1 5.400 0V7" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round"/></symbol>
+    <symbol id="s-nuage" viewBox="0 0 24 24"><path d="M7 18.500a4.500 4.500 0 0 1-.6-8.960 6 6 0 0 1 11.500 1.300A3.900 3.900 0 0 1 17.500 18.500Z" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round"/><path d="m4 4 16 16" stroke="currentColor" stroke-width="1.800" stroke-linecap="round"/></symbol>
+    <!-- Les dix familles -->
+    <symbol id="f-tache" viewBox="0 0 16 16"><path d="m2.200 4.300 1.200 1.200 2-2.300M2.200 10.300l1.200 1.200 2-2.300M8 4.500h6M8 10.500h6" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="f-date" viewBox="0 0 16 16"><rect x="2.200" y="3.200" width="11.600" height="10.600" rx="2.400" fill="none" stroke="currentColor" stroke-width="1.400"/><path d="M2.400 6.600h11.200M5.300 2v2.200M10.700 2v2.200" stroke="currentColor" stroke-width="1.400" stroke-linecap="round"/></symbol>
+    <symbol id="f-personne" viewBox="0 0 16 16"><circle cx="8" cy="5.400" r="2.600" fill="none" stroke="currentColor" stroke-width="1.400"/><path d="M2.800 13.600a5.200 5.200 0 0 1 10.400 0" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round"/></symbol>
+    <symbol id="f-decision" viewBox="0 0 16 16"><path d="M8 1.800 9.700 3l2.100-.1.600 2 1.600 1.300-.8 1.900.8 1.900-1.600 1.300-.6 2-2.100-.1L8 14.200 6.300 13l-2.100.1-.6-2L2 9.900 2.800 8 2 6.100l1.600-1.300.6-2L6.300 3Z" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linejoin="round"/><path d="m5.800 8.100 1.600 1.600 2.900-3.200" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="f-question" viewBox="0 0 16 16"><path d="M2.400 4.400a2 2 0 0 1 2-2h7.200a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7.300L4.400 13.900v-2.500a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linejoin="round"/><path d="M6.700 5.700a1.400 1.400 0 1 1 2 1.300c-.5.300-.7.500-.7 1" fill="none" stroke="currentColor" stroke-width="1.200" stroke-linecap="round"/><circle cx="8" cy="9.400" r=".7" fill="currentColor"/></symbol>
+    <symbol id="f-idee" viewBox="0 0 16 16"><path d="M5.800 11.200c0-1.200-1.800-2-1.800-4.400a4 4 0 0 1 8 0c0 2.400-1.800 3.200-1.800 4.400ZM6.300 13.600h3.400" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="f-lieu" viewBox="0 0 16 16"><path d="M8 14.200s4.400-3.900 4.400-7.500a4.400 4.400 0 0 0-8.800 0c0 3.600 4.400 7.500 4.400 7.500Z" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linejoin="round"/><circle cx="8" cy="6.600" r="1.600" fill="currentColor"/></symbol>
+    <symbol id="f-organisation" viewBox="0 0 16 16"><path d="M3 13.800V3.600a1 1 0 0 1 1-1h4.400a1 1 0 0 1 1 1v10.200M9.400 7h2.600a1 1 0 0 1 1 1v5.800M1.800 13.800h12.400M5.300 5.200h1.800M5.300 7.800h1.800M5.300 10.400h1.800" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="f-chiffre" viewBox="0 0 16 16"><path d="M6.400 2.400 5 13.600M11 2.400 9.600 13.600M3 5.800h10.600M2.400 10.200H13" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/></symbol>
+    <symbol id="f-coordonnee" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.500" fill="none" stroke="currentColor" stroke-width="1.400"/><path d="M10.500 8v1a1.700 1.700 0 0 0 3.300 0V8A5.800 5.800 0 1 0 11 12.900" fill="none" stroke="currentColor" stroke-width="1.400" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" data-nav>
+  <div class="nav-in">
+    <span class="nav-onde" aria-hidden="true" data-onde></span>
+    <a class="nav-marque" href="#haut" aria-label="Sténo, haut de la page"><svg aria-hidden="true"><use href="#s-logo"/></svg><span>Sténo</span></a>
+    <nav class="nav-liens" aria-label="Sections de la page">
+      <a href="#releve">Le relevé</a>
+      <a href="#raccourcis">Raccourcis</a>
+      <a href="#assistant">Assistant</a>
+      <a href="#prive">Vie privée</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="bouton bouton-rouge nav-appel" href="#appel">Être prévenu</a>
+  </div>
+</header>
+
+<main id="contenu">
+  <!-- La marge du cahier : la page se lit comme un mémo, la tête de lecture suit le défilement. -->
+  <div class="marge" aria-hidden="true"><span class="marge-tete" data-tete><b data-tete-temps>0:00</b></span></div>
+
+  <!-- 0:00 — Promesse -->
+  <section class="heros" id="haut" data-code="0:00">
+    <div class="heros-texte">
+      <p class="surtitre"><span class="rec" aria-hidden="true"></span>App iPhone et iPad · iOS 27 · Apple Intelligence</p>
+      <h1>Parlez.<br><em>Sténo note.</em></h1>
+      <p class="chapo">Dictez un mémo, ou envoyez-en un depuis Dictaphone. Sténo le transcrit sur l’iPhone et en relève les personnes citées, les tâches, les décisions et les dates. Rien ne quitte l’appareil.</p>
+      <div class="actions">
+        <a class="bouton bouton-rouge" href="mailto:mtxstudio@proton.me?subject=St%C3%A9no%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20St%C3%A9no%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie<svg class="fl" aria-hidden="true"><use href="#s-fleche"/></svg></a>
+        <a class="bouton bouton-trait" href="#releve">Essayer le relevé</a>
+      </div>
+      <dl class="faits">
+        <div><dt>Relevé</dt><dd><b>10</b> familles d’éléments</dd></div>
+        <div><dt>Envoyé sur Internet</dt><dd><b>0</b> octet</dd></div>
+        <div><dt>Raccourcis</dt><dd><b>6</b> actions, Siri compris</dd></div>
+      </dl>
+    </div>
+
+    <div class="heros-scene" data-demo data-phase="memo">
+      <!-- La maquette pivote avec la souris (projet.js) ; les éléments relevés flottent devant le téléphone. -->
+      <div class="heros-rig"><div class="heros-pose mtx-pose" data-mtx-pose>
+      <div class="tel mtx-flotte" role="img" aria-label="Maquette animée de l’app : un mémo est dicté, analysé, puis ses notes s’affichent">
+        <span class="tel-bouton tel-bouton-action" aria-hidden="true"></span>
+        <div class="tel-ecran mtx-reflet" aria-hidden="true">
+          <p class="tel-ile"></p>
+
+          <!-- Écran 1 : l’enregistrement -->
+          <div class="vue vue-enr">
+            <p class="ap-barre"><span class="ap-rond"><svg><use href="#s-chevron"/></svg></span><span class="ap-etat"><i></i>Enregistrement</span><span class="ap-rond"><svg><use href="#s-corbeille"/></svg></span></p>
+            <p class="ap-chrono" data-demo-chrono>0:00</p>
+            <p class="ap-onde" data-demo-onde></p>
+            <p class="ap-dictee" data-demo-dictee><span class="ap-invite">Parlez, Sténo écrit.</span></p>
+            <p class="ap-commandes"><button class="ap-pause" type="button" data-demo-pause tabindex="-1" aria-label="Mettre en pause"><svg><use href="#s-pause"/></svg></button><button class="ap-terminer" type="button" data-demo-fin tabindex="-1"><svg><use href="#s-stop"/></svg>Terminer</button></p>
+          </div>
+
+          <!-- Écran 2 : l’analyse -->
+          <div class="vue vue-ana">
+            <p class="ap-genre">Mémo · à l’instant</p>
+            <p class="ap-titre">Nouveau mémo</p>
+            <div class="ap-carte ap-etapes">
+              <p class="ap-etape is-faite"><span class="ap-pastille"><svg><use href="#s-coche"/></svg></span><span><b>Transcription sur l’appareil</b><small>Terminée</small></span></p>
+              <p class="ap-etape is-active"><span class="ap-pastille"><svg><use href="#s-etincelles"/></svg></span><span><b>Relevé des éléments</b><small data-demo-compte>Apple Intelligence lit le mémo…</small></span></p>
+              <p class="ap-avance"><i data-demo-avance></i></p>
+            </div>
+          </div>
+
+          <!-- Écran 3 : le mémo rangé -->
+          <div class="vue vue-memo">
+            <p class="ap-barre"><span class="ap-rond"><svg style="transform:rotate(90deg)"><use href="#s-chevron"/></svg></span><span class="ap-rond ap-rond-large"><svg><use href="#s-partager"/></svg><b>···</b></span></p>
+            <p class="ap-genre"><svg><use href="#f-personne"/></svg><b>Réunion</b> aujourd’hui à 9:41</p>
+            <p class="ap-titre">Compte rendu réunion chantier</p>
+            <p class="ap-puces"><span class="ap-puce ap-puce-ia"><svg><use href="#s-etincelles"/></svg>Apple Intelligence</span><span class="ap-puce">#parquet</span><span class="ap-puce">#devis</span></p>
+            <div class="ap-carte ap-resume">
+              <p class="ap-label">Résumé</p>
+              <p>Réunion de chantier avec l’architecte et l’entreprise. Le parquet en chêne est gardé dans le salon&#8239;; le devis de la cuisine est à 12&#8239;400&nbsp;€.</p>
+            </div>
+            <p class="ap-actions"><span><svg><use href="#s-etincelles"/></svg>Interroger</span><span><svg><use href="#s-crayon"/></svg>Rédiger</span></p>
+            <div class="ap-carte ap-liste">
+              <p class="ap-entete f-tache"><span class="ap-ico"><svg><use href="#f-tache"/></svg></span><b>Tâches</b><i>3</i></p>
+              <p class="ap-ligne"><span class="ap-case"></span><span>Envoyer le plan corrigé à Claire<small><em class="p-date">Vendredi</em></small></span></p>
+              <p class="ap-ligne"><span class="ap-case"></span><span>Commander les fenêtres<small><em class="p-date">Cette semaine</em><em class="p-qui">Julien</em><em class="p-prio">Prioritaire</em></small></span></p>
+              <p class="ap-ligne"><span class="ap-case"></span><span>Rappeler la banque<small><em class="p-date">Demain à 10:00</em></small></span></p>
+            </div>
+            <div class="ap-carte ap-liste">
+              <p class="ap-entete f-personne"><span class="ap-ico"><svg><use href="#f-personne"/></svg></span><b>Personnes</b><i>2</i></p>
+              <p class="ap-ligne"><span class="ap-mono">CM</span><span>Claire Morel<small>Architecte</small></span></p>
+              <p class="ap-ligne"><span class="ap-mono ap-mono-2">J</span><span>Julien<small>Bâti Sud</small></span></p>
+            </div>
+          </div>
+
+          <p class="ap-onglets"><span class="is-ici"><svg><use href="#s-onde"/></svg>Mémos</span><span><svg><use href="#f-tache"/></svg>À faire<i>4</i></span><span><svg><use href="#f-personne"/></svg>Repères</span></p>
+        </div>
+      </div>
+      <p class="vol vol-voix mtx-flotte-2" aria-hidden="true"><i></i>Dictée en cours</p>
+      <p class="vol vol-tache f-tache mtx-flotte-2" aria-hidden="true"><svg><use href="#f-tache"/></svg><b>3</b> tâches</p>
+      <p class="vol vol-personne f-personne mtx-flotte-3" aria-hidden="true"><svg><use href="#f-personne"/></svg><b>2</b> personnes</p>
+      <p class="vol vol-date f-date mtx-flotte" aria-hidden="true"><svg><use href="#f-date"/></svg><b>3</b> dates</p>
+      </div></div>
+
+      <div class="demo-pilote">
+        <ol class="demo-etapes" aria-label="Étapes de la démonstration">
+          <li><button type="button" data-demo-aller="enr">Dicter</button></li>
+          <li><button type="button" data-demo-aller="ana">Analyser</button></li>
+          <li><button type="button" data-demo-aller="memo">Retrouver</button></li>
+        </ol>
+        <button class="demo-jouer" type="button" data-demo-jouer aria-label="Mettre la démonstration en pause"><svg class="i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 0:14 — Le relevé -->
+  <section class="sec releve" id="releve" data-code="0:14" aria-labelledby="titre-releve">
+    <p class="repere"><span class="repere-t">0:14</span>Le relevé</p>
+    <h2 id="titre-releve" data-apparait>Écrivez une phrase.<br><em>Sténo la range.</em></h2>
+    <p class="chapo" data-apparait>Choisissez un mémo d’exemple ou écrivez comme vous parlez. Chaque mot utile prend sa couleur, puis sa place&#8239;: une tâche avec son échéance, un prénom, un montant, une décision.</p>
+
+    <div class="rel" data-releve>
+      <div class="rel-source">
+        <div class="rel-onglets" role="tablist" aria-label="Mémo à analyser">
+          <button type="button" role="tab" aria-selected="true" data-memo="chantier">Chantier</button>
+          <button type="button" role="tab" aria-selected="false" data-memo="idee" tabindex="-1">Idée</button>
+          <button type="button" role="tab" aria-selected="false" data-memo="semaine" tabindex="-1">Semaine</button>
+          <button type="button" role="tab" aria-selected="false" data-memo="libre" tabindex="-1">À vous d’écrire</button>
+        </div>
+        <div class="rel-feuille">
+          <p class="rel-entete"><span class="rec" aria-hidden="true"></span><span data-rel-duree>0:47</span><span class="rel-mots" data-rel-mots>134 mots</span></p>
+          <div class="rel-zone">
+            <div class="rel-fond" data-rel-fond aria-hidden="true"></div>
+            <textarea class="rel-saisie" data-rel-saisie spellcheck="false" autocapitalize="sentences" aria-label="Texte du mémo à analyser" placeholder="Écrivez comme vous parlez. Par exemple : il faut que j’appelle Marie demain à 9h pour le devis de 3 000 euros.">Bon, compte rendu de la réunion de chantier de ce matin avec Claire Morel, l’architecte, et Julien de l’entreprise Bâti Sud. On a décidé de garder le parquet en chêne dans le salon, par contre on part sur du carrelage dans l’entrée. Le devis de la cuisine est à 12 400 euros, c’est 8 % de plus que prévu. Il faut que j’envoie le plan corrigé à Claire avant vendredi. Julien doit commander les fenêtres cette semaine, c’est urgent parce qu’il y a six semaines de délai. Je dois rappeler la banque demain à 10h pour le déblocage des fonds. Prochaine réunion de chantier le 24 novembre à 9h, sur place à Montpellier. Est-ce qu’on garde la verrière ? À voir si le budget le permet. Et penser à demander un échantillon de carrelage à Julien. Son numéro, c’est le 06 12 34 56 78.</textarea>
+          </div>
+        </div>
+        <p class="rel-note">Démonstration dans votre navigateur, avec une version réduite de l’analyse locale de l’app. Rien de ce que vous écrivez n’est envoyé. Dans Sténo, Apple Intelligence va plus loin&#8239;: titre, résumé, reformulation des tâches.</p>
+      </div>
+
+      <div class="rel-notes">
+        <p class="rel-compte"><b data-rel-total>16</b> éléments relevés<span data-rel-titre>Compte rendu réunion chantier</span></p>
+        <div class="rel-familles" data-rel-familles aria-live="polite">
+          <noscript><p class="rel-vide">Activez JavaScript pour voir le relevé se faire sous vos yeux.</p></noscript>
+        </div>
+      </div>
+    </div>
+
+    <ul class="legende" data-legende aria-label="Les dix familles relevées par Sténo">
+      <li><button type="button" class="f-tache" data-fam="tache" aria-pressed="false"><svg aria-hidden="true"><use href="#f-tache"/></svg>Tâches</button></li>
+      <li><button type="button" class="f-date" data-fam="date" aria-pressed="false"><svg aria-hidden="true"><use href="#f-date"/></svg>Dates</button></li>
+      <li><button type="button" class="f-personne" data-fam="personne" aria-pressed="false"><svg aria-hidden="true"><use href="#f-personne"/></svg>Personnes</button></li>
+      <li><button type="button" class="f-decision" data-fam="decision" aria-pressed="false"><svg aria-hidden="true"><use href="#f-decision"/></svg>Décisions</button></li>
+      <li><button type="button" class="f-question" data-fam="question" aria-pressed="false"><svg aria-hidden="true"><use href="#f-question"/></svg>Questions</button></li>
+      <li><button type="button" class="f-idee" data-fam="idee" aria-pressed="false"><svg aria-hidden="true"><use href="#f-idee"/></svg>Idées</button></li>
+      <li><button type="button" class="f-lieu" data-fam="lieu" aria-pressed="false"><svg aria-hidden="true"><use href="#f-lieu"/></svg>Lieux</button></li>
+      <li><button type="button" class="f-organisation" data-fam="organisation" aria-pressed="false"><svg aria-hidden="true"><use href="#f-organisation"/></svg>Organisations</button></li>
+      <li><button type="button" class="f-chiffre" data-fam="chiffre" aria-pressed="false"><svg aria-hidden="true"><use href="#f-chiffre"/></svg>Chiffres</button></li>
+      <li><button type="button" class="f-coordonnee" data-fam="coordonnee" aria-pressed="false"><svg aria-hidden="true"><use href="#f-coordonnee"/></svg>Coordonnées</button></li>
+    </ul>
+
+    <ul class="preuves">
+      <li data-apparait><h3>Rien d’inventé</h3><p>Chaque nom, chaque date et chaque chiffre proposé par le modèle est recoupé avec la transcription. Ce qui n’a pas été dit n’est pas gardé.</p></li>
+      <li data-apparait><h3>La phrase d’origine</h3><p>Un élément garde la phrase dont il vient et l’instant où elle a été dite. Un toucher, et l’audio reprend à cet endroit.</p></li>
+      <li data-apparait><h3>Une suite à donner</h3><p>Une tâche part dans Rappels avec son échéance, une date dans Calendrier, un lieu dans Plans, un numéro dans Téléphone.</p></li>
+    </ul>
+  </section>
+
+  <!-- 0:31 — Raccourcis -->
+  <section class="sec gestes" id="raccourcis" data-code="0:31" aria-labelledby="titre-raccourcis">
+    <p class="repere"><span class="repere-t">0:31</span>Raccourcis</p>
+    <h2 id="titre-raccourcis" data-apparait>Un mémo arrive<br><em>sans ouvrir l’app.</em></h2>
+    <p class="chapo" data-apparait>Sténo se branche là où vous parlez déjà&#8239;: le bouton Action, Dictaphone, le Centre de contrôle, Siri, et vos propres raccourcis.</p>
+
+    <div class="ges" data-gestes data-geste="action">
+      <div class="ges-liste" role="tablist" aria-label="Façons d’envoyer un mémo" aria-orientation="vertical">
+        <button type="button" role="tab" id="g-o-action" aria-selected="true" aria-controls="ges-scene" data-geste-choix="action"><span class="ges-n">1</span><span><b>Le bouton Action</b><small>Une pression, et Sténo enregistre. Le chrono reste dans la Dynamic Island.</small></span></button>
+        <button type="button" role="tab" id="g-o-dictaphone" aria-selected="false" aria-controls="ges-scene" tabindex="-1" data-geste-choix="dictaphone"><span class="ges-n">2</span><span><b>Depuis Dictaphone</b><small>Partager, puis Sténo. Le mémo est copié, transcrit et analysé.</small></span></button>
+        <button type="button" role="tab" id="g-o-controle" aria-selected="false" aria-controls="ges-scene" tabindex="-1" data-geste-choix="controle"><span class="ges-n">3</span><span><b>Le Centre de contrôle</b><small>Un contrôle « Enregistrer un mémo », aussi sur l’écran verrouillé.</small></span></button>
+        <button type="button" role="tab" id="g-o-siri" aria-selected="false" aria-controls="ges-scene" tabindex="-1" data-geste-choix="siri"><span class="ges-n">4</span><span><b>Siri</b><small>« Enregistrer un mémo avec Sténo », « Mes tâches dans Sténo », « Demander à Sténo ».</small></span></button>
+        <button type="button" role="tab" id="g-o-raccourcis" aria-selected="false" aria-controls="ges-scene" tabindex="-1" data-geste-choix="raccourcis"><span class="ges-n">5</span><span><b>Dans Raccourcis</b><small>Six actions à enchaîner. Un fichier audio entre, un mémo rangé sort.</small></span></button>
+      </div>
+
+      <div class="ges-scene" id="ges-scene" role="tabpanel" aria-labelledby="g-o-action">
+        <div class="tel tel-gestes" role="img" aria-label="Maquette animée : la façon choisie d’envoyer un mémo à Sténo">
+          <span class="tel-bouton tel-bouton-action" aria-hidden="true"></span>
+          <div class="tel-ecran" aria-hidden="true">
+            <div class="g-fond"><p class="g-heure">9:41</p><p class="g-jour">jeudi 12 novembre</p></div>
+
+            <p class="tel-ile g-ile"><span class="g-ile-onde"><i></i><i></i><i></i><i></i><i></i></span><b>Sténo écoute</b><span class="g-ile-temps" data-ile-temps>0:03</span></p>
+
+            <div class="g-couche g-partage">
+              <p class="g-fichier"><span class="g-fichier-ico"><svg><use href="#s-onde"/></svg></span><span><b>Réunion de chantier</b><small>Dictaphone · 0:47</small></span></p>
+              <p class="g-apps"><span><i class="g-app g-app-1"></i>AirDrop</span><span><i class="g-app g-app-2"></i>Messages</span><span class="g-app-steno"><i class="g-app"><svg><use href="#s-logo"/></svg></i>Sténo</span><span><i class="g-app g-app-3"></i>Notes</span></p>
+              <p class="g-banniere"><span class="g-app"><svg><use href="#s-logo"/></svg></span><span><b>« Compte rendu réunion chantier » est prêt.</b><small>4 tâches, 3 dates, 2 personnes</small></span></p>
+            </div>
+
+            <div class="g-couche g-controle">
+              <p class="g-tuiles"><i></i><i></i><i class="g-tuile-large"></i><i></i><i class="g-tuile-steno"><svg><use href="#s-micro"/></svg></i><i></i><i></i></p>
+              <p class="g-tuile-nom">Enregistrer un mémo</p>
+            </div>
+
+            <div class="g-couche g-siri">
+              <p class="g-siri-bulle">Enregistrer un mémo avec Sténo</p>
+            </div>
+
+            <div class="g-couche g-raccourci">
+              <p class="g-action"><span class="g-app"><svg><use href="#s-logo"/></svg></span><span>Extraire les notes de <em>Mémo vocal</em></span></p>
+              <p class="g-fil"></p>
+              <div class="g-resultat">
+                <p class="g-res-titre"><svg><use href="#s-onde"/></svg>Compte rendu réunion chantier</p>
+                <p class="g-res-ligne"><i></i>Envoyer le plan corrigé à Claire</p>
+                <p class="g-res-ligne"><i></i>Commander les fenêtres</p>
+                <p class="g-res-ligne"><i></i>Rappeler la banque</p>
+                <p class="g-res-compte"><span class="f-tache"><svg><use href="#f-tache"/></svg>4</span><span class="f-date"><svg><use href="#f-date"/></svg>3</span><span class="f-personne"><svg><use href="#f-personne"/></svg>2</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="actions-liste" aria-label="Les six actions de Sténo dans Raccourcis">
+      <li>Extraire les notes d’un mémo vocal</li>
+      <li>Extraire les notes d’un texte</li>
+      <li>Enregistrer un mémo</li>
+      <li>Obtenir les tâches à faire</li>
+      <li>Demander à Sténo</li>
+      <li>Ouvrir un mémo</li>
+    </ul>
+  </section>
+
+  <!-- 0:47 — Assistant -->
+  <section class="sec assistant" id="assistant" data-code="0:47" aria-labelledby="titre-assistant">
+    <p class="repere"><span class="repere-t">0:47</span>Apple Intelligence</p>
+    <h2 id="titre-assistant" data-apparait>Posez la question.<br><em>Le mémo répond.</em></h2>
+    <p class="chapo" data-apparait>Le modèle d’Apple travaille sur l’iPhone&#8239;: il relève, il répond à partir de vos notes, il rédige. Il n’invente pas ce qui n’a pas été dit.</p>
+
+    <div class="ass">
+      <article class="ass-carte" data-interroger>
+        <header><p class="ass-etiq"><svg aria-hidden="true"><use href="#s-etincelles"/></svg>Interroger</p><p class="ass-sujet">Compte rendu réunion chantier</p></header>
+        <div class="ass-fil" data-fil aria-live="polite">
+          <p class="bulle bulle-moi" data-fil-question>Quelles dates dois-je retenir&#8239;?</p>
+          <p class="bulle bulle-steno" data-fil-reponse>– Plan corrigé à envoyer à Claire&#8239;: avant vendredi<br>– Commander les fenêtres&#8239;: cette semaine<br>– Rappeler la banque&#8239;: demain à 10&nbsp;h<br>– Prochaine réunion de chantier&#8239;: 24 novembre à 9&nbsp;h, à Montpellier</p>
+        </div>
+        <p class="ass-choix" role="group" aria-label="Questions à poser au mémo">
+          <button type="button" data-question="dates" aria-pressed="true">Quelles dates dois-je retenir&#8239;?</button>
+          <button type="button" data-question="qui" aria-pressed="false">Qui doit faire quoi&#8239;?</button>
+          <button type="button" data-question="premier" aria-pressed="false">Que dois-je faire en premier&#8239;?</button>
+        </p>
+      </article>
+
+      <article class="ass-carte" data-rediger>
+        <header><p class="ass-etiq"><svg aria-hidden="true"><use href="#s-crayon"/></svg>Rédiger</p><p class="ass-sujet">À partir du même mémo</p></header>
+        <p class="ass-formats" role="group" aria-label="Format du texte à rédiger">
+          <button type="button" data-format="rendu" aria-pressed="true">Compte rendu</button>
+          <button type="button" data-format="mail" aria-pressed="false">E-mail de suivi</button>
+          <button type="button" data-format="message" aria-pressed="false">Message court</button>
+          <button type="button" data-format="points" aria-pressed="false">Points clés</button>
+        </p>
+        <div class="ass-feuille" data-feuille aria-live="polite">Réunion de chantier avec Claire Morel, architecte, et Julien, de l’entreprise Bâti Sud.
+
+Décisions
+– Le parquet en chêne est gardé dans le salon.
+– L’entrée passe au carrelage.
+
+Suites à donner
+– Envoyer le plan corrigé à Claire, avant vendredi.
+– Julien commande les fenêtres cette semaine.
+– Rappeler la banque demain à 10 h.</div>
+      </article>
+    </div>
+    <p class="ass-note">Exemples rédigés à partir du mémo de démonstration. Sans Apple Intelligence, « Rédiger » assemble le texte à partir des éléments relevés.</p>
+  </section>
+
+  <!-- 1:02 — Vie privée -->
+  <section class="sec prive" id="prive" data-code="1:02" aria-labelledby="titre-prive">
+    <p class="repere"><span class="repere-t">1:02</span>Vie privée</p>
+    <h2 id="titre-prive" data-apparait>Tout se passe<br><em>dans l’iPhone.</em></h2>
+    <p class="chapo" data-apparait>Un mémo, c’est votre voix, des noms, parfois des montants. Sténo n’a ni compte ni serveur&#8239;: la transcription et l’analyse se font sur l’appareil.</p>
+
+    <div class="circuit" data-circuit role="img" aria-label="Schéma : le micro, la transcription, Apple Intelligence et les notes sont tous à l’intérieur de l’iPhone ; rien ne part vers Internet">
+      <div class="circuit-tel" aria-hidden="true">
+        <p class="circuit-nom">iPhone</p>
+        <ol class="circuit-etapes">
+          <li><span class="circuit-ico"><svg><use href="#s-micro"/></svg></span><b>Micro</b><small>ou fichier audio</small></li>
+          <li><span class="circuit-ico"><svg><use href="#s-onde"/></svg></span><b>Transcription</b><small>SpeechAnalyzer</small></li>
+          <li><span class="circuit-ico"><svg><use href="#s-etincelles"/></svg></span><b>Relevé</b><small>Apple Intelligence</small></li>
+          <li><span class="circuit-ico"><svg><use href="#f-tache"/></svg></span><b>Notes</b><small>base locale</small></li>
+        </ol>
+        <span class="circuit-point"></span>
+      </div>
+      <div class="circuit-dehors" aria-hidden="true">
+        <span class="circuit-mur"></span>
+        <p class="circuit-nuage"><svg><use href="#s-nuage"/></svg></p>
+        <p class="circuit-zero"><b>0</b> octet envoyé</p>
+      </div>
+    </div>
+
+    <ul class="preuves preuves-4">
+      <li data-apparait><h3>Ni compte, ni serveur</h3><p>Rien à créer, rien à connecter. L’app fonctionne en mode Avion.</p></li>
+      <li data-apparait><h3>L’audio, à votre choix</h3><p>Gardé pour réécouter un passage, ou supprimé une fois les notes prises.</p></li>
+      <li data-apparait><h3>Un vocabulaire qui reste chez vous</h3><p>Les noms déjà relevés aident la dictée suivante, sans quitter l’appareil.</p></li>
+      <li data-apparait><h3>Sans Apple Intelligence aussi</h3><p>Une analyse locale prend le relais et relève tâches, dates et personnes.</p></li>
+    </ul>
+  </section>
+
+  <!-- 1:15 — Sur l’écran d’accueil -->
+  <section class="sec ecran" id="ecran" data-code="1:15" aria-labelledby="titre-ecran">
+    <p class="repere"><span class="repere-t">1:15</span>iOS 27</p>
+    <h2 id="titre-ecran" data-apparait>Cochez une tâche<br><em>depuis l’écran d’accueil.</em></h2>
+    <p class="chapo" data-apparait>Sténo adopte Liquid Glass, pose ses tâches dans un widget et suit le thème de l’iPhone, ou le vôtre.</p>
+
+    <div class="ecr">
+      <div class="ecr-bloc ecr-widget">
+        <div class="widget" data-widget>
+          <div class="widget-tete"><p class="widget-compte"><b data-widget-compte>4</b><span>à faire</span></p><span class="widget-micro" aria-hidden="true"><svg><use href="#s-micro"/></svg></span></div>
+          <ul class="widget-liste" data-widget-liste>
+            <li><button type="button" aria-label="Marquer comme fait : Rappeler la banque"></button><span>Rappeler la banque</span><small>Demain à 10:00</small></li>
+            <li><button type="button" aria-label="Marquer comme fait : Envoyer le plan corrigé à Claire"></button><span>Envoyer le plan corrigé à Claire</span><small>Vendredi</small></li>
+            <li><button type="button" class="is-prio" aria-label="Marquer comme fait : Commander les fenêtres"></button><span>Commander les fenêtres</span><small>Cette semaine</small></li>
+            <li><button type="button" aria-label="Marquer comme fait : Demander un échantillon de carrelage"></button><span>Demander un échantillon de carrelage</span><small></small></li>
+          </ul>
+          <p class="widget-vide" data-widget-vide hidden><b>Tout est fait.</b><button type="button" data-widget-remettre>Remettre les tâches</button></p>
+        </div>
+        <p class="ecr-legende"><b>Widget « À faire »</b>Les tâches relevées, à cocher sans ouvrir l’app. Essayez.</p>
+      </div>
+
+      <div class="ecr-bloc ecr-theme">
+        <div class="themes" role="radiogroup" aria-label="Thème de cette page" data-themes>
+          <button type="button" role="radio" aria-checked="false" data-theme-choix="system"><span class="theme-vignette theme-systeme" aria-hidden="true"><i></i><i></i></span><span class="theme-nom">Système</span></button>
+          <button type="button" role="radio" aria-checked="false" data-theme-choix="light"><span class="theme-vignette theme-clair" aria-hidden="true"><i></i></span><span class="theme-nom">Clair</span></button>
+          <button type="button" role="radio" aria-checked="false" data-theme-choix="dark"><span class="theme-vignette theme-sombre" aria-hidden="true"><i></i></span><span class="theme-nom">Sombre</span></button>
+        </div>
+        <p class="ecr-legende"><b>Trois thèmes</b>Le réglage de l’app, branché sur cette page&#8239;: touchez-en un.</p>
+      </div>
+
+      <div class="ecr-bloc ecr-ile">
+        <p class="ile-demo" aria-hidden="true"><span class="g-ile-onde"><i></i><i></i><i></i><i></i><i></i></span><b>Sténo écoute</b><span data-ile-temps>0:03</span></p>
+        <p class="ecr-legende"><b>Activité en direct</b>Pause, reprise et fin de l’enregistrement depuis la Dynamic Island ou l’écran verrouillé.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1:28 — Questions -->
+  <section class="sec questions" id="questions" data-code="1:28" aria-labelledby="titre-questions">
+    <p class="repere"><span class="repere-t">1:28</span>Questions</p>
+    <h2 id="titre-questions" data-apparait>Ce qu’on nous<br><em>demande souvent.</em></h2>
+    <div class="faq">
+      <details open><summary>Faut-il Apple Intelligence pour utiliser Sténo ?</summary><p>Non. Sans Apple Intelligence, l’analyse locale de Sténo relève quand même les personnes, les tâches, les dates et les chiffres. Avec le modèle d’Apple, les titres, les résumés et le relevé sont plus fins, et vous pouvez interroger un mémo ou faire rédiger un compte rendu.</p></details>
+      <details><summary>Mes mémos quittent-ils mon iPhone ?</summary><p>Non. L’enregistrement, la transcription et l’analyse se font sur l’appareil. Sténo n’a ni compte ni serveur, et aucun mémo n’est envoyé sur Internet.</p></details>
+      <details><summary>Comment envoyer un mémo depuis Dictaphone ?</summary><p>Ouvrez le mémo dans Dictaphone, touchez Partager, puis choisissez Sténo. Vous pouvez aussi utiliser l’action « Extraire les notes d’un mémo vocal » dans Raccourcis.</p></details>
+      <details><summary>Que relève Sténo dans un mémo ?</summary><p>Dix familles d’éléments&#8239;: tâches, dates, personnes, décisions, questions, idées, lieux, organisations, chiffres et coordonnées. Chaque élément garde la phrase d’origine et, quand l’audio est conservé, l’instant où elle a été dite.</p></details>
+      <details><summary>Sténo fonctionne-t-il sur iPad ?</summary><p>Oui. Sténo est une app pour iPhone et iPad, sous iOS 27 et iPadOS 27.</p></details>
+      <details><summary>Quand Sténo sera-t-il disponible ?</summary><p>Sténo arrive bientôt sur l’App Store. Un message à <a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a> suffit pour être prévenu le jour de la sortie.</p></details>
+    </div>
+  </section>
+
+  <!-- 1:40 — Fin du mémo -->
+  <section class="sec appel" id="appel" data-code="1:40" aria-labelledby="titre-appel">
+    <p class="repere"><span class="repere-t">1:40</span>Fin du mémo</p>
+    <h2 id="titre-appel">Sténo arrive bientôt<br><em>sur l’App Store.</em></h2>
+    <p class="chapo">Un message suffit pour être prévenu le jour de la sortie. Votre adresse ne sert qu’à cela.</p>
+    <div class="actions">
+      <a class="bouton bouton-rouge" href="mailto:mtxstudio@proton.me?subject=St%C3%A9no%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20St%C3%A9no%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie<svg class="fl" aria-hidden="true"><use href="#s-fleche"/></svg></a>
+      <a class="bouton bouton-trait" href="#releve">Refaire un relevé</a>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Sténo" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-steno.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Sténo transforme un mémo vocal en notes rangées.</h2>
+    <p class="mtx-pf-sub">Chaque application et son site sont conçus avec soin par MTX Studio.</p>
+    <p class="mtx-pf-tags">App iPhone et iPad · Prise de notes<br>SwiftUI · Foundation Models · SpeechAnalyzer · App Intents · WidgetKit</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../foulee/index.html"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : GoRun</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../index.html#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../index.html#realisations">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

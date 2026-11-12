@@ -341,6 +341,27 @@ main > section { padding-inline: var(--bord); }
   .heros-titre { font-size: clamp(3.4rem, 6.4vw, 7.4rem); }
 }
 
+/* La scène du héros : le téléphone est posé en volume et pivote avec la souris (pose commune, projet.css) ;
+   l'Apple Watch flotte devant lui, sur la page des mesures de la même course. */
+.heros-tel { perspective: 1500px; }
+.heros-tel::after { display: none; }
+.heros-pose { position: relative; --mtx-bx: 5; --mtx-by: -5; }
+.heros-touche {
+  position: absolute; z-index: -1; right: -.8cqw; top: 58%; width: 1.2cqw; height: 7%;
+  border-radius: 1cqw; background: linear-gradient(90deg, #3c3c41, #1c1c1f);
+}
+.montre.heros-montre {
+  position: absolute; left: -17cqw; top: 13%; z-index: 3;
+  width: 31cqw; margin: 0;
+  transform: translateZ(70px) rotate(-7deg);
+  cursor: default; pointer-events: none;
+}
+.heros-montre::before, .heros-montre::after { border-radius: 4cqw; height: 26%; }
+@media (min-width: 1000px) {
+  .heros-pose { --mtx-bx: 4; --mtx-by: -10; }
+  .montre.heros-montre { left: -35cqw; top: 46%; width: 40cqw; }
+}
+
 .ecran-pile {
   --pt: calc(92.1cqw / 402);
   position: relative; isolation: isolate; overflow: hidden; overflow: clip;

@@ -1,0 +1,41 @@
+/* Base commune des films de Sténo : polices et couleurs du site (realisations/steno/assets/css/site.css). */
+@font-face{font-family:"Bricolage Titre";src:url("../../realisations/steno/assets/fonts/bricolage-titre.woff2") format("woff2");font-weight:800}
+@font-face{font-family:"Bricolage Grotesque";src:url("../../realisations/steno/assets/fonts/bricolage-texte.woff2") format("woff2");font-weight:400 800}
+@font-face{font-family:"Newsreader";src:url("../../realisations/steno/assets/fonts/newsreader-italique-titre.woff2") format("woff2");font-weight:500;font-style:italic}
+@font-face{font-family:"Newsreader";src:url("../../realisations/steno/assets/fonts/newsreader-texte.woff2") format("woff2");font-weight:400;font-style:normal}
+@font-face{font-family:"IBM Plex Mono";src:url("../../realisations/steno/assets/fonts/plex-mono-400.woff2") format("woff2");font-weight:400}
+@font-face{font-family:"IBM Plex Mono";src:url("../../realisations/steno/assets/fonts/plex-mono-500.woff2") format("woff2");font-weight:500}
+
+:root{
+  --papier:#fbfbfd;--papier-2:#f1f1f6;--carte:#fff;--encre:#14121a;--doux:#565363;--pale:#6e6b7c;
+  --filet:#e2e2ec;--regle:rgba(86,98,214,.16);--rouge:#d93529;--rouge-texte:#c22b20;--sur-rouge:#fff;
+  --f-tache:#12813a;--f-date:#b4530a;--f-personne:#1d4ed8;--f-decision:#4f46e5;--f-lieu:#0f766e;--f-prio:#c22b20;
+  --ios-fond:#f2f2f7;--ios-carte:#fff;--ios-encre:#000;--ios-doux:rgba(60,60,67,.62);--ios-filet:rgba(60,60,67,.14);--ios-rouge:#e23b2e;
+  --verre:rgba(255,255,255,.66);--verre-bord:rgba(255,255,255,.8);
+  --ombre:0 1px 2px rgba(20,18,26,.05),0 14px 34px -14px rgba(20,18,26,.2);
+  --ombre-forte:0 2px 4px rgba(20,18,26,.06),0 40px 80px -30px rgba(20,18,26,.42);
+  --titre:"Bricolage Titre",sans-serif;--sans:"Bricolage Grotesque",sans-serif;--note:"Newsreader",serif;
+  --mono:"IBM Plex Mono",monospace;--ios:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;
+  --ios-rond:ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;--ios-serif:ui-serif,"New York",Georgia,serif;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --papier:#0d0c11;--papier-2:#16151c;--carte:#201f28;--encre:#f4f2f8;--doux:#aaa6b9;--pale:#8d899c;
+  --filet:#2c2a36;--regle:rgba(150,160,255,.13);--rouge:#ff5a4c;--rouge-texte:#ff7b6f;--sur-rouge:#1a0806;
+  --f-tache:#5bd68a;--f-date:#fdba74;--f-personne:#8ab4ff;--f-decision:#a9acff;--f-lieu:#5eead4;--f-prio:#ff7b6f;
+  --ios-fond:#000;--ios-carte:#1c1c1e;--ios-encre:#fff;--ios-doux:rgba(235,235,245,.6);--ios-filet:rgba(84,84,88,.5);--ios-rouge:#ff5d4f;
+  --verre:rgba(58,58,64,.62);--verre-bord:rgba(255,255,255,.14);
+  --ombre:0 1px 2px rgba(0,0,0,.4),0 14px 34px -14px rgba(0,0,0,.7);
+  --ombre-forte:0 2px 4px rgba(0,0,0,.5),0 40px 80px -30px rgba(0,0,0,.95);
+  color-scheme:dark;
+}
+.f-tache{--c:var(--f-tache)}.f-date{--c:var(--f-date)}.f-personne{--c:var(--f-personne)}.f-prio{--c:var(--f-prio)}.f-lieu{--c:var(--f-lieu)}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--papier-2);overflow:hidden}
+body{color:var(--encre);font:400 16px/1.4 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+p,h1,h2,ul{margin:0;padding:0;list-style:none}
+svg{display:block;width:1em;height:1em;flex:none}
+/* La scène : toutes les mesures sont en px de scène ; la capture sort au double (écran Retina). */
+.scene{position:relative;overflow:hidden;background:var(--papier-2);isolation:isolate}
+.abs{position:absolute}

@@ -1,7 +1,7 @@
 // Capture hors écran avec WebKit : une image d'une page, ou toutes les images d'un film.
 //
 //   capture image <url> <largeur> <hauteur> <sortie.png> [--sombre] [--attente ms] [--js "code"] [--page]
-//   capture film  <url> <largeur> <hauteur> <ips> <dossier> [--sombre]
+//   capture film  <url> <largeur> <hauteur> <ips> <dossier> [--sombre] [--de s] [--a s] [--instants 0,1.5,3]
 //
 // Un film est une page qui expose window.film = { duree, aller(t) } : aller(t) pose l'image de l'instant t (en
 // secondes) sans dépendre de l'horloge. Les images sortent en PNG (image-00000.png…), prêtes pour ffmpeg.
@@ -110,11 +110,20 @@ func principal() async {
   guard a.count >= 7, let ips = Double(a[5]) else { exit(2) }
   let dossier = a[6]
   try? FileManager.default.createDirectory(atPath: dossier, withIntermediateDirectories: true)
+  await c.js("while (!window.film) await new Promise((r) => setTimeout(r, 50)); return true")
   let duree = (await c.js("return window.film.duree") as? Double) ?? 0
   let debut = Double(option("--de") ?? "0") ?? 0
   let fin = Double(option("--a") ?? String(duree)) ?? duree
   let premier = Int((debut * ips).rounded()), dernier = Int((fin * ips).rounded())
   let depart = Date()
+  if let liste = option("--instants") {
+    for (n, texte) in liste.split(separator: ",").enumerated() {
+      guard let t = Double(texte) else { continue }
+      await c.js("await window.film.aller(t); return true", ["t": t])
+      do { c.ecrire(try await c.image(), String(format: "%@/instant-%02d.png", dossier, n)) } catch {}
+    }
+    exit(0)
+  }
   for i in premier..<dernier {
     await c.js("await window.film.aller(t); return true", ["t": Double(i) / ips])
     do { c.ecrire(try await c.image(), String(format: "%@/image-%05d.png", dossier, i)) }

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film du héros — Sténo</title>
+<link rel="stylesheet" href="commun.css">
+<style>
+/* Film 1 : la voix devient un texte, les mots utiles prennent leur couleur, puis se rangent dans l'app.
+   Scène de 540 × 675 (4:5). Chapitres : Dicter 0 s · Analyser 5 s · Retrouver 8,4 s · boucle à 13,4 s. */
+.scene{width:540px;height:675px}
+.marge{left:26px;top:0;bottom:0;border-left:1.5px solid color-mix(in srgb,var(--rouge) 46%,transparent)}
+
+/* En-tête : l'état à gauche, le chrono à droite */
+.tete{left:40px;right:40px;top:30px;height:24px;display:flex;align-items:center;justify-content:space-between;font:500 12.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--doux)}
+.etats{position:relative;height:24px;flex:1}
+.etat{position:absolute;left:0;top:0;height:24px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.etat i{width:9px;height:9px;border-radius:50%;background:var(--rouge);box-shadow:0 0 0 4px color-mix(in srgb,var(--rouge) 18%,transparent)}
+.etat svg{font-size:15px;color:var(--rouge)}
+.etat-range svg{color:var(--f-tache)}
+.chrono{font-size:13.5px;letter-spacing:.02em;color:var(--encre);font-variant-numeric:tabular-nums}
+
+/* L'onde de la voix */
+.onde{left:40px;top:70px;width:460px;height:150px;display:flex;align-items:center;gap:4px}
+.onde i{width:4px;height:4px;border-radius:2px;background:var(--rouge)}
+
+/* La transcription : la voix brute, tapée à la machine sur les lignes du cahier */
+.texte{left:40px;top:250px;width:460px;height:425px;font:400 21px/40px var(--mono);letter-spacing:-.01em;white-space:nowrap;
+  background:linear-gradient(var(--regle) 1px,transparent 1px) 0 37px/100% 40px}
+.mot{display:inline-block;--mot-c:color-mix(in srgb,var(--encre) calc(var(--g,1) * 100%),var(--pale));color:var(--mot-c)}
+.frag{--p:0}
+.frag-pastille{margin:0 -5px;padding:3px 5px;border-radius:7px;background:color-mix(in srgb,var(--c) calc(var(--p) * 16%),transparent)}
+.frag-pastille .mot{color:color-mix(in srgb,var(--c) calc(var(--p) * 100%),var(--mot-c))}
+.frag-trait{padding-bottom:5px;background:linear-gradient(var(--c),var(--c)) 0 100%/calc(var(--p) * 100%) 2.5px no-repeat}
+
+/* Les compteurs du relevé */
+.compteurs{left:40px;top:476px;display:flex;gap:9px}
+.compteur{display:flex;align-items:center;gap:8px;height:40px;padding:0 15px 0 12px;border-radius:20px;background:var(--carte);box-shadow:inset 0 0 0 1px var(--filet),var(--ombre);font:500 13.5px/1 var(--mono);white-space:nowrap}
+.compteur svg{font-size:16px;color:var(--c)}
+.compteur b{color:var(--c);font-weight:500}
+
+/* Les fragments en vol */
+.vol{z-index:5;margin:0;font:400 21px/36px var(--mono);letter-spacing:-.01em;white-space:nowrap;transform-origin:50% 50%}
+.vol-pastille{padding:0 5px;border-radius:7px;background:color-mix(in srgb,var(--c) 16%,var(--papier-2));color:var(--c)}
+.vol-trait{color:var(--encre);background:linear-gradient(var(--c),var(--c)) 0 calc(100% - 3px)/100% 2.5px no-repeat}
+
+/* L'app : l'écran du mémo, d'après Sténo */
+.tel{z-index:3;left:64px;top:86px;width:412px;height:720px;padding:8px;border-radius:66px;background:linear-gradient(150deg,#3b3b40,#101012 38%,#27272b);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),var(--ombre-forte)}
+:root[data-theme="dark"] .tel{background:linear-gradient(150deg,#55555c,#1c1c20 38%,#3a3a40);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26),var(--ombre-forte)}
+.ecran{position:relative;width:100%;height:100%;overflow:hidden;border-radius:58px;padding:0 18px;background:var(--ios-fond);color:var(--ios-encre);font:400 15px/1.3 var(--ios);letter-spacing:-.01em}
+.ile{position:absolute;left:50%;top:11px;width:106px;height:31px;margin-left:-53px;border-radius:16px;background:#000}
+.heure{position:absolute;left:36px;top:17px;font:600 15.5px/1 var(--ios)}
+.barre{display:flex;justify-content:space-between;padding-top:58px}
+.rond{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font-size:18px;background:var(--verre);box-shadow:inset 0 0 0 1px var(--verre-bord),0 4px 12px rgba(0,0,0,.1)}
+.rond-large{display:flex;gap:13px;width:auto;padding:0 15px;border-radius:20px}
+.rond-large b{font-size:16px;letter-spacing:.06em}
+.genre{display:flex;align-items:center;gap:6px;margin-top:14px;color:var(--ios-doux);font-size:12.5px}
+.genre svg{color:var(--ios-rouge);font-size:14px}
+.genre b{color:var(--ios-rouge);font-weight:600;margin-right:3px}
+.titre{margin-top:5px;font:700 28px/1.08 var(--ios-serif);letter-spacing:-.02em}
+.puces{display:flex;gap:6px;margin-top:11px}
+.puce{display:inline-flex;align-items:center;gap:4px;height:23px;padding:0 9px;border-radius:12px;background:color-mix(in srgb,var(--ios-encre) 8%,transparent);color:var(--ios-doux);font-size:12px;font-weight:500}
+.puce-ia{background:color-mix(in srgb,var(--ios-rouge) 16%,transparent);color:var(--ios-rouge)}
+.carte{margin-top:13px;padding:14px 16px 6px;border-radius:24px;background:var(--ios-carte)}
+.entete{display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:16.5px;font-weight:600}
+.entete b{flex:1;font-weight:600}
+.entete span{color:var(--ios-doux);font-weight:400;font-size:14px;font-variant-numeric:tabular-nums}
+.ico{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--c);font-size:15px}
+.ligne{position:relative;display:flex;gap:11px;padding:9px 0 10px;border-top:1px solid var(--ios-filet);font-size:15.5px;line-height:1.25}
+.entete + .ligne{border-top:0}
+.case{position:relative;flex:none;width:21px;height:21px;margin-top:0;border-radius:50%;box-shadow:inset 0 0 0 1.7px color-mix(in srgb,var(--ios-encre) 26%,transparent)}
+.case em{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;background:var(--f-tache);color:#fff;font-size:13px}
+:root[data-theme="dark"] .case em{color:#06210f}
+.corps{display:block}
+.quoi{display:inline-block;transform-origin:0 50%;background:linear-gradient(currentColor,currentColor) 0 54%/calc(var(--b,0) * 100%) 1.5px no-repeat}
+.detail{display:flex;gap:5px;margin-top:5px;min-height:20px}
+.pastille{display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:10px;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c);font-size:11.5px;font-weight:500;transform-origin:0 50%}
+.mono{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:color-mix(in srgb,var(--f-personne) 16%,transparent);color:var(--f-personne);font:600 11.5px/1 var(--ios-rond)}
+.mono-2{background:color-mix(in srgb,var(--f-lieu) 18%,transparent);color:var(--f-lieu)}
+.qui small{display:block;margin-top:1px;color:var(--ios-doux);font-size:12.5px}
+
+/* Le doigt */
+.doigt{z-index:6;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:color-mix(in srgb,var(--encre) 22%,transparent);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--encre) 34%,transparent)}
+</style>
+</head>
+<body>
+<div id="symboles"></div>
+<div class="scene">
+  <span class="abs marge"></span>
+
+  <div class="abs tete">
+    <div class="etats">
+      <p class="etat etat-enr"><i></i>Enregistrement</p>
+      <p class="etat etat-rel"><svg><use href="#s-etincelles"/></svg>Relevé des éléments</p>
+      <p class="etat etat-range"><svg><use href="#s-coche"/></svg>Mémo rangé</p>
+    </div>
+    <p class="chrono">0:00</p>
+  </div>
+
+  <p class="abs onde"></p>
+  <p class="abs texte"></p>
+
+  <div class="abs compteurs">
+    <p class="compteur f-tache" data-compteur="tache"><svg><use href="#f-tache"/></svg><span><b>0</b> tâche</span></p>
+    <p class="compteur f-personne" data-compteur="personne"><svg><use href="#f-personne"/></svg><span><b>0</b> personne</span></p>
+    <p class="compteur f-date" data-compteur="date"><svg><use href="#f-date"/></svg><span><b>0</b> date</span></p>
+  </div>
+
+  <div class="abs tel">
+    <div class="ecran">
+      <span class="ile"></span><span class="heure">9:41</span>
+      <p class="barre pose"><span class="rond"><svg style="transform:rotate(90deg)"><use href="#s-chevron"/></svg></span><span class="rond rond-large"><svg><use href="#s-partager"/></svg><b>···</b></span></p>
+      <p class="genre pose"><svg><use href="#f-personne"/></svg><b>Réunion</b>aujourd’hui à 9:41</p>
+      <p class="titre pose">Compte rendu réunion chantier</p>
+      <p class="puces pose"><span class="puce puce-ia"><svg><use href="#s-etincelles"/></svg>Apple Intelligence</span><span class="puce">#plan</span><span class="puce">#fenêtres</span></p>
+      <div class="carte pose">
+        <p class="entete f-tache"><span class="ico"><svg><use href="#f-tache"/></svg></span><b>Tâches</b><span data-total="tache">0</span></p>
+        <p class="ligne" data-ligne="t1"><span class="case"><em><svg><use href="#s-coche"/></svg></em></span><span class="corps"><span class="quoi" data-cible="t1">Envoyer le plan corrigé à Claire</span><span class="detail"><span class="pastille f-date" data-cible="d1">Vendredi</span></span></span></p>
+        <p class="ligne" data-ligne="t2"><span class="case"></span><span class="corps"><span class="quoi" data-cible="t2">Commander les fenêtres</span><span class="detail"><span class="pastille f-date" data-cible="d2">Cette semaine</span><span class="pastille f-personne" data-cible="p2">Julien</span><span class="pastille f-prio" data-cible="u1">Prioritaire</span></span></span></p>
+        <p class="ligne" data-ligne="t3"><span class="case"></span><span class="corps"><span class="quoi" data-cible="t3">Rappeler la banque</span><span class="detail"><span class="pastille f-date" data-cible="d3">Demain à 10:00</span></span></span></p>
+      </div>
+      <div class="carte pose">
+        <p class="entete f-personne"><span class="ico"><svg><use href="#f-personne"/></svg></span><b>Personnes</b><span data-total="personne">0</span></p>
+        <p class="ligne" data-ligne="p1"><span class="mono">C</span><span class="corps qui"><span class="quoi" data-cible="p1">Claire</span><small>Citée dans ce mémo</small></span></p>
+        <p class="ligne" data-ligne="p2b"><span class="mono mono-2">J</span><span class="corps qui"><span class="quoi">Julien</span><small>Cité dans ce mémo</small></span></p>
+      </div>
+    </div>
+  </div>
+
+  <span class="abs doigt"></span>
+</div>
+
+<script src="moteur.js"></script>
+<script>
+(async () => {
+  document.getElementById('symboles').innerHTML = await (await fetch('symboles.svg.html')).text();
+  await Promise.all(['400 22px "IBM Plex Mono"', '500 13px "IBM Plex Mono"'].map((f) => document.fonts.load(f)));
+  await document.fonts.ready;
+
+  const DUREE = 13.4, ANALYSE = 5, RANGER = 8.4, SORTIE = 12.7;
+  const f = Film({ duree: DUREE });
+  const { $, $$, av, mel, borne } = f;
+  const scene = $('.scene');
+
+  // ---------- La phrase dictée ----------
+  // [famille, texte, cible dans l'app] pour un fragment relevé, une chaîne pour le reste.
+  const PHRASE = [
+    'Il faut que j’', ['tache', 'envoie le plan corrigé', 't1'], '\n', 'à ', ['personne', 'Claire', 'p1'], ' avant ', ['date', 'vendredi', 'd1'], '. ',
+    ['personne', 'Julien', 'p2'], '\n', ['tache', 'commande les fenêtres', 't2'], ' ', ['date', 'cette semaine', 'd2'], ',', '\n', 'c’est ', ['prio', 'urgent', 'u1'],
+    '. Et moi, je dois', '\n', ['tache', 'rappeler la banque', 't3'], ' ', ['date', 'demain à 10 h', 'd3'], '.',
+  ];
+  const texte = $('.texte');
+  const mots = [], fragments = [];
+  const ajouterMots = (parent, chaine, hors) => {
+    for (const part of chaine.split(/(\s+)/)) {
+      if (!part) continue;
+      if (/^\s+$/.test(part)) { parent.append(' '); continue; }
+      const m = document.createElement('span');
+      m.className = 'mot';
+      m.textContent = part;
+      parent.append(m);
+      mots.push({ el: m, hors });
+    }
+  };
+  for (const bloc of PHRASE) {
+    if (bloc === '\n') { texte.append(document.createElement('br')); continue; }
+    if (typeof bloc === 'string') { ajouterMots(texte, bloc, true); continue; }
+    const [fam, chaine, cible] = bloc;
+    const s = document.createElement('span');
+    s.className = `frag f-${fam} ${fam === 'tache' ? 'frag-trait' : 'frag-pastille'}`;
+    ajouterMots(s, chaine, false);
+    texte.append(s);
+    fragments.push({ el: s, fam, chaine, cible });
+  }
+
+  // Dictée : un mot toutes les 125 ms environ, une respiration après chaque point.
+  let quand = 0.7;
+  mots.forEach((m, i) => {
+    m.t = quand;
+    quand += /[.,]$/.test(m.el.textContent) ? 0.3 : 0.118;
+    f.piste(m.el, [m.t, { o: 0, y: 7, f: 3 }], [m.t + 0.26, { o: 1, y: 0, f: 0 }]);
+    // Les derniers mots restent gris, comme le texte encore provisoire de la reconnaissance vocale.
+    f.piste(m.el, [m.t + 0.34, { '--g': 0 }], [m.t + 0.7, { '--g': 1 }, 'lin']);
+    if (m.hors) f.piste(m.el, [ANALYSE + 2.5, { o: 1 }], [ANALYSE + 3, { o: 0.32 }, 'douce'], [RANGER, { o: 0.32 }], [RANGER + 0.35, { o: 0 }, 'douce']);
+  });
+  const finDictee = quand;
+
+  // ---------- En-tête ----------
+  const etat = (sel, entree, sortie) => f.piste(sel, [entree, { o: 0, y: 9 }], [entree + 0.4, { o: 1, y: 0 }], [sortie, { o: 1, y: 0 }], [sortie + 0.3, { o: 0, y: -9 }, 'douce']);
+  f.piste('.etat-enr', [0, { o: 1, y: 0 }], [ANALYSE, { o: 1, y: 0 }], [ANALYSE + 0.3, { o: 0, y: -9 }, 'douce'], [DUREE - 0.4, { o: 0, y: 9 }], [DUREE, { o: 1, y: 0 }]);
+  etat('.etat-rel', ANALYSE + 0.25, RANGER + 0.9);
+  etat('.etat-range', RANGER + 1.15, DUREE - 0.55);
+  const chrono = $('.chrono'), pouls = $('.etat-enr i');
+  f.piste(chrono, [DUREE - 0.5, { o: 1 }], [DUREE - 0.3, { o: 0 }, 'lin'], [DUREE - 0.1, { o: 1 }, 'lin']);
+  f.chaque((t) => {
+    const s = t > DUREE - 0.3 ? 0 : borne((t - 0.7) / (finDictee - 0.7)) * 11.4;
+    chrono.textContent = f.horloge(s);
+    const b = 0.5 - 0.5 * Math.cos(t * Math.PI * 2 / 1.4);
+    pouls.style.boxShadow = `0 0 0 ${(4 + b * 3).toFixed(2)}px color-mix(in srgb,var(--rouge) ${(18 - b * 14).toFixed(1)}%,transparent)`;
+  });
+
+  // ---------- L'onde ----------
+  const onde = $('.onde');
+  const N = 58;
+  for (let i = 0; i < N; i += 1) onde.append(document.createElement('i'));
+  const barres = [...onde.children];
+  // Un bruit lisse et reproductible : la voix défile de droite à gauche.
+  const alea = f.hasard(7);
+  const table = Array.from({ length: 512 }, () => alea());
+  const bruit = (x) => { const i = Math.floor(x), p = x - i, u = p * p * (3 - 2 * p); return mel(table[i & 511], table[(i + 1) & 511], u); };
+  f.piste(onde, [RANGER, { o: 1, y: 0 }], [RANGER + 0.35, { o: 0, y: -8 }, 'douce'], [DUREE - 0.45, { o: 0, y: 0 }], [DUREE, { o: 1, y: 0 }]);
+  f.chaque((t) => {
+    // Enveloppe : la voix monte au début, retombe quand on arrête de parler.
+    const env = t < ANALYSE ? av(t, 0.15, 0.7, 'douce') * (1 - 0.94 * av(t, finDictee + 0.1, 0.5, 'douce')) : 0.06 * (1 - av(t, DUREE - 0.4, 0.4, 'lin'));
+    const defile = t * 13;
+    for (let i = 0; i < N; i += 1) {
+      const x = i + defile;
+      const voix = bruit(x * 0.9) * (0.35 + 0.65 * bruit(x * 0.17 + 40)) * (0.55 + 0.45 * Math.abs(Math.sin(x * 0.21)));
+      const h = 4 + 124 * env * Math.pow(voix, 1.15) * 1.5;
+      barres[i].style.height = `${Math.min(128, h).toFixed(1)}px`;
+      barres[i].style.opacity = (0.3 + 0.7 * (i / (N - 1))).toFixed(2);
+    }
+  });
+
+  // ---------- Le relevé : chaque fragment prend la couleur de sa famille ----------
+  const NOMS = { tache: ['tâche', 'tâches'], personne: ['personne', 'personnes'], date: ['date', 'dates'] };
+  const comptes = { tache: [], personne: [], date: [] };
+  fragments.forEach((fr, i) => {
+    fr.t = ANALYSE + 0.55 + i * 0.235;
+    f.piste(fr.el, [fr.t, { '--p': 0 }], [fr.t + 0.5, { '--p': 1 }, 'sortie']);
+    if (comptes[fr.fam]) comptes[fr.fam].push(fr.t + 0.2);
+  });
+  for (const fam of Object.keys(comptes)) {
+    const puce = $(`[data-compteur="${fam}"]`), nombre = $('b', puce), libelle = $('span', puce);
+    const t0 = comptes[fam][0];
+    f.piste(puce, [t0, { o: 0, s: 0.7, y: 10 }], [t0 + 0.55, { o: 1, s: 1, y: 0 }, 'ressort'], [RANGER + 0.05, { o: 1, s: 1, y: 0 }], [RANGER + 0.4, { o: 0, s: 0.9, y: 14 }, 'douce']);
+    // Un petit sursaut à chaque élément de plus.
+    comptes[fam].slice(1).forEach((tc) => f.piste(puce, [tc, { s: 1 }], [tc + 0.12, { s: 1.07 }, 'sortie'], [tc + 0.4, { s: 1 }, 'douce']));
+    let vu = -1;
+    f.chaque((t) => {
+      const n = comptes[fam].filter((tc) => t >= tc).length;
+      if (n === vu) return;
+      vu = n;
+      nombre.textContent = n;
+      libelle.lastChild.textContent = ` ${NOMS[fam][n > 1 ? 1 : 0]}`;
+    });
+  }
+
+  // ---------- L'app monte, les fragments s'y rangent ----------
+  const tel = $('.tel');
+  f.piste(tel, [RANGER + 0.05, { y: 640, r: 3 }], [RANGER + 1, { y: 0, r: 0 }, 'sortie'], [SORTIE, { y: 0, r: 0 }], [SORTIE + 0.6, { y: 660, r: -2 }, 'entree']);
+  // Les cartes arrivent vides ; le titre du mémo se pose quand les fragments du haut sont partis.
+  const POSES = [0.5, 1.75, 1.85, 1.95, 0.55, 0.65];
+  $$('.pose', tel).forEach((el, i) => f.entre(el, RANGER + POSES[i], { d: 0.7, y: 22, f: 5 }));
+
+  // Mesures, avant toute transformation : la place de chaque fragment dans le texte et celle de sa cible dans l'app.
+  const cadre = scene.getBoundingClientRect();
+  const boite = (el) => { const r = el.getBoundingClientRect(); return { x: r.left - cadre.left, y: r.top - cadre.top, l: r.width, h: r.height }; };
+  const totaux = { tache: [], personne: [] };
+  fragments.forEach((fr, i) => {
+    // Un fragment qui passe à la ligne vole depuis son premier morceau.
+    const morceaux = [...fr.el.getClientRects()];
+    const r0 = morceaux[0];
+    const depart = { x: r0.left - cadre.left, y: r0.top - cadre.top, l: r0.width, h: r0.height };
+    const cible = $(`[data-cible="${fr.cible}"]`);
+    const arrivee = boite(cible);
+    const vol = document.createElement('p');
+    vol.className = `abs vol f-${fr.fam} ${fr.fam === 'tache' ? 'vol-trait' : 'vol-pastille'}`;
+    vol.textContent = fr.chaine;
+    vol.style.left = `${depart.x.toFixed(1)}px`;
+    vol.style.top = `${(depart.y + (depart.h - 36) / 2).toFixed(1)}px`;
+    scene.append(vol);
+    const moi = boite(vol);
+    const echelle = Math.min(1, (arrivee.h + 2) / 30);
+    const dx = arrivee.x + arrivee.l / 2 - (moi.x + moi.l / 2);
+    const dy = arrivee.y + arrivee.h / 2 - (moi.y + moi.h / 2);
+    const t0 = RANGER + 0.8 + i * 0.1, d = 0.82;
+    // Le fragment quitte le texte…
+    f.piste(fr.el, [RANGER, { o: 1 }], [RANGER + 0.01, { o: 0 }, 'lin']);
+    f.piste(vol, [RANGER, { o: 0 }], [RANGER + 0.01, { o: 1 }, 'lin'], [t0 + d * 0.72, { o: 1 }], [t0 + d, { o: 0 }, 'lin']);
+    f.piste(vol, [RANGER, { s: 1, y: 0 }], [RANGER + 0.4, { s: 1.03, y: -4 }, 'sortie'], [t0, { s: 1.03, y: -4 }]);
+    // … décrit un arc, et se pose à sa place dans le mémo.
+    f.piste(vol, [t0, { x: 0, y: 0, s: 1 }], [t0 + d, { x: dx, y: dy + 4, s: echelle / 1.03 }, 'douce']);
+    f.piste(vol, [t0, { y: 0, r: 0 }], [t0 + d * 0.45, { y: -30, r: i % 2 ? 3 : -3 }, 'sortie'], [t0 + d, { y: 0, r: 0 }, 'entree']);
+    f.piste(cible, [t0 + d * 0.62, { o: 0, s: 0.9 }], [t0 + d * 1.08, { o: 1, s: 1 }, 'ressort']);
+    fr.pose = t0 + d * 0.8;
+    if (fr.fam === 'tache') totaux.tache.push(fr.pose);
+    if (fr.cible === 'p1' || fr.cible === 'p2') totaux.personne.push(fr.pose);
+  });
+  // Ce qui accompagne chaque ligne (case, monogramme) arrive avec son texte.
+  const escorte = (ligne, cible) => {
+    const fr = fragments.find((x) => x.cible === cible);
+    $$(':scope > .case, :scope > .mono, small', $(`[data-ligne="${ligne}"]`)).forEach((el) => f.piste(el, [fr.pose - 0.1, { o: 0, s: 0.6 }], [fr.pose + 0.4, { o: 1, s: 1 }, 'ressort']));
+  };
+  escorte('t1', 't1'); escorte('t2', 't2'); escorte('t3', 't3'); escorte('p1', 'p1'); escorte('p2b', 'p2');
+  const julien = fragments.find((x) => x.cible === 'p2');
+  f.piste($('[data-ligne="p2b"] .quoi'), [julien.pose, { o: 0, s: 0.9 }], [julien.pose + 0.4, { o: 1, s: 1 }, 'ressort']);
+  for (const fam of Object.keys(totaux)) {
+    const el = $(`[data-total="${fam}"]`);
+    let vu = -1;
+    f.chaque((t) => { const n = totaux[fam].filter((x) => t >= x).length; if (n !== vu) { vu = n; el.textContent = n; } });
+  }
+
+  // ---------- Une tâche cochée ----------
+  const caseUne = $('[data-ligne="t1"] .case'), coche = $('em', caseUne), quoi = $('[data-cible="t1"]');
+  const c = boite(caseUne);
+  const doigt = $('.doigt');
+  doigt.style.left = `${(c.x + c.l / 2).toFixed(1)}px`;
+  doigt.style.top = `${(c.y + c.h / 2).toFixed(1)}px`;
+  const TOUCHE = 11.45;
+  f.piste(doigt, [TOUCHE - 0.75, { o: 0, x: 46, y: 64, s: 1.3 }], [TOUCHE - 0.15, { o: 1, x: 0, y: 0, s: 1 }, 'sortie'], [TOUCHE, { o: 1, s: 0.78 }, 'douce'], [TOUCHE + 0.22, { o: 1, s: 1 }, 'sortie'], [TOUCHE + 0.7, { o: 0, x: 30, y: 44, s: 1.2 }, 'douce']);
+  f.piste(coche, [TOUCHE, { o: 0, s: 0.3 }], [TOUCHE + 0.45, { o: 1, s: 1 }, 'rebond'], [SORTIE + 0.6, { o: 1, s: 1 }]);
+  f.piste(quoi, [TOUCHE + 0.1, { '--b': 0 }], [TOUCHE + 0.6, { '--b': 1 }, 'sortie']);
+  f.chaque((t) => { quoi.style.color = t > TOUCHE + 0.1 ? 'var(--ios-doux)' : ''; });
+
+  f.lancer();
+})();
+</script>
+</body>
+</html>

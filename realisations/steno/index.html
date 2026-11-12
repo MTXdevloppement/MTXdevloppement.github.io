@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)</script>
-<title>Sténo : des notes extraites de vos mémos vocaux sur iPhone</title>
-<meta name="description" content="Sténo transcrit vos mémos vocaux sur l’iPhone et en relève personnes, tâches, décisions et dates avec Apple Intelligence. Rien ne quitte l’appareil.">
+<title>Sténo · Transcription de mémos vocaux en notes sur iPhone</title>
+<meta name="description" content="Sténo transcrit vos mémos vocaux en texte, puis en notes claires : tâches, dates, personnes, décisions. Tout se fait sur l’iPhone, sans compte. Démo à essayer.">
 <meta name="author" content="MTX Studio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://mtxdevloppement.github.io/realisations/steno/">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="MTX Studio">
 <meta property="og:title" content="Sténo — Parlez. Sténo note.">
-<meta property="og:description" content="Un mémo vocal devient des notes rangées : personnes citées, tâches, décisions, dates. Sur l’iPhone, sans compte ni serveur.">
+<meta property="og:description" content="Dictez, Sténo s’occupe du reste : votre mémo vocal devient des notes claires, avec les tâches, les personnes et les dates. Sur l’iPhone, sans compte ni serveur.">
 <meta property="og:url" content="https://mtxdevloppement.github.io/realisations/steno/">
 <meta property="og:image" content="https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Sténo : une phrase dictée dont les mots se rangent en tâches, personnes et dates">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sténo — Parlez. Sténo note.">
-<meta name="twitter:description" content="Un mémo vocal devient des notes rangées : personnes citées, tâches, décisions, dates. Sur l’iPhone, sans compte ni serveur.">
+<meta name="twitter:description" content="Dictez, Sténo s’occupe du reste : votre mémo vocal devient des notes claires, avec les tâches, les personnes et les dates. Sur l’iPhone, sans compte ni serveur.">
 <meta name="twitter:image" content="https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfbfd">
@@ -83,7 +83,7 @@
     <span class="nav-onde" aria-hidden="true" data-onde></span>
     <a class="nav-marque" href="#haut" aria-label="Sténo, haut de la page"><svg aria-hidden="true"><use href="#s-logo"/></svg><span>Sténo</span></a>
     <nav class="nav-liens" aria-label="Sections de la page">
-      <a href="#releve">Le relevé</a>
+      <a href="#releve">La démo</a>
       <a href="#raccourcis">Raccourcis</a>
       <a href="#assistant">Assistant</a>
       <a href="#prive">Vie privée</a>
@@ -100,15 +100,15 @@
   <!-- 0:00 — Promesse -->
   <section class="heros" id="haut" data-code="0:00">
     <div class="heros-texte">
-      <p class="surtitre"><span class="rec" aria-hidden="true"></span>App iPhone et iPad · iOS 27 · Apple Intelligence</p>
+      <p class="surtitre"><span class="rec" aria-hidden="true"></span>Mémos vocaux en notes · iPhone et iPad · iOS 27</p>
       <h1>Parlez.<br><em>Sténo note.</em></h1>
-      <p class="chapo">Dictez un mémo, ou envoyez-en un depuis Dictaphone. Sténo le transcrit sur l’iPhone et en relève les personnes citées, les tâches, les décisions et les dates. Rien ne quitte l’appareil.</p>
+      <p class="chapo">Dictez un mémo comme vous parleriez à un ami, ou envoyez-en un depuis Dictaphone. Sténo le transcrit en texte et en tire l’essentiel&#8239;: les tâches, les personnes, les décisions et les dates. Rien ne quitte votre iPhone.</p>
       <div class="actions">
         <a class="bouton bouton-rouge" href="mailto:mtxstudio@proton.me?subject=St%C3%A9no%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20St%C3%A9no%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie<svg class="fl" aria-hidden="true"><use href="#s-fleche"/></svg></a>
-        <a class="bouton bouton-trait" href="#releve">Essayer le relevé</a>
+        <a class="bouton bouton-trait" href="#releve">Essayer la démo</a>
       </div>
       <dl class="faits">
-        <div><dt>Relevé</dt><dd><b>10</b> familles d’éléments</dd></div>
+        <div><dt>Relevé</dt><dd><b>10</b> types d’infos repérés</dd></div>
         <div><dt>Envoyé sur Internet</dt><dd><b>0</b> octet</dd></div>
         <div><dt>Raccourcis</dt><dd><b>6</b> actions, Siri compris</dd></div>
       </dl>
@@ -188,9 +188,9 @@
 
   <!-- 0:14 — Le relevé -->
   <section class="sec releve" id="releve" data-code="0:14" aria-labelledby="titre-releve">
-    <p class="repere"><span class="repere-t">0:14</span>Le relevé</p>
+    <p class="repere"><span class="repere-t">0:14</span>La démo</p>
     <h2 id="titre-releve" data-apparait>Écrivez une phrase.<br><em>Sténo la range.</em></h2>
-    <p class="chapo" data-apparait>Choisissez un mémo d’exemple ou écrivez comme vous parlez. Chaque mot utile prend sa couleur, puis sa place&#8239;: une tâche avec son échéance, un prénom, un montant, une décision.</p>
+    <p class="chapo" data-apparait>À vous d’essayer&#8239;: choisissez un mémo d’exemple ou écrivez comme vous parlez. Chaque mot utile prend sa couleur, puis sa place&#8239;: une tâche avec son échéance, un prénom, un montant, une décision.</p>
 
     <div class="rel" data-releve>
       <div class="rel-source">
@@ -242,7 +242,7 @@
   <section class="sec gestes" id="raccourcis" data-code="0:31" aria-labelledby="titre-raccourcis">
     <p class="repere"><span class="repere-t">0:31</span>Raccourcis</p>
     <h2 id="titre-raccourcis" data-apparait>Un mémo arrive<br><em>sans ouvrir l’app.</em></h2>
-    <p class="chapo" data-apparait>Sténo se branche là où vous parlez déjà&#8239;: le bouton Action, Dictaphone, le Centre de contrôle, Siri, et vos propres raccourcis.</p>
+    <p class="chapo" data-apparait>Une idée en marchant, une réunion qui démarre&#8239;: Sténo se lance là où vous parlez déjà, depuis le bouton Action, Dictaphone, le Centre de contrôle, Siri ou vos propres raccourcis.</p>
 
     <div class="ges" data-gestes data-geste="action">
       <div class="ges-liste" role="tablist" aria-label="Façons d’envoyer un mémo" aria-orientation="vertical">
@@ -306,7 +306,7 @@
   <section class="sec assistant" id="assistant" data-code="0:47" aria-labelledby="titre-assistant">
     <p class="repere"><span class="repere-t">0:47</span>Apple Intelligence</p>
     <h2 id="titre-assistant" data-apparait>Posez la question.<br><em>Le mémo répond.</em></h2>
-    <p class="chapo" data-apparait>Le modèle d’Apple travaille sur l’iPhone&#8239;: il relève, il répond à partir de vos notes, il rédige. Il n’invente pas ce qui n’a pas été dit.</p>
+    <p class="chapo" data-apparait>«&#8239;Qui doit faire quoi&#8239;?&#8239;» Demandez, Sténo répond à partir de vos notes et rédige le compte rendu à votre place. Le modèle d’Apple travaille sur l’iPhone, et n’invente pas ce qui n’a pas été dit.</p>
 
     <div class="ass">
       <article class="ass-carte" data-interroger>
@@ -443,8 +443,8 @@ Suites à donner
 <section class="mtx-pf" data-mtx-app="Sténo" aria-labelledby="mtx-pf-t">
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-steno.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
-    <h2 class="mtx-pf-t" id="mtx-pf-t">Sténo transforme un mémo vocal en notes rangées.</h2>
-    <p class="mtx-pf-sub">Chaque application et son site sont conçus avec soin par MTX Studio.</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Sténo transforme vos mémos vocaux en notes claires et en tâches à faire.</h2>
+    <p class="mtx-pf-sub">Une idée d’application ? MTX Studio conçoit l’app et son site avec le même soin, de la première idée à la mise en ligne.</p>
     <p class="mtx-pf-tags">App iPhone et iPad · Prise de notes<br>SwiftUI · Foundation Models · SpeechAnalyzer · App Intents · WidgetKit</p>
     <div class="mtx-pf-cta"><a class="mtx-btn" href="../foulee/index.html"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : GoRun</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../index.html#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me">Écrire au studio</a></div>
     <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../index.html#realisations">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>

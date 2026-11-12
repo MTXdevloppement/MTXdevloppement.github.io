@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film des raccourcis — Sténo</title>
+<link rel="stylesheet" href="commun.css">
+<style>
+/* Film 2 : cinq façons d'envoyer un mémo, en plan rapproché sur le téléphone. Scène de 540 × 675 (4:5).
+   Cinq chapitres de 5,2 s (bouton Action, Dictaphone, Centre de contrôle, Siri, Raccourcis) ; chacun commence et
+   finit sur l'écran verrouillé, pour pouvoir tourner seul en boucle. */
+.scene{width:540px;height:675px}
+
+.tete{left:40px;right:40px;top:24px;height:28px;display:flex;align-items:center;justify-content:space-between;font:500 12.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--doux)}
+.etats{position:relative;height:28px;flex:1}
+.etat{position:absolute;left:0;top:0;height:28px;display:flex;align-items:center;gap:11px;white-space:nowrap}
+.etat b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--rouge);color:var(--sur-rouge);font-weight:500;font-size:12.5px;letter-spacing:0}
+.points{display:flex;gap:6px}
+.points i{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--encre) 16%,transparent)}
+.points i.ici{background:var(--rouge)}
+
+/* Le téléphone, plus grand que la scène : la caméra (.cam) le cadre. */
+.cam{left:35px;top:70px;width:470px;height:1016px;transform-origin:0 0}
+.tel{position:absolute;inset:0;padding:9px;border-radius:78px;background:linear-gradient(150deg,#3b3b40,#101012 38%,#27272b);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),var(--ombre-forte)}
+:root[data-theme="dark"] .tel{background:linear-gradient(150deg,#55555c,#1c1c20 38%,#3a3a40);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26),var(--ombre-forte)}
+.cote{position:absolute;left:-4.5px;width:5.5px;border-radius:3px 0 0 3px;background:#2a2a2e}
+:root[data-theme="dark"] .cote{background:#4a4a50}
+.cote-action{top:178px;height:54px;--b:0;background:color-mix(in srgb,var(--rouge) calc(var(--b) * 100%),#2a2a2e);box-shadow:0 0 0 calc(var(--b) * 4px) color-mix(in srgb,var(--rouge) 30%,transparent),-8px 0 22px calc(var(--b) * 3px) color-mix(in srgb,var(--rouge) calc(var(--b) * 60%),transparent)}
+.cote-v1{top:262px;height:88px}.cote-v2{top:366px;height:88px}
+.ecran{position:relative;width:100%;height:100%;overflow:hidden;border-radius:69px;background:#000;color:#fff;font:400 16px/1.3 var(--ios);letter-spacing:-.01em;isolation:isolate}
+.plan{position:absolute;inset:9px;z-index:9;pointer-events:none}
+.couche{position:absolute;inset:0}
+
+/* Écran verrouillé */
+.fond{background:radial-gradient(120% 70% at 20% 0%,#ff9c82,transparent 60%),radial-gradient(110% 80% at 100% 30%,#b9a4ff,transparent 62%),linear-gradient(170deg,#e9523f,#7c3aa8 70%,#281a4d)}
+:root[data-theme="dark"] .fond{background:radial-gradient(120% 70% at 20% 0%,#7c2318,transparent 60%),radial-gradient(110% 80% at 100% 30%,#3b2a7a,transparent 62%),linear-gradient(170deg,#3a120e,#1d1235 70%,#07060d)}
+.verrou{text-align:center;padding-top:94px}
+.verrou-jour{font-size:21px;font-weight:500;opacity:.92}
+.verrou-heure{margin-top:2px;font:600 116px/1 var(--ios-rond);letter-spacing:-.03em}
+
+/* L'île */
+.ile{position:absolute;z-index:8;top:13px;left:50%;height:36px;width:126px;margin-left:-63px;border-radius:25px;background:#000;display:flex;align-items:center;gap:11px;padding:0 17px;overflow:hidden;color:#fff;font-size:15.5px;white-space:nowrap}
+.ile b{flex:1;font-weight:600;color:#ff6a5c}
+.ile-temps{font-weight:600;font-variant-numeric:tabular-nums}
+.ile-onde{display:flex;align-items:center;gap:3px;height:22px}
+.ile-onde i{width:3.5px;height:100%;border-radius:2px;background:#ff5d4f;transform-origin:50% 50%}
+
+/* Icône de l'app */
+.app{display:grid;place-items:center;flex:none;width:62px;height:62px;border-radius:15px;background:linear-gradient(140deg,#f7604a,#e23b2e 50%,#b81f1c);color:#fff;font-size:30px}
+.app svg{width:1.42em}
+.onde-anneau{position:absolute;left:-11px;top:196px;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;border:2.5px solid var(--rouge)}
+
+/* 2. Dictaphone */
+.dict{background:var(--ios-fond);color:var(--ios-encre);padding:74px 20px 0}
+.dict h2{font:700 30px/1.1 var(--ios);letter-spacing:-.025em}
+.dict-ligne{margin-top:16px;padding:16px 18px;border-radius:24px;background:var(--ios-carte)}
+.dict-ligne b{display:block;font-size:17.5px;font-weight:600}
+.dict-ligne small{color:var(--ios-doux);font-size:14px}
+.dict-trace{display:flex;align-items:center;gap:2.5px;height:44px;margin-top:10px}
+.dict-trace i{flex:1;border-radius:2px;background:color-mix(in srgb,var(--ios-encre) 28%,transparent)}
+.dict-trace i.lu{background:var(--ios-rouge)}
+.dict-outils{display:flex;align-items:center;justify-content:space-between;margin-top:10px;color:var(--ios-rouge);font-size:22px}
+.dict-outils span{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:color-mix(in srgb,var(--ios-encre) 7%,transparent)}
+.dict-outils .jouer{width:52px;height:52px;background:var(--ios-rouge);color:#fff}
+.dict-autre{padding:15px 18px;border-bottom:1px solid var(--ios-filet)}
+.dict-autre b{display:block;font-size:17px;font-weight:600}
+.dict-autre small{color:var(--ios-doux);font-size:14px}
+.voile{background:rgba(0,0,0,.3)}
+.feuille{position:absolute;left:10px;right:10px;bottom:12px;color:var(--ios-encre)}
+.feuille > *{background:var(--ios-carte)}
+:root[data-theme="dark"] .feuille > *,:root[data-theme="dark"] .banniere{background:#2c2c2e}
+.f-fichier{display:flex;align-items:center;gap:13px;padding:16px;border-radius:26px 26px 8px 8px}
+.f-fichier b{display:block;font-size:16.5px;font-weight:600}.f-fichier small{color:var(--ios-doux);font-size:13.5px}
+.f-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:color-mix(in srgb,var(--ios-encre) 8%,transparent);color:var(--ios-rouge);font-size:24px}
+.f-apps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:4px;padding:20px 6px 18px;border-radius:8px}
+.f-apps span{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px}
+.f-apps i{display:block;width:62px;height:62px;border-radius:15px}
+.a1{background:linear-gradient(#5ac8fa,#0a84ff)}.a2{background:linear-gradient(#5ef07b,#22c245)}.a3{background:linear-gradient(#ffe066,#ffb300)}
+.f-action{display:flex;justify-content:space-between;align-items:center;margin-top:4px;padding:17px 18px;border-radius:8px;font-size:16.5px}
+.f-action:last-child{border-radius:8px 8px 48px 48px;padding-bottom:26px}
+.f-action svg{font-size:19px;color:var(--ios-doux)}
+.banniere{position:absolute;z-index:7;top:62px;left:10px;right:10px;display:flex;align-items:center;gap:13px;padding:14px 16px;border-radius:28px;background:color-mix(in srgb,var(--ios-carte) 93%,transparent);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);box-shadow:inset 0 0 0 1px var(--verre-bord),0 14px 34px rgba(0,0,0,.22);color:var(--ios-encre);font-size:15.5px;line-height:1.25}
+.banniere .app{width:44px;height:44px;border-radius:11px;font-size:21px}
+.banniere b{display:block;font-weight:600}.banniere small{color:var(--ios-doux);font-size:14px}
+
+/* 3. Centre de contrôle */
+.cc{padding:176px 38px 0}
+.tuiles{display:grid;grid-template-columns:repeat(4,80px);gap:18.6px}
+.tuile{display:grid;place-items:center;height:80px;border-radius:40px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.24);color:#fff;font-size:30px}
+.tuile-large{grid-column:span 2;justify-content:start;padding-left:26px;grid-auto-flow:column;gap:14px;font-size:24px}
+.tuile-large small{font-size:15px;font-weight:600;line-height:1.2}
+.tuile-large small em{display:block;font-style:normal;font-weight:400;opacity:.7}
+.tuile-steno{position:relative;font-size:34px}
+.tuile-steno::before{content:"";position:absolute;inset:0;border-radius:50%;background:#e23b2e;box-shadow:0 0 0 calc(var(--a,0) * 9px) rgba(226,59,46,.32);opacity:var(--a,0)}
+.tuile-steno svg{position:relative}
+.cc-nom{margin-top:26px;text-align:center;font-size:17px;font-weight:600}
+.cc-nom small{display:block;margin-top:2px;font-size:14px;font-weight:400;opacity:.75}
+
+/* 4. Siri */
+.siri::before{content:"";position:absolute;inset:0;border-radius:69px;padding:11px;background:conic-gradient(from calc(var(--angle,0) * 1deg),#ff6a3d,#ff3d77,#a05cff,#3d9bff,#3de0c8,#ff6a3d);
+  -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);filter:blur(7px)}
+.siri::after{content:"";position:absolute;inset:0;border-radius:69px;box-shadow:inset 0 0 70px 6px rgba(160,92,255,.4),inset 0 0 26px 2px rgba(255,106,61,.45)}
+.siri-bulle{position:absolute;left:34px;right:34px;top:400px;padding:22px 24px;border-radius:34px;background:rgba(30,30,36,.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);backdrop-filter:blur(22px) saturate(1.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);text-align:center;font-size:25px;font-weight:600;line-height:1.25;letter-spacing:-.02em}
+.siri-bulle span{display:inline-block}
+
+/* 5. Raccourcis */
+.rac{background:var(--ios-fond);color:var(--ios-encre);padding:74px 20px 0}
+.rac-tete{display:flex;align-items:center;justify-content:space-between}
+.rac-tete h2{font:700 28px/1.1 var(--ios);letter-spacing:-.025em}
+.rac-jouer{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#0a84ff;color:#fff;font-size:19px}
+.rac-action{display:flex;align-items:center;gap:13px;margin-top:22px;padding:15px 16px;border-radius:24px;background:var(--ios-carte);font-size:17px;font-weight:500;line-height:1.3;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.rac-action .app{width:42px;height:42px;border-radius:10px;font-size:20px}
+.rac-action em{display:inline-block;padding:1px 9px;border-radius:9px;background:color-mix(in srgb,#0a84ff 16%,transparent);color:#0a7aff;font-style:normal}
+:root[data-theme="dark"] .rac-action em{color:#6cb6ff}
+.rac-fil{width:2.5px;height:30px;margin:0 auto;border-radius:2px;background:color-mix(in srgb,var(--ios-encre) 22%,transparent);transform-origin:50% 0}
+.rac-resultat{padding:18px;border-radius:26px;background:var(--ios-carte);box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.rac-titre{display:flex;align-items:center;gap:9px;font:700 21px/1.15 var(--ios-serif);letter-spacing:-.015em}
+.rac-titre svg{color:var(--ios-rouge);font-size:20px}
+.rac-ligne{display:flex;align-items:center;gap:11px;margin-top:13px;font-size:16.5px}
+.rac-ligne i{width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 1.7px color-mix(in srgb,var(--ios-encre) 28%,transparent)}
+.rac-compte{display:flex;gap:8px;margin-top:16px}
+.rac-compte span{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);font-size:14px;font-weight:600}
+
+/* Le doigt */
+.doigt{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(255,255,255,.34);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7),0 4px 14px rgba(0,0,0,.25)}
+.doigt-sombre{background:color-mix(in srgb,var(--encre) 20%,transparent);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--encre) 36%,transparent)}
+</style>
+</head>
+<body>
+<div id="symboles"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3.5 9.5a12.5 12.5 0 0 1 17 0M6.6 12.9a8 8 0 0 1 10.8 0M9.7 16.2a3.6 3.6 0 0 1 4.6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="19.3" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-avion" viewBox="0 0 24 24"><path d="M21 3 2.8 10.4l6.9 2.9 2.9 6.9Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lune" viewBox="0 0 24 24"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" fill="currentColor"/><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M5.2 18.8l1.7-1.7M17.1 6.9l1.7-1.7" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+  <symbol id="i-minuteur" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.6" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M12 13V8.6M9.6 2.8h4.8" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+  <symbol id="i-lampe" viewBox="0 0 24 24"><path d="M7.5 3h9v3.4l-2.2 3.2V20a1.4 1.4 0 0 1-1.4 1.400h-1.800A1.4 1.4 0 0 1 9.700 20V9.600L7.500 6.400Z" fill="currentColor"/></symbol>
+  <symbol id="i-son" viewBox="0 0 24 24"><path d="M4 9.500v5h3.400l4.600 3.800V5.700L7.400 9.500Z" fill="currentColor"/><path d="M15.300 9a4.200 4.200 0 0 1 0 6M17.800 6.400a7.800 7.800 0 0 1 0 11.200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-copier" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 5.500A2.500 2.500 0 0 0 13.500 3H6.500A2.500 2.500 0 0 0 4 5.500v8A2.500 2.500 0 0 0 6.500 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-dossier" viewBox="0 0 24 24"><path d="M3 7.500A2.500 2.500 0 0 1 5.500 5h3.800l2 2.400h7.200A2.500 2.500 0 0 1 21 9.900v7.600a2.500 2.500 0 0 1-2.500 2.500h-13A2.500 2.500 0 0 1 3 17.500Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<div class="scene">
+  <div class="abs tete">
+    <div class="etats">
+      <p class="etat"><b>1</b>Le bouton Action</p>
+      <p class="etat"><b>2</b>Depuis Dictaphone</p>
+      <p class="etat"><b>3</b>Le Centre de contrôle</p>
+      <p class="etat"><b>4</b>Siri</p>
+      <p class="etat"><b>5</b>Dans Raccourcis</p>
+    </div>
+    <p class="points"><i></i><i></i><i></i><i></i><i></i></p>
+  </div>
+
+  <div class="abs cam">
+    <div class="tel">
+      <span class="cote cote-action"></span><span class="cote cote-v1"></span><span class="cote cote-v2"></span>
+      <div class="ecran">
+        <div class="couche fond"></div>
+        <div class="couche verrou"><p class="verrou-jour">jeudi 12 novembre</p><p class="verrou-heure">9:41</p></div>
+
+        <!-- 3. Centre de contrôle -->
+        <div class="couche cc">
+          <p class="tuiles">
+            <span class="tuile"><svg><use href="#i-avion"/></svg></span><span class="tuile"><svg><use href="#i-wifi"/></svg></span>
+            <span class="tuile tuile-large"><svg><use href="#s-lecture"/></svg><small>Podcast<em>En pause</em></small></span>
+            <span class="tuile"><svg><use href="#i-lune"/></svg></span><span class="tuile"><svg><use href="#i-soleil"/></svg></span><span class="tuile"><svg><use href="#i-son"/></svg></span><span class="tuile"><svg><use href="#s-cadenas"/></svg></span>
+            <span class="tuile"><svg><use href="#i-lampe"/></svg></span><span class="tuile tuile-steno"><svg><use href="#s-micro"/></svg></span><span class="tuile"><svg><use href="#i-minuteur"/></svg></span><span class="tuile"><svg><use href="#s-onde"/></svg></span>
+          </p>
+          <p class="cc-nom">Enregistrer un mémo<small>Sténo</small></p>
+        </div>
+
+        <!-- 4. Siri -->
+        <div class="couche siri"><p class="siri-bulle"></p></div>
+
+        <!-- 2. Dictaphone -->
+        <div class="couche dict">
+          <h2>Tous les enregistrements</h2>
+          <div class="dict-ligne">
+            <b>Réunion de chantier</b><small>aujourd’hui à 9:12 · 0:47</small>
+            <p class="dict-trace"></p>
+            <p class="dict-outils"><span class="partager"><svg><use href="#s-partager"/></svg></span><span class="jouer"><svg><use href="#s-lecture"/></svg></span><span><svg><use href="#s-corbeille"/></svg></span></p>
+          </div>
+          <p class="dict-autre"><b>Idée d’application</b><small>hier · 1:12</small></p>
+          <p class="dict-autre"><b>Plan pour la semaine</b><small>lundi · 0:38</small></p>
+          <div class="couche voile"></div>
+          <div class="feuille">
+            <p class="f-fichier"><span class="f-ico"><svg><use href="#s-onde"/></svg></span><span><b>Réunion de chantier</b><small>Dictaphone · 0:47</small></span></p>
+            <p class="f-apps"><span><i class="a1"></i>AirDrop</span><span><i class="a2"></i>Messages</span><span class="f-steno"><i class="app"><svg><use href="#s-logo"/></svg></i>Sténo</span><span><i class="a3"></i>Notes</span></p>
+            <p class="f-action">Copier<svg><use href="#i-copier"/></svg></p>
+            <p class="f-action">Enregistrer dans Fichiers<svg><use href="#i-dossier"/></svg></p>
+          </div>
+        </div>
+
+        <!-- 5. Raccourcis -->
+        <div class="couche rac">
+          <div class="rac-tete"><h2>Nouveau raccourci</h2><span class="rac-jouer"><svg><use href="#s-lecture"/></svg></span></div>
+          <p class="rac-action"><span class="app"><svg><use href="#s-logo"/></svg></span><span>Extraire les notes de <em>Mémo vocal</em></span></p>
+          <p class="rac-fil"></p>
+          <div class="rac-resultat">
+            <p class="rac-titre"><svg><use href="#s-onde"/></svg>Compte rendu réunion chantier</p>
+            <p class="rac-ligne"><i></i>Envoyer le plan corrigé à Claire</p>
+            <p class="rac-ligne"><i></i>Commander les fenêtres</p>
+            <p class="rac-ligne"><i></i>Rappeler la banque</p>
+            <p class="rac-compte"><span class="f-tache"><svg><use href="#f-tache"/></svg>4</span><span class="f-date"><svg><use href="#f-date"/></svg>3</span><span class="f-personne"><svg><use href="#f-personne"/></svg>2</span></p>
+          </div>
+        </div>
+
+        <p class="banniere"><span class="app"><svg><use href="#s-logo"/></svg></span><span><b>« Compte rendu réunion chantier » est prêt.</b><small>4 tâches, 3 dates, 2 personnes</small></span></p>
+        <p class="ile"><span class="ile-onde"><i></i><i></i><i></i><i></i><i></i></span><b>Sténo écoute</b><span class="ile-temps">0:01</span></p>
+      </div>
+      <div class="plan"><span class="onde-anneau"></span><span class="onde-anneau"></span></div>
+    </div>
+  </div>
+</div>
+
+<script src="moteur.js"></script>
+<script>
+(async () => {
+  document.getElementById('symboles').innerHTML = await (await fetch('symboles.svg.html')).text();
+  await document.fonts.load('500 13px "IBM Plex Mono"');
+  await document.fonts.ready;
+
+  const CH = 5.2, DUREE = CH * 5;
+  const f = Film({ duree: DUREE });
+  const { $, $$, av, mel, borne } = f;
+  const plan = $('.plan'), cam = $('.cam');
+  const base = plan.getBoundingClientRect();
+  // Centre d'un élément, dans le repère de l'écran (mesuré avant toute transformation).
+  const centre = (el) => { const r = (typeof el === 'string' ? $(el) : el).getBoundingClientRect(); return [r.left - base.left + r.width / 2, r.top - base.top + r.height / 2]; };
+
+  // Un toucher : le doigt arrive, appuie à l'instant t, repart.
+  const toucher = ([x, y], t, { de = [50, 70], sombre = false } = {}) => {
+    const d = document.createElement('span');
+    d.className = `doigt${sombre ? ' doigt-sombre' : ''}`;
+    d.style.left = `${x}px`; d.style.top = `${y}px`;
+    plan.append(d);
+    f.piste(d, [t - 0.7, { o: 0, x: de[0], y: de[1], s: 1.35 }], [t - 0.12, { o: 1, x: 0, y: 0, s: 1 }, 'sortie'], [t, { s: 0.76 }, 'douce'], [t + 0.24, { s: 1 }, 'sortie'], [t + 0.75, { o: 0, x: de[0] * 0.6, y: de[1] * 0.6, s: 1.2 }, 'douce']);
+  };
+  // Une couche d'écran qui s'ouvre comme une app, puis laisse la place à l'écran verrouillé.
+  const couche = (sel, entree, sortie) => f.piste(sel, [entree, { o: 0, s: 0.94 }], [entree + 0.45, { o: 1, s: 1 }, 'sortie'], [sortie, { o: 1, s: 1 }], [sortie + 0.45, { o: 0, s: 1.03 }, 'douce']);
+
+  // ---------- En-tête ----------
+  const etats = $$('.etat'), points = $$('.points i');
+  etats.forEach((e, i) => {
+    const t0 = i * CH;
+    if (i === 0) f.piste(e, [0, { o: 1, y: 0 }], [CH - 0.3, { o: 1, y: 0 }], [CH, { o: 0, y: -9 }, 'douce'], [DUREE - 0.3, { o: 0, y: 9 }], [DUREE, { o: 1, y: 0 }]);
+    else f.piste(e, [t0 - 0.05, { o: 0, y: 9 }], [t0 + 0.35, { o: 1, y: 0 }], [t0 + CH - 0.3, { o: 1, y: 0 }], [t0 + CH, { o: 0, y: -9 }, 'douce']);
+  });
+  f.chaque((t) => { const k = Math.min(4, Math.floor(t / CH)); points.forEach((p, i) => p.classList.toggle('ici', i === k)); });
+
+  // ---------- L'île : fermée, ou ouverte sur l'enregistrement ----------
+  const ile = $('.ile'), ileTemps = $('.ile-temps'), ileBarres = $$('.ile-onde i'), ileContenu = [...ile.children];
+  const ECOUTES = []; // [ouverture, fermeture]
+  f.chaque((t) => {
+    let p = 0, depuis = 0;
+    for (const [a, b] of ECOUTES) {
+      const v = av(t, a, 0.7, 'ressort') * (1 - av(t, b, 0.45, 'douce'));
+      if (v > p) { p = v; depuis = t - a; }
+    }
+    const l = mel(126, 428, p), h = mel(36, 52, p);
+    ile.style.width = `${l.toFixed(1)}px`; ile.style.marginLeft = `${(-l / 2).toFixed(1)}px`; ile.style.height = `${h.toFixed(1)}px`;
+    const o = borne((p - 0.55) / 0.4).toFixed(3);
+    ileContenu.forEach((c) => { c.style.opacity = o; });
+    ileTemps.textContent = f.horloge(1 + Math.max(0, depuis - 0.3) * 1.25);
+    ileBarres.forEach((b, i) => { b.style.transform = `scaleY(${(0.3 + 0.7 * Math.abs(Math.sin(t * 5.2 + i * 1.9) * Math.cos(t * 2.3 + i))).toFixed(3)})`; });
+  });
+
+  // ---------- 1. Le bouton Action ----------
+  {
+    const T = 0;
+    const bouton = $('.cote-action');
+    // Gros plan sur la tranche, puis recul.
+    f.piste(cam, [T + 0.15, { s: 1, x: 0, y: 0 }], [T + 0.95, { s: 1.34, x: 64, y: -6 }, 'douce'], [T + 2.0, { s: 1.34, x: 64, y: -6 }], [T + 3.2, { s: 1, x: 0, y: 0 }, 'douce']);
+    toucher([-20, 196], T + 1.1, { de: [-46, 60], sombre: true });
+    f.piste(bouton, [T + 1.08, { '--b': 0, x: 0 }], [T + 1.2, { '--b': 1, x: 3 }, 'sortie'], [T + 1.5, { '--b': 1, x: 0 }, 'ressort'], [T + 4.5, { '--b': 1 }], [T + 4.9, { '--b': 0 }, 'douce']);
+    $$('.onde-anneau').forEach((a, i) => { const t0 = T + 1.16 + i * 0.26; f.piste(a, [t0, { o: 0, s: 0.2 }], [t0 + 0.05, { o: 0.85, s: 0.25 }, 'lin'], [t0 + 1, { o: 0, s: 1.5 }, 'sortie']); });
+    ECOUTES.push([T + 1.4, T + 4.55]);
+  }
+
+  // ---------- 2. Depuis Dictaphone ----------
+  {
+    const T = CH;
+    // La trace du mémo
+    const trace = $('.dict-trace'), alea = f.hasard(23);
+    for (let i = 0; i < 54; i += 1) { const b = document.createElement('i'); b.style.height = `${(14 + 86 * Math.abs(Math.sin(i * 0.33)) * (0.35 + 0.65 * alea())).toFixed(0)}%`; if (i < 20) b.className = 'lu'; trace.append(b); }
+    const pPartager = centre('.dict .partager'), pSteno = centre('.f-steno .app');
+    couche('.dict', T + 0.12, T + 4.65);
+    toucher(pPartager, T + 0.95, { sombre: true });
+    // La feuille de partage monte ; la caméra descend la chercher, puis remonte vers la bannière.
+    f.piste('.voile', [T + 1.0, { o: 0 }], [T + 1.4, { o: 1 }, 'lin'], [T + 2.95, { o: 1 }], [T + 3.3, { o: 0 }, 'lin']);
+    f.piste('.feuille', [T + 1.0, { y: 560 }], [T + 1.7, { y: 0 }, 'sortie'], [T + 2.95, { y: 0 }], [T + 3.45, { y: 560 }, 'entree']);
+    f.piste(cam, [T + 0.95, { y: 0 }], [T + 1.85, { y: -442 }, 'douce'], [T + 2.95, { y: -442 }], [T + 3.75, { y: 0 }, 'douce']);
+    f.piste('.tete', [T + 0.95, { o: 1 }], [T + 1.25, { o: 0 }, 'lin'], [T + 3.4, { o: 0 }], [T + 3.75, { o: 1 }, 'lin']);
+    toucher(pSteno, T + 2.4, { de: [44, 64], sombre: true });
+    f.piste('.f-steno .app', [T + 2.4, { s: 1 }], [T + 2.52, { s: 0.84 }, 'sortie'], [T + 2.95, { s: 1 }, 'rebond']);
+    f.piste('.banniere', [T + 3.55, { y: -170, o: 0 }], [T + 3.6, { y: -170, o: 1 }, 'lin'], [T + 4.25, { y: 0, o: 1 }, 'ressort'], [T + 4.7, { y: 0, o: 1 }], [T + 5.1, { y: -170, o: 1 }, 'entree'], [T + 5.15, { y: -170, o: 0 }, 'lin']);
+  }
+
+  // ---------- 3. Le Centre de contrôle ----------
+  {
+    const T = CH * 2;
+    const fond = $('.fond'), verrou = $('.verrou'), tuiles = $$('.tuile'), steno = $('.tuile-steno');
+    const OUVRE = T + 0.2, FERME = T + 2.75;
+    const pSteno = centre(steno);
+    f.piste(verrou, [OUVRE, { o: 1, s: 1 }], [OUVRE + 0.4, { o: 0, s: 0.94 }, 'douce'], [FERME, { o: 0, s: 0.94 }], [FERME + 0.5, { o: 1, s: 1 }, 'sortie']);
+    f.chaque((t) => {
+      const p = av(t, OUVRE, 0.5, 'douce') * (1 - av(t, FERME, 0.5, 'douce'));
+      fond.style.filter = p > 0.004 ? `blur(${(p * 16).toFixed(2)}px) brightness(${(1 - p * 0.34).toFixed(3)})` : 'none';
+      fond.style.transform = `scale(${(1 + p * 0.1).toFixed(4)})`;
+    });
+    tuiles.forEach((tu, i) => {
+      const col = i < 3 ? [0, 1, 2][i] : (i - 3) % 4, lig = i < 3 ? 0 : 1 + Math.floor((i - 3) / 4);
+      const t0 = OUVRE + 0.08 + (3 - col + lig) * 0.045;
+      f.piste(tu, [t0, { o: 0, s: 0.5, y: -26 }], [t0 + 0.6, { o: 1, s: 1, y: 0 }, 'ressort'], [FERME, { o: 1, s: 1, y: 0 }], [FERME + 0.35, { o: 0, s: 0.8, y: -18 }, 'douce']);
+    });
+    toucher(pSteno, T + 1.55);
+    f.piste(steno, [T + 1.55, { '--a': 0, s: 1 }], [T + 1.68, { '--a': 1, s: 0.9 }, 'sortie'], [T + 2.1, { '--a': 1, s: 1.12 }, 'rebond'], [FERME, { '--a': 1, s: 1.12 }], [FERME + 0.3, { '--a': 0, s: 1 }, 'douce']);
+    f.piste('.cc-nom', [T + 1.7, { o: 0, y: 10 }], [T + 2.1, { o: 1, y: 0 }], [FERME, { o: 1, y: 0 }], [FERME + 0.3, { o: 0, y: -8 }, 'douce']);
+    f.piste(cam, [OUVRE, { s: 1, x: 0, y: 0 }], [T + 1.5, { s: 1.07, x: -16, y: -4 }, 'douce'], [FERME, { s: 1.07, x: -16, y: -4 }], [FERME + 0.9, { s: 1, x: 0, y: 0 }, 'douce']);
+    ECOUTES.push([FERME + 0.1, T + 4.6]);
+  }
+
+  // ---------- 4. Siri ----------
+  {
+    const T = CH * 3;
+    const siri = $('.siri'), bulle = $('.siri-bulle');
+    const mots = 'Enregistrer un mémo avec Sténo'.split(' ').map((m) => { const s = document.createElement('span'); s.textContent = m; bulle.append(s, ' '); return s; });
+    f.piste(siri, [T + 0.2, { o: 0 }], [T + 0.75, { o: 1 }, 'douce'], [T + 2.75, { o: 1 }], [T + 3.3, { o: 0 }, 'douce']);
+    f.chaque((t) => { siri.style.setProperty('--angle', ((t - T) * 115).toFixed(2)); });
+    f.piste(bulle, [T + 0.55, { o: 0, y: 22, s: 0.94 }], [T + 1.1, { o: 1, y: 0, s: 1 }, 'ressort'], [T + 2.65, { o: 1, y: 0, s: 1 }], [T + 3.0, { o: 0, y: -18, s: 0.97 }, 'douce']);
+    mots.forEach((m, i) => { const t0 = T + 0.82 + i * 0.2; f.piste(m, [t0, { o: 0, y: 8, f: 4 }], [t0 + 0.35, { o: 1, y: 0, f: 0 }]); });
+    f.piste(cam, [T + 0.2, { s: 1, x: 0, y: 0 }], [T + 2.4, { s: 1.05, x: -12, y: -4 }, 'douce'], [T + 2.75, { s: 1.05, x: -12, y: -4 }], [T + 3.7, { s: 1, x: 0, y: 0 }, 'douce']);
+    ECOUTES.push([T + 2.9, T + 4.6]);
+  }
+
+  // ---------- 5. Dans Raccourcis ----------
+  {
+    const T = CH * 4;
+    const pJouer = centre('.rac-jouer');
+    couche('.rac', T + 0.12, T + 4.65);
+    f.piste('.rac-action', [T + 0.45, { o: 0, y: -18, s: 0.95 }], [T + 1.0, { o: 1, y: 0, s: 1 }, 'ressort']);
+    toucher(pJouer, T + 1.5, { de: [40, 60], sombre: true });
+    f.piste('.rac-jouer', [T + 1.5, { s: 1 }], [T + 1.62, { s: 0.86 }, 'sortie'], [T + 2.0, { s: 1 }, 'rebond']);
+    f.piste('.rac-fil', [T + 1.75, { sy: 0 }], [T + 2.1, { sy: 1 }, 'sortie']);
+    f.piste('.rac-resultat', [T + 2.0, { o: 0, y: 20, s: 0.95 }], [T + 2.6, { o: 1, y: 0, s: 1 }, 'ressort']);
+    $$('.rac-ligne').forEach((l, i) => f.entre(l, T + 2.4 + i * 0.16, { d: 0.5, x: -14, y: 0 }));
+    $$('.rac-compte span').forEach((c, i) => { const t0 = T + 2.95 + i * 0.1; f.piste(c, [t0, { o: 0, s: 0.6 }], [t0 + 0.45, { o: 1, s: 1 }, 'rebond']); });
+  }
+
+  // Les couches transparentes n'existent que pendant leur chapitre.
+  f.piste('.cc', [CH * 2, { o: 0 }], [CH * 2 + 0.02, { o: 1 }, 'lin'], [CH * 3 - 0.02, { o: 1 }], [CH * 3, { o: 0 }, 'lin']);
+
+  f.lancer();
+})();
+</script>
+</body>
+</html>

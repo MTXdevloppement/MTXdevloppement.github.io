@@ -1,0 +1,437 @@
+/* ==========================================================================
+   MTX Studio — scène du premier écran (accueil V2)
+   Un iPhone et une Apple Watch dessinés en CSS : l’écran d’accueil ne contient
+   que les apps du studio, on en ouvre une et elle déroule ses vraies captures.
+   La scène est fixe derrière la page, comme l’était la vidéo : la feuille des
+   réalisations passe dessus, la fenêtre « Contact » la laisse réapparaître.
+   Toutes les cotes des appareils sont en em : 1 em = largeur d’écran / 27.
+   ========================================================================== */
+
+:root {
+  --pw: clamp(150px, min(21vw, 32vh), 340px);   /* largeur de l’écran du téléphone */
+  --scene-cx: 73vw;                              /* centre du téléphone */
+  --scene-cy: calc(50% + 14px);
+  --scene-reach: 0.98;                           /* débord de la montre à gauche, en largeurs d’écran */
+  --ios: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --stage-a: #ecebe7;
+  --stage-b: #d4d3cf;
+  --stage-c: #bfbfbb;
+  --stage-shadow: rgb(0 0 0 / 30%);
+  --band: #f1efea;
+  --band-edge: #cbc9c3;
+  --mail-bg: #fff;
+  --mail-ink: #000;
+  --mail-muted: rgb(60 60 67 / 60%);
+  --mail-line: rgb(60 60 67 / 18%);
+  --mail-blue: #007aff;
+}
+:root[data-theme="dark"] {
+  --stage-a: #2d2d30;
+  --stage-b: #18181a;
+  --stage-c: #0c0c0d;
+  --stage-shadow: rgb(0 0 0 / 66%);
+  --band: #2c2c2e;
+  --band-edge: #19191b;
+  --mail-bg: #1c1c1e;
+  --mail-ink: #fff;
+  --mail-muted: rgb(235 235 245 / 60%);
+  --mail-line: rgb(120 120 128 / 36%);
+  --mail-blue: #0a84ff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stage-a: #2d2d30;
+    --stage-b: #18181a;
+    --stage-c: #0c0c0d;
+    --stage-shadow: rgb(0 0 0 / 66%);
+    --band: #2c2c2e;
+    --band-edge: #19191b;
+    --mail-bg: #1c1c1e;
+    --mail-ink: #fff;
+    --mail-muted: rgb(235 235 245 / 60%);
+    --mail-line: rgb(120 120 128 / 36%);
+    --mail-blue: #0a84ff;
+  }
+}
+
+/* ---------- Plateau ------------------------------------------------------ */
+
+.scene {
+  position: fixed; inset: 0; z-index: 0; overflow: hidden;
+  background: radial-gradient(78% 88% at var(--scene-cx) 46%, var(--stage-a) 0%, var(--stage-b) 55%, var(--stage-c) 100%);
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.scene-rig {
+  position: absolute; left: var(--scene-cx); top: var(--scene-cy); width: 0; height: 0;
+  font-size: calc(var(--pw) / 27);
+  perspective: 150em;
+}
+.scene-tilt {
+  position: absolute; left: 0; top: 0; width: 0; height: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(5deg) rotateY(-17deg);
+  will-change: transform;
+}
+.scene-shadow {
+  position: absolute; left: -13em; top: 28.6em; width: 26em; height: 4.6em; border-radius: 50%;
+  background: var(--stage-shadow); filter: blur(1.7em);
+  transition: opacity 700ms ease 200ms;
+}
+
+/* ---------- iPhone ------------------------------------------------------- */
+
+.phone {
+  position: absolute; left: -14.55em; top: -30.41em; width: 29.1em; height: 60.82em;
+  padding: 0.3em; border-radius: 5.05em;
+  background: linear-gradient(140deg, #77787d 0%, #2a2a2d 22%, #1b1b1d 50%, #2f2f32 78%, #85868c 100%);
+  box-shadow: 0 2.6em 5em -1.6em var(--stage-shadow), 0 0.8em 1.6em -0.6em rgb(0 0 0 / 30%), inset 0 0 0 0.06em rgb(255 255 255 / 20%);
+  animation: scene-float 9s ease-in-out infinite;
+}
+.phone-keys, .phone-keys::before, .phone-keys::after {
+  position: absolute; width: 0.34em; border-radius: 0.2em; background: linear-gradient(90deg, #55565a, #2a2a2d);
+}
+.phone-keys { left: -0.3em; top: 11.4em; height: 2.3em; }
+.phone-keys::before { content: ""; left: 0; top: 4.2em; height: 4.3em; box-shadow: 0 5.3em 0 #3a3a3d; }
+.phone-keys::after { content: ""; left: 29.36em; top: 5.6em; height: 6.8em; background: linear-gradient(90deg, #2a2a2d, #55565a); }
+.phone-bezel { height: 100%; padding: 0.75em; border-radius: 4.75em; background: #050506; }
+.phone-screen {
+  position: relative; height: 100%; border-radius: 4em; overflow: hidden; isolation: isolate;
+  background: radial-gradient(120% 55% at 50% 100%, #1f1f25 0%, #0b0b0d 72%);
+  color: #fff; line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Reflet de la vitre : il glisse avec l’angle de la maquette (--gl). */
+.phone-screen::after {
+  content: ""; position: absolute; inset: 0; z-index: 9; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(112deg, transparent 36%, rgb(255 255 255 / 9%) 46%, rgb(255 255 255 / 2%) 53%, transparent 63%);
+  background-size: 280% 100%;
+  background-position: calc(50% + var(--gl, 0) * 1%) 0;
+}
+
+.ios-wall-x { position: absolute; left: 50%; top: 38.4em; width: 8em; height: 10em; margin-left: -4em; }
+
+/* Barre d’état et Dynamic Island */
+.ios-status {
+  position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 4.2em; margin: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.35em 0 3.4em;
+  transition: padding 520ms var(--ios);
+}
+.ios-time { font-size: 1.28em; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.ios-indicators { display: flex; align-items: center; gap: 0.45em; }
+.ios-indicators svg { width: auto; height: 0.94em; fill: currentColor; }
+.ios-island {
+  position: absolute; z-index: 8; top: 0.85em; left: 50%; width: 8.6em; height: 2.5em; margin: 0 0 0 -4.3em;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 0.95em;
+  border-radius: 1.25em; background: #000; color: #ff5c1f; overflow: hidden; pointer-events: none;
+  transition: width 520ms var(--ios), margin-left 520ms var(--ios);
+}
+.ios-island > * { opacity: 0; transition: opacity 160ms ease; }
+.ios-island svg { flex: none; width: 1.5em; height: 1.5em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ios-island circle { fill: currentColor; stroke: none; }
+.ios-island b { font-size: 1.12em; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* GoRun refermé, la course continue : l’activité en direct reste dans l’île. */
+.scene.is-running:not(.is-app) .ios-island { width: 15.6em; margin-left: -7.8em; }
+.scene.is-running:not(.is-app) .ios-island > * { opacity: 1; transition: opacity 260ms ease 260ms; }
+.scene.is-running:not(.is-app) .ios-home .ios-status { padding: 0 1.5em 0 1.75em; }
+.scene.is-running:not(.is-app) .ios-home .ios-signal { display: none; }
+
+/* Écran d’accueil */
+.ios-home {
+  position: absolute; inset: 0; transform-origin: 50% 42%;
+  transition: transform 520ms var(--ios), opacity 300ms ease;
+}
+.scene.is-app .ios-home { transform: scale(1.12); opacity: 0; pointer-events: none; }
+
+.ios-grid {
+  position: absolute; top: 6.2em; left: 1.55em; right: 1.55em; margin: 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.ios-app {
+  display: flex; flex-direction: column; align-items: center; gap: 0.42em; padding: 0.3em 0;
+  color: #fff; text-decoration: none; border-radius: 1.5em; cursor: pointer;
+}
+.ios-app:focus-visible { outline: 0.2em solid #fff; outline-offset: 0.1em; }
+.ios-app > img, .ios-app > i {
+  display: block; width: 4.9em; height: 4.9em; border-radius: 22.5%;
+  box-shadow: 0 0.3em 0.8em rgb(0 0 0 / 35%);
+  transition: transform 300ms cubic-bezier(0.3, 1.5, 0.5, 1), filter 200ms ease;
+}
+.ios-app > span { font-size: 1.02em; line-height: 1.15; letter-spacing: -0.01em; white-space: nowrap; text-shadow: 0 0.05em 0.25em rgb(0 0 0 / 55%); }
+@media (hover: hover) {
+  .ios-app:hover > img, .ios-app:hover > i { transform: translateY(-0.2em) scale(1.1); }
+}
+.ios-app:active > img, .ios-app:active > i { transform: scale(0.9); filter: brightness(0.72); transition-duration: 90ms; }
+
+/* L’emplacement libre : votre app. */
+.ios-app-new > i {
+  position: relative; background: rgb(255 255 255 / 7%); box-shadow: none;
+  border: 0.14em dashed rgb(255 255 255 / 55%);
+}
+.ios-app-new > i::before, .ios-app-new > i::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 1.9em; height: 0.26em; margin: -0.13em 0 0 -0.95em;
+  border-radius: 1em; background: var(--mtx-gradient);
+}
+.ios-app-new > i::after { transform: rotate(90deg); }
+
+/* Widgets */
+.ios-widgets { position: absolute; top: 15em; left: 1.9em; right: 1.9em; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4em; }
+.ios-widget {
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 10.9em; margin: 0; padding: 1.3em 1.4em; border-radius: 2.3em;
+  background: rgb(255 255 255 / 10%); box-shadow: inset 0 0 0 0.08em rgb(255 255 255 / 12%);
+}
+.ios-widget b { font-weight: 600; letter-spacing: -0.03em; line-height: 1.06; }
+.ios-w-store { background: #f4f4f2; color: #0b0b0c; box-shadow: none; }
+.ios-w-store b { font-size: 2.05em; }
+.ios-w-store span:last-child { margin-top: 0.2em; font-size: 1.06em; opacity: 0.62; }
+.ios-w-dot {
+  position: absolute; top: 1.45em; left: 1.45em; width: 0.9em; height: 0.9em; border-radius: 50%;
+  background: var(--mtx-gradient); animation: pulse 2.4s ease-out infinite;
+}
+.ios-w-studio svg { position: absolute; top: 1.25em; left: 1.3em; width: 1.85em; height: 2.3em; }
+.ios-w-studio b { font-size: 1.75em; }
+.ios-w-studio .is-dim { opacity: 0.5; }
+.ios-w-studio span { margin-top: 0.3em; font-size: 1.02em; opacity: 0.62; }
+.ios-w-flow { grid-column: 1 / -1; min-height: 0; gap: 0.75em; padding: 1.2em 1.5em 1.25em; }
+.ios-w-label { font-size: 1.02em; opacity: 0.62; }
+.ios-w-steps { display: flex; align-items: center; gap: 0.7em; }
+.ios-w-steps svg { flex: none; width: 2.5em; height: 2.5em; fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+.ios-w-steps i { position: relative; flex: 1; height: 0.16em; border-radius: 1em; background: rgb(255 255 255 / 20%); overflow: hidden; }
+.ios-w-steps i::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--mtx-gradient);
+  transform: translateX(-101%); animation: flow-a 4.2s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+.ios-w-steps i:nth-of-type(2)::after { animation-name: flow-b; }
+.ios-w-names { display: flex; justify-content: space-between; font-size: 0.98em; opacity: 0.82; }
+@keyframes flow-a { 0% { transform: translateX(-101%); opacity: 1; } 30%, 84% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
+@keyframes flow-b { 0%, 30% { transform: translateX(-101%); opacity: 1; } 60%, 84% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
+
+/* Dock */
+.ios-dock {
+  position: absolute; left: 1.3em; right: 1.3em; bottom: 1.3em; height: 7.3em; margin: 0; padding: 0; list-style: none;
+  display: flex; align-items: center; justify-content: center; gap: 2.2em;
+  border-radius: 2.9em; background: rgb(255 255 255 / 13%); box-shadow: inset 0 0 0 0.08em rgb(255 255 255 / 10%);
+}
+.ios-dock .ios-app { padding: 0; border-radius: 1.3em; }
+.ios-dock .ios-app > i { display: grid; place-items: center; }
+.ios-app-mail > i { background: linear-gradient(180deg, #fbfbf9, #d8d7d3); color: #0b0b0c; }
+.ios-app-mail svg { width: 2.9em; height: 2.9em; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ios-app-studio > i { background: #000; box-shadow: inset 0 0 0 0.08em rgb(255 255 255 / 18%), 0 0.3em 0.8em rgb(0 0 0 / 35%); }
+.ios-app-studio svg { width: 2.15em; height: 2.7em; }
+
+/* ---------- App ouverte : zoom depuis l’icône ---------------------------- */
+
+.ios-appview {
+  position: absolute; inset: 0; z-index: 5; overflow: hidden; background: #000;
+  visibility: hidden; opacity: 0;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(0.182);
+  clip-path: inset(27% 0 27% 0 round 6em);
+  transition: transform 440ms var(--ios), clip-path 440ms var(--ios), opacity 140ms ease 300ms, visibility 0s linear 440ms;
+}
+.scene.is-app .ios-appview {
+  visibility: visible; opacity: 1; transform: none; clip-path: inset(0 0 0 0 round 4em);
+  transition: transform 520ms var(--ios), clip-path 520ms var(--ios), opacity 120ms ease, visibility 0s;
+}
+.ios-splash { position: absolute; inset: 0; background: var(--app-bg, #000) center / 9em 9em no-repeat; }
+.ios-shots { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+.ios-shots:focus-visible { outline: 0.2em solid #2997ff; outline-offset: -0.3em; border-radius: 4em; }
+.ios-shots > span { display: none; }
+.ios-shots > span.is-set { display: block; position: absolute; inset: 0; }
+.ios-shots img {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: top center;
+  opacity: 0; transform: translateX(100%);
+  transition: transform 520ms var(--ios), filter 520ms ease;
+}
+.ios-shots img.is-on { z-index: 1; opacity: 1; transform: none; }
+.ios-shots img.is-off {
+  transform: translateX(-30%); filter: brightness(0.55); opacity: 0;
+  transition: transform 520ms var(--ios), filter 520ms ease, opacity 0s linear 520ms;
+}
+.ios-shots.no-anim img { transition: none; }
+.ios-appview[data-kind="mail"] .ios-shots { display: none; }
+
+.ios-homebar {
+  position: absolute; z-index: 6; left: 50%; bottom: 0; width: 13em; height: 2.8em; margin-left: -6.5em;
+  padding: 0; border: 0; background: none; cursor: pointer;
+}
+.ios-homebar::before {
+  content: ""; position: absolute; left: 50%; bottom: 0.62em; width: 9.2em; height: 0.36em; margin-left: -4.6em;
+  border-radius: 1em; background: var(--bar, #fff);
+  transition: transform 220ms var(--ios);
+}
+.ios-homebar:focus-visible { outline: 0.2em solid #2997ff; outline-offset: -0.5em; border-radius: 1em; }
+@media (hover: hover) { .ios-homebar:hover::before { transform: translateY(-0.22em) scaleX(1.1); } }
+
+/* Nouveau message : la vue de la fenêtre « Contact » et de l’emplacement « Votre app ». */
+.ios-mail { position: absolute; inset: 0; display: none; background: #000; color: var(--mail-ink); }
+.ios-appview[data-kind="mail"] .ios-mail { display: block; }
+.ios-mail .ios-status { color: #fff; }
+.mail-sheet { position: absolute; inset: 5.1em 0 0; padding: 1.4em 1.8em; border-radius: 1.7em 1.7em 0 0; background: var(--mail-bg); }
+.mail-sheet p { margin: 0; }
+.mail-bar { display: flex; align-items: center; justify-content: space-between; }
+.mail-bar button { font: inherit; font-size: 1.36em; color: var(--mail-blue); background: none; border: 0; padding: 0.3em 0; cursor: pointer; }
+.mail-send { display: grid; place-items: center; width: 2.9em; height: 2.9em; border-radius: 50%; background: var(--mtx-gradient); transition: transform 300ms cubic-bezier(0.3, 1.5, 0.5, 1); }
+.mail-send svg { width: 1.7em; height: 1.7em; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .mail-send:hover { transform: scale(1.12); } }
+.mail-bar button:focus-visible, .mail-send:focus-visible { outline: 0.2em solid var(--mail-blue); outline-offset: 0.15em; }
+.mail-title { margin: 0.45em 0 0.4em !important; font-size: 2.5em; font-weight: 700; letter-spacing: -0.02em; }
+.mail-row { display: flex; align-items: baseline; gap: 0.5em; padding: 0.72em 0; border-bottom: 0.06em solid var(--mail-line); font-size: 1.3em; white-space: nowrap; }
+.mail-row span { color: var(--mail-muted); }
+.mail-row b { padding: 0.08em 0.55em; border-radius: 1em; font-weight: 400; color: var(--mail-blue); background: color-mix(in srgb, var(--mail-blue) 14%, transparent); }
+.mail-body { padding-top: 0.95em; font-size: 1.3em; line-height: 1.42; }
+.mail-caret { display: inline-block; width: 0.12em; height: 1.15em; margin-left: 0.08em; vertical-align: -0.2em; background: var(--mail-blue); animation: blink 1s step-end infinite; }
+
+/* ---------- Apple Watch -------------------------------------------------- */
+
+.watch {
+  position: absolute; left: -25.5em; top: 8.4em; width: 12.2em; height: 14.8em;
+  transform: translateZ(6em) rotate(-7deg);
+  color: #fff; text-decoration: none; line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  animation: scene-float 9s ease-in-out -3.5s infinite;
+}
+.watch:focus-visible { outline: 0.2em solid currentColor; outline-offset: 0.5em; border-radius: 3.7em; color: var(--ink); }
+.watch-band {
+  position: absolute; left: 1.75em; right: 1.75em; top: -6.6em; bottom: -6.6em; border-radius: 1.4em;
+  background: linear-gradient(90deg, var(--band-edge), var(--band) 20%, var(--band) 80%, var(--band-edge));
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 24%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 24%, #000 76%, transparent 100%);
+}
+.watch-case {
+  position: absolute; inset: 0; padding: 0.28em; border-radius: 3.7em;
+  background: linear-gradient(140deg, #85868c 0%, #2a2a2d 25%, #1b1b1d 55%, #3a3a3d 80%, #92939a 100%);
+  box-shadow: 0 1.5em 2.8em -1em var(--stage-shadow), 0 0.5em 1em -0.4em rgb(0 0 0 / 35%);
+  transition: transform 400ms cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+@media (hover: hover) { .watch:hover .watch-case { transform: scale(1.05); } }
+.watch:active .watch-case { transform: scale(0.97); transition-duration: 90ms; }
+.watch-screen { position: relative; display: block; height: 100%; border: 0.6em solid #060607; border-radius: 3.45em; background: #000; overflow: hidden; color: #fff; }
+.watch-face { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 0.9em 1.05em 0.85em; transition: opacity 360ms ease, transform 520ms var(--ios); }
+.watch-run { opacity: 0; transform: scale(0.84); }
+.scene.is-running .watch-run { opacity: 1; transform: none; }
+.scene.is-running .watch-clock { opacity: 0; transform: scale(1.14); }
+.wf-date { font-size: 1.02em; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; color: #ffb86b; }
+.wf-time { margin-top: auto; font-size: 3.2em; font-weight: 600; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.wf-foot { display: flex; align-items: center; gap: 0.4em; margin-top: 0.45em; font-size: 0.9em; opacity: 0.72; white-space: nowrap; }
+.wf-foot svg { flex: none; width: 0.8em; height: 1em; }
+.wr-app { font-size: 1em; font-weight: 700; letter-spacing: 0.02em; color: #ff5c1f; }
+.wr-chrono { font-size: 3.05em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; font-variant-numeric: tabular-nums; }
+.wr-row { display: flex; align-items: baseline; gap: 0.35em; font-size: 0.82em; font-weight: 600; letter-spacing: 0.04em; color: rgb(255 255 255 / 72%); }
+.wr-row b { font-size: 1.8em; letter-spacing: -0.02em; color: #fff; font-variant-numeric: tabular-nums; }
+.wr-heart { display: flex; align-items: center; gap: 0.3em; margin-top: auto; font-size: 0.82em; font-weight: 600; letter-spacing: 0.04em; color: rgb(255 255 255 / 72%); }
+.wr-heart svg { width: 1.35em; height: 1.35em; fill: #ff2e5c; animation: beat 0.86s ease-in-out infinite; }
+.wr-heart b { font-size: 1.5em; color: #fff; font-variant-numeric: tabular-nums; }
+.scene:not(.is-running) .wr-heart svg { animation-play-state: paused; }
+.watch-crown {
+  position: absolute; right: -0.85em; top: 3.2em; width: 1em; height: 2.5em; border-radius: 0.3em 0.45em 0.45em 0.3em;
+  background: linear-gradient(180deg, #92939a, #3a3a3d 28%, #2a2a2d 72%, #77787d);
+}
+.watch-side { position: absolute; right: -0.4em; top: 8em; width: 0.5em; height: 3.4em; border-radius: 0 0.3em 0.3em 0; background: #3a3a3d; }
+
+@keyframes scene-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -0.7em; } }
+@keyframes beat { 0%, 100% { transform: scale(1); } 18% { transform: scale(1.22); } 36% { transform: scale(0.96); } }
+
+/* ---------- Entrée en scène (avec JavaScript) ---------------------------- */
+
+.js .scene .phone, .js .scene .watch, .js .scene .scene-shadow { opacity: 0; }
+.js .scene.is-ready .phone { opacity: 1; transition: opacity 700ms ease; }
+.js .scene.is-ready .watch { opacity: 1; transition: opacity 600ms ease 550ms; }
+.js .scene.is-ready .scene-shadow { opacity: 1; }
+.js .scene:not(.is-ready) .ios-app > img, .js .scene:not(.is-ready) .ios-app > i { opacity: 0; transform: scale(0.3); }
+.js .scene:not(.is-ready) .ios-widget { opacity: 0; transform: translateY(1.4em) scale(0.95); }
+.js .scene.is-ready:not(.is-live) .ios-app > img, .js .scene.is-ready:not(.is-live) .ios-app > i {
+  transition: transform 700ms cubic-bezier(0.3, 1.5, 0.5, 1) calc(480ms + var(--i, 0) * 80ms), opacity 280ms ease calc(480ms + var(--i, 0) * 80ms);
+}
+.js .scene.is-ready .ios-widget { transition: transform 800ms var(--ios) 760ms, opacity 500ms ease 760ms; }
+.js .scene.is-ready .ios-widget + .ios-widget { transition-delay: 840ms; }
+.js .scene.is-ready .ios-w-flow { transition-delay: 920ms; }
+
+/* Scène masquée par le contenu : tout s’arrête. */
+.scene.is-off *, .scene.is-off *::before, .scene.is-off *::after { animation-play-state: paused !important; }
+
+/* ---------- Légende ------------------------------------------------------ */
+
+.scene-caption { font-size: 14px; line-height: 1.4; color: var(--ink); }
+.scene-caption p { margin: 0; }
+.sc-text { display: flex; flex-wrap: wrap; gap: 0 0.6em; }
+.sc-text b { font-weight: 400; font-family: var(--font-heading); }
+.sc-text span { color: var(--ink-muted); }
+.sc-actions { display: flex; flex-wrap: wrap; gap: 0 1.2em; }
+.scene-caption:not(.is-app) .sc-actions { display: none; }
+.sc-link, .sc-close { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity 180ms ease; }
+.sc-link::after { content: " →"; }
+.sc-close { color: var(--ink-muted); }
+.sc-link:hover, .sc-close:hover { opacity: 0.6; }
+.sc-bars { display: flex; justify-content: center; gap: 4px; height: 2px; margin-bottom: 9px !important; opacity: 0; transition: opacity 300ms ease; }
+.scene-caption.has-shots .sc-bars { opacity: 1; }
+.sc-bars i { position: relative; width: 22px; height: 2px; border-radius: 2px; background: var(--line-strong); overflow: hidden; }
+.sc-bars i::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; }
+.sc-bars i.is-done::after { transform: none; }
+.sc-bars i.is-on::after { animation: sc-fill var(--shot-ms, 2800ms) linear forwards; }
+@keyframes sc-fill { to { transform: none; } }
+
+.scene-caption-inline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; margin-bottom: 14px; font-size: 13px; }
+.scene-caption-stage {
+  display: none; position: absolute; z-index: 10;
+  left: var(--scene-cx); top: calc(var(--scene-cy) + var(--pw) * 1.1263 + 16px);
+  width: max-content; max-width: calc((100vw - var(--scene-cx)) * 2 - 24px);
+  transform: translateX(-50%); text-align: center;
+}
+.scene-caption-stage .sc-text, .scene-caption-stage .sc-actions { justify-content: center; }
+
+/* ---------- Le héros et la fenêtre « Contact » laissent passer les gestes -- */
+
+.hero, .contact { pointer-events: none; }
+.hero-kicker, .hero-title, .hero-facts, .actions > *, .sc-text, .sc-actions > *,
+.window .eyebrow, .contact-title, .quote, .address-block { pointer-events: auto; }
+.hero-kicker, .hero-title, .window .eyebrow, .contact-title, .quote { width: fit-content; max-width: 100%; }
+
+/* ---------- Mobile : le téléphone en haut, le texte par-dessus ------------- */
+
+@media (max-width: 767px) {
+  :root {
+    --pw: clamp(210px, 62vw, 264px);
+    --scene-cx: 56vw;
+    --scene-cy: calc(var(--nav-h) + 6px + var(--pw) * 1.1263);
+  }
+  .scene-tilt { transform: rotateX(7deg) rotateY(-9deg); }
+  .scene-shadow { display: none; }
+  .watch { left: -23.4em; top: -15.5em; }
+  /* Le haut du téléphone (barre d’état, icônes, début des widgets) reste toujours dégagé :
+     sur un petit écran, le héros dépasse la hauteur de la fenêtre plutôt que de le recouvrir. */
+  .hero { height: auto; min-height: 100vh; min-height: 100svh; padding-top: calc(var(--nav-h) + 246px); }
+  .hero-kicker { font-size: 12px; letter-spacing: 0.06em; }
+  .scene-caption-inline { margin-bottom: 10px; }
+  .scene-caption-inline:not(.is-app) [data-sc-name], .scene-caption-inline.is-app [data-sc-legend], .scene-caption-inline .sc-of { display: none; }
+  .scene-caption-inline .sc-actions > * { margin: -9px 0; padding: 9px 0; }
+  /* Le voile suit le texte, quelle que soit la hauteur de l’écran. */
+  .hero > .video-wash, .window > .video-wash {
+    background: linear-gradient(0deg, rgb(var(--paper-rgb) / 96%) 0%, rgb(var(--paper-rgb) / 90%) 30%, rgb(var(--paper-rgb) / 0%) 56%);
+  }
+  .hero-content::before, .window-inner::before {
+    content: ""; position: absolute; z-index: -1; inset: -76px calc(var(--gutter) * -1) -48px; pointer-events: none;
+    background: linear-gradient(180deg, rgb(var(--paper-rgb) / 0%) 0, rgb(var(--paper-rgb) / 93%) 62px, var(--paper) 140px);
+  }
+}
+
+@media (min-width: 768px) {
+  .scene-caption-inline { display: none; }
+  .scene-caption-stage { display: block; }
+  /* Le texte s’arrête avant la maquette. */
+  .hero-content { max-width: min(42rem, calc(var(--scene-cx) - var(--pw) * var(--scene-reach) - 56px)); }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  :root {
+    --pw: clamp(150px, min(26vw, 32vh), 300px);
+    --scene-cx: calc(100vw - var(--pw) * 0.58 - 32px);
+    --scene-reach: 0.82;
+  }
+  .watch { left: -21.5em; }
+  /* Le titre garde deux lignes à côté de la maquette. */
+  .hero-big { font-size: clamp(44px, min(6.4vw, 13vh), 76px); }
+}
+
+@media print { .scene, .scene-caption { display: none !important; } }

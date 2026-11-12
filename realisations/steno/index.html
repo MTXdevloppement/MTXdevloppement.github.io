@@ -30,10 +30,10 @@
 <link rel="preload" href="assets/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-texte.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-italique-titre.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 <script>document.documentElement.classList.add('js')</script>
 <script src="assets/js/releve.js?v=1" defer></script>
-<script src="assets/js/site.js?v=1" defer></script>
+<script src="assets/js/site.js?v=2" defer></script>
 <link rel="stylesheet" href="../../assets/css/projet.css?v=14">
 <script src="../../assets/js/projet.js?v=15" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtxdevloppement.github.io/realisations/steno/#app","name":"Sténo","alternateName":"Sténo — Notes de mémos vocaux","description":"App iPhone et iPad qui transcrit les mémos vocaux sur l’appareil et en relève les personnes citées, les tâches, les décisions et les dates avec Apple Intelligence.","applicationCategory":"ProductivityApplication","applicationSubCategory":"Prise de notes","operatingSystem":"iOS 27, iPadOS 27","softwareVersion":"1.0","inLanguage":"fr","url":"https://mtxdevloppement.github.io/realisations/steno/","image":"https://mtxdevloppement.github.io/realisations/steno/assets/img/og-steno.png","author":{"@type":"Organization","@id":"https://mtxdevloppement.github.io/#studio","name":"MTX Studio","url":"https://mtxdevloppement.github.io/"},"featureList":["Transcription sur l’appareil","Relevé des tâches, personnes, décisions et dates","Questions posées à un mémo","Rédaction de comptes rendus","Raccourcis, Siri, bouton Action","Widgets et activité en direct"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtxdevloppement.github.io/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtxdevloppement.github.io/#realisations"},{"@type":"ListItem","position":3,"name":"Sténo","item":"https://mtxdevloppement.github.io/realisations/steno/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il Apple Intelligence pour utiliser Sténo ?","acceptedAnswer":{"@type":"Answer","text":"Non. Sans Apple Intelligence, l’analyse locale de Sténo relève quand même les personnes, les tâches, les dates et les chiffres. Avec le modèle d’Apple, les titres, les résumés et le relevé sont plus fins, et vous pouvez interroger un mémo ou faire rédiger un compte rendu."}},{"@type":"Question","name":"Mes mémos quittent-ils mon iPhone ?","acceptedAnswer":{"@type":"Answer","text":"Non. L’enregistrement, la transcription et l’analyse se font sur l’appareil. Sténo n’a ni compte ni serveur, et aucun mémo n’est envoyé sur Internet."}},{"@type":"Question","name":"Comment envoyer un mémo depuis Dictaphone ?","acceptedAnswer":{"@type":"Answer","text":"Ouvrez le mémo dans Dictaphone, touchez Partager, puis choisissez Sténo. Vous pouvez aussi utiliser l’action « Extraire les notes d’un mémo vocal » dans Raccourcis."}},{"@type":"Question","name":"Que relève Sténo dans un mémo ?","acceptedAnswer":{"@type":"Answer","text":"Dix familles d’éléments : tâches, dates, personnes, décisions, questions, idées, lieux, organisations, chiffres et coordonnées. Chaque élément garde la phrase d’origine et, quand l’audio est conservé, l’instant où elle a été dite."}},{"@type":"Question","name":"Sténo fonctionne-t-il sur iPad ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Sténo est une app pour iPhone et iPad, sous iOS 27 et iPadOS 27."}},{"@type":"Question","name":"Quand Sténo sera-t-il disponible ?","acceptedAnswer":{"@type":"Answer","text":"Sténo arrive bientôt sur l’App Store. Un message à mtxstudio@proton.me suffit pour être prévenu le jour de la sortie."}}]}]}</script>
@@ -101,7 +101,7 @@
   <!-- 0:00 — Promesse -->
   <section class="heros" id="haut" data-code="0:00">
     <div class="heros-texte">
-      <p class="surtitre"><span class="rec" aria-hidden="true"></span>Mémos vocaux en notes · iPhone et iPad · iOS 27</p>
+      <p class="surtitre"><span class="rec" aria-hidden="true"></span>Mémos vocaux en notes&nbsp;· iPhone et iPad&nbsp;· iOS 27</p>
       <h1>Parlez.<br><em>Sténo note.</em></h1>
       <p class="chapo">Dictez un mémo comme vous parleriez à un ami, ou envoyez-en un depuis Dictaphone. Sténo le transcrit en texte et en tire l’essentiel&#8239;: les tâches, les personnes, les décisions et les dates. Rien ne quitte votre iPhone.</p>
       <div class="actions">
@@ -115,76 +115,23 @@
       </dl>
     </div>
 
-    <div class="heros-scene" data-demo data-phase="memo">
-      <!-- La maquette pivote avec la souris (projet.js) ; les éléments relevés flottent devant le téléphone. -->
-      <div class="heros-rig"><div class="heros-pose mtx-pose" data-mtx-pose>
-      <div class="tel mtx-flotte" role="img" aria-label="Maquette animée de l’app : un mémo est dicté, analysé, puis ses notes s’affichent">
-        <span class="tel-bouton tel-bouton-action" aria-hidden="true"></span>
-        <div class="tel-ecran mtx-reflet" aria-hidden="true">
-          <p class="tel-ile"></p>
-
-          <!-- Écran 1 : l’enregistrement -->
-          <div class="vue vue-enr">
-            <p class="ap-barre"><span class="ap-rond"><svg><use href="#s-chevron"/></svg></span><span class="ap-etat"><i></i>Enregistrement</span><span class="ap-rond"><svg><use href="#s-corbeille"/></svg></span></p>
-            <p class="ap-chrono" data-demo-chrono>0:00</p>
-            <p class="ap-onde" data-demo-onde></p>
-            <p class="ap-dictee" data-demo-dictee><span class="ap-invite">Parlez, Sténo écrit.</span></p>
-            <p class="ap-commandes"><button class="ap-pause" type="button" data-demo-pause tabindex="-1" aria-label="Mettre en pause"><svg><use href="#s-pause"/></svg></button><button class="ap-terminer" type="button" data-demo-fin tabindex="-1"><svg><use href="#s-stop"/></svg>Terminer</button></p>
-          </div>
-
-          <!-- Écran 2 : l’analyse -->
-          <div class="vue vue-ana">
-            <p class="ap-genre">Mémo · à l’instant</p>
-            <p class="ap-titre">Nouveau mémo</p>
-            <div class="ap-carte ap-etapes">
-              <p class="ap-etape is-faite"><span class="ap-pastille"><svg><use href="#s-coche"/></svg></span><span><b>Transcription sur l’appareil</b><small>Terminée</small></span></p>
-              <p class="ap-etape is-active"><span class="ap-pastille"><svg><use href="#s-etincelles"/></svg></span><span><b>Relevé des éléments</b><small data-demo-compte>Apple Intelligence lit le mémo…</small></span></p>
-              <p class="ap-avance"><i data-demo-avance></i></p>
-            </div>
-          </div>
-
-          <!-- Écran 3 : le mémo rangé -->
-          <div class="vue vue-memo">
-            <p class="ap-barre"><span class="ap-rond"><svg style="transform:rotate(90deg)"><use href="#s-chevron"/></svg></span><span class="ap-rond ap-rond-large"><svg><use href="#s-partager"/></svg><b>···</b></span></p>
-            <p class="ap-genre"><svg><use href="#f-personne"/></svg><b>Réunion</b> aujourd’hui à 9:41</p>
-            <p class="ap-titre">Compte rendu réunion chantier</p>
-            <p class="ap-puces"><span class="ap-puce ap-puce-ia"><svg><use href="#s-etincelles"/></svg>Apple Intelligence</span><span class="ap-puce">#parquet</span><span class="ap-puce">#devis</span></p>
-            <div class="ap-carte ap-resume">
-              <p class="ap-label">Résumé</p>
-              <p>Réunion de chantier avec l’architecte et l’entreprise. Le parquet en chêne est gardé dans le salon&#8239;; le devis de la cuisine est à 12&#8239;400&nbsp;€.</p>
-            </div>
-            <p class="ap-actions"><span><svg><use href="#s-etincelles"/></svg>Interroger</span><span><svg><use href="#s-crayon"/></svg>Rédiger</span></p>
-            <div class="ap-carte ap-liste">
-              <p class="ap-entete f-tache"><span class="ap-ico"><svg><use href="#f-tache"/></svg></span><b>Tâches</b><i>3</i></p>
-              <p class="ap-ligne"><span class="ap-case"></span><span>Envoyer le plan corrigé à Claire<small><em class="p-date">Vendredi</em></small></span></p>
-              <p class="ap-ligne"><span class="ap-case"></span><span>Commander les fenêtres<small><em class="p-date">Cette semaine</em><em class="p-qui">Julien</em><em class="p-prio">Prioritaire</em></small></span></p>
-              <p class="ap-ligne"><span class="ap-case"></span><span>Rappeler la banque<small><em class="p-date">Demain à 10:00</em></small></span></p>
-            </div>
-            <div class="ap-carte ap-liste">
-              <p class="ap-entete f-personne"><span class="ap-ico"><svg><use href="#f-personne"/></svg></span><b>Personnes</b><i>2</i></p>
-              <p class="ap-ligne"><span class="ap-mono">CM</span><span>Claire Morel<small>Architecte</small></span></p>
-              <p class="ap-ligne"><span class="ap-mono ap-mono-2">J</span><span>Julien<small>Bâti Sud</small></span></p>
-            </div>
-          </div>
-
-          <p class="ap-onglets"><span class="is-ici"><svg><use href="#s-onde"/></svg>Mémos</span><span><svg><use href="#f-tache"/></svg>À faire<i>4</i></span><span><svg><use href="#f-personne"/></svg>Repères</span></p>
-        </div>
+    <!-- Le film : la voix devient un texte, les mots utiles prennent leur couleur, puis se rangent dans l'app. -->
+    <figure class="heros-scene film film-heros" data-film="heros" data-chapitres="0 5 8.4" data-arrets="4.4 2.9 4" data-duree="13.4">
+      <div class="film-cadre">
+          <video class="film-video" muted loop playsinline preload="none" controls width="1080" height="1350" aria-label="Film sans son : une phrase dictée s’écrit sous l’onde de la voix, les tâches, les personnes et les dates prennent leur couleur, puis se rangent dans le mémo de Sténo">
+            <source src="assets/films/heros-clair.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+            <source src="assets/films/heros-clair.mp4" type="video/mp4">
+          </video>
       </div>
-      <p class="vol vol-voix mtx-flotte-2" aria-hidden="true"><i></i>Dictée en cours</p>
-      <p class="vol vol-tache f-tache mtx-flotte-2" aria-hidden="true"><svg><use href="#f-tache"/></svg><b>3</b> tâches</p>
-      <p class="vol vol-personne f-personne mtx-flotte-3" aria-hidden="true"><svg><use href="#f-personne"/></svg><b>2</b> personnes</p>
-      <p class="vol vol-date f-date mtx-flotte" aria-hidden="true"><svg><use href="#f-date"/></svg><b>3</b> dates</p>
-      </div></div>
-
-      <div class="demo-pilote">
-        <ol class="demo-etapes" aria-label="Étapes de la démonstration">
-          <li><button type="button" data-demo-aller="enr">Dicter</button></li>
-          <li><button type="button" data-demo-aller="ana">Analyser</button></li>
-          <li><button type="button" data-demo-aller="memo">Retrouver</button></li>
+      <figcaption class="film-pilote">
+        <ol class="film-chapitres" aria-label="Chapitres du film">
+          <li><button type="button" data-film-aller="0">Dicter</button></li>
+          <li><button type="button" data-film-aller="1">Analyser</button></li>
+          <li><button type="button" data-film-aller="2">Retrouver</button></li>
         </ol>
-        <button class="demo-jouer" type="button" data-demo-jouer aria-label="Mettre la démonstration en pause"><svg class="i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg></button>
-      </div>
-    </div>
+        <button class="film-jouer" type="button" data-film-jouer aria-label="Mettre le film en pause"><svg class="i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg></button>
+      </figcaption>
+    </figure>
   </section>
 
   <!-- 0:14 — Le relevé -->
@@ -202,7 +149,7 @@
           <button type="button" role="tab" aria-selected="false" data-memo="libre" tabindex="-1">À vous d’écrire</button>
         </div>
         <div class="rel-feuille">
-          <p class="rel-entete"><span class="rec" aria-hidden="true"></span><span data-rel-duree>0:47</span><span class="rel-mots" data-rel-mots>134 mots</span></p>
+          <p class="rel-entete"><span class="rec" aria-hidden="true"></span><span data-rel-duree>0:53</span><span class="rel-mots" data-rel-mots>145 mots</span></p>
           <div class="rel-zone">
             <div class="rel-fond" data-rel-fond aria-hidden="true"></div>
             <textarea class="rel-saisie" data-rel-saisie spellcheck="false" autocapitalize="sentences" aria-label="Texte du mémo à analyser" placeholder="Écrivez comme vous parlez. Par exemple : il faut que j’appelle Marie demain à 9h pour le devis de 3 000 euros.">Bon, compte rendu de la réunion de chantier de ce matin avec Claire Morel, l’architecte, et Julien de l’entreprise Bâti Sud. On a décidé de garder le parquet en chêne dans le salon, par contre on part sur du carrelage dans l’entrée. Le devis de la cuisine est à 12 400 euros, c’est 8 % de plus que prévu. Il faut que j’envoie le plan corrigé à Claire avant vendredi. Julien doit commander les fenêtres cette semaine, c’est urgent parce qu’il y a six semaines de délai. Je dois rappeler la banque demain à 10h pour le déblocage des fonds. Prochaine réunion de chantier le 24 novembre à 9h, sur place à Montpellier. Est-ce qu’on garde la verrière ? À voir si le budget le permet. Et penser à demander un échantillon de carrelage à Julien. Son numéro, c’est le 06 12 34 56 78.</textarea>
@@ -245,7 +192,7 @@
     <h2 id="titre-raccourcis" data-apparait>Un mémo arrive<br><em>sans ouvrir l’app.</em></h2>
     <p class="chapo" data-apparait>Une idée en marchant, une réunion qui démarre&#8239;: Sténo se lance là où vous parlez déjà, depuis le bouton Action, Dictaphone, le Centre de contrôle, Siri ou vos propres raccourcis.</p>
 
-    <div class="ges" data-gestes data-geste="action">
+    <div class="ges" data-gestes data-film-zone>
       <div class="ges-liste" role="tablist" aria-label="Façons d’envoyer un mémo" aria-orientation="vertical">
         <button type="button" role="tab" id="g-o-action" aria-selected="true" aria-controls="ges-scene" data-geste-choix="action"><span class="ges-n">1</span><span><b>Le bouton Action</b><small>Une pression, et Sténo enregistre. Le chrono reste dans la Dynamic Island.</small></span></button>
         <button type="button" role="tab" id="g-o-dictaphone" aria-selected="false" aria-controls="ges-scene" tabindex="-1" data-geste-choix="dictaphone"><span class="ges-n">2</span><span><b>Depuis Dictaphone</b><small>Partager, puis Sténo. Le mémo est copié, transcrit et analysé.</small></span></button>
@@ -255,41 +202,15 @@
       </div>
 
       <div class="ges-scene" id="ges-scene" role="tabpanel" aria-labelledby="g-o-action">
-        <div class="tel tel-gestes" role="img" aria-label="Maquette animée : la façon choisie d’envoyer un mémo à Sténo">
-          <span class="tel-bouton tel-bouton-action" aria-hidden="true"></span>
-          <div class="tel-ecran" aria-hidden="true">
-            <div class="g-fond"><p class="g-heure">9:41</p><p class="g-jour">jeudi 12 novembre</p></div>
-
-            <p class="tel-ile g-ile"><span class="g-ile-onde"><i></i><i></i><i></i><i></i><i></i></span><b>Sténo écoute</b><span class="g-ile-temps" data-ile-temps>0:03</span></p>
-
-            <div class="g-couche g-partage">
-              <p class="g-fichier"><span class="g-fichier-ico"><svg><use href="#s-onde"/></svg></span><span><b>Réunion de chantier</b><small>Dictaphone · 0:47</small></span></p>
-              <p class="g-apps"><span><i class="g-app g-app-1"></i>AirDrop</span><span><i class="g-app g-app-2"></i>Messages</span><span class="g-app-steno"><i class="g-app"><svg><use href="#s-logo"/></svg></i>Sténo</span><span><i class="g-app g-app-3"></i>Notes</span></p>
-              <p class="g-banniere"><span class="g-app"><svg><use href="#s-logo"/></svg></span><span><b>« Compte rendu réunion chantier » est prêt.</b><small>4 tâches, 3 dates, 2 personnes</small></span></p>
-            </div>
-
-            <div class="g-couche g-controle">
-              <p class="g-tuiles"><i></i><i></i><i class="g-tuile-large"></i><i></i><i class="g-tuile-steno"><svg><use href="#s-micro"/></svg></i><i></i><i></i></p>
-              <p class="g-tuile-nom">Enregistrer un mémo</p>
-            </div>
-
-            <div class="g-couche g-siri">
-              <p class="g-siri-bulle">Enregistrer un mémo avec Sténo</p>
-            </div>
-
-            <div class="g-couche g-raccourci">
-              <p class="g-action"><span class="g-app"><svg><use href="#s-logo"/></svg></span><span>Extraire les notes de <em>Mémo vocal</em></span></p>
-              <p class="g-fil"></p>
-              <div class="g-resultat">
-                <p class="g-res-titre"><svg><use href="#s-onde"/></svg>Compte rendu réunion chantier</p>
-                <p class="g-res-ligne"><i></i>Envoyer le plan corrigé à Claire</p>
-                <p class="g-res-ligne"><i></i>Commander les fenêtres</p>
-                <p class="g-res-ligne"><i></i>Rappeler la banque</p>
-                <p class="g-res-compte"><span class="f-tache"><svg><use href="#f-tache"/></svg>4</span><span class="f-date"><svg><use href="#f-date"/></svg>3</span><span class="f-personne"><svg><use href="#f-personne"/></svg>2</span></p>
-              </div>
-            </div>
+        <figure class="film film-gestes" data-film="gestes" data-chapitres="0 5.2 10.4 15.6 20.8" data-duree="26" data-arrets="4.4">
+          <div class="film-cadre">
+          <video class="film-video" muted loop playsinline preload="none" controls width="1080" height="1350" aria-label="Film sans son : cinq façons d’envoyer un mémo à Sténo, du bouton Action à l’app Raccourcis">
+            <source src="assets/films/gestes-clair.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+            <source src="assets/films/gestes-clair.mp4" type="video/mp4">
+          </video>
+            <button class="film-jouer" type="button" data-film-jouer aria-label="Mettre le film en pause"><svg class="i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg></button>
           </div>
-        </div>
+        </figure>
       </div>
     </div>
 
@@ -409,7 +330,15 @@ Suites à donner
       </div>
 
       <div class="ecr-bloc ecr-ile">
-        <p class="ile-demo" aria-hidden="true"><span class="g-ile-onde"><i></i><i></i><i></i><i></i><i></i></span><b>Sténo écoute</b><span data-ile-temps>0:03</span></p>
+        <figure class="film film-ile" data-film="ile" data-duree="8.4">
+          <div class="film-cadre">
+          <video class="film-video" muted loop playsinline preload="none" controls width="1080" height="600" aria-label="Film sans son : la Dynamic Island s’ouvre sur l’enregistrement de Sténo, que l’on met en pause, reprend, puis termine">
+            <source src="assets/films/ile-clair.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+            <source src="assets/films/ile-clair.mp4" type="video/mp4">
+          </video>
+            <button class="film-jouer" type="button" data-film-jouer aria-label="Mettre le film en pause"><svg class="i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg></button>
+          </div>
+        </figure>
         <p class="ecr-legende"><b>Activité en direct</b>Pause, reprise et fin de l’enregistrement depuis la Dynamic Island ou l’écran verrouillé.</p>
       </div>
     </div>

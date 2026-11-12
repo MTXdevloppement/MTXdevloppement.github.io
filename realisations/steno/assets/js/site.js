@@ -86,94 +86,103 @@
     aReveler.forEach((el) => io.observe(el));
   } else aReveler.forEach((el) => el.classList.add('vu'));
 
-  // ---------- Héros : dicter, analyser, retrouver ----------
-  const demo = $('[data-demo]');
-  if (demo && !calme) {
-    const chrono = $('[data-demo-chrono]', demo);
-    const ondeDemo = $('[data-demo-onde]', demo);
-    const dictee = $('[data-demo-dictee]', demo);
-    const compte = $('[data-demo-compte]', demo);
-    const avance = $('[data-demo-avance]', demo);
-    const bouton = $('[data-demo-jouer]', demo);
-    const MOTS = ('Compte rendu de la réunion de chantier avec Claire Morel, l’architecte, et Julien de Bâti Sud. On garde le parquet en chêne ' +
-      'dans le salon. Il faut que j’envoie le plan corrigé à Claire avant vendredi. Je dois rappeler la banque demain à 10 h.').split(' ');
-    const COMPTES = ['Apple Intelligence lit le mémo…', '1 tâche', '2 tâches · 1 personne', '3 tâches · 2 personnes', '3 tâches · 2 personnes · 2 dates', '4 tâches · 2 personnes · 3 dates'];
+  // ---------- Les films : lecture à l'écran, chapitres, thème ----------
+  // Chaque film existe en clair et en sombre, en AV1 et en H.264. Il ne se charge qu'à l'approche de l'écran, ne
+  // tourne que visible, et suit le thème de la page sans perdre sa place.
+  const racine = document.documentElement;
+  const AV1 = (() => { try { return document.createElement('video').canPlayType('video/mp4; codecs="av01.0.08M.08"') === 'probably'; } catch { return false; } })();
+  const econome = Boolean(navigator.connection && navigator.connection.saveData);
+  const films = new Map();
+  $$('[data-film]').forEach((fig) => {
+    const video = $('video', fig);
+    const nom = fig.dataset.film;
+    const zone = fig.closest('[data-film-zone]') || fig;
+    const debuts = (fig.dataset.chapitres || '0').split(' ').map(Number);
+    const arrets = (fig.dataset.arrets || '0').split(' ').map(Number);
+    const duree = Number(fig.dataset.duree);
+    const bouton = $('[data-film-jouer]', fig);
+    const boutons = $$('[data-film-aller]', fig);
+    const ecoutes = [];
+    // voulu : la lecture est souhaitée (jamais d'office en mouvement réduit ou en mode économie de données).
+    let voulu = !calme && !econome, aLEcran = false, charge = false, boucle = -1, chapitre = -1, image = 0, depart = 0;
 
-    for (let i = 0; i < 34; i += 1) ondeDemo.append(document.createElement('i'));
-    const traits = [...ondeDemo.children];
-    const niveaux = new Array(traits.length).fill(0);
-    let jeton = 0, enPause = false;
-    const phase = () => demo.dataset.phase;
-    const poser = (p) => { demo.dataset.phase = p; };
-
-    // La voix : les niveaux défilent de droite à gauche tant qu'on enregistre.
-    setInterval(() => {
-      if (phase() !== 'enr' || enPause || document.hidden) return;
-      niveaux.shift();
-      niveaux.push(0.18 + Math.random() * 0.82 * (0.45 + 0.55 * Math.abs(Math.sin(Date.now() / 420))));
-      traits.forEach((t, i) => { t.style.setProperty('--n', niveaux[i].toFixed(2)); t.style.setProperty('--o', (i / traits.length).toFixed(2)); });
-    }, 95);
-
-    const pause = async (ms, j) => {
-      let reste = ms;
-      while (reste > 0) {
-        await attendre(50);
-        if (j !== jeton) throw new Error('remplacé');
-        if (!enPause && !document.hidden) reste -= 50;
+    const fichier = (ext) => `assets/films/${nom}-${racine.dataset.theme === 'dark' ? 'sombre' : 'clair'}${ext}`;
+    const charger = (a) => {
+      charge = true;
+      depart = a;
+      // La source avant le préchargement : dans l'autre ordre, le navigateur entame le fichier inscrit dans le HTML.
+      video.src = fichier(AV1 ? '.av1.mp4' : '.mp4') + (a > 0 ? `#t=${a.toFixed(2)}` : '');
+      video.preload = 'auto';
+    };
+    // Le fragment #t ne suffit pas partout (serveur sans requêtes partielles) : la tête de lecture est replacée.
+    video.addEventListener('loadedmetadata', () => {
+      if (depart > 0 && Math.abs(video.currentTime - depart) > 0.25) video.currentTime = depart;
+      depart = 0;
+    });
+    const fin = (i) => (i + 1 < debuts.length ? debuts[i + 1] : duree);
+    const suivre = () => {
+      image = 0;
+      // Tant que le fichier n'est pas ouvert, l'instant demandé fait foi : le bon chapitre s'allume tout de suite.
+      const t = depart > 0 ? depart : video.currentTime;
+      // Un chapitre choisi tourne en boucle.
+      if (boucle >= 0 && !video.seeking && !video.paused && (t >= fin(boucle) - 0.05 || t < debuts[boucle] - 0.1)) video.currentTime = debuts[boucle];
+      let i = debuts.length - 1;
+      while (i > 0 && t < debuts[i]) i -= 1;
+      if (boucle >= 0) i = boucle;
+      if (i !== chapitre) {
+        chapitre = i;
+        boutons.forEach((b, n) => { if (n === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+        ecoutes.forEach((fn) => fn(i));
       }
+      zone.style.setProperty('--p', Math.min(1, Math.max(0, (t - debuts[i]) / (fin(i) - debuts[i]))).toFixed(3));
+      if (!video.paused && !video.ended) image = requestAnimationFrame(suivre);
+    };
+    const appliquer = () => {
+      if (voulu && aLEcran) {
+        if (!charge) charger(0);
+        const promesse = video.play();
+        if (promesse) promesse.catch(() => {});
+      } else if (charge) video.pause();
+      fig.toggleAttribute('data-pause', !voulu);
+      if (bouton) bouton.setAttribute('aria-label', voulu ? 'Mettre le film en pause' : 'Lire le film');
+    };
+    const aller = (i, { enBoucle = false } = {}) => {
+      // En mouvement réduit, tant que la lecture n'a pas été demandée : une image arrêtée du chapitre.
+      const fige = calme && !voulu;
+      boucle = enBoucle && !fige ? i : -1;
+      const t = debuts[i] + (fige ? arrets[Math.min(i, arrets.length - 1)] : 0);
+      if (!fige) voulu = true;
+      if (!charge || fige || video.readyState === 0) charger(t); else video.currentTime = t;
+      appliquer();
+      suivre();
     };
 
-    const jouer = async (depuis) => {
-      jeton += 1;
-      const j = jeton;
-      try {
-        if (depuis === 'enr') {
-          poser('enr');
-          dictee.innerHTML = '<span class="ap-invite">Parlez, Sténo écrit.</span>';
-          chrono.textContent = '0:00';
-          niveaux.fill(0);
-          await pause(900, j);
-          dictee.textContent = '';
-          for (let i = 0; i < MOTS.length; i += 1) {
-            const mot = document.createElement('span');
-            mot.textContent = MOTS[i] + ' ';
-            mot.className = 'tard';
-            dictee.append(mot);
-            // Les derniers mots restent gris, comme le texte encore provisoire de la reconnaissance vocale.
-            const mots = dictee.children;
-            if (mots.length > 3) mots[mots.length - 4].className = '';
-            chrono.textContent = horloge(1 + i * 0.27);
-            await pause(MOTS[i].endsWith('.') ? 420 : 130 + Math.random() * 110, j);
-          }
-          [...dictee.children].forEach((m) => { m.className = ''; });
-          await pause(700, j);
-        }
-        if (depuis !== 'memo') {
-          poser('ana');
-          for (let i = 0; i < COMPTES.length; i += 1) {
-            compte.textContent = COMPTES[i];
-            avance.style.setProperty('--a', (0.62 + (i / (COMPTES.length - 1)) * 0.38).toFixed(2));
-            await pause(i === 0 ? 800 : 430, j);
-          }
-          await pause(350, j);
-        }
-        poser('memo');
-        await pause(7500, j);
-        jouer('enr');
-      } catch { /* une autre lecture a pris la suite */ }
-    };
+    video.removeAttribute('controls');
+    video.poster = fichier('.webp');
+    video.addEventListener('play', () => { if (!image) image = requestAnimationFrame(suivre); });
+    video.addEventListener('seeked', () => { if (!image) suivre(); });
+    video.addEventListener('loadeddata', () => { if (!image) suivre(); });
+    if (bouton) bouton.addEventListener('click', () => { voulu = !voulu; appliquer(); });
+    boutons.forEach((b, i) => b.addEventListener('click', () => aller(i)));
+    if (boutons[0]) boutons[0].setAttribute('aria-current', 'true');
 
-    const basculer = () => {
-      enPause = !enPause;
-      demo.toggleAttribute('data-pause', enPause);
-      bouton.setAttribute('aria-label', enPause ? 'Reprendre la démonstration' : 'Mettre la démonstration en pause');
-    };
-    bouton.addEventListener('click', basculer);
-    $$('[data-demo-aller]', demo).forEach((b) => b.addEventListener('click', () => { if (enPause) basculer(); jouer(b.dataset.demoAller); }));
-    $('[data-demo-fin]', demo).addEventListener('click', () => jouer('ana'));
-    $('[data-demo-pause]', demo).addEventListener('click', basculer);
-    visible(demo, () => jouer('enr'));
-  }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((e) => { aLEcran = e[e.length - 1].isIntersecting; appliquer(); }, { threshold: 0.2 }).observe(fig);
+    } else { aLEcran = true; appliquer(); }
+
+    films.set(nom, {
+      aller,
+      surChapitre: (fn) => ecoutes.push(fn),
+      // Le thème change : même film, même instant, autres couleurs.
+      retheme() {
+        video.poster = fichier('.webp');
+        if (!charge) return;
+        charger(video.readyState ? video.currentTime : depart);
+        appliquer();
+      },
+    });
+  });
+  if (films.size) new MutationObserver(() => films.forEach((f) => f.retheme())).observe(racine, { attributes: true, attributeFilter: ['data-theme'] });
 
   // ---------- Le relevé : la phrase qui se range ----------
   const rel = $('[data-releve]');
@@ -306,65 +315,31 @@
     visible(rel, () => rendre(true), '0px 0px -25% 0px');
   }
 
-  // ---------- Raccourcis : cinq façons d'envoyer un mémo ----------
+  // ---------- Raccourcis : cinq façons d'envoyer un mémo, cinq chapitres d'un même film ----------
   const ges = $('[data-gestes]');
-  if (ges) {
+  const filmGestes = films.get('gestes');
+  if (ges && filmGestes) {
     const choix = $$('[data-geste-choix]', ges);
     const scene = $('#ges-scene', ges);
-    const ORDRE = choix.map((c) => c.dataset.gesteChoix);
-    // Pour chaque geste : [délai en ms, étape, l'île s'ouvre ?]
-    const SCENES = {
-      action: [[500, 1], [950, 2, true]],
-      dictaphone: [[1400, 2], [2600, 3]],
-      controle: [[1200, 2], [2300, 3, true]],
-      siri: [[2400, 3, true]],
-      raccourcis: [[900, 2]],
-    };
-    let tour = 0, auto = !calme;
-    const geste = async (id) => {
-      tour += 1;
-      const t = tour;
-      ges.dataset.geste = id;
-      ges.dataset.etape = '0';
-      ges.classList.remove('ecoute');
-      choix.forEach((c) => { const ici = c.dataset.gesteChoix === id; c.setAttribute('aria-selected', ici); c.tabIndex = ici ? 0 : -1; if (ici) scene.setAttribute('aria-labelledby', c.id); });
-      const etapes = SCENES[id];
-      if (calme) {
-        const derniere = etapes[etapes.length - 1];
-        ges.dataset.etape = String(derniere[1]);
-        ges.classList.toggle('ecoute', Boolean(derniere[2]));
-        return;
-      }
-      let ecoule = 0;
-      for (const [quand, etape, ecoute] of etapes) {
-        await attendre(quand - ecoule);
-        ecoule = quand;
-        if (t !== tour) return;
-        ges.dataset.etape = String(etape);
-        if (ecoute) ges.classList.add('ecoute');
-      }
-      await attendre(5600 - ecoule);
-      if (t === tour && auto && !document.hidden) geste(ORDRE[(ORDRE.indexOf(id) + 1) % ORDRE.length]);
-      else if (t === tour && auto) geste(id);
-    };
+    const marquer = (i) => choix.forEach((c, n) => {
+      const ici = n === i;
+      c.setAttribute('aria-selected', ici);
+      c.tabIndex = ici ? 0 : -1;
+      if (ici) scene.setAttribute('aria-labelledby', c.id);
+    });
+    // Le film avance : l'onglet suit. Un onglet choisi : son chapitre tourne en boucle.
+    filmGestes.surChapitre(marquer);
     choix.forEach((c, i) => {
-      c.addEventListener('click', () => { auto = false; geste(c.dataset.gesteChoix); });
+      c.addEventListener('click', () => { marquer(i); filmGestes.aller(i, { enBoucle: true }); });
       c.addEventListener('keydown', (e) => {
         if (!['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(e.key)) return;
         e.preventDefault();
-        auto = false;
-        const suivant = choix[(i + (e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : choix.length - 1)) % choix.length];
-        suivant.focus();
-        geste(suivant.dataset.gesteChoix);
+        const n = (i + (e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : choix.length - 1)) % choix.length;
+        choix[n].focus();
+        marquer(n);
+        filmGestes.aller(n, { enBoucle: true });
       });
     });
-    visible(ges, () => geste('action'), '0px 0px -30% 0px');
-  }
-  // Le chrono de l'île tourne tout seul.
-  const temps = $$('[data-ile-temps]');
-  if (temps.length && !calme) {
-    let s = 3;
-    setInterval(() => { if (document.hidden) return; s = s >= 59 ? 1 : s + 1; temps.forEach((t) => { t.textContent = horloge(s); }); }, 1000);
   }
 
   // ---------- Assistant : la réponse s'écrit ----------
@@ -462,7 +437,6 @@
   // ---------- Thèmes : le réglage de l'app, branché sur la page ----------
   const themes = $('[data-themes]');
   if (themes) {
-    const racine = document.documentElement;
     const systeme = matchMedia('(prefers-color-scheme: dark)');
     const boutons = $$('[data-theme-choix]', themes);
     const lire = () => { try { return localStorage.getItem('mtx-theme'); } catch { return null; } };

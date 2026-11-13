@@ -26,6 +26,9 @@
 <script src="assets/js/plaque-donnees.js" defer></script>
 <link rel="stylesheet" href="../../assets/css/projet.css?v=14">
 <script src="../../assets/js/projet.js?v=15" defer></script>
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
 </head>
 <body>
 <div class="mtx-gbar">
@@ -126,6 +129,39 @@
     <div><dt>Record, même point</dt><dd class="chiffre">33:32</dd></div>
     <div><dt>Écart</dt><dd class="chiffre avance">−0:08</dd></div>
   </dl>
+</section>
+
+<!-- Le film de présentation (9:16, avec musique) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css. -->
+<section class="presentation" id="film" data-mtx-film data-duree="40" aria-labelledby="titre-film">
+  <div class="presentation-texte">
+    <p class="etiquette"><span class="num">00</span> Le film · 40 secondes</p>
+    <h2 class="titre expo" id="titre-film">Du départ à la story, en quarante&nbsp;secondes.</h2>
+    <p class="chapeau">La course en direct, la voix à chaque kilomètre, l’écran verrouillé et la montre, le bilan, le parcours du lendemain&#8239;: tout GoRun dans un film. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+  </div>
+  <figure class="presentation-film">
+    <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+      <video class="mtx-film-video" controls playsinline preload="none" width="1080" height="1920" poster="assets/video/presentation.webp" aria-label="Film de présentation de GoRun, 40 secondes, avec musique : la course en direct face au record, le guidage vocal, la Dynamic Island, l’écran verrouillé et l’Apple Watch, le bilan d’après course et un nouveau record, le planificateur de parcours, l’image à partager en story et les données qui restent sur l’iPhone.">
+        <source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'>
+        <source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'>
+      </video>
+      <div class="mtx-film-commandes" hidden>
+        <button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" aria-hidden="true"><use href="#i-muet"/></svg><svg class="mtx-i-son" aria-hidden="true"><use href="#i-voix"/></svg><span class="mtx-film-libelle">Avec le son</span></button>
+        <button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="mtx-i-lecture" aria-hidden="true"><use href="#i-lecture"/></svg><svg class="mtx-i-revoir" aria-hidden="true"><use href="#i-rejouer"/></svg></button>
+        <button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" aria-hidden="true"><use href="#i-agrandir"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4.5V10H4.5M14 19.5V14h5.5M4.5 4.5 10 10M19.5 19.5 14 14" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <span class="mtx-film-fil" aria-hidden="true"></span>
+    </div>
+  </figure>
+  <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film">
+    <li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Votre record</button></li>
+    <li><button type="button" data-mtx-film-aller="6"><span class="chiffre">0:06</span> En direct</button></li>
+    <li><button type="button" data-mtx-film-aller="12"><span class="chiffre">0:12</span> Guidage vocal</button></li>
+    <li><button type="button" data-mtx-film-aller="14"><span class="chiffre">0:14</span> Au poignet ou dans la poche</button></li>
+    <li><button type="button" data-mtx-film-aller="20"><span class="chiffre">0:20</span> Le bilan</button></li>
+    <li><button type="button" data-mtx-film-aller="28"><span class="chiffre">0:28</span> Planificateur</button></li>
+    <li><button type="button" data-mtx-film-aller="32"><span class="chiffre">0:32</span> Partage</button></li>
+    <li><button type="button" data-mtx-film-aller="34"><span class="chiffre">0:34</span> 100&nbsp;% local</button></li>
+  </ol>
 </section>
 
 <section class="planche" id="planche" aria-labelledby="titre-planche">

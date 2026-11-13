@@ -22,6 +22,9 @@
   <script defer src="assets/js/main.js?v=2"></script>
 <link rel="stylesheet" href="../../assets/css/projet.css?v=14">
 <script src="../../assets/js/projet.js?v=15" defer></script>
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
 </head>
 <body>
 <div class="mtx-gbar">
@@ -88,6 +91,41 @@
         <div class="constat-texte">
           <p>Cela arrive plus souvent qu’on ne le croit, et beaucoup de visiteurs arrivent par leur téléphone. Ouvrez votre site sur iPhone ou iPad pour voir exactement ce qu’ils verront, et repérer les textes, menus ou images qui s’affichent mal.</p>
           <p>MTX Viewer réunit sur iPhone et iPad les outils pour explorer une page et comprendre ce qui se passe en coulisses, sans avoir besoin d’un ordinateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le film de présentation (16:9, avec musique) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css. -->
+    <section class="presentation champ-rendu suite" id="film" data-champ="rendu" aria-labelledby="titre-film">
+      <div class="enveloppe tete">
+        <p class="chemin">Le film de présentation</p>
+        <h2 id="titre-film" data-inspecter>Toute l’app, en une minute.</h2>
+        <p class="intro">Du site qui déborde sur téléphone à l’audit avant la mise en ligne&nbsp;: le tour de MTX Viewer en 58&nbsp;secondes. Il démarre sans le son&nbsp;; mettez-le pour la musique.</p>
+      </div>
+      <div class="enveloppe">
+        <div class="presentation-film" data-mtx-film data-duree="58.07">
+          <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+            <video class="mtx-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/presentation.webp" aria-label="Film de présentation de MTX Viewer, 58 secondes, avec musique : un site réussi sur ordinateur mais cassé sur téléphone, puis l’app qui l’ouvre sur iPhone, ses six outils (Console, Réseau, Éléments, Source, Audit, Stockage), le test sur tous les formats d’écran, l’iPad et les thèmes clair et sombre.">
+              <source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'>
+              <source src="assets/video/presentation-720.mp4" type='video/mp4; codecs="avc1.64001F, mp4a.40.2"' media="(max-width: 600px)">
+              <source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'>
+            </video>
+            <div class="mtx-film-commandes" hidden>
+              <button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button>
+              <button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button>
+              <button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button>
+            </div>
+            <span class="mtx-film-fil" aria-hidden="true"></span>
+          </div>
+          <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film">
+            <li><button type="button" data-mtx-film-aller="0"><span>0:00</span> Le constat</button></li>
+            <li><button type="button" data-mtx-film-aller="6.2"><span>0:06</span> MTX Viewer</button></li>
+            <li><button type="button" data-mtx-film-aller="12"><span>0:12</span> Vos sites</button></li>
+            <li><button type="button" data-mtx-film-aller="20"><span>0:20</span> Six outils</button></li>
+            <li><button type="button" data-mtx-film-aller="36.5"><span>0:36</span> Tous les écrans</button></li>
+            <li><button type="button" data-mtx-film-aller="44.2"><span>0:44</span> iPhone et iPad</button></li>
+            <li><button type="button" data-mtx-film-aller="49.2"><span>0:49</span> Une seule app</button></li>
+          </ol>
         </div>
       </div>
     </section>

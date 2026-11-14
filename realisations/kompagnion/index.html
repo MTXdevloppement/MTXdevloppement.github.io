@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-IVwjW/JPW8ilSzlHDzP7ND9k5Q9YWvgCGJtBsUtG0RY='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t,a;try{t=localStorage.getItem('mtx-theme');a=localStorage.getItem('kompagnion-accent')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;if(/^(violet|bleu|turquoise|vert|orange|rose|rouge|graphite)$/.test(a||''))d.dataset.accent=a;d.classList.add('js')})(document.documentElement)</script>
+<title>Kompagnion : clients, projets, devis et factures sur iPhone</title>
+<meta name="description" content="L’app iPhone des indépendants et petites entreprises : clients, projets, demandes, devis et factures PDF au même endroit, sans compte ni serveur.">
+<meta name="author" content="MTX Studio">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/kompagnion/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Kompagnion — L’app compagnon de votre entreprise">
+<meta property="og:description" content="Clients, projets, demandes et documents au même endroit, sur iPhone. Composez votre accueil, facturez en PDF, et gardez vos données chez vous.">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/kompagnion/">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/kompagnion/assets/img/og-kompagnion.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kompagnion : l’icône aux cartes empilées et l’écran d’accueil de l’app sur iPhone">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kompagnion — L’app compagnon de votre entreprise">
+<meta name="twitter:description" content="Clients, projets, demandes et documents au même endroit, sur iPhone. Composez votre accueil, facturez en PDF, et gardez vos données chez vous.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/kompagnion/assets/img/og-kompagnion.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f2f7">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/ecrans/home.webp" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<script src="assets/js/site.js?v=2" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=15" defer></script>
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/kompagnion/#app","name":"Kompagnion","description":"L’app compagnon de votre entreprise sur iPhone : clients, projets, demandes et documents au même endroit, avec un accueil à composer et l’export PDF des devis et factures. Les données restent sur l’appareil.","applicationCategory":"BusinessApplication","applicationSubCategory":"Gestion d’entreprise","operatingSystem":"iOS 27","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/kompagnion/","image":"https://mtx-developpement.fr/realisations/kompagnion/assets/img/kompagnion-icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/kompagnion/assets/img/ecrans/home.webp","https://mtx-developpement.fr/realisations/kompagnion/assets/img/ecrans/customize.webp","https://mtx-developpement.fr/realisations/kompagnion/assets/img/ecrans/invoice.webp"],"featureList":["Accueil personnalisable : 17 widgets à ajouter, retirer et déplacer","Clients : coordonnées, appel, e-mail et site en un tap, favoris, notes","Projets : statut, budget, échéance, tâches à cocher","Demandes : une boîte centralisée avec canal, priorité et statut","Documents : factures et devis avec lignes, TVA, numérotation et export PDF, contrats, mails, fichiers, photos, liens, notes","Tags (#) sur tout, avec recherche par #tag","Thème clair, sombre ou automatique, couleur d’accent et devise au choix","Données sur l’appareil, sans compte ni serveur"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"},"audience":{"@type":"BusinessAudience","audienceType":"Indépendants, artisans et petites entreprises"},"softwareRequirements":"iOS 27 ou plus récent","availableOnDevice":"iPhone","countriesSupported":"FR"},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/kompagnion/#page","url":"https://mtx-developpement.fr/realisations/kompagnion/","name":"Kompagnion : clients, projets, devis et factures sur iPhone","description":"L’app iPhone des indépendants et petites entreprises : clients, projets, demandes, devis et factures PDF au même endroit, sans compte ni serveur.","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/kompagnion/#app"},"primaryImageOfPage":"https://mtx-developpement.fr/realisations/kompagnion/assets/img/og-kompagnion.png","breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/kompagnion/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/kompagnion/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Kompagnion","item":"https://mtx-developpement.fr/realisations/kompagnion/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/kompagnion/#questions","mainEntity":[{"@type":"Question","name":"À qui s’adresse Kompagnion ?","acceptedAnswer":{"@type":"Answer","text":"Aux indépendants et aux petites entreprises qui suivent eux-mêmes leurs clients, leurs projets et leur facturation : graphistes, artisans, commerçants, consultants, petites agences."}},{"@type":"Question","name":"Faut-il créer un compte ?","acceptedAnswer":{"@type":"Answer","text":"Non. Kompagnion s’ouvre directement, sans inscription. Les données sont enregistrées sur l’iPhone, pas sur un serveur."}},{"@type":"Question","name":"Peut-on faire de vraies factures ?","acceptedAnswer":{"@type":"Answer","text":"Kompagnion crée des devis et des factures avec leurs lignes, la TVA, une numérotation suivie et les informations de votre entreprise en en-tête, puis les exporte en PDF à partager. Avec la franchise en base, la mention « TVA non applicable, art. 293 B du CGI » est ajoutée. Kompagnion n’est pas un logiciel de comptabilité."}},{"@type":"Question","name":"Mes données sont-elles synchronisées entre plusieurs appareils ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour l’instant. Les données restent sur l’iPhone où vous les saisissez. Les PDF se partagent depuis l’app, par e-mail ou dans Fichiers."}},{"@type":"Question","name":"Kompagnion fonctionne-t-elle sans connexion ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les données sont sur l’iPhone : vous consultez vos clients, notez une demande ou préparez une facture sans réseau. Seuls l’envoi d’un e-mail, l’appel ou l’ouverture d’un site passent par les apps de l’iPhone."}},{"@type":"Question","name":"Kompagnion remplace-t-elle un logiciel de comptabilité ?","acceptedAnswer":{"@type":"Answer","text":"Non. Kompagnion suit vos clients, vos projets, vos demandes et vos documents, et prépare vos devis et factures en PDF. Elle ne tient pas de comptabilité, ne fait pas de déclarations et ne se connecte pas à votre banque."}},{"@type":"Question","name":"Et la facture électronique obligatoire ?","acceptedAnswer":{"@type":"Answer","text":"En France, entre entreprises assujetties à la TVA, les PME et micro-entreprises devront émettre leurs factures par une plateforme agréée à partir du 1er septembre 2027 (et pouvoir en recevoir dès le 1er septembre 2026). Kompagnion n’est pas une plateforme agréée : ses PDF restent utiles pour vos devis, pour vos clients particuliers et pour votre suivi."}},{"@type":"Question","name":"Sur quels appareils Kompagnion fonctionne-t-elle ?","acceptedAnswer":{"@type":"Answer","text":"Sur iPhone, avec iOS 27 ou plus récent."}},{"@type":"Question","name":"Quand Kompagnion sera-t-elle disponible, et à quel prix ?","acceptedAnswer":{"@type":"Answer","text":"Kompagnion arrive bientôt sur l’App Store. La date et le prix ne sont pas encore fixés : écrivez à mtxstudio@proton.me pour être prévenu de la sortie."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../index.html" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../index.html#realisations" aria-current="true">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../index.html#r-kompagnion">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<!-- Pictogrammes, dessinés d'après les symboles de l'app. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-dossier" viewBox="0 0 24 24"><path d="M3 7.2A2.2 2.2 0 0 1 5.2 5h4.1l2 2.2h7.5A2.2 2.2 0 0 1 21 9.4v8.4a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 17.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-boite" viewBox="0 0 24 24"><path d="M5.4 4h13.2l2.4 8.6V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5.4Zm-.2 9.2V18h13.6v-4.8h-3.9a2.9 2.9 0 0 1-5.8 0Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-sablier" viewBox="0 0 24 24"><path d="M6 3h12v2.2c0 2.7-1.7 4.4-3.8 6.8 2.1 2.4 3.8 4.1 3.8 6.8V21H6v-2.2c0-2.7 1.7-4.4 3.8-6.8C7.7 9.6 6 7.9 6 5.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-billet" viewBox="0 0 24 24"><path d="M2.5 6.5h19v11h-19Zm9.5 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-calendrier" viewBox="0 0 24 24"><path d="M7 2.5h2v2h6v-2h2v2h1.8A2.2 2.2 0 0 1 21 6.7v12.1a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 18.8V6.7a2.2 2.2 0 0 1 2.2-2.2H7Zm-2 7.3v9h14v-9Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-devis" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v12.3a1.7 1.7 0 0 1-1.7 1.7H6.7A1.7 1.7 0 0 1 5 19.8V4.2A1.7 1.7 0 0 1 6.7 2.5Zm2 9.5v1.8h8V12Zm0 3.8v1.8h6v-1.8Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-liste" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 6.5 1.6 1.6 2.9-3M3.5 14.5l1.6 1.6 2.9-3M11 7h9.5M11 15h9.5"/></g></symbol>
+    <symbol id="i-personnes" viewBox="0 0 24 24"><path d="M9 11.5a3.8 3.8 0 1 0 0-7.6 3.8 3.8 0 0 0 0 7.6Zm7.5.3a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1.8 19.5c.4-3.6 3.3-6 7.2-6s6.8 2.4 7.2 6Zm16-.1c-.2-2.1-1.1-3.9-2.6-5.1h1.3c3.1 0 5.4 2 5.7 5.1Z" fill="currentColor"/></symbol>
+    <symbol id="i-alerte" viewBox="0 0 24 24"><path d="M10.3 3.4a2 2 0 0 1 3.4 0l8 13.8a2 2 0 0 1-1.7 3H4a2 2 0 0 1-1.7-3Zm.6 4.6.3 6.4h1.6l.3-6.4Zm1.1 8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-recu" viewBox="0 0 24 24"><path d="M3 12.5 5.8 5h12.4l2.8 7.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm9-7.8v6.5m-2.8-2.6L12 11.4l2.8-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-echeance" viewBox="0 0 24 24"><path d="M7 2.5h2v2h6v-2h2v2h1.8A2.2 2.2 0 0 1 21 6.7V11a6.5 6.5 0 0 0-9.6 10H5.2A2.2 2.2 0 0 1 3 18.8V6.7a2.2 2.2 0 0 1 2.2-2.2H7Zm9.5 9a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm-.8 2v3.4l2.6 1.5.8-1.2-1.9-1.1v-2.6Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-docs" viewBox="0 0 24 24"><path d="M8.5 2h7l4.5 4.5V17a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 7 17V3.5A1.5 1.5 0 0 1 8.5 2ZM4 6.5h1.5V19c0 .8.7 1.5 1.5 1.5h9.5V22H6a2 2 0 0 1-2-2Z" fill="currentColor"/></symbol>
+    <symbol id="i-coche" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 1 1 0 19 9.5 9.5 0 0 1 0-19Zm4.3 5.8-5.6 6-2.9-2.8-1.4 1.4 4.3 4.2 7-7.4Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-barres" viewBox="0 0 24 24"><path d="M3 14h4v7H3Zm7-6h4v13h-4Zm7-5h4v18h-4Z" fill="currentColor"/></symbol>
+    <symbol id="i-etoile" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-diese" viewBox="0 0 24 24"><path d="M9.5 3.5 8 20.5M16 3.5l-1.5 17M4.5 9h16M3.5 15.5h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-eclair" viewBox="0 0 24 24"><path d="M13.5 2 4.5 13.5h6.4L9.8 22l9.2-11.6h-6.4Z" fill="currentColor"/></symbol>
+    <symbol id="i-fleche" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-moins" viewBox="0 0 16 16"><path d="M3.5 8h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-grille" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
+    <symbol id="i-loupe" viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM15.3 15.3 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cadenas" viewBox="0 0 24 24"><path d="M7 10V7.5a5 5 0 0 1 10 0V10h1a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Zm2 0h6V7.5a3 3 0 0 0-6 0Z" fill="currentColor" fill-rule="evenodd"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v12.3a1.7 1.7 0 0 1-1.7 1.7H6.7A1.7 1.7 0 0 1 5 19.8V4.2A1.7 1.7 0 0 1 6.7 2.5Zm6 8v6.3m-2.8-2.8 2.8 2.8 2.8-2.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-pause" viewBox="0 0 16 16"><rect x="3.4" y="2.6" width="3.4" height="10.8" rx="1.1" fill="currentColor"/><rect x="9.2" y="2.6" width="3.4" height="10.8" rx="1.1" fill="currentColor"/></symbol>
+    <symbol id="s-lecture" viewBox="0 0 16 16"><path d="M4.6 2.9v10.2a.6.6 0 0 0 .9.5l8-5.1a.6.6 0 0 0 0-1l-8-5.1a.6.6 0 0 0-.9.5Z" fill="currentColor"/></symbol>
+    <symbol id="s-rejouer" viewBox="0 0 16 16"><path d="M2.8 8a5.2 5.2 0 1 0 1.7-3.85M2.6 2.3v2.6h2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre" data-barre>
+  <a class="marque" href="#haut" aria-label="Kompagnion, haut de page"><img src="assets/img/kompagnion-icone-64.webp" width="32" height="32" alt=""><span>Kompagnion</span></a>
+  <nav class="barre-nav" aria-label="Sections de la page">
+    <a href="#accueil">L’accueil</a>
+    <a href="#espaces">Les espaces</a>
+    <a href="#factures">Factures</a>
+    <a href="#tags">Tags</a>
+    <a href="#comparer">Comparer</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <a class="bouton bouton-accent barre-cta" href="mailto:mtxstudio@proton.me?subject=Kompagnion%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie">Être prévenu</a>
+</header>
+
+<main id="contenu">
+
+  <!-- Promesse ========================================================= -->
+  <section class="hero" id="haut" aria-labelledby="titre">
+    <div class="hero-texte">
+      <p class="repere"><span class="pile" aria-hidden="true"><i></i><i></i><i></i></span>App iPhone · Gestion d’entreprise</p>
+      <h1 id="titre">Clients, projets, demandes, documents. <em>Au même endroit.</em></h1>
+      <p class="chapo">Kompagnion est l’app compagnon de votre entreprise. Vos clients et leurs coordonnées, vos projets et leurs tâches, les demandes qui arrivent, vos devis et factures en PDF : tout est relié, et tout tient dans votre iPhone, sans compte ni serveur.</p>
+      <div class="actions">
+        <a class="bouton bouton-accent" href="#accueil">Composer un accueil<svg class="fl" aria-hidden="true"><use href="#i-fleche"/></svg></a>
+        <a class="bouton bouton-trait" href="mailto:mtxstudio@proton.me?subject=Kompagnion%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie">Être prévenu de la sortie</a>
+      </div>
+    </div>
+
+    <div class="hero-scene mtx-pose" data-mtx-pose>
+      <figure class="tel tel-hero">
+        <img class="mtx-reflet" src="assets/img/ecrans/home.webp" width="660" height="1435" alt="Accueil de Kompagnion sur iPhone : « Bonjour », les widgets Projets en cours, Demandes ouvertes, À encaisser et Encaissé cette année, une facture en retard et les demandes à traiter." fetchpriority="high" decoding="async">
+      </figure>
+      <p class="detache d-encaisser mtx-flotte" aria-hidden="true"><span class="detache-ic" style="--c:var(--c-orange)"><svg><use href="#i-sablier"/></svg></span><b>3 200 €</b><small>À encaisser</small></p>
+      <p class="detache d-retard mtx-flotte-2" aria-hidden="true"><span class="detache-ic" style="--c:var(--c-rouge)"><svg><use href="#i-alerte"/></svg></span><b>1 facture en retard</b><small>540,00 € à relancer</small></p>
+      <p class="detache d-tag mtx-flotte-3" aria-hidden="true"><span class="detache-ic" style="--c:var(--accent)"><svg><use href="#i-diese"/></svg></span><b>#web</b><small>5 éléments</small></p>
+    </div>
+
+    <dl class="chiffres" aria-label="Kompagnion en chiffres">
+      <div><dt>4</dt><dd>espaces reliés</dd></div>
+      <div><dt>17</dt><dd>widgets pour l’accueil</dd></div>
+      <div><dt>8</dt><dd>sortes de documents</dd></div>
+      <div><dt>0</dt><dd>compte, 0 serveur</dd></div>
+    </dl>
+  </section>
+
+  <!-- Composez votre accueil (démo) ==================================== -->
+  <section class="section" id="accueil" aria-labelledby="titre-accueil">
+    <header class="entete">
+      <p class="repere">Personnaliser l’accueil</p>
+      <h2 id="titre-accueil" data-apparait>Un accueil <em>à votre image.</em></h2>
+      <p class="chapo" data-apparait>Dans Kompagnion, l’accueil se compose : choisissez les chiffres et les listes qui comptent pour vous, retirez le reste, rangez-les dans l’ordre. Essayez ici, avec les données de démonstration de l’app.</p>
+    </header>
+
+    <div class="atelier" data-atelier>
+      <div class="atelier-tel">
+        <div class="tel tel-demo">
+          <div class="ecran" data-ecran>
+            <div class="ecran-barre">
+              <span class="ecran-heure" aria-hidden="true">09:41</span>
+              <span class="ecran-titre" data-ecran-titre>Mon entreprise</span>
+              <button class="ecran-bouton" type="button" data-personnaliser aria-pressed="false"><svg aria-hidden="true"><use href="#i-grille"/></svg><span>Personnaliser</span></button>
+            </div>
+            <p class="ecran-salut" data-ecran-salut>Bonjour<small data-date>Aujourd’hui</small></p>
+            <p class="ecran-aide" data-ecran-aide hidden>Maintenez une carte pour la déplacer (ou flèches du clavier), touchez − pour la retirer.</p>
+
+            <div class="widgets" data-widgets aria-label="Widgets de l’accueil">
+              <!-- Les huit widgets par défaut de l'app, puis les neuf autres, rangés dans le catalogue (hidden). -->
+              <article class="w w-petit" data-w="projets" style="--c:var(--c-bleu)"><span class="w-ic"><svg><use href="#i-dossier"/></svg></span><b class="w-val">2</b><span class="w-lib">Projets en cours</span></article>
+              <article class="w w-petit" data-w="demandes-ouvertes" style="--c:var(--c-rose)"><span class="w-ic"><svg><use href="#i-boite"/></svg></span><b class="w-val">5</b><span class="w-lib">Demandes ouvertes</span></article>
+              <article class="w w-petit" data-w="encaisser" style="--c:var(--c-orange)"><span class="w-ic"><svg><use href="#i-sablier"/></svg></span><b class="w-val">3 200 €</b><span class="w-lib">À encaisser</span></article>
+              <article class="w w-petit" data-w="encaisse" style="--c:var(--c-vert)"><span class="w-ic"><svg><use href="#i-billet"/></svg></span><b class="w-val">1 440 €</b><span class="w-lib">Encaissé cette année</span></article>
+              <article class="w w-large w-alerte" data-w="retard" style="--c:var(--c-rouge)"><span class="w-ic"><svg><use href="#i-alerte"/></svg></span><p><b>1 facture en retard</b><small>540,00 € à relancer · Pixel &amp; Bois</small></p></article>
+              <article class="w w-large" data-w="a-traiter" style="--c:var(--c-rose)">
+                <h3 class="w-titre">Demandes à traiter</h3>
+                <ul class="w-lignes">
+                  <li><span class="pt" style="--c:var(--c-rouge)"></span><span><b>Réunion de cadrage</b><small>Inès Benali · aujourd’hui</small></span><i class="statut s-nouvelle">Nouvelle</i></li>
+                  <li><span class="pt" style="--c:var(--c-rouge)"></span><span><b>Devis pour des cartes de visite</b><small>Hugo Martin · il y a 2 jours</small></span><i class="statut s-nouvelle">Nouvelle</i></li>
+                  <li><span class="pt"></span><span><b>Ajouter une page « Équipe »</b><small>Camille Roux · hier</small></span><i class="statut s-nouvelle">Nouvelle</i></li>
+                </ul>
+              </article>
+              <article class="w w-large" data-w="echeances" style="--c:var(--c-bleu)">
+                <h3 class="w-titre">Prochaines échéances</h3>
+                <ul class="w-lignes">
+                  <li><span><b>Vidéo motion design</b><small class="rouge">Échéance passée de 3 jours</small></span><i class="statut s-attente">En pause</i><span class="barre-p" style="--p:.5;--c:var(--c-orange)"></span></li>
+                  <li><span><b>Refonte du site vitrine</b><small>Dans 12 jours · 2 tâches sur 5</small></span><i class="statut s-cours">En cours</i><span class="barre-p" style="--p:.4"></span></li>
+                  <li><span><b>Identité visuelle</b><small>Dans 20 jours · 1 tâche sur 3</small></span><i class="statut s-cours">En cours</i><span class="barre-p" style="--p:.33"></span></li>
+                </ul>
+              </article>
+              <article class="w w-large" data-w="documents" style="--c:var(--c-gris)">
+                <h3 class="w-titre">Documents récents</h3>
+                <ul class="w-lignes">
+                  <li><span class="doc-ic" style="--c:var(--c-jaune)"><svg aria-hidden="true"><use href="#i-devis"/></svg></span><span><b>Brief de lancement</b><small>Note · Inès Benali</small></span></li>
+                  <li><span class="doc-ic" style="--c:var(--c-bleu)"><svg aria-hidden="true"><use href="#i-boite"/></svg></span><span><b>Relance facture</b><small>Mail · Léo Garnier</small></span></li>
+                  <li><span class="doc-ic" style="--c:var(--c-indigo)"><svg aria-hidden="true"><use href="#i-devis"/></svg></span><span><b>App de réservation</b><small>Devis D-2026-002 · Envoyé</small></span><span class="montant">11 700 €</span></li>
+                </ul>
+              </article>
+              <article class="w w-petit" data-w="facture-mois" style="--c:var(--c-turquoise)" hidden><span class="w-ic"><svg><use href="#i-calendrier"/></svg></span><b class="w-val">2 660 €</b><span class="w-lib">Facturé ce mois</span></article>
+              <article class="w w-petit" data-w="devis-attente" style="--c:var(--c-indigo)" hidden><span class="w-ic"><svg><use href="#i-devis"/></svg></span><b class="w-val">11 700 €</b><span class="w-lib">Devis en attente</span></article>
+              <article class="w w-petit" data-w="taches-restantes" style="--c:var(--c-violet)" hidden><span class="w-ic"><svg><use href="#i-liste"/></svg></span><b class="w-val">6</b><span class="w-lib">Tâches à faire</span></article>
+              <article class="w w-petit" data-w="clients" style="--c:var(--c-cyan)" hidden><span class="w-ic"><svg><use href="#i-personnes"/></svg></span><b class="w-val">4</b><span class="w-lib">Clients</span></article>
+              <article class="w w-large" data-w="taches" style="--c:var(--c-vert)" hidden>
+                <h3 class="w-titre">Tâches du moment</h3>
+                <ul class="w-lignes w-taches">
+                  <li><label><input type="checkbox"><span><b>Intégration des pages</b><small>Refonte du site vitrine</small></span></label></li>
+                  <li><label><input type="checkbox"><span><b>Recette et corrections</b><small>Refonte du site vitrine</small></span></label></li>
+                  <li><label><input type="checkbox"><span><b>Trois pistes de logo</b><small>Identité visuelle</small></span></label></li>
+                </ul>
+              </article>
+              <article class="w w-large" data-w="facturation" style="--c:var(--c-turquoise)" hidden>
+                <h3 class="w-titre">Facturation sur 6 mois</h3>
+                <p class="w-total"><b>4 640 €</b><small>facturés sur la période</small></p>
+                <ol class="graphe" aria-label="Montant facturé par mois">
+                  <li style="--v:0"><span>J</span><i class="sr">juin : 0 €</i></li>
+                  <li style="--v:0"><span>J</span><i class="sr">juillet : 0 €</i></li>
+                  <li style="--v:0"><span>A</span><i class="sr">août : 0 €</i></li>
+                  <li style="--v:0"><span>S</span><i class="sr">septembre : 0 €</i></li>
+                  <li style="--v:.74"><span>O</span><i class="sr">octobre : 1 980 €</i></li>
+                  <li style="--v:1"><span>N</span><i class="sr">novembre : 2 660 €</i></li>
+                </ol>
+              </article>
+              <article class="w w-large" data-w="favoris" style="--c:var(--c-jaune)" hidden>
+                <h3 class="w-titre">Clients favoris</h3>
+                <ul class="w-lignes"><li><span class="avatar" style="--c:var(--c-indigo)">CR</span><span><b>Camille Roux <span class="etoile" aria-label="favori">★</span></b><small>Atelier Lumen</small></span></li></ul>
+              </article>
+              <article class="w w-large" data-w="tags" style="--c:var(--c-indigo)" hidden>
+                <h3 class="w-titre">Tags</h3>
+                <p class="w-puces"><span>#web <small>5</small></span><span>#prospect <small>2</small></span><span>#relance <small>2</small></span><span>#urgent <small>2</small></span><span>#mobile <small>2</small></span><span>#design <small>1</small></span></p>
+              </article>
+              <article class="w w-large" data-w="raccourcis" style="--c:var(--c-orange)" hidden>
+                <h3 class="w-titre">Raccourcis</h3>
+                <p class="w-raccourcis"><span>Client</span><span>Projet</span><span>Devis</span><span>Facture</span><span>Demande</span></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="atelier-cote">
+        <ol class="etapes">
+          <li><b>Touchez « Personnaliser »</b> en haut de l’écran : les cartes se mettent à trembler.</li>
+          <li><b>Retirez</b> une carte avec −, <b>déplacez-la</b> en la faisant glisser (au doigt : maintenez-la d’abord).</li>
+          <li><b>Ajoutez</b> un widget depuis le catalogue, puis touchez « OK ».</li>
+        </ol>
+
+        <div class="catalogue" data-catalogue hidden>
+          <h3 class="catalogue-titre">Ajouter un widget <span data-catalogue-nombre></span></h3>
+          <ul class="catalogue-liste" data-catalogue-liste></ul>
+        </div>
+
+        <div class="accents" role="group" aria-labelledby="titre-accents">
+          <h3 id="titre-accents" class="catalogue-titre">Couleur d’accent</h3>
+          <p class="accents-texte">Comme dans les Réglages de l’app. Elle repeint aussi cette page.</p>
+          <div class="accents-liste">
+            <button type="button" class="pastille" data-accent="violet" style="--p:#584feb" aria-pressed="true"><span class="sr">Violet</span></button>
+            <button type="button" class="pastille" data-accent="bleu" style="--p:#0a7aff" aria-pressed="false"><span class="sr">Bleu</span></button>
+            <button type="button" class="pastille" data-accent="turquoise" style="--p:#2bb3c9" aria-pressed="false"><span class="sr">Turquoise</span></button>
+            <button type="button" class="pastille" data-accent="vert" style="--p:#30c454" aria-pressed="false"><span class="sr">Vert</span></button>
+            <button type="button" class="pastille" data-accent="orange" style="--p:#ff9500" aria-pressed="false"><span class="sr">Orange</span></button>
+            <button type="button" class="pastille" data-accent="rose" style="--p:#ff2d6f" aria-pressed="false"><span class="sr">Rose</span></button>
+            <button type="button" class="pastille" data-accent="rouge" style="--p:#ff3b30" aria-pressed="false"><span class="sr">Rouge</span></button>
+            <button type="button" class="pastille" data-accent="graphite" style="--p:#8e8e93" aria-pressed="false"><span class="sr">Graphite</span></button>
+          </div>
+        </div>
+        <p class="sr" aria-live="polite" data-annonce></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Les quatre espaces ================================================ -->
+  <section class="section" id="espaces" aria-labelledby="titre-espaces">
+    <header class="entete">
+      <p class="repere">Les quatre espaces</p>
+      <h2 id="titre-espaces" data-apparait>Tout est relié. <em>Rien ne se perd.</em></h2>
+      <p class="chapo" data-apparait>Un client a ses projets, un projet a ses demandes et ses documents. Depuis n’importe quelle fiche, le reste est à un tap.</p>
+    </header>
+
+    <div class="espaces" data-espaces>
+      <div class="onglets" role="tablist" aria-label="Les quatre espaces de Kompagnion">
+        <button class="onglet" role="tab" id="o-clients" aria-controls="v-clients" aria-selected="true" type="button" data-espace="clients" style="--c:var(--c-cyan)"><svg aria-hidden="true"><use href="#i-personnes"/></svg><span><b>Clients</b><small>Coordonnées, favoris, notes</small></span></button>
+        <button class="onglet" role="tab" id="o-projets" aria-controls="v-projets" aria-selected="false" type="button" data-espace="projets" tabindex="-1" style="--c:var(--c-bleu)"><svg aria-hidden="true"><use href="#i-dossier"/></svg><span><b>Projets</b><small>Statut, budget, tâches</small></span></button>
+        <button class="onglet" role="tab" id="o-demandes" aria-controls="v-demandes" aria-selected="false" type="button" data-espace="demandes" tabindex="-1" style="--c:var(--c-rose)"><svg aria-hidden="true"><use href="#i-boite"/></svg><span><b>Demandes</b><small>Canal, priorité, statut</small></span></button>
+        <button class="onglet" role="tab" id="o-documents" aria-controls="v-documents" aria-selected="false" type="button" data-espace="documents" tabindex="-1" style="--c:var(--c-indigo)"><svg aria-hidden="true"><use href="#i-docs"/></svg><span><b>Documents</b><small>Devis, factures, fichiers</small></span></button>
+      </div>
+
+      <div class="volets">
+        <article class="volet" role="tabpanel" id="v-clients" aria-labelledby="o-clients" tabindex="0">
+          <div class="volet-tels">
+            <figure class="tel"><img src="assets/img/ecrans/clients.webp" width="660" height="1435" alt="Liste des clients : Camille Roux (Atelier Lumen, favori), Hugo Martin (Nord Café), Inès Benali (Sora Fitness), Léo Garnier (Pixel &amp; Bois), avec leurs tags." loading="lazy" decoding="async"></figure>
+            <figure class="tel tel-second"><img src="assets/img/ecrans/client_detail.webp" width="660" height="1435" alt="Fiche de Camille Roux : boutons Appeler, E-mail et Site, nombre de projets et de demandes ouvertes, montant facturé, tags et coordonnées." loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="volet-texte">
+            <h3>Vos clients, à un tap.</h3>
+            <p>Chaque fiche réunit les coordonnées, les projets, les demandes et ce qui a été facturé.</p>
+            <ul class="liste">
+              <li><b>Appeler, écrire, ouvrir le site</b> d’un seul geste depuis la fiche.</li>
+              <li><b>Favoris</b> en tête de liste et sur l’accueil.</li>
+              <li><b>Notes</b> libres : préférences, budget, historique.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="volet" role="tabpanel" id="v-projets" aria-labelledby="o-projets" tabindex="0">
+          <div class="volet-tels">
+            <figure class="tel"><img src="assets/img/ecrans/projects.webp" width="660" height="1435" alt="Liste des projets filtrable par statut : Boutique en ligne (Terminé), Vidéo motion design (En pause), App mobile de réservation (Prospect), Identité visuelle (En cours), avec échéance, tâches et budget." loading="lazy" decoding="async"></figure>
+            <figure class="tel tel-second"><img src="assets/img/ecrans/project_detail.webp" width="660" height="1435" alt="Projet Identité visuelle : avancement 1 tâche sur 3, statut En cours, client Hugo Martin, dates, budget 2 200 € et tag #design." loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="volet-texte">
+            <h3>Chaque projet, suivi de près.</h3>
+            <p>Du prospect au projet terminé, vous voyez où en est chacun, ce qu’il reste à faire et ce qu’il rapporte.</p>
+            <ul class="liste">
+              <li><b>Quatre statuts</b> : Prospect, En cours, En pause, Terminé.</li>
+              <li><b>Budget et échéance</b>, avec l’alerte quand elle est dépassée.</li>
+              <li><b>Tâches à cocher</b> et barre d’avancement.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="volet" role="tabpanel" id="v-demandes" aria-labelledby="o-demandes" tabindex="0">
+          <div class="volet-tels">
+            <figure class="tel"><img src="assets/img/ecrans/requests.webp" width="660" height="1435" alt="Boîte des demandes, filtre « À traiter » : Réunion de cadrage, Devis pour des cartes de visite, Ajouter une page « Équipe » (Nouvelles), Changer la couleur principale (En cours), Envoyer les accès à l’hébergement (En attente)." loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="volet-texte">
+            <h3>Une boîte pour toutes les demandes.</h3>
+            <p>Un appel, un e-mail, un message ou une réunion : notez la demande, rattachez-la au client et au projet, et elle ne vous échappera plus.</p>
+            <ul class="liste">
+              <li><b>Canal</b> : e-mail, téléphone, message, réunion.</li>
+              <li><b>Priorité</b> basse, normale ou haute, et échéance.</li>
+              <li><b>Statut</b> : Nouvelle, En cours, En attente, Traitée.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="volet" role="tabpanel" id="v-documents" aria-labelledby="o-documents" tabindex="0">
+          <div class="volet-tels">
+            <figure class="tel"><img src="assets/img/ecrans/documents.webp" width="660" height="1435" alt="Liste des documents filtrable par sorte : note, mail, lien, devis et factures avec leur numéro, leur montant et leur statut (Envoyé, Accepté)." loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="volet-texte">
+            <h3>Tous les papiers du client, rangés.</h3>
+            <p>Huit sortes de documents, classées par client et par projet.</p>
+            <ul class="liste">
+              <li><b>Factures et devis</b>, avec lignes, TVA, numérotation et PDF.</li>
+              <li><b>Contrats, mails, fichiers PDF, photos</b>.</li>
+              <li><b>Liens et notes</b> : le site de préproduction, le brief.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Factures ========================================================= -->
+  <section class="section" id="factures" aria-labelledby="titre-factures">
+    <header class="entete">
+      <p class="repere">Devis et factures</p>
+      <h2 id="titre-factures" data-apparait>De la ligne <em>au PDF.</em></h2>
+      <p class="chapo" data-apparait>Ajoutez vos lignes, Kompagnion fait les calculs, numérote le document et place les informations de votre entreprise en en-tête. Changez une quantité : la facture se recalcule.</p>
+    </header>
+
+    <div class="facture" data-facture>
+      <div class="facture-saisie">
+        <p class="facture-num"><span>Facture</span> <b>F-2026-002</b></p>
+        <p class="facture-objet">Maquettes et intégration · Atelier Lumen</p>
+        <table class="lignes">
+          <caption class="sr">Lignes de la facture</caption>
+          <thead><tr><th scope="col">Désignation</th><th scope="col">Qté</th><th scope="col">Prix unit. HT</th><th scope="col">Total HT</th></tr></thead>
+          <tbody>
+            <tr data-ligne data-prix="280"><th scope="row">Maquettes (pages)</th><td><span class="qte"><button type="button" data-moins aria-label="Une page de moins"><svg aria-hidden="true"><use href="#i-moins"/></svg></button><output data-qte>5</output><button type="button" data-plus aria-label="Une page de plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></span></td><td class="m">280,00 €</td><td class="m" data-total-ligne>1 400,00 €</td></tr>
+            <tr data-ligne data-prix="420"><th scope="row">Intégration responsive</th><td><span class="qte"><button type="button" data-moins aria-label="Une unité de moins"><svg aria-hidden="true"><use href="#i-moins"/></svg></button><output data-qte>3</output><button type="button" data-plus aria-label="Une unité de plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></span></td><td class="m">420,00 €</td><td class="m" data-total-ligne>1 260,00 €</td></tr>
+          </tbody>
+        </table>
+        <fieldset class="tva">
+          <legend class="sr">Régime de TVA</legend>
+          <label><input type="radio" name="tva" value="0" checked data-tva> Franchise en base</label>
+          <label><input type="radio" name="tva" value="20" data-tva> TVA 20 %</label>
+        </fieldset>
+        <dl class="totaux">
+          <div><dt>Total HT</dt><dd class="m" data-ht>2 660,00 €</dd></div>
+          <div data-ligne-tva hidden><dt>TVA 20 %</dt><dd class="m" data-montant-tva>532,00 €</dd></div>
+          <div class="total"><dt data-libelle-total>Total</dt><dd class="m" data-ttc>2 660,00 €</dd></div>
+        </dl>
+      </div>
+
+      <figure class="pdf" aria-label="Aperçu du PDF">
+        <div class="feuille">
+          <div class="feuille-tete"><b>Mon entreprise</b><span><strong>FACTURE</strong><small>N° F-2026-002</small></span></div>
+          <p class="feuille-a"><small>FACTURÉ À</small><b>Atelier Lumen</b>Camille Roux<br>12 rue des Arts, 69001 Lyon</p>
+          <p class="feuille-objet">Objet : Maquettes et intégration</p>
+          <table class="feuille-lignes" aria-hidden="true">
+            <tr><th>Désignation</th><th>Qté</th><th>Total HT</th></tr>
+            <tr><td>Maquettes (pages)</td><td data-pdf-qte>5</td><td data-pdf-ligne>1 400,00 €</td></tr>
+            <tr><td>Intégration responsive</td><td data-pdf-qte>3</td><td data-pdf-ligne>1 260,00 €</td></tr>
+          </table>
+          <p class="feuille-total"><span data-pdf-libelle>Total</span><b data-pdf-total>2 660,00 €</b></p>
+          <p class="feuille-mention" data-pdf-mention>TVA non applicable, art. 293 B du CGI</p>
+        </div>
+        <figcaption><svg aria-hidden="true"><use href="#i-pdf"/></svg>Aperçu et partage du PDF</figcaption>
+      </figure>
+
+      <div class="facture-tels">
+        <figure class="tel"><img src="assets/img/ecrans/invoice.webp" width="660" height="1435" alt="Facture « Maquettes et intégration » dans l’app : statut Envoyé, client, projet, dates, lignes et bouton « Aperçu et partage du PDF »." loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+    <p class="note" data-apparait>À savoir : Kompagnion prépare des devis et des factures PDF clairs, mais ce n’est pas un logiciel de comptabilité. Vérifiez les mentions obligatoires propres à votre activité. Entre entreprises assujetties à la TVA en France, la facture électronique deviendra obligatoire à l’émission pour les PME et micro-entreprises à partir du 1<sup>er</sup> septembre 2027, via une plateforme agréée : le PDF de Kompagnion ne la remplace pas.</p>
+  </section>
+
+  <!-- Tags ============================================================= -->
+  <section class="section" id="tags" aria-labelledby="titre-tags">
+    <header class="entete">
+      <p class="repere">Tags</p>
+      <h2 id="titre-tags" data-apparait>Tout se retrouve <em>par #tag.</em></h2>
+      <p class="chapo" data-apparait>Un #tag se pose sur un client, un projet, une demande ou un document. Tapez-le dans la recherche : tout ce qui le porte remonte, quel que soit l’espace.</p>
+    </header>
+
+    <div class="tri" data-tri>
+      <div class="tri-recherche">
+        <label class="champ"><svg aria-hidden="true"><use href="#i-loupe"/></svg><span class="sr">Rechercher</span><input type="search" placeholder="Clients, projets, documents, #tags" data-tri-champ autocomplete="off" spellcheck="false"></label>
+        <div class="tri-puces" role="group" aria-label="Tags" data-tri-puces>
+          <button type="button" data-tag="web">#web</button>
+          <button type="button" data-tag="mobile">#mobile</button>
+          <button type="button" data-tag="prospect">#prospect</button>
+          <button type="button" data-tag="relance">#relance</button>
+          <button type="button" data-tag="urgent">#urgent</button>
+          <button type="button" data-tag="design">#design</button>
+          <button type="button" data-tag="fidèle">#fidèle</button>
+          <button type="button" data-tag="artisan">#artisan</button>
+          <button type="button" data-tag="impression">#impression</button>
+          <button type="button" data-tag="maintenance">#maintenance</button>
+          <button type="button" data-tag="acompte">#acompte</button>
+        </div>
+        <p class="tri-compte" aria-live="polite" data-tri-compte>16 éléments</p>
+      </div>
+      <ul class="tri-liste" data-tri-liste>
+        <li data-tags="fidèle web" style="--c:var(--c-cyan)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-personnes"/></svg></span><span><b>Camille Roux</b><small>Client · Atelier Lumen</small></span><i>#fidèle #web</i></li>
+        <li data-tags="restauration" style="--c:var(--c-cyan)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-personnes"/></svg></span><span><b>Hugo Martin</b><small>Client · Nord Café</small></span><i>#restauration</i></li>
+        <li data-tags="sport prospect" style="--c:var(--c-cyan)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-personnes"/></svg></span><span><b>Inès Benali</b><small>Client · Sora Fitness</small></span><i>#sport #prospect</i></li>
+        <li data-tags="artisan" style="--c:var(--c-cyan)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-personnes"/></svg></span><span><b>Léo Garnier</b><small>Client · Pixel &amp; Bois</small></span><i>#artisan</i></li>
+        <li data-tags="web prioritaire" style="--c:var(--c-bleu)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><span><b>Refonte du site vitrine</b><small>Projet · Camille Roux</small></span><i>#web #prioritaire</i></li>
+        <li data-tags="design" style="--c:var(--c-bleu)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><span><b>Identité visuelle</b><small>Projet · Hugo Martin</small></span><i>#design</i></li>
+        <li data-tags="mobile prospect" style="--c:var(--c-bleu)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><span><b>App mobile de réservation</b><small>Projet · Inès Benali</small></span><i>#mobile #prospect</i></li>
+        <li data-tags="vidéo" style="--c:var(--c-bleu)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><span><b>Vidéo motion design</b><small>Projet · Léo Garnier</small></span><i>#vidéo</i></li>
+        <li data-tags="web maintenance" style="--c:var(--c-bleu)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><span><b>Boutique en ligne</b><small>Projet · Camille Roux</small></span><i>#web #maintenance</i></li>
+        <li data-tags="web" style="--c:var(--c-rose)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-boite"/></svg></span><span><b>Ajouter une page « Équipe »</b><small>Demande · Camille Roux</small></span><i>#web</i></li>
+        <li data-tags="impression urgent" style="--c:var(--c-rose)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-boite"/></svg></span><span><b>Devis pour des cartes de visite</b><small>Demande · Hugo Martin</small></span><i>#impression #urgent</i></li>
+        <li data-tags="urgent" style="--c:var(--c-rose)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-boite"/></svg></span><span><b>Réunion de cadrage</b><small>Demande · Inès Benali</small></span><i>#urgent</i></li>
+        <li data-tags="acompte web" style="--c:var(--c-indigo)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-devis"/></svg></span><span><b>Acompte refonte du site</b><small>Facture F-2026-001 · Payée</small></span><i>#acompte #web</i></li>
+        <li data-tags="relance" style="--c:var(--c-indigo)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-devis"/></svg></span><span><b>Storyboard motion design</b><small>Facture F-2026-003 · En retard</small></span><i>#relance</i></li>
+        <li data-tags="mobile" style="--c:var(--c-indigo)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-devis"/></svg></span><span><b>App de réservation</b><small>Devis D-2026-002 · Envoyé</small></span><i>#mobile</i></li>
+        <li data-tags="relance" style="--c:var(--c-indigo)"><span class="tri-ic"><svg aria-hidden="true"><use href="#i-boite"/></svg></span><span><b>Relance facture</b><small>Mail · Léo Garnier</small></span><i>#relance</i></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comparer ======================================================== -->
+  <section class="section" id="comparer" aria-labelledby="titre-comparer">
+    <header class="entete">
+      <p class="repere">Comparer</p>
+      <h2 id="titre-comparer" data-apparait>Un compagnon, <em>pas un logiciel de plus.</em></h2>
+      <p class="chapo" data-apparait>Les logiciels de facturation en ligne font la comptabilité ; les apps de factures font des factures ; le tableur fait ce qu’on lui apprend. Kompagnion suit votre activité au quotidien, du premier appel du client à la facture, sur votre iPhone.</p>
+    </header>
+    <div class="tableau-cadre" data-apparait tabindex="0" role="region" aria-labelledby="legende-comparer">
+      <table class="comparer">
+        <caption id="legende-comparer" class="sr">Kompagnion comparé à trois familles d’outils</caption>
+        <thead><tr><th scope="col"><span class="sr">Critère</span></th><th scope="col" class="k">Kompagnion</th><th scope="col">Logiciel de facturation en ligne</th><th scope="col">App de factures</th><th scope="col">Tableur</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Compte à créer</th><td class="k"><b class="oui">Aucun</b></td><td>Oui</td><td>Souvent</td><td>Non</td></tr>
+          <tr><th scope="row">Où sont vos données</th><td class="k"><b class="oui">Sur votre iPhone</b></td><td>Chez l’éditeur</td><td>Souvent en ligne</td><td>Dans vos fichiers</td></tr>
+          <tr><th scope="row">Clients, projets et demandes reliés</th><td class="k"><b class="oui">Oui</b></td><td>Clients et factures</td><td>Non</td><td>À construire</td></tr>
+          <tr><th scope="row">Boîte des demandes (appels, e-mails)</th><td class="k"><b class="oui">Oui</b></td><td>Rarement</td><td>Non</td><td>Non</td></tr>
+          <tr><th scope="row">Devis et factures PDF numérotés</th><td class="k"><b class="oui">Oui</b></td><td>Oui</td><td>Oui</td><td>À la main</td></tr>
+          <tr><th scope="row">Accueil à composer</th><td class="k"><b class="oui">17 widgets</b></td><td>Tableau de bord fixe</td><td>Non</td><td>Non</td></tr>
+          <tr><th scope="row">Comptabilité, déclarations, banque</th><td class="k"><b class="non">Non</b></td><td>Souvent</td><td>Non</td><td>Non</td></tr>
+          <tr><th scope="row">Facture électronique (plateforme agréée)</th><td class="k"><b class="non">Pas pour l’instant</b></td><td>Selon l’éditeur</td><td>Rarement</td><td>Non</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" data-apparait>Comparaison par familles d’outils, et non par marque : chaque logiciel a ses particularités. Si vous avez besoin de comptabilité ou d’une plateforme agréée, Kompagnion peut accompagner votre outil de facturation sans le remplacer.</p>
+  </section>
+
+  <!-- Le film (lecteur commun ../../assets/js/film.js) ================== -->
+  <section class="section" id="film" aria-labelledby="titre-film">
+    <header class="entete">
+      <p class="repere">Le film</p>
+      <h2 id="titre-film" data-apparait>Kompagnion <em>en quarante secondes.</em></h2>
+      <p class="chapo" data-apparait>L’accueil, les widgets, les clients, les projets, les demandes, la facture en PDF et les #tags. Le film démarre sans le son ; mettez-le pour la musique.</p>
+    </header>
+
+    <div class="pres" data-mtx-film data-duree="42">
+      <ol class="pres-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film">
+        <li><button type="button" data-mtx-film-aller="0"><span class="pres-t">0:00</span> <span><b>Kompagnion</b> <small>L’app compagnon de votre entreprise.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="8"><span class="pres-t">0:08</span> <span><b>Accueil</b> <small>Votre journée, d’un coup d’œil.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="11"><span class="pres-t">0:11</span> <span><b>Widgets</b> <small>Un accueil à votre image.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="14"><span class="pres-t">0:14</span> <span><b>Clients</b> <small>Vos clients, à un tap.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="20"><span class="pres-t">0:20</span> <span><b>Projets</b> <small>Chaque projet, suivi de près.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="23"><span class="pres-t">0:23</span> <span><b>Demandes</b> <small>Plus rien ne se perd.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="26"><span class="pres-t">0:26</span> <span><b>Devis et factures</b> <small>De la ligne au PDF.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="32"><span class="pres-t">0:32</span> <span><b>Tags</b> <small>Tout se retrouve par #tag.</small></span></button></li>
+        <li><button type="button" data-mtx-film-aller="35"><span class="pres-t">0:35</span> <span><b>100 % local</b> <small>Vos données restent chez vous.</small></span></button></li>
+      </ol>
+      <figure class="pres-film">
+        <div class="pres-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="720" height="1280" poster="assets/video/presentation.webp" aria-label="Film de présentation de Kompagnion, 42 secondes, avec musique : l’accueil et ses widgets, les clients, les projets, les demandes, une facture exportée en PDF, la recherche par tag, et les données qui restent sur l’iPhone.">
+            <source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'>
+            <source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'>
+          </video>
+          <div class="mtx-film-commandes" hidden>
+            <button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.4 6.2h2.2l3.3-2.8v9.2L4.6 9.8H2.4Z" fill="currentColor"/><path d="m10.6 6.3 3.4 3.4m0-3.4-3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><svg class="mtx-i-son" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.4 6.2h2.2l3.3-2.8v9.2L4.6 9.8H2.4Z" fill="currentColor"/><path d="M10.4 5.8a3 3 0 0 1 0 4.4M12.3 4a5.6 5.6 0 0 1 0 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="mtx-film-libelle">Avec le son</span></button>
+            <button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" aria-hidden="true"><use href="#s-pause"/></svg><svg class="mtx-i-lecture" aria-hidden="true"><use href="#s-lecture"/></svg><svg class="mtx-i-revoir" aria-hidden="true"><use href="#s-rejouer"/></svg></button>
+            <button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 6V3.6a1 1 0 0 1 1-1H6M10 2.6h2.4a1 1 0 0 1 1 1V6M13.4 10v2.4a1 1 0 0 1-1 1H10M6 13.4H3.6a1 1 0 0 1-1-1V10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="mtx-i-reduire" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2.6V5a1 1 0 0 1-1 1H2.6M13.4 6H11a1 1 0 0 1-1-1V2.6M10 13.4V11a1 1 0 0 1 1-1h2.4M2.6 10H5a1 1 0 0 1 1 1v2.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Vos données ====================================================== -->
+  <section class="section" id="donnees" aria-labelledby="titre-donnees">
+    <header class="entete">
+      <p class="repere">100 % local</p>
+      <h2 id="titre-donnees" data-apparait>Vos données <em>restent chez vous.</em></h2>
+      <p class="chapo" data-apparait>Les fiches de vos clients et vos montants ne regardent que vous. Kompagnion les enregistre sur l’iPhone, et nulle part ailleurs.</p>
+    </header>
+    <ul class="faits">
+      <li data-apparait><span class="faits-ic"><svg aria-hidden="true"><use href="#i-cadenas"/></svg></span><h3>Aucun compte</h3><p>Pas d’inscription, pas de mot de passe : vous ouvrez l’app, vous ajoutez votre premier client.</p></li>
+      <li data-apparait><span class="faits-ic"><svg aria-hidden="true"><use href="#i-dossier"/></svg></span><h3>Aucun serveur</h3><p>Clients, projets, demandes et documents sont enregistrés sur l’appareil. Rien n’est envoyé à MTX Studio.</p></li>
+      <li data-apparait><span class="faits-ic"><svg aria-hidden="true"><use href="#i-grille"/></svg></span><h3>Réglée pour vous</h3><p>Thème clair, sombre ou automatique, couleur d’accent, devise (dix au choix) et informations de l’entreprise pour l’en-tête des documents.</p></li>
+    </ul>
+    <p class="note" data-apparait>À savoir : il n’y a pas de synchronisation entre appareils pour l’instant. Les PDF se partagent depuis l’app ; « Effacer toutes les données », dans Réglages, supprime tout définitivement.</p>
+  </section>
+
+  <!-- Questions ======================================================== -->
+  <section class="section section-faq" id="questions" aria-labelledby="titre-questions">
+    <header class="entete">
+      <p class="repere">Questions</p>
+      <h2 id="titre-questions" data-apparait>Ce qu’on nous demande souvent.</h2>
+      <p class="chapo" data-apparait>Une autre question ? Écrivez à <a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Kompagnion">mtxstudio@proton.me</a>.</p>
+    </header>
+    <div class="faq" data-apparait>
+      <details name="faq" open>
+        <summary><h3>À qui s’adresse Kompagnion ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Aux indépendants et aux petites entreprises qui suivent eux-mêmes leurs clients, leurs projets et leur facturation : graphistes, artisans, commerçants, consultants, petites agences.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Faut-il créer un compte ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Non. Kompagnion s’ouvre directement, sans inscription. Les données sont enregistrées sur l’iPhone, pas sur un serveur.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Peut-on faire de vraies factures ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Kompagnion crée des devis et des factures avec leurs lignes, la TVA, une numérotation suivie et les informations de votre entreprise en en-tête, puis les exporte en PDF à partager. Avec la franchise en base, la mention « TVA non applicable, art. 293 B du CGI » est ajoutée. Kompagnion n’est pas un logiciel de comptabilité.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Mes données sont-elles synchronisées entre plusieurs appareils ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Pas pour l’instant. Les données restent sur l’iPhone où vous les saisissez. Les PDF se partagent depuis l’app, par e-mail ou dans Fichiers.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Kompagnion fonctionne-t-elle sans connexion ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Oui. Les données sont sur l’iPhone : vous consultez vos clients, notez une demande ou préparez une facture sans réseau. Seuls l’envoi d’un e-mail, l’appel ou l’ouverture d’un site passent par les apps de l’iPhone.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Kompagnion remplace-t-elle un logiciel de comptabilité ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Non. Kompagnion suit vos clients, vos projets, vos demandes et vos documents, et prépare vos devis et factures en PDF. Elle ne tient pas de comptabilité, ne fait pas de déclarations et ne se connecte pas à votre banque.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Et la facture électronique obligatoire ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>En France, entre entreprises assujetties à la TVA, les PME et micro-entreprises devront émettre leurs factures par une plateforme agréée à partir du 1<sup>er</sup> septembre 2027 (et pouvoir en recevoir dès le 1<sup>er</sup> septembre 2026). Kompagnion n’est pas une plateforme agréée : ses PDF restent utiles pour vos devis, pour vos clients particuliers et pour votre suivi.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Sur quels appareils Kompagnion fonctionne-t-elle ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Sur iPhone, avec iOS 27 ou plus récent.</p>
+      </details>
+      <details name="faq">
+        <summary><h3>Quand Kompagnion sera-t-elle disponible, et à quel prix ?</h3><span class="plus" aria-hidden="true"></span></summary>
+        <p>Kompagnion arrive bientôt sur l’App Store. La date et le prix ne sont pas encore fixés : écrivez à <a href="mailto:mtxstudio@proton.me?subject=Kompagnion%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie">mtxstudio@proton.me</a> pour être prévenu de la sortie.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Appel ============================================================ -->
+  <section class="appel" aria-labelledby="titre-appel">
+    <img class="appel-icone" src="assets/img/kompagnion-icone-512.webp" width="512" height="512" alt="" loading="lazy" decoding="async">
+    <h2 id="titre-appel">Kompagnion arrive bientôt sur l’App Store.</h2>
+    <p class="chapo">Un message suffit pour être prévenu le jour de la sortie. Votre adresse ne sert qu’à cela.</p>
+    <div class="actions">
+      <a class="bouton bouton-accent" href="mailto:mtxstudio@proton.me?subject=Kompagnion%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20Kompagnion%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie<svg class="fl" aria-hidden="true"><use href="#i-fleche"/></svg></a>
+      <a class="bouton bouton-trait" href="#accueil">Composer un accueil</a>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Kompagnion" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-kompagnion.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Kompagnion réunit clients, projets, demandes et factures dans votre iPhone.</h2>
+    <p class="mtx-pf-sub">Une idée d’application ? MTX Studio conçoit l’app et son site avec le même soin, de la première idée à la mise en ligne.</p>
+    <p class="mtx-pf-tags">App iPhone · Gestion d’entreprise<br>SwiftUI · SwiftData · PDFKit · Liquid Glass</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../foulee/index.html"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : GoRun</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../index.html#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../index.html">Accueil</a><a href="../../index.html#realisations">Réalisations</a><a href="../../index.html#studio">Studio</a><a href="../../index.html#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

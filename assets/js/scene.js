@@ -75,12 +75,22 @@
         ['taches', 'Les tâches, rangées par échéance'],
       ],
     },
+    kompagnion: {
+      name: 'Kompagnion', site: 'realisations/kompagnion/index.html', link: ['Ouvrir le site', ' de Kompagnion'],
+      icon: 'assets/img/realisations/icone-kompagnion.webp', bg: '#000', bar: '#fff',
+      base: 'realisations/kompagnion/assets/img/ecrans/', avif: false,
+      shots: [
+        ['home', 'L’accueil et ses widgets'],
+        ['customize', 'Un accueil à composer'],
+        ['invoice', 'Une facture, prête en PDF'],
+      ],
+    },
     mail: {
       name: 'Nouveau message', site: MAIL, link: ['Écrire au studio', ''],
       legend: 'À : mtxstudio@proton.me', shots: [],
     },
   };
-  const ORDER = ['gorun', 'viewer', 'triade', 'steno'];
+  const ORDER = ['gorun', 'viewer', 'triade', 'steno', 'kompagnion'];
 
   let current = null;       // app ouverte
   let source = null;        // icône d’où part le zoom

@@ -5,7 +5,7 @@ import { join, dirname, resolve, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const racine = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const ORIGINE = 'https://mtxdevloppement.github.io';
+const ORIGINE = 'https://mtx-developpement.fr';
 const erreurs = [], avis = [];
 let controles = 0;
 const ok = (cond, msg, grave = true) => { controles += 1; if (!cond) (grave ? erreurs : avis).push(msg); };

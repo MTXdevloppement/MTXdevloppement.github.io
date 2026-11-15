@@ -59,6 +59,8 @@
   --night-line: rgb(255 255 255 / 14%);
   --sun: none;
   --moon: block;
+  --vu-clair: visible;
+  --vu-sombre: hidden;
 
   color-scheme: light;
   font-family: var(--font-body);
@@ -95,6 +97,8 @@
   --icon-shadow: 0 6px 18px rgb(0 0 0 / 50%);
   --sun: block;
   --moon: none;
+  --vu-clair: hidden;
+  --vu-sombre: visible;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -121,6 +125,8 @@
     --icon-shadow: 0 6px 18px rgb(0 0 0 / 50%);
     --sun: block;
     --moon: none;
+    --vu-clair: hidden;
+    --vu-sombre: visible;
     color-scheme: dark;
   }
 }
@@ -361,6 +367,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: 100%; height: 100%; object-fit: cover; object-position: top center;
   transition: transform 900ms var(--ease);
 }
+/* Deux aperçus par réalisation : le site en thème clair et en thème sombre. Seul celui du thème en cours est
+   chargé ; une fois la page chargée, l'autre est mis en place (invisible) pour que le changement de thème soit
+   instantané. Les jetons --moon et --sun valent block ou none selon le thème. */
+.work-shot { position: absolute; inset: 0; display: block; }
+.work-shot-clair { visibility: var(--vu-clair); }
+.work-shot-sombre { visibility: var(--vu-sombre); }
+:root:not(.vignettes-pretes) .work-shot-clair { display: var(--moon); }
+:root:not(.vignettes-pretes) .work-shot-sombre { display: var(--sun); }
 .work-media::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   box-shadow: inset 0 0 0 1px var(--media-ring);

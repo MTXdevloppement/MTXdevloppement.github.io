@@ -85,12 +85,22 @@
         ['invoice', 'Une facture, prête en PDF'],
       ],
     },
+    space: {
+      name: 'Space', site: 'realisations/space/', link: ['Ouvrir le site', ' de Space'],
+      icon: 'assets/img/realisations/icone-space.webp', bg: '#120a2e', bar: '#fff',
+      base: 'realisations/space/assets/img/ecrans/', avif: true,
+      shots: [
+        ['menu', 'Le menu et le cadeau du jour'],
+        ['v2-partie', 'Une partie en pleine fièvre'],
+        ['v2-dangers', 'Astéroïde et planète instable'],
+      ],
+    },
     mail: {
       name: 'Nouveau message', site: MAIL, link: ['Écrire au studio', ''],
       legend: 'À : mtxstudio@proton.me', shots: [],
     },
   };
-  const ORDER = ['gorun', 'viewer', 'triade', 'steno', 'kompagnion'];
+  const ORDER = ['gorun', 'space', 'viewer', 'triade', 'steno', 'kompagnion'];
 
   let current = null;       // app ouverte
   let source = null;        // icône d’où part le zoom

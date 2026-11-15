@@ -212,7 +212,7 @@
   if (filters && works.length) {
     const statusEl = $('[data-filter-status]', filters);
     const buttons = $$('[data-filter]', filters);
-    const labels = { all: '', iphone: ' pour iPhone', ipad: ' pour iPad', watch: ' pour Apple Watch', mac: ' pour Mac' };
+    const labels = { all: '', iphone: ' pour iPhone', ipad: ' pour iPad', watch: ' pour Apple Watch', mac: ' pour Mac', web: ' pour le Web', jeu: ' parmi les jeux' };
     buttons.forEach((btn) => btn.addEventListener('click', () => {
       const f = btn.dataset.filter;
       buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
@@ -230,6 +230,16 @@
       statusEl.textContent = count + (count > 1 ? ' réalisations' : ' réalisation') + labels[f];
     }));
   }
+
+  /* ---------------------------------------------------------------------
+     Aperçus des réalisations : l'aperçu de l'autre thème se charge après la page
+     --------------------------------------------------------------------- */
+  const preparerVignettes = () => {
+    const go = () => document.documentElement.classList.add('vignettes-pretes');
+    if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 4000 }); else setTimeout(go, 1500);
+  };
+  if (document.readyState === 'complete') setTimeout(preparerVignettes, 1200);
+  else window.addEventListener('load', () => setTimeout(preparerVignettes, 1200), { once: true });
 
   /* ---------------------------------------------------------------------
      Apparition au défilement

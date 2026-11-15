@@ -36,7 +36,7 @@
   // Les captures sont celles des sites des réalisations : rien n’est redessiné.
   const APPS = {
     gorun: {
-      name: 'GoRun', site: 'realisations/foulee/index.html', link: ['Ouvrir le site', ' de GoRun'],
+      name: 'GoRun', site: 'realisations/foulee/', link: ['Ouvrir le site', ' de GoRun'],
       icon: 'assets/img/realisations/icone-gorun.webp', bg: '#000', bar: '#fff',
       base: 'realisations/foulee/assets/img/ecrans/', avif: true,
       shots: [
@@ -46,7 +46,7 @@
       ],
     },
     viewer: {
-      name: 'MTX Viewer', site: 'realisations/viewer/index.html', link: ['Ouvrir le site', ' de MTX Viewer'],
+      name: 'MTX Viewer', site: 'realisations/viewer/', link: ['Ouvrir le site', ' de MTX Viewer'],
       icon: 'assets/img/realisations/icone-viewer.webp', bg: '#f1ece4', bar: '#000',
       base: 'realisations/viewer/assets/img/ecrans/', avif: false,
       shots: [
@@ -56,7 +56,7 @@
       ],
     },
     triade: {
-      name: 'Triade', site: 'realisations/triade/index.html', link: ['Ouvrir le site', ' de Triade'],
+      name: 'Triade', site: 'realisations/triade/', link: ['Ouvrir le site', ' de Triade'],
       icon: 'assets/img/realisations/icone-triade.webp', bg: '#f2f2f7', bar: '#000',
       base: 'realisations/triade/assets/img/ecrans/', avif: true,
       shots: [
@@ -66,7 +66,7 @@
       ],
     },
     steno: {
-      name: 'Sténo', site: 'realisations/steno/index.html', link: ['Ouvrir le site', ' de Sténo'],
+      name: 'Sténo', site: 'realisations/steno/', link: ['Ouvrir le site', ' de Sténo'],
       icon: 'assets/img/realisations/icone-steno.webp', bg: '#f2f2f7', bar: '#000',
       base: 'realisations/steno/assets/img/ecrans/', avif: true,
       shots: [
@@ -76,7 +76,7 @@
       ],
     },
     kompagnion: {
-      name: 'Kompagnion', site: 'realisations/kompagnion/index.html', link: ['Ouvrir le site', ' de Kompagnion'],
+      name: 'Kompagnion', site: 'realisations/kompagnion/', link: ['Ouvrir le site', ' de Kompagnion'],
       icon: 'assets/img/realisations/icone-kompagnion.webp', bg: '#000', bar: '#fff',
       base: 'realisations/kompagnion/assets/img/ecrans/', avif: false,
       shots: [

@@ -82,7 +82,7 @@
 <span class="mtx-montre-boite"><span class="mtx-montre-ecran">
 <span class="mtx-montre-date" data-mtx-date>MTX Studio</span>
 <b class="mtx-montre-heure" data-mtx-heure>9:41</b>
-<span class="mtx-montre-pied"><svg viewBox="22 15 56 70"><defs><linearGradient id="mtx-sc-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#mtx-sc-x)" stroke-width="16" stroke-linecap="round"/></svg>4 apps · 4 sites</span>
+<span class="mtx-montre-pied"><svg viewBox="22 15 56 70"><defs><linearGradient id="mtx-sc-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#mtx-sc-x)" stroke-width="16" stroke-linecap="round"/></svg>5 apps · 5 sites</span>
 </span></span>
 <span class="mtx-montre-couronne"></span><span class="mtx-montre-bouton"></span>
 </span>

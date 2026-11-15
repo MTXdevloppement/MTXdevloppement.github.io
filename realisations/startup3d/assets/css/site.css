@@ -19,7 +19,7 @@
   --carte: #f7f2ea;
   --encre: #1d2330;
   --doux: rgb(29 35 48 / 70%);
-  --pale: rgb(29 35 48 / 48%);
+  --pale: rgb(29 35 48 / 68%);
   --filet: rgb(29 35 48 / 12%);
   --bleu: #0071e3;
   --bleu-encre: #fff;
@@ -37,10 +37,10 @@
   --carte: #171d2c;
   --encre: #eef1f7;
   --doux: rgb(238 241 247 / 68%);
-  --pale: rgb(238 241 247 / 46%);
+  --pale: rgb(238 241 247 / 49%);
   --filet: rgb(255 255 255 / 10%);
   --bleu: #2f8cff;
-  --bleu-encre: #fff;
+  --bleu-encre: #04101f;
   --vert: #47c97d;
   --rouge: #ff6a5c;
   --sol-a: #252b3a; --sol-b: #212736; --mur-g: #1d2331; --mur-d: #181d2a; --meuble: #6b4f33; --meuble-c: #533c27; --meuble-f: #43301f;
@@ -70,7 +70,7 @@ kbd { display: inline-grid; place-items: center; min-width: 1.6em; height: 1.6em
 .barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 22px; height: 60px; padding: 0 max(var(--marge), calc((100% - var(--page)) / 2 + var(--marge))); background: color-mix(in srgb, var(--fond) 84%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid var(--filet); }
 .marque { display: flex; align-items: center; gap: 10px; font: 800 19px/1 var(--sans); letter-spacing: -.02em; text-decoration: none; }
 .marque img { border-radius: 22.5%; }
-.marque b { color: var(--bleu); }
+.marque b { color: color-mix(in srgb, var(--bleu) 76%, var(--encre)); }
 .barre-nav { display: flex; gap: 2px; margin-left: auto; }
 .barre-nav a { padding: 8px 13px; border-radius: 999px; color: var(--doux); font-size: 15px; text-decoration: none; transition: color .2s, background-color .2s; }
 .barre-nav a:hover, .barre-nav a.est-ici { color: var(--encre); background: var(--fond-2); }
@@ -122,7 +122,9 @@ h1 em { font-style: normal; font-weight: 400; color: var(--pale); }
 .heure input::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -8px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px var(--encre), 0 4px 10px rgb(0 0 0 / 30%); }
 .heure input::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px var(--encre), 0 4px 10px rgb(0 0 0 / 30%); }
 .heure p { grid-column: 1 / -1; color: var(--pale); font-size: 13.5px; }
-@media (max-width: 640px) { .heure { grid-template-columns: 1fr; } .repere span { display: none; } }
+@media (max-width: 640px) { .heure { grid-template-columns: 1fr; } .repere span { width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  /* Petite scène : des repères plus fins, pour ne pas masquer l'agence ; la zone tactile reste de 30 px. */
+  .repere::before { inset: 10px; box-shadow: 0 0 0 2px #fff; } .repere::after { inset: 4px; box-shadow: 0 0 0 1.5px var(--bleu); } }
 
 /* Sections */
 .section { padding: clamp(88px, 11vw, 150px) 0; }
@@ -145,12 +147,13 @@ h1 em { font-style: normal; font-weight: 400; color: var(--pale); }
 .panneaux-onglets b { font-size: 19px; font-weight: 750; }
 .panneaux-onglets span { color: var(--doux); font-size: 14.5px; }
 .panneaux-onglets button[aria-selected="true"] { background: var(--carte); box-shadow: 0 0 0 1px var(--filet), 0 14px 30px -18px rgb(0 0 0 / 30%); }
-.panneaux-onglets button[aria-selected="true"] b { color: var(--bleu); }
+.panneaux-onglets button[aria-selected="true"] b { color: color-mix(in srgb, var(--bleu) 76%, var(--encre)); }
 .panneaux-vues { position: relative; display: grid; overflow: hidden; border-radius: 18px; box-shadow: var(--ombre); }
 .vue { grid-area: 1 / 1; opacity: 0; transform: perspective(1400px) rotateY(8deg) translateX(30px); transition: opacity .45s, transform .7s var(--courbe); }
 .vue.est-actif { opacity: 1; transform: none; }
 .vue img { width: 100%; height: auto; }
-@media (max-width: 900px) { .panneaux { grid-template-columns: 1fr; } }
+/* Sur une colonne, la capture passe au-dessus des onglets : on voit le changement en touchant un onglet. */
+@media (max-width: 900px) { .panneaux { grid-template-columns: 1fr; } .panneaux-vues { order: -1; } }
 
 /* 02 Niveaux */
 .section-niveaux { background: var(--fond-2); }
@@ -161,7 +164,7 @@ h1 em { font-style: normal; font-weight: 400; color: var(--pale); }
 .echelle li { position: relative; padding-right: 16px; }
 .echelle li::before { content: ""; position: absolute; left: 0; top: -31px; width: 18px; height: 18px; border-radius: 50%; background: var(--fond-2); box-shadow: inset 0 0 0 3px var(--filet); transition: background-color .3s, box-shadow .3s; transition-delay: calc((var(--n) - 1) * .35s); }
 .echelle.est-vu li::before { background: var(--bleu); box-shadow: 0 0 0 5px color-mix(in srgb, var(--bleu) 22%, transparent); }
-.echelle b { display: block; font: 600 13px/1 var(--mono); color: var(--bleu); }
+.echelle b { display: block; font: 600 13px/1 var(--mono); color: color-mix(in srgb, var(--bleu) 76%, var(--encre)); }
 .echelle span { display: block; margin-top: 8px; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
 @media (max-width: 860px) { .echelle { grid-template-columns: 1fr; gap: 18px; padding: 0 0 0 34px; } .echelle::before, .echelle::after { left: 9px; right: auto; top: 0; bottom: 0; width: 4px; height: auto; transform-origin: top; transform: scaleY(0); } .echelle li::before { left: -34px; top: 0; } }
 .aujourdhui { position: relative; width: min(320px, 100%); margin: 64px 0 0 auto; padding: 18px; border-radius: 22px; background: color-mix(in srgb, var(--carte) 86%, transparent); box-shadow: 0 0 0 1px var(--filet), 0 20px 50px -24px rgb(0 0 0 / 35%); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
@@ -185,7 +188,7 @@ h1 em { font-style: normal; font-weight: 400; color: var(--pale); }
 /* 03 Aménager */
 .amenager { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px 64px; align-items: center; }
 .aide-plan { margin-top: 18px; color: var(--pale); font-size: 14.5px; }
-.etat-plan { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--c, var(--vert)) 14%, transparent); color: var(--c, var(--vert)); font-weight: 650; font-size: 15px; transition: background-color .3s, color .3s; }
+.etat-plan { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--c, var(--vert)) 14%, transparent); color: color-mix(in srgb, var(--c, var(--vert)) 58%, var(--encre)); font-weight: 650; font-size: 15px; transition: background-color .3s, color .3s; }
 .etat-plan::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
 .plan { position: relative; border-radius: 24px; background: var(--fond-2); }
 .plan-sol { touch-action: none; border-radius: 24px; }
@@ -215,7 +218,7 @@ h1 em { font-style: normal; font-weight: 400; color: var(--pale); }
 @media (max-width: 900px) { .amenager { grid-template-columns: 1fr; } }
 
 /* 04 Agents */
-.section-agents { background: #10131c; color: #eef1f7; --encre: #eef1f7; --doux: rgb(238 241 247 / 70%); --pale: rgb(238 241 247 / 48%); --filet: rgb(255 255 255 / 11%); --carte: #171d2c; }
+.section-agents { background: #10131c; color: #eef1f7; --encre: #eef1f7; --doux: rgb(238 241 247 / 70%); --pale: rgb(238 241 247 / 49%); --filet: rgb(255 255 255 / 11%); --carte: #171d2c; }
 .section-agents .etiquette span { background: #eef1f7; color: #10131c; }
 .mission { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 56px; counter-reset: m; }
 .mission li { position: relative; padding: 22px; border-radius: 20px; background: var(--carte); box-shadow: 0 0 0 1px var(--filet); opacity: .5; transition: opacity .4s, box-shadow .4s; }

@@ -20,7 +20,7 @@
   --carte: #fffdfa;
   --encre: #1c1a22;
   --doux: rgb(28 26 34 / 68%);
-  --pale: rgb(28 26 34 / 46%);
+  --pale: rgb(28 26 34 / 63%);
   --filet: rgb(28 26 34 / 12%);
   --verre: rgb(250 249 252 / 72%);
   --verre-encre: #1c1c1e;
@@ -34,7 +34,7 @@
   --carte: #1d1c24;
   --encre: #f1eff6;
   --doux: rgb(241 239 246 / 68%);
-  --pale: rgb(241 239 246 / 46%);
+  --pale: rgb(241 239 246 / 50%);
   --filet: rgb(255 255 255 / 10%);
   --verre: rgb(36 36 44 / 70%);
   --verre-encre: #f5f5f7;
@@ -182,7 +182,7 @@ h1 { margin-top: 24px; font: 750 clamp(46px, 5.8vw, 92px)/.95 var(--titre); lett
 .trio { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 40px; margin-top: 56px; align-items: center; }
 .trio-onglets { display: grid; gap: 10px; }
 .trio-onglets button { display: flex; align-items: flex-start; gap: 16px; padding: 20px; border: 0; border-radius: 22px; background: var(--carte); text-align: left; cursor: pointer; box-shadow: 0 0 0 1px var(--filet); transition: box-shadow .3s, transform .4s var(--ressort); }
-.trio-onglets kbd { flex: none; width: 46px; height: 46px; border-radius: 13px; font-size: 22px; color: var(--c); }
+.trio-onglets kbd { flex: none; width: 46px; height: 46px; border-radius: 13px; font-size: 22px; color: color-mix(in srgb, var(--c) 72%, var(--encre)); }
 .trio-onglets b { display: block; font: 700 21px/1.1 var(--titre); }
 .trio-onglets span { color: var(--doux); font-size: 15px; line-height: 1.45; }
 .trio-onglets button[aria-selected="true"] { box-shadow: 0 0 0 2px var(--c), 0 18px 40px -22px var(--c); transform: translateX(8px); }

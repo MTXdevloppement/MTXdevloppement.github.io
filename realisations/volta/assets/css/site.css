@@ -18,7 +18,7 @@
   --panneau: #fbfaf6;
   --encre: #0f1d2b;
   --doux: rgb(15 29 43 / 70%);
-  --pale: rgb(15 29 43 / 48%);
+  --pale: rgb(15 29 43 / 64%);
   --filet: rgb(15 29 43 / 13%);
   --grille: rgb(15 29 43 / 5.5%);
   --jaune: #f2b100;
@@ -38,7 +38,7 @@
   --panneau: #111f2d;
   --encre: #e7edf3;
   --doux: rgb(231 237 243 / 70%);
-  --pale: rgb(231 237 243 / 46%);
+  --pale: rgb(231 237 243 / 51%);
   --filet: rgb(231 237 243 / 12%);
   --grille: rgb(231 237 243 / 4%);
   --jaune: #ffc21a;
@@ -168,7 +168,7 @@ h1 em::after { content: ""; position: absolute; left: -.04em; right: -.04em; bot
 .carte-t { font-size: 14px; font-weight: 650; }
 .carte-v { margin-top: 14px; font: 800 clamp(30px, 2.8vw, 42px)/1 var(--sans); letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
 .carte-mono { font: 500 clamp(22px, 2vw, 28px)/1.1 var(--mono); }
-.carte-orange { color: var(--orange); }
+.carte-orange { color: color-mix(in srgb, var(--orange) 70%, var(--encre)); }
 .carte-n { margin-top: 8px; color: var(--doux); font-size: 13.5px; line-height: 1.4; max-width: 26em; }
 .trace { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 60px; }
 .trace path { fill: none; stroke: var(--bleu); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--courbe) .3s; vector-effect: non-scaling-stroke; }
@@ -236,7 +236,7 @@ h1 em::after { content: ""; position: absolute; left: -.04em; right: -.04em; bot
 .reglage input::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -9px; border: 2px solid var(--encre); border-radius: 50%; background: var(--jaune); }
 .reglage input::-moz-range-thumb { width: 18px; height: 18px; border: 2px solid var(--encre); border-radius: 50%; background: var(--jaune); }
 .resultat { display: grid; gap: 22px; align-content: start; padding: clamp(22px, 3vw, 40px); }
-.res-etat { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px 8px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c, var(--orange)) 15%, transparent); color: var(--c, var(--orange)); font-weight: 700; transition: color .3s, background-color .3s; }
+.res-etat { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px 8px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c, var(--orange)) 15%, transparent); color: color-mix(in srgb, var(--c, var(--orange)) 62%, var(--encre)); font-weight: 700; transition: color .3s, background-color .3s; }
 .res-etat::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 25%, transparent); }
 .res-chiffres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .res-chiffres dt { color: var(--doux); font-size: 13px; }
@@ -281,8 +281,8 @@ h1 em::after { content: ""; position: absolute; left: -.04em; right: -.04em; bot
 .b-proj { position: absolute; left: 0; top: 50%; width: 95%; border-top: 2px dashed var(--vert); opacity: 0; transition: opacity .6s 1.8s; }
 .est-vu .b-proj { opacity: 1; }
 .b-projection { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--filet); color: var(--doux); }
-.b-projection b { color: var(--vert); font-size: clamp(22px, 2.2vw, 30px); }
-.b-projection span { color: var(--vert); font-weight: 600; }
+.b-projection b { color: color-mix(in srgb, var(--vert) 70%, var(--encre)); font-size: clamp(22px, 2.2vw, 30px); }
+.b-projection span { color: color-mix(in srgb, var(--vert) 62%, var(--encre)); font-weight: 600; }
 @media (max-width: 900px) { .budget { grid-template-columns: 1fr; } }
 
 /* 06 Fondations */

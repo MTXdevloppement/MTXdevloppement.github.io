@@ -42,6 +42,8 @@ html:not(.js) .presentation-chapitres { display: none; }
 .presentation-chapitres button::after { background: var(--bleu); transform-origin: left; transform: scaleX(var(--p, 0)); }
 .presentation-chapitres [aria-current="true"] { color: var(--encre); }
 .presentation-chapitres [aria-current="true"] .chiffre { color: var(--bleu); }
+/* En clair, la couleur d'accent est trop pâle pour un texte : le repère passe à l'encre. */
+:root:not([data-theme="dark"]) .presentation-chapitres [aria-current="true"] .chiffre { color: var(--encre); }
 @media (hover: hover) { .presentation-chapitres button:hover { color: var(--encre); } }
 
 /* Téléphone et tablette : la frise devient une rangée que l'on fait glisser ; le chapitre en cours reste en vue. */

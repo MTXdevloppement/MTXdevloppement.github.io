@@ -45,6 +45,8 @@ html:not(.js) .presentation-chapitres { display: none; }
 .presentation-chapitres button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--or); transform-origin: left; transform: scaleX(var(--p, 0)); opacity: 0; transition: opacity .25s; }
 .presentation-chapitres [aria-current="true"] { color: var(--encre); }
 .presentation-chapitres [aria-current="true"] .chiffre { color: var(--or); }
+/* En clair, la couleur d'accent est trop pâle pour un texte : le repère passe à l'encre. */
+:root:not([data-theme="dark"]) .presentation-chapitres [aria-current="true"] .chiffre { color: var(--encre); }
 .presentation-chapitres [aria-current="true"]::after { opacity: 1; }
 @media (hover: hover) { .presentation-chapitres button:hover { color: var(--encre); } }
 

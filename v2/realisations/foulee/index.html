@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)</script>
+<title>GoRun : app de course à pied iPhone et Apple Watch</title>
+<meta name="description" content="GoRun, l’app de course à pied pour iPhone et Apple Watch : courez contre votre record sur votre parcours et voyez en direct votre avance. Démo à essayer.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="GoRun — Votre record court avec vous">
+<meta property="og:description" content="Sur votre parcours habituel, GoRun vous fait courir contre votre meilleur temps : en avance ou en retard, vous le savez à chaque instant. iPhone et Apple Watch.">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/foulee/assets/img/og-foulee.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GoRun : une course en direct face au record, en avance de 8 secondes">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/foulee/">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/foulee/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GoRun — Votre record court avec vous">
+<meta name="twitter:description" content="Sur votre parcours habituel, GoRun vous fait courir contre votre meilleur temps : en avance ou en retard, vous le savez à chaque instant. iPhone et Apple Watch.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/foulee/assets/img/og-foulee.png">
+<link rel="icon" href="assets/img/icone/foulee.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icone/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/mona-sans-italique-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=3">
+<script>document.documentElement.classList.add('js')</script>
+<script src="assets/js/site.js?v=2" defer></script>
+<script src="assets/js/plaque-donnees.js" defer></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/foulee/#app","name":"GoRun","alternateName":"GoRun — Course à pied","description":"App de course à pied pour iPhone et Apple Watch : sur un parcours enregistré, elle compare votre course à votre record en direct, à l’écran, sur la montre et à la voix.","applicationCategory":"SportsApplication","applicationSubCategory":"Course à pied","operatingSystem":"iOS 27, watchOS 27","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/foulee/","image":"https://mtx-developpement.fr/realisations/foulee/assets/img/icone/apple-touch-icon.png","screenshot":["https://mtx-developpement.fr/realisations/foulee/assets/img/ecrans/course-stats-860.webp","https://mtx-developpement.fr/realisations/foulee/assets/img/ecrans/planificateur-860.webp","https://mtx-developpement.fr/realisations/foulee/assets/img/ecrans/partage-860.webp"],"featureList":["Course en direct contre votre record sur un parcours enregistré","Écart au record sur l’écran verrouillé, la Dynamic Island et à la voix à chaque kilomètre","App Apple Watch autonome, avec fréquence cardiaque","Temps kilomètre par kilomètre, courbes d’allure, d’altitude et de fréquence cardiaque","Classement des passages sur chaque parcours","Planificateur de parcours qui suit les rues","Synchronisation avec Apple Santé (Exercice, Nike Run Club, Strava)","Image de partage pour story, post ou carré","Données sur l’iPhone, sans compte, export GPX"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/foulee/#page","url":"https://mtx-developpement.fr/realisations/foulee/","name":"GoRun : app de course à pied iPhone et Apple Watch","description":"GoRun, l’app de course à pied pour iPhone et Apple Watch : courez contre votre record sur votre parcours et voyez en direct votre avance. Démo à essayer.","inLanguage":"fr-FR","isPartOf":{"@type":"WebSite","@id":"https://mtx-developpement.fr/#site","name":"MTX Studio","url":"https://mtx-developpement.fr/"},"about":{"@id":"https://mtx-developpement.fr/realisations/foulee/#app"},"primaryImageOfPage":"https://mtx-developpement.fr/realisations/foulee/assets/img/og-foulee.png","breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/foulee/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/foulee/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"GoRun","item":"https://mtx-developpement.fr/realisations/foulee/"}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-foulee">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20GoRun&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20GoRun%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gFoulee" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c1f"/><stop offset="1" stop-color="#ff2e5c"/></linearGradient>
+    <symbol id="i-logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="23" fill="url(#gFoulee)"/><path d="M24 76C24 52 50 70 50 52C50 34 76 48 76 26" fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round"/><circle cx="24" cy="76" r="6.5" fill="#ff5c1f" stroke="#fff" stroke-width="5"/><circle cx="76" cy="26" r="8.5" fill="#fff"/></symbol>
+    <symbol id="i-lecture" viewBox="0 0 24 24"><path d="M7 4.6v14.8a1 1 0 0 0 1.5.86l12.2-7.4a1 1 0 0 0 0-1.72L8.5 3.74A1 1 0 0 0 7 4.6Z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4" width="4.6" height="16" rx="1.4" fill="currentColor"/><rect x="13.9" y="4" width="4.6" height="16" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-rejouer" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.8h3.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-voix" viewBox="0 0 24 24"><path d="M3.5 9.2h3.3L11.5 5v14l-4.7-4.2H3.5Z" fill="currentColor"/><path d="M15 8.6a4.8 4.8 0 0 1 0 6.8M17.8 6a8.6 8.6 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-muet" viewBox="0 0 24 24"><path d="M3.5 9.2h3.3L11.5 5v14l-4.7-4.2H3.5Z" fill="currentColor"/><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-drapeau" viewBox="0 0 24 24"><path d="M5 21V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 4.5h12.5v9H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 4.5h3.1v3H6zm6.2 0h3.1v3h-3.1zM9.1 7.5h3.1v3H9.1zm6.2 0h3.2v3h-3.2zM6 10.5h3.1v3H6zm6.2 0h3.1v3h-3.1z" fill="currentColor"/></symbol>
+    <symbol id="i-compteur" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 12 3.6-3.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-coureur" viewBox="0 0 24 24"><circle cx="14.6" cy="4.2" r="2.2" fill="currentColor"/><path d="m8.3 21 2.9-5.4 2.6 2.1V22m-6.6-9.6 2.3-3.6 4 .5 2.3 3.4 3 1.2M11.5 8.8l-1.3 5.8" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-coeur" viewBox="0 0 24 24"><path d="M12 20.3S3.6 15 3.6 9.1A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 8.4 2.5c0 5.9-8.4 11.2-8.4 11.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-parcours" viewBox="0 0 24 24"><circle cx="6" cy="17.5" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6.5" r="2.6" fill="currentColor"/><path d="M7.6 15.6c1-3.2 3.4-2.2 5-4.6s1.6-3.6 3.2-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-coche" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="currentColor"/><path d="m7.6 12.2 3 3 5.8-6.2" fill="none" stroke="#0a0a0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bas" viewBox="0 0 24 24"><path d="M12 5v13m-5.5-5.5L12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-croix" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-cadenas-ouvert" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="13" height="10.5" rx="2.4" fill="currentColor"/><path d="M14.6 10.5V7.4a3.9 3.9 0 0 1 7.8 0V9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-metronome" viewBox="0 0 24 24"><path d="M9.6 3h4.8l4.4 18H5.2Z" fill="currentColor"/><path d="m12 16 5.6-9.5" stroke="#000" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pas" viewBox="0 0 24 24"><ellipse cx="8" cy="8.5" rx="3.4" ry="5.2" fill="currentColor"/><ellipse cx="16" cy="12.5" rx="3.4" ry="5.2" fill="currentColor"/><rect x="5.6" y="15" width="4.8" height="3.6" rx="1.6" fill="currentColor"/><rect x="13.6" y="19" width="4.8" height="3" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-flamme" viewBox="0 0 24 24"><path d="M12 2.5s6.5 5 6.5 11.2A6.5 6.5 0 0 1 12 21a6.5 6.5 0 0 1-6.5-7.3c.3-3 2.4-4.6 2.4-4.6s.2 2.6 2 3.4C11 9 12 2.5 12 2.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-montagne" viewBox="0 0 24 24"><path d="m1.5 19.5 7-11 3.6 5.4 2.6-3.6 7.8 9.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-trophee" viewBox="0 0 24 24"><path d="M7 3.5h10v6.2a5 5 0 0 1-10 0Z" fill="currentColor"/><path d="M7 5.5H4.2v1.7A3.4 3.4 0 0 0 7.6 10.6M17 5.5h2.8v1.7a3.4 3.4 0 0 1-3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.6 14.4h2.8v3.4h2.8v2.7H7.8v-2.7h2.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-agrandir" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M10 19.5H4.5V14M19.5 4.5l-6 6M4.5 19.5l6-6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gauche" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-droite" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre" id="barre">
+  <a class="marque" href="#haut" aria-label="GoRun, retour en haut">
+    <svg class="marque-icone" aria-hidden="true"><use href="#i-logo"/></svg>
+    <span class="marque-nom">GoRun</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#planche">La démo</a>
+    <a href="#pendant">Pendant</a>
+    <a href="#apres">Après</a>
+    <a href="#donnees">Vos données</a>
+  </nav>
+  <a class="barre-cta" href="#planche">Essayer la démo</a>
+</header>
+
+<main id="contenu">
+
+<section class="heros" id="haut" aria-labelledby="titre-heros">
+  <div class="heros-texte">
+    <p class="surtitre">Course à pied · iPhone et Apple Watch</p>
+    <h1 class="heros-titre" id="titre-heros">Votre record court avec&nbsp;vous.</h1>
+    <p class="heros-accroche">Sur votre parcours habituel, GoRun vous fait courir contre votre meilleur temps. En vert, vous êtes en avance&#8239;; en rouge, il faut accélérer. Et une voix vous le dit à chaque kilomètre.</p>
+    <div class="heros-actions">
+      <a class="bouton bouton-principal" href="#planche"><svg aria-hidden="true"><use href="#i-lecture"/></svg>Rejouer la course de ce matin</a>
+      <p class="bientot">Bientôt sur l’App Store</p>
+    </div>
+  </div>
+
+  <figure class="heros-tel tel apparait vu" style="--l: clamp(15rem, min(25vw, (100svh - 15rem) / 2.081), 22.5rem)">
+    <!-- La maquette pivote avec la souris (projet.js) ; la montre suit la course du téléphone. -->
+    <div class="heros-pose mtx-pose" data-mtx-pose>
+    <div class="tel-corps mtx-flotte"><span class="heros-touche" aria-hidden="true"></span><div class="tel-verre"><div class="ecran-pile mtx-reflet" id="proto" data-ecran="stats">
+      <picture><source type="image/avif" srcset="assets/img/ecrans/course-stats-520.avif 520w, assets/img/ecrans/course-stats-860.avif 860w" sizes="(max-width: 760px) 64vw, 360px"><img class="tel-ecran" src="assets/img/ecrans/course-stats-860.webp" srcset="assets/img/ecrans/course-stats-520.webp 520w, assets/img/ecrans/course-stats-860.webp 860w" sizes="(max-width: 760px) 64vw, 360px" width="860" height="1870" alt="Écran de course de GoRun : 6,42 kilomètres, 33 minutes 24, allure moyenne 5:12 par kilomètre, cadence 174 pas par minute ; parcours « Deux tours de la Tête d’Or », reste 1,74 km, moins 8 secondes sur le record, en vert." fetchpriority="high"></picture>
+    </div></div></div>
+    <div class="montre heros-montre en-vue mtx-flotte-2" id="heros-montre" aria-hidden="true">
+      <div class="montre-boitier"><div class="montre-ecran mtx-reflet"><div class="m-page">
+        <p class="m-titre">Deux tours de la Tête…</p>
+        <p class="m-chrono chiffre">33:24</p>
+        <p class="m-ligne"><span class="chiffre">6,42</span><small>KM</small></p>
+        <p class="m-ligne"><span class="chiffre">5:12</span><small>MOY./KM</small></p>
+        <p class="m-ligne"><span class="chiffre">4:58</span><small>ALLURE</small></p>
+        <p class="m-bas"><span class="chiffre" data-hm-fc>158</span><svg class="m-coeur"><use href="#i-coeur"/></svg><span class="m-reste chiffre">−1,74 km</span></p>
+      </div></div></div>
+      <span class="montre-couronne"></span><span class="montre-bouton"></span>
+    </div>
+    </div>
+    <figcaption class="proto-aide">Écran manipulable, comme dans l’app&#8239;: <b>Carte</b>, <b>Pause</b>, <b>Verrouiller</b>.</figcaption>
+    <p class="visuellement-cache" id="proto-annonce" aria-live="polite"></p>
+  </figure>
+
+  <div class="heros-plaque" aria-hidden="true">
+    <div class="regle" data-regle="heros"></div>
+  </div>
+
+  <dl class="heros-fiche">
+    <div><dt>Parcours</dt><dd>Deux tours de la Tête d’Or</dd></div>
+    <div><dt>Vous, à 6,42&#8239;km</dt><dd class="chiffre orange">33:24</dd></div>
+    <div><dt>Record, même point</dt><dd class="chiffre">33:32</dd></div>
+    <div><dt>Écart</dt><dd class="chiffre avance">−0:08</dd></div>
+  </dl>
+</section>
+
+<!-- Le film de présentation (9:16, avec musique) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css. -->
+<section class="presentation" id="film" data-mtx-film data-duree="40" aria-labelledby="titre-film">
+  <div class="presentation-texte">
+    <p class="etiquette"><span class="num">00</span> Le film · 40 secondes</p>
+    <h2 class="titre expo" id="titre-film">Du départ à la story, en quarante&nbsp;secondes.</h2>
+    <p class="chapeau">La course en direct, la voix à chaque kilomètre, l’écran verrouillé et la montre, le bilan, le parcours du lendemain&#8239;: tout GoRun dans un film. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+  </div>
+  <figure class="presentation-film">
+    <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+      <video class="mtx-film-video" controls playsinline preload="none" width="1080" height="1920" poster="assets/video/presentation.webp" aria-label="Film de présentation de GoRun, 40 secondes, avec musique : la course en direct face au record, le guidage vocal, la Dynamic Island, l’écran verrouillé et l’Apple Watch, le bilan d’après course et un nouveau record, le planificateur de parcours, l’image à partager en story et les données qui restent sur l’iPhone.">
+        <source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'>
+        <source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'>
+      </video>
+      <div class="mtx-film-commandes" hidden>
+        <button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" aria-hidden="true"><use href="#i-muet"/></svg><svg class="mtx-i-son" aria-hidden="true"><use href="#i-voix"/></svg><span class="mtx-film-libelle">Avec le son</span></button>
+        <button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="mtx-i-lecture" aria-hidden="true"><use href="#i-lecture"/></svg><svg class="mtx-i-revoir" aria-hidden="true"><use href="#i-rejouer"/></svg></button>
+        <button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" aria-hidden="true"><use href="#i-agrandir"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4.5V10H4.5M14 19.5V14h5.5M4.5 4.5 10 10M19.5 19.5 14 14" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <span class="mtx-film-fil" aria-hidden="true"></span>
+    </div>
+  </figure>
+  <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film">
+    <li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Votre record</button></li>
+    <li><button type="button" data-mtx-film-aller="6"><span class="chiffre">0:06</span> En direct</button></li>
+    <li><button type="button" data-mtx-film-aller="12"><span class="chiffre">0:12</span> Guidage vocal</button></li>
+    <li><button type="button" data-mtx-film-aller="14"><span class="chiffre">0:14</span> Au poignet ou dans la poche</button></li>
+    <li><button type="button" data-mtx-film-aller="20"><span class="chiffre">0:20</span> Le bilan</button></li>
+    <li><button type="button" data-mtx-film-aller="28"><span class="chiffre">0:28</span> Planificateur</button></li>
+    <li><button type="button" data-mtx-film-aller="32"><span class="chiffre">0:32</span> Partage</button></li>
+    <li><button type="button" data-mtx-film-aller="34"><span class="chiffre">0:34</span> 100&nbsp;% local</button></li>
+  </ol>
+</section>
+
+<section class="planche" id="planche" aria-labelledby="titre-planche">
+  <header class="entete">
+    <p class="etiquette"><span class="num">01</span> La démo · à vous de jouer</p>
+    <h2 class="titre expo" id="titre-planche">Lundi, 7&#8239;h&#8239;42&#8239;: deux tours de la Tête&nbsp;d’Or.</h2>
+    <p class="chapeau">Appuyez sur Départ pour revivre la course de ce matin face au record du 28&nbsp;octobre, sur le vrai tracé du parc. Toutes les 60&nbsp;secondes, chacun laisse une marque&#8239;: quand les marques orange passent devant, vous êtes en train de battre votre record.</p>
+  </header>
+
+  <div class="planche-grille">
+    <div class="plaque" id="plaque">
+      <svg class="plaque-carte" id="plaque-carte" role="img" aria-labelledby="plaque-desc" preserveAspectRatio="xMidYMid meet">
+        <desc id="plaque-desc">Carte du parc de la Tête d’Or, à Lyon, avec le parcours de deux tours. Le point orange est la course du jour, le cercle blanc le record ; des marques jalonnent leur position toutes les 60 secondes.</desc>
+      </svg>
+      <div class="decompte" id="decompte" aria-hidden="true"></div>
+      <ul class="legende" aria-hidden="true">
+        <li><i class="pastille-vous"></i>Vous · lundi 9&nbsp;novembre</li>
+        <li><i class="pastille-record"></i>Record · mercredi 28&nbsp;octobre</li>
+        <li><i class="pastille-parcours"></i>Parcours enregistré</li>
+      </ul>
+      <noscript><p class="sans-js">La démonstration a besoin de JavaScript. Les écrans réels de l’app sont plus bas.</p></noscript>
+    </div>
+
+    <aside class="tableau" aria-label="Mesures de la course rejouée">
+      <p class="tableau-parcours"><svg aria-hidden="true"><use href="#i-parcours"/></svg>Deux tours de la Tête d’Or</p>
+      <p class="tableau-km"><span class="chiffre" data-v="km">6,42</span><span class="unite">Kilomètres</span></p>
+      <div class="tableau-ligne">
+        <p><span class="chiffre" data-v="temps">33:24</span><span class="unite">Temps</span></p>
+        <p><span class="chiffre" data-v="moyenne">5:12</span><small>/km</small><span class="unite">Allure moy.</span></p>
+      </div>
+      <div class="carte-reste">
+        <p><b data-v="reste">Reste 1,74&#8239;km</b><em class="avance" data-v="ecart">−0:08 vs record</em></p>
+        <span class="barre-prog"><i data-v="prog" style="--p:.787"></i></span>
+      </div>
+      <p class="carte-km"><svg aria-hidden="true"><use href="#i-drapeau"/></svg><b data-v="kmNom">Km 6</b><span data-v="kmAllure">5:10 /km</span><em class="avance" data-v="kmDelta">−0:01</em></p>
+
+      <div class="direct">
+        <p class="direct-legende" aria-hidden="true">Écran verrouillé</p>
+        <div class="activite" aria-hidden="true">
+          <p class="activite-tete"><svg class="activite-logo"><use href="#i-logo"/></svg><b>GORUN</b><span>Deux tours de la Tête…</span><em data-v="statut"><i></i>EN COURS</em></p>
+          <div class="activite-chiffres">
+            <p><span class="chiffre" data-v="km2">6,42</span><small>KM</small></p>
+            <p><span class="chiffre" data-v="temps2">33:24</span><small>TEMPS</small></p>
+            <p class="droite"><span class="chiffre" data-v="moyenne2">5:12</span><small>/KM MOY.</small></p>
+          </div>
+          <p class="activite-pied"><span class="a-allure"><svg><use href="#i-compteur"/></svg><b data-v="allure">4:58</b>&#8239;/km</span><span class="a-fin avance"><svg><use href="#i-coche"/></svg>Course terminée</span><span><svg><use href="#i-drapeau"/></svg><b data-v="reste2">Reste 1,74 km</b></span><em class="avance" data-v="ecart2">−0:08 vs record</em></p>
+        </div>
+        <p class="direct-legende" aria-hidden="true">Dynamic Island <span class="ile-indice">· maintenez pour l’ouvrir</span></p>
+        <div class="ile-zone">
+          <button class="ile" id="ile" type="button" aria-expanded="false" aria-label="Dynamic Island : ouvrir la vue détaillée">
+            <span class="ile-forme" aria-hidden="true">
+              <span class="ile-compacte"><svg><use href="#i-coureur"/></svg><span data-v="ile">6,42 km</span></span>
+              <span class="ile-ouverte">
+                <span class="ie-haut">
+                  <span><span class="chiffre" data-v="km2">6,42</span><small>KM</small></span>
+                  <span class="ie-titre">Deux tours de la Tête d’Or</span>
+                  <span class="ie-droite"><span class="chiffre" data-v="temps2">33:24</span><small>TEMPS</small></span>
+                </span>
+                <span class="ie-bas"><span><svg><use href="#i-compteur"/></svg><b data-v="allure">4:58</b>&#8239;/km</span><span><svg><use href="#i-drapeau"/></svg><b data-v="reste2">Reste 1,74 km</b></span><em class="avance" data-v="ecart2">−0:08 vs record</em></span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="commandes">
+      <button class="bouton bouton-principal depart" id="depart" type="button"><svg aria-hidden="true"><use href="#i-lecture"/></svg><span>Départ</span></button>
+      <button class="bouton-voix" id="voix" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#i-muet"/></svg><span>Voix</span></button>
+      <label class="curseur">
+        <span class="curseur-nom">Distance</span>
+        <input type="range" id="curseur" min="0" max="8160" step="10" value="6420" aria-valuetext="6,42 kilomètres">
+      </label>
+    </div>
+
+    <div class="regle-planche">
+      <div class="regle" data-regle="planche" aria-hidden="true"></div>
+    </div>
+
+    <p class="annonce" id="annonce" aria-live="polite"><span class="annonce-tete">Guidage vocal</span><span id="annonce-texte">«&#8239;6 kilomètres. Temps&#8239;: 31 minutes 18 secondes. Allure moyenne&#8239;: 5 minutes 13 par kilomètre. Dernier kilomètre en 5 minutes 10 secondes. 7 secondes d’avance sur votre record.&#8239;»</span></p>
+  </div>
+  <p class="note">Données de démonstration&#8239;: tracé réel du parc (OpenStreetMap), temps générés dans l’app et exportés tels quels. Les captures de cette page viennent des mêmes courses.</p>
+</section>
+
+<section class="pendant" id="pendant" aria-labelledby="titre-pendant">
+  <div class="pendant-colle">
+    <header class="entete">
+      <p class="etiquette"><span class="num">02</span> Pendant la course</p>
+      <h2 class="titre expo" id="titre-pendant">L’écart vous suit, même téléphone en&nbsp;poche.</h2>
+      <p class="chapeau">Pas besoin de sortir le téléphone&#8239;: distance, temps, allure et avance sur votre record restent visibles sur l’écran de course, l’écran verrouillé et la Dynamic Island, ou vous sont annoncés à l’oreille.</p>
+      <p class="aide"><svg aria-hidden="true"><use href="#i-agrandir"/></svg>Touchez un écran pour l’agrandir, puis glissez de l’un à l’autre.</p>
+    </header>
+    <div class="planche-contact" id="planche-contact" tabindex="0" aria-label="Écrans de GoRun pendant une course, à faire défiler">
+      <ol class="pellicule" id="pellicule">
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/courir-520.avif 520w, assets/img/ecrans/courir-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/courir-860.webp" srcset="assets/img/ecrans/courir-520.webp 520w, assets/img/ecrans/courir-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Courir : carte du parc, choix du parcours et de l’objectif, bouton Démarrer, signal GPS et bouton Voix."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;1 — Courir.</b> Parcours, objectif, voix et signal GPS se règlent avant le départ.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/course-stats-520.avif 520w, assets/img/ecrans/course-stats-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/course-stats-860.webp" srcset="assets/img/ecrans/course-stats-520.webp 520w, assets/img/ecrans/course-stats-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Statistiques en course : 6,42 km, 33:24, allure 4:58, cadence 174, reste 1,74 km, moins 8 secondes sur le record ; kilomètre 6 couru en 5:10."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;2 — Stats.</b> L’écart au record en vert, et chaque kilomètre comparé au précédent.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/course-carte-520.avif 520w, assets/img/ecrans/course-carte-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/course-carte-860.webp" srcset="assets/img/ecrans/course-carte-520.webp 520w, assets/img/ecrans/course-carte-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Carte en course : le tracé orange longe le Rhône au nord du parc, avec distance, temps et allure en bas de l’écran."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;3 — Carte.</b> Votre tracé en orange, par-dessus le parcours enregistré.</p>
+        </li>
+        <li class="vue vue-ile">
+          <div class="ile-cadre">
+            <picture><source type="image/avif" srcset="assets/img/ecrans/ile-compacte.avif"><img src="assets/img/ecrans/ile-compacte.webp" width="1206" height="210" loading="lazy" decoding="async" alt="Dynamic Island : icône de course et 6,42 km en orange."></picture>
+            <div class="ile-etendue" role="img" aria-label="Dynamic Island ouverte : 6,42 km, le parcours, 33:24, allure 4:58 par kilomètre, reste 1,74 km, moins 8 secondes sur le record.">
+              <div class="ie-haut">
+                <p><span class="chiffre">6,42</span><small>KM</small></p>
+                <p class="ie-titre">Deux tours de la Tête d’Or</p>
+                <p class="ie-droite"><span class="chiffre">33:24</span><small>TEMPS</small></p>
+              </div>
+              <p class="ie-bas"><span><svg aria-hidden="true"><use href="#i-compteur"/></svg>4:58&#8239;/km</span><span><svg aria-hidden="true"><use href="#i-drapeau"/></svg>Reste 1,74&#8239;km</span><em class="avance">−0:08 vs record</em></p>
+            </div>
+          </div>
+          <p class="vue-legende"><b>Fig.&nbsp;4 — Dynamic Island.</b> La distance reste en haut de l’écran&#8239;; un appui long montre l’écart.</p>
+        </li>
+        <li class="vue">
+          <figure class="tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/pause-520.avif 520w, assets/img/ecrans/pause-860.avif 860w" sizes="(max-width: 760px) 62vw, 300px"><img class="tel-ecran" src="assets/img/ecrans/pause-860.webp" srcset="assets/img/ecrans/pause-520.webp 520w, assets/img/ecrans/pause-860.webp 860w" sizes="(max-width: 760px) 62vw, 300px" width="860" height="1870" loading="lazy" decoding="async" alt="Écran de pause orange : 6,42 kilomètres, boutons Maintenir pour terminer et Reprendre."></picture></div></div></figure>
+          <p class="vue-legende"><b>Fig.&nbsp;5 — Pause.</b> Il faut maintenir pour terminer&#8239;: un appui de travers n’arrête rien.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="apres" id="apres" aria-labelledby="titre-apres">
+  <header class="entete">
+    <p class="etiquette"><span class="num">03</span> Après</p>
+    <h2 class="titre expo" id="titre-apres">Huit kilomètres, huit lignes, un&nbsp;record.</h2>
+    <p class="chapeau">À l’arrivée, tout est déjà rangé&#8239;: la carte, vos temps kilomètre par kilomètre, les courbes, puis la place de cette course parmi vos précédentes sur ce parcours.</p>
+  </header>
+
+  <div class="bilan">
+    <div class="bilan-tel">
+      <figure class="tel"><div class="tel-corps"><div class="tel-verre">
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-carte-520.avif 520w, assets/img/ecrans/detail-carte-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran actif" data-ecran="0" src="assets/img/ecrans/detail-carte-860.webp" srcset="assets/img/ecrans/detail-carte-520.webp 520w, assets/img/ecrans/detail-carte-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-splits-520.avif 520w, assets/img/ecrans/detail-splits-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran" data-ecran="1" src="assets/img/ecrans/detail-splits-860.webp" srcset="assets/img/ecrans/detail-splits-520.webp 520w, assets/img/ecrans/detail-splits-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+        <picture><source type="image/avif" srcset="assets/img/ecrans/detail-graphes-520.avif 520w, assets/img/ecrans/detail-graphes-860.avif 860w" sizes="360px"><img class="tel-ecran bilan-ecran" data-ecran="2" src="assets/img/ecrans/detail-graphes-860.webp" srcset="assets/img/ecrans/detail-graphes-520.webp 520w, assets/img/ecrans/detail-graphes-860.webp 860w" sizes="360px" width="860" height="1870" loading="lazy" decoding="async" alt=""></picture>
+      </div></div></figure>
+    </div>
+
+    <ol class="etapes">
+      <li class="etape" data-ecran="0">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-carte-520.avif 520w, assets/img/ecrans/detail-carte-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-carte-520.webp" srcset="assets/img/ecrans/detail-carte-520.webp 520w, assets/img/ecrans/detail-carte-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Détail de la course du lundi matin : carte du parc avec le tracé coloré du lent au rapide, 8,16 km en 42:16, allure moyenne 5:11, fréquence cardiaque moyenne 154."></picture></div></div></figure>
+        <h3>Le tracé, coloré selon l’allure.</h3>
+        <p>À l’arrivée, la carte passe du plus lent au plus rapide, kilomètre après kilomètre. Un toucher l’ouvre en grand. En dessous&#8239;: temps, allure, vitesse, dénivelé, calories, pas, cadence et fréquence cardiaque.</p>
+      </li>
+      <li class="etape" data-ecran="1">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-splits-520.avif 520w, assets/img/ecrans/detail-splits-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-splits-520.webp" srcset="assets/img/ecrans/detail-splits-520.webp 520w, assets/img/ecrans/detail-splits-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Splits : neuf lignes de 5:29 à 5:02 par kilomètre, le septième kilomètre, le plus rapide, en orange ; au-dessus, le parcours avec la mention Record du parcours."></picture></div></div></figure>
+        <h3>Un kilomètre, une ligne.</h3>
+        <p>Chaque kilomètre a son temps&#8239;: 5:29 pour se lancer, 5:02 au septième kilomètre, le plus rapide, mis en couleur. Le dénivelé de chaque kilomètre est noté à côté.</p>
+      </li>
+      <li class="etape" data-ecran="2">
+        <figure class="tel etape-tel"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/detail-graphes-520.avif 520w, assets/img/ecrans/detail-graphes-860.avif 860w" sizes="62vw"><img class="tel-ecran" src="assets/img/ecrans/detail-graphes-520.webp" srcset="assets/img/ecrans/detail-graphes-520.webp 520w, assets/img/ecrans/detail-graphes-860.webp 860w" sizes="62vw" width="520" height="1131" loading="lazy" decoding="async" alt="Graphiques d’allure, d’altitude et de fréquence cardiaque, puis la carte Notes."></picture></div></div></figure>
+        <h3>Allure, altitude, cœur.</h3>
+        <p>Les courbes sont cadrées sur vos vraies valeurs, sans s’écraser contre zéro. Si l’Apple Watch était à votre poignet, sa fréquence cardiaque rejoint la course iPhone par Apple Santé. Une note, et c’est rangé.</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="passages">
+    <div class="passages-texte">
+      <h3 class="sous-titre">Cinq passages, un classement.</h3>
+      <p>Chaque course faite sur le tracé rejoint le parcours toute seule, à son rang, avec son écart au record. Ce lundi, le record a changé de main&#8239;: 12&nbsp;secondes de mieux qu’au 28&nbsp;octobre.</p>
+      <table class="classement">
+        <caption class="visuellement-cache">Passages sur le parcours Deux tours de la Tête d’Or</caption>
+        <thead><tr><th scope="col">Rang</th><th scope="col">Passage</th><th scope="col">Temps</th><th scope="col">Écart</th></tr></thead>
+        <tbody>
+          <tr class="premier"><td>1</td><th scope="row"><span class="date-longue">Lundi 9 novembre</span><span class="date-courte" aria-hidden="true">Lun. 9 nov.</span></th><td class="chiffre">42:16</td><td class="orange">Record</td></tr>
+          <tr><td>2</td><th scope="row"><span class="date-longue">Mercredi 28 octobre</span><span class="date-courte" aria-hidden="true">Mer. 28 oct.</span></th><td class="chiffre">42:28</td><td class="chiffre retard">+0:12</td></tr>
+          <tr><td>3</td><th scope="row"><span class="date-longue">Mercredi 21 octobre</span><span class="date-courte" aria-hidden="true">Mer. 21 oct.</span></th><td class="chiffre">43:10</td><td class="chiffre retard">+0:54</td></tr>
+          <tr><td>4</td><th scope="row"><span class="date-longue">Mercredi 14 octobre</span><span class="date-courte" aria-hidden="true">Mer. 14 oct.</span></th><td class="chiffre">44:36</td><td class="chiffre retard">+2:20</td></tr>
+          <tr><td>5</td><th scope="row"><span class="date-longue">Mercredi 7 octobre</span><span class="date-courte" aria-hidden="true">Mer. 7 oct.</span></th><td class="chiffre">45:16</td><td class="chiffre retard">+3:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="tel passages-tel apparait" style="--l: clamp(14rem, 24vw, 20rem)" data-legende="<b>Le parcours.</b> Courbe de progression et passages classés, du record au cinquième."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/passages-520.avif 520w, assets/img/ecrans/passages-860.avif 860w" sizes="(max-width: 760px) 62vw, 320px"><img class="tel-ecran" src="assets/img/ecrans/passages-860.webp" srcset="assets/img/ecrans/passages-520.webp 520w, assets/img/ecrans/passages-860.webp 860w" sizes="(max-width: 760px) 62vw, 320px" width="860" height="1870" loading="lazy" decoding="async" alt="Parcours Deux tours de la Tête d’Or : courbe de progression et liste des passages, du record 42:16 au cinquième à 45:16."></picture></div></div></figure>
+  </div>
+</section>
+
+<section class="avant" id="avant" aria-labelledby="titre-avant">
+  <div class="avant-texte">
+    <p class="etiquette"><span class="num">04</span> Avant</p>
+    <h2 class="titre expo" id="titre-avant">Une boucle se trace en quelques&nbsp;touches.</h2>
+    <p class="chapeau">Touchez la carte pour placer le départ, puis chaque étape&#8239;: le tracé suit les rues et la durée s’estime d’après votre allure habituelle. Boucler, aller-retour, annuler&#8239;; le parcours rejoint ensuite vos favoris, et la montre.</p>
+    <ul class="faits">
+      <li><b class="chiffre">3,14&#8239;km</b><span>cinq étapes, en suivant les allées du parc</span></li>
+      <li><b class="chiffre">17:16</b><span>durée estimée à votre allure habituelle</span></li>
+      <li><b>5&#8239;km · 10&#8239;km · Semi · Marathon</b><span>objectifs prêts, sinon une distance au demi-kilomètre près ou une durée</span></li>
+    </ul>
+  </div>
+  <div class="avant-tels">
+    <figure class="tel apparait" style="--l: clamp(14rem, 23vw, 19.5rem)" data-legende="<b>Planifier.</b> Une boucle de 3,14&#8239;km tracée dans le parc, estimée à 17:16."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/planificateur-520.avif 520w, assets/img/ecrans/planificateur-860.avif 860w" sizes="(max-width: 760px) 58vw, 312px"><img class="tel-ecran" src="assets/img/ecrans/planificateur-860.webp" srcset="assets/img/ecrans/planificateur-520.webp 520w, assets/img/ecrans/planificateur-860.webp 860w" sizes="(max-width: 760px) 58vw, 312px" width="860" height="1870" loading="lazy" decoding="async" alt="Planificateur : boucle orange de 3,14 km tracée dans le parc en suivant les allées, 4 étapes numérotées, estimation 17:16 ; boutons Annuler, Boucler, Aller-retour, Effacer et Enregistrer le parcours."></picture></div></div></figure>
+    <figure class="tel apparait decale" style="--l: clamp(12.5rem, 19vw, 16.5rem)" data-legende="<b>Parcours.</b> Vos boucles, leurs passages et leur record."><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/parcours-liste-520.avif 520w, assets/img/ecrans/parcours-liste-860.avif 860w" sizes="(max-width: 760px) 50vw, 264px"><img class="tel-ecran" src="assets/img/ecrans/parcours-liste-860.webp" srcset="assets/img/ecrans/parcours-liste-520.webp 520w, assets/img/ecrans/parcours-liste-860.webp 860w" sizes="(max-width: 760px) 50vw, 264px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Parcours : Deux tours de la Tête d’Or, 8,15 km, 5 passages, record 42:16 ; Tour du lac, 2,92 km, planifié ; carte Planifier un parcours."></picture></div></div></figure>
+  </div>
+</section>
+
+<section class="ailleurs" id="ailleurs" aria-labelledby="titre-ailleurs">
+  <header class="entete">
+    <p class="etiquette"><span class="num">05</span> Au poignet, dans Santé, en story</p>
+    <h2 class="titre expo" id="titre-ailleurs">Partie de la montre, rangée dans&nbsp;Santé.</h2>
+    <p class="chapeau">GoRun ne s’arrête pas à l’iPhone&#8239;: la course se suit au poignet pendant la sortie, se range dans Apple Santé après, et devient une image quand vous voulez la montrer.</p>
+  </header>
+  <div class="trois">
+    <article class="bloc bloc-montre">
+      <div class="bloc-visuel"><div class="montre-zone">
+        <div class="montre" id="montre" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Réplique de l’Apple Watch pendant la course : glissez ou utilisez les flèches pour changer de page">
+          <div class="montre-boitier"><div class="montre-ecran">
+            <div class="m-piste" id="m-piste">
+              <section class="m-page m-controles" aria-label="Commandes">
+                <p class="m-btn"><button class="m-ctrl m-terminer" type="button" data-m="terminer" aria-label="Terminer la course"><svg aria-hidden="true"><use href="#i-croix"/></svg></button><small>Terminer</small></p>
+                <p class="m-btn"><button class="m-ctrl m-pause" type="button" data-m="pause" aria-label="Mettre en pause"><svg aria-hidden="true"><use href="#i-pause"/></svg></button><small data-m="pause-lib">Pause</small></p>
+              </section>
+              <section class="m-page m-metriques" aria-label="Mesures">
+                <p class="m-titre" id="m-titre">Deux tours de la Tête…</p>
+                <p class="m-chrono chiffre" id="m-chrono">33:24</p>
+                <p class="m-ligne"><span class="chiffre" id="m-km">6,42</span><small>KM</small></p>
+                <p class="m-ligne"><span class="chiffre" id="m-moy">5:12</span><small>MOY./KM</small></p>
+                <p class="m-ligne"><span class="chiffre" id="m-allure">4:58</span><small>ALLURE</small></p>
+                <p class="m-bas"><span class="chiffre" id="m-fc">158</span><svg class="m-coeur" aria-hidden="true"><use href="#i-coeur"/></svg><span class="m-reste chiffre" id="m-reste">−1,74 km</span></p>
+              </section>
+              <section class="m-page m-details" aria-label="Détails">
+                <p class="m-tuile" style="--c: var(--orange)"><small><svg aria-hidden="true"><use href="#i-metronome"/></svg>CADENCE</small><b id="m-cadence">174</b><span>pas/min</span></p>
+                <p class="m-tuile" style="--c: var(--rose)"><small><svg aria-hidden="true"><use href="#i-pas"/></svg>PAS</small><b id="m-pas">5&#8239;744</b><span>au total</span></p>
+                <p class="m-tuile" style="--c: #ff9f0a"><small><svg aria-hidden="true"><use href="#i-flamme"/></svg>CALORIES</small><b id="m-kcal">465</b><span>kcal</span></p>
+                <p class="m-tuile" style="--c: var(--avance)"><small><svg aria-hidden="true"><use href="#i-montagne"/></svg>DÉNIVELÉ</small><b id="m-dplus">3</b><span>m</span></p>
+              </section>
+              <section class="m-page m-carte" aria-label="Carte du parcours"><svg class="m-carte-svg" id="m-carte" role="img" aria-label="Carte : le parcours en pointillé gris, votre tracé en orange"></svg></section>
+            </div>
+            <div class="m-couche m-dialogue" id="m-dialogue" role="alertdialog" aria-label="Terminer la course ?" hidden>
+              <p class="m-question">Terminer la course&#8239;?</p>
+              <button class="m-choix m-choix-rouge" type="button" data-m="confirmer">Terminer</button>
+              <button class="m-choix" type="button" data-m="continuer">Continuer</button>
+            </div>
+            <div class="m-couche m-resume" id="m-resume" hidden>
+              <p class="m-bravo"><svg aria-hidden="true"><use href="#i-trophee"/></svg>Bravo&#8239;!</p>
+              <svg class="m-forme" id="m-forme" aria-hidden="true" preserveAspectRatio="xMidYMid meet"></svg>
+              <dl class="m-stats" id="m-stats"></dl>
+              <p class="m-envoyee"><svg aria-hidden="true"><use href="#i-coche"/></svg>Envoyée à l’iPhone et enregistrée dans Santé</p>
+              <button class="m-ok" type="button" data-m="ok">OK</button>
+            </div>
+          </div></div>
+          <span class="montre-couronne"></span><span class="montre-bouton"></span>
+        </div>
+        <p class="m-points" id="m-points" aria-label="Pages de la montre"></p>
+      </div></div>
+      <h3>Au poignet, sans le téléphone.</h3>
+      <p>Lancez la course depuis l’Apple Watch&#8239;: chrono, distance, allures, fréquence cardiaque et distance restante sur le parcours, du 41 au 49&nbsp;mm. Glissez pour les commandes, la cadence, les calories et la carte. Hors du tracé, elle vibre. À l’arrivée, la course part vers l’iPhone et dans Santé.</p>
+    </article>
+    <article class="bloc">
+      <div class="bloc-visuel"><figure class="tel apparait" style="--l: clamp(12rem, 16vw, 15rem)"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/sante-520.avif 520w, assets/img/ecrans/sante-860.avif 860w" sizes="(max-width: 760px) 58vw, 240px"><img class="tel-ecran" src="assets/img/ecrans/sante-860.webp" srcset="assets/img/ecrans/sante-520.webp 520w, assets/img/ecrans/sante-860.webp 860w" sizes="(max-width: 760px) 58vw, 240px" width="860" height="1870" loading="lazy" decoding="async" alt="Onglet Santé : anneau de 7 842 pas, 5,93 km de marche et course, 412 kcal, 38 minutes d’exercice, 9 étages ; pas des 7 derniers jours."></picture></div></div></figure></div>
+      <h3>Vos autres apps comptent aussi.</h3>
+      <p>Les courses enregistrées par Exercice, Nike Run Club ou Strava arrivent dans GoRun par Apple Santé, avec leur tracé&#8239;; les doublons sont ignorés. Vos courses GoRun y partent en retour, avec la fréquence cardiaque de la montre.</p>
+    </article>
+    <article class="bloc">
+      <div class="bloc-visuel"><figure class="tel apparait" style="--l: clamp(12rem, 16vw, 15rem)"><div class="tel-corps"><div class="tel-verre"><picture><source type="image/avif" srcset="assets/img/ecrans/partage-520.avif 520w, assets/img/ecrans/partage-860.avif 860w" sizes="(max-width: 760px) 58vw, 240px"><img class="tel-ecran" src="assets/img/ecrans/partage-860.webp" srcset="assets/img/ecrans/partage-520.webp 520w, assets/img/ecrans/partage-860.webp 860w" sizes="(max-width: 760px) 58vw, 240px" width="860" height="1870" loading="lazy" decoding="async" alt="Écran Partager : image de la course du lundi matin sur la carte du parc, 8,16 km, 42:16, 5:11 par kilomètre ; formats Post 4:5, Story 9:16, Carré ; styles Carte, Nuit, Jour, Sticker."></picture></div></div></figure></div>
+      <h3>Une image prête pour la story.</h3>
+      <p>Tracé, chiffres et logo sur une seule image&#8239;: quatre styles (Carte, Nuit, Jour, Sticker) et trois formats (post 4:5, story 9:16, carré), sans passer par un réseau social.</p>
+    </article>
+  </div>
+</section>
+
+<section class="donnees" id="donnees" aria-labelledby="titre-donnees">
+  <div class="donnees-texte">
+    <p class="etiquette"><span class="num">06</span> Vos données</p>
+    <h2 class="titre expo" id="titre-donnees">Vos courses restent sur votre&nbsp;iPhone.</h2>
+    <p class="chapeau">Aucun compte à créer, rien à envoyer en ligne. Chaque course est un fichier dans l’app, que vous exportez en GPX quand vous voulez. Si l’app s’arrête en pleine sortie, la course est récupérée au lancement suivant.</p>
+  </div>
+  <div class="fichiers" role="img" aria-label="Arborescence des fichiers de GoRun sur l’iPhone : index.json, parcours.json, encours.json et un fichier par course dans le dossier courses.">
+    <p class="fichiers-tete">Application Support / GoRun</p>
+    <ul>
+      <li><span>index.json</span><em>résumés des courses</em></li>
+      <li><span>parcours.json</span><em>vos parcours et leurs passages</em></li>
+      <li><span>encours.json</span><em>copie de secours, toutes les 30&#8239;s</em></li>
+      <li class="dossier"><span>courses /</span><em>une course par fichier</em>
+        <ul><li><span>F8FAD84F….json</span><em>Course du lundi matin · 1&#8239;265 points</em></li></ul>
+      </li>
+    </ul>
+    <pre class="extrait" aria-hidden="true"><code>{ "lat": 45.78452, "lon": 4.85803,
+  "dist": 6419.2, "tps": 2004,
+  "vitesse": 3.36, "segment": 0 }</code></pre>
+    <p class="fichiers-pied">Un point de la course, au 6,42<sup>e</sup>&nbsp;kilomètre&#8239;: position, distance et temps cumulés. C’est tout ce qu’il faut pour comparer deux passages.</p>
+  </div>
+</section>
+
+<section class="fin" id="fin" aria-labelledby="titre-fin">
+  <div class="regle" data-regle="fin" aria-hidden="true"></div>
+  <h2 class="fin-titre expo" id="titre-fin">Le record vous attend sur la&nbsp;boucle.</h2>
+  <p class="chapeau">GoRun est en test sur iPhone et Apple Watch (iOS et watchOS&nbsp;27). Elle arrive bientôt sur l’App Store&#8239;; en attendant, rejouez la course de ce matin, ou écrivez-nous pour être prévenu de la sortie.</p>
+  <div class="fin-actions">
+    <a class="bouton bouton-principal" href="#planche"><svg aria-hidden="true"><use href="#i-rejouer"/></svg>Rejouer la course</a>
+    <a class="bouton bouton-second" href="mailto:mtxstudio@proton.me?subject=GoRun%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20GoRun%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie</a>
+    <p class="bientot">Bientôt sur l’App Store</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <a class="marque" href="#haut" aria-label="GoRun, retour en haut"><svg class="marque-icone" aria-hidden="true"><use href="#i-logo"/></svg><span class="marque-nom">GoRun</span></a>
+  <p>Une app de <a href="https://mtx-developpement.fr/">MTX Studio</a>. Captures réalisées dans le simulateur iOS avec des données de démonstration&#8239;; fond de carte de la planche © contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>&#8239;; cartes des captures&#8239;: Plans d’Apple. Police Mona Sans (SIL OFL, licence dans <code>assets/fonts/OFL.txt</code>).</p>
+  <p>© 2026 MTX Studio</p>
+</footer>
+<section class="mtx-pf" data-mtx-app="GoRun" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-foulee.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">GoRun, l’app de course à pied qui vous fait courir contre votre record.</h2>
+    <p class="mtx-pf-sub">Une idée d’application ? MTX Studio conçoit l’app et son site avec le même soin, de la première idée à la mise en ligne.</p>
+    <p class="mtx-pf-tags">App iPhone et Apple Watch · Course à pied<br>SwiftUI · HealthKit · watchOS · Live Activities</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../space/"><img src="../../assets/img/realisations/icone-space.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Space</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20GoRun&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20GoRun%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20GoRun&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20GoRun%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

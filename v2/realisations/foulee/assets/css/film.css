@@ -1,0 +1,87 @@
+/* GoRun — le film de présentation (9:16, 40 s, avec musique), en prologue « 00 » entre le héros et la démo.
+   Lecteur commun : ../../assets/css/film.css et ../../assets/js/film.js. Ici : la place du film, ses chapitres et
+   l'habillage des commandes. Le film est vertical, au format story : il tient dans la hauteur de l'écran, à droite
+   du texte sur ordinateur, sous le texte sur téléphone. Comme les téléphones et la montre de la page, il reste
+   sombre en thème clair. */
+
+.presentation {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+  padding-block: clamp(4.5rem, 12vh, 8rem);
+  border-top: 1px solid var(--filet);
+}
+.presentation-texte { display: grid; gap: 1.2rem; align-content: start; }
+.presentation-film {
+  --mtx-film-marge: .8rem;
+  justify-self: center;
+  width: min(100%, 25rem, (100svh - 9rem) * 9 / 16);
+  margin: 0;
+}
+.presentation-cadre {
+  aspect-ratio: 9 / 16;
+  border-radius: clamp(1.1rem, 2vw, 1.6rem);
+  box-shadow: 0 0 0 1px var(--filet), 0 30px 80px -34px rgba(255, 70, 40, .42), 0 24px 60px -28px rgba(0, 0, 0, .85);
+}
+@media (min-width: 1000px) {
+  .presentation {
+    grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr;
+    column-gap: var(--goutiere); row-gap: 2.5rem;
+  }
+  .presentation-texte { grid-column: 1 / span 6; grid-row: 1; }
+  .presentation-chapitres { grid-column: 1 / span 5; grid-row: 2; align-self: end; }
+  .presentation-film { grid-column: 8 / -1; grid-row: 1 / span 2; align-self: center; width: min(100%, 27rem, (100svh - 8rem) * 9 / 16); }
+}
+
+/* Commandes posées sur le film */
+.presentation-film .mtx-film-commandes button {
+  height: 44px; border-radius: 99px;
+  background: rgba(10, 10, 11, .6); color: #f3f2ee;
+  -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .15);
+}
+.presentation-film .mtx-film-son { padding: 0 1rem 0 .8rem; font-size: .95rem; font-weight: 700; letter-spacing: .005em; }
+.presentation-film .mtx-film-son svg { color: #ff5c1f; }
+.presentation-film[data-regarde] .mtx-film-son { width: 44px; padding: 0; }
+.presentation-film .mtx-film-commandes button:focus-visible { outline: 2px solid #ff5c1f; outline-offset: 3px; }
+@media (hover: hover) { .presentation-film .mtx-film-commandes button:hover { background: rgba(10, 10, 11, .85); } }
+.presentation-film .mtx-film-fil { height: 3px; background: linear-gradient(90deg, #ff5c1f, #ff2e5c); }
+
+/* Les chapitres : le temps, la scène ; celle en cours en orange, avec son avancement. */
+.presentation-chapitres { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filet); }
+.presentation-chapitres li { border-bottom: 1px solid var(--filet); }
+.presentation-chapitres button {
+  position: relative;
+  display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); align-items: baseline; gap: .6rem;
+  width: 100%; min-height: 44px; padding: .5rem 0;
+  border: 0; background: none; cursor: pointer; text-align: left;
+  font: inherit; font-size: 1rem; font-weight: 650; color: var(--texte-2);
+  transition: color .25s;
+}
+.presentation-chapitres .chiffre { font-size: 1.05rem; color: var(--texte-3); transition: color .25s; }
+.presentation-chapitres button::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--degrade); transform-origin: left; transform: scaleX(var(--p, 0));
+  opacity: 0; transition: opacity .25s;
+}
+.presentation-chapitres [aria-current="true"] { color: var(--texte); }
+.presentation-chapitres [aria-current="true"] .chiffre { color: var(--orange); }
+.presentation-chapitres [aria-current="true"]::after { opacity: 1; }
+@media (hover: hover) { .presentation-chapitres button:hover { color: var(--texte); } }
+:root[data-theme="light"] .presentation-chapitres [aria-current="true"] .chiffre { color: var(--orange-texte); }
+html:not(.js) .presentation-chapitres { display: none; }
+
+/* Téléphone et tablette : une rangée de pastilles à faire glisser, sous le film. */
+@media (max-width: 999px) {
+  .presentation-chapitres {
+    display: flex; gap: .5rem; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    margin-inline: calc(var(--bord) * -1); padding: .2rem var(--bord) .4rem; scroll-padding-inline: var(--bord);
+    border: 0;
+  }
+  .presentation-chapitres::-webkit-scrollbar { display: none; }
+  .presentation-chapitres li { flex: none; border: 0; scroll-snap-align: start; }
+  .presentation-chapitres button {
+    display: inline-flex; align-items: center; gap: .5rem; width: auto; padding: 0 1rem;
+    border: 1px solid var(--filet-2); border-radius: 99px; white-space: nowrap; font-size: .95rem; overflow: hidden;
+  }
+  .presentation-chapitres button::after { left: 1rem; right: 1rem; bottom: 7px; height: 2px; border-radius: 2px; }
+  .presentation-chapitres [aria-current="true"] { border-color: var(--orange); }
+}

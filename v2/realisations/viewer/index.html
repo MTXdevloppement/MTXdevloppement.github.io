@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)</script>
+  <title>MTX Viewer : tester un site web sur iPhone et iPad</title>
+  <meta name="description" content="Votre site s’affiche-t-il bien sur mobile ? MTX Viewer l’ouvre sur iPhone et iPad, teste plusieurs tailles d’écran et repère les erreurs. Démo en ligne.">
+  <meta name="author" content="MTX Studio">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#09090A">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="MTX Studio">
+  <meta property="og:title" content="MTX Viewer — Explorez vos sites sous tous leurs angles">
+  <meta property="og:description" content="Votre site s’affiche-t-il bien partout ? Ouvrez-le sur iPhone ou iPad, testez plusieurs tailles d’écran et repérez ce qui cloche avant vos visiteurs.">
+  <meta property="og:image" content="https://mtx-developpement.fr/realisations/viewer/assets/img/icone-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Icône de MTX Viewer">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MTX Viewer — Explorez vos sites sous tous leurs angles">
+  <meta name="twitter:description" content="Votre site s’affiche-t-il bien partout ? Ouvrez-le sur iPhone ou iPad, testez plusieurs tailles d’écran et repérez ce qui cloche avant vos visiteurs.">
+  <meta name="twitter:image" content="https://mtx-developpement.fr/realisations/viewer/assets/img/icone-512.png">
+  <meta property="og:url" content="https://mtx-developpement.fr/realisations/viewer/">
+  <link rel="canonical" href="https://mtx-developpement.fr/realisations/viewer/">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <script>document.documentElement.classList.add('js');</script>
+  <script defer src="assets/js/main.js?v=2"></script>
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/viewer/#app","name":"MTX Viewer","description":"App iPhone et iPad pour ouvrir, tester et inspecter un site web : tailles d’écran, console JavaScript, réseau, éléments qui débordent, code source et audit avant mise en ligne.","applicationCategory":"DeveloperApplication","applicationSubCategory":"Développement web","operatingSystem":"iOS 27, iPadOS 27","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/viewer/","image":"https://mtx-developpement.fr/realisations/viewer/assets/img/icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/viewer/assets/img/ecrans/site.webp","https://mtx-developpement.fr/realisations/viewer/assets/img/ecrans/console.webp","https://mtx-developpement.fr/realisations/viewer/assets/img/ecrans/tailles.webp","https://mtx-developpement.fr/realisations/viewer/assets/img/ecrans/audit.webp"],"featureList":["Ouvrir un site en ligne, un fichier HTML ou un dossier de site","Tester l’affichage sur plusieurs tailles d’écran, du téléphone au grand écran","Console JavaScript avec erreurs et ligne concernée","Requêtes réseau et fichiers chargés par la page","Repérage des éléments qui dépassent de l’écran","Inspection de la taille et du style d’un élément","Code source de la page","Audit avant mise en ligne : partage, affichage mobile, accessibilité","Présentation plein écran, capture et export PDF"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/viewer/#page","url":"https://mtx-developpement.fr/realisations/viewer/","name":"MTX Viewer : tester un site web sur iPhone et iPad","description":"Votre site s’affiche-t-il bien sur mobile ? MTX Viewer l’ouvre sur iPhone et iPad, teste plusieurs tailles d’écran et repère les erreurs. Démo en ligne.","inLanguage":"fr-FR","isPartOf":{"@type":"WebSite","@id":"https://mtx-developpement.fr/#site","name":"MTX Studio","url":"https://mtx-developpement.fr/"},"about":{"@id":"https://mtx-developpement.fr/realisations/viewer/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/viewer/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/viewer/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"MTX Viewer","item":"https://mtx-developpement.fr/realisations/viewer/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/viewer/#questions","mainEntity":[{"@type":"Question","name":"Quels sites peut-on ouvrir ?","acceptedAnswer":{"@type":"Answer","text":"Un site déjà en ligne, un fichier HTML seul ou un dossier de site. Pour un projet en cours, ouvrez son adresse sur le même réseau Wi-Fi. Les sites construits en HTML, CSS et JavaScript peuvent aussi s’ouvrir directement depuis leurs fichiers."}},{"@type":"Question","name":"Faut-il un Mac ?","acceptedAnswer":{"@type":"Answer","text":"Non. MTX Viewer inclut les outils pour explorer et vérifier un site sur iPhone ou iPad. Un Mac sert seulement si vous voulez utiliser l’inspecteur de Safari ou ouvrir un projet lancé sur cet ordinateur."}},{"@type":"Question","name":"Mes modifications apparaissent-elles tout de suite ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Si vous avez ouvert un dossier, enregistrez vos changements puis rechargez la page dans MTX Viewer. Si votre projet est lancé sur un ordinateur du même réseau Wi-Fi, rechargez-le comme d’habitude."}},{"@type":"Question","name":"Peut-on tester du code dans l’app ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La console permet d’exécuter du JavaScript sur la page ouverte et d’en voir le résultat. Elle affiche aussi les erreurs et les fichiers qui n’ont pas pu se charger."}},{"@type":"Question","name":"L’audit garantit-il que mon site est prêt ?","acceptedAnswer":{"@type":"Answer","text":"Non. Il repère les oublis fréquents avant de partager le site, mais ne remplace pas une vérification complète de l’accessibilité ou des performances."}},{"@type":"Question","name":"Sur quels appareils ?","acceptedAnswer":{"@type":"Answer","text":"iPhone et iPad, avec iOS 27 ou plus récent. L’app est en préparation pour l’App Store."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-viewer">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20MTX%20Viewer&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20MTX%20Viewer%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="barre" data-barre data-champ="bleu">
+    <a class="marque" href="#haut">
+      <img src="assets/img/icone.webp" width="32" height="32" alt="">
+      <span>MTX Viewer</span>
+    </a>
+    <nav class="barre-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#ouvrir">Ouvrir</a></li>
+        <li><a href="#deboguer">Explorer</a></li>
+        <li><a href="#tailles">Écrans</a></li>
+        <li><a href="#audit">Vérifier</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+    <p class="statut"><span class="pastille" aria-hidden="true"></span>Bientôt sur l’App Store</p>
+  </header>
+
+  <main id="contenu">
+
+    <section class="heros" id="haut" data-champ="bleu" aria-labelledby="titre-heros" data-heros>
+      <div class="heros-surface" data-surface>
+        <h1 class="titre-geant" id="titre-heros" data-fit>
+          <span class="ligne"><span>Explorez un site web</span></span>
+          <span class="ligne"><span>sous tous ses angles,</span></span>
+          <span class="ligne"><span>depuis votre iPhone.</span></span>
+        </h1>
+        <div class="heros-pied">
+          <p class="accroche">Votre site est-il aussi réussi sur téléphone que sur ordinateur ? Ouvrez-le sur iPhone ou iPad, qu’il soit en ligne ou encore en chantier : regardez comment il s’affiche, voyez comment il est construit, repérez les erreurs et testez-le en format téléphone, tablette ou grand écran.</p>
+          <div class="heros-fiche">
+            <p>MTX Viewer · iPhone et iPad · iOS 27</p>
+            <ul aria-label="Les six outils de MTX Viewer">
+              <li>Console</li><li>Éléments</li><li>Réseau</li>
+              <li>Source</li><li>Audit</li><li>Stockage</li>
+            </ul>
+          </div>
+          <div class="actions">
+            <button type="button" class="bouton bouton-craie" data-envers-bascule aria-pressed="false">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4" /><circle cx="12" cy="12" r="2.2" /></svg>
+              <span data-libelle>Voir comment cette page est construite</span>
+            </button>
+            <a class="bouton bouton-trait" href="#deboguer">Voir ce que fait l’app</a>
+          </div>
+        </div>
+      </div>
+      <div class="heros-envers" data-envers aria-hidden="true"></div>
+      <div class="heros-scan" aria-hidden="true"></div>
+    </section>
+
+    <section class="constat champ-rendu" data-champ="rendu" aria-labelledby="titre-constat">
+      <div class="enveloppe tete">
+        <p class="chemin">Pourquoi vérifier l’affichage</p>
+        <h2 class="titre-manifeste" id="titre-constat" data-inspecter>Beau sur ordinateur, cassé sur téléphone ?</h2>
+        <div class="constat-texte">
+          <p>Cela arrive plus souvent qu’on ne le croit, et beaucoup de visiteurs arrivent par leur téléphone. Ouvrez votre site sur iPhone ou iPad pour voir exactement ce qu’ils verront, et repérer les textes, menus ou images qui s’affichent mal.</p>
+          <p>MTX Viewer réunit sur iPhone et iPad les outils pour explorer une page et comprendre ce qui se passe en coulisses, sans avoir besoin d’un ordinateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le film de présentation (16:9, avec musique) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css. -->
+    <section class="presentation champ-rendu suite" id="film" data-champ="rendu" aria-labelledby="titre-film">
+      <div class="enveloppe tete">
+        <p class="chemin">Le film de présentation</p>
+        <h2 id="titre-film" data-inspecter>Toute l’app, en une minute.</h2>
+        <p class="intro">Du site qui déborde sur téléphone à l’audit avant la mise en ligne&nbsp;: le tour de MTX Viewer en 58&nbsp;secondes. Il démarre sans le son&nbsp;; mettez-le pour la musique.</p>
+      </div>
+      <div class="enveloppe">
+        <div class="presentation-film" data-mtx-film data-duree="58.07">
+          <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+            <video class="mtx-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/presentation.webp" aria-label="Film de présentation de MTX Viewer, 58 secondes, avec musique : un site réussi sur ordinateur mais cassé sur téléphone, puis l’app qui l’ouvre sur iPhone, ses six outils (Console, Réseau, Éléments, Source, Audit, Stockage), le test sur tous les formats d’écran, l’iPad et les thèmes clair et sombre.">
+              <source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'>
+              <source src="assets/video/presentation-720.mp4" type='video/mp4; codecs="avc1.64001F, mp4a.40.2"' media="(max-width: 600px)">
+              <source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'>
+            </video>
+            <div class="mtx-film-commandes" hidden>
+              <button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button>
+              <button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button>
+              <button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button>
+            </div>
+            <span class="mtx-film-fil" aria-hidden="true"></span>
+          </div>
+          <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film">
+            <li><button type="button" data-mtx-film-aller="0"><span>0:00</span> Le constat</button></li>
+            <li><button type="button" data-mtx-film-aller="6.2"><span>0:06</span> MTX Viewer</button></li>
+            <li><button type="button" data-mtx-film-aller="12"><span>0:12</span> Vos sites</button></li>
+            <li><button type="button" data-mtx-film-aller="20"><span>0:20</span> Six outils</button></li>
+            <li><button type="button" data-mtx-film-aller="36.5"><span>0:36</span> Tous les écrans</button></li>
+            <li><button type="button" data-mtx-film-aller="44.2"><span>0:44</span> iPhone et iPad</button></li>
+            <li><button type="button" data-mtx-film-aller="49.2"><span>0:49</span> Une seule app</button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="ouvrir champ-rendu suite" id="ouvrir" data-champ="rendu" aria-labelledby="titre-ouvrir">
+      <div class="enveloppe ouvrir-grille">
+        <div class="ouvrir-texte">
+          <p class="chemin">Ouvrir un site</p>
+          <h2 id="titre-ouvrir" data-inspecter>Ouvrez un site, qu’il soit en ligne ou dans vos fichiers.</h2>
+          <p class="intro">Ouvrez le dossier de votre site directement depuis vos fichiers. MTX Viewer garde le lien avec ce dossier&nbsp;: après une modification, rechargez la page pour voir le résultat.</p>
+          <p class="chemin-fichier" aria-label="Exemple de chemin : iCloud Drive, Sites, atelier-lune, index.html" data-frappe>
+            <span>iCloud Drive</span><span>Sites</span><span>atelier-lune</span><span>index.html</span>
+          </p>
+          <ul class="facons">
+            <li>
+              <h3>Choisir un dossier de site</h3>
+              <p>Choisissez le dossier de votre site&nbsp;: MTX Viewer affiche sa page d’accueil.</p>
+            </li>
+            <li>
+              <h3>Sur cet iPhone</h3>
+              <p>Glissez vos dossiers dans Fichiers › Sur mon iPhone › MTX Viewer&nbsp;: ils apparaissent tout seuls, même hors ligne.</p>
+            </li>
+            <li>
+              <h3>Plusieurs sites au même endroit</h3>
+              <p>Placez plusieurs dossiers de sites dans un dossier commun&nbsp;: MTX Viewer les affiche sous forme d’une liste à ouvrir.</p>
+            </li>
+            <li>
+              <h3>Ouvrir une adresse web</h3>
+              <p>Entrez l’adresse d’un site en ligne, ou celle d’un projet lancé sur un ordinateur du même réseau Wi-Fi.</p>
+            </li>
+          </ul>
+        </div>
+        <figure class="ouvrir-ecran">
+          <!-- La maquette pivote avec la souris (projet.js) ; le cadre de sélection passe d'un site à l'autre (main.js). -->
+          <div class="ouvrir-rig"><div class="ouvrir-pose mtx-pose" data-mtx-pose data-scene-ouvrir data-site="0">
+            <div class="iphone mtx-flotte">
+              <span class="iphone-touche" aria-hidden="true"></span>
+              <div class="iphone-vitre mtx-reflet">
+                <img src="assets/img/ecrans/bibliotheque.webp" srcset="assets/img/ecrans/bibliotheque-360.webp 360w, assets/img/ecrans/bibliotheque.webp 720w" sizes="(min-width: 960px) 330px, 72vw" width="720" height="1561" loading="lazy" decoding="async" alt="Bibliothèque de MTX Viewer : la rubrique « Sur cet iPhone » montre trois sites avec leur miniature, Atelier Lune, Café Rivage et Nuits Claires.">
+              </div>
+              <div class="iphone-plan" aria-hidden="true"><span class="vol-cadre"><b data-scene-nom>atelier-lune · 179 × 229</b></span></div>
+            </div>
+            <p class="vol vol-fichier mtx-flotte-2" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1.8 4.2c0-.7.5-1.2 1.2-1.2h3l1.4 1.6H13c.7 0 1.2.5 1.2 1.2v6c0 .7-.5 1.2-1.2 1.2H3c-.7 0-1.2-.5-1.2-1.2Z"/></svg><span data-scene-dossier>atelier-lune</span><i>›</i><b>index.html</b></p>
+            <p class="vol vol-etat mtx-flotte-3" aria-hidden="true"><i></i>Hors ligne · <b>3</b> sites</p>
+          </div></div>
+          <figcaption>La bibliothèque&nbsp;: chaque site avec sa miniature.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="deboguer champ-graphite" id="deboguer" data-champ="graphite" aria-labelledby="titre-deboguer">
+      <div class="enveloppe tete">
+        <p class="chemin">Explorer les outils</p>
+        <h2 id="titre-deboguer" data-inspecter>Explorez le code, les erreurs et les fichiers de votre site.</h2>
+        <p class="intro">Une erreur s’affiche, une image ne charge pas, la page déborde de l’écran : suivez un exemple concret, étape par étape. MTX Viewer vous montre d’où vient le problème, dans le code, les fichiers chargés ou l’élément concerné.</p>
+      </div>
+      <div class="enveloppe histoire">
+        <ol class="etapes">
+          <li class="etape" data-etape="console" data-signal="erreur">
+            <p class="etape-onglet"><span class="pastille" aria-hidden="true"></span>Console</p>
+            <h3>Repérez l’erreur et la ligne concernée.</h3>
+            <p>La console affiche les erreurs de la page, les fichiers manquants et les messages du site. Vous pouvez aussi y tester du code JavaScript et voir le résultat aussitôt.</p>
+            <p class="preuve"><span>TypeError: null is not an object</span><span>script.js:13:43</span></p>
+            <figure class="etape-ecran"><div class="iphone"><img src="assets/img/ecrans/console.webp" srcset="assets/img/ecrans/console-360.webp 360w, assets/img/ecrans/console.webp 720w" sizes="(min-width: 960px) 340px, 64vw" width="720" height="1561" loading="lazy" decoding="async" alt="Onglet Console : quatre messages, dont un avertissement et une erreur TypeError surlignée en rouge."></div></figure>
+          </li>
+          <li class="etape" data-etape="reseau" data-signal="erreur">
+            <p class="etape-onglet"><span class="pastille" aria-hidden="true"></span>Réseau</p>
+            <h3>Voyez quels fichiers la page charge.</h3>
+            <p>Images, polices, styles et scripts&nbsp;: repérez ceux qui ne se chargent pas et consultez leur taille.</p>
+            <p class="preuve"><span>lune-display.woff2</span><span>404</span></p>
+            <figure class="etape-ecran"><div class="iphone"><img src="assets/img/ecrans/reseau.webp" srcset="assets/img/ecrans/reseau-360.webp 360w, assets/img/ecrans/reseau.webp 720w" sizes="(min-width: 960px) 340px, 64vw" width="720" height="1561" loading="lazy" decoding="async" alt="Onglet Réseau : neuf requêtes avec leur statut et leur poids ; la police lune-display.woff2 est en erreur 404."></div></figure>
+          </li>
+          <li class="etape" data-etape="debordement" data-signal="erreur">
+            <p class="etape-onglet"><span class="pastille" aria-hidden="true"></span>Audit</p>
+            <h3>La page dépasse de l’écran&nbsp;? Trouvez l’élément responsable.</h3>
+            <p>L’audit mesure le dépassement et vous conduit directement à la partie trop large.</p>
+            <p class="preuve"><span>table.planning</span><span>490&nbsp;px pour 402</span></p>
+            <figure class="etape-ecran"><div class="iphone"><img src="assets/img/ecrans/debordement.webp" srcset="assets/img/ecrans/debordement-360.webp 360w, assets/img/ecrans/debordement.webp 720w" sizes="(min-width: 960px) 340px, 64vw" width="720" height="1561" loading="lazy" decoding="async" alt="Audit, rubrique Responsive et mobile : débordement horizontal de 490 px pour 402 px, causé par table.planning qui déborde de 88 px."></div></figure>
+          </li>
+          <li class="etape" data-etape="regle" data-signal="selection">
+            <p class="etape-onglet"><span class="pastille" aria-hidden="true"></span>Éléments</p>
+            <h3>Touchez une partie pour voir sa taille et son style.</h3>
+            <p>Consultez ses dimensions, son apparence et les réglages qui la modifient. Essayez une valeur avant de changer le fichier.</p>
+            <p class="preuve"><span>.planning</span><span>min-width: 470px</span></p>
+            <figure class="etape-ecran"><div class="iphone"><img src="assets/img/ecrans/regle.webp" srcset="assets/img/ecrans/regle-360.webp 360w, assets/img/ecrans/regle.webp 720w" sizes="(min-width: 960px) 340px, 64vw" width="720" height="1561" loading="lazy" decoding="async" alt="Détail de l’élément table.planning : 470 px de large, 165 px de haut, et la règle CSS .planning avec min-width 470px."></div></figure>
+          </li>
+          <li class="etape" data-etape="source" data-signal="selection">
+            <p class="etape-onglet"><span class="pastille" aria-hidden="true"></span>Source</p>
+            <h3>Consultez le code de la page.</h3>
+            <p>Affichez le fichier d’origine ou la page telle qu’elle apparaît après chargement. Le code est coloré, numéroté et facile à copier.</p>
+            <p class="preuve"><span>Fichier</span><span>DOM actuel</span></p>
+            <figure class="etape-ecran"><div class="iphone"><img src="assets/img/ecrans/source.webp" srcset="assets/img/ecrans/source-360.webp 360w, assets/img/ecrans/source.webp 720w" sizes="(min-width: 960px) 340px, 64vw" width="720" height="1463" loading="lazy" decoding="async" alt="Onglet Source : le fichier index.html d’Atelier Lune, coloré et numéroté ligne par ligne."></div></figure>
+          </li>
+        </ol>
+        <div class="histoire-telephone" aria-hidden="true">
+          <div class="iphone iphone-colle" data-inspecter data-nom="div.iphone">
+            <img data-ecran="console" class="actif" src="assets/img/ecrans/console.webp" srcset="assets/img/ecrans/console-360.webp 360w, assets/img/ecrans/console.webp 720w" sizes="340px" width="720" height="1561" alt="" loading="lazy" decoding="async">
+            <img data-ecran="reseau" src="assets/img/ecrans/reseau.webp" srcset="assets/img/ecrans/reseau-360.webp 360w, assets/img/ecrans/reseau.webp 720w" sizes="340px" width="720" height="1561" alt="" loading="lazy" decoding="async">
+            <img data-ecran="debordement" src="assets/img/ecrans/debordement.webp" srcset="assets/img/ecrans/debordement-360.webp 360w, assets/img/ecrans/debordement.webp 720w" sizes="340px" width="720" height="1561" alt="" loading="lazy" decoding="async">
+            <img data-ecran="regle" src="assets/img/ecrans/regle.webp" srcset="assets/img/ecrans/regle-360.webp 360w, assets/img/ecrans/regle.webp 720w" sizes="340px" width="720" height="1561" alt="" loading="lazy" decoding="async">
+            <img data-ecran="source" src="assets/img/ecrans/source.webp" srcset="assets/img/ecrans/source-360.webp 360w, assets/img/ecrans/source.webp 720w" sizes="340px" width="720" height="1463" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="histoire-compteur" data-compteur>1 / 5</p>
+        </div>
+      </div>
+      <div class="enveloppe deboguer-aussi">
+        <p><strong>Et les données enregistrées</strong>&nbsp;: consultez les préférences et cookies propres à chaque site. Rien ne se mélange entre vos projets.</p>
+        <p><strong>Gardez l’historique</strong>&nbsp;: retrouvez les erreurs et les fichiers chargés d’une page à l’autre pour suivre un parcours complet.</p>
+      </div>
+    </section>
+
+    <section class="tailles champ-rendu" id="tailles" data-champ="rendu" aria-labelledby="titre-tailles">
+      <div class="enveloppe tailles-grille">
+        <div class="tailles-texte">
+        <p class="chemin">Tester plusieurs écrans</p>
+          <h2 id="titre-tailles" data-inspecter>Du téléphone au grand écran, testez l’affichage de votre site.</h2>
+          <p class="intro">Choisissez un format de téléphone, de tablette ou d’ordinateur : voyez comment la page s’y affiche, directement sur votre iPhone ou iPad. Repérez les textes trop petits, les menus qui se chevauchent ou les éléments qui dépassent, sans changer d’appareil.</p>
+          <div class="regle" role="group" aria-label="Choisir le format d’affichage">
+            <button type="button" class="regle-choix" data-largeur="402" aria-pressed="true"><span>Téléphone</span><small>402&nbsp;pt</small></button>
+            <button type="button" class="regle-choix" data-largeur="820" aria-pressed="false"><span>Tablette</span><small>820&nbsp;px</small></button>
+            <button type="button" class="regle-choix" data-largeur="1440" aria-pressed="false"><span>Ordinateur portable</span><small>1440&nbsp;px</small></button>
+            <button type="button" class="regle-choix" data-largeur="1920" aria-pressed="false"><span>Grand écran</span><small>1920&nbsp;px</small></button>
+          </div>
+          <div class="regle-graduee" aria-hidden="true" data-graduee>
+            <div class="regle-ticks"></div>
+            <div class="regle-curseur" data-regle-curseur></div>
+            <span class="regle-borne" style="--x: 0">0</span>
+            <span class="regle-borne" style="--x: .5">960</span>
+            <span class="regle-borne" style="--x: 1">1920&nbsp;px</span>
+          </div>
+          <p class="regle-lecture" aria-live="polite" data-lecture><strong>Téléphone</strong>&nbsp;: le site s’affiche à la largeur de votre iPhone.</p>
+        </div>
+        <figure class="tailles-demo">
+          <p class="tailles-onglet" aria-hidden="true"><span>atelier-lune · index.html</span><span data-largeur-affichee>402&nbsp;pt</span></p>
+          <div class="iphone iphone-vivant" data-inspecter data-nom="iframe">
+            <div class="iphone-fenetre" data-fenetre>
+              <iframe src="exemple/atelier-lune/index.html" title="Démonstration : site Atelier Lune affiché au format choisi" loading="lazy" tabindex="-1" data-cadre></iframe>
+            </div>
+          </div>
+          <figcaption>Essayez la même page à plusieurs formats&nbsp;: du téléphone au grand écran, directement dans cette démonstration.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="audit champ-graphite" id="audit" data-champ="graphite" aria-labelledby="titre-audit">
+      <div class="enveloppe audit-grille">
+        <div class="audit-texte">
+        <p class="chemin">Vérifier avant de partager</p>
+          <h2 id="titre-audit" data-inspecter>Avant la mise en ligne, un dernier contrôle.</h2>
+          <p class="intro">Avant de partager votre site, MTX Viewer vérifie les points souvent oubliés : affichage sur mobile, liens et images, taille des boutons, informations de partage et erreurs de la page. Un score résume ce qui fonctionne et ce qui mérite votre attention.</p>
+          <p class="nuance">Ce contrôle aide à repérer les oublis courants. Il ne remplace pas une vérification complète de l’accessibilité ou des performances.</p>
+          <div class="score" data-score-bloc>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="score-fond" cx="60" cy="60" r="52" /><circle class="score-arc" cx="60" cy="60" r="52" pathLength="100" data-score-arc /></svg>
+            <p class="score-valeur"><span data-score data-cible="60">60</span><small>Score qualité</small></p>
+            <ul class="score-compte" aria-label="11 contrôles réussis, 8 à revoir, 6 problèmes">
+              <li data-s="ok">11</li><li data-s="avert">8</li><li data-s="erreur">6</li>
+            </ul>
+            <p class="score-legende">Exemple&nbsp;: Atelier Lune, rendu mobile</p>
+          </div>
+        </div>
+        <div class="rapport" data-rapport>
+          <p class="rapport-titre">Extrait du rapport</p>
+          <section class="rapport-groupe" aria-labelledby="g-seo">
+            <h3 id="g-seo">Page et partage</h3>
+            <ul>
+              <li data-s="ok"><span class="s">Réussi</span>Titre (42 caractères)</li>
+              <li data-s="ok"><span class="s">Réussi</span>Description dans les résultats (102 caractères)</li>
+              <li data-s="ok"><span class="s">Réussi</span>Un seul titre principal</li>
+              <li data-s="ok"><span class="s">Réussi</span>Titres bien organisés</li>
+              <li data-s="ok"><span class="s">Réussi</span>Langue du site indiquée&nbsp;: français</li>
+              <li data-s="avert"><span class="s">À revoir</span>Aperçu de partage à compléter <em>pour WhatsApp ou LinkedIn</em></li>
+              <li data-s="avert"><span class="s">À revoir</span>Adresse principale de la page non précisée</li>
+              <li data-s="avert"><span class="s">À revoir</span>Icône du site manquante</li>
+              <li data-s="info"><span class="s">Info</span>Informations supplémentaires pour les moteurs de recherche absentes</li>
+            </ul>
+          </section>
+          <section class="rapport-groupe" aria-labelledby="g-resp">
+            <h3 id="g-resp">Affichage sur téléphone</h3>
+            <ul>
+              <li data-s="ok"><span class="s">Réussi</span>Affichage adapté à la largeur de l’écran</li>
+              <li data-s="erreur"><span class="s">Problème</span>La page dépasse sur les côtés (490&nbsp;px pour 402&nbsp;px)</li>
+              <li data-s="avert"><span class="s">À revoir</span>5 éléments difficiles à toucher (moins de 44&nbsp;px) <em>Apple recommande 44 × 44&nbsp;px minimum</em></li>
+            </ul>
+          </section>
+          <section class="rapport-groupe" aria-labelledby="g-a11y">
+            <h3 id="g-a11y">Accessibilité</h3>
+            <ul>
+              <li data-s="erreur"><span class="s">Problème</span>1 image à décrire pour les outils de lecture d’écran</li>
+              <li data-s="avert"><span class="s">À revoir</span>1 champ à nommer pour les outils d’assistance</li>
+              <li data-s="ok"><span class="s">Réussi</span>Les boutons ont une description claire</li>
+            </ul>
+          </section>
+          <p class="rapport-aussi">Le rapport vérifie aussi que les images ne manquent pas ou ne sont pas trop lourdes, que les liens fonctionnent, que les scripts ne signalent pas d’erreur et que les fichiers se chargent correctement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="films champ-graphite suite" data-champ="graphite" aria-labelledby="titre-films">
+      <div class="enveloppe">
+        <div class="tete">
+          <p class="chemin">Voir MTX Viewer en action</p>
+          <h2 id="titre-films" data-inspecter>Trois vidéos, moins d’une minute.</h2>
+          <p class="intro">Ouvrir un site, repérer ce qui pose problème, tester son affichage sur téléphone, tablette ou ordinateur : regardez l’app à l’œuvre.</p>
+        </div>
+        <div class="films-rangee">
+          <figure class="film">
+            <div class="iphone">
+              <video data-video muted playsinline loop controls preload="none" width="600" height="1300" data-poster="assets/video/ouvrir-et-inspecter.webp" aria-label="Vidéo sans son : ouvrir un site depuis la bibliothèque et commencer à l’explorer.">
+                <source src="assets/video/ouvrir-et-inspecter.mp4" type="video/mp4">
+              </video>
+              <button type="button" class="film-bouton" data-film-bouton hidden><span class="visuellement-cache">Lire la vidéo</span></button>
+            </div>
+            <figcaption><span>01</span>Ouvrir un site <small>16&nbsp;s</small></figcaption>
+          </figure>
+          <figure class="film">
+            <div class="iphone">
+              <video data-video muted playsinline loop controls preload="none" width="600" height="1300" data-poster="assets/video/auditer-la-page.webp" aria-label="Vidéo sans son : vérifier une page et repérer les points à revoir.">
+                <source src="assets/video/auditer-la-page.mp4" type="video/mp4">
+              </video>
+              <button type="button" class="film-bouton" data-film-bouton hidden><span class="visuellement-cache">Lire la vidéo</span></button>
+            </div>
+            <figcaption><span>02</span>Vérifier une page <small>22&nbsp;s</small></figcaption>
+          </figure>
+          <figure class="film">
+            <div class="iphone">
+              <video data-video muted playsinline loop controls preload="none" width="600" height="1300" data-poster="assets/video/elements-et-tailles.webp" aria-label="Vidéo sans son : toucher une partie de la page puis tester plusieurs tailles d’écran.">
+                <source src="assets/video/elements-et-tailles.mp4" type="video/mp4">
+              </video>
+              <button type="button" class="film-bouton" data-film-bouton hidden><span class="visuellement-cache">Lire la vidéo</span></button>
+            </div>
+            <figcaption><span>03</span>Tester d’autres écrans <small>17&nbsp;s</small></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="montrer champ-rendu" data-champ="rendu" aria-labelledby="titre-montrer">
+      <div class="enveloppe montrer-grille">
+        <figure class="montrer-ecran">
+          <div class="iphone" data-inspecter data-nom="figure.iphone">
+            <img src="assets/img/ecrans/presentation.webp" srcset="assets/img/ecrans/presentation-360.webp 360w, assets/img/ecrans/presentation.webp 720w" sizes="(min-width: 960px) 320px, 72vw" width="720" height="1463" loading="lazy" decoding="async" alt="Menu Plus de MTX Viewer : Mode présentation, Capture d’écran, Exporter la page en PDF, Page d’accueil du site, Index du dossier, Vider cache et stockage, Inspecter avec Safari (Mac).">
+          </div>
+        </figure>
+        <div class="montrer-texte">
+          <p class="chemin">Présenter et partager</p>
+          <h2 id="titre-montrer" data-inspecter>Présentez votre site en plein écran, capturez-le ou partagez-le en PDF.</h2>
+          <p class="intro">Un client, un collègue, un ami à convaincre ? Montrez la page sans les outils d’inspection, ou envoyez-lui une capture et un document PDF.</p>
+          <dl class="liste-fonctions">
+            <div><dt>Mode présentation</dt><dd>Affichez la page en plein écran, sans la barre ni les outils de MTX Viewer.</dd></div>
+            <div><dt>Capture et PDF</dt><dd>Enregistrez une image de la page ou créez un document PDF à partager.</dd></div>
+            <div><dt>La bibliothèque</dt><dd>Retrouvez vos sites au même endroit, chacun avec son aperçu. Ceux enregistrés sur votre appareil restent accessibles même sans connexion.</dd></div>
+            <div><dt>Safari sur Mac, si besoin</dt><dd>Pour aller plus loin, reliez la page ouverte dans MTX Viewer à l’inspecteur web de Safari sur votre Mac.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="questions champ-rendu suite" id="questions" data-champ="rendu" aria-labelledby="titre-questions">
+      <div class="enveloppe questions-grille">
+        <div class="questions-cote">
+          <p class="chemin">Questions fréquentes</p>
+          <h2 id="titre-questions" data-inspecter>Questions fréquentes.</h2>
+          <div class="confiance">
+            <h3>Vos fichiers restent sur votre iPhone ou iPad.</h3>
+            <p>MTX Viewer ouvre vos dossiers directement sur l’appareil, sans compte ni envoi vers un serveur. Quand vous ouvrez un site en ligne, il utilise Internet pour charger cette page.</p>
+            <p class="confiance-detail">Chaque site garde ses propres cookies et préférences&nbsp;: ses données ne se mélangent pas avec celles des autres.</p>
+          </div>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Quels sites peut-on ouvrir&#8239;?</summary>
+            <p>Un site déjà en ligne, un fichier HTML seul ou un dossier de site. Pour un projet en cours, ouvrez son adresse sur le même réseau Wi-Fi. Les sites construits en HTML, CSS et JavaScript peuvent aussi s’ouvrir directement depuis leurs fichiers.</p>
+          </details>
+          <details>
+            <summary>Faut-il un Mac&#8239;?</summary>
+            <p>Non. MTX Viewer inclut les outils pour explorer et vérifier un site sur iPhone ou iPad. Un Mac sert seulement si vous voulez utiliser l’inspecteur de Safari ou ouvrir un projet lancé sur cet ordinateur.</p>
+          </details>
+          <details>
+            <summary>Mes modifications apparaissent-elles tout de suite&#8239;?</summary>
+            <p>Oui. Si vous avez ouvert un dossier, enregistrez vos changements puis rechargez la page dans MTX Viewer. Si votre projet est lancé sur un ordinateur du même réseau Wi-Fi, rechargez-le comme d’habitude.</p>
+          </details>
+          <details>
+            <summary>Peut-on tester du code dans l’app&#8239;?</summary>
+            <p>Oui. La console permet d’exécuter du JavaScript sur la page ouverte et d’en voir le résultat. Elle affiche aussi les erreurs et les fichiers qui n’ont pas pu se charger.</p>
+          </details>
+          <details>
+            <summary>L’audit garantit-il que mon site est prêt&#8239;?</summary>
+            <p>Non. Il repère les oublis fréquents avant de partager le site, mais ne remplace pas une vérification complète de l’accessibilité ou des performances.</p>
+          </details>
+          <details>
+            <summary>Sur quels appareils&#8239;?</summary>
+            <p>iPhone et iPad, avec iOS 27 ou plus récent. L’app est en préparation pour l’App Store.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="fin champ-bleu" data-champ="bleu" aria-labelledby="titre-fin">
+      <div class="enveloppe">
+        <h2 class="titre-geant titre-fin" id="titre-fin" data-fit>
+          <span class="ligne"><span>Bientôt, explorez</span></span>
+          <span class="ligne"><span>vos sites sous tous</span></span>
+          <span class="ligne"><span>leurs angles.</span></span>
+        </h2>
+        <div class="fin-pied">
+          <p>MTX Viewer arrive bientôt sur l’App Store pour iPhone et iPad. Vous avez un site à tester ou une question&nbsp;? Écrivez à MTX Studio.</p>
+          <div class="actions">
+            <a class="bouton bouton-craie" href="mailto:mtxstudio@proton.me?subject=MTX%20Viewer%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20MTX%20Viewer%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu de la sortie</a>
+            <a class="bouton bouton-trait" href="#haut" data-revoir-envers>Revoir la démonstration</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied champ-graphite">
+    <div class="enveloppe pied-grille">
+      <p class="pied-marque"><img src="assets/img/icone.webp" width="28" height="28" alt=""><span>MTX Viewer, conçu par <a href="https://mtx-developpement.fr/">MTX Studio</a>.</span></p>
+      <p>Les écrans et les vidéos sont des captures de l’app. Atelier Lune est un site d’exemple&nbsp;; ses photos viennent d’Unsplash (Chloe Bolton, Viviane Okubo, Annie Spratt, Stephanie Sarlos).</p>
+      <p>Apple, iPhone, iPad, Safari, iCloud Drive et App Store sont des marques d’Apple Inc. © 2026 MTX Studio.</p>
+    </div>
+  </footer>
+
+  <div class="cadre-inspection" data-cadre-inspection aria-hidden="true"><span></span></div>
+<section class="mtx-pf" data-mtx-app="MTX Viewer" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-viewer.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">MTX Viewer vérifie qu’un site web s’affiche bien partout, depuis un iPhone.</h2>
+    <p class="mtx-pf-sub">Une idée d’application ? MTX Studio conçoit l’app et son site avec le même soin, de la première idée à la mise en ligne.</p>
+    <p class="mtx-pf-tags">App iPhone et iPad · Développement web<br>SwiftUI · WebKit</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../volta/"><img src="../../assets/img/realisations/icone-volta.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Volta</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20MTX%20Viewer&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20MTX%20Viewer%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20MTX%20Viewer&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20MTX%20Viewer%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

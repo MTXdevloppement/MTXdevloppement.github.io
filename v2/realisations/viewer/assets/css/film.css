@@ -1,0 +1,77 @@
+/* MTX Viewer — le film de présentation (16:9, 58 s, avec musique), entre le constat et « Ouvrir un site ».
+   Lecteur commun : ../../assets/css/film.css et ../../assets/js/film.js. Ici : la place du film, ses chapitres et
+   l'habillage des commandes. Le film est en paysage : il prend toute la largeur, sans dépasser la hauteur de
+   l'écran, et ses chapitres forment une frise dont chaque segment a la durée de sa scène. */
+
+.presentation-film {
+  --mtx-film-marge: clamp(10px, 1.5vw, 18px);
+  width: min(100%, max(560px, (100svh - var(--barre-h) - 190px) * 16 / 9));
+  margin: clamp(32px, 4.4vw, 60px) auto 0;
+}
+.presentation-cadre {
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  box-shadow: 0 40px 70px -40px rgba(0, 0, 0, .8);
+}
+.presentation-cadre::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+}
+
+/* Commandes posées sur le film : toujours sombres, comme les boutons des vidéos de la page. */
+.presentation-film .mtx-film-commandes button {
+  height: 44px; border-radius: 22px;
+  background: rgba(9, 9, 10, .72); color: #f4f4f2;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16);
+  transition: background-color .2s var(--ease);
+}
+.presentation-film .mtx-film-son { padding: 0 17px 0 13px; font-family: var(--texte); font-size: 15px; font-weight: 620; font-stretch: 100%; }
+.presentation-film[data-regarde] .mtx-film-son { width: 44px; padding: 0; }
+.presentation-film .mtx-film-commandes button:focus-visible { outline: 2px solid #f4f4f2; outline-offset: 3px; }
+@media (hover: hover) { .presentation-film .mtx-film-commandes button:hover { background: rgba(9, 9, 10, .92); } }
+.presentation-film .mtx-film-fil { height: 2px; background: #f4f4f2; }
+
+/* La frise des chapitres */
+.presentation-chapitres { position: relative; display: flex; gap: 6px; margin-top: 14px; }
+/* Chaque segment a la durée de sa scène, sans descendre sous la largeur de son libellé. */
+.presentation-chapitres li { flex: var(--d, 1) 1 0; min-width: min-content; }
+.presentation-chapitres button {
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  width: 100%; min-height: 44px; padding: 12px 0 2px;
+  border: 0; background: none; cursor: pointer; text-align: left;
+  font-family: var(--mono); font-size: 11.5px; font-stretch: 87.5%; line-height: 1.3; white-space: nowrap;
+  color: var(--gris);
+  transition: color .2s var(--ease);
+}
+.presentation-chapitres button span { color: var(--gris-nuit); }
+.presentation-chapitres button::before,
+.presentation-chapitres button::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+}
+.presentation-chapitres button::before { background: var(--ligne); }
+.presentation-chapitres button::after { background: var(--craie); transform-origin: left; transform: scaleX(var(--p, 0)); }
+.presentation-chapitres [aria-current="true"] { color: var(--craie); }
+@media (hover: hover) { .presentation-chapitres button:hover { color: var(--craie); } }
+html:not(.js) .presentation-chapitres { display: none; }
+
+/* Téléphone et tablette : la frise devient une rangée que l'on fait glisser ; le chapitre en cours reste en vue. */
+@media (max-width: 999px) {
+  .presentation-chapitres {
+    gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    margin-inline: calc(var(--gouttiere) * -1); padding-inline: var(--gouttiere);
+    scroll-padding-inline: var(--gouttiere);
+  }
+  .presentation-chapitres::-webkit-scrollbar { display: none; }
+  .presentation-chapitres li { flex: 0 0 auto; width: 132px; scroll-snap-align: start; }
+}
+/* Sur téléphone, le film paysage est petit : des commandes plus compactes, pour lui laisser l'image. */
+@media (max-width: 600px) {
+  .presentation-film { --mtx-film-marge: 8px; }
+  .presentation-film .mtx-film-commandes { gap: 6px; }
+  .presentation-film .mtx-film-commandes button { min-width: 36px; min-height: 36px; height: 36px; border-radius: 18px; }
+  .presentation-film .mtx-film-commandes svg { width: 18px; height: 18px; }
+  .presentation-film .mtx-film-son { font-size: 13.5px; padding: 0 12px 0 9px; gap: 6px; }
+  .presentation-film[data-regarde] .mtx-film-son { width: 36px; }
+}

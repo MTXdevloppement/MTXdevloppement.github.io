@@ -1,0 +1,83 @@
+/* Sténo — le film de présentation (9:16, 30 s, avec musique), au repère 1:21, entre l'écran d'accueil et les questions :
+   après les démonstrations, tout Sténo d'un trait. Lecteur commun : ../../assets/css/film.css et ../../assets/js/film.js.
+   Ici : la place du film et l'habillage, sur le modèle de « Raccourcis » : les chapitres à gauche, le film à droite sur
+   ordinateur ; sur téléphone, le film d'abord, puis les chapitres en pastilles. Ce film-là n'existe qu'en clair. */
+
+.pres { display: grid; gap: 28px; margin-top: clamp(36px, 5vw, 60px); align-items: center; }
+@media (min-width: 900px) { .pres { grid-template-columns: minmax(0, 1fr) auto; gap: clamp(40px, 7vw, 110px); } }
+@media (max-width: 899px) { .pres-film { order: -1; } }
+
+.pres-film {
+  --mtx-film-marge: 12px;
+  justify-self: center;
+  width: min(100%, 380px, (100svh - 160px) * 9 / 16);
+}
+@media (min-width: 900px) { .pres-film { width: clamp(260px, min(27vw, (100vh - 150px) * 9 / 16), 380px); } }
+.pres-cadre {
+  aspect-ratio: 9 / 16;
+  border-radius: clamp(26px, 3.2vw, 40px);
+  background: var(--papier-2);
+  box-shadow: var(--ombre-forte);
+}
+.pres-cadre::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  border-radius: inherit; box-shadow: inset 0 0 0 1px var(--filet);
+}
+
+/* Commandes en verre, comme le bouton de lecture des autres films de la page. */
+.pres-film .mtx-film-commandes button {
+  height: 44px; border-radius: 999px;
+  color: var(--encre); background: var(--verre);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6); backdrop-filter: blur(14px) saturate(1.6);
+  box-shadow: inset 0 0 0 1px var(--verre-bord), 0 6px 16px -6px rgba(0, 0, 0, .35);
+  transition: transform .3s var(--ressort);
+}
+.pres-film .mtx-film-commandes button:active { transform: scale(.94); }
+.pres-film .mtx-film-commandes svg { width: 18px; height: 18px; }
+.pres-film .mtx-film-son { padding: 0 16px 0 12px; font-size: 14.5px; font-weight: 600; letter-spacing: -.01em; }
+.pres-film .mtx-film-son svg { color: var(--rouge); }
+.pres[data-regarde] .mtx-film-son { width: 44px; padding: 0; }
+.pres-film .mtx-film-fil { height: 3px; background: var(--rouge); }
+
+/* Les chapitres : le repère de temps, la scène et sa phrase ; celle en cours avance en rouge. */
+.pres-chapitres { display: grid; gap: 4px; }
+.pres-chapitres button {
+  position: relative;
+  display: flex; gap: 14px; align-items: flex-start;
+  width: 100%; padding: 13px 16px; border-radius: 18px; text-align: left;
+  transition: background-color .3s, box-shadow .3s;
+}
+.pres-chapitres button:hover { background: var(--papier-2); }
+.pres-chapitres [aria-current="true"] { background: var(--carte); box-shadow: inset 0 0 0 1px var(--filet), var(--ombre); }
+.pres-t {
+  flex: none; display: grid; place-items: center; min-width: 48px; height: 28px; padding: 0 8px; border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px var(--filet); color: var(--doux);
+  font: 500 12.5px/1 var(--mono); font-variant-numeric: tabular-nums;
+  transition: background-color .3s, color .3s, box-shadow .3s;
+}
+[aria-current="true"] .pres-t { background: var(--rouge); color: var(--sur-rouge); box-shadow: none; }
+.pres-chapitres b { display: block; font: 700 19px/1.25 var(--sans); letter-spacing: -.02em; }
+.pres-chapitres small { display: block; margin-top: 3px; color: var(--doux); font-size: 15px; line-height: 1.4; }
+.pres-chapitres button::after {
+  content: ""; position: absolute; left: 78px; right: 16px; bottom: 0; height: 2px; border-radius: 2px;
+  background: var(--rouge); transform-origin: left; transform: scaleX(var(--p, 0));
+  opacity: 0; transition: opacity .3s;
+}
+.pres-chapitres [aria-current="true"]::after { opacity: 1; }
+html:not(.js) .pres-chapitres { display: none; }
+
+@media (max-width: 899px) {
+  .pres-chapitres {
+    display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gout)); padding: 4px var(--gout) 10px; scroll-padding-inline: var(--gout);
+  }
+  .pres-chapitres::-webkit-scrollbar { display: none; }
+  .pres-chapitres li { flex: none; scroll-snap-align: start; }
+  .pres-chapitres button {
+    align-items: center; gap: 10px; width: auto; padding: 7px 16px 7px 7px;
+    border-radius: 999px; box-shadow: inset 0 0 0 1px var(--filet); white-space: nowrap;
+  }
+  .pres-chapitres small { display: none; }
+  .pres-chapitres b { font-size: 16px; }
+  .pres-chapitres button::after { left: 16px; right: 16px; bottom: 3px; }
+}

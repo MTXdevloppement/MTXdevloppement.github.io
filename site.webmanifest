@@ -1,7 +1,7 @@
 {
   "name": "MTX Studio",
   "short_name": "MTX Studio",
-  "description": "Applications natives pour iPhone, iPad, Apple Watch et Mac, chacune avec son site.",
+  "description": "Apps pour iPhone, iPad, Apple Watch et Mac, logiciels sur mesure et applications web, chacun avec son site.",
   "lang": "fr",
   "start_url": "/",
   "scope": "/",

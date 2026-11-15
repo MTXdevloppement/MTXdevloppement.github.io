@@ -1,7 +1,7 @@
-# MTX Studio : généré par outils/integrer_realisations.py
+# MTX Studio
 User-agent: *
 Allow: /
-# Sources des films de Sténo : des pages de travail, pas des pages du site.
+# Outils de fabrication des films : des pages de travail, pas des pages du site.
 Disallow: /outils/
 
 Sitemap: https://mtx-developpement.fr/sitemap.xml

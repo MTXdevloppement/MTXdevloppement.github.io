@@ -358,7 +358,11 @@
     };
     themeButtons.forEach((btn) => btn.addEventListener('click', () => {
       const next = current() === 'dark' ? 'light' : 'dark';
-      if (document.startViewTransition && !reduceMotion) document.startViewTransition(() => apply(next));
+      if (document.startViewTransition && !reduceMotion) {
+        // Une transition interrompue (double clic, onglet masqué) ne doit pas laisser d’erreur.
+        const vt = document.startViewTransition(() => apply(next));
+        [vt.ready, vt.finished, vt.updateCallbackDone].forEach((p) => p && p.catch(() => {}));
+      }
       else apply(next);
       announce(next === 'dark' ? 'Thème sombre activé.' : 'Thème clair activé.');
     }));

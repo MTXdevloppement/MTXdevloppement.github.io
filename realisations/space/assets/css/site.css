@@ -15,6 +15,7 @@
   --courbe: cubic-bezier(.2, .8, .1, 1);
   --rebond: cubic-bezier(.34, 1.56, .64, 1);
   --marge: clamp(20px, 5vw, 64px);
+  --page: 1240px; /* largeur commune : le logo de la pilule, le héros et les sections partagent le même bord gauche */
 
   /* L'aube */
   --fond: #f6f2ec;
@@ -81,7 +82,7 @@ kbd { font: 600 .82em var(--texte); padding: .12em .45em; border: 1px solid var(
 .bouton:active { transform: scale(.97); }
 
 /* Barre ----------------------------------------------------------------- */
-.barre { position: sticky; top: 12px; z-index: 100; display: flex; align-items: center; gap: 22px; width: min(1180px, calc(100% - 24px)); margin: 12px auto 0; padding: 7px 7px 7px 14px; border: 1px solid var(--filet); border-radius: 999px; background: color-mix(in srgb, var(--fond) 78%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); }
+.barre { position: sticky; top: 12px; z-index: 100; display: flex; align-items: center; gap: 22px; width: min(calc(min(var(--page), 100%) - 2 * var(--marge) + 30px), calc(100% - 24px)); margin: 12px auto 0; padding: 7px 7px 7px 14px; border: 1px solid var(--filet); border-radius: 999px; background: color-mix(in srgb, var(--fond) 78%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); }
 .marque { display: flex; align-items: center; gap: 10px; font: 700 17px/1 var(--titre); letter-spacing: -.02em; text-decoration: none; }
 .marque img { width: 32px; height: 32px; border-radius: 22.5%; }
 .barre-nav { display: flex; gap: 4px; margin-left: auto; }
@@ -91,7 +92,7 @@ kbd { font: 600 .82em var(--texte); padding: .12em .45em; border: 1px solid var(
 @media (max-width: 880px) { .barre-nav { display: none; } .barre-cta { margin-left: auto; } }
 
 /* Héros ----------------------------------------------------------------- */
-.heros { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: clamp(28px, 4vw, 72px); max-width: 1320px; min-height: min(calc(100svh - 56px), 980px); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--marge) clamp(56px, 7vw, 96px); }
+.heros { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: clamp(28px, 4vw, 72px); max-width: var(--page); min-height: min(calc(100svh - 56px), 980px); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--marge) clamp(56px, 7vw, 96px); }
 .ciel { position: absolute; inset: -90px 0 0; z-index: -1; overflow: hidden; pointer-events: none;
   background:
     radial-gradient(circle at 74% 46%, var(--halo), transparent 42%),
@@ -176,7 +177,7 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 
 /* Sections -------------------------------------------------------------- */
 .section { position: relative; padding: clamp(88px, 11vw, 160px) 0; }
-.enveloppe { max-width: 1240px; margin: 0 auto; padding: 0 var(--marge); }
+.enveloppe { max-width: var(--page); margin: 0 auto; padding: 0 var(--marge); }
 .etiquette { display: inline-flex; align-items: center; gap: 10px; color: var(--doux); font: 650 12px/1 var(--titre); letter-spacing: .12em; text-transform: uppercase; }
 .etiquette::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--encre); box-shadow: 0 0 0 4px var(--fond), 0 0 0 5px var(--filet); }
 .titre { max-width: 18ch; margin-top: 22px; font: 650 clamp(32px, 4.5vw, 62px)/1.02 var(--titre); letter-spacing: -.04em; text-wrap: balance; }
@@ -219,7 +220,9 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 @media (max-width: 860px) { .temps { grid-template-columns: 1fr; } }
 
 /* 02 Le score */
-.section-score { background: var(--fond-2); border-radius: clamp(28px, 4vw, 56px); margin: 0 clamp(8px, 1.4vw, 20px); }
+.section-score { --m: clamp(8px, 1.4vw, 20px); background: var(--fond-2); border-radius: clamp(28px, 4vw, 56px); margin: 0 var(--m); }
+/* Le panneau est en retrait de --m : son contenu le compense pour garder le bord commun. */
+.section-score .enveloppe { max-width: calc(var(--page) - 2 * var(--m)); padding-inline: calc(var(--marge) - var(--m)); }
 .points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 56px; }
 .point { position: relative; overflow: hidden; padding: 26px; border-radius: 26px; background: var(--fond); border: 1px solid var(--filet); }
 .point:nth-child(3n+2) { --d: .08s; }
@@ -239,6 +242,9 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .gamme h3 { font: 650 20px/1.2 var(--titre); letter-spacing: -.02em; }
 .gamme p { max-width: 36em; margin-top: 8px; opacity: .72; font-size: 15.5px; }
 .gamme-bouton { background: var(--fond); color: var(--encre); white-space: nowrap; }
+/* En sombre, le bloc n'est plus blanc : un dégradé violet, bordé d'or comme la note jouée. */
+:root[data-theme="dark"] .gamme { background: linear-gradient(120deg, #2a1660, #1a0f3e 55%, #241046); color: #f3eeff; box-shadow: inset 0 0 0 1px rgb(255 214 107 / 22%), 0 30px 60px -30px rgb(120 70 255 / 45%); }
+:root[data-theme="dark"] .gamme-bouton { background: #f3eeff; color: #1a0f3e; }
 .gamme-notes { display: flex; align-items: flex-end; gap: 6px; height: 64px; }
 .gamme-notes li { width: 12px; border-radius: 6px; background: currentColor; opacity: .2; transition: opacity .2s, scale .3s var(--rebond); transform-origin: bottom; }
 .gamme-notes li:nth-child(1) { height: 30%; } .gamme-notes li:nth-child(2) { height: 45%; } .gamme-notes li:nth-child(3) { height: 60%; } .gamme-notes li:nth-child(4) { height: 80%; } .gamme-notes li:nth-child(5) { height: 100%; }
@@ -317,7 +323,7 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 }
 
 /* 05 Écrans */
-.defile { display: flex; gap: clamp(16px, 2vw, 28px); margin-top: 56px; padding: 20px max(var(--marge), calc((100vw - 1240px) / 2 + var(--marge))) 40px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
+.defile { display: flex; gap: clamp(16px, 2vw, 28px); margin-top: 56px; padding: 20px max(var(--marge), calc((100vw - var(--page)) / 2 + var(--marge))) 40px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
 .defile::-webkit-scrollbar { display: none; }
 .defile.est-tire { cursor: grabbing; scroll-snap-type: none; }
 .cap { flex: none; width: clamp(200px, 21vw, 260px); scroll-snap-align: center; }

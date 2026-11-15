@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})(document.documentElement)</script>
+<title>Knowledge AI : l’assistant de recherche IA qui cite ses sources</title>
+<meta name="description" content="Knowledge AI répond à vos questions avec un modèle d’IA qui tourne sur le Mac : il lit Wikipédia et Wikidata, cite chaque affirmation et vérifie ses citations.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/knowledge-ai/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Knowledge AI — Une réponse, ses sources, chaque phrase vérifiée">
+<meta property="og:description" content="Un assistant de recherche documentaire dont le modèle d’IA tourne sur le Mac. Il explore Wikipédia et Wikidata, cite ses sources et contrôle chacune de ses citations.">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/knowledge-ai/">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/knowledge-ai/assets/img/og-knowledge-ai.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Knowledge AI : une réponse sourcée qui s’écrit, avec ses citations numérotées">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Knowledge AI — Une réponse, ses sources, chaque phrase vérifiée">
+<meta name="twitter:description" content="Un assistant de recherche documentaire dont le modèle d’IA tourne sur le Mac. Il explore Wikipédia et Wikidata, cite ses sources et contrôle chacune de ses citations.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/knowledge-ai/assets/img/og-knowledge-ai.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf8">
+<link rel="icon" href="assets/img/knowledge-ai-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/schibsted.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=1">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<script src="assets/js/site.js?v=1" defer></script>
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#app","name":"Knowledge AI","alternateName":"Knowledge AI V2","description":"Assistant personnel de recherche documentaire : un modèle d’IA local (Gemma 3 4B via Ollama) analyse la question, explore Wikipédia et Wikidata, sélectionne les passages utiles et rédige une réponse dont chaque affirmation cite sa source, puis vérifie ces citations.","applicationCategory":"ReferenceApplication","applicationSubCategory":"Recherche documentaire","operatingSystem":"macOS","softwareVersion":"2","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/knowledge-ai/","image":"https://mtx-developpement.fr/realisations/knowledge-ai/assets/img/icone-512.png","featureList":["Modèle d’IA local, Gemma 3 4B via Ollama","Exploration de Wikipédia et de Wikidata","Recherche hybride BM25 et embeddings, sélection MMR","Réponse diffusée en direct, citations numérotées","Vérification des citations et indice de fiabilité","Carte des connaissances, bibliothèque, historique","Comptes protégés, verrouillage, CSRF, SSRF et CSP"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#page","url":"https://mtx-developpement.fr/realisations/knowledge-ai/","name":"Knowledge AI : l’assistant de recherche IA qui cite ses sources","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Knowledge AI","item":"https://mtx-developpement.fr/realisations/knowledge-ai/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#questions","mainEntity":[{"@type":"Question","name":"Knowledge AI fonctionne-t-il sans Internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas entièrement. Le modèle d’IA, les embeddings, l’historique et la bibliothèque restent sur le Mac, mais la recherche documentaire interroge Wikipédia et Wikidata, ce qui demande une connexion."}},{"@type":"Question","name":"Peut-on faire confiance aux réponses ?","acceptedAnswer":{"@type":"Answer","text":"Elles sont ancrées sur des sources : chaque affirmation cite un passage, les citations vers des sources inexistantes sont retirées et chaque phrase citée est confrontée à son passage. Un indice de fiabilité et la liste des points à relire accompagnent la réponse. Le modèle peut se tromper : il faut garder un œil critique."}},{"@type":"Question","name":"Combien de temps prend une réponse ?","acceptedAnswer":{"@type":"Answer","text":"Sur un MacBook Pro M5, environ 20 secondes en mode Rapide, 30 en Standard et 45 en Approfondi, une fois le modèle chargé. Sur un Mac Intel sans GPU, comptez deux à trois minutes."}},{"@type":"Question","name":"Quelles données sont envoyées au modèle ?","acceptedAnswer":{"@type":"Answer","text":"Seulement le prénom (désactivable), les préférences et la mémoire que vous avez écrites, la question et les passages lus. Jamais le nom, l’identifiant ni le mot de passe. Et le modèle tourne sur le Mac."}},{"@type":"Question","name":"MTX Studio peut-il intégrer une IA locale dans mon outil ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Knowledge AI montre une chaîne complète : modèle local, recherche hybride, citations vérifiées et sécurité d’un service en ligne. Décrivez votre besoin à mtxstudio@proton.me."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-knowledge-ai">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Knowledge%20AI&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Knowledge%20AI%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre">
+  <a class="marque" href="#haut" aria-label="Knowledge AI, haut de page"><img src="assets/img/knowledge-ai-icone.svg" width="28" height="28" alt=""><span>Knowledge<em>AI</em></span></a>
+  <nav class="barre-nav" aria-label="Sections de la page">
+    <a href="#chaine">La chaîne</a>
+    <a href="#verification">Vérification</a>
+    <a href="#carte">La carte</a>
+    <a href="#local">En local</a>
+    <a href="#securite">Sécurité</a>
+  </nav>
+  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Une%20IA%20locale%20comme%20Knowledge%20AI&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Knowledge%20AI.%20Mon%20besoin%20%3A%0A%0A">Une IA pour mon outil&#8239;?</a>
+</header>
+
+<main id="contenu">
+
+  <section class="heros" id="haut" aria-labelledby="titre">
+    <div class="heros-texte">
+      <p class="surtitre"><span>Application web</span><span>IA locale</span><span>Recherche documentaire</span></p>
+      <h1 id="titre">Une réponse.<br><em>Ses sources.</em><br>Chaque phrase vérifiée.</h1>
+      <p class="chapo">Knowledge AI ne répond pas de mémoire. Il lit Wikipédia et Wikidata, choisit les passages utiles, rédige une réponse où chaque affirmation porte son numéro de source, puis contrôle lui-même ses citations. Le modèle d’IA tourne sur le Mac.</p>
+      <div class="actions">
+        <a class="bouton bouton-plein" href="#chaine">Suivre une recherche</a>
+        <a class="bouton bouton-trait" href="#verification">Tester la vérification</a>
+      </div>
+    </div>
+
+    <div class="heros-app">
+      <div class="app mtx-pose" data-mtx-pose data-app>
+        <div class="app-barre" aria-hidden="true"><span class="feux"><i></i><i></i><i></i></span><span class="adresse">127.0.0.1:5340</span></div>
+        <div class="app-corps">
+          <aside class="app-cote" aria-hidden="true">
+            <p class="cote-marque"><img src="assets/img/knowledge-ai-icone.svg" width="20" height="20" alt="">Knowledge <b>AI</b></p>
+            <p class="cote-nouveau">Nouvelle recherche</p>
+            <p class="cote-lien">Historique</p><p class="cote-lien">Bibliothèque</p><p class="cote-lien">Exploration</p>
+            <p class="cote-titre">Aujourd’hui</p>
+            <p class="cote-lien est-actif">Création de la France</p><p class="cote-lien">Fonctionnement de la fusion</p><p class="cote-lien">Origines de l’IA</p>
+            <p class="cote-modele"><i></i>gemma3:4b · prêt</p>
+          </aside>
+          <div class="app-principal">
+            <p class="question" data-question aria-live="off"><span data-question-texte>Comment a été créée la France&#8239;?</span><i class="caret"></i></p>
+            <p class="modes" aria-hidden="true"><span>Rapide</span><span class="est-actif">Standard</span><span>Approfondi</span></p>
+            <ol class="trace" data-trace aria-hidden="true">
+              <li data-etape="0"><span>Repérage</span><b>1,1 s</b></li>
+              <li data-etape="1"><span>Analyse de la question</span><b>4,8 s</b></li>
+              <li data-etape="2"><span>Exploration · 9 articles</span><b>6,2 s</b></li>
+              <li data-etape="3"><span>Passages · 46 lus, 6 retenus</span><b>0,9 s</b></li>
+              <li data-etape="4"><span>Rédaction</span><b data-tokens>38 tok/s</b></li>
+            </ol>
+            <div class="reponse" data-reponse></div>
+            <p class="fiabilite" data-fiabilite><span>Fiabilité 92&#8239;%</span>6 sources citées sur 6</p>
+          </div>
+          <aside class="app-sources" aria-hidden="true" data-sources>
+            <p class="sources-titre">Sources citées</p>
+          </aside>
+        </div>
+      </div>
+      <p class="legende">Interface reconstruite pour la page, sur une vraie question. Elle suit le thème de la page, comme l’app (Paramètres › Apparence).</p>
+    </div>
+  </section>
+
+  <!-- 01 La chaîne ============================================================ -->
+  <section class="section" id="chaine" aria-labelledby="titre-chaine">
+    <div class="enveloppe">
+      <p class="note-marge apparait">§ 1</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-chaine">Huit étapes, et aucune n’est cachée.</h2>
+        <p class="tete-texte apparait">Chaque ligne de la trace affichée pendant une recherche correspond à un événement réellement émis par le serveur. Environ 30 secondes en mode Standard sur un MacBook Pro M5.</p>
+      </div>
+      <ol class="chaine" data-chaine>
+        <li class="maillon apparait"><p class="maillon-n">0</p><div><h3>Repérage</h3><p>Une recherche Wikipédia sur les mots porteurs de sens donne de vrais titres d’articles. Les meilleurs se téléchargent pendant que le modèle réfléchit.</p></div><p class="maillon-t">≈ 1 s</p></li>
+        <li class="maillon apparait"><p class="maillon-n">1</p><div><h3>Analyse</h3><p>Gemma produit un plan structuré&#8239;: sujet, concepts, sous-questions, requêtes. Le format est imposé par un schéma et validé&#8239;; s’il déraille, il est réparé ou rejoué.</p></div><p class="maillon-t">≈ 5 s</p></li>
+        <li class="maillon apparait"><p class="maillon-n">2</p><div><h3>Plan</h3><p>Requêtes, sujet principal et concepts sont dédoublonnés, chaque sous-question aura sa couverture.</p></div><p class="maillon-t">instant</p></li>
+        <li class="maillon apparait"><p class="maillon-n">3</p><div><h3>Recherche</h3><p>Résumé, vignette et identifiant Wikidata en une requête, puis sélection des articles de départ par score de pertinence.</p></div><p class="maillon-t">3 à 9 s</p></li>
+        <li class="maillon apparait"><p class="maillon-n">4</p><div><h3>Exploration</h3><p>Lecture des articles section par section, liens suivis s’ils sont pertinents, sous budget de temps, de profondeur et de requêtes. Les faits datés viennent de Wikidata.</p></div><p class="maillon-t">compris</p></li>
+        <li class="maillon apparait"><p class="maillon-n">5</p><div><h3>Passages</h3><p>Découpage en passages d’environ 160 mots. Un premier tri BM25, puis des embeddings sur les meilleurs candidats, et une sélection qui garde de la diversité.</p></div><p class="maillon-t">≈ 1 s</p></li>
+        <li class="maillon apparait"><p class="maillon-n">6</p><div><h3>Rédaction</h3><p>Seules les phrases utiles de chaque passage sont transmises. La réponse s’écrit en direct, les citations vers des sources inexistantes sont retirées.</p></div><p class="maillon-t">10 à 32 s</p></li>
+        <li class="maillon apparait"><p class="maillon-n">7</p><div><h3>Vérification</h3><p>Sans IA&#8239;: chaque phrase citée est confrontée au passage qu’elle cite. Un indice de fiabilité et la liste des points à relire accompagnent la réponse.</p></div><p class="maillon-t">instant</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 02 Vérification ========================================================= -->
+  <section class="section section-verif" id="verification" aria-labelledby="titre-verif">
+    <div class="enveloppe">
+      <p class="note-marge apparait">§ 2</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-verif">Une citation, ça se contrôle.</h2>
+        <p class="tete-texte apparait">Pour chaque phrase, on mesure la part de ses mots porteurs de sens qu’on retrouve dans le passage cité. Choisissez une phrase&#8239;: le calcul se fait ici, dans votre navigateur, avec la même règle.</p>
+      </div>
+      <div class="verif apparait" data-verif>
+        <div class="verif-phrases" role="listbox" aria-label="Phrases de la réponse">
+          <button type="button" role="option" aria-selected="true" data-p="0">Le traité de Verdun, en 843, partage l’empire carolingien entre les trois petits-fils de Charlemagne<sup>1</sup>.</button>
+          <button type="button" role="option" aria-selected="false" data-p="1">Charles le Chauve reçoit la Francie occidentale, qui préfigure le royaume de France<sup>1</sup>.</button>
+          <button type="button" role="option" aria-selected="false" data-p="2">En 987, Hugues Capet est élu roi des Francs et fonde la dynastie capétienne<sup>2</sup>.</button>
+          <button type="button" role="option" aria-selected="false" data-p="3">Les Capétiens unifient aussitôt tout le territoire actuel de la France<sup>2</sup>.</button>
+        </div>
+        <div class="verif-source" aria-live="polite">
+          <p class="verif-ref" data-ref>[1] Traité de Verdun · Wikipédia</p>
+          <blockquote class="verif-passage" data-passage></blockquote>
+          <div class="verif-score">
+            <p class="verif-jauge"><i data-jauge></i></p>
+            <p><b data-score>—</b> <span data-verdict></span></p>
+          </div>
+          <p class="verif-mots" data-mots></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 La carte ============================================================= -->
+  <section class="section" id="carte" aria-labelledby="titre-carte">
+    <div class="enveloppe carte">
+      <div>
+        <p class="note-marge apparait">§ 3</p>
+        <h2 class="titre apparait" id="titre-carte">Ce que vous apprenez finit par se relier.</h2>
+        <p class="tete-texte apparait">La carte des connaissances relie les articles de votre bibliothèque&#8239;: traits pleins pour les liens internes de Wikipédia, pointillés pour les relations Wikidata. Plus un sujet revient dans vos recherches, plus il est central. Survolez un sujet.</p>
+      </div>
+      <div class="graphe apparait" data-graphe role="img" aria-label="Carte des connaissances : France, Clovis Ier, Moyen Âge, Antiquité, Intelligence artificielle, Fusion nucléaire, ITER, reliés entre eux"></div>
+    </div>
+  </section>
+
+  <!-- 04 Local =============================================================== -->
+  <section class="section section-local" id="local" aria-labelledby="titre-local">
+    <div class="enveloppe">
+      <p class="note-marge apparait">§ 4</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-local">Le modèle tourne sur le Mac. Le reste aussi.</h2>
+        <p class="tete-texte apparait">Gemma 3 4B via Ollama, une base SQLite, une interface Next.js et une API FastAPI qui n’écoutent que sur la machine. Seule la recherche documentaire sort, vers Wikipédia et Wikidata.</p>
+      </div>
+      <div class="durees apparait" data-durees>
+        <p class="durees-titre">Une réponse complète, modèle chargé (MacBook Pro M5)</p>
+        <div class="duree" style="--s:20"><span>Rapide</span><i></i><b>≈ 20 s</b></div>
+        <div class="duree" style="--s:30"><span>Standard</span><i></i><b>≈ 30 s</b></div>
+        <div class="duree" style="--s:45"><span>Approfondi</span><i></i><b>≈ 45 s</b></div>
+        <p class="durees-note">Même question, mode Standard&#8239;: 5 min 22 pour la V1 sur un Mac Intel, 3 min 02 pour la V2 sur le même Mac, environ 30 s sur M5. Le contexte envoyé au modèle est passé d’environ 2&#8239;500 à 1&#8239;700 tokens.</p>
+      </div>
+      <ul class="pile apparait">
+        <li><b>Modèle</b><span>Gemma 3 4B, embeddinggemma</span></li>
+        <li><b>Serveur</b><span>Python, FastAPI, SQLAlchemy, SQLite</span></li>
+        <li><b>Interface</b><span>Next.js 16, React 19, TypeScript, Tailwind 4</span></li>
+        <li><b>Recherche</b><span>BM25, embeddings, MMR, SPARQL</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 Sécurité ============================================================ -->
+  <section class="section" id="securite" aria-labelledby="titre-securite">
+    <div class="enveloppe">
+      <p class="note-marge apparait">§ 5</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-securite">Local, mais protégé comme un service en ligne.</h2>
+        <p class="tete-texte apparait">Une app qui lit le Web et parle à un modèle doit se méfier de ce qu’elle lit. 63 tests automatisés couvrent le pipeline complet, l’authentification et ces protections.</p>
+      </div>
+      <dl class="protections">
+        <div class="apparait"><dt>Mots de passe</dt><dd>Hachés en Argon2id, jamais stockés ni journalisés en clair.</dd></div>
+        <div class="apparait"><dt>Session</dt><dd>Cookie HttpOnly et SameSite strict&#8239;; seule l’empreinte du jeton est gardée.</dd></div>
+        <div class="apparait"><dt>Verrouillage</dt><dd>Appliqué par le serveur après inactivité, pas seulement par l’interface.</dd></div>
+        <div class="apparait"><dt>Requêtes sortantes</dt><dd>Liste blanche stricte&#8239;: Wikipédia et Wikidata en HTTPS, chaque redirection revérifiée.</dd></div>
+        <div class="apparait"><dt>Injection de consignes</dt><dd>Les documents lus sont encadrés et traités comme des données, jamais comme des ordres.</dd></div>
+        <div class="apparait"><dt>Interface</dt><dd>Politique de contenu stricte, anti-CSRF, limitation de débit sur la connexion et la recherche.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Questions ============================================================ -->
+  <section class="section" id="questions" aria-labelledby="titre-questions">
+    <div class="enveloppe faq">
+      <div>
+        <p class="note-marge apparait">§ 6</p>
+        <h2 class="titre apparait" id="titre-questions">Questions, avec leurs réponses.</h2>
+      </div>
+      <div class="faq-liste">
+        <details name="faq" open><summary><h3>Knowledge AI fonctionne-t-il sans Internet&#8239;?</h3></summary><p>Pas entièrement. Le modèle d’IA, les embeddings, l’historique et la bibliothèque restent sur le Mac, mais la recherche documentaire interroge Wikipédia et Wikidata, ce qui demande une connexion.</p></details>
+        <details name="faq"><summary><h3>Peut-on faire confiance aux réponses&#8239;?</h3></summary><p>Elles sont ancrées sur des sources&#8239;: chaque affirmation cite un passage, les citations vers des sources inexistantes sont retirées et chaque phrase citée est confrontée à son passage. Un indice de fiabilité et la liste des points à relire accompagnent la réponse. Le modèle peut se tromper&#8239;: il faut garder un œil critique.</p></details>
+        <details name="faq"><summary><h3>Combien de temps prend une réponse&#8239;?</h3></summary><p>Sur un MacBook Pro M5, environ 20 secondes en mode Rapide, 30 en Standard et 45 en Approfondi, une fois le modèle chargé. Sur un Mac Intel sans GPU, comptez deux à trois minutes.</p></details>
+        <details name="faq"><summary><h3>Quelles données sont envoyées au modèle&#8239;?</h3></summary><p>Seulement le prénom (désactivable), les préférences et la mémoire que vous avez écrites, la question et les passages lus. Jamais le nom, l’identifiant ni le mot de passe. Et le modèle tourne sur le Mac.</p></details>
+        <details name="faq"><summary><h3>MTX Studio peut-il intégrer une IA locale dans mon outil&#8239;?</h3></summary><p>Oui. Knowledge AI montre une chaîne complète&#8239;: modèle local, recherche hybride, citations vérifiées et sécurité d’un service en ligne. Décrivez votre besoin à <a href="mailto:mtxstudio@proton.me?subject=Une%20IA%20locale%20comme%20Knowledge%20AI&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Knowledge%20AI.%20Mon%20besoin%20%3A%0A%0A">mtxstudio@proton.me</a>.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Knowledge AI" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-knowledge-ai.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Knowledge AI répond avec une IA qui tourne sur le Mac, et cite chacune de ses sources.</h2>
+    <p class="mtx-pf-sub">Une IA utile, fiable et maîtrisée dans votre outil&#8239;? MTX Studio conçoit la chaîne complète, du modèle à l’interface.</p>
+    <p class="mtx-pf-tags">Application web · IA locale<br>Python · FastAPI · Next.js · React · Ollama · SQLite</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../steno/"><img src="../../assets/img/realisations/icone-steno.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Sténo</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Knowledge%20AI&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Knowledge%20AI%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Knowledge%20AI&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Knowledge%20AI%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

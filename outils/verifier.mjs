@@ -13,7 +13,7 @@ const ok = (cond, msg, grave = true) => { controles += 1; if (!cond) (grave ? er
 const pages = [];
 (function parcourir(d) {
   for (const f of readdirSync(d)) {
-    if (f.startsWith('.') || f === 'node_modules' || f === 'outils' || f === 'v2') continue;
+    if (f.startsWith('.') || f === 'node_modules' || f === 'outils') continue;
     const p = join(d, f);
     if (statSync(p).isDirectory()) parcourir(p);
     else if (f.endsWith('.html')) pages.push(p);

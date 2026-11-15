@@ -26,7 +26,7 @@
   const mailBody = $('[data-mail-body]');
   const captions = $$('[data-scene-caption]', document);
 
-  const MAIL = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AAppareils%20vis%C3%A9s%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%29%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
+  const MAIL = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28app%2C%20logiciel%2C%20site%20web%2C%20jeu%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
   const SHOT_MS = 2800;
   const IDLE = {
     name: 'L’écran d’accueil du studio',

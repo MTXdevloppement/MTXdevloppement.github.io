@@ -57,7 +57,7 @@
     const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const etroit = matchMedia('(max-width: 900px)');
     const app = pf.dataset.mtxApp;
-    const message = 'Bonjour Matheo,\n\n' + (app ? `J’ai découvert ${app} sur votre site. ` : '') + 'J’ai une idée d’application. Elle servirait à';
+    const message = 'Bonjour Matheo,\n\n' + (app ? `J’ai découvert ${app} sur votre site. ` : '') + 'J’ai une idée de projet. Il servirait à';
     const sc = document.createElement('div');
     sc.className = 'mtx-sc';
     sc.innerHTML = `<span class="mtx-sc-halo" aria-hidden="true"></span>
@@ -87,7 +87,7 @@
 <span class="mtx-montre-couronne"></span><span class="mtx-montre-bouton"></span>
 </span>
 </span></span>`;
-    sc.querySelector('.mtx-tel').href = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AAppareils%20vis%C3%A9s%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%29%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
+    sc.querySelector('.mtx-tel').href = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28app%2C%20logiciel%2C%20site%20web%2C%20jeu%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
     enveloppe.prepend(sc);
     enveloppe.classList.add('mtx-avec-sc');
 

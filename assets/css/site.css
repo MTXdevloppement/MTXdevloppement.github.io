@@ -257,7 +257,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-big {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(46px, min(13.4vw, 9.5vh), 76px); line-height: 0.94; letter-spacing: -0.045em;
+  font-size: clamp(40px, min(13.4vw, 9.5vh), 76px); line-height: 0.94; letter-spacing: -0.045em;
 }
 .hero-sub {
   display: block; max-width: 25em; margin-top: 18px; margin-bottom: 22px;

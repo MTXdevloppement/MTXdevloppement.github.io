@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Space</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "Space Unbounded"; src: url("../../../realisations/space/assets/fonts/unbounded.woff2") format("woff2"); font-weight: 200 900; }
+@font-face { font-family: "Space Onest"; src: url("../../../realisations/space/assets/fonts/onest.woff2") format("woff2"); font-weight: 100 900; }
+.scene { --fond: #0d0722; --encre: #f3eeff; --doux: rgb(243 238 255 / 70%); --pale: rgb(243 238 255 / 46%); --accent: #b9a2ff; --or: #ffb627; --gemme: #5ce1e6; --mine: #ff2e4d;
+  --titre: "Space Unbounded", sans-serif; --texte: "Space Onest", sans-serif; --titre-graisse: 650; --titre-espace: -.045em; }
+.titre em { color: var(--or); }
+.ciel { position: absolute; inset: 0; background: linear-gradient(180deg, var(--z1, #120a2e), var(--z2, #3b1c6e)); }
+.etoile { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff; }
+/* Le téléphone du film : mêmes proportions que celui du site, à l'échelle du cadre vertical. */
+.telephone { position: absolute; width: 560px; aspect-ratio: 9 / 19.4; padding: 18px; border-radius: 96px; background: linear-gradient(140deg, #8a8b91 0%, #2b2b2f 20%, #1a1a1d 52%, #333338 80%, #9a9ba1 100%); box-shadow: 0 80px 160px -40px rgb(0 0 0 / 85%), 0 0 0 2px rgb(255 255 255 / 8%) inset; }
+.tel-bord { position: relative; height: 100%; padding: 6px; border-radius: 80px; background: #050507; }
+.tel-ecran { position: relative; height: 100%; overflow: hidden; border-radius: 74px; background: #120a2e; }
+.tel-ecran canvas, .tel-ecran > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tel-ecran > img { z-index: 3; }
+.tel-ile { position: absolute; z-index: 4; left: 50%; top: 20px; width: 31%; height: 48px; border-radius: 30px; background: #000; transform: translateX(-50%); }
+.hud { position: absolute; inset: 0; z-index: 2; color: #fff; font-family: var(--titre); }
+.hud-etat { position: absolute; left: 30px; top: 92px; padding: 10px 18px; border-radius: 999px; background: rgb(255 255 255 / 14%); font: 650 19px/1 var(--titre); letter-spacing: .06em; text-transform: uppercase; }
+.hud-score { position: absolute; left: 0; right: 0; top: 160px; text-align: center; font: 800 100px/1 var(--titre); letter-spacing: -.04em; font-variant-numeric: tabular-nums; text-shadow: 0 6px 30px rgb(0 0 0 / 30%); }
+.hud-record { position: absolute; right: 30px; top: 92px; display: flex; align-items: center; gap: 8px; padding: 10px 18px 10px 14px; border-radius: 999px; background: rgb(255 255 255 / 14%); font: 700 20px/1 var(--titre); }
+.hud-record svg { width: 22px; height: 22px; fill: #ffd93d; }
+.sous { position: absolute; left: 0; right: 0; text-align: center; font-size: 30px; line-height: 1.4; color: var(--doux); }
+.point { position: absolute; display: grid; justify-items: center; gap: 6px; padding: 22px 30px; border-radius: 30px; background: rgb(255 255 255 / 6%); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 12%), 0 30px 60px -30px rgb(0 0 0 / 70%); text-align: center; }
+.point b { font: 750 64px/1 var(--titre); letter-spacing: -.04em; }
+.point span { font: 600 26px/1.2 var(--texte); color: var(--doux); }
+.point.fievre { background: linear-gradient(150deg, rgb(255 182 39 / 22%), rgb(255 255 255 / 4%)); }
+.point.fievre b { color: var(--or); }
+.palier { position: absolute; left: 90px; right: 90px; display: flex; align-items: baseline; gap: 22px; }
+.palier b { font: 650 30px/1 var(--titre); color: var(--or); min-width: 190px; }
+.palier span { font: 600 40px/1.15 var(--titre); letter-spacing: -.03em; }
+.alti { position: absolute; left: 90px; font: 800 220px/1 var(--titre); letter-spacing: -.06em; }
+.alti small { display: block; font: 650 30px/1 var(--titre); letter-spacing: .06em; text-transform: uppercase; color: var(--doux); margin-bottom: 8px; }
+.niveaux { position: absolute; left: 90px; right: 90px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; border-radius: 999px; background: rgb(255 255 255 / 7%); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 10%); }
+.niveaux span { position: relative; z-index: 1; padding: 22px 0; text-align: center; font: 650 28px/1 var(--titre); color: var(--doux); }
+.niveaux i { position: absolute; z-index: 0; top: 10px; bottom: 10px; left: 10px; width: calc((100% - 44px) / 4); border-radius: 999px; background: #f3eeff; }
+.niveaux span.actif { color: #1a0f3e; }
+.compteur { position: absolute; }
+.compteur b { display: block; font: 800 180px/1 var(--titre); letter-spacing: -.06em; }
+.compteur span { display: block; font-size: 30px; color: var(--doux); margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="scene" id="scene" data-format="vertical"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+document.documentElement.dataset.theme = 'dark';
+const M = 240 / 128;
+const S = (n) => n * M;
+const f = Film({ duree: 16 * M });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/space/${n}.webp`;
+
+// Le ciel : dégradé des zones du jeu (Theme.swift), étoiles qui scintillent et descendent.
+const ciel = K.el('div', 'ciel'); ciel.style.zIndex = 0;
+const ZONES = [['#120A2E', '#3B1C6E'], ['#061A2E', '#0E5B73'], ['#1F0B2E', '#8C3A62'], ['#070D21', '#1C2A4F'], ['#1b0f2b', '#a0522d'], ['#120A2E', '#3B1C6E']];
+const mel = (a, b, p) => { const x = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = x(a), B = x(b); return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * p)).join(' ')})`; };
+f.chaque((t) => {
+  // Les zones défilent pendant « la montée » (mesures 6 → 8), sinon la zone 1.
+  const z = f.av(t, S(6) + 0.3, S(8) - S(6) - 0.6, 'lin') * (ZONES.length - 1);
+  const i = Math.min(ZONES.length - 2, Math.floor(z)), p = z - i;
+  ciel.style.setProperty('--z1', mel(ZONES[i][0], ZONES[i + 1][0], p));
+  ciel.style.setProperty('--z2', mel(ZONES[i][1], ZONES[i + 1][1], p));
+});
+const h = f.hasard(5);
+const etoiles = Array.from({ length: 90 }, () => { const e = K.el('div', 'etoile', ciel); const s = 1 + h() * 3; e.style.width = e.style.height = `${s}px`; return { e, x: h() * 1080, y: h() * 1920, v: 10 + h() * 50, p: h() * 6 }; });
+f.chaque((t) => etoiles.forEach((s) => { s.e.style.transform = `translate3d(${s.x}px, ${((s.y + t * s.v) % 1920).toFixed(1)}px, 0)`; s.e.style.opacity = (0.35 + 0.45 * (0.5 + 0.5 * Math.sin(t * 2 + s.p))).toFixed(2); }));
+K.fond({ halos: [{ c: 'rgb(124 70 255 / 34%)', x: 540, y: 700, taille: 1400, v: 0.05 }], grain: true }).style.zIndex = 1;
+
+// Le téléphone et la partie : le code du jeu du site (realisations/space/assets/js/orbite.js), exécuté avec
+// l'horloge du film à la place de celle du navigateur, image par image : la partie de démonstration est
+// identique à chaque tournage.
+const tel = K.place(K.el('div', 'telephone'), { x: 260, y: 640, z: 3 });
+tel.innerHTML = `<div class="tel-bord"><div class="tel-ecran" data-ecran><canvas data-orbite></canvas>
+  <div class="hud"><p class="hud-etat" data-etat>Démonstration</p><p class="hud-score" data-score>0</p><p class="hud-record"><svg viewBox="0 0 24 24"><path d="M3 18h18l-1.5-10-4.5 4-3-6-3 6-4.5-4z"/></svg><span data-record>0</span></p></div>
+  <img data-capture alt=""></div><div class="tel-ile"></div></div>`;
+const capture = tel.querySelector('[data-capture]');
+const images = [];
+fetch('../../../realisations/space/assets/js/orbite.js').then((r) => r.text()).then((code) => {
+  new Function('requestAnimationFrame', 'performance', code)((cb) => { images.push(cb); return images.length; }, { now: () => 0 });
+});
+f.chaque((t) => { const lot = images.splice(0); lot.forEach((cb) => cb(t * 1000)); });
+
+// Les vraies captures du jeu passent dans le même téléphone.
+const montre = (src, t0, t1) => f.chaque((t) => { if (t >= t0 && t < t1 && capture.dataset.src !== src) { capture.src = I(src); capture.dataset.src = src; } });
+f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.style.opacity = enCapture ? 1 : 0; });
+
+// 1 — Un tap. Une orbite. (0 → 2 mesures)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Un tap.', 'Une orbite.'], { x: 0, y: 150, taille: 150, align: 'center', style: { right: '0' } });
+  K.montre(t, 0.2, S(2) - 0.4, { pas: 0.1 });
+  const t2 = K.titre(p, ['Pas de deuxième essai.'], { x: 0, y: 470, taille: 58, align: 'center', style: { right: '0', color: 'var(--doux)' } });
+  K.montre(t2, 1.3, S(2) - 0.35);
+  f.piste(tel, [0.4, { o: 0, y: 260, s: 0.9 }], [1.6, { o: 1, y: 0, s: 1 }, 'sortie']);
+}
+
+// 2 — La règle (2 → 4)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['La bille tourne.', '<em>Vous touchez.</em>'], { x: 0, y: 150, taille: 92, align: 'center', style: { right: '0' } });
+  K.montre(t, S(2) + 0.1, S(4) - 0.4);
+  const s = K.place(K.el('p', 'sous', p, 'Elle part tout droit. Si elle frôle la planète suivante, elle s’y accroche.'), { y: 390 });
+  s.style.padding = '0 120px';
+  K.sequence(s, S(2) + 0.6, S(4) - 0.1, { entree: 'bas' });
+}
+
+// 3 — Chaque atterrissage se note (4 → 6)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Chaque atterrissage', 'se note.'], { x: 0, y: 150, taille: 74, align: 'center', style: { right: '0' } });
+  K.montre(t, S(4) + 0.1, S(6) - 0.4);
+  f.piste(tel, [S(4), { s: 1, x: 0 }], [S(4) + 0.8, { s: 0.86, x: 0 }, 'douce'], [S(6) - 0.4, { s: 0.86 }], [S(6) + 0.2, { s: 1 }, 'douce']);
+  const pts = [['+1', 'planète suivante', 60, 620], ['+1 à +5', 'parfait', 660, 760], ['+1', 'bond', 60, 1240], ['×2', 'fièvre', 700, 1380]];
+  pts.forEach(([b, l, x, y], i) => {
+    const e = K.place(K.el('div', `point${i === 3 ? ' fievre' : ''}`, p, `<b>${b}</b><span>${l}</span>`), { x, y });
+    e.style.zIndex = 7;
+    const a = S(4) + 0.6 + i * 0.4;
+    f.piste(e, [a, { o: 0, s: 0.5, y: 30 }], [a + 0.5, { o: 1, s: 1, y: 0 }, 'rebond'], [S(6) - 0.45, { o: 1 }], [S(6) - 0.05, { o: 0, s: 0.8 }, 'entree']);
+  });
+}
+
+// 4 — Plus on monte, plus le ciel se complique (6 → 8)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Plus on monte,', 'plus le ciel', 'se complique.'], { x: 90, y: 130, taille: 84 });
+  K.montre(t, S(6) + 0.1, S(8) - 0.4);
+  f.piste(tel, [S(6), { o: 1, x: 0, y: 0 }], [S(6) + 0.6, { o: 0.0, x: 300, y: 120 }, 'entree'], [S(8) - 0.3, { o: 0, x: 0, y: 0 }], [S(8) + 0.2, { o: 1, x: 0, y: 0 }, 'sortie']);
+  const alti = K.place(K.el('div', 'alti', p, '<small>Planète</small><span data-n>01</span>'), { y: 520 });
+  const n = alti.querySelector('[data-n]');
+  K.compte(n, S(6) + 0.3, S(8) - S(6) - 0.7, 1, 60, (v) => String(Math.round(v)).padStart(2, '0'));
+  K.sequence(alti, S(6) + 0.2, S(8), { entree: 'bas', d: 0.4 });
+  [['Dès la 7e', 'les mines'], ['Dès la 13e', 'les planètes mobiles'], ['Dès la 18e', 'les astéroïdes'], ['Dès la 24e', 'les planètes instables'], ['Dès la 31e', 'les trous noirs']].forEach(([b, s], i) => {
+    const e = K.place(K.el('div', 'palier', p, `<b>${b}</b><span>${s}</span>`), { y: 900 + i * 150 });
+    const a = S(6) + 0.5 + i * 0.45;
+    f.piste(e, [a, { o: 0, x: -40 }], [a + 0.4, { o: 1, x: 0 }, 'sortie'], [S(8) - 0.4, { o: 1 }], [S(8) - 0.05, { o: 0 }, 'douce']);
+  });
+}
+
+// 5 — Le vrai jeu, sur iPhone (8 → 10) : les captures de l'app
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Le vrai jeu,', '<em>sur iPhone.</em>'], { x: 0, y: 150, taille: 96, align: 'center', style: { right: '0' } });
+  K.montre(t, S(8) + 0.1, S(10) - 0.4);
+  montre('menu', S(8) - 0.2, S(8) + 1.3);
+  montre('gameplay', S(8) + 1.3, S(9) + 0.6);
+  montre('v2-partie', S(9) + 0.6, S(10) + 0.1);
+  const sous = K.place(K.el('p', 'sous', p, 'Captures de l’app : le menu, un parfait ×5, la fièvre.'), { y: 1850 });
+  K.sequence(sous, S(8) + 0.5, S(10) - 0.1, { entree: 'bas' });
+}
+
+// 6 — Revenir chaque jour, quatre niveaux (10 → 12)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Quatre niveaux,', 'quatre records.'], { x: 0, y: 150, taille: 88, align: 'center', style: { right: '0' } });
+  K.montre(t, S(10) + 0.1, S(12) - 0.4);
+  montre('v2-missions', S(10) + 0.1, S(12) + 0.2);
+  f.piste(tel, [S(10), { y: 0, o: 1 }], [S(10) + 0.6, { y: 20, o: 1 }, 'douce'], [S(12) - 0.4, { y: 20, o: 1 }], [S(12), { y: 80, o: 0 }, 'entree']);
+  const niv = K.place(K.el('div', 'niveaux', p, '<i></i><span>Facile</span><span>Normal</span><span>Difficile</span><span>Extrême</span>'), { y: 400 });
+  const curseur = niv.querySelector('i'), noms = [...niv.querySelectorAll('span')];
+  f.chaque((tt) => { const k = Math.min(3, Math.floor(f.borne((tt - S(10) - 0.6) / 0.55, 0, 3.99))); const q = f.av(tt, S(10) + 0.6 + k * 0.55 - 0.25, 0.25, 'sortie'); const x = (k - 1 + q) * 100; curseur.style.transform = `translateX(calc(${Math.max(0, x)}% + ${Math.max(0, k - 1 + q) * 8}px))`; noms.forEach((n, i) => n.classList.toggle('actif', i === k)); });
+  K.sequence(niv, S(10) + 0.3, S(12), { entree: 'bas', d: 0.4 });
+  const sous = K.place(K.el('p', 'sous', p, 'Un cadeau chaque jour, trois missions renouvelées chaque matin.'), { y: 1850 });
+  K.sequence(sous, S(10) + 0.8, S(12) - 0.1, { entree: 'bas' });
+}
+
+// 7 — Pas une image, pas un son importés (12 → 14)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Pas une image,', 'pas un son', '<em>importés.</em>'], { x: 90, y: 200, taille: 104 });
+  K.montre(t, S(12) + 0.1, S(14) - 0.4);
+  [['0', 'dépendance externe', 90, 760], ['21 s', 'de musique générée par le code', 580, 760], ['12', 'skins de la bille', 90, 1180], ['8', 'palettes de zone', 580, 1180]].forEach(([b, l, x, y], i) => {
+    const e = K.place(K.el('div', 'compteur', p, `<b>${b}</b><span>${l}</span>`), { x, y, l: 430 });
+    const a = S(12) + 0.6 + i * 0.25;
+    f.piste(e, [a, { o: 0, y: 40 }], [a + 0.5, { o: 1, y: 0 }, 'sortie'], [S(14) - 0.4, { o: 1 }], [S(14) - 0.05, { o: 0 }, 'douce']);
+  });
+  K.sequence(K.place(K.el('p', 'sous', p, 'Planètes, étoiles, icône, effets et musique : SwiftUI et SpriteKit.'), { y: 1600 }), S(12) + 1.4, S(14) - 0.05, { entree: 'bas' });
+}
+
+// 8 — Fin (14 → 16)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/space/assets/img/icone-512.webp', nom: 'Space', ligne: 'Le jeu d’arcade à un doigt.<br>Bientôt sur l’App Store.', t: S(14) + 0.1, taille: 140 });
+}
+f.lancer();
+</script>
+</body>
+</html>

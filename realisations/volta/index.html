@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})(document.documentElement)</script>
+<title>Volta : stock, devis et budget d’un service électricité sur Mac</title>
+<meta name="description" content="Volta est un logiciel Mac sur mesure pour le service électricité : stock de matériel, ruptures prévues, demandes de devis et suivi du budget, en local.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/volta/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Volta — Le stock électrique, au fil près">
+<meta property="og:description" content="Un logiciel Mac métier pour gérer le matériel électrique, prévenir les ruptures, consulter les fournisseurs et tenir le budget. Tout reste sur le Mac.">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/volta/">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/volta/assets/img/og-volta.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Volta : le tableau de bord du stock électrique dans une fenêtre Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Volta — Le stock électrique, au fil près">
+<meta name="twitter:description" content="Un logiciel Mac métier pour gérer le matériel électrique, prévenir les ruptures, consulter les fournisseurs et tenir le budget. Tout reste sur le Mac.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/volta/assets/img/og-volta.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0c1724">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/chivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/chivo-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=15">
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script src="assets/js/site.js?v=1" defer></script>
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/volta/#app","name":"Volta","alternateName":"Volta 3","description":"Logiciel macOS sur mesure pour le service électricité : stock de matériel, prévision des ruptures, demandes de devis aux fournisseurs, suivi du budget, import et export CSV, sauvegardes restaurables. Fonctionne entièrement en local.","applicationCategory":"BusinessApplication","applicationSubCategory":"Gestion de stock","operatingSystem":"macOS 27","softwareVersion":"3","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/volta/","image":"https://mtx-developpement.fr/realisations/volta/assets/img/icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/volta/assets/img/ecrans/tableau-de-bord-clair.webp","https://mtx-developpement.fr/realisations/volta/assets/img/ecrans/stock-clair.webp","https://mtx-developpement.fr/realisations/volta/assets/img/ecrans/budget-clair.webp"],"featureList":["Tableau de bord de neuf cartes personnalisables","Stock, mouvements, inventaire guidé et journal","Prévision des ruptures selon le délai du fournisseur","Demandes de devis, comparatif et envoi par Apple Mail","Budget prévu, engagé, consommé, restant et projection","Import et export CSV, export PDF","Sauvegardes quotidiennes et sauvegarde complète restaurable"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/volta/#page","url":"https://mtx-developpement.fr/realisations/volta/","name":"Volta : stock, devis et budget d’un service électricité sur Mac","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/volta/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/volta/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/volta/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Volta","item":"https://mtx-developpement.fr/realisations/volta/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/volta/#questions","mainEntity":[{"@type":"Question","name":"À qui s’adresse Volta ?","acceptedAnswer":{"@type":"Answer","text":"À un service électricité qui gère son propre magasin de matériel : câbles, appareillage, éclairage, protections. Volta a été conçu sur mesure pour ce métier, avec ses références, ses emplacements et ses fournisseurs."}},{"@type":"Question","name":"Les données partent-elles sur Internet ?","acceptedAnswer":{"@type":"Answer","text":"Non. Volta fonctionne uniquement en local, sur le Mac, sans compte ni iCloud. Les seuls envois sont les demandes de devis, que vous choisissez d’envoyer par votre messagerie."}},{"@type":"Question","name":"Peut-on reprendre un fichier Excel existant ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L’import CSV reconnaît les fichiers d’Excel, de LibreOffice ou d’un logiciel métier, détecte le séparateur et l’encodage, contrôle chaque ligne avant d’écrire et liste les erreurs avec leur numéro de ligne."}},{"@type":"Question","name":"Que se passe-t-il en cas de fausse manipulation ?","acceptedAnswer":{"@type":"Answer","text":"Rien n’est perdu. Chaque mouvement peut être annulé par un mouvement inverse, rien n’est supprimé (les articles sont archivés), une sauvegarde est faite chaque jour et avant toute opération sensible, et une sauvegarde complète se restaure en deux confirmations."}},{"@type":"Question","name":"MTX Studio peut-il créer un logiciel de ce type pour mon activité ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Volta montre ce qu’un outil sur mesure apporte face à un tableur : des règles métier exactes, des écrans pensés pour les gestes du quotidien et des données fiables. Décrivez votre besoin à mtxstudio@proton.me."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-volta">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Volta%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre">
+  <a class="marque" href="#haut" aria-label="Volta, haut de page"><img src="assets/img/icone.webp" width="30" height="30" alt=""><span>Volta</span><span class="marque-ver">3</span></a>
+  <nav class="barre-nav" aria-label="Sections de la page">
+    <a href="#tableau"><kbd>1</kbd>Tableau de bord</a>
+    <a href="#ruptures"><kbd>2</kbd>Ruptures</a>
+    <a href="#devis"><kbd>3</kbd>Devis</a>
+    <a href="#budget"><kbd>4</kbd>Budget</a>
+    <a href="#fondations"><kbd>5</kbd>Fondations</a>
+  </nav>
+  <a class="bouton bouton-jaune barre-cta" href="mailto:mtxstudio@proton.me?subject=Un%20logiciel%20sur%20mesure%20comme%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Volta.%20Mon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20g%C3%A8re%20aujourd%E2%80%99hui%20dans%20un%20tableur%20%3A%0A%0A">Un outil comme Volta&#8239;?</a>
+</header>
+
+<!-- Le fil : un conducteur court le long de la page et s'allume au défilement. -->
+<svg class="fil" aria-hidden="true" preserveAspectRatio="none"><path data-fil-fond/><path class="fil-courant" data-fil/></svg>
+
+<main id="contenu">
+
+  <section class="heros" id="haut" aria-labelledby="titre">
+    <div class="heros-texte">
+      <p class="cartouche"><span>Logiciel Mac</span><span>Service électricité</span><span>Sur mesure</span></p>
+      <h1 id="titre">Le stock électrique,<br><em>au fil près.</em></h1>
+      <p class="chapo">352 références, 8 fournisseurs, un budget annuel. Volta tient le magasin du service électricité&#8239;: ce qui sort, ce qui manque, ce qui est commandé et ce qu’il reste à dépenser. Sans tableur, sans serveur.</p>
+      <div class="actions">
+        <a class="bouton bouton-jaune" href="#tableau">Visiter l’app<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 3v9.5M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="bouton bouton-trait" href="mailto:mtxstudio@proton.me?subject=Un%20logiciel%20sur%20mesure%20comme%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Volta.%20Mon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20g%C3%A8re%20aujourd%E2%80%99hui%20dans%20un%20tableur%20%3A%0A%0A">Parler de mon outil</a>
+      </div>
+    </div>
+
+    <div class="heros-fenetre">
+      <div class="fenetre mtx-pose" data-mtx-pose data-fenetre>
+        <div class="fenetre-ecrans mtx-reflet">
+          <div class="ecran est-actif" data-ecran="0"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/tableau-de-bord-clair.avif"><img src="assets/img/ecrans/tableau-de-bord-clair.webp" width="1600" height="1025" alt="Volta : tableau de bord, valeur du stock 59,2 k€, 70 articles à commander, 10 ruptures prévues" fetchpriority="high"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/tableau-de-bord-sombre.avif"><img src="assets/img/ecrans/tableau-de-bord-sombre.webp" width="1600" height="1025" alt="Volta : tableau de bord, valeur du stock 59,2 k€, 70 articles à commander, 10 ruptures prévues" fetchpriority="high"></picture></div>
+          <div class="ecran" data-ecran="1"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/stock-clair.avif"><img src="assets/img/ecrans/stock-clair.webp" width="1600" height="1025" alt="Volta : liste du stock, 352 articles avec leur état, référence, catégorie et emplacement" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/stock-sombre.avif"><img src="assets/img/ecrans/stock-sombre.webp" width="1600" height="1025" alt="Volta : liste du stock, 352 articles avec leur état, référence, catégorie et emplacement" loading="lazy" decoding="async"></picture></div>
+          <div class="ecran" data-ecran="2"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/fournisseurs-clair.avif"><img src="assets/img/ecrans/fournisseurs-clair.webp" width="1600" height="1025" alt="Volta : les huit fournisseurs, leur contact principal et leurs catégories" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/fournisseurs-sombre.avif"><img src="assets/img/ecrans/fournisseurs-sombre.webp" width="1600" height="1025" alt="Volta : les huit fournisseurs, leur contact principal et leurs catégories" loading="lazy" decoding="async"></picture></div>
+          <div class="ecran" data-ecran="3"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/devis-clair.avif"><img src="assets/img/ecrans/devis-clair.webp" width="1600" height="1025" alt="Volta : demandes de devis par étape, envoyées, reçues, acceptées, relancées" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/devis-sombre.avif"><img src="assets/img/ecrans/devis-sombre.webp" width="1600" height="1025" alt="Volta : demandes de devis par étape, envoyées, reçues, acceptées, relancées" loading="lazy" decoding="async"></picture></div>
+          <div class="ecran" data-ecran="4"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/budget-clair.avif"><img src="assets/img/ecrans/budget-clair.webp" width="1600" height="1025" alt="Volta : budget 2026, prévu 319 000 €, consommé 251 927 €, projection 302 448 €" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/budget-sombre.avif"><img src="assets/img/ecrans/budget-sombre.webp" width="1600" height="1025" alt="Volta : budget 2026, prévu 319 000 €, consommé 251 927 €, projection 302 448 €" loading="lazy" decoding="async"></picture></div>
+          <svg class="curseur" data-curseur viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2.5v17.2l4.6-4.3 2.9 6.6 2.7-1.2-2.9-6.5h6.2z"/></svg>
+        </div>
+      </div>
+      <div class="raccourcis" role="tablist" aria-label="Sections de Volta">
+        <button type="button" role="tab" aria-selected="true" data-aller="0"><kbd>⌘1</kbd>Tableau de bord</button>
+        <button type="button" role="tab" aria-selected="false" data-aller="1"><kbd>⌘2</kbd>Stock</button>
+        <button type="button" role="tab" aria-selected="false" data-aller="2"><kbd>⌘3</kbd>Fournisseurs</button>
+        <button type="button" role="tab" aria-selected="false" data-aller="3"><kbd>⌘4</kbd>Devis</button>
+        <button type="button" role="tab" aria-selected="false" data-aller="4"><kbd>⌘5</kbd>Budget</button>
+      </div>
+      <p class="legende">Captures de l’app sur le jeu de démonstration «&#8239;Service type&#8239;» (fournisseurs fictifs). Elles suivent le thème de la page.</p>
+    </div>
+  </section>
+
+  <!-- Bornier : les chiffres de la démonstration -->
+  <section class="bornier" aria-label="Volta en chiffres">
+    <dl>
+      <div><dt>Articles distincts</dt><dd data-compte="352">352</dd></div>
+      <div><dt>Mouvements sur un an</dt><dd data-compte="8000" data-milliers>8 000</dd></div>
+      <div><dt>Fournisseurs</dt><dd data-compte="8">8</dd></div>
+      <div><dt>Demandes de devis</dt><dd data-compte="30">30</dd></div>
+      <div><dt>Une sortie de stock</dt><dd>0,2<small>ms</small></dd></div>
+    </dl>
+  </section>
+
+  <!-- 01 Tableau de bord ======================================================= -->
+  <!-- Le film de présentation (16:9, avec musique originale) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css.
+       Fabriqué par outils/films/presentations/ (volta.html, puis fabriquer.sh). -->
+  <section class="section section-film" id="film" aria-labelledby="titre-film">
+    <div class="enveloppe">
+      <p class="repere apparait"><span>00</span>Le film</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-film">Volta en trente&#8209;six secondes.</h2>
+        <p class="tete-texte apparait">Le tableau de bord, une sortie de stock au clavier, les ruptures prévues, les devis et le budget&#8239;: les vrais écrans de l’app, en mouvement. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+      </div>
+      <div class="presentation-film" data-mtx-film data-duree="36">
+        <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/presentation.webp" aria-label="Film de présentation de Volta, 36 secondes, avec musique : le tableau de bord et ses cartes, une sortie de stock en trois touches, les ruptures prévues, le cycle des devis, le budget et sa projection, les thèmes clair et sombre, la rapidité de l’app."><source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'><source src="assets/video/presentation-720.mp4" type='video/mp4; codecs="avc1.64001F, mp4a.40.2"' media="(max-width: 600px)"><source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'></video>
+          <div class="mtx-film-commandes" hidden><button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button><button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button><button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button></div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+        <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film"><li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Le fil</button></li><li><button type="button" data-mtx-film-aller="4"><span class="chiffre">0:04</span> Tableau de bord</button></li><li><button type="button" data-mtx-film-aller="8"><span class="chiffre">0:08</span> Sortie de stock</button></li><li><button type="button" data-mtx-film-aller="12"><span class="chiffre">0:12</span> Ruptures</button></li><li><button type="button" data-mtx-film-aller="16"><span class="chiffre">0:16</span> Devis</button></li><li><button type="button" data-mtx-film-aller="20"><span class="chiffre">0:20</span> Budget</button></li><li><button type="button" data-mtx-film-aller="24"><span class="chiffre">0:24</span> Clair, sombre</button></li><li><button type="button" data-mtx-film-aller="28"><span class="chiffre">0:28</span> Rapidité</button></li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tableau" aria-labelledby="titre-tableau">
+    <div class="enveloppe">
+      <p class="repere apparait"><span>01</span>Tableau de bord</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-tableau">Neuf cartes. Un clic, et la liste est déjà filtrée.</h2>
+        <p class="tete-texte apparait">Chaque carte donne un chiffre, ce qu’il mesure et un point de comparaison. On les déplace, on les agrandit, on les masque&#8239;: la disposition est retrouvée au lancement suivant.</p>
+      </div>
+      <ul class="cartes" data-cartes>
+        <li class="carte carte-l apparait"><p class="carte-t">Valeur du stock</p><p class="carte-v">59,2 k€</p><p class="carte-n">352 articles · −4,4&#8239;% en 30 jours</p><svg class="trace" viewBox="0 0 200 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 18 20 16 40 20 60 17 80 22 100 21 120 26 140 24 160 30 180 31 200 34"/></svg></li>
+        <li class="carte apparait"><p class="carte-t">À commander</p><p class="carte-v carte-orange">70</p><p class="carte-n">dont 12 en rupture · 37 sans demande de devis</p><span class="barre-etat" aria-hidden="true"><i style="--l:4%" class="e-rouge"></i><i style="--l:16%" class="e-orange"></i><i style="--l:80%" class="e-vert"></i></span></li>
+        <li class="carte apparait"><p class="carte-t">Ruptures prévues</p><p class="carte-v carte-orange">10</p><p class="carte-n">épuisés avant la livraison d’une commande passée aujourd’hui</p></li>
+        <li class="carte carte-l apparait"><p class="carte-t">Consommation</p><p class="carte-v">25 600,64 €</p><p class="carte-n">sortis ces 30 derniers jours · +8&#8239;%</p><span class="histo" aria-hidden="true" data-histo></span></li>
+        <li class="carte apparait"><p class="carte-t">Les plus consommés</p><p class="carte-v carte-mono">CAB-00001</p><p class="carte-n">classement par valeur sur 90 jours</p></li>
+        <li class="carte apparait"><p class="carte-t">Devis en cours</p><p class="carte-v">13</p><p class="carte-n">en attente, reçus, brouillons, à réceptionner</p></li>
+        <li class="carte apparait"><p class="carte-t">Devis à relancer</p><p class="carte-v carte-orange">4</p><p class="carte-n">sans réponse après le délai de relance</p></li>
+        <li class="carte apparait"><p class="carte-t">Budget</p><p class="carte-v">80&#8239;%</p><p class="carte-n">du budget 2026 utilisé</p><span class="jauge-mini" aria-hidden="true"><i></i><b></b></span></li>
+        <li class="carte carte-l apparait"><p class="carte-t">Dépenses par catégorie</p><p class="carte-v">62&#8239;k€</p><p class="carte-n">câbles et conducteurs, sur 75,5&#8239;k€</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 Le geste ============================================================== -->
+  <section class="section section-geste" id="geste" aria-labelledby="titre-geste">
+    <div class="enveloppe geste">
+      <div>
+        <p class="repere apparait"><span>02</span>Le geste le plus fréquent</p>
+        <h2 class="titre apparait" id="titre-geste">Une sortie de stock en trois touches.</h2>
+        <p class="tete-texte apparait">Sélectionner l’article, <kbd>⌘</kbd><kbd>E</kbd>, taper la quantité, <kbd>⏎</kbd>. Le stock obtenu s’affiche pendant la frappe. Une erreur&#8239;? «&#8239;Annuler&#8239;» enregistre un mouvement inverse&#8239;: l’erreur et sa correction restent dans l’historique.</p>
+        <ol class="etapes" data-etapes>
+          <li class="est-actif">Sélectionner l’article</li>
+          <li><kbd>⌘</kbd><kbd>E</kbd> Sortie de stock</li>
+          <li>Taper la quantité</li>
+          <li><kbd>⏎</kbd> Enregistrer</li>
+        </ol>
+      </div>
+      <div class="feuille apparait" data-feuille aria-hidden="true">
+        <div class="feuille-ligne est-selection"><span class="pastille-e e-vert"></span><span class="mono">CAB-00038</span><span>Câble R2V 3G2,5&#8239;mm²</span><span class="mono feuille-q">42 m</span></div>
+        <div class="feuille-ligne"><span class="pastille-e e-vert"></span><span class="mono">CAB-00039</span><span>Câble R2V 3G1,5&#8239;mm²</span><span class="mono feuille-q">118 m</span></div>
+        <div class="feuille-ligne"><span class="pastille-e e-orange"></span><span class="mono">CSM-00011</span><span>Gaine thermorétractable 6&#8239;mm</span><span class="mono feuille-q">9</span></div>
+        <div class="feuille-sheet">
+          <p class="sheet-t">Sortie de stock</p>
+          <div class="sheet-champ"><span>CAB-00038 · Câble R2V 3G2,5&#8239;mm²</span><b class="mono"><span data-saisie></span><i class="caret"></i> m</b></div>
+          <p class="sheet-obtenu">Stock obtenu&#8239;: <b class="mono" data-obtenu>42 m</b></p>
+          <p class="sheet-boutons"><span>Annuler</span><span class="sheet-ok">Enregistrer</span></p>
+        </div>
+        <p class="feuille-toast"><span>Sortie enregistrée · 5 m</span><u>Annuler</u></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Ruptures ============================================================= -->
+  <section class="section" id="ruptures" aria-labelledby="titre-ruptures">
+    <div class="enveloppe">
+      <p class="repere apparait"><span>03</span>Prévision de rupture</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-ruptures">Il prévient avant que le carton soit vide.</h2>
+        <p class="tete-texte apparait">Un article encore en stock peut déjà être en retard&#8239;: s’il sera épuisé avant qu’une commande passée aujourd’hui n’arrive. Volta fait le calcul pour chaque référence. Essayez-le.</p>
+      </div>
+      <div class="calcul apparait" data-calcul>
+        <div class="curseurs">
+          <label class="reglage"><span>Stock actuel</span><b class="mono"><output data-o="stock">42</output> m</b><input type="range" min="0" max="200" value="42" data-r="stock"></label>
+          <label class="reglage"><span>Sorties sur 90 jours</span><b class="mono"><output data-o="sorties">300</output> m</b><input type="range" min="0" max="900" step="10" value="300" data-r="sorties"></label>
+          <label class="reglage"><span>Délai du fournisseur</span><b class="mono"><output data-o="delai">14</output> j</b><input type="range" min="1" max="45" value="14" data-r="delai"></label>
+        </div>
+        <div class="resultat" aria-live="polite">
+          <p class="res-etat" data-etat>Rupture prévue</p>
+          <dl class="res-chiffres">
+            <div><dt>Consommation moyenne</dt><dd class="mono"><span data-c="conso">3,3</span> m/j</dd></div>
+            <div><dt>Jours restants</dt><dd class="mono"><span data-c="jours">12</span> j</dd></div>
+            <div><dt>Seuil conseillé</dt><dd class="mono"><span data-c="seuil">70</span> m</dd></div>
+          </dl>
+          <div class="frise" aria-hidden="true"><span class="frise-stock" data-frise-stock></span><span class="frise-livraison" data-frise-livraison><i>livraison</i></span><span class="frise-aujourdhui">aujourd’hui</span></div>
+          <p class="res-formule mono">conso = sorties 90 j ÷ 90 · jours restants = stock ÷ conso · seuil = conso × délai × 1,5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Devis =============================================================== -->
+  <section class="section section-devis" id="devis" aria-labelledby="titre-devis">
+    <div class="enveloppe">
+      <p class="repere apparait"><span>04</span>Fournisseurs et devis</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-devis">Du brouillon à la réception, chaque étape laisse une trace.</h2>
+        <p class="tete-texte apparait"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> prépare une demande par fournisseur pour tous les articles à commander. Accepter un devis écarte les autres offres et l’inscrit au budget «&#8239;engagé&#8239;»&#8239;; la réception fait entrer le matériel au prix du devis.</p>
+      </div>
+      <ol class="cycle apparait" data-cycle>
+        <li><b>Brouillon</b><span>Articles et fournisseurs suggérés</span></li>
+        <li><b>Envoyée</b><span>Par Apple Mail, modèle à variables</span></li>
+        <li><b>Relancée</b><span>Après le délai de relance</span></li>
+        <li><b>Devis reçu</b><span>Prix par ligne, délai, PDF joint</span></li>
+        <li><b>Accepté</b><span>Comparatif, meilleur prix par ligne</span></li>
+        <li><b>Réceptionné</b><span>Entrée en stock, budget consommé</span></li>
+      </ol>
+      <figure class="capture apparait">
+        <picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/devis-clair.avif"><img src="assets/img/ecrans/devis-clair.webp" width="1600" height="1025" alt="Liste des demandes de devis dans Volta, filtrées par étape" loading="lazy" decoding="async"></picture>
+        <picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/devis-sombre.avif"><img src="assets/img/ecrans/devis-sombre.webp" width="1600" height="1025" alt="Liste des demandes de devis dans Volta, filtrées par étape" loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 05 Budget =============================================================== -->
+  <section class="section" id="budget" aria-labelledby="titre-budget">
+    <div class="enveloppe budget">
+      <div>
+        <p class="repere apparait"><span>05</span>Budget</p>
+        <h2 class="titre apparait" id="titre-budget">Ce qui est prévu, engagé, consommé. Et où l’on finira.</h2>
+        <p class="tete-texte apparait">La projection prolonge le rythme actuel jusqu’à la fin de l’exercice. Elle passe à l’orange au-delà de 100&#8239;% du prévu, au rouge au-delà de 110&#8239;%. Exercice 2026 de la démonstration&#8239;:</p>
+      </div>
+      <div class="compteur-budget apparait" data-budget>
+        <dl>
+          <div><dt>Prévu</dt><dd class="mono">319 000,00 €</dd></div>
+          <div><dt><i class="cle cle-conso"></i>Consommé</dt><dd class="mono">251 927,59 €</dd></div>
+          <div><dt><i class="cle cle-engage"></i>Engagé</dt><dd class="mono">2 925,27 €</dd></div>
+          <div><dt>Restant</dt><dd class="mono">64 147,14 €</dd></div>
+        </dl>
+        <div class="b-jauge"><i class="b-conso"></i><i class="b-engage"></i><span class="b-temps"><em>307 jours sur 365</em></span><span class="b-proj"></span></div>
+        <p class="b-projection">Projection fin d’exercice <b class="mono">302 448,30 €</b> <span>95&#8239;% du prévu</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Fondations ============================================================ -->
+  <section class="section section-fond" id="fondations" aria-labelledby="titre-fondations">
+    <div class="enveloppe">
+      <p class="repere apparait"><span>06</span>Fondations</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-fondations">Un logiciel de magasin doit être juste au centime. Et rapide à 500&#8239;000 lignes.</h2>
+        <p class="tete-texte apparait">Mesures faites avec le banc de l’app sur 50&#8239;000 articles et 500&#8239;000 mouvements (Apple M5)&#8239;: une base dix fois plus grosse que celle du service.</p>
+      </div>
+      <div class="banc apparait" data-banc>
+        <div class="banc-l" style="--ms:.2"><span>Une sortie de stock, transaction complète</span><b class="mono">0,2 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:1"><span>Fiche d’un article&#8239;: statistiques, courbe, historique</span><b class="mono">&lt; 1 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:5"><span>Recherche plein texte («&#8239;cable r2v 3g2&#8239;»)</span><b class="mono">5 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:26"><span>Page de 200 lignes triée, avec jours restants</span><b class="mono">26 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:27"><span>Suivi du budget de l’exercice</span><b class="mono">27 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:51"><span>Vérification complète de la cohérence du stock</span><b class="mono">51 ms</b><i></i></div>
+        <div class="banc-l" style="--ms:70"><span>Tri de tout le stock par jours restants</span><b class="mono">70 ms</b><i></i></div>
+      </div>
+      <ul class="principes">
+        <li class="apparait"><h3>Des centimes exacts</h3><p>Quantités et montants sont des nombres décimaux, jamais des flottants. En base, ils sont stockés en entiers mis à l’échelle&#8239;: les sommes calculées par SQLite tombent juste.</p></li>
+        <li class="apparait"><h3>Tout passe par un mouvement</h3><p>Entrée, sortie, ajustement, inventaire&#8239;: la quantité change dans la même transaction, tout ou rien. Un contrôle recalcule chaque stock depuis l’historique.</p></li>
+        <li class="apparait"><h3>Rien n’est supprimé</h3><p>Articles et fournisseurs sont archivés, leur historique reste lisible. Une sauvegarde chaque jour, trente conservées, et une archive complète restaurable en deux confirmations.</p></li>
+        <li class="apparait"><h3>SQLite plutôt que SwiftData</h3><p>Pour faire calculer les totaux par la base, chercher en plein texte et versionner le schéma. L’interface ne connaît que des protocoles&#8239;: le moteur peut changer sans toucher aux écrans.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Questions =============================================================== -->
+  <section class="section" id="questions" aria-labelledby="titre-questions">
+    <div class="enveloppe faq">
+      <div>
+        <p class="repere apparait"><span>07</span>Questions</p>
+        <h2 class="titre apparait" id="titre-questions">Avant de ranger le tableur.</h2>
+      </div>
+      <div class="faq-liste">
+        <details name="faq" open><summary><h3>À qui s’adresse Volta&#8239;?</h3></summary><p>À un service électricité qui gère son propre magasin de matériel&#8239;: câbles, appareillage, éclairage, protections. Volta a été conçu sur mesure pour ce métier, avec ses références, ses emplacements et ses fournisseurs.</p></details>
+        <details name="faq"><summary><h3>Les données partent-elles sur Internet&#8239;?</h3></summary><p>Non. Volta fonctionne uniquement en local, sur le Mac, sans compte ni iCloud. Les seuls envois sont les demandes de devis, que vous choisissez d’envoyer par votre messagerie.</p></details>
+        <details name="faq"><summary><h3>Peut-on reprendre un fichier Excel existant&#8239;?</h3></summary><p>Oui. L’import CSV reconnaît les fichiers d’Excel, de LibreOffice ou d’un logiciel métier, détecte le séparateur et l’encodage, contrôle chaque ligne avant d’écrire et liste les erreurs avec leur numéro de ligne.</p></details>
+        <details name="faq"><summary><h3>Que se passe-t-il en cas de fausse manipulation&#8239;?</h3></summary><p>Rien n’est perdu. Chaque mouvement peut être annulé par un mouvement inverse, rien n’est supprimé (les articles sont archivés), une sauvegarde est faite chaque jour et avant toute opération sensible, et une sauvegarde complète se restaure en deux confirmations.</p></details>
+        <details name="faq"><summary><h3>MTX Studio peut-il créer un logiciel de ce type pour mon activité&#8239;?</h3></summary><p>Oui. Volta montre ce qu’un outil sur mesure apporte face à un tableur&#8239;: des règles métier exactes, des écrans pensés pour les gestes du quotidien et des données fiables. Décrivez votre besoin à <a href="mailto:mtxstudio@proton.me?subject=Un%20logiciel%20sur%20mesure%20comme%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Volta.%20Mon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20g%C3%A8re%20aujourd%E2%80%99hui%20dans%20un%20tableur%20%3A%0A%0A">mtxstudio@proton.me</a>.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Volta" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-volta.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Volta tient le stock, les devis et le budget du service électricité, sur un Mac.</h2>
+    <p class="mtx-pf-sub">Votre métier tient encore dans un tableur&#8239;? MTX Studio conçoit l’outil qui lui correspond, avec le même soin qu’une app grand public.</p>
+    <p class="mtx-pf-tags">Logiciel Mac sur mesure · Gestion de stock<br>SwiftUI · Swift Charts · SQLite (GRDB) · AppKit</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../triade/"><img src="../../assets/img/realisations/icone-triade.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Triade</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Volta%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Volta&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Volta%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

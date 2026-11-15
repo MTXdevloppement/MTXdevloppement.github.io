@@ -77,7 +77,7 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .bouton:active{transform:scale(.98)}
 
 /* Barre du site ------------------------------------------------------- */
-.barre{position:sticky;top:0;z-index:120;display:flex;align-items:center;gap:20px;height:64px;padding:0 var(--marge);background:var(--papier);border-bottom:1px solid transparent;transition:border-color .3s}
+.barre{position:sticky;top:0;z-index:120;display:flex;align-items:center;gap:20px;height:64px;padding:0 max(var(--marge),calc((100% - 1280px) / 2 + var(--marge)));background:var(--papier);border-bottom:1px solid transparent;transition:border-color .3s}
 .barre.defile{border-bottom-color:var(--filet)}
 .marque{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-family:var(--serif);font-size:26px;letter-spacing:-.01em;text-decoration:none}
 .marque img{width:32px;height:32px;border-radius:22.5%}
@@ -150,7 +150,7 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .chiffres div:nth-child(2) dt{color:var(--vert-t)}
 .chiffres div:nth-child(3) dt{color:var(--orange-t)}
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;padding-top:26px}
+  .hero{grid-template-columns:1fr;padding-top:26px;overflow-x:clip}/* les feuilles en éventail débordaient de 5 px : la page glissait de côté */
   .hero .scene{--tel:clamp(190px,52vw,260px)}
   .chiffres{grid-template-columns:1fr 1fr;row-gap:18px}
   .chiffres div{flex-direction:column;gap:4px;padding-top:16px}

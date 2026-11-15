@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Triade</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "Instrument Serif"; src: url("../../../realisations/triade/assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Instrument Serif"; src: url("../../../realisations/triade/assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Rethink Sans"; src: url("../../../realisations/triade/assets/fonts/rethink-sans-latin-wght-normal.woff2") format("woff2"); font-weight: 400 800; }
+.scene { --fond: #f6f4ee; --encre: #0e1530; --doux: #565d75; --pale: #8a8fa3; --accent: #2e70eb; --bleu: #2e70eb; --vert: #1a9e5c; --orange: #e86b2b;
+  --titre: "Instrument Serif", serif; --texte: "Rethink Sans", sans-serif; --titre-graisse: 400; --titre-espace: -.02em; }
+.titre { line-height: 1; }
+.titre em { font-style: italic; color: var(--encre); }
+.titre .b { color: var(--bleu); } .titre .v { color: var(--vert); } .titre .o { color: var(--orange); }
+.filet3 { position: absolute; height: 10px; display: flex; border-radius: 5px; overflow: hidden; transform-origin: left; }
+.filet3 i { flex: 1; } .filet3 i:nth-child(1) { background: var(--bleu); } .filet3 i:nth-child(2) { background: var(--vert); } .filet3 i:nth-child(3) { background: var(--orange); }
+.feuille { position: absolute; width: 420px; height: 560px; border-radius: 36px; box-shadow: 0 50px 100px -40px rgb(14 21 48 / 45%); transform-origin: 50% 100%; }
+.feuille::before { content: ""; position: absolute; left: 50px; top: 60px; width: 120px; height: 16px; border-radius: 8px; background: rgb(255 255 255 / 85%); box-shadow: 0 40px 0 -2px rgb(255 255 255 / 55%), 0 80px 0 -2px rgb(255 255 255 / 55%), 0 120px 0 -2px rgb(255 255 255 / 40%); }
+.tel { background: linear-gradient(145deg, #3a3a40, #121214 40%, #2a2a2e); box-shadow: 0 0 0 2px #4a4a50, 0 70px 140px -40px rgb(14 21 48 / 55%); }
+.puce { --puce-fond: #ffffff; --puce-encre: #0e1530; box-shadow: 0 0 0 1px #dfdacb, 0 24px 50px -20px rgb(14 21 48 / 35%); font: 600 30px/1 var(--texte); }
+.puce code { font: 600 28px/1 ui-monospace, Menlo, monospace; color: var(--vert); }
+.sous { position: absolute; left: 90px; right: 90px; font-size: 32px; line-height: 1.4; color: var(--doux); }
+.etapes { position: absolute; left: 90px; right: 90px; display: grid; gap: 16px; }
+.etape { display: flex; align-items: baseline; gap: 18px; padding: 24px 28px; border-radius: 26px; background: #fff; box-shadow: 0 0 0 1px #dfdacb; font: 400 44px/1.1 var(--titre); }
+.etape small { font: 600 22px/1 var(--texte); color: var(--pale); }
+.etape.actif { box-shadow: 0 0 0 3px var(--bleu), 0 24px 50px -24px rgb(46 112 235 / 50%); }
+.avion { position: absolute; left: 90px; right: 90px; display: flex; align-items: center; gap: 30px; padding: 34px 40px; border-radius: 34px; background: #0b1024; color: #f1eee6; }
+.interrupteur { position: relative; width: 150px; height: 88px; border-radius: 44px; background: #3a4577; flex: none; }
+.interrupteur i { position: absolute; left: 8px; top: 8px; width: 72px; height: 72px; border-radius: 50%; background: #fff; box-shadow: 0 6px 14px rgb(0 0 0 / 35%); }
+.avion b { font: 400 64px/1 var(--titre); }
+.avion span { display: block; margin-top: 10px; font: 600 24px/1 ui-monospace, Menlo, monospace; color: #aab0c6; }
+.coches { position: absolute; left: 90px; right: 90px; display: grid; gap: 22px; }
+.coche { display: flex; align-items: center; gap: 22px; font: 600 34px/1.2 var(--texte); }
+.coche i { width: 52px; height: 52px; border-radius: 50%; background: var(--vert); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 28px; flex: none; }
+.coche small { display: block; font: 500 24px/1.3 var(--texte); color: var(--doux); margin-top: 4px; }
+.format { position: absolute; display: grid; place-items: center; width: 210px; height: 250px; border-radius: 30px; color: #fff; font: 800 44px/1 var(--texte); letter-spacing: .02em; box-shadow: 0 40px 80px -36px rgb(14 21 48 / 55%); }
+.format small { position: absolute; bottom: 26px; font: 600 22px/1 var(--texte); opacity: .85; letter-spacing: 0; }
+</style>
+</head>
+<body>
+<div class="scene" id="scene" data-format="vertical"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+const M = 240 / 100;
+const S = (n) => n * M;
+const f = Film({ duree: 16 * M });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/triade/${n}.webp`;
+K.fond({ halos: [{ c: 'rgb(46 112 235 / 14%)', x: 900, y: 300, taille: 1300, v: 0.05 }, { c: 'rgb(232 107 43 / 12%)', x: 150, y: 1650, taille: 1200, v: 0.07, p: 2 }] });
+const COUL = { texte: 'var(--bleu)', tableur: 'var(--vert)', diapo: 'var(--orange)' };
+
+// Un iPhone unique qui traverse le film ; ses écrans changent d'une scène à l'autre.
+const ecrans = ['bienvenue', 'lettre', 'tableur', 'formule', 'diapo', 'idee', 'redaction', 'resume', 'accueil'];
+const tel = K.tel(null, ecrans.map(I), { x: 250, y: 700, l: 580, h: 1220 });
+tel.style.zIndex = 3;
+// Instant où chaque écran laisse la place au suivant.
+K.enchaine(tel.images, [S(2) - 0.2, S(4) - 0.2, S(5) + 0.4, S(6) - 0.2, S(8) - 0.2, S(8) + 1.4, S(9) + 0.6, S(12) - 0.3, null], 0.35);
+f.piste(tel, [S(1) + 0.4, { o: 0, y: 400 }], [S(1) + 1.6, { o: 1, y: 0 }, 'sortie'], [S(10) - 0.4, { o: 1, x: 0 }], [S(10), { o: 0, x: -200 }, 'entree'], [S(12) - 0.2, { o: 0, x: 200 }], [S(12) + 0.4, { o: 1, x: 0 }, 'sortie'], [S(14) - 0.3, { o: 1 }], [S(14), { o: 0 }, 'douce']);
+
+// 1 — Trois outils de bureau. Une seule app. (0 → 2 mesures)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Trois outils', 'de bureau.', '<em>Une seule app.</em>'], { x: 90, y: 150, taille: 150 });
+  K.montre(t, 0.2, S(2) - 0.4, { pas: 0.08 });
+  const fil = K.place(K.el('div', 'filet3', p, '<i></i><i></i><i></i>'), { x: 94, y: 640, l: 560 });
+  f.piste(fil, [1.1, { sx: 0, o: 1 }], [1.9, { sx: 1 }, 'sortie'], [S(2) - 0.4, { o: 1 }], [S(2) - 0.05, { o: 0 }, 'douce']);
+  [['var(--bleu)', -14, 330], ['var(--vert)', 0, 420], ['var(--orange)', 14, 510]].forEach(([c, r, x], i) => {
+    const e = K.place(K.el('div', 'feuille', p), { x, y: 900 });
+    e.style.background = c;
+    f.piste(e, [0.5 + i * 0.12, { o: 0, y: 200, r: 0 }], [1.4 + i * 0.12, { o: 1, y: 0, r }, 'ressort'], [S(1) + 0.3, { o: 1, y: 0, r }], [S(1) + 1.2, { o: 0, y: 300, r: r * 0.5 }, 'entree']);
+  });
+}
+
+// 2, 3, 4 — Les trois outils (2 → 8)
+const outil = (n0, cle, lignes, sous, puces) => {
+  const p = K.plan(null, 5);
+  const t = K.titre(p, lignes, { x: 90, y: 150, taille: 104 });
+  K.montre(t, S(n0) + 0.1, S(n0 + 2) - 0.4);
+  const s = K.place(K.el('p', 'sous', p, sous), { y: 400 });
+  K.sequence(s, S(n0) + 0.5, S(n0 + 2) - 0.1, { entree: 'bas' });
+  puces.forEach(([h, x, y, d], i) => {
+    const c = K.puce(p, h, { x, y, point: COUL[cle] }); c.style.zIndex = 7;
+    f.piste(c, [S(n0) + d, { o: 0, s: 0.8, y: 20 }], [S(n0) + d + 0.45, { o: 1, s: 1, y: 0 }, 'ressort'], [S(n0 + 2) - 0.4, { o: 1 }], [S(n0 + 2) - 0.05, { o: 0 }, 'douce']);
+  });
+};
+outil(2, 'texte', ['<span class="b">Texte.</span>', 'De la lettre au rapport.'], 'Styles, listes, tableaux, sommaire automatique, filigrane : un vrai traitement de texte dans la poche.', [['Sommaire automatique', 60, 1060, 1.1], ['Lecture à voix haute', 560, 1480, 1.5]]);
+outil(4, 'tableur', ['<span class="v">Tableur.</span>', '146 fonctions.'], 'Des budgets, des devis, des graphiques. L’assistant explique une formule avant de l’insérer.', [['<code>=SOMME(B4:B31)</code>', 70, 1180, 1.6], ['Résultat vérifié avant insertion', 470, 1560, 2.2]]);
+outil(6, 'diapo', ['<span class="o">Présentation.</span>', 'Des diapos et vos notes.'], 'Thèmes, notes de l’orateur, mode présentation : le pitch tient dans la même app.', [['Notes de l’orateur', 80, 1200, 1.1], ['Export PDF et PowerPoint', 500, 1580, 1.5]]);
+
+// 5 — L'assistant qui ne se connecte à rien (8 → 10)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['L’assistant qui', 'ne se connecte <em>à rien.</em>'], { x: 90, y: 150, taille: 96 });
+  K.montre(t, S(8) + 0.1, S(10) - 0.4);
+  const s = K.place(K.el('p', 'sous', p, 'Apple Intelligence, sur l’iPhone : même en mode Avion.'), { y: 380 });
+  K.sequence(s, S(8) + 0.5, S(10) - 0.1, { entree: 'bas' });
+  // Le téléphone glisse à droite, les trois gestes de l'assistant s'allument à gauche.
+  f.piste(tel, [S(8), { x: 0, s: 1 }], [S(8) + 0.6, { x: 170, s: 0.82 }, 'douce'], [S(10) - 0.6, { x: 170, s: 0.82 }], [S(10), { x: 170, s: 0.82 }]);
+  const e = K.place(K.el('div', 'etapes', p, '<div class="etape"><small>01</small>Une idée devient une lettre</div><div class="etape"><small>02</small>Une phrase devient une formule</div><div class="etape"><small>03</small>Un texte devient un résumé</div>'), { y: 560 });
+  e.style.right = '430px';
+  e.style.zIndex = 7;
+  const ets = [...e.children];
+  ets.forEach((x, i) => { x.style.fontSize = '34px'; f.piste(x, [S(8) + 0.6 + i * 0.25, { o: 0, x: -30 }], [S(8) + 1.0 + i * 0.25, { o: 1, x: 0 }, 'sortie'], [S(10) - 0.4, { o: 1 }], [S(10) - 0.05, { o: 0 }, 'douce']); });
+  f.chaque((tt) => { const k = tt < S(9) + 0.6 ? 0 : 2; ets.forEach((x, i) => x.classList.toggle('actif', tt > S(8) + 1.0 && i === k)); });
+}
+
+// 6 — Coupez le réseau. Rien ne change. (10 → 12)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Coupez le réseau.', '<em>Rien ne change.</em>'], { x: 90, y: 240, taille: 112 });
+  K.montre(t, S(10) + 0.1, S(12) - 0.4);
+  const av = K.place(K.el('div', 'avion', p, '<div class="interrupteur"><i></i></div><div><b>Mode Avion</b><span data-etat>Réseau disponible.</span></div>'), { y: 640 });
+  const bille = av.querySelector('.interrupteur i'), fond = av.querySelector('.interrupteur'), etat = av.querySelector('[data-etat]');
+  f.chaque((tt) => { const q = f.av(tt, S(10) + 1.0, 0.4, 'ressort'); bille.style.transform = `translateX(${(q * 62).toFixed(1)}px)`; fond.style.background = q > 0.5 ? '#ff9f2e' : '#3a4577'; etat.textContent = q > 0.5 ? 'Aucun réseau. Triade continue.' : 'Réseau disponible.'; });
+  K.sequence(av, S(10) + 0.3, S(12) - 0.05, { entree: 'bas', d: 0.5 });
+  const c = K.place(K.el('div', 'coches', p, [['Écrire, calculer, présenter', 'Les trois outils fonctionnent'], ['Demander à l’assistant', 'Le modèle est sur l’appareil'], ['Ouvrir et exporter vos fichiers', 'Word, Excel, PowerPoint, PDF'], ['Aucun compte, aucun serveur', 'Les documents restent sur l’iPhone']].map(([a, b]) => `<div class="coche"><i>✓</i><div>${a}<small>${b}</small></div></div>`).join('')), { y: 960 });
+  [...c.children].forEach((x, i) => f.piste(x, [S(10) + 1.5 + i * 0.25, { o: 0, x: -30 }], [S(10) + 1.9 + i * 0.25, { o: 1, x: 0 }, 'ressort'], [S(12) - 0.4, { o: 1 }], [S(12) - 0.05, { o: 0 }, 'douce']));
+}
+
+// 7 — Vos fichiers Word, Excel, PowerPoint s'ouvrent (12 → 14)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Word, Excel, PowerPoint :', '<em>ils s’ouvrent.</em>'], { x: 90, y: 150, taille: 92 });
+  K.montre(t, S(12) + 0.1, S(14) - 0.4);
+  const s = K.place(K.el('p', 'sous', p, 'Depuis Mail, Fichiers ou Safari, et 48 modèles pour ne pas partir d’une page blanche.'), { y: 380 });
+  K.sequence(s, S(12) + 0.5, S(14) - 0.1, { entree: 'bas' });
+  f.piste(tel, [S(12), { s: 0.82, x: 0 }], [S(12) + 0.4, { s: 0.82, x: 0 }], [S(14), { s: 0.84, x: 0 }, 'lin']);
+  [['DOCX', 'Word', 'var(--bleu)', 40, 900, -8], ['XLSX', 'Excel', 'var(--vert)', 830, 1100, 7], ['PPTX', 'PowerPoint', 'var(--orange)', 60, 1430, 6]].forEach(([n, l, c, x, y, r], i) => {
+    const e = K.place(K.el('div', 'format', p, `${n}<small>${l}</small>`), { x, y }); e.style.background = c; e.style.zIndex = 7;
+    const a = S(12) + 0.7 + i * 0.3;
+    f.piste(e, [a, { o: 0, s: 0.4, r: 0 }], [a + 0.6, { o: 1, s: 1, r }, 'rebond'], [S(14) - 0.6, { o: 1, x: 0, y: 0, s: 1 }], [S(14) - 0.1, { o: 0, x: 440 - x, y: 1250 - y, s: 0.3 }, 'entree']);
+  });
+}
+
+// 8 — Fin (14 → 16)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/triade/assets/img/triade-icone-512.png', nom: 'Triade', ligne: 'Texte, tableur et présentation,<br>sur iPhone et iPad, même sans Internet.', t: S(14) + 0.1, taille: 160 });
+}
+f.lancer();
+</script>
+</body>
+</html>

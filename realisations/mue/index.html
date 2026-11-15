@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})(document.documentElement)</script>
+<title>Mue : convertir un fichier sur Mac en glissant, d’une touche</title>
+<meta name="description" content="Mue convertit, retouche et range vos fichiers sur Mac sans ouvrir d’app : glissez un fichier, touchez Maj, ⌘ ou Contrôle, lâchez sur une option. 100 % local.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/mue/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Mue — Glissez. Touchez une touche. C’est converti.">
+<meta property="og:description" content="Un convertisseur de fichiers pour Mac qui tient dans un geste : une roue s’ouvre sous le pointeur, on lâche le fichier sur le format voulu. Tout reste sur le Mac.">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/mue/">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/mue/assets/img/og-mue.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mue : la roue de conversion ouverte sous le pointeur, avec WebP en surbrillance">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mue — Glissez. Touchez une touche. C’est converti.">
+<meta name="twitter:description" content="Un convertisseur de fichiers pour Mac qui tient dans un geste : une roue s’ouvre sous le pointeur, on lâche le fichier sur le format voulu. Tout reste sur le Mac.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/mue/assets/img/og-mue.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f1ec">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/gabarito.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=15">
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script src="assets/js/roue.js?v=1" defer></script>
+<script src="assets/js/site.js?v=1" defer></script>
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/mue/#app","name":"Mue","alternateName":"Mue 2","description":"Convertisseur de fichiers pour macOS qui tient dans un geste : on glisse un fichier, on touche Maj, Commande ou Contrôle, une roue s’ouvre sous le pointeur et on lâche le fichier sur une option. Conversion, retouche et actions, 100 % en local.","applicationCategory":"UtilitiesApplication","operatingSystem":"macOS 27","softwareVersion":"2","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/mue/","image":"https://mtx-developpement.fr/realisations/mue/assets/img/icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/mue/assets/img/ecrans/roue-1-convertir-sombre.webp","https://mtx-developpement.fr/realisations/mue/assets/img/ecrans/fenetre-accueil-clair.webp"],"featureList":["Roue de conversion, d’outils et d’actions sous le pointeur","Images, vidéo, audio, documents, tableurs, sous-titres et archives","Compresser, recadrer, retoucher, détourer, masquer, annoter","AirDrop, étagère, copier, déplacer, copier le chemin, Terminal","Fenêtre Atelier, historique, icône de barre des menus","Couleurs et styles de roue personnalisables","Fonctionnement 100 % local"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/mue/#page","url":"https://mtx-developpement.fr/realisations/mue/","name":"Mue : convertir un fichier sur Mac en glissant, d’une touche","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/mue/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/mue/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/mue/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Mue","item":"https://mtx-developpement.fr/realisations/mue/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/mue/#questions","mainEntity":[{"@type":"Question","name":"Mue envoie-t-il mes fichiers en ligne ?","acceptedAnswer":{"@type":"Answer","text":"Non. Toutes les conversions se font sur le Mac, avec les moteurs de macOS et, s’ils sont installés, ffmpeg, LibreOffice ou unar. Rien n’est envoyé sur Internet."}},{"@type":"Question","name":"Le geste demande-t-il une autorisation d’accessibilité ?","acceptedAnswer":{"@type":"Answer","text":"Non. Mue lit seulement l’état des boutons et des touches, et le contenu du presse-papiers de glisser. Il n’a pas besoin de surveiller le clavier ni de contrôler l’ordinateur."}},{"@type":"Question","name":"Où arrive le fichier converti ?","acceptedAnswer":{"@type":"Answer","text":"À côté de l’original, par défaut. Le dossier de sortie, la qualité et les touches se règlent dans Mue › Réglages. Lâcher le fichier au centre de la roue annule."}},{"@type":"Question","name":"Peut-on s’en servir sans le geste ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La fenêtre Atelier propose le même catalogue : on y dépose des fichiers et on clique sur une option. On peut aussi déposer un fichier sur l’icône de la barre des menus, ou passer par le clic droit du Finder."}},{"@type":"Question","name":"Sur quels Mac fonctionne Mue ?","acceptedAnswer":{"@type":"Answer","text":"Sur les Mac Apple silicon avec macOS 27 ou plus récent. Mue est une réalisation de MTX Studio : écrivez à mtxstudio@proton.me pour en savoir plus."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-mue">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Mue&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Mue%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre">
+  <a class="marque" href="#haut" aria-label="Mue, haut de page"><img src="assets/img/icone.webp" width="30" height="30" alt=""><span>Mue</span></a>
+  <nav class="barre-nav" aria-label="Sections de la page">
+    <a href="#roues">Les trois roues</a>
+    <a href="#formats">Formats</a>
+    <a href="#atelier">Atelier</a>
+    <a href="#style">Style</a>
+    <a href="#local">Confidentialité</a>
+  </nav>
+  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Mue&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99aimerais%20en%20savoir%20plus%20sur%20Mue.%0A">En savoir plus</a>
+</header>
+
+<main id="contenu">
+
+  <section class="heros" id="haut" aria-labelledby="titre">
+    <div class="heros-texte">
+      <p class="surtitre">Utilitaire Mac · Conversion de fichiers</p>
+      <h1 id="titre"><span class="mot">Glissez.</span> <span class="mot">Touchez une touche.</span> <span class="mot mot-mue" data-mue-titre>C’est converti.</span></h1>
+      <p class="chapo">Mue ne s’ouvre pas&#8239;: il apparaît. Commencez à glisser un fichier n’importe où sur le Mac, touchez <kbd>⇧</kbd>, une roue s’ouvre sous le pointeur. Lâchez sur le format voulu, la copie arrive à côté de l’original.</p>
+      <div class="actions">
+        <a class="bouton bouton-plein" href="#bureau">Essayer le geste</a>
+        <a class="bouton bouton-trait" href="#roues">Voir les trois roues</a>
+      </div>
+    </div>
+
+    <div class="heros-bureau">
+      <div class="bureau" id="bureau" data-bureau role="group" aria-label="Démonstration du geste : glissez un fichier, puis touchez Maj, Commande ou Contrôle" aria-describedby="bureau-aide">
+        <span class="fond-rond fond-1" aria-hidden="true"></span><span class="fond-rond fond-2" aria-hidden="true"></span><span class="fond-rond fond-3" aria-hidden="true"></span>
+        <button class="fichier" type="button" data-fichier style="--x:22%;--y:30%" data-nom="photo" data-ext="heic" data-type="image"><span class="fichier-icone fi-image" aria-hidden="true"></span><span class="fichier-nom">photo.heic</span></button>
+        <button class="fichier" type="button" data-fichier style="--x:16%;--y:66%" data-nom="interview" data-ext="mov" data-type="video"><span class="fichier-icone fi-video" aria-hidden="true"></span><span class="fichier-nom">interview.mov</span></button>
+        <button class="fichier" type="button" data-fichier style="--x:40%;--y:78%" data-nom="rapport" data-ext="docx" data-type="doc"><span class="fichier-icone fi-doc" aria-hidden="true"></span><span class="fichier-nom">rapport.docx</span></button>
+        <div class="roue" data-roue aria-hidden="true"></div>
+        <svg class="pointeur" data-pointeur viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2.5v17.2l4.6-4.3 2.9 6.6 2.7-1.2-2.9-6.5h6.2z"/></svg>
+        <p class="bureau-touches" aria-hidden="true"><span data-touche="convertir"><kbd>⇧</kbd>Convertir</span><span data-touche="outils"><kbd>⌘</kbd>Outils</span><span data-touche="actions"><kbd>⌃</kbd>Actions</span></p>
+        <div class="banniere" data-banniere aria-hidden="true"><span class="banniere-icone"></span><span><b data-banniere-t>Convertir en PNG</b><span data-banniere-s>photo.heic → photo.png</span></span></div>
+      </div>
+      <p class="legende" id="bureau-aide">Une réplique du geste dans la page. À la souris&#8239;: glissez un fichier, puis touchez <kbd>⇧</kbd>, <kbd>⌘</kbd> ou <kbd>⌃</kbd>. Au doigt&#8239;: gardez le fichier appuyé. Au clavier&#8239;: <kbd>Entrée</kbd> sur un fichier.</p>
+      <p class="sr-only" aria-live="polite" data-annonce></p>
+    </div>
+  </section>
+
+  <!-- 01 Les trois roues ===================================================== -->
+  <!-- Le film de présentation (16:9, avec musique originale) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css.
+       Fabriqué par outils/films/presentations/ (mue.html, puis fabriquer.sh). -->
+  <section class="section section-film" id="film" aria-labelledby="titre-film">
+    <div class="enveloppe">
+      <p class="etiquette apparait">Le film</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-film">Le geste, en trente&#8209;quatre secondes.</h2>
+        <p class="tete-texte apparait">Glisser, toucher une touche, et c’est converti&#8239;: les trois roues, les formats, les retouches et l’Atelier, sur les vrais écrans de Mue. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+      </div>
+      <div class="presentation-film" data-mtx-film data-duree="34.29">
+        <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/presentation.webp" aria-label="Film de présentation de Mue, 34 secondes, avec musique : un fichier glissé puis converti d’une touche, les trois roues Convertir, Outils et Actions, les formats, la compression et la retouche, les bannières de progression, l’Atelier et les réglages de la roue."><source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'><source src="assets/video/presentation-720.mp4" type='video/mp4; codecs="avc1.64001F, mp4a.40.2"' media="(max-width: 600px)"><source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'></video>
+          <div class="mtx-film-commandes" hidden><button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button><button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button><button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button></div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+        <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film"><li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Le geste</button></li><li><button type="button" data-mtx-film-aller="4.29"><span class="chiffre">0:04</span> Trois roues</button></li><li><button type="button" data-mtx-film-aller="8.57"><span class="chiffre">0:08</span> Formats</button></li><li><button type="button" data-mtx-film-aller="12.86"><span class="chiffre">0:12</span> Retouches</button></li><li><button type="button" data-mtx-film-aller="17.14"><span class="chiffre">0:17</span> Sans fenêtre</button></li><li><button type="button" data-mtx-film-aller="21.43"><span class="chiffre">0:21</span> L’Atelier</button></li><li><button type="button" data-mtx-film-aller="25.71"><span class="chiffre">0:25</span> Réglages</button></li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="roues" aria-labelledby="titre-roues">
+    <div class="enveloppe">
+      <p class="etiquette apparait">Les trois roues</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-roues">Une touche par intention.</h2>
+        <p class="tete-texte apparait">Changer de format, transformer le fichier, ou l’envoyer quelque part. Chaque roue garde sa couleur, et retaper la touche affiche la page suivante quand il y a plus de dix options. Touchez <kbd>⇧</kbd>, <kbd>⌘</kbd> ou <kbd>⌃</kbd> sur cette page.</p>
+      </div>
+      <div class="trio apparait" data-trio>
+        <div class="trio-onglets" role="tablist" aria-label="Choisir une roue">
+          <button type="button" role="tab" id="o-conv" aria-controls="p-conv" aria-selected="true" data-onglet="0" style="--c:var(--bleu)"><kbd>⇧</kbd><span><b>Convertir</b>PNG, JPG, WebP, HEIC, AVIF, PDF, MP4, MP3, DOCX…</span></button>
+          <button type="button" role="tab" id="o-outi" aria-controls="p-outi" aria-selected="false" data-onglet="1" style="--c:var(--violet)" tabindex="-1"><kbd>⌘</kbd><span><b>Outils</b>Compresser, recadrer, retoucher, fond, détourer, masquer…</span></button>
+          <button type="button" role="tab" id="o-acti" aria-controls="p-acti" aria-selected="false" data-onglet="2" style="--c:var(--orange)" tabindex="-1"><kbd>⌃</kbd><span><b>Actions</b>AirDrop, étagère, copier, déplacer, chemin, Terminal</span></button>
+        </div>
+        <div class="trio-scene">
+          <figure class="trio-panneau est-actif" role="tabpanel" id="p-conv" aria-labelledby="o-conv"><picture><source type="image/avif" srcset="assets/img/ecrans/roue-1-convertir-sombre.avif"><img src="assets/img/ecrans/roue-1-convertir-sombre.webp" width="940" height="940" alt="Roue de conversion de Mue : PNG, WebP, HEIC, TIFF, AVIF, BMP, GIF, PDF, ICO, ICNS, avec WebP en surbrillance" loading="lazy" decoding="async"></picture></figure>
+          <figure class="trio-panneau" role="tabpanel" id="p-outi" aria-labelledby="o-outi"><picture><source type="image/avif" srcset="assets/img/ecrans/roue-2-outils-sombre.avif"><img src="assets/img/ecrans/roue-2-outils-sombre.webp" width="940" height="940" alt="Roue d’outils de Mue : compresser, recadrer, retoucher, fond, détourer, masquer" loading="lazy" decoding="async"></picture></figure>
+          <figure class="trio-panneau" role="tabpanel" id="p-acti" aria-labelledby="o-acti"><picture><source type="image/avif" srcset="assets/img/ecrans/roue-3-actions-clair.avif"><img src="assets/img/ecrans/roue-3-actions-clair.webp" width="940" height="940" alt="Roue d’actions de Mue en apparence claire : AirDrop, étagère, copier, déplacer, copier le chemin, Terminal" loading="lazy" decoding="async"></picture></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 Formats ============================================================ -->
+  <section class="section section-formats" id="formats" aria-labelledby="titre-formats">
+    <div class="enveloppe">
+      <p class="etiquette apparait">Formats</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-formats">Ce qui entre. Ce qui en sort.</h2>
+        <p class="tete-texte apparait">L’essentiel tourne avec les moteurs de macOS. Si ffmpeg, LibreOffice ou unar sont installés, Mue les détecte et la liste s’allonge d’elle-même.</p>
+      </div>
+      <ul class="familles">
+        <li class="famille apparait" style="--c:var(--bleu)"><h3>Images</h3><p class="puces"><span>JPG</span><span>PNG</span><span>HEIC</span><span>TIFF</span><span>BMP</span><span>GIF</span><span>PDF</span><span>ICO</span><span>ICNS</span><span class="opt">WebP</span><span class="opt">AVIF</span></p><p class="note">Lecture aussi du SVG et des fichiers RAW.</p></li>
+        <li class="famille apparait" style="--c:var(--violet)"><h3>Vidéo</h3><p class="puces"><span>MP4</span><span>MOV</span><span>GIF</span><span>M4A</span><span class="opt">WebM</span><span class="opt">MKV</span><span class="opt">AVI</span><span class="opt">WMV</span></p></li>
+        <li class="famille apparait" style="--c:var(--rose)"><h3>Audio</h3><p class="puces"><span>M4A</span><span>WAV</span><span>FLAC</span><span>AIFF</span><span class="opt">MP3</span><span class="opt">OGG</span><span class="opt">Opus</span><span class="opt">WMA</span></p></li>
+        <li class="famille apparait" style="--c:var(--orange)"><h3>Documents</h3><p class="puces"><span>DOCX</span><span>RTF</span><span>ODT</span><span>TXT</span><span>Markdown</span><span>HTML</span><span>EPUB</span><span>PDF</span><span class="opt">PPTX</span><span class="opt">ODP</span></p></li>
+        <li class="famille apparait" style="--c:var(--vert)"><h3>Tableurs</h3><p class="puces"><span>CSV</span><span>TSV</span><span>XLSX</span><span>JSON</span><span>HTML</span><span>PDF</span><span class="opt">XLS</span><span class="opt">ODS</span></p></li>
+        <li class="famille apparait" style="--c:var(--sarcelle)"><h3>Sous-titres et archives</h3><p class="puces"><span>SRT</span><span>VTT</span><span>ZIP</span><span>TAR</span><span>GZ</span><span class="opt">RAR</span><span class="opt">7Z</span></p></li>
+      </ul>
+      <p class="legende-formats apparait"><span class="opt-cle"></span>Avec ffmpeg, LibreOffice ou unar, détectés automatiquement (Homebrew, MacPorts).</p>
+    </div>
+  </section>
+
+  <!-- 03 Atelier ============================================================ -->
+  <section class="section" id="atelier" aria-labelledby="titre-atelier">
+    <div class="enveloppe atelier">
+      <div class="atelier-texte">
+        <p class="etiquette apparait">Sans le geste</p>
+        <h2 class="titre apparait" id="titre-atelier">L’Atelier, pour ceux qui préfèrent cliquer.</h2>
+        <p class="tete-texte apparait">Le même catalogue en tuiles, avec les miniatures Quick Look des fichiers déposés. L’historique est conservé d’un lancement à l’autre, et une icône dans la barre des menus accepte aussi les fichiers.</p>
+        <div class="atelier-onglets" role="tablist" aria-label="Vues de la fenêtre Atelier" data-atelier-onglets>
+          <button type="button" role="tab" aria-selected="true" aria-controls="v-acc" id="t-acc" data-vue="0">Accueil</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="v-fic" id="t-fic" data-vue="1" tabindex="-1">Fichiers déposés</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="v-his" id="t-his" data-vue="2" tabindex="-1">Historique</button>
+        </div>
+      </div>
+      <div class="atelier-fenetre apparait" data-atelier>
+        <div class="vue est-actif" role="tabpanel" id="v-acc" aria-labelledby="t-acc"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/fenetre-accueil-clair.avif"><img src="assets/img/ecrans/fenetre-accueil-clair.webp" width="1400" height="980" alt="Fenêtre Atelier de Mue : glissez un fichier, touchez une touche" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/fenetre-accueil-sombre.avif"><img src="assets/img/ecrans/fenetre-accueil-sombre.webp" width="1400" height="980" alt="Fenêtre Atelier de Mue : glissez un fichier, touchez une touche" loading="lazy" decoding="async"></picture></div>
+        <div class="vue" role="tabpanel" id="v-fic" aria-labelledby="t-fic"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/fenetre-fichiers-clair.avif"><img src="assets/img/ecrans/fenetre-fichiers-clair.webp" width="1400" height="1148" alt="Atelier de Mue avec deux fichiers déposés et les tuiles Convertir, Outils et Actions" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/fenetre-fichiers-sombre.avif"><img src="assets/img/ecrans/fenetre-fichiers-sombre.webp" width="1400" height="1148" alt="Atelier de Mue avec deux fichiers déposés et les tuiles Convertir, Outils et Actions" loading="lazy" decoding="async"></picture></div>
+        <div class="vue" role="tabpanel" id="v-his" aria-labelledby="t-his"><picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/fenetre-historique-clair.avif"><img src="assets/img/ecrans/fenetre-historique-clair.webp" width="1400" height="840" alt="Historique des conversions dans Mue" loading="lazy" decoding="async"></picture><picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/fenetre-historique-sombre.avif"><img src="assets/img/ecrans/fenetre-historique-sombre.webp" width="1400" height="840" alt="Historique des conversions dans Mue" loading="lazy" decoding="async"></picture></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Style de la roue ===================================================== -->
+  <section class="section section-style" id="style" aria-labelledby="titre-style">
+    <div class="enveloppe style">
+      <div>
+        <p class="etiquette apparait">Réglages › Roue</p>
+        <h2 class="titre apparait" id="titre-style">La roue se règle comme on l’aime.</h2>
+        <p class="tete-texte apparait">Une couleur de surbrillance par roue ou une seule pour les trois, trois styles, trois tailles, le fond automatique, sombre ou clair. L’aperçu change en direct, comme dans l’app.</p>
+        <form class="reglages apparait" data-reglages onsubmit="return false">
+          <fieldset><legend>Surbrillance</legend><div class="segments"><label><input type="radio" name="style" value="uni">Unie</label><label><input type="radio" name="style" value="degrade" checked>Dégradée</label><label><input type="radio" name="style" value="lueur">Lueur</label></div></fieldset>
+          <fieldset><legend>Couleur</legend><div class="pastilles">
+            <label style="--p:#2f7bf6"><input type="radio" name="couleur" value="#2f7bf6" checked><span class="sr-only">Bleu</span></label>
+            <label style="--p:#a14df0"><input type="radio" name="couleur" value="#a14df0"><span class="sr-only">Violet</span></label>
+            <label style="--p:#f2508f"><input type="radio" name="couleur" value="#f2508f"><span class="sr-only">Rose</span></label>
+            <label style="--p:#f08a24"><input type="radio" name="couleur" value="#f08a24"><span class="sr-only">Orange</span></label>
+            <label style="--p:#e9b600"><input type="radio" name="couleur" value="#e9b600"><span class="sr-only">Jaune</span></label>
+            <label style="--p:#2fb36b"><input type="radio" name="couleur" value="#2fb36b"><span class="sr-only">Vert</span></label>
+            <label style="--p:#14a3b8"><input type="radio" name="couleur" value="#14a3b8"><span class="sr-only">Sarcelle</span></label>
+          </div></fieldset>
+          <fieldset><legend>Taille</legend><div class="segments"><label><input type="radio" name="taille" value=".82">Compacte</label><label><input type="radio" name="taille" value="1" checked>Standard</label><label><input type="radio" name="taille" value="1.14">Grande</label></div></fieldset>
+          <fieldset><legend>Fond</legend><div class="segments"><label><input type="radio" name="fond" value="auto" checked>Automatique</label><label><input type="radio" name="fond" value="sombre">Sombre</label><label><input type="radio" name="fond" value="clair">Clair</label></div></fieldset>
+        </form>
+      </div>
+      <div class="apercu apparait" aria-hidden="true">
+        <span class="fond-rond fond-1"></span><span class="fond-rond fond-2"></span><span class="fond-rond fond-3"></span>
+        <div class="roue roue-apercu est-ouverte" data-roue-apercu></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Local =============================================================== -->
+  <section class="section" id="local" aria-labelledby="titre-local">
+    <div class="enveloppe local">
+      <div>
+        <p class="etiquette apparait">Confidentialité</p>
+        <h2 class="titre apparait" id="titre-local">Rien ne quitte le Mac. Pas même une autorisation.</h2>
+      </div>
+      <ul class="engagements">
+        <li class="apparait"><h3>100&#8239;% local</h3><p>Chaque conversion se fait sur le Mac. Aucun envoi, aucun compte, aucune file d’attente sur un serveur.</p></li>
+        <li class="apparait"><h3>Aucune permission demandée</h3><p>Le geste lit seulement l’état des boutons et des touches, et le presse-papiers de glisser. Pas d’accès à l’accessibilité, pas de surveillance du clavier.</p></li>
+        <li class="apparait"><h3>Une copie, jamais l’original</h3><p>Le résultat apparaît à côté du fichier de départ. Lâcher au centre de la roue annule, sans rien toucher.</p></li>
+      </ul>
+      <figure class="bannieres apparait">
+        <picture class="th-clair"><source type="image/avif" srcset="assets/img/ecrans/hud-clair.avif"><img src="assets/img/ecrans/hud-clair.webp" width="720" height="720" alt="Bannières de progression de Mue : compression en cours, conversion réussie, format non pris en charge" loading="lazy" decoding="async"></picture>
+        <picture class="th-sombre"><source type="image/avif" srcset="assets/img/ecrans/hud-sombre.avif"><img src="assets/img/ecrans/hud-sombre.webp" width="720" height="720" alt="Bannières de progression de Mue : compression en cours, conversion réussie, format non pris en charge" loading="lazy" decoding="async"></picture>
+        <figcaption>Les bannières de progression, en Liquid Glass. Une erreur dit ce qui manque, en clair.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Questions ============================================================ -->
+  <section class="section" id="questions" aria-labelledby="titre-questions">
+    <div class="enveloppe faq">
+      <div>
+        <p class="etiquette apparait">Questions</p>
+        <h2 class="titre apparait" id="titre-questions">Avant le premier glisser.</h2>
+      </div>
+      <div class="faq-liste">
+        <details name="faq" open><summary><h3>Mue envoie-t-il mes fichiers en ligne&#8239;?</h3></summary><p>Non. Toutes les conversions se font sur le Mac, avec les moteurs de macOS et, s’ils sont installés, ffmpeg, LibreOffice ou unar. Rien n’est envoyé sur Internet.</p></details>
+        <details name="faq"><summary><h3>Le geste demande-t-il une autorisation d’accessibilité&#8239;?</h3></summary><p>Non. Mue lit seulement l’état des boutons et des touches, et le contenu du presse-papiers de glisser. Il n’a pas besoin de surveiller le clavier ni de contrôler l’ordinateur.</p></details>
+        <details name="faq"><summary><h3>Où arrive le fichier converti&#8239;?</h3></summary><p>À côté de l’original, par défaut. Le dossier de sortie, la qualité et les touches se règlent dans Mue › Réglages. Lâcher le fichier au centre de la roue annule.</p></details>
+        <details name="faq"><summary><h3>Peut-on s’en servir sans le geste&#8239;?</h3></summary><p>Oui. La fenêtre Atelier propose le même catalogue&#8239;: on y dépose des fichiers et on clique sur une option. On peut aussi déposer un fichier sur l’icône de la barre des menus, ou passer par le clic droit du Finder.</p></details>
+        <details name="faq"><summary><h3>Sur quels Mac fonctionne Mue&#8239;?</h3></summary><p>Sur les Mac Apple silicon avec macOS 27 ou plus récent. Mue est une réalisation de MTX Studio&#8239;: écrivez à <a href="mailto:mtxstudio@proton.me?subject=Mue&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99aimerais%20en%20savoir%20plus%20sur%20Mue.%0A">mtxstudio@proton.me</a> pour en savoir plus.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Mue" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-mue.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Mue convertit, retouche et range vos fichiers d’un seul geste, sans quitter le Mac.</h2>
+    <p class="mtx-pf-sub">Un geste qui vous ferait gagner du temps chaque jour&#8239;? MTX Studio conçoit l’outil, et son site, avec le même soin.</p>
+    <p class="mtx-pf-tags">Utilitaire Mac · Conversion de fichiers<br>Swift · SwiftUI · AppKit · AVFoundation · PDFKit · Quick Look</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../kompagnion/"><img src="../../assets/img/realisations/icone-kompagnion.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Kompagnion</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Mue&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Mue%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Mue&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Mue%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

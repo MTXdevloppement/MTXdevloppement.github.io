@@ -47,8 +47,9 @@
   --chip-line: rgb(0 0 0 / 10%);
   --solid: #000;
   --solid-ink: #fff;
-  --glass: rgb(0 0 0 / 38%);
-  --glass-line: #fff;
+  --glass: rgb(255 255 255 / 46%);
+  --glass-line: rgb(0 0 0 / 34%);
+  --glass-ink: #000;
   --overlay: rgb(255 255 255 / 95%);
   --video-bg: #c9c9c6;
   --video-filter: none;
@@ -59,6 +60,8 @@
   --night-line: rgb(255 255 255 / 14%);
   --sun: none;
   --moon: block;
+  --vu-clair: visible;
+  --vu-sombre: hidden;
 
   color-scheme: light;
   font-family: var(--font-body);
@@ -87,6 +90,7 @@
   --solid: #f4f4f2;
   --solid-ink: #0b0b0c;
   --glass: rgb(0 0 0 / 46%);
+  --glass-ink: #fff;
   --glass-line: rgb(255 255 255 / 72%);
   --overlay: rgb(11 11 12 / 95%);
   --video-bg: #19191a;
@@ -95,6 +99,8 @@
   --icon-shadow: 0 6px 18px rgb(0 0 0 / 50%);
   --sun: block;
   --moon: none;
+  --vu-clair: hidden;
+  --vu-sombre: visible;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -113,6 +119,7 @@
     --solid: #f4f4f2;
     --solid-ink: #0b0b0c;
     --glass: rgb(0 0 0 / 46%);
+    --glass-ink: #fff;
     --glass-line: rgb(255 255 255 / 72%);
     --overlay: rgb(11 11 12 / 95%);
     --video-bg: #19191a;
@@ -121,6 +128,8 @@
     --icon-shadow: 0 6px 18px rgb(0 0 0 / 50%);
     --sun: block;
     --moon: none;
+    --vu-clair: hidden;
+    --vu-sombre: visible;
     color-scheme: dark;
   }
 }
@@ -282,11 +291,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .pill-white { background: var(--chip); color: var(--chip-ink); border-color: var(--chip-line); }
 .pill-white:hover { background: var(--solid); color: var(--solid-ink); border-color: var(--solid); }
 .pill-outline {
-  gap: 8px; color: #fff; border-color: var(--glass-line);
+  gap: 8px; color: var(--glass-ink); border-color: var(--glass-line);
   background: var(--glass);
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
-.pill-outline:hover { background: #fff; color: #000; border-color: #fff; }
+.pill-outline:hover { background: var(--solid); color: var(--solid-ink); border-color: var(--solid); }
 .pill-outline .pill-email { text-decoration: underline; text-underline-offset: 2px; }
 .pill-outline svg { flex: none; width: 12px; height: 12px; }
 .pill-black { background: var(--solid); color: var(--solid-ink); border-color: var(--solid); }
@@ -361,6 +370,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: 100%; height: 100%; object-fit: cover; object-position: top center;
   transition: transform 900ms var(--ease);
 }
+/* Deux aperçus par réalisation : le site en thème clair et en thème sombre. Seul celui du thème en cours est
+   chargé ; une fois la page chargée, l'autre est mis en place (invisible) pour que le changement de thème soit
+   instantané. Les jetons --moon et --sun valent block ou none selon le thème. */
+.work-shot { position: absolute; inset: 0; display: block; }
+.work-shot-clair { visibility: var(--vu-clair); }
+.work-shot-sombre { visibility: var(--vu-sombre); }
+:root:not(.vignettes-pretes) .work-shot-clair { display: var(--moon); }
+:root:not(.vignettes-pretes) .work-shot-sombre { display: var(--sun); }
 .work-media::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   box-shadow: inset 0 0 0 1px var(--media-ring);
@@ -519,6 +536,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   font-size: 14px; color: var(--night-muted);
 }
 .footer-bottom a, .footer-bottom button { color: #fff; }
+.footer-bottom a, .footer-bottom button { padding-block: 6px; }
 .footer-theme { text-decoration: underline; text-underline-offset: 3px; transition: opacity 180ms ease; }
 .footer-theme:hover { opacity: 0.6; }
 

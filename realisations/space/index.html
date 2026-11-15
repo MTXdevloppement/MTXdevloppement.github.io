@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t;try{t=localStorage.getItem('mtx-theme')}catch(e){}if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})(document.documentElement)</script>
+<title>Space : jeu d’arcade iPhone à un doigt, d’orbite en orbite</title>
+<meta name="description" content="Space est un jeu iPhone à un doigt : un tap lance la bille d’une planète à l’autre. Parfaits, fièvre, trous noirs. Jouez-y directement dans la page.">
+<meta name="author" content="MTX Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://mtx-developpement.fr/realisations/space/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MTX Studio">
+<meta property="og:title" content="Space — Un tap, une orbite, pas de deuxième essai">
+<meta property="og:description" content="Un jeu d’arcade iPhone à un doigt, dessiné et mis en musique entièrement par le code. La partie se joue directement dans la page.">
+<meta property="og:url" content="https://mtx-developpement.fr/realisations/space/">
+<meta property="og:image" content="https://mtx-developpement.fr/realisations/space/assets/img/og-space.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Space : une bille en orbite autour d’une planète orange, sur un ciel violet étoilé">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Space — Un tap, une orbite, pas de deuxième essai">
+<meta name="twitter:description" content="Un jeu d’arcade iPhone à un doigt, dessiné et mis en musique entièrement par le code. La partie se joue directement dans la page.">
+<meta name="twitter:image" content="https://mtx-developpement.fr/realisations/space/assets/img/og-space.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#120a2e">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/onest.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=15">
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
+<script src="assets/js/orbite.js?v=1" defer></script>
+<script src="assets/js/site.js?v=1" defer></script>
+<script src="../../assets/js/projet.js?v=17" defer></script>
+<script defer src="../../assets/js/contact.js?v=1"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://mtx-developpement.fr/realisations/space/#jeu","name":"Space","description":"Jeu d’arcade iPhone à un doigt : la bille tourne autour d’une planète, un tap la lance vers la suivante. Parfaits, fièvre, dangers qui arrivent planète après planète, missions du jour.","genre":["Arcade","Hypercasual"],"gamePlatform":"iPhone","applicationCategory":"GameApplication","operatingSystem":"iOS 18","playMode":"SinglePlayer","inLanguage":["fr","en"],"url":"https://mtx-developpement.fr/realisations/space/","image":"https://mtx-developpement.fr/realisations/space/assets/img/icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/space/assets/img/ecrans/menu.webp","https://mtx-developpement.fr/realisations/space/assets/img/ecrans/v2-partie.webp","https://mtx-developpement.fr/realisations/space/assets/img/ecrans/v2-dangers.webp"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/space/#page","url":"https://mtx-developpement.fr/realisations/space/","name":"Space : jeu d’arcade iPhone à un doigt, d’orbite en orbite","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/space/#jeu"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/space/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/space/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Space","item":"https://mtx-developpement.fr/realisations/space/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/space/#questions","mainEntity":[{"@type":"Question","name":"Comment joue-t-on à Space ?","acceptedAnswer":{"@type":"Answer","text":"Avec un seul doigt. La bille tourne autour d’une planète ; un tap la lance dans la direction où elle se trouve. Si elle passe assez près d’une planète plus haute, elle s’y accroche. Si elle part dans le vide ou touche une mine, la partie est finie."}},{"@type":"Question","name":"Faut-il un compte ou une connexion ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le record, les gemmes, les skins et les missions sont gardés sur le téléphone. Le jeu ne demande aucun compte et ne dépend d’aucun serveur."}},{"@type":"Question","name":"Le jeu contient-il de la publicité ?","acceptedAnswer":{"@type":"Answer","text":"Les emplacements sont prévus (entre deux parties, seconde chance, gemmes doublées) avec des règles strictes : rien pendant les deux premières parties, au moins 30 secondes entre deux pubs. Dans la version actuelle, la publicité est désactivée."}},{"@type":"Question","name":"La partie de cette page est-elle le vrai jeu ?","acceptedAnswer":{"@type":"Answer","text":"C’est une réplique fidèle de ses règles, écrite pour le navigateur : orbite, lancer, parfaits, bonds, gemmes, mines et écran qui monte. Le jeu complet ajoute la fièvre, les trous noirs, les astéroïdes, les planètes instables, les missions et la boutique."}},{"@type":"Question","name":"Quand Space sera-t-il disponible ?","acceptedAnswer":{"@type":"Answer","text":"Space arrive bientôt sur l’App Store, pour iPhone avec iOS 18 ou plus récent. Écrivez à mtxstudio@proton.me pour être prévenu de la sortie."}}]}]}</script>
+</head>
+<body>
+<div class="mtx-gbar">
+  <div class="mtx-gbar-in">
+    <a class="mtx-logo" href="../../" aria-label="MTX Studio, accueil"><svg viewBox="0 0 265 100" aria-hidden="true"><defs><linearGradient id="mtx-logo-x" x1="187" x2="265" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 92.5V7.5L42 60l34.5-52.5v85M105.5 7.5h60M135.5 7.5v85" stroke="currentColor"/><path d="M194.5 7.5l63 85M257.5 7.5l-63 85" stroke="url(#mtx-logo-x)"/></g></svg><span>Studio</span></a>
+    <nav class="mtx-links" aria-label="MTX Studio"><a href="../../#realisations" aria-current="true">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav>
+    <div class="mtx-right"><a class="mtx-back" href="../../#r-space">Réalisations</a><a class="mtx-mail" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Space&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Space%20%3A%0A%0A">mtxstudio@proton.me</a><button class="mtx-theme" type="button" data-mtx-theme aria-label="Changer de thème"><svg class="mtx-i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="mtx-i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </div>
+</div>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre" data-barre>
+  <a class="marque" href="#haut" aria-label="Space, haut de page"><img src="assets/img/icone.webp" width="32" height="32" alt=""><span>Space</span></a>
+  <nav class="barre-nav" aria-label="Sections de la page">
+    <a href="#regle">La règle</a>
+    <a href="#score">Le score</a>
+    <a href="#montee">La montée</a>
+    <a href="#niveaux">Niveaux</a>
+    <a href="#fabrique">Fabrication</a>
+  </nav>
+  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Space%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20Space%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Être prévenu</a>
+</header>
+
+<main id="contenu">
+
+  <!-- Héros : la partie se joue dans le téléphone ================================ -->
+  <section class="heros" id="haut" aria-labelledby="titre">
+    <div class="ciel" aria-hidden="true"><span class="anneau anneau-1"><i></i></span><span class="anneau anneau-2"><i></i></span><span class="anneau anneau-3"><i></i></span></div>
+    <div class="heros-texte">
+      <p class="surtitre"><span class="pastille" aria-hidden="true"></span>Jeu iPhone · Arcade à un doigt</p>
+      <h1 id="titre"><span class="h-ligne">Un tap.</span> <span class="h-ligne">Une orbite.</span> <span class="h-ligne h-doux">Pas de deuxième essai.</span></h1>
+      <p class="chapo">La bille tourne autour d’une planète. Touchez&#8239;: elle part tout droit. Si elle frôle la suivante, elle s’y accroche. Sinon, c’est le vide. Et l’écran, lui, n’attend pas.</p>
+      <div class="actions">
+        <a class="bouton bouton-plein" href="#partie" data-jouer>Jouer dans la page<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3.4v9.2a.6.6 0 0 0 .9.5l7.3-4.6a.6.6 0 0 0 0-1L5.9 2.9a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg></a>
+        <a class="bouton bouton-trait" href="mailto:mtxstudio@proton.me?subject=Space%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20Space%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">Bientôt sur l’App Store</a>
+      </div>
+      <dl class="chiffres">
+        <div><dt>Commandes</dt><dd>1 doigt</dd></div>
+        <div><dt>Partie</dt><dd>30 s à 3 min</dd></div>
+        <div><dt>Compte</dt><dd>Aucun</dd></div>
+      </dl>
+    </div>
+
+    <div class="heros-jeu">
+      <div class="telephone mtx-pose mtx-flotte" data-mtx-pose>
+        <span class="tel-touches" aria-hidden="true"></span>
+        <div class="tel-bord mtx-reflet">
+          <div class="tel-ecran partie" id="partie" tabindex="0" role="application" aria-roledescription="jeu" aria-label="Partie de Space : touchez l’écran, ou appuyez sur Espace, pour lancer la bille" aria-describedby="partie-aide">
+            <canvas data-orbite aria-hidden="true"></canvas>
+            <div class="hud" aria-hidden="true">
+              <p class="hud-etat" data-etat>Démonstration</p>
+              <p class="hud-score" data-score>0</p>
+              <p class="hud-record"><svg viewBox="0 0 24 24"><path d="M3 18h18l-1.5-10-4.5 4-3-6-3 6-4.5-4z"/></svg><span data-record>0</span></p>
+            </div>
+            <button class="hud-son" type="button" data-son aria-pressed="false" aria-label="Activer le son"><svg class="son-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="m16 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="son-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+            <p class="partie-invite" aria-hidden="true"><span>Touchez pour prendre la main</span></p>
+            <p class="partie-fin" aria-hidden="true"><b>Perdu.</b><span>Touchez pour rejouer</span></p>
+            <span class="tel-ile" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+      <p class="heros-legende" id="partie-aide">Une réplique jouable des règles du jeu. Touchez l’écran, ou appuyez sur <kbd>Espace</kbd>&#8239;: la bille part dans la direction où elle se trouve.</p>
+      <p class="sr-only" aria-live="polite" data-annonce></p>
+    </div>
+  </section>
+
+  <!-- La règle ================================================================ -->
+  <!-- Le film de présentation (9:16, avec musique originale) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css.
+       Fabriqué par outils/films/presentations/ (space.html, puis fabriquer.sh). -->
+  <section class="section section-film" id="film" aria-labelledby="titre-film">
+    <div class="enveloppe presentation" data-mtx-film data-duree="30">
+      <div class="presentation-texte">
+        <p class="etiquette apparait">00 · Le film</p>
+        <h2 class="titre apparait" id="titre-film">Trente secondes, une orbite.</h2>
+        <p class="tete-texte apparait">La règle, le score, la montée dans les zones et les écrans du jeu. La partie qui tourne dans le téléphone est la réplique jouable de cette page&#8239;; les écrans du milieu sont des captures du jeu sur iPhone. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+      </div>
+      <div class="presentation-film">
+        <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="1080" height="1920" poster="assets/video/presentation.webp" aria-label="Film de présentation de Space, 30 secondes, avec musique : une partie de démonstration, la règle à un doigt, le barème du score, la montée dans les zones et leurs dangers, des captures du jeu sur iPhone, les quatre niveaux et la fabrication sans ressource importée."><source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'><source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'></video>
+          <div class="mtx-film-commandes" hidden><button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button><button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button><button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button></div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+      </div>
+      <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film"><li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Un tap</button></li><li><button type="button" data-mtx-film-aller="3.75"><span class="chiffre">0:03</span> La règle</button></li><li><button type="button" data-mtx-film-aller="7.5"><span class="chiffre">0:07</span> Le score</button></li><li><button type="button" data-mtx-film-aller="11.25"><span class="chiffre">0:11</span> La montée</button></li><li><button type="button" data-mtx-film-aller="15"><span class="chiffre">0:15</span> Le vrai jeu</button></li><li><button type="button" data-mtx-film-aller="18.75"><span class="chiffre">0:18</span> Niveaux</button></li><li><button type="button" data-mtx-film-aller="22.5"><span class="chiffre">0:22</span> Fabrication</button></li></ol>
+    </div>
+  </section>
+
+  <section class="section" id="regle" aria-labelledby="titre-regle">
+    <div class="enveloppe">
+      <p class="etiquette apparait">01 · La règle</p>
+      <h2 class="titre apparait" id="titre-regle">On comprend en deux secondes. On vise juste en deux cents parties.</h2>
+      <ol class="temps">
+        <li class="temps-carte apparait">
+          <svg class="schema schema-tourne" viewBox="0 0 200 200" aria-hidden="true"><circle class="s-orbite" cx="100" cy="100" r="58"/><circle class="s-planete" cx="100" cy="100" r="38"/><g class="s-rotor"><circle class="s-bille" cx="158" cy="100" r="8"/></g></svg>
+          <h3><span>1</span>Elle tourne</h3>
+          <p>La bille fait le tour de sa planète, dans un sens ou dans l’autre. Chaque planète a sa vitesse.</p>
+        </li>
+        <li class="temps-carte apparait">
+          <svg class="schema schema-tap" viewBox="0 0 200 200" aria-hidden="true"><circle class="s-orbite" cx="70" cy="130" r="44"/><circle class="s-planete" cx="70" cy="130" r="28"/><path class="s-trace" d="M101 99 L170 30"/><circle class="s-bille s-part" cx="101" cy="99" r="8"/><circle class="s-onde" cx="101" cy="99" r="10"/></svg>
+          <h3><span>2</span>Vous touchez</h3>
+          <p>Elle part tout droit, dans la direction où elle se trouve à cet instant. Pas de visée, pas de puissance&#8239;: tout est dans le moment.</p>
+        </li>
+        <li class="temps-carte apparait">
+          <svg class="schema schema-capte" viewBox="0 0 200 200" aria-hidden="true"><circle class="s-zone" cx="120" cy="70" r="52"/><circle class="s-planete s-p2" cx="120" cy="70" r="30"/><path class="s-trace" d="M30 175 L106 82"/><circle class="s-bille s-arrive" cx="30" cy="175" r="8"/></svg>
+          <h3><span>3</span>Elle s’accroche</h3>
+          <p>Si elle passe assez près d’une planète plus haute, elle se met à tourner autour. Visez le centre&#8239;: c’est un parfait.</p>
+        </li>
+      </ol>
+      <p class="aparte apparait">Et pendant ce temps, <strong>l’écran monte tout seul</strong>. Rester trop longtemps sur une planète, c’est la voir sortir par le bas. Une lueur rouge prévient quand ça devient urgent.</p>
+    </div>
+  </section>
+
+  <!-- Le score ================================================================= -->
+  <section class="section section-score" id="score" aria-labelledby="titre-score">
+    <div class="enveloppe">
+      <p class="etiquette apparait">02 · Le score</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-score">Chaque atterrissage se note.</h2>
+        <p class="tete-texte apparait">Atteindre la planète suivante rapporte un point. Le reste se mérite&#8239;: viser le centre, sauter une planète, frôler une mine, repartir sans attendre.</p>
+      </div>
+      <ul class="points">
+        <li class="point apparait"><b class="point-val">+1</b><h3>Planète suivante</h3><p>La base. Une planète, un point.</p></li>
+        <li class="point point-parfait apparait"><b class="point-val">+1 à +5</b><h3>Parfait</h3><p>Une trajectoire qui vise le centre. Le bonus grimpe à chaque parfait d’affilée, jusqu’à +5.</p></li>
+        <li class="point apparait"><b class="point-val">+1 / planète</b><h3>Bond</h3><p>Sauter une planète pour atteindre la suivante. Risqué, donc payé.</p></li>
+        <li class="point apparait"><b class="point-val">+1</b><h3>Frôlé</h3><p>Passer tout près d’un danger sans le toucher. Deux fois au maximum par vol.</p></li>
+        <li class="point apparait"><b class="point-val">+1</b><h3>Rapide</h3><p>Repartir avant d’avoir fait un tour complet.</p></li>
+        <li class="point point-fievre apparait"><b class="point-val">×2</b><h3>Fièvre</h3><p>Quatre parfaits d’affilée&#8239;: points et gemmes doublés jusqu’au premier atterrissage imparfait.</p></li>
+      </ul>
+      <div class="gamme apparait">
+        <div class="gamme-texte">
+          <h3>Le ressort secret&#8239;: une note qui monte.</h3>
+          <p>Pendant une série de parfaits, chaque atterrissage joue une note plus haute, sur une gamme pentatonique. On n’entend pas une récompense, on la sent arriver.</p>
+        </div>
+        <button class="bouton bouton-plein gamme-bouton" type="button" data-gamme><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3.4v9.2a.6.6 0 0 0 .9.5l7.3-4.6a.6.6 0 0 0 0-1L5.9 2.9a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>Écouter cinq parfaits</button>
+        <ol class="gamme-notes" aria-hidden="true" data-notes><li></li><li></li><li></li><li></li><li></li></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- La montée : la page traverse les zones du jeu ============================== -->
+  <section class="section section-montee" id="montee" aria-labelledby="titre-montee" data-montee>
+    <div class="enveloppe montee">
+      <div class="altimetre" aria-hidden="true">
+        <p class="alti-label">Planète</p>
+        <p class="alti-num" data-alti>01</p>
+        <p class="alti-zone" data-alti-zone>Zone 1</p>
+        <span class="alti-jauge"><i data-alti-jauge></i></span>
+        <div class="vignettes">
+          <svg class="vignette" data-v="1" viewBox="0 0 160 160"><circle cx="40" cy="120" r="16" fill="#ff9f68"/><circle cx="84" cy="80" r="15" fill="#ffd93d"/><circle cx="124" cy="38" r="14" fill="#6bcb77"/><path d="M52 109 72 91M96 69l16-18" class="v-trait"/></svg>
+          <svg class="vignette" data-v="7" viewBox="0 0 160 160"><circle cx="80" cy="80" r="26" fill="#4d96ff"/><circle cx="80" cy="80" r="52" class="v-orbite"/><g class="v-tourne"><g transform="translate(132 80)"><circle r="6" fill="#ff2e4d"/><path d="M-11 0h22M0-11v22M-8-8l16 16M8-8-8 8" stroke="#ff2e4d" stroke-width="2.4" stroke-linecap="round"/></g></g></svg>
+          <svg class="vignette" data-v="13" viewBox="0 0 160 160"><g class="v-glisse"><circle cx="80" cy="80" r="26" fill="#ff8fd8"/></g><path d="M24 128h112M30 122l-6 6 6 6M130 122l6 6-6 6" class="v-trait"/></svg>
+          <svg class="vignette" data-v="18" viewBox="0 0 160 160"><path d="M10 70h140" class="v-pointilles"/><g class="v-traverse"><path d="M-14 62l10-8 12 2 6 10-4 12-14 4-10-8z" fill="#b08968"/></g><circle cx="80" cy="132" r="14" fill="#6bcb77"/><circle cx="80" cy="20" r="11" fill="#ffd93d"/></svg>
+          <svg class="vignette" data-v="24" viewBox="0 0 160 160"><circle cx="80" cy="80" r="30" fill="#f4a261"/><path d="M66 60l10 14-6 10 12 14M92 64l-6 12 10 8" stroke="#7a2f12" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="80" cy="80" r="44" class="v-anneau"/></svg>
+          <svg class="vignette" data-v="31" viewBox="0 0 160 160"><g class="v-spirale"><circle cx="80" cy="80" r="56" class="v-halo"/><circle cx="80" cy="80" r="40" class="v-halo"/><circle cx="80" cy="80" r="26" class="v-halo"/></g><circle cx="80" cy="80" r="14" fill="#05030c" stroke="#b388ff" stroke-width="3"/></svg>
+          <svg class="vignette" data-v="60" viewBox="0 0 160 160"><rect x="20" y="20" width="120" height="24" rx="12" fill="#3b1c6e"/><rect x="20" y="52" width="120" height="24" rx="12" fill="#0e5b73"/><rect x="20" y="84" width="120" height="24" rx="12" fill="#8c3a62"/><rect x="20" y="116" width="120" height="24" rx="12" fill="#a0522d"/><path d="M142 150V12M136 18l6-6 6 6" class="v-trait"/></svg>
+        </div>
+      </div>
+      <div class="montee-recit">
+        <p class="etiquette apparait">03 · La montée</p>
+        <h2 class="titre apparait" id="titre-montee">Plus on monte, plus le ciel se complique.</h2>
+        <p class="tete-texte apparait">Les planètes rétrécissent, tournent plus vite et s’écartent. Puis les dangers arrivent, un par un, à des hauteurs précises (niveau Normal).</p>
+        <ol class="paliers">
+          <li class="palier" data-palier="1" data-zone="0"><p class="palier-n">Planètes 1 à 3</p><h3>L’échauffement</h3><p>Les trois premières sont volontairement faciles, et une aide s’affiche pendant les trois premières parties.</p></li>
+          <li class="palier" data-palier="7" data-zone="0"><p class="palier-n">Dès la 7e</p><h3>Les mines</h3><p>Elles tournent autour de certaines planètes et tuent au contact pendant le vol. Plus haut, elles vont par deux, face à face.</p></li>
+          <li class="palier" data-palier="13" data-zone="1"><p class="palier-n">Dès la 13e</p><h3>Les planètes mobiles</h3><p>Elles glissent de gauche à droite. Il faut viser là où elles seront, pas là où elles sont.</p></li>
+          <li class="palier" data-palier="18" data-zone="1"><p class="palier-n">Dès la 18e</p><h3>Les astéroïdes</h3><p>Ils traversent l’écran entre deux planètes, le long d’une ligne en pointillés. Lancer au bon moment, ou attendre.</p></li>
+          <li class="palier" data-palier="24" data-zone="2"><p class="palier-n">Dès la 24e</p><h3>Les planètes instables</h3><p>Fissurées, liserées de rouge. Un anneau se referme dès qu’on s’y pose&#8239;: à zéro, elles explosent.</p></li>
+          <li class="palier" data-palier="31" data-zone="3"><p class="palier-n">Dès la 31e</p><h3>Les trous noirs</h3><p>Leur halo courbe la trajectoire de la bille, leur cœur la détruit. On peut s’en servir, si on ose.</p></li>
+          <li class="palier" data-palier="60" data-zone="5"><p class="palier-n">Et après&#8239;?</p><h3>Pas de plafond</h3><p>Toutes les dix planètes, une nouvelle zone change les couleurs du ciel. Après la montée en difficulté, la rotation et le défilement continuent d’accélérer.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Niveaux =================================================================== -->
+  <section class="section" id="niveaux" aria-labelledby="titre-niveaux">
+    <div class="enveloppe">
+      <p class="etiquette apparait">04 · Niveaux</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-niveaux">Quatre niveaux, quatre records.</h2>
+        <p class="tete-texte apparait">Chaque niveau règle la même partie autrement. L’Extrême se mérite&#8239;: il s’ouvre avec un record de 80 en Difficile.</p>
+      </div>
+      <div class="niveaux apparait" data-niveaux>
+        <div class="segments" role="radiogroup" aria-label="Choisir un niveau">
+          <button type="button" role="radio" aria-checked="false" data-niveau="0">Facile</button>
+          <button type="button" role="radio" aria-checked="true" data-niveau="1">Normal</button>
+          <button type="button" role="radio" aria-checked="false" data-niveau="2">Difficile</button>
+          <button type="button" role="radio" aria-checked="false" data-niveau="3">Extrême</button>
+        </div>
+        <dl class="jauges" aria-live="polite">
+          <div class="jauge"><dt>Vitesse de rotation</dt><dd><span class="jauge-barre"><i data-j="rot"></i></span><b data-v="rot">×1</b></dd></div>
+          <div class="jauge"><dt>Défilement de l’écran</dt><dd><span class="jauge-barre"><i data-j="def"></i></span><b data-v="def">×1</b></dd></div>
+          <div class="jauge"><dt>Tolérance du parfait</dt><dd><span class="jauge-barre"><i data-j="tol"></i></span><b data-v="tol">40 % du rayon</b></dd></div>
+          <div class="jauge"><dt>Premières mines</dt><dd><span class="jauge-barre jauge-inverse"><i data-j="mine"></i></span><b data-v="mine">7e planète</b></dd></div>
+          <div class="jauge"><dt>Premiers trous noirs</dt><dd><span class="jauge-barre jauge-inverse"><i data-j="trou"></i></span><b data-v="trou">31e planète</b></dd></div>
+          <div class="jauge"><dt>Difficulté maximale à</dt><dd><span class="jauge-barre jauge-inverse"><i data-j="max"></i></span><b data-v="max">60 planètes</b></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Écrans =================================================================== -->
+  <section class="section section-ecrans" id="ecrans" aria-labelledby="titre-ecrans">
+    <div class="enveloppe">
+      <p class="etiquette apparait">05 · Dans le jeu</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-ecrans">Faire revenir, sans forcer.</h2>
+        <p class="tete-texte apparait">Un cadeau qui grandit chaque jour d’affilée, trois missions renouvelées chaque matin, douze skins à débloquer en gemmes. Captures du jeu sur iPhone.</p>
+      </div>
+    </div>
+    <div class="defile" data-defile tabindex="0" aria-label="Captures du jeu, faire défiler horizontalement">
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/menu.avif"><img src="assets/img/ecrans/menu.webp" width="460" height="1000" alt="Menu de Space : titre, record, choix du niveau et cadeau du jour" loading="lazy" decoding="async"></picture><figcaption><b>Le menu</b>Record, niveau, cadeau du jour.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/gameplay.avif"><img src="assets/img/ecrans/gameplay.webp" width="460" height="1000" alt="Partie de Space : un parfait multiplié par cinq, plus six points" loading="lazy" decoding="async"></picture><figcaption><b>La partie</b>Un parfait ×5 rapporte +6.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/v2-partie.avif"><img src="assets/img/ecrans/v2-partie.webp" width="414" height="900" alt="Partie de Space en fièvre, avec un bouclier et un trou noir" loading="lazy" decoding="async"></picture><figcaption><b>La fièvre</b>Tout est doublé, un trou noir guette.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/v2-dangers.avif"><img src="assets/img/ecrans/v2-dangers.webp" width="414" height="900" alt="Partie de Space avec un astéroïde et une planète instable" loading="lazy" decoding="async"></picture><figcaption><b>Les dangers</b>Astéroïde et planète instable.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/v2-missions.avif"><img src="assets/img/ecrans/v2-missions.webp" width="322" height="700" alt="Écran des trois missions du jour de Space et de leurs récompenses en gemmes" loading="lazy" decoding="async"></picture><figcaption><b>Missions du jour</b>Une facile, une moyenne, une dure.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/continuer.avif"><img src="assets/img/ecrans/continuer.webp" width="460" height="1000" alt="Écran de seconde chance de Space, une fois par partie" loading="lazy" decoding="async"></picture><figcaption><b>Seconde chance</b>Une fois par partie, pour 25 gemmes.</figcaption></figure>
+      <figure class="cap"><picture><source type="image/avif" srcset="assets/img/ecrans/boutique.avif"><img src="assets/img/ecrans/boutique.webp" width="460" height="1000" alt="Boutique de Space : skins de la bille à débloquer en gemmes" loading="lazy" decoding="async"></picture><figcaption><b>La boutique</b>Douze skins, de 30 à 1 000 gemmes.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- Fabrication et modèle ===================================================== -->
+  <section class="section" id="fabrique" aria-labelledby="titre-fabrique">
+    <div class="enveloppe">
+      <p class="etiquette apparait">06 · Fabrication</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-fabrique">Pas une image, pas un son importés.</h2>
+        <p class="tete-texte apparait">Planètes, étoiles, icône, effets sonores et boucle musicale&#8239;: tout est généré par le code, en SwiftUI et SpriteKit. Aucune bibliothèque externe, donc rien à mettre à jour qu’on ne maîtrise pas.</p>
+      </div>
+      <dl class="compteurs">
+        <div class="compteur apparait"><dt>Dépendance externe</dt><dd data-compte="0">0</dd></div>
+        <div class="compteur apparait"><dt>Secondes de musique générée</dt><dd data-compte="21">21</dd></div>
+        <div class="compteur apparait"><dt>Skins de la bille</dt><dd data-compte="12">12</dd></div>
+        <div class="compteur apparait"><dt>Palettes de zone</dt><dd data-compte="8">8</dd></div>
+      </dl>
+      <div class="modele apparait">
+        <div class="modele-tete">
+          <p class="etiquette">Le modèle</p>
+          <h3>Gratuit, avec une publicité qui a des règles.</h3>
+          <p>Un jeu hypercasual vit de la pub entre les parties. Mal dosée, elle fait fuir les joueurs dès le premier jour. Les règles sont donc écrites dans le code, pas laissées au hasard.</p>
+        </div>
+        <ul class="regles">
+          <li><b>2</b><span>premières parties sans aucune pub, pour ne pas perdre les nouveaux joueurs</span></li>
+          <li><b>30 s</b><span>au minimum entre deux pubs, même pour qui perd très vite</span></li>
+          <li><b>0</b><span>bannière&#8239;: elle rapporte peu et gêne la lecture du jeu</span></li>
+          <li><b>1</b><span>seconde chance par partie, aussi possible en gemmes, sans pub</span></li>
+        </ul>
+        <p class="modele-note">Dans la version actuelle, la publicité est désactivée. Le branchement AdMob, le message RGPD et le manifeste de confidentialité sont prêts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions ================================================================= -->
+  <section class="section" id="questions" aria-labelledby="titre-questions">
+    <div class="enveloppe faq">
+      <div>
+        <p class="etiquette apparait">07 · Questions</p>
+        <h2 class="titre apparait" id="titre-questions">Avant de lancer la première bille.</h2>
+      </div>
+      <div class="faq-liste">
+        <details name="faq" open><summary><h3>Comment joue-t-on à Space&#8239;?</h3></summary><p>Avec un seul doigt. La bille tourne autour d’une planète&#8239;; un tap la lance dans la direction où elle se trouve. Si elle passe assez près d’une planète plus haute, elle s’y accroche. Si elle part dans le vide ou touche une mine, la partie est finie.</p></details>
+        <details name="faq"><summary><h3>Faut-il un compte ou une connexion&#8239;?</h3></summary><p>Non. Le record, les gemmes, les skins et les missions sont gardés sur le téléphone. Le jeu ne demande aucun compte et ne dépend d’aucun serveur.</p></details>
+        <details name="faq"><summary><h3>Le jeu contient-il de la publicité&#8239;?</h3></summary><p>Les emplacements sont prévus (entre deux parties, seconde chance, gemmes doublées) avec des règles strictes&#8239;: rien pendant les deux premières parties, au moins 30 secondes entre deux pubs. Dans la version actuelle, la publicité est désactivée.</p></details>
+        <details name="faq"><summary><h3>La partie de cette page est-elle le vrai jeu&#8239;?</h3></summary><p>C’est une réplique fidèle de ses règles, écrite pour le navigateur&#8239;: orbite, lancer, parfaits, bonds, gemmes, mines et écran qui monte. Le jeu complet ajoute la fièvre, les trous noirs, les astéroïdes, les planètes instables, les missions et la boutique.</p></details>
+        <details name="faq"><summary><h3>Quand Space sera-t-il disponible&#8239;?</h3></summary><p>Space arrive bientôt sur l’App Store, pour iPhone avec iOS 18 ou plus récent. Écrivez à <a href="mailto:mtxstudio@proton.me?subject=Space%20%3A%20me%20pr%C3%A9venir%20de%20la%20sortie&amp;body=Bonjour%2C%0A%0AMerci%20de%20me%20pr%C3%A9venir%20quand%20Space%20sera%20disponible%20sur%20l%E2%80%99App%20Store.%0A">mtxstudio@proton.me</a> pour être prévenu de la sortie.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="mtx-pf" data-mtx-app="Space" aria-labelledby="mtx-pf-t">
+  <div class="mtx-pf-w">
+    <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-space.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
+    <h2 class="mtx-pf-t" id="mtx-pf-t">Space, le jeu d’arcade à un doigt où chaque tap envoie la bille d’une orbite à l’autre.</h2>
+    <p class="mtx-pf-sub">Une idée de jeu ou d’application&#8239;? MTX Studio conçoit le produit et son site avec le même soin, de la première idée à la mise en ligne.</p>
+    <p class="mtx-pf-tags">Jeu iPhone · Arcade<br>Swift · SwiftUI · SpriteKit · AVFoundation</p>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../viewer/"><img src="../../assets/img/realisations/icone-viewer.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : MTX Viewer</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Space&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Space%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../#realisations">Réalisations</a><a href="../../#studio">Studio</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Space&amp;body=Bonjour%20Matheo%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Space%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
+  </div>
+</section>
+</body>
+</html>

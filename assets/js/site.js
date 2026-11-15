@@ -202,32 +202,7 @@
     window.matchMedia('(min-width: 900px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
   }
 
-  /* ---------------------------------------------------------------------
-     Copier l’adresse e-mail
-     --------------------------------------------------------------------- */
-  const status = $('[data-copy-status]');
-  $$('[data-copy]').forEach((btn) => {
-    const label = $('[data-copy-text]', btn);
-    const original = label ? label.textContent : '';
-    let timer = 0;
-    btn.addEventListener('click', async () => {
-      const value = btn.dataset.copy;
-      try {
-        await navigator.clipboard.writeText(value);
-        if (label) label.textContent = 'Adresse copiée';
-        if (status) status.textContent = value + ' est dans le presse-papiers.';
-        announce(value + ' copiée dans le presse-papiers.');
-      } catch {
-        window.location.href = 'mailto:' + value;
-        return;
-      }
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        if (label) label.textContent = original;
-        if (status) status.textContent = '';
-      }, 2200);
-    });
-  });
+  /* Copier l’adresse e-mail : voir assets/js/contact.js, chargé sur toutes les pages. */
 
   /* ---------------------------------------------------------------------
      Filtres des réalisations

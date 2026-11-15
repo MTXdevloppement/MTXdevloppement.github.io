@@ -29,8 +29,11 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/schibsted.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=15">
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
 <script src="assets/js/site.js?v=1" defer></script>
 <script src="../../assets/js/projet.js?v=17" defer></script>
 <script defer src="../../assets/js/contact.js?v=1"></script>
@@ -107,6 +110,27 @@
   </section>
 
   <!-- 01 La chaîne ============================================================ -->
+  <!-- Le film de présentation (16:9, avec musique originale) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css.
+       Fabriqué par outils/films/presentations/ (knowledge-ai.html, puis fabriquer.sh). -->
+  <section class="section section-film" id="film" aria-labelledby="titre-film">
+    <div class="enveloppe">
+      <p class="note-marge apparait">Film</p>
+      <div class="tete">
+        <h2 class="titre apparait" id="titre-film">Une vraie recherche, du début à la fin.</h2>
+        <p class="tete-texte apparait">La question, la recherche en direct, les sources citées et le rapport de vérification, sur «&#8239;Comment a été créée la France&#8239;?&#8239;». Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+      </div>
+      <div class="presentation-film" data-mtx-film data-duree="40">
+        <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/presentation.webp" aria-label="Film de présentation de Knowledge AI, 40 secondes, avec musique : la question posée, la recherche en direct avec ses articles et ses passages, la réponse dont chaque phrase cite sa source, le rapport de vérification, la carte des connaissances, la bibliothèque et les thèmes clair et sombre."><source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'><source src="assets/video/presentation-720.mp4" type='video/mp4; codecs="avc1.64001F, mp4a.40.2"' media="(max-width: 600px)"><source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'></video>
+          <div class="mtx-film-commandes" hidden><button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button><button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button><button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button></div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+        <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film"><li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> L’idée</button></li><li><button type="button" data-mtx-film-aller="5"><span class="chiffre">0:05</span> La question</button></li><li><button type="button" data-mtx-film-aller="10"><span class="chiffre">0:10</span> En direct</button></li><li><button type="button" data-mtx-film-aller="15"><span class="chiffre">0:15</span> Les sources</button></li><li><button type="button" data-mtx-film-aller="20"><span class="chiffre">0:20</span> La vérification</button></li><li><button type="button" data-mtx-film-aller="25"><span class="chiffre">0:25</span> La carte</button></li><li><button type="button" data-mtx-film-aller="30"><span class="chiffre">0:30</span> En local</button></li></ol>
+        <p class="presentation-note">Captures de l’app en fonctionnement. Pour le tournage, le modèle et Wikipédia sont remplacés par les services simulés de ses tests&#8239;: l’interface, la recherche et la vérification sont réelles, les articles sont ceux du jeu d’essai.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="chaine" aria-labelledby="titre-chaine">
     <div class="enveloppe">
       <p class="note-marge apparait">§ 1</p>

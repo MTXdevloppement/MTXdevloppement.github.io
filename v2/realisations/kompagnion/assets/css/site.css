@@ -63,7 +63,7 @@ em { font-style: normal; color: var(--accent); transition: color .4s; }
 .evitement:focus { top: 56px; }
 
 /* Barre de la page ========================================================== */
-.barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 var(--gout);
+.barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 max(var(--gout), calc((100% - var(--large)) / 2 + var(--gout)));
   background: color-mix(in srgb, var(--fond) 78%, transparent); -webkit-backdrop-filter: blur(20px) saturate(1.8); backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid transparent; transition: border-color .3s; }
 .barre[data-colle] { border-bottom-color: var(--filet); }
@@ -117,7 +117,7 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .tel::after { content: ""; position: absolute; top: 3.3%; left: 50%; width: 30%; height: 3.2%; border-radius: 999px; background: #000; translate: -50% 0; }
 
 /* Héros ===================================================================== */
-.hero { position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--gout) 0; display: grid; gap: 48px; align-items: center; }
+.hero { position: relative; max-width: var(--large); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--gout) 0; display: grid; gap: 48px; align-items: center; }
 @media (min-width: 960px) { .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(40px, 5vw, 80px); } }
 .hero .actions { margin-top: 32px; }
 .hero-scene { --mtx-bx: 4; --mtx-by: -12; position: relative; justify-self: center; width: min(78vw, 340px); padding: 0 0 20px; perspective: 1600px; }

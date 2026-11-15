@@ -11,6 +11,7 @@
   --mono: "Volta Mono", ui-monospace, Menlo, monospace;
   --courbe: cubic-bezier(.16, .84, .2, 1);
   --marge: clamp(20px, 5vw, 72px);
+  --page: 1320px; /* largeur commune : barre, héros et sections partagent le même bord gauche */
 
   --fond: #f1efe8;
   --fond-2: #e8e5db;
@@ -74,7 +75,7 @@ kbd { display: inline-grid; place-items: center; min-width: 1.75em; height: 1.75
 @media (hover: hover) { .bouton:hover { translate: 0 -2px; } .bouton-trait:hover { background: var(--encre); color: var(--fond); } .bouton-jaune:hover { background: color-mix(in srgb, var(--jaune) 86%, #fff); } }
 
 /* Barre */
-.barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 var(--marge); border-bottom: 1px solid var(--filet); background: color-mix(in srgb, var(--fond) 86%, transparent); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 max(var(--marge), calc((100% - var(--page)) / 2 + var(--marge))); border-bottom: 1px solid var(--filet); background: color-mix(in srgb, var(--fond) 86%, transparent); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .marque { display: flex; align-items: center; gap: 10px; font: 800 19px/1 var(--sans); letter-spacing: -.03em; text-decoration: none; }
 .marque img { width: 30px; height: 30px; border-radius: 22.5%; }
 .marque-ver { padding: 3px 6px; border: 1px solid var(--filet); border-radius: 4px; font: 500 11px/1 var(--mono); color: var(--doux); }
@@ -97,7 +98,7 @@ main, .barre, .mtx-pf { position: relative; }
 main { z-index: 1; }
 
 /* Héros */
-.heros { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: center; gap: clamp(28px, 4vw, 64px); max-width: 1560px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--marge) clamp(56px, 6vw, 90px); }
+.heros { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: center; gap: clamp(28px, 4vw, 64px); max-width: var(--page); margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--marge) clamp(56px, 6vw, 90px); }
 .heros::before { content: ""; position: absolute; inset: 0 0 auto; height: 100%; z-index: -1; background-image: linear-gradient(var(--grille) 1px, transparent 1px), linear-gradient(90deg, var(--grille) 1px, transparent 1px); background-size: 24px 24px; -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent); mask-image: linear-gradient(180deg, #000 40%, transparent); }
 .cartouche { display: inline-flex; border: 1px solid var(--encre); font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .cartouche span { padding: 8px 11px; }
@@ -137,7 +138,7 @@ h1 em::after { content: ""; position: absolute; left: -.04em; right: -.04em; bot
 
 /* Bornier */
 .bornier { border-block: 1px solid var(--encre); background: var(--panneau); }
-.bornier dl { display: grid; grid-template-columns: repeat(5, 1fr); max-width: 1560px; margin: 0 auto; }
+.bornier dl { display: grid; grid-template-columns: repeat(5, 1fr); max-width: var(--page); margin: 0 auto; }
 .bornier div { position: relative; padding: 22px var(--marge) 24px; }
 .bornier div + div { border-left: 1px solid var(--filet); }
 .bornier div::before { content: ""; position: absolute; left: 50%; top: -5px; width: 9px; height: 9px; border: 1.5px solid var(--encre); border-radius: 50%; background: var(--fond); translate: -50% 0; }
@@ -148,7 +149,7 @@ h1 em::after { content: ""; position: absolute; left: -.04em; right: -.04em; bot
 
 /* Sections */
 .section { padding: clamp(88px, 11vw, 150px) 0; }
-.enveloppe { max-width: 1320px; margin: 0 auto; padding: 0 var(--marge); }
+.enveloppe { max-width: var(--page); margin: 0 auto; padding: 0 var(--marge); }
 .repere { position: relative; display: inline-flex; align-items: center; gap: 12px; font: 500 12.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--doux); }
 .repere span { display: grid; place-items: center; width: 36px; height: 24px; border: 1.5px solid var(--encre); border-radius: 12px; color: var(--encre); font-weight: 600; transition: background-color .4s, color .4s, border-color .4s; }
 .repere.est-sous-tension span { background: var(--jaune); border-color: var(--jaune); color: var(--jaune-encre); box-shadow: 0 0 18px color-mix(in srgb, var(--jaune) 60%, transparent); }

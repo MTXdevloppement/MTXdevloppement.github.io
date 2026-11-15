@@ -87,7 +87,7 @@
 <span class="mtx-montre-couronne"></span><span class="mtx-montre-bouton"></span>
 </span>
 </span></span>`;
-    sc.querySelector('.mtx-tel').href = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28app%2C%20logiciel%2C%20site%20web%2C%20jeu%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
+    sc.querySelector('.mtx-tel').href = 'mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28app%2C%20site%20web%2C%20logiciel%2C%20syst%C3%A8me%20d%E2%80%99IA%2C%20jeu%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A';
     enveloppe.prepend(sc);
     enveloppe.classList.add('mtx-avec-sc');
 

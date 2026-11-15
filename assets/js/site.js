@@ -212,7 +212,7 @@
   if (filters && works.length) {
     const statusEl = $('[data-filter-status]', filters);
     const buttons = $$('[data-filter]', filters);
-    const labels = { all: '', iphone: ' pour iPhone', ipad: ' pour iPad', watch: ' pour Apple Watch', mac: ' pour Mac', web: ' pour le Web', jeu: ' parmi les jeux' };
+    const labels = { all: '', iphone: ' pour iPhone', ipad: ' pour iPad', watch: ' pour Apple Watch', mac: ' pour Mac', web: ' pour le Web', ia: ' avec de l’IA', jeu: ' parmi les jeux' };
     buttons.forEach((btn) => btn.addEventListener('click', () => {
       const f = btn.dataset.filter;
       buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));

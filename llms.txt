@@ -1,8 +1,8 @@
 # MTX Studio
 
-> MTX Studio est un studio français, fondé par Matheo Merchez (entrepreneur individuel), qui conçoit et développe des apps pour iPhone, iPad, Apple Watch et Mac, des logiciels sur mesure, des sites et applications web et des jeux. Chaque réalisation a son propre site, avec une démo à manipuler dans la page. Contact : mtxstudio@proton.me.
+> MTX Studio est un studio français, fondé par Matheo Merchez (entrepreneur individuel), qui conçoit et développe des apps pour iPhone, iPad, Apple Watch et Mac, des sites et applications web, des logiciels sur mesure, des systèmes d’IA et des jeux. Chaque réalisation a son propre site, avec une démo à manipuler dans la page. Contact : mtxstudio@proton.me.
 
-Le studio travaille en Swift et SwiftUI pour les plateformes Apple, et en HTML, TypeScript, React, Three.js et Python pour le web. Les apps iPhone présentées ici arrivent bientôt sur l’App Store ; les captures et les démos viennent des vrais logiciels, remplis de données de démonstration. Un projet sur mesure est chiffré après un premier échange sur le besoin, avant tout développement.
+Le studio travaille en Swift et SwiftUI pour les plateformes Apple, et en HTML, TypeScript, React, Three.js et Python pour le web. Côté IA, il conçoit des assistants, de la recherche avec citation des sources et des agents, avec des modèles qui peuvent tourner en local (Ollama sur Mac, Apple Intelligence sur iPhone). Les apps iPhone présentées ici arrivent bientôt sur l’App Store ; les captures et les démos viennent des vrais logiciels, remplis de données de démonstration. Un projet sur mesure est chiffré après un premier échange sur le besoin, avant tout développement.
 
 ## Studio
 

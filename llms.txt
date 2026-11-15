@@ -1,0 +1,24 @@
+# MTX Studio
+
+> MTX Studio est un studio français, fondé par Matheo Merchez (entrepreneur individuel), qui conçoit et développe des apps pour iPhone, iPad, Apple Watch et Mac, des logiciels sur mesure, des sites et applications web et des jeux. Chaque réalisation a son propre site, avec une démo à manipuler dans la page. Contact : mtxstudio@proton.me.
+
+Le studio travaille en Swift et SwiftUI pour les plateformes Apple, et en HTML, TypeScript, React, Three.js et Python pour le web. Les apps iPhone présentées ici arrivent bientôt sur l’App Store ; les captures et les démos viennent des vrais logiciels, remplis de données de démonstration. Un projet sur mesure est chiffré après un premier échange sur le besoin, avant tout développement.
+
+## Studio
+
+- [Accueil de MTX Studio](https://mtx-developpement.fr/) : ce que fait le studio, les dix réalisations, les questions fréquentes et le contact.
+- [Mentions légales](https://mtx-developpement.fr/mentions-legales.html) : éditeur, directeur de la publication et hébergeur.
+- [Confidentialité](https://mtx-developpement.fr/confidentialite.html) : ce que deviennent les messages reçus, ce que le site ne collecte pas.
+
+## Réalisations
+
+- [GoRun](https://mtx-developpement.fr/realisations/foulee/) : app de course à pied pour iPhone et Apple Watch, qui fait courir contre son propre record sur un parcours.
+- [Space](https://mtx-developpement.fr/realisations/space/) : jeu d’arcade iPhone à un doigt, où chaque tap envoie la bille d’une orbite à l’autre ; jouable dans la page.
+- [MTX Viewer](https://mtx-developpement.fr/realisations/viewer/) : app iPhone et iPad qui ouvre un site web, teste plusieurs tailles d’écran et repère les erreurs (console, réseau, audit).
+- [Volta](https://mtx-developpement.fr/realisations/volta/) : logiciel Mac sur mesure qui tient le stock, les devis et le budget d’un service électricité.
+- [Triade](https://mtx-developpement.fr/realisations/triade/) : traitement de texte, tableur et présentation dans une seule app iPhone et iPad, qui ouvre les fichiers Word, Excel et PowerPoint sans Internet.
+- [Knowledge AI](https://mtx-developpement.fr/realisations/knowledge-ai/) : assistant de recherche dont le modèle d’IA tourne sur le Mac ; il lit Wikipédia et Wikidata et cite la source de chaque affirmation.
+- [Sténo](https://mtx-developpement.fr/realisations/steno/) : app iPhone et iPad qui transcrit les mémos vocaux sur l’appareil et en relève les tâches, les dates, les personnes et les décisions.
+- [Mue](https://mtx-developpement.fr/realisations/mue/) : utilitaire Mac qui convertit, retouche et range les fichiers d’un geste : on glisse un fichier, on touche une touche, on lâche sur une option.
+- [Kompagnion](https://mtx-developpement.fr/realisations/kompagnion/) : app iPhone des indépendants et petites entreprises : clients, projets, demandes, devis et factures PDF, sans compte ni serveur.
+- [Startup3D](https://mtx-developpement.fr/realisations/startup3d/) : application web de gestion d’entreprise dans une agence en 3D isométrique : projets, tâches, finances et agents IA.

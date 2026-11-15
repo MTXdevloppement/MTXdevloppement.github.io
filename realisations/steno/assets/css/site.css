@@ -381,10 +381,11 @@ html:not(.js) .ecr-theme{display:none}
 .appel{margin:clamp(88px,13vw,168px) 0 clamp(64px,9vw,120px);padding:clamp(40px,7vw,92px) clamp(24px,6vw,88px);border-radius:clamp(28px,4vw,48px);background:var(--rouge);color:var(--sur-rouge);overflow:hidden;isolation:isolate}
 .appel::after{content:"";position:absolute;z-index:-1;right:-4%;bottom:-18%;width:min(58%,560px);aspect-ratio:64/44;background:currentColor;opacity:.09;
   -webkit-mask:url("../img/steno-signe.svg") center/contain no-repeat;mask:url("../img/steno-signe.svg") center/contain no-repeat}
-.appel .repere,.appel .repere-t{color:inherit;opacity:.82}
+.appel .repere,.appel .repere-t{color:inherit;opacity:.94}
 .appel h2 em{color:inherit;opacity:.78}
-.appel .chapo{color:inherit;opacity:.9}
-.appel .bouton-rouge{background:var(--sur-rouge);color:var(--rouge);box-shadow:none}
+.appel .chapo{color:inherit;opacity:.96}
+:root:not([data-theme="dark"]) .appel{background:color-mix(in srgb,var(--rouge) 88%,#000)}
+.appel .bouton-rouge{background:var(--sur-rouge);color:var(--rouge-texte);box-shadow:none}
 :root[data-theme="dark"] .appel .bouton-rouge{color:#ff8478}
 .appel .bouton-trait{background:transparent;border-color:color-mix(in srgb,currentColor 40%,transparent)}
 .appel .bouton-trait:hover{border-color:currentColor}

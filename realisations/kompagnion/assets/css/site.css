@@ -176,12 +176,12 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .w-lignes li > span:not(.pt):not(.doc-ic):not(.avatar):not(.montant):not(.barre-p) { flex: 1; min-width: 0; display: grid; }
 .w-lignes b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .w-lignes small { color: var(--doux); font-size: 12px; }
-.w-lignes small.rouge { color: var(--c-rouge); }
+.w-lignes small.rouge { color: color-mix(in srgb, var(--c-rouge) 74%, var(--encre)); }
 .pt { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c, transparent); }
 .statut { flex: none; padding: 3px 8px; border-radius: 999px; font: normal 600 11px/1.2 var(--sans); }
-.s-nouvelle { color: var(--c-rose); background: color-mix(in srgb, var(--c-rose) 14%, transparent); }
-.s-cours { color: var(--c-bleu); background: color-mix(in srgb, var(--c-bleu) 14%, transparent); }
-.s-attente { color: var(--c-orange); background: color-mix(in srgb, var(--c-orange) 16%, transparent); }
+.s-nouvelle { color: color-mix(in srgb, var(--c-rose) 70%, var(--encre)); background: color-mix(in srgb, var(--c-rose) 14%, transparent); }
+.s-cours { color: color-mix(in srgb, var(--c-bleu) 78%, var(--encre)); background: color-mix(in srgb, var(--c-bleu) 14%, transparent); }
+.s-attente { color: color-mix(in srgb, var(--c-orange) 52%, var(--encre)); background: color-mix(in srgb, var(--c-orange) 16%, transparent); }
 .barre-p { position: absolute; left: 0; right: 0; bottom: 2px; height: 3px; border-radius: 3px; background: var(--filet); }
 .barre-p::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--c, var(--c-bleu)); transform-origin: left; transform: scaleX(var(--p)); }
 .doc-ic, .avatar { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); }

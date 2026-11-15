@@ -443,6 +443,9 @@ main > section { padding-inline: var(--bord); }
   text-align: center; font-size: .84rem; line-height: 1.4; color: var(--texte-3);
 }
 .proto-aide b { color: var(--texte-2); font-weight: 650; }
+/* En clair, la légende est posée sur la page et non dans le téléphone : elle reprend les textes du thème clair. */
+:root[data-theme="light"] .tel .proto-aide { color: #5d5d65; }
+:root[data-theme="light"] .tel .proto-aide b { color: #4a4a52; }
 
 .regle svg { width: 100%; height: auto; overflow: visible; }
 .regle .axe { stroke: var(--filet-2); stroke-width: 1; }

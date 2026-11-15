@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Volta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "Volta Chivo"; src: url("../../../realisations/volta/assets/fonts/chivo.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Volta Mono"; src: url("../../../realisations/volta/assets/fonts/chivo-mono.woff2") format("woff2"); font-weight: 100 900; }
+.scene { --fond: #0b141e; --encre: #e7edf3; --doux: rgb(231 237 243 / 70%); --pale: rgb(231 237 243 / 46%); --accent: #ffc21a; --jaune: #ffc21a; --bleu: #4d9bff; --vert: #3fcf7c; --orange: #ff9f2e;
+  --titre: "Volta Chivo", sans-serif; --texte: "Volta Chivo", sans-serif; --mono: "Volta Mono", monospace; --titre-graisse: 800; --titre-espace: -.045em; }
+.grille { position: absolute; inset: 0; background-image: linear-gradient(rgb(231 237 243 / 4.5%) 1px, transparent 1px), linear-gradient(90deg, rgb(231 237 243 / 4.5%) 1px, transparent 1px); background-size: 48px 48px; }
+.fil { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.fil path { fill: none; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.fil .fond-fil { stroke: rgb(231 237 243 / 10%); }
+.fil .courant { stroke: var(--jaune); filter: drop-shadow(0 0 10px rgb(255 194 26 / 80%)); }
+.etincelle { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; background: #fff6d6; box-shadow: 0 0 22px 8px rgb(255 194 26 / 80%), 0 0 60px 20px rgb(255 194 26 / 35%); }
+.souligne { position: absolute; height: 26px; background: var(--jaune); transform-origin: left; z-index: -1; }
+.puce { --puce-fond: #13212f; --puce-encre: #e7edf3; box-shadow: 0 0 0 1px rgb(231 237 243 / 14%), 0 20px 50px -18px rgb(0 0 0 / 70%); font-size: 30px; }
+.puce b { color: var(--jaune); font-family: var(--mono); font-weight: 600; }
+.vise { position: absolute; border: 3px solid var(--jaune); border-radius: 18px; box-shadow: 0 0 26px rgb(255 194 26 / 45%); }
+.voile { position: absolute; inset: 0; background: rgb(11 20 30 / 62%); }
+.feuille { position: absolute; width: 760px; padding: 34px 40px 38px; border-radius: 26px; background: #1e1e20; color: #f2f2f4; box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), 0 60px 120px -30px rgb(0 0 0 / 85%); font-size: 30px; }
+.feuille h3 { font-size: 34px; font-weight: 750; letter-spacing: -.02em; }
+.feuille .ref { margin-top: 18px; display: flex; gap: 18px; align-items: center; color: rgb(242 242 244 / 75%); font-size: 27px; }
+.feuille .ref code { font-family: var(--mono); color: #f2f2f4; padding: 6px 12px; border-radius: 10px; background: #2a2a2d; font-size: 24px; }
+.feuille .champ { margin-top: 26px; display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-radius: 14px; background: #2a2a2d; box-shadow: inset 0 0 0 2px var(--bleu); font-family: var(--mono); font-size: 34px; }
+.feuille .champ span { color: rgb(242 242 244 / 55%); font-family: var(--texte); font-size: 26px; }
+.feuille .apres { margin-top: 20px; color: rgb(242 242 244 / 70%); font-size: 26px; }
+.feuille .apres b { font-family: var(--mono); color: #fff; font-weight: 500; }
+.ok { position: absolute; display: flex; align-items: center; gap: 14px; padding: 16px 26px; border-radius: 999px; background: #123524; color: #aef0c9; font-weight: 650; font-size: 28px; box-shadow: 0 0 0 1px rgb(63 207 124 / 40%); }
+.ok i { width: 34px; height: 34px; border-radius: 50%; background: var(--vert); display: grid; place-items: center; color: #08130d; font-style: normal; font-weight: 900; font-size: 22px; }
+.etapes { position: absolute; display: flex; gap: 0; }
+.etape { position: relative; width: 252px; padding-top: 50px; font-size: 27px; font-weight: 650; color: var(--pale); }
+.etape::before { content: ""; position: absolute; left: 0; top: 10px; width: 24px; height: 24px; border-radius: 50%; border: 3px solid rgb(231 237 243 / 30%); background: var(--fond); }
+.etape small { display: block; margin-top: 8px; font-size: 21px; font-weight: 400; color: var(--pale); }
+.etape.allume { color: var(--encre); }
+.etape.allume::before { background: var(--jaune); border-color: var(--jaune); box-shadow: 0 0 18px rgb(255 194 26 / 70%); }
+.ligne-etapes { position: absolute; height: 4px; background: rgb(231 237 243 / 14%); }
+.ligne-etapes i { position: absolute; inset: 0; background: var(--jaune); transform-origin: left; box-shadow: 0 0 12px rgb(255 194 26 / 70%); }
+.chiffre { position: absolute; font-family: var(--mono); font-weight: 500; letter-spacing: -.04em; }
+.chiffre-l { position: absolute; font-size: 28px; color: var(--doux); }
+.balayage { position: absolute; width: 4px; background: var(--jaune); box-shadow: 0 0 24px rgb(255 194 26 / 90%); }
+</style>
+</head>
+<body>
+<div class="scene" id="scene"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+const f = Film({ duree: 36 });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/volta/${n}.webp`;
+const grille = K.el('div', 'grille'); grille.style.zIndex = 0;
+K.fond({ halos: [{ c: 'rgb(77 155 255 / 40%)', x: 1500, y: 160, taille: 1300, v: 0.07 }, { c: 'rgb(255 194 26 / 18%)', x: 260, y: 980, taille: 1000, v: 0.09, p: 2 }] });
+f.chaque((t) => { grille.style.transform = `translate3d(0, ${(-t * 6) % 48}px, 0)`; });
+
+// Le fil qui s'allume, de part en part : il traverse tout le film en bas du cadre et relie les scènes.
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'fil'); svg.setAttribute('viewBox', '0 0 1920 1080'); svg.style.zIndex = 1; scene.appendChild(svg);
+const D = 'M-20 760 H420 V880 H1180 V700 H1560 V820 H1940';
+const fondFil = document.createElementNS(NS, 'path'); fondFil.setAttribute('d', D); fondFil.setAttribute('class', 'fond-fil'); svg.appendChild(fondFil);
+const courant = document.createElementNS(NS, 'path'); courant.setAttribute('d', D); courant.setAttribute('class', 'courant'); svg.appendChild(courant);
+const longueur = courant.getTotalLength();
+courant.style.strokeDasharray = longueur;
+const etincelle = K.el('div', 'etincelle'); etincelle.style.zIndex = 2;
+f.chaque((t) => {
+  const p = f.av(t, 0.2, 2.6, 'douce');
+  courant.style.strokeDashoffset = (longueur * (1 - p)).toFixed(1);
+  const pt = courant.getPointAtLength(longueur * p);
+  etincelle.style.transform = `translate3d(${pt.x}px, ${pt.y}px, 0) scale(${(0.8 + Math.sin(t * 40) * 0.15).toFixed(3)})`;
+  etincelle.style.opacity = p > 0 && p < 1 ? 1 : 0;
+  svg.style.opacity = t < 3.4 ? 1 : Math.max(0.0, 1 - (t - 3.4) / 0.5);
+});
+
+// 1 — Le titre (0 → 4 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.surtitre(p, 'Logiciel Mac sur mesure · service électricité', { x: 140, y: 290 }), 0.3, 3.6, { entree: 'bas' });
+  const t = K.titre(p, ['Le stock électrique,', 'au fil près.'], { x: 140, y: 360, taille: 168 });
+  K.montre(t, 0.45, 3.5);
+  const s = K.el('div', 'souligne', p); K.place(s, { x: 140, y: 650, l: 690 });
+  f.piste(s, [1.4, { sx: 0, o: 1 }], [2.1, { sx: 1 }, 'sortie'], [3.55, { sx: 1, o: 1 }], [3.9, { o: 0 }, 'douce']);
+}
+
+// 2 — Le tableau de bord (4 → 8 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Neuf cartes,', 'un coup d’œil.'], { x: 110, y: 240, taille: 74 });
+  K.montre(t, 4.1, 7.55);
+  const w = K.mac(p, I('tableau-sombre'), { x: 640, y: 160, l: 1180, h: 756 });
+  f.piste(w, [4.0, { o: 0, y: 160, s: 0.92 }], [4.9, { o: 1, y: 0, s: 1 }, 'sortie'], [7.5, { o: 1, x: 0 }], [8.05, { o: 0, x: -160 }, 'entree']);
+  f.piste(w, [4.0, { s: 1 }], [8, { s: 1.045 }, 'lin']);
+  const cibles = [[175, 70, 250, 225, '<b>59,2 k€</b> en stock'], [437, 70, 230, 225, '<b>70</b> articles à commander'], [678, 70, 480, 225, '<b>10</b> ruptures prévues']];
+  cibles.forEach(([x, y, l, h, txt], i) => {
+    const v = K.el('div', 'vise', w); K.place(v, { x, y, l, h });
+    const a = 5.0 + i * 0.7;
+    f.piste(v, [a, { o: 0, s: 1.08 }], [a + 0.35, { o: 1, s: 1 }, 'sortie'], [a + 0.65, { o: 1 }], [a + 0.95, { o: i === 2 ? 1 : 0 }, 'douce']);
+    const c = K.puce(p, txt, { x: 110, y: 520 + i * 96, point: 'var(--jaune)' });
+    f.piste(c, [a, { o: 0, x: -40 }], [a + 0.5, { o: 1, x: 0 }, 'ressort'], [7.4, { o: 1 }], [7.8, { o: 0 }, 'douce']);
+  });
+}
+
+// 3 — Une sortie de stock en trois touches (8 → 12 s)
+{
+  const p = K.plan(null, 7);
+  const w = K.mac(p, I('stock-sombre'), { x: 210, y: 150, l: 1500, h: 961 });
+  const v = K.el('div', 'voile', p);
+  f.piste(w, [7.9, { o: 0, s: 1.06 }], [8.6, { o: 1, s: 1 }, 'sortie'], [11.5, { o: 1 }], [12.05, { o: 0, s: 0.97 }, 'entree']);
+  f.piste(v, [8.0, { o: 0 }], [9.0, { o: 1 }, 'douce'], [11.5, { o: 1 }], [12.05, { o: 0 }, 'douce']);
+  const t = K.titre(p, ['Une sortie de stock en trois touches.'], { x: 0, y: 80, taille: 82, align: 'center', style: { right: '0' } });
+  K.montre(t, 8.1, 11.55, { pas: 0.035 });
+  const k1 = K.touche(p, '⌘', { x: 760, y: 300 }), k2 = K.touche(p, 'E', { x: 920, y: 300 });
+  [[k1, 8.6], [k2, 8.75]].forEach(([k, a]) => f.piste(k, [a, { o: 0, y: 40, s: 0.8 }], [a + 0.35, { o: 1, y: 0, s: 1 }, 'ressort'], [9.25, { y: 0 }], [9.35, { y: 10 }, 'lin'], [9.6, { y: 0 }, 'sortie'], [9.9, { o: 1 }], [10.2, { o: 0, y: -30 }, 'douce']));
+  const fe = K.el('div', 'feuille', p, `<h3>Sortie de stock</h3><div class="ref"><code>CAB-00038</code> Câble R2V 3G2,5 mm²</div>
+    <div class="champ"><b data-q></b><span>mètres · en stock : 118 m</span></div><div class="apres">Stock après la sortie : <b data-r>118 m</b></div>`);
+  K.place(fe, { x: 580, y: 330 });
+  f.piste(fe, [9.7, { o: 0, y: 60, s: 0.94 }], [10.3, { o: 1, y: 0, s: 1 }, 'ressort'], [11.5, { o: 1 }], [11.95, { o: 0, y: -40 }, 'entree']);
+  const q = fe.querySelector('[data-q]'), r = fe.querySelector('[data-r]');
+  f.chaque((tt) => { const n = tt < 10.45 ? '' : tt < 10.6 ? '4' : '42'; q.textContent = n + (Math.floor(tt * 2.5) % 2 && tt < 10.9 ? '|' : ''); r.textContent = tt < 10.6 ? '118 m' : '76 m'; });
+  const k3 = K.touche(p, '↩', { x: 1380, y: 760 });
+  f.piste(k3, [10.55, { o: 0, s: 0.8 }], [10.85, { o: 1, s: 1 }, 'ressort'], [10.95, { y: 0 }], [11.05, { y: 10 }, 'lin'], [11.25, { y: 0 }, 'sortie'], [11.5, { o: 1 }], [11.9, { o: 0 }, 'douce']);
+  const ok = K.el('div', 'ok', p, '<i>✓</i>Enregistré · l’historique garde la trace'); K.place(ok, { x: 610, y: 820 });
+  f.piste(ok, [11.05, { o: 0, y: 20 }], [11.4, { o: 1, y: 0 }, 'ressort'], [11.6, { o: 1 }], [11.95, { o: 0 }, 'douce']);
+}
+
+// 4 — Les ruptures prévues (12 → 16 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Il prévient', 'avant la rupture.'], { x: 110, y: 250, taille: 74 });
+  K.montre(t, 12.15, 15.55);
+  K.sequence(K.legende(p, 'Consommation des 90 derniers jours, délai du fournisseur : Volta calcule la date de rupture de chaque référence.', { x: 110, y: 470, l: 560, taille: 28 }), 12.6, 15.6, { entree: 'bas' });
+  const w = K.mac(p, I('a-commander-sombre'), { x: 760, y: 190, l: 1080, h: 692, origine: '22% 30%' });
+  f.piste(w, [12.0, { o: 0, x: 160 }], [12.8, { o: 1, x: 0 }, 'sortie'], [15.5, { o: 1 }], [16.05, { o: 0, x: -120 }, 'entree']);
+  f.piste(w, [13.0, { s: 1 }], [15.6, { s: 1.32 }, 'douce']);
+  const v = K.el('div', 'vise', w); K.place(v, { x: 242, y: 50, l: 88, h: 44 });
+  f.piste(v, [13.0, { o: 0 }], [13.4, { o: 1 }, 'douce']);
+  const c = K.puce(p, '<b>CAB-00038</b> rupture dans 2 jours · à commander', { x: 760, y: 920, point: 'var(--orange)' });
+  f.piste(c, [13.6, { o: 0, y: 30 }], [14.1, { o: 1, y: 0 }, 'ressort'], [15.5, { o: 1 }], [15.9, { o: 0 }, 'douce']);
+}
+
+// 5 — Les devis (16 → 20 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Du brouillon', 'à la réception.'], { x: 110, y: 120, taille: 86 });
+  K.montre(t, 16.15, 19.55);
+  const w = K.mac(p, I('devis-sombre'), { x: 900, y: 70, l: 920, h: 589 });
+  const w2 = K.mac(p, I('fournisseurs-sombre'), { x: 860, y: 110, l: 920, h: 589 });
+  f.piste(w2, [16.0, { o: 0, y: 80 }], [16.7, { o: 1, y: 0 }, 'sortie'], [17.6, { o: 1 }], [18.0, { o: 0 }, 'douce']);
+  f.piste(w, [16.2, { o: 0, y: 80 }], [17.2, { o: 0, y: 40 }], [17.8, { o: 1, y: 0 }, 'sortie'], [19.5, { o: 1 }], [20.05, { o: 0, y: -60 }, 'entree']);
+  K.sequence(K.legende(p, 'Une demande par fournisseur, le meilleur prix ligne par ligne, la réception qui fait entrer le matériel.', { x: 110, y: 340, l: 640, taille: 28 }), 16.6, 19.6, { entree: 'bas' });
+  const l = K.el('div', 'ligne-etapes', p, '<i></i>'); K.place(l, { x: 122, y: 790, l: 1264 });
+  const e = K.el('div', 'etapes', p); K.place(e, { x: 110, y: 770 });
+  const noms = [['Brouillon', 'articles suggérés'], ['Envoyée', 'par Apple Mail'], ['Relancée', 'après le délai'], ['Devis reçu', 'prix par ligne'], ['Accepté', 'le meilleur prix'], ['Réception', 'stock et budget']];
+  const ets = noms.map(([a, b]) => K.el('div', 'etape', e, `${a}<small>${b}</small>`));
+  f.piste(l, [16.4, { o: 0 }], [16.9, { o: 1 }, 'douce'], [19.6, { o: 1 }], [20, { o: 0 }, 'douce']);
+  f.piste(e, [16.4, { o: 0, y: 30 }], [16.9, { o: 1, y: 0 }, 'sortie'], [19.6, { o: 1 }], [20, { o: 0 }, 'douce']);
+  const barre = l.querySelector('i');
+  f.chaque((tt) => {
+    const p2 = f.av(tt, 17.0, 2.2, 'douce');
+    barre.style.transform = `scaleX(${(p2 * 1.0).toFixed(4)})`;
+    ets.forEach((x, i) => x.classList.toggle('allume', p2 >= i / 5 - 0.001));
+  });
+}
+
+// 6 — Le budget (20 → 24 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Prévu, engagé,', 'consommé.'], { x: 110, y: 200, taille: 78 });
+  K.montre(t, 20.15, 23.55);
+  const w = K.mac(p, I('budget-sombre'), { x: 820, y: 170, l: 1020, h: 653, origine: '40% 18%' });
+  f.piste(w, [20.0, { o: 0, s: 0.9 }], [20.8, { o: 1, s: 1 }, 'sortie'], [23.5, { o: 1 }], [24.05, { o: 0 }, 'douce']);
+  f.piste(w, [20.8, { s: 1 }], [23.6, { s: 1.18 }, 'douce']);
+  const c = K.el('div', 'chiffre', p); K.place(c, { x: 110, y: 480, taille: 112, couleur: 'var(--vert)' });
+  const cl = K.el('div', 'chiffre-l', p, 'projection de fin d’exercice, au rythme actuel : <b style="color:var(--encre)">95 % du prévu</b>'); K.place(cl, { x: 114, y: 620, l: 600 });
+  K.compte(c, 20.7, 1.8, 0, 302448.3, (v) => `${Math.round(v).toLocaleString('fr-FR').replace(/ /g, ' ')} €`);
+  [c, cl].forEach((x, i) => f.piste(x, [20.5 + i * 0.3, { o: 0, y: 30 }], [21.1 + i * 0.3, { o: 1, y: 0 }, 'sortie'], [23.5, { o: 1 }], [23.95, { o: 0 }, 'douce']));
+}
+
+// 7 — Clair ou sombre (24 → 28 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Clair ou sombre,', 'comme le Mac.'], { x: 0, y: 70, taille: 80, align: 'center', style: { right: '0' } });
+  K.montre(t, 24.15, 27.55);
+  const box = K.el('div', 'calque', p);
+  const clair = K.mac(box, I('tableau-clair'), { x: 360, y: 300, l: 1200, h: 769 });
+  const sombre = K.mac(box, I('tableau-sombre'), { x: 360, y: 300, l: 1200, h: 769 });
+  const bal = K.el('div', 'balayage', box); K.place(bal, { x: 360, y: 300, h: 769 });
+  f.piste(box, [24.0, { o: 0, y: 100 }], [24.8, { o: 1, y: 0 }, 'sortie'], [27.5, { o: 1 }], [28.05, { o: 0, y: -80 }, 'entree']);
+  f.chaque((tt) => {
+    const q = f.av(tt, 25.0, 1.6, 'douce') - f.av(tt, 26.9, 0.55, 'douce') * 0.5;
+    sombre.style.clipPath = `inset(0 0 0 ${(q * 100).toFixed(2)}%)`;
+    bal.style.left = `${360 + q * 1200 - 2}px`;
+    bal.style.opacity = q > 0.002 && q < 0.998 ? 1 : 0;
+  });
+}
+
+// 8 — Les chiffres (28 → 32 s)
+{
+  const p = K.plan(null, 6);
+  const t = K.titre(p, ['Juste au centime.', 'Rapide à 500 000 lignes.'], { x: 110, y: 170, taille: 92 });
+  K.montre(t, 28.15, 31.55);
+  const donnees = [['0,2 ms', 'une sortie de stock, transaction comprise'], ['< 1 ms', 'la fiche d’un article et son historique'], ['70 ms', 'trier tout le stock par jours restants']];
+  donnees.forEach(([n, l], i) => {
+    const c = K.el('div', 'chiffre', p, n); K.place(c, { x: 110 + i * 590, y: 560, taille: 108, couleur: i === 0 ? 'var(--jaune)' : 'var(--encre)' });
+    const lb = K.el('div', 'chiffre-l', p, l); K.place(lb, { x: 114 + i * 590, y: 700, l: 470 });
+    [c, lb].forEach((x) => f.piste(x, [28.6 + i * 0.25, { o: 0, y: 40 }], [29.2 + i * 0.25, { o: 1, y: 0 }, 'sortie'], [31.5, { o: 1 }], [31.95, { o: 0 }, 'douce']));
+  });
+  K.sequence(K.legende(p, 'Banc d’essai de l’app : 50 000 articles, 500 000 mouvements, une base SQLite sur le Mac.', { x: 114, y: 880, l: 1400, taille: 26 }), 29.4, 31.7, { entree: 'bas' });
+}
+
+// 9 — Fin (32 → 36 s)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/volta/assets/img/icone-512.webp', nom: 'Volta', ligne: 'Le stock, les devis et le budget du service électricité.', t: 32.1 });
+}
+f.lancer();
+</script>
+</body>
+</html>

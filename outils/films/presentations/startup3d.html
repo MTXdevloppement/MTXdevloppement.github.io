@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Startup3D</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "S3D Display"; src: url("../../../realisations/startup3d/assets/fonts/red-hat-display.woff2") format("woff2"); font-weight: 300 900; }
+@font-face { font-family: "S3D Mono"; src: url("../../../realisations/startup3d/assets/fonts/red-hat-mono.woff2") format("woff2"); font-weight: 300 700; }
+.scene { --fond: #0c0f17; --encre: #eef1f7; --doux: rgb(238 241 247 / 68%); --pale: rgb(238 241 247 / 46%); --accent: #2f8cff; --vert: #47c97d;
+  --titre: "S3D Display", sans-serif; --texte: "S3D Display", sans-serif; --mono: "S3D Mono", monospace; --titre-graisse: 800; --titre-espace: -.04em; }
+.titre .leger { font-weight: 300; color: var(--doux); letter-spacing: -.03em; }
+.iso { position: absolute; inset: 0; overflow: visible; }
+.iso path { fill: none; stroke: rgb(127 182 255 / 30%); stroke-width: 2; }
+.cube { position: absolute; }
+.cube svg { overflow: visible; }
+.puce { --puce-fond: rgb(20 25 38 / 94%); --puce-encre: #eef1f7; box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), 0 24px 50px -18px rgb(0 0 0 / 80%); font-size: 26px; }
+.puce b { color: #7fb6ff; font-weight: 700; }
+.repere { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 8px rgb(47 140 255 / 30%), 0 0 30px rgb(47 140 255 / 80%); }
+.horloge { position: absolute; font: 600 92px/1 var(--mono); letter-spacing: -.06em; }
+.curseur-heure { position: absolute; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #f6c879, #f39b4f 45%, #6a5bd8 75%, #1b2140); }
+.curseur-heure i { position: absolute; top: 50%; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%; background: #fff; box-shadow: 0 6px 18px rgb(0 0 0 / 50%); }
+.anneau { position: absolute; }
+.anneau circle { fill: none; stroke-width: 22; stroke-linecap: round; }
+.niveau { position: absolute; width: 300px; }
+.niveau b { display: block; font: 600 24px/1 var(--mono); color: #7fb6ff; letter-spacing: .03em; }
+.niveau span { display: block; margin-top: 12px; font-size: 27px; line-height: 1.3; color: var(--encre); }
+.niveau::before { content: ""; position: absolute; left: 0; top: -46px; width: 26px; height: 26px; border-radius: 50%; background: var(--fond); border: 4px solid var(--accent); box-shadow: 0 0 20px rgb(47 140 255 / 60%); }
+.rail { position: absolute; height: 6px; border-radius: 3px; background: rgb(255 255 255 / 10%); overflow: hidden; }
+.rail i { position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent), #f6c879); transform-origin: left; }
+.xp { position: absolute; padding: 12px 22px; border-radius: 999px; background: #10325f; color: #9ccaff; font: 700 30px/1 var(--mono); box-shadow: 0 0 0 1px rgb(47 140 255 / 50%), 0 0 30px rgb(47 140 255 / 40%); }
+.chiffre-anneau { position: absolute; text-align: center; font: 700 96px/1 var(--mono); }
+.chiffre-anneau small { display: block; margin-top: 12px; font: 500 20px/1.2 var(--texte); color: var(--doux); }
+</style>
+</head>
+<body>
+<div class="scene" id="scene"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+const M = 240 / 110;
+const S = (n) => n * M;
+const f = Film({ duree: 16 * M });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/startup3d/${n}.webp`;
+K.fond({ halos: [{ c: 'rgb(47 140 255 / 26%)', x: 1500, y: 180, taille: 1300, v: 0.06 }, { c: 'rgb(246 200 121 / 12%)', x: 280, y: 980, taille: 1100, v: 0.08, p: 1 }] });
+const NS = 'http://www.w3.org/2000/svg';
+
+// Fenêtre de l'app : capture plein écran (1600 × 1000 en points), coins arrondis.
+const LW = 1440, E = LW / 1600;
+const app = (parent, imgs, o) => {
+  const w = K.mac(parent, I(imgs[0]), { l: LW, h: 1000 * E, ...o, origine: '0 0' });
+  w.imgs = [w.img, ...imgs.slice(1).map((n) => { const i = K.el('img', '', w); i.src = I(n); i.alt = ''; i.style.position = 'absolute'; i.style.inset = '0'; return i; })];
+  return w;
+};
+const camera = (w, wx, wy, cles) => f.piste(w, ...cles.map(([t, cx, cy, z, X, Y, c]) => [t, { x: X - wx - z * cx * E, y: Y - wy - z * cy * E, s: z }, c || 'douce']));
+const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w), { x: x * E, y: y * E }); f.piste(r, [t, { o: 0, s: 0.3 }], [t + 0.5, { o: 1, s: 1 }, 'ressort'], [t1 - 0.4, { o: 1 }], [t1, { o: 0 }, 'douce']); return r; };
+
+// 1 — Gérer son entreprise en traversant son bureau (0 → 2 mesures)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Gérer son entreprise', '<span class="leger">en traversant</span>', '<span class="leger">son bureau.</span>'], { x: 120, y: 300, taille: 118 });
+  K.montre(t, 0.3, S(2) - 0.5, { pas: 0.09 });
+  // Le sol isométrique se dessine, deux meubles montent.
+  const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'iso'); svg.setAttribute('viewBox', '0 0 1920 1080'); svg.setAttribute('width', 1920); svg.setAttribute('height', 1080); p.appendChild(svg);
+  const cx = 1420, cy = 560, a = 64, b = 37;
+  const lignes = [];
+  for (let i = -6; i <= 6; i++) { lignes.push([cx + i * a - 6 * a, cy + i * b + 6 * b, cx + i * a + 6 * a, cy + i * b - 6 * b]); lignes.push([cx + i * a - 6 * a, cy - i * b - 6 * b, cx + i * a + 6 * a, cy - i * b + 6 * b]); }
+  lignes.forEach(([x1, y1, x2, y2], i) => {
+    const pth = document.createElementNS(NS, 'path'); pth.setAttribute('d', `M${x1} ${y1} L${x2} ${y2}`); svg.appendChild(pth);
+    const len = Math.hypot(x2 - x1, y2 - y1); pth.style.strokeDasharray = len;
+    f.chaque((tt) => { pth.style.strokeDashoffset = (len * (1 - f.av(tt, 0.2 + (i % 13) * 0.05, 1.1, 'douce'))).toFixed(1); });
+  });
+  const bloc = (x, y, l, h, couleurs) => {
+    const d = K.place(K.el('div', 'cube', p), { x, y });
+    d.innerHTML = `<svg width="1" height="1"><path d="M0 0 L${l} ${-l * 0.58} L${2 * l} 0 L${l} ${l * 0.58}Z" fill="${couleurs[0]}"/><path d="M0 0 L${l} ${l * 0.58} L${l} ${l * 0.58 + h} L0 ${h}Z" fill="${couleurs[1]}"/><path d="M${l} ${l * 0.58} L${2 * l} 0 L${2 * l} ${h} L${l} ${l * 0.58 + h}Z" fill="${couleurs[2]}"/></svg>`;
+    return d;
+  };
+  const bureau = bloc(1280, 470, 120, 70, ['#8a6845', '#6b4f33', '#533c27']);
+  const canape = bloc(1460, 620, 90, 50, ['#4f5f50', '#404d41', '#364136']);
+  const ecran = bloc(1350, 400, 34, 46, ['#2f8cff', '#1f5fb0', '#174a8c']);
+  [[bureau, 1.2], [canape, 1.5], [ecran, 1.85]].forEach(([e, d]) => f.piste(e, [d, { o: 0, y: -60 }], [d + 0.6, { o: 1, y: 0 }, 'ressort'], [S(2) - 0.5, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']));
+  f.piste(svg, [S(2) - 0.5, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']);
+  const c = K.curseur(p);
+  K.trajet(c, [[1.6, 1700, 900], [2.6, 1420, 520], [3.0, 1420, 520]], [2.75]);
+  f.piste(c, [1.5, { o: 0 }], [1.8, { o: 1 }, 'douce'], [S(2) - 0.5, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 2 — L'agence, de jour (2 → 4)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 240), S(2), S(4), { d: 0.4 });
+  const t = K.titre(p, ['Votre agence, en volume.'], { x: 110, y: 50, taille: 76 });
+  K.montre(t, S(2) + 0.1, S(4) - 0.5);
+  const w = app(p, ['agence-jour'], { x: 240, y: 160 });
+  K.sequence(w, S(2), S(4), { entree: 'bas', sortie: 'fondu', d: 0.6 });
+  camera(w, 240, 160, [[S(2), 800, 500, 1, 960, 610], [S(4), 760, 420, 1.16, 960, 610, 'lin']]);
+  repere(w, 590, 175, S(2) + 1.0, S(4)); repere(w, 1215, 370, S(2) + 1.6, S(4)); repere(w, 860, 560, S(2) + 2.2, S(4));
+  [['<b>L’ordinateur</b> ouvre les projets', 1.1], ['<b>La machine à café</b> lance une pause', 1.7], ['<b>Un clic sur le sol</b> : on s’y rend', 2.3]].forEach(([h, d], i) => {
+    const c = K.puce(p, h, { x: 70, y: 600 + i * 92, point: 'var(--accent)' });
+    f.piste(c, [S(2) + d, { o: 0, x: -30 }], [S(2) + d + 0.45, { o: 1, x: 0 }, 'ressort'], [S(4) - 0.5, { o: 1 }], [S(4) - 0.1, { o: 0 }, 'douce']);
+  });
+}
+
+// 3 — Le soir tombe (4 → 6)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 240), S(4), S(6), { d: 0.4 });
+  const t = K.titre(p, ['Le soir, l’agence aussi.'], { x: 110, y: 50, taille: 76 });
+  K.montre(t, S(4) + 0.1, S(6) - 0.5);
+  const w = app(p, ['agence-jour', 'agence-nuit'], { x: 430, y: 170 });
+  K.sequence(w, S(4), S(6), { entree: 'fondu', sortie: 'fondu', d: 0.4 });
+  camera(w, 430, 170, [[S(4), 800, 500, 1.0, 1150, 620], [S(6), 800, 500, 0.95, 1150, 620, 'lin']]);
+  K.enchaine(w.imgs, [S(4) + 1.2, null], 1.4);
+  const h = K.place(K.el('div', 'horloge', p), { x: 70, y: 440 });
+  K.compte(h, S(4) + 0.9, 2.2, 7 * 60 + 38, 22 * 60, (v) => `${String(Math.floor(v / 60)).padStart(2, '0')}:${String(Math.floor(v % 60)).padStart(2, '0')}`);
+  const cur = K.place(K.el('div', 'curseur-heure', p, '<i></i>'), { x: 74, y: 620, l: 260 });
+  const bouton = cur.querySelector('i');
+  f.chaque((tt) => { bouton.style.left = `${(f.av(tt, S(4) + 0.9, 2.2, 'douce') * 0.7 + 0.25) * 100}%`; });
+  [h, cur].forEach((e) => f.piste(e, [S(4) + 0.4, { o: 0, y: 20 }], [S(4) + 0.9, { o: 1, y: 0 }, 'sortie'], [S(6) - 0.5, { o: 1 }], [S(6) - 0.1, { o: 0 }, 'douce']));
+  K.sequence(K.legende(p, 'Clair de 7 h à 19 h, sombre le soir et la nuit.', { x: 74, y: 680, l: 280, taille: 26 }), S(4) + 1.2, S(6) - 0.1, { entree: 'bas' });
+}
+
+// 4 — L'ordinateur ouvre les projets (6 → 8)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 240), S(6), S(8), { d: 0.4 });
+  const t = K.titre(p, ['Chaque objet ouvre un outil.'], { x: 110, y: 50, taille: 76 });
+  K.montre(t, S(6) + 0.1, S(8) - 0.5);
+  const w = app(p, ['projets-nuit'], { x: 240, y: 160 });
+  K.sequence(w, S(6), S(8), { entree: 'zoom', sortie: 'fondu', d: 0.6 });
+  camera(w, 240, 160, [[S(6), 800, 500, 1, 960, 610], [S(6) + 1.0, 800, 500, 1, 960, 610], [S(6) + 2.2, 1160, 260, 1.6, 1060, 560], [S(8), 1160, 260, 1.66, 1060, 560, 'lin']]);
+  const c = K.puce(p, '<b>Six colonnes</b> · glisser-déposer, ou Maj + flèches', { x: 520, y: 960, point: 'var(--accent)' });
+  f.piste(c, [S(6) + 2.3, { o: 0, y: 20 }], [S(6) + 2.8, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 5 — Le planning, les finances (8 → 10)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 240), S(8), S(10), { d: 0.4 });
+  const t = K.titre(p, ['Planning, finances : <span class="leger">de vraies données.</span>'], { x: 110, y: 50, taille: 70 });
+  K.montre(t, S(8) + 0.1, S(10) - 0.5);
+  const w = app(p, ['planning-nuit', 'finances-nuit'], { x: 240, y: 160 });
+  K.sequence(w, S(8), S(10), { entree: 'droite', sortie: 'fondu', d: 0.6 });
+  K.enchaine(w.imgs, [S(8) + 2.0, null], 0.5);
+  camera(w, 240, 160, [[S(8), 1000, 300, 1.35, 1060, 520], [S(8) + 1.9, 1000, 330, 1.42, 1060, 520, 'lin'], [S(8) + 2.1, 1150, 300, 1.4, 1060, 540], [S(10), 1150, 300, 1.48, 1060, 540, 'lin']]);
+  const c1 = K.puce(p, '<b>Échéances</b> et temps de concentration, jour par jour', { x: 520, y: 960, point: 'var(--accent)' });
+  const c2 = K.puce(p, '<b>Trésorerie</b>, recettes, dépenses, en attente', { x: 560, y: 960, point: 'var(--vert)' });
+  f.piste(c1, [S(8) + 0.6, { o: 0, y: 20 }], [S(8) + 1.1, { o: 1, y: 0 }, 'ressort'], [S(8) + 1.8, { o: 1 }], [S(8) + 2.1, { o: 0 }, 'douce']);
+  f.piste(c2, [S(8) + 2.4, { o: 0, y: 20 }], [S(8) + 2.9, { o: 1, y: 0 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 6 — Le travail fait monter de niveau (10 → 12)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Le travail fait', '<span class="leger">monter de niveau.</span>'], { x: 120, y: 120, taille: 96 });
+  K.montre(t, S(10) + 0.1, S(12) - 0.5);
+  const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'anneau'); svg.setAttribute('width', 360); svg.setAttribute('height', 360); svg.style.left = '1380px'; svg.style.top = '120px'; p.appendChild(svg);
+  svg.innerHTML = '<circle cx="180" cy="180" r="150" stroke="rgb(255 255 255 / 10%)"/><circle class="arc" cx="180" cy="180" r="150" stroke="#2f8cff" transform="rotate(-90 180 180)"/>';
+  const arc = svg.querySelector('.arc'); const per = 2 * Math.PI * 150; arc.style.strokeDasharray = per;
+  const ch = K.place(K.el('div', 'chiffre-anneau', p), { x: 1380, y: 225, l: 360 });
+  f.chaque((tt) => { const q = f.av(tt, S(10) + 0.6, 1.8, 'douce'); arc.style.strokeDashoffset = (per * (1 - 0.85 * q)).toFixed(1); ch.innerHTML = `${Math.round(85 * q)}<small>minutes de concentration</small>`; });
+  const xp = K.place(K.el('div', 'xp', p, '+25 XP'), { x: 1470, y: 520 });
+  f.piste(xp, [S(10) + 2.4, { o: 0, y: 20, s: 0.6 }], [S(10) + 2.8, { o: 1, y: 0, s: 1 }, 'rebond'], [S(10) + 3.6, { o: 1, y: 0 }], [S(10) + 4.1, { o: 0, y: -40 }, 'douce']);
+  [svg, ch].forEach((e) => f.piste(e, [S(10) + 0.3, { o: 0, s: 0.9 }], [S(10) + 0.9, { o: 1, s: 1 }, 'sortie'], [S(12) - 0.5, { o: 1 }], [S(12) - 0.1, { o: 0 }, 'douce']));
+  const rail = K.place(K.el('div', 'rail', p, '<i></i>'), { x: 132, y: 690, l: 1660 });
+  const ri = rail.querySelector('i');
+  f.chaque((tt) => { ri.style.transform = `scaleX(${f.av(tt, S(10) + 0.9, 2.6, 'douce').toFixed(4)})`; });
+  f.piste(rail, [S(10) + 0.5, { o: 0 }], [S(10) + 0.9, { o: 1 }, 'douce'], [S(12) - 0.5, { o: 1 }], [S(12) - 0.1, { o: 0 }, 'douce']);
+  [['Niv. 2', 'Un trophée sur le bureau'], ['Niv. 3', 'La lampe d’architecte, allumée le soir'], ['Niv. 4', 'Des tenues pour le personnage'], ['Niv. 5', 'Une enseigne néon au mur'], ['Niv. 7', 'Le mobilier passe en noyer']].forEach(([n, l], i) => {
+    const e = K.place(K.el('div', 'niveau', p, `<b>${n}</b><span>${l}</span>`), { x: 132 + i * 340, y: 760 });
+    const a = S(10) + 0.9 + i * 0.5;
+    f.piste(e, [a, { o: 0, y: 20 }], [a + 0.45, { o: 1, y: 0 }, 'ressort'], [S(12) - 0.5, { o: 1 }], [S(12) - 0.1, { o: 0 }, 'douce']);
+  });
+}
+
+// 7 — Clair, et rien ne quitte le navigateur (12 → 14)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Tout reste dans le navigateur.'], { x: 0, y: 70, taille: 74, align: 'center', style: { right: '0' } });
+  K.montre(t, S(12) + 0.1, S(14) - 0.5);
+  const tuiles = ['agence-jour', 'projets-jour', 'planning-jour', 'finances-jour'];
+  tuiles.forEach((n, i) => {
+    const x = 200 + (i % 2) * 780, y = 182 + Math.floor(i / 2) * 420;
+    const w = K.mac(p, I(n), { x, y, l: 740, h: 462 });
+    const a = S(12) + 0.2 + i * 0.18;
+    f.piste(w, [a, { o: 0, y: 80, s: 0.9 }], [a + 0.7, { o: 1, y: 0, s: 1 }, 'sortie'], [S(14) - 0.5, { o: 1 }], [S(14) - 0.05, { o: 0, s: 0.97 }, 'entree']);
+    f.piste(w, [S(12), { x: 0 }], [S(14), { x: i % 2 ? -26 : 26 }, 'lin']);
+  });
+  [['<b>React</b> · Three.js', 'var(--accent)'], ['<b>IndexedDB</b> · hors ligne', 'var(--vert)']].forEach(([h, c], i) => {
+    const e = K.puce(p, h, { x: 1040 + i * 330, y: 980, point: c });
+    f.piste(e, [S(12) + 1.0 + i * 0.3, { o: 0, y: 20 }], [S(12) + 1.5 + i * 0.3, { o: 1, y: 0 }, 'ressort'], [S(14) - 0.5, { o: 1 }], [S(14) - 0.1, { o: 0 }, 'douce']);
+  });
+}
+
+// 8 — Fin (14 → 16)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/startup3d/assets/img/icone-512.webp', nom: 'Startup<span style="color:var(--accent)">3D</span>', ligne: 'L’entreprise en volume : on la gère en traversant son agence.', t: S(14) + 0.1 });
+}
+f.lancer();
+</script>
+</body>
+</html>

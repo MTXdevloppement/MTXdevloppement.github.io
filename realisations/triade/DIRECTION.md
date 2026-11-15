@@ -46,6 +46,13 @@ Captures réelles de l'app (simulateur iPhone, données de démonstration, texte
 modèle de l'appareil), dans un cadre de téléphone dessiné en CSS. Les feuilles de l'éventail sont dessinées
 en HTML/SVG d'après l'icône.
 
+## 5 bis. Le film
+
+Après le héros, « Le film » : 38 s en 9:16, avec musique originale, sur papier crème. Les trois feuilles en éventail,
+puis l'iPhone et ses vrais écrans : la lettre, le tableur et sa formule vérifiée, la présentation, l'assistant, le mode
+Avion, les formats Office. Fabriqué par `outils/films/presentations/triade.html` (voir le LISEZ-MOI de ce dossier) ;
+lecteur commun `../../assets/js/film.js`.
+
 ## 6. Mouvement
 
 - **Signature** : l'éventail. Onglets Texte / Tableur / Présentation (clic, doigt, flèches du clavier) :

@@ -10,3 +10,6 @@ au clavier, Entrée puis les flèches.
 - **Typographies** : Gabarito (titres), Hanken Grotesk (texte). Auto-hébergées, licence OFL.
 - **Interactions** : démonstration automatique jusqu'au premier geste ; les touches ⇧ ⌘ ⌃ changent de roue
   dans la section des trois roues ; aperçu en direct des réglages de la roue (style, couleur, taille, fond).
+- **Film** (`#film`, avant « Les trois roues ») : 34 s en 16:9, avec musique originale. Le geste, les trois roues
+  (captures réelles, recadrées sur le cercle de la roue), les formats, les retouches, les bannières, l'Atelier et
+  les réglages. Fabriqué par `outils/films/presentations/mue.html` ; lecteur commun `assets/js/film.js`.

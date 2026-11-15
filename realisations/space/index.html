@@ -29,8 +29,11 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/onest.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-<link rel="stylesheet" href="../../assets/css/projet.css?v=14">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=15">
+<link rel="stylesheet" href="../../assets/css/film.css?v=1">
+<link rel="stylesheet" href="assets/css/film.css?v=1">
+<script src="../../assets/js/film.js?v=1" defer></script>
 <script src="assets/js/orbite.js?v=1" defer></script>
 <script src="assets/js/site.js?v=1" defer></script>
 <script src="../../assets/js/projet.js?v=17" defer></script>
@@ -104,6 +107,26 @@
   </section>
 
   <!-- La règle ================================================================ -->
+  <!-- Le film de présentation (9:16, avec musique originale) : lecteur commun ../../assets/js/film.js, habillage assets/css/film.css.
+       Fabriqué par outils/films/presentations/ (space.html, puis fabriquer.sh). -->
+  <section class="section section-film" id="film" aria-labelledby="titre-film">
+    <div class="enveloppe presentation" data-mtx-film data-duree="30">
+      <div class="presentation-texte">
+        <p class="etiquette apparait">00 · Le film</p>
+        <h2 class="titre apparait" id="titre-film">Trente secondes, une orbite.</h2>
+        <p class="tete-texte apparait">La règle, le score, la montée dans les zones et les écrans du jeu. La partie qui tourne dans le téléphone est la réplique jouable de cette page&#8239;; les écrans du milieu sont des captures du jeu sur iPhone. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
+      </div>
+      <div class="presentation-film">
+        <div class="presentation-cadre mtx-film-cadre" data-mtx-film-cadre>
+          <video class="mtx-film-video" controls playsinline preload="none" width="1080" height="1920" poster="assets/video/presentation.webp" aria-label="Film de présentation de Space, 30 secondes, avec musique : une partie de démonstration, la règle à un doigt, le barème du score, la montée dans les zones et leurs dangers, des captures du jeu sur iPhone, les quatre niveaux et la fabrication sans ressource importée."><source src="assets/video/presentation.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"'><source src="assets/video/presentation.mp4" type='video/mp4; codecs="avc1.640029, mp4a.40.2"'></video>
+          <div class="mtx-film-commandes" hidden><button type="button" class="mtx-film-son" data-mtx-film-son hidden><svg class="mtx-i-muet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8"/></svg><svg class="mtx-i-son" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 9.4h3.1l4.6-4v13.2l-4.6-4H3.8Z"/><path d="M15.4 8.9a4.4 4.4 0 0 1 0 6.2M18.2 6.2a8.2 8.2 0 0 1 0 11.6"/></svg><span class="mtx-film-libelle">Avec le son</span></button><button type="button" class="mtx-film-jouer" data-mtx-film-jouer hidden><svg class="mtx-i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.2" y="5" width="3.8" height="14" rx="1"/><rect x="14" y="5" width="3.8" height="14" rx="1"/></svg><svg class="mtx-i-lecture" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg><svg class="mtx-i-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 12a7.4 7.4 0 1 0 2.2-5.3M4.6 4.6v3.8h3.8"/></svg></button><button type="button" class="mtx-film-plein" data-mtx-film-plein hidden><svg class="mtx-i-plein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/></svg><svg class="mtx-i-reduire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M20 9h-4a1 1 0 0 1-1-1V4M15 20v-4a1 1 0 0 1 1-1h4M4 15h4a1 1 0 0 1 1 1v4"/></svg></button></div>
+          <span class="mtx-film-fil" aria-hidden="true"></span>
+        </div>
+      </div>
+      <ol class="presentation-chapitres" data-mtx-film-chapitres aria-label="Chapitres du film"><li><button type="button" data-mtx-film-aller="0"><span class="chiffre">0:00</span> Un tap</button></li><li><button type="button" data-mtx-film-aller="3.75"><span class="chiffre">0:03</span> La règle</button></li><li><button type="button" data-mtx-film-aller="7.5"><span class="chiffre">0:07</span> Le score</button></li><li><button type="button" data-mtx-film-aller="11.25"><span class="chiffre">0:11</span> La montée</button></li><li><button type="button" data-mtx-film-aller="15"><span class="chiffre">0:15</span> Le vrai jeu</button></li><li><button type="button" data-mtx-film-aller="18.75"><span class="chiffre">0:18</span> Niveaux</button></li><li><button type="button" data-mtx-film-aller="22.5"><span class="chiffre">0:22</span> Fabrication</button></li></ol>
+    </div>
+  </section>
+
   <section class="section" id="regle" aria-labelledby="titre-regle">
     <div class="enveloppe">
       <p class="etiquette apparait">01 · La règle</p>

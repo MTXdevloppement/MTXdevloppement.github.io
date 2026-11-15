@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Knowledge AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "KAI Literata"; src: url("../../../realisations/knowledge-ai/assets/fonts/literata.woff2") format("woff2"); font-weight: 200 900; font-style: normal; }
+@font-face { font-family: "KAI Literata"; src: url("../../../realisations/knowledge-ai/assets/fonts/literata-italique.woff2") format("woff2"); font-weight: 200 900; font-style: italic; }
+@font-face { font-family: "KAI Schibsted"; src: url("../../../realisations/knowledge-ai/assets/fonts/schibsted.woff2") format("woff2"); font-weight: 400 900; }
+@font-face { font-family: "KAI Mono"; src: url("../../../realisations/knowledge-ai/assets/fonts/spline-mono.woff2") format("woff2"); font-weight: 300 700; }
+.scene { --fond: #0d0d0f; --encre: #ededef; --doux: #a3a3ab; --pale: #6f6f78; --accent: #5b84ff; --accent-texte: #8aa6ff;
+  --titre: "KAI Literata", serif; --texte: "KAI Schibsted", sans-serif; --mono: "KAI Mono", monospace; --titre-graisse: 400; --titre-espace: -.028em; }
+.titre em { font-style: italic; color: var(--accent-texte); }
+.navigateur { position: absolute; border-radius: 18px; overflow: hidden; background: #151517; box-shadow: 0 0 0 1px rgb(255 255 255 / 11%), 0 70px 150px -40px rgb(0 0 0 / 90%); transform-origin: 0 0; }
+.nav-barre { position: relative; height: 48px; display: flex; align-items: center; gap: 9px; padding: 0 18px; background: #1b1b1e; border-bottom: 1px solid #29292d; }
+.nav-barre i { width: 13px; height: 13px; border-radius: 50%; background: #ff5f57; } .nav-barre i:nth-child(2) { background: #febc2e; } .nav-barre i:nth-child(3) { background: #28c840; }
+.nav-adresse { position: absolute; left: 50%; top: 10px; transform: translateX(-50%); padding: 6px 60px; border-radius: 8px; background: #26262a; color: #a3a3ab; font: 500 15px/1.2 var(--mono); }
+.nav-ecran { position: relative; overflow: hidden; }
+.nav-ecran img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.puce { --puce-fond: #19191c; --puce-encre: #ededef; box-shadow: 0 0 0 1px #2c2c31, 0 24px 50px -18px rgb(0 0 0 / 80%); font: 500 26px/1 var(--texte); }
+.puce b { font-family: var(--mono); color: var(--accent-texte); font-weight: 500; }
+.vise { position: absolute; border: 3px solid var(--accent); border-radius: 12px; box-shadow: 0 0 24px rgb(91 132 255 / 55%); }
+.reseau { position: absolute; overflow: visible; }
+.reseau line { stroke: rgb(138 166 255 / 35%); stroke-width: 2; }
+.noeud { position: absolute; display: flex; align-items: center; gap: 12px; font: 500 22px/1 var(--mono); color: var(--doux); white-space: nowrap; }
+.noeud::before { content: ""; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--accent-texte); background: var(--fond); }
+.noeud.fort::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px var(--accent); }
+.noeud.fort { color: var(--encre); }
+.etiquette { position: absolute; font: 500 24px/1 var(--mono); color: var(--pale); letter-spacing: .02em; }
+.balayage { position: absolute; width: 4px; background: var(--accent); box-shadow: 0 0 24px var(--accent); }
+</style>
+</head>
+<body>
+<div class="scene" id="scene"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+const M = 240 / 96;                 // une mesure à 96 battements par minute : 2,5 s
+const S = (n) => n * M;
+const f = Film({ duree: 16 * M });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/knowledge-ai/${n}.webp`;
+K.fond({ halos: [{ c: 'rgb(91 132 255 / 28%)', x: 1550, y: 120, taille: 1400, v: 0.05 }, { c: 'rgb(91 132 255 / 12%)', x: 200, y: 1000, taille: 1100, v: 0.07, p: 2 }] });
+
+// Fenêtre de navigateur : la vraie app (localhost) ; l'écran est à l'échelle 1440 × 900 de la capture.
+const L = 1300, E = L / 1440;
+const navigateur = (parent, images, o) => {
+  const n = K.place(K.el('div', 'navigateur', parent, `<div class="nav-barre"><i></i><i></i><i></i><span class="nav-adresse">127.0.0.1:5340</span></div><div class="nav-ecran"></div>`), { l: L, ...o });
+  const ecran = n.querySelector('.nav-ecran'); ecran.style.height = `${900 * E}px`;
+  n.imgs = images.map((s) => { const i = K.el('img', '', ecran); i.src = I(s); i.alt = ''; return i; });
+  n.ecran = ecran;
+  return n;
+};
+// Caméra : amène le point (cx, cy) de l'écran de l'app (coordonnées 1440 × 900) en (X, Y) du cadre, au zoom z.
+const camera = (n, wx, wy, cles) => f.piste(n, ...cles.map(([t, cx, cy, z, X, Y, c]) => [t, { x: X - wx - z * cx * E, y: Y - wy - z * (cy * E + 48), s: z }, c || 'douce']));
+const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E, y: y * E, l: l * E, h: h * E });
+
+// 1 — Une réponse. Ses sources. Chaque phrase vérifiée. (0 → 5 s)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Une réponse.', '<em>Ses sources.</em>', 'Chaque phrase vérifiée.'], { x: 120, y: 290, taille: 104 });
+  K.montre(t, 0.3, S(2) - 0.6, { pas: 0.12 });
+  const et = K.el('div', 'etiquette', p, 'KNOWLEDGE AI · L’IA QUI TOURNE SUR LE MAC'); K.place(et, { x: 124, y: 220 });
+  f.piste(et, [0.2, { o: 0 }], [0.9, { o: 1 }, 'douce'], [S(2) - 0.6, { o: 1 }], [S(2) - 0.2, { o: 0 }, 'douce']);
+  const noeuds = [['Comment a été créée la France ?', 1270, 470, 1], ['Traité de Verdun', 1150, 250], ['843', 1560, 300], ['Francie occidentale', 1500, 640], ['Charles le Chauve', 1140, 760], ['Hugues Capet', 1610, 860], ['987', 1760, 520], ['Capétiens', 1300, 930]];
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('class', 'reseau'); svg.setAttribute('width', 1920); svg.setAttribute('height', 1080); svg.style.left = '0'; svg.style.top = '0'; p.appendChild(svg);
+  const liens = [[0, 1], [1, 2], [0, 3], [3, 4], [0, 5], [5, 6], [5, 7], [1, 4], [3, 7]];
+  liens.forEach(([a, b], i) => {
+    const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    const [, x1, y1] = noeuds[a], [, x2, y2] = noeuds[b];
+    l.setAttribute('x1', x1 + 8); l.setAttribute('y1', y1 + 8); l.setAttribute('x2', x2 + 8); l.setAttribute('y2', y2 + 8);
+    const len = Math.hypot(x2 - x1, y2 - y1); l.style.strokeDasharray = len; svg.appendChild(l);
+    f.chaque((tt) => { l.style.strokeDashoffset = (len * (1 - f.av(tt, 0.9 + i * 0.22, 0.8, 'douce'))).toFixed(1); });
+  });
+  noeuds.forEach(([n, x, y, fort], i) => {
+    const e = K.place(K.el('div', `noeud${fort ? ' fort' : ''}`, p, n), { x, y });
+    f.piste(e, [0.6 + i * 0.22, { o: 0, s: 0.6 }], [1.1 + i * 0.22, { o: 1, s: 1 }, 'ressort']);
+  });
+  f.piste(svg, [S(2) - 0.6, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']);
+  noeuds.forEach((_, i) => f.piste(p.querySelectorAll('.noeud')[i], [S(2) - 0.6, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']));
+}
+
+// 2 — Posez votre question (5 → 10 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(2), S(4), { d: 0.4 });
+  const t = K.titre(p, ['Vous posez la question.'], { x: 110, y: 58, taille: 74 });
+  K.montre(t, S(2) + 0.1, S(4) - 0.5);
+  const n = navigateur(p, ['accueil', 'question'], { x: 310, y: 200 });
+  K.sequence(n, S(2), S(4), { entree: 'bas', sortie: 'fondu', d: 0.7 });
+  K.enchaine(n.imgs, [S(2) + 2.3, null], 0.25);
+  camera(n, 310, 200, [[S(2), 720, 450, 1, 960, 670], [S(2) + 1.0, 720, 450, 1, 960, 670], [S(2) + 2.0, 855, 345, 1.55, 960, 560], [S(4) - 0.6, 855, 345, 1.55, 960, 560], [S(4), 720, 450, 1.2, 960, 640]]);
+  const k = K.touche(p, '↩', { x: 1620, y: 860 });
+  f.piste(k, [S(2) + 2.9, { o: 0, s: 0.7 }], [S(2) + 3.2, { o: 1, s: 1 }, 'ressort'], [S(2) + 3.4, { y: 0 }], [S(2) + 3.5, { y: 10 }, 'lin'], [S(2) + 3.75, { y: 0 }, 'sortie'], [S(4) - 0.5, { o: 1 }], [S(4) - 0.2, { o: 0 }, 'douce']);
+}
+
+// 3 — Elle cherche, lit et rédige, en direct (10 → 15 s) : la vraie recherche, en accéléré.
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(4), S(6), { d: 0.4 });
+  const t = K.titre(p, ['Elle cherche, lit et rédige.', '<em>Sous vos yeux.</em>'], { x: 110, y: 40, taille: 62 });
+  K.montre(t, S(4) + 0.1, S(6) - 0.5);
+  const imgs = Array.from({ length: 26 }, (_, i) => `direct-${String(i + 1).padStart(2, '0')}`);
+  const n = navigateur(p, imgs, { x: 500, y: 200 });
+  n.style.width = `${L}px`;
+  K.sequence(n, S(4), S(6), { entree: 'fondu', sortie: 'fondu', d: 0.5 });
+  const t0 = S(4) + 0.4, pas = 3.9 / 26;
+  K.enchaine(n.imgs, imgs.map((_, i) => (i < imgs.length - 1 ? t0 + (i + 1) * pas : null)), 0.07);
+  f.piste(n, [S(4), { s: 0.96 }], [S(6), { s: 1 }, 'lin']);
+  const puces = [['<b>5</b> articles de Wikipédia lus', 0.6], ['<b>1</b> entité Wikidata', 1.0], ['<b>9</b> passages retenus', 1.5], ['la réponse s’écrit en direct', 2.4]];
+  puces.forEach(([h, d], i) => {
+    const c = K.puce(p, h, { x: 60, y: 420 + i * 92, point: i === 3 ? '#4cc985' : 'var(--accent)' }); c.style.zIndex = 6;
+    f.piste(c, [S(4) + d, { o: 0, x: -30 }], [S(4) + d + 0.45, { o: 1, x: 0 }, 'ressort'], [S(6) - 0.5, { o: 1 }], [S(6) - 0.1, { o: 0 }, 'douce']);
+  });
+}
+
+// 4 — Chaque phrase porte sa source (15 → 20 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(6), S(8), { d: 0.4 });
+  const t = K.titre(p, ['Chaque phrase porte sa source.'], { x: 110, y: 58, taille: 70 });
+  K.montre(t, S(6) + 0.1, S(8) - 0.5);
+  const n = navigateur(p, ['reponse-sombre'], { x: 310, y: 200 });
+  K.sequence(n, S(6), S(8), { entree: 'fondu', sortie: 'fondu', d: 0.5 });
+  camera(n, 310, 200, [[S(6), 720, 450, 1, 960, 630], [S(6) + 0.7, 720, 450, 1, 960, 630], [S(6) + 1.6, 660, 230, 1.75, 900, 560], [S(6) + 2.8, 660, 230, 1.75, 900, 560], [S(6) + 3.7, 1260, 330, 1.55, 1180, 600], [S(8), 1260, 330, 1.6, 1180, 600, 'lin']]);
+  const v1 = vise(n, 958, 172, 24, 24), v2 = vise(n, 1098, 628, 324, 164);
+  f.piste(v1, [S(6) + 1.7, { o: 0, s: 1.6 }], [S(6) + 2.1, { o: 1, s: 1 }, 'sortie'], [S(6) + 3.1, { o: 1 }], [S(6) + 3.4, { o: 0 }, 'douce']);
+  f.piste(v2, [S(6) + 3.9, { o: 0 }], [S(6) + 4.3, { o: 1 }, 'douce']);
+  const c = K.puce(p, '<b>[7]</b> Traité de Verdun · Wikipédia, section « Le partage »', { x: 600, y: 960, point: 'var(--accent)' }); c.style.zIndex = 6;
+  f.piste(c, [S(6) + 2.2, { o: 0, y: 20 }], [S(6) + 2.7, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 5 — Puis elle se relit (20 → 25 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(8), S(10), { d: 0.4 });
+  const t = K.titre(p, ['Puis elle se relit, <em>sans IA.</em>'], { x: 110, y: 58, taille: 70 });
+  K.montre(t, S(8) + 0.1, S(10) - 0.5);
+  const n = navigateur(p, ['verification-sombre'], { x: 310, y: 200 });
+  K.sequence(n, S(8), S(10), { entree: 'fondu', sortie: 'fondu', d: 0.5 });
+  camera(n, 310, 200, [[S(8), 720, 450, 1, 960, 630], [S(8) + 0.6, 720, 450, 1, 960, 630], [S(8) + 1.6, 670, 520, 1.7, 960, 600], [S(10), 670, 520, 1.78, 960, 600, 'lin']]);
+  const v = vise(n, 338, 518, 672, 40);
+  f.piste(v, [S(8) + 2.1, { o: 0, s: 1.1 }], [S(8) + 2.5, { o: 1, s: 1 }, 'sortie']);
+  const c = K.puce(p, 'Chaque phrase confrontée au passage qu’elle cite : <b>à relire</b> si les mots ne s’y trouvent pas', { x: 260, y: 960, point: '#f0a04b' }); c.style.zIndex = 6;
+  f.piste(c, [S(8) + 2.6, { o: 0, y: 20 }], [S(8) + 3.1, { o: 1, y: 0 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 6 — La carte des connaissances, la bibliothèque (25 → 30 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(10), S(12), { d: 0.4 });
+  const t = K.titre(p, ['Ce que vous apprenez <em>se relie.</em>'], { x: 110, y: 58, taille: 70 });
+  K.montre(t, S(10) + 0.1, S(12) - 0.5);
+  const n = navigateur(p, ['exploration-sombre', 'bibliotheque-sombre'], { x: 310, y: 200 });
+  K.sequence(n, S(10), S(12), { entree: 'fondu', sortie: 'fondu', d: 0.5 });
+  K.enchaine(n.imgs, [S(10) + 2.7, null], 0.45);
+  camera(n, 310, 200, [[S(10), 720, 450, 1, 960, 630], [S(10) + 2.5, 720, 450, 1.08, 960, 630], [S(10) + 2.7, 720, 450, 1, 960, 630], [S(12), 720, 450, 1.06, 960, 630, 'lin']]);
+  const c1 = K.puce(p, 'Liens de Wikipédia et relations Wikidata', { x: 60, y: 520, point: 'var(--accent)' }), c2 = K.puce(p, 'Les articles lus restent dans la bibliothèque', { x: 60, y: 520, point: '#4cc985' });
+  [c1, c2].forEach((c) => (c.style.zIndex = 6));
+  f.piste(c1, [S(10) + 0.8, { o: 0, x: -30 }], [S(10) + 1.3, { o: 1, x: 0 }, 'ressort'], [S(10) + 2.5, { o: 1 }], [S(10) + 2.8, { o: 0 }, 'douce']);
+  f.piste(c2, [S(10) + 3.0, { o: 0, x: -30 }], [S(10) + 3.5, { o: 1, x: 0 }, 'ressort'], [S(12) - 0.5, { o: 1 }], [S(12) - 0.1, { o: 0 }, 'douce']);
+}
+
+// 7 — Le modèle tourne sur le Mac ; clair ou sombre (30 → 35 s)
+{
+  const p = K.plan(null, 5);
+  K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(12), S(14), { d: 0.4 });
+  const t = K.titre(p, ['Le modèle tourne sur le Mac.', '<em>Le reste aussi.</em>'], { x: 110, y: 40, taille: 62 });
+  K.montre(t, S(12) + 0.1, S(14) - 0.5);
+  const box = K.place(K.el('div', 'calque', p), {});
+  const clair = navigateur(box, ['reponse-clair'], { x: 500, y: 220 });
+  const sombre = navigateur(box, ['reponse-sombre'], { x: 500, y: 220 });
+  [clair, sombre].forEach((w) => f.piste(w, [S(12), { s: 0.92 }], [S(14), { s: 0.95 }, 'lin']));
+  const bal = K.el('div', 'balayage', box);
+  K.sequence(box, S(12), S(14), { entree: 'bas', sortie: 'fondu', d: 0.6 });
+  f.chaque((tt) => {
+    const q = f.av(tt, S(12) + 1.4, 1.5, 'douce');
+    sombre.style.clipPath = `inset(0 0 0 ${(q * 100).toFixed(2)}%)`;
+    const w = L * 0.92 + (L * 0.03) * f.av(tt, S(12), 2 * M, 'lin');
+    bal.style.transform = `translate3d(${(500 + q * w - 2).toFixed(1)}px, 220px, 0)`;
+    bal.style.height = `${(948 * 0.93).toFixed(0)}px`;
+    bal.style.opacity = q > 0.003 && q < 0.997 ? 1 : 0;
+  });
+  [['<b>Gemma 3</b> via Ollama, sur le Mac', 'var(--accent)'], ['<b>SQLite</b> locale : historique, bibliothèque', '#4cc985'], ['Seules Wikipédia et Wikidata sont interrogées', '#f0a04b']].forEach(([h, c], i) => {
+    const e = K.puce(p, h, { x: 60, y: 420 + i * 92, point: c }); e.style.zIndex = 6;
+    f.piste(e, [S(12) + 0.7 + i * 0.4, { o: 0, x: -30 }], [S(12) + 1.2 + i * 0.4, { o: 1, x: 0 }, 'ressort'], [S(14) - 0.5, { o: 1 }], [S(14) - 0.1, { o: 0 }, 'douce']);
+  });
+}
+
+// 8 — Fin (35 → 40 s)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/knowledge-ai/assets/img/icone-512.webp', nom: 'Knowledge <em style="font-style:italic;color:var(--accent-texte)">AI</em>', ligne: 'Une IA qui lit ses sources, les cite et se relit.', t: S(14) + 0.1, taille: 132 });
+}
+f.lancer();
+</script>
+</body>
+</html>

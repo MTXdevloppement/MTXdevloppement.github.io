@@ -11,3 +11,6 @@ chaque section est une borne qui passe « sous tension ».
 - **Démonstrations** : sortie de stock en trois touches (animée) ; calcul de rupture interactif avec les règles
   exactes du README (conso sur 90 jours, jours restants, seuil conseillé = conso × délai × 1,5) ;
   banc de performance mesuré.
+- **Film** (`#film`, « 00 Le film ») : 36 s en 16:9, avec musique originale. Le fil s'allume, puis les vraies captures
+  de l'app : tableau de bord, sortie de stock au clavier, ruptures, devis, budget, clair et sombre, rapidité.
+  Fabriqué par `outils/films/presentations/volta.html` (voir le LISEZ-MOI) ; lecteur commun `assets/js/film.js`.

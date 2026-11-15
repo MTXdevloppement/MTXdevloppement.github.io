@@ -13,3 +13,6 @@ Tant que personne ne touche l'écran, la partie se joue toute seule.
   notes pentatoniques jouées en Web Audio (son coupé par défaut).
 - **Mouvement réduit** : pas de démonstration, la partie attend le premier geste ; animations décoratives coupées.
 - **Contenus** : chiffres et règles tirés du README du dépôt `space` ; captures réelles du jeu.
+- **Film** (`#film`, « 00 · Le film ») : 30 s en 9:16, avec musique originale. Dans le téléphone, la partie de
+  démonstration de la page (orbite.js, rejoué avec l'horloge du film), puis des captures du jeu sur iPhone ; le
+  ciel passe par les couleurs des zones pendant la montée. Fabriqué par `outils/films/presentations/space.html`.

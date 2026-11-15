@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — Mue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="kit.css">
+<style>
+@font-face { font-family: "Mue Gabarito"; src: url("../../../realisations/mue/assets/fonts/gabarito.woff2") format("woff2"); font-weight: 400 900; }
+@font-face { font-family: "Mue Hanken"; src: url("../../../realisations/mue/assets/fonts/hanken.woff2") format("woff2"); font-weight: 100 900; }
+.scene { --fond: #121117; --encre: #f1eff6; --doux: rgb(241 239 246 / 70%); --pale: rgb(241 239 246 / 46%); --accent: #9b86ff;
+  --titre: "Mue Gabarito", sans-serif; --texte: "Mue Hanken", sans-serif; --titre-graisse: 750; --titre-espace: -.035em; }
+.titre em .mot { background: linear-gradient(90deg, #8a7bff, #c26cf0 60%, #ff8a6b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.bureau { position: absolute; overflow: hidden; border-radius: 44px; background: linear-gradient(140deg, #f28b5b 0%, #d06a8e 38%, #8a5bd0 72%, #5a48c8 100%); box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), 0 60px 140px -40px rgb(0 0 0 / 85%); }
+.bureau::before, .bureau::after { content: ""; position: absolute; border-radius: 50%; }
+.bureau::before { width: 62%; aspect-ratio: 1; right: -14%; top: -22%; background: #e8b07e; opacity: .92; }
+.bureau::after { width: 58%; aspect-ratio: 1; left: -18%; bottom: -30%; background: #4a9bb8; opacity: .9; }
+.fichier { position: absolute; z-index: 2; width: 150px; display: grid; justify-items: center; gap: 12px; color: #fff; font: 600 24px/1.2 var(--texte); text-shadow: 0 2px 6px rgb(0 0 0 / 45%); }
+.page { position: relative; width: 104px; height: 128px; border-radius: 10px; background: #fff; box-shadow: 0 14px 30px -10px rgb(0 0 0 / 50%); display: grid; place-items: end center; padding-bottom: 14px; }
+.page::before { content: ""; position: absolute; right: 0; top: 0; width: 30px; height: 30px; background: linear-gradient(225deg, #8a5bd0 50%, #e9e6f2 50%); border-top-right-radius: 10px; }
+.page::after { content: ""; position: absolute; inset: 26px 18px 46px; border-radius: 6px; background: linear-gradient(160deg, #f6a15f, #b65fa0 60%, #3a2a6c); }
+.page span { position: relative; z-index: 1; padding: 4px 10px; border-radius: 6px; background: #2b2540; color: #fff; font: 800 17px/1 var(--texte); letter-spacing: .04em; text-shadow: none; }
+.nom-fichier { padding: 3px 10px; border-radius: 8px; }
+.choisi .nom-fichier { background: #2e6ef7; }
+.roue { position: absolute; z-index: 3; border-radius: 50%; overflow: hidden; box-shadow: 0 40px 90px -20px rgb(0 0 0 / 70%); }
+/* Dans les captures (940 px), la roue est centrée et fait 364 px de rayon : l'image est agrandie pour que le cercle
+   du cadre tombe juste à l'intérieur de la roue, sans laisser voir le fond d'écran. */
+.roue img { position: absolute; left: -15%; top: -15%; width: 130%; height: 130%; max-width: none; }
+.roue-c { clip-path: circle(46% at 50% 50%); }
+.puce { --puce-fond: rgb(30 29 38 / 92%); --puce-encre: #f1eff6; box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), 0 20px 50px -18px rgb(0 0 0 / 70%); font-size: 28px; }
+.touche { font-family: var(--texte); }
+.libelle { position: absolute; font: 650 34px/1.2 var(--titre); color: var(--encre); text-align: center; }
+.libelle small { display: block; font: 400 24px/1.3 var(--texte); color: var(--doux); margin-top: 6px; }
+.formats { position: absolute; display: flex; flex-wrap: wrap; gap: 14px; }
+.fmt { padding: 12px 20px; border-radius: 12px; font: 750 26px/1 var(--texte); letter-spacing: .03em; background: rgb(255 255 255 / 7%); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 10%); }
+.fmt.i { color: #8fb5ff; } .fmt.v { color: #c79bff; } .fmt.a { color: #ff9cc2; } .fmt.d { color: #ffc27a; } .fmt.t { color: #7ee3b0; }
+</style>
+</head>
+<body>
+<div class="scene" id="scene"></div>
+<script src="../moteur.js"></script>
+<script src="kit.js"></script>
+<script>
+const M = 240 / 112;               // une mesure à 112 battements par minute
+const f = Film({ duree: 16 * M });
+const scene = document.getElementById('scene');
+const K = Kit(f, scene);
+const I = (n) => `img/mue/${n}.webp`;
+K.fond({ halos: [{ c: 'rgb(124 108 255 / 35%)', x: 1500, y: 200, taille: 1300, v: 0.06 }, { c: 'rgb(255 138 107 / 22%)', x: 300, y: 950, taille: 1100, v: 0.08, p: 1.5 }] });
+const S = (n) => n * M;            // instant du début de la mesure n
+
+const fichier = (parent, ext, nom, o) => K.place(K.el('div', 'fichier', parent, `<div class="page"><span>${ext}</span></div><span class="nom-fichier">${nom}</span>`), o);
+const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent, `<img src="${I(img)}" alt="">`), o); return r; };
+
+// 1 — Glissez, touchez une touche, c'est converti (mesures 0 → 2)
+{
+  const p = K.plan(null, 5);
+  const t1 = K.titre(p, ['Glissez.'], { x: 120, y: 250, taille: 132 });
+  const t2 = K.titre(p, ['Touchez une', 'touche.'], { x: 120, y: 390, taille: 132 });
+  const t3 = K.titre(p, ['<em>C’est converti.</em>'], { x: 120, y: 660, taille: 132 });
+  K.montre(t1, 0.2, S(2) - 0.5); K.montre(t2, 1.05, S(2) - 0.45); K.montre(t3, 2.75, S(2) - 0.4);
+  const b = K.place(K.el('div', 'bureau', p), { x: 980, y: 150, l: 820, h: 780 });
+  K.sequence(b, 0, S(2), { entree: 'droite', sortie: 'gauche', d: 0.7 });
+  const src = fichier(b, 'HEIC', 'photo.heic', { x: 150, y: 420 });
+  const sortie = fichier(b, 'WEBP', 'photo.webp', { x: 560, y: 470 });
+  fichier(b, 'MOV', 'interview.mov', { x: 120, y: 110 });
+  const r = roue(b, 'roue-1-convertir-sombre', { x: 160, y: 110, l: 560, h: 560 });
+  const c = K.curseur(b);
+  K.trajet(c, [[0, 700, 700], [0.5, 240, 480], [0.75, 240, 480], [1.6, 420, 400], [2.25, 420, 400], [2.7, 540, 250], [3.15, 540, 250]], [0.7, 2.95]);
+  f.piste(src, [0.75, { x: 0, y: 0 }], [1.6, { x: 180, y: -80 }, 'douce']);
+  src.classList.add('choisi');
+  const k = K.touche(p, '⇧', { x: 1290, y: 820 });
+  f.piste(k, [1.55, { o: 0, s: 0.7, y: 30 }], [1.85, { o: 1, s: 1, y: 0 }, 'ressort'], [1.95, { y: 0 }], [2.05, { y: 10 }, 'lin'], [2.3, { y: 0 }, 'sortie'], [3.2, { o: 1 }], [3.5, { o: 0 }, 'douce']);
+  f.piste(r, [1.95, { o: 0, s: 0.4, r: -30 }], [2.45, { o: 1, s: 1, r: 0 }, 'ressort'], [3.05, { o: 1, s: 1 }], [3.35, { o: 0, s: 0.85 }, 'entree']);
+  f.piste(sortie, [3.35, { o: 0, s: 0.6, y: 20 }], [3.75, { o: 1, s: 1, y: 0 }, 'ressort']);
+}
+
+// 2 — Une touche par intention : trois roues (mesures 2 → 4)
+{
+  const p = K.plan(null, 5);
+  K.sequence(p, S(2) - 0.1, S(4), { entree: 'rien', sortie: 'fondu' });
+  const t = K.titre(p, ['Une touche par intention.'], { x: 0, y: 90, taille: 96, align: 'center', style: { right: '0' } });
+  K.montre(t, S(2) + 0.1, S(4) - 0.5);
+  const roues = [['roue-1-convertir-sombre', '⇧', 'Convertir', 'PNG, JPG, WebP, HEIC, PDF, MP3…'], ['roue-2-outils-sombre', '⌘', 'Outils', 'Compresser, détourer, retoucher…'], ['roue-3-actions-clair', '⌃', 'Actions', 'AirDrop, étagère, copier, déplacer…']];
+  roues.forEach(([img, key, nom, sous], i) => {
+    const x = 150 + i * 560, a = S(2) + 0.45 + i * 0.55;
+    const r = roue(p, img, { x, y: 300, l: 500, h: 500 });
+    f.piste(r, [a + 0.15, { o: 0, s: 0.3, r: -40 }], [a + 0.75, { o: 1, s: 1, r: 0 }, 'ressort'], [S(4) - 0.5, { o: 1 }], [S(4), { o: 0, s: 0.9 }, 'entree']);
+    const k = K.touche(p, key, { x: x + 190, y: 255 });
+    k.style.zIndex = 5;
+    f.piste(k, [a, { o: 0, s: 0.6 }], [a + 0.3, { o: 1, s: 1 }, 'ressort'], [a + 0.35, { y: 0 }], [a + 0.45, { y: 10 }, 'lin'], [a + 0.7, { y: 0 }, 'sortie'], [S(4) - 0.5, { o: 1 }], [S(4), { o: 0 }, 'douce']);
+    const l = K.place(K.el('div', 'libelle', p, `${nom}<small>${sous}</small>`), { x: x - 30, y: 840, l: 560 });
+    f.piste(l, [a + 0.5, { o: 0, y: 20 }], [a + 0.95, { o: 1, y: 0 }, 'sortie'], [S(4) - 0.5, { o: 1 }], [S(4), { o: 0 }, 'douce']);
+  });
+}
+
+// 3 — Ce qui entre, ce qui en sort (mesures 4 → 6)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Ce qui entre.', 'Ce qui en sort.'], { x: 120, y: 170, taille: 104 });
+  K.montre(t, S(4) + 0.1, S(6) - 0.5);
+  const box = K.place(K.el('div', 'formats', p), { x: 120, y: 470, l: 900 });
+  const liste = [['JPG', 'i'], ['PNG', 'i'], ['HEIC', 'i'], ['WebP', 'i'], ['AVIF', 'i'], ['TIFF', 'i'], ['MP4', 'v'], ['MOV', 'v'], ['GIF', 'v'], ['WebM', 'v'], ['MP3', 'a'], ['AIFF', 'a'], ['FLAC', 'a'], ['WAV', 'a'], ['DOCX', 'd'], ['PDF', 'd'], ['Markdown', 'd'], ['EPUB', 'd'], ['XLSX', 't'], ['CSV', 't'], ['ZIP', 't'], ['SRT', 't']];
+  liste.forEach(([n, c], i) => { const e = K.el('span', `fmt ${c}`, box, n); const a = S(4) + 0.5 + i * 0.05; f.piste(e, [a, { o: 0, y: 26, s: 0.8 }], [a + 0.45, { o: 1, y: 0, s: 1 }, 'ressort'], [S(6) - 0.5, { o: 1 }], [S(6) - 0.1, { o: 0, y: -20 }, 'entree']); });
+  K.sequence(K.legende(p, 'Les moteurs de macOS d’abord. ffmpeg, LibreOffice ou unar, s’ils sont installés : Mue les détecte et la liste s’allonge.', { x: 120, y: 820, l: 860, taille: 28 }), S(4) + 1.2, S(6), { entree: 'bas' });
+  const r = roue(p, 'roue-5-jaune-pages-clair', { x: 1120, y: 230, l: 660, h: 660 });
+  f.piste(r, [S(4) + 0.3, { o: 0, s: 0.5, r: 40 }], [S(4) + 1.0, { o: 1, s: 1, r: 0 }, 'ressort'], [S(6) - 0.5, { o: 1 }], [S(6), { o: 0, s: 1.1 }, 'entree']);
+  f.piste(r, [S(4) + 1.0, { r: 0 }], [S(6), { r: 8 }, 'lin']);
+  const pu = K.puce(p, 'Page <b>1 / 2</b> · retapez ⇧ pour la suite', { x: 1180, y: 920, point: '#f5c84b' });
+  f.piste(pu, [S(4) + 1.4, { o: 0, y: 20 }], [S(4) + 1.9, { o: 1, y: 0 }, 'ressort'], [S(6) - 0.5, { o: 1 }], [S(6), { o: 0 }, 'douce']);
+}
+
+// 4 — Compresser, poser sur un fond, retoucher (mesures 6 → 8)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Compresser, poser sur', 'un fond, retoucher.'], { x: 120, y: 90, taille: 84 });
+  K.montre(t, S(6) + 0.1, S(8) - 0.5);
+  const noms = ['form-compression-clair', 'form-fond-clair', 'form-retouche-sombre'];
+  noms.forEach((n, i) => {
+    const w = K.mac(p, I(n), { x: 200 + i * 300, y: 330 + i * 60, l: 860, h: 562 });
+    const a = S(6) + 0.35 + i * 0.5;
+    f.piste(w, [a, { o: 0, y: 140, s: 0.94 }], [a + 0.7, { o: 1, y: 0, s: 1 }, 'sortie'], [S(8) - 0.5, { o: 1 }], [S(8), { o: 0, y: -60 }, 'entree']);
+  });
+  const pu = K.puce(p, '<b>81 Ko → 65 Ko</b> · la copie arrive à côté de l’original', { x: 1080, y: 230, point: '#7ee3b0' });
+  f.piste(pu, [S(7), { o: 0, y: 20 }], [S(7) + 0.5, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8), { o: 0 }, 'douce']);
+}
+
+// 5 — Pas de fenêtre : bannières, étagère, barre des menus (mesures 8 → 10)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['Mue ne s’ouvre pas.', '<em>Il apparaît.</em>'], { x: 120, y: 190, taille: 84 });
+  K.montre(t, S(8) + 0.1, S(10) - 0.5);
+  K.sequence(K.legende(p, 'Des bannières en Liquid Glass suivent la conversion, une étagère garde les fichiers sous la main, la barre des menus fait le reste.', { x: 120, y: 450, l: 700, taille: 30 }), S(8) + 0.6, S(10), { entree: 'bas' });
+  const hud = K.mac(p, I('hud-sombre'), { x: 930, y: 160, l: 520, h: 520 });
+  const eta = K.mac(p, I('etagere-sombre'), { x: 1500, y: 540, l: 300, h: 438 });
+  const bar = K.mac(p, I('barre-menus-sombre'), { x: 1490, y: 120, l: 340, h: 317 });
+  [[hud, 0.3], [bar, 0.8], [eta, 1.2]].forEach(([w, d]) => f.piste(w, [S(8) + d, { o: 0, y: 80, s: 0.92 }], [S(8) + d + 0.7, { o: 1, y: 0, s: 1 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10), { o: 0, y: -50 }, 'entree']));
+}
+
+// 6 — L'Atelier, pour ceux qui préfèrent cliquer (mesures 10 → 12)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['L’Atelier, pour ceux', 'qui préfèrent cliquer.'], { x: 120, y: 110, taille: 84 });
+  K.montre(t, S(10) + 0.1, S(12) - 0.5);
+  const box = K.place(K.el('div', 'calque', p), {});
+  const ws = ['fenetre-accueil-sombre', 'fenetre-fichiers-sombre', 'fenetre-historique-clair'].map((n) => K.mac(box, I(n), { x: 500, y: 330, l: 1120, h: 690, style: { borderRadius: '24px' } }));
+  ws.forEach((w) => { w.img.style.objectFit = 'cover'; w.img.style.objectPosition = 'top'; });
+  f.piste(box, [S(10), { o: 0, y: 120 }], [S(10) + 0.7, { o: 1, y: 0 }, 'sortie'], [S(12) - 0.5, { o: 1 }], [S(12), { o: 0, y: -60 }, 'entree']);
+  K.enchaine(ws.map((w) => w), [S(10) + 1.6, S(10) + 2.9, null], 0.45);
+  ['Accueil', 'Fichiers déposés', 'Historique'].forEach((n, i) => {
+    const pu = K.puce(p, n, { x: 120 + i * 0, y: 420 + i * 96, point: i === 2 ? '#ff9cc2' : '#9b86ff' });
+    const a = S(10) + 0.6 + [0, 1.0, 2.3][i];
+    f.piste(pu, [a, { o: 0, x: -30 }], [a + 0.45, { o: 1, x: 0 }, 'ressort'], [S(12) - 0.5, { o: 1 }], [S(12), { o: 0 }, 'douce']);
+  });
+}
+
+// 7 — La roue se règle comme on l'aime (mesures 12 → 14)
+{
+  const p = K.plan(null, 5);
+  const t = K.titre(p, ['La roue se règle', 'comme on l’aime.'], { x: 0, y: 80, taille: 96, align: 'center', style: { right: '0' } });
+  K.montre(t, S(12) + 0.1, S(14) - 0.5);
+  const roues = ['roue-1-convertir-sombre', 'roue-4-lueur-icones-colorees-sombre', 'roue-5-jaune-pages-clair'];
+  roues.forEach((n, i) => {
+    const r = roue(p, n, { x: 210 + i * 520, y: 360, l: 460, h: 460 });
+    const a = S(12) + 0.4 + i * 0.35;
+    f.piste(r, [a, { o: 0, s: 0.5, y: 60 }], [a + 0.7, { o: 1, s: 1, y: 0 }, 'ressort'], [S(14) - 0.5, { o: 1 }], [S(14), { o: 0, s: 0.9 }, 'entree']);
+    f.piste(r, [a, { r: -20 }], [S(14), { r: 12 }, 'douce']);
+  });
+  ['Dégradé, bleu', 'Lueur, icônes en couleur', 'Unie, jaune'].forEach((n, i) => {
+    const l = K.place(K.el('div', 'libelle', p, `<small>${n}</small>`), { x: 210 + i * 520, y: 860, l: 460 });
+    f.piste(l, [S(12) + 0.9 + i * 0.35, { o: 0 }], [S(12) + 1.4 + i * 0.35, { o: 1 }, 'douce'], [S(14) - 0.5, { o: 1 }], [S(14), { o: 0 }, 'douce']);
+  });
+}
+
+// 8 — Fin (mesures 14 → 16)
+{
+  const p = K.plan(null, 8);
+  K.fin(p, { icone: '../../../realisations/mue/assets/img/icone-512.webp', nom: 'Mue', ligne: 'Convertir, retoucher et ranger ses fichiers d’un seul geste.', t: S(14) + 0.1 });
+}
+f.lancer();
+</script>
+</body>
+</html>

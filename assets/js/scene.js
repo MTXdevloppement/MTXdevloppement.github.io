@@ -91,8 +91,8 @@
       base: 'realisations/space/assets/img/ecrans/', avif: true,
       shots: [
         ['menu', 'Le menu et le cadeau du jour'],
-        ['v2-partie', 'Une partie en pleine fièvre'],
-        ['v2-dangers', 'Astéroïde et planète instable'],
+        ['fievre', 'Une partie en pleine fièvre'],
+        ['dangers', 'Astéroïde et planète instable'],
       ],
     },
     mail: {

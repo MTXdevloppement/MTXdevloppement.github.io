@@ -151,7 +151,7 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   K.montre(t, S(8) + 0.1, S(10) - 0.4);
   montre('menu', S(8) - 0.2, S(8) + 1.3);
   montre('gameplay', S(8) + 1.3, S(9) + 0.6);
-  montre('v2-partie', S(9) + 0.6, S(10) + 0.1);
+  montre('fievre', S(9) + 0.6, S(10) + 0.1);
   const sous = K.place(K.el('p', 'sous', p, 'Captures de l’app : le menu, un parfait ×5, la fièvre.'), { y: 1850 });
   K.sequence(sous, S(8) + 0.5, S(10) - 0.1, { entree: 'bas' });
 }
@@ -161,7 +161,7 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   const p = K.plan(null, 6);
   const t = K.titre(p, ['Quatre niveaux,', 'quatre records.'], { x: 0, y: 150, taille: 88, align: 'center', style: { right: '0' } });
   K.montre(t, S(10) + 0.1, S(12) - 0.4);
-  montre('v2-missions', S(10) + 0.1, S(12) + 0.2);
+  montre('missions', S(10) + 0.1, S(12) + 0.2);
   f.piste(tel, [S(10), { y: 0, o: 1 }], [S(10) + 0.6, { y: 20, o: 1 }, 'douce'], [S(12) - 0.4, { y: 20, o: 1 }], [S(12), { y: 80, o: 0 }, 'entree']);
   const niv = K.place(K.el('div', 'niveaux', p, '<i></i><span>Facile</span><span>Normal</span><span>Difficile</span><span>Extrême</span>'), { y: 400 });
   const curseur = niv.querySelector('i'), noms = [...niv.querySelectorAll('span')];

@@ -1,8 +1,7 @@
-# MTX Studio — direction artistique de l’accueil (V2 du héros)
+# MTX Studio — direction artistique de l’accueil
 
-Branche de travail : `v2-accueil`. La version en ligne (branche `main`, étiquette `sauvegarde-v5-avant-v2`)
-n’est pas modifiée. Seul le premier écran change : la vidéo de l’homme à tête d’écran est remplacée par une
-maquette interactive.
+Le premier écran du site est une maquette interactive : un iPhone et une Apple Watch qui présentent les apps
+du studio.
 
 ## 1. Idée directrice : l’écran d’accueil du studio
 

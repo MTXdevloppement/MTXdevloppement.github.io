@@ -4,10 +4,7 @@
 <meta charset="utf-8">
 <title>Film de l'activité en direct — Sténo</title>
 <link rel="stylesheet" href="commun.css">
-<style>
-/* Film 3 : l'activité en direct. Très gros plan sur le haut de l'écran verrouillé ; l'île s'ouvre sur
-   l'enregistrement, puis en grand : pause, reprise, fin. Scène de 540 × 300 (9:5), boucle de 8,4 s. */
-.scene{width:540px;height:300px;background:#000;color:#fff;font:400 16px/1.3 var(--ios);letter-spacing:-.01em}
+<style>.scene{width:540px;height:300px;background:#000;color:#fff;font:400 16px/1.3 var(--ios);letter-spacing:-.01em}
 .fond{inset:-20px;background:radial-gradient(90% 120% at 12% 0%,#ff9c82,transparent 62%),radial-gradient(80% 130% at 100% 20%,#b9a4ff,transparent 64%),linear-gradient(160deg,#e9523f,#8a3aa0 62%,#3a2166)}
 :root[data-theme="dark"] .fond{background:radial-gradient(90% 120% at 12% 0%,#7c2318,transparent 62%),radial-gradient(80% 130% at 100% 20%,#3b2a7a,transparent 64%),linear-gradient(160deg,#3a120e,#1d1235 62%,#07060d)}
 .verrou{left:0;right:0;top:98px;text-align:center}
@@ -19,13 +16,11 @@
 .onde{display:flex;align-items:center;gap:3.5px}
 .onde i{width:3.5px;height:100%;border-radius:2px;background:#ff5d4f;transform-origin:50% 50%}
 
-/* Vue compacte */
 .v-compacte{display:flex;align-items:center;gap:13px;padding:0 22px;font-size:18px;white-space:nowrap}
 .v-compacte .onde{height:26px}
 .v-compacte b{flex:1;font-weight:600;color:#ff6a5c}
 .temps{font-weight:600;font-variant-numeric:tabular-nums}
 
-/* Vue étendue */
 .v-grande{padding:20px 22px 0;width:500px;left:50%;margin-left:-250px;right:auto}
 .g-tete{display:flex;align-items:center;gap:13px}
 .app{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(140deg,#f7604a,#e23b2e 50%,#b81f1c);color:#fff;font-size:22px}
@@ -43,7 +38,6 @@
 .g-terminer{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;height:54px;border-radius:27px;background:#e23b2e;font-size:18px;font-weight:600}
 .g-terminer svg{font-size:15px}
 
-/* Fin : le mémo est enregistré */
 .v-fin{display:flex;align-items:center;gap:13px;padding:0 20px;font-size:18px;white-space:nowrap}
 .v-fin i{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:#30d158;color:#04260e;font-size:17px}
 .v-fin b{flex:1;font-weight:600}
@@ -74,8 +68,7 @@
 </div>
 
 <script src="moteur.js"></script>
-<script>
-(async () => {
+<script>(async () => {
   document.getElementById('symboles').innerHTML = await (await fetch('symboles.svg.html')).text();
   await document.fonts.ready;
 
@@ -85,23 +78,19 @@
   const { $, $$, av, mel, borne } = f;
   const scene = $('.scene'), ile = $('.ile');
 
-  // ---------- La forme de l'île ----------
   const A = { '--l': 150, '--h': 44, '--r': 22, '--t': 26 };
   const B = { '--l': 452, '--h': 58, '--r': 29, '--t': 26 };
   const C = { '--l': 500, '--h': 210, '--r': 48, '--t': 22 };
   const D = { '--l': 430, '--h': 58, '--r': 29, '--t': 26 };
   f.piste(ile, [OUVRE, A], [OUVRE + 0.75, B, 'ressort'], [GRAND, B], [GRAND + 0.8, C, 'ressort'], [REPLI, C], [REPLI + 0.65, D, 'ressort'], [FERME, D], [FERME + 0.5, A, 'douce']);
 
-  // ---------- Les trois vues ----------
   f.piste('.v-compacte', [OUVRE + 0.25, { o: 0, s: 0.9 }], [OUVRE + 0.6, { o: 1, s: 1 }], [GRAND, { o: 1, s: 1 }], [GRAND + 0.2, { o: 0, s: 1.04 }, 'lin']);
   f.piste('.v-grande', [GRAND + 0.15, { o: 0, s: 0.9, f: 6 }], [GRAND + 0.6, { o: 1, s: 1, f: 0 }], [REPLI - 0.12, { o: 1, s: 1, f: 0 }], [REPLI + 0.2, { o: 0, s: 0.92, f: 6 }, 'douce']);
   f.piste('.v-fin', [REPLI + 0.2, { o: 0, s: 0.9 }], [REPLI + 0.6, { o: 1, s: 1 }], [FERME, { o: 1, s: 1 }], [FERME + 0.2, { o: 0, s: 0.9 }, 'lin']);
   f.piste('.v-fin i', [REPLI + 0.3, { s: 0.3 }], [REPLI + 0.8, { s: 1 }, 'rebond']);
 
-  // L'écran verrouillé s'efface derrière l'île en grand, comme sur l'iPhone.
   f.piste('.verrou', [GRAND, { o: 1, s: 1, f: 0 }], [GRAND + 0.6, { o: 0.22, s: 0.96, f: 7 }, 'douce'], [REPLI, { o: 0.22, s: 0.96, f: 7 }], [REPLI + 0.6, { o: 1, s: 1, f: 0 }, 'douce']);
 
-  // ---------- Pause, reprise, fin ----------
   f.piste('.g-etat-enr', [PAUSE, { o: 1 }], [PAUSE + 0.2, { o: 0 }, 'lin'], [REPRISE, { o: 0 }], [REPRISE + 0.2, { o: 1 }, 'lin']);
   f.piste('.g-etat-pause', [PAUSE, { o: 0, y: 6 }], [PAUSE + 0.3, { o: 1, y: 0 }], [REPRISE, { o: 1, y: 0 }], [REPRISE + 0.2, { o: 0, y: -6 }, 'lin']);
   f.piste('.i-pause', [PAUSE, { o: 1, s: 1 }], [PAUSE + 0.2, { o: 0, s: 0.5 }, 'lin'], [REPRISE, { o: 0, s: 0.5 }], [REPRISE + 0.25, { o: 1, s: 1 }, 'ressort']);
@@ -109,7 +98,6 @@
   for (const t of [PAUSE, REPRISE]) f.piste('.g-pause', [t, { s: 1 }], [t + 0.12, { s: 0.86 }, 'sortie'], [t + 0.5, { s: 1 }, 'rebond']);
   f.piste('.g-terminer', [FIN, { s: 1 }], [FIN + 0.12, { s: 0.95 }, 'sortie'], [FIN + 0.5, { s: 1 }, 'rebond']);
 
-  // Le temps et la voix
   const temps = $$('.temps');
   const secondes = (t) => 3 + borne(t - OUVRE, 0, PAUSE - OUVRE) * 1.15 + borne(t - REPRISE, 0, FIN - REPRISE) * 1.15;
   const ondes = $$('[data-onde]').map((o) => { for (let i = 0; i < Number(o.dataset.onde); i += 1) o.append(document.createElement('i')); return [...o.children]; });
@@ -119,7 +107,6 @@
   f.chaque((t) => {
     const texte = f.horloge(secondes(t));
     temps.forEach((e) => { if (e.textContent !== texte) e.textContent = texte; });
-    // La voix s'arrête pendant la pause et à la fin.
     const env = (1 - 0.93 * av(t, PAUSE, 0.3, 'douce') * (1 - av(t, REPRISE, 0.3, 'douce'))) * (1 - 0.93 * av(t, FIN, 0.3, 'douce'));
     ondes.forEach((barres, k) => barres.forEach((b, i) => {
       const x = i * (k ? 0.55 : 1.7) + t * (k ? 7 : 5);
@@ -128,7 +115,6 @@
     }));
   });
 
-  // ---------- Le doigt ----------
   const cadre = scene.getBoundingClientRect();
   const doigt = (x, y, t, tenue = 0) => {
     const d = document.createElement('span');
@@ -137,11 +123,10 @@
     scene.append(d);
     f.piste(d, [t - 0.65, { o: 0, x: 44, y: 60, s: 1.35 }], [t - 0.12, { o: 1, x: 0, y: 0, s: 1 }, 'sortie'], [t, { s: 0.76 }, 'douce'], [t + tenue + 0.02, { s: 0.76 }], [t + tenue + 0.26, { s: 1 }, 'sortie'], [t + tenue + 0.75, { o: 0, x: 26, y: 40, s: 1.2 }, 'douce']);
   };
-  // Les boutons sont mesurés île ouverte en grand.
   for (const [n, v] of Object.entries(C)) ile.style.setProperty(n, v);
   const centre = (sel) => { const r = $(sel).getBoundingClientRect(); return [r.left - cadre.left + r.width / 2, r.top - cadre.top + r.height / 2]; };
   const pPause = centre('.g-pause'), pFin = centre('.g-terminer');
-  doigt(270, 26 + 29, GRAND - 0.32, 0.3);          // appui long sur l'île
+  doigt(270, 26 + 29, GRAND - 0.32, 0.3);
   doigt(pPause[0], pPause[1], PAUSE);
   doigt(pPause[0], pPause[1], REPRISE);
   doigt(pFin[0], pFin[1], FIN);

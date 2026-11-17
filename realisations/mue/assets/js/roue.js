@@ -1,7 +1,3 @@
-// Mue — la roue et le geste « glisser + touche », rejoués dans la page.
-// On commence à glisser un fichier du bureau, on touche ⇧ (Convertir), ⌘ (Outils) ou ⌃ (Actions) :
-// une roue s'ouvre sous le pointeur. On lâche sur une option, la copie apparaît à côté de l'original.
-// Au doigt, la roue s'ouvre quand on garde le fichier appuyé. Au clavier, Entrée sur un fichier.
 (() => {
   const NS = 'http://www.w3.org/2000/svg';
   const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,7 +16,6 @@
   };
   const TOUCHES = { Shift: 'convertir', Meta: 'outils', Control: 'actions' };
 
-  // Petits pictogrammes, dessinés au trait (24 × 24).
   const PICTO = {
     format: 'M5 6h14v12H5zM5 15l4-4 4 4 2-2 4 4',
     Compresser: 'M9 4v5H4M15 20v-5h5M4 4l5 5M20 20l-5-5', Recadrer: 'M7 3v14h14M3 7h14v14', Retoucher: 'M4 8h10M18 8h2M4 16h4M12 16h8M14 5v6M8 13v6',
@@ -40,7 +35,6 @@
   };
   const eclaircir = (hex, t) => { const n = parseInt(hex.slice(1), 16); const c = [n >> 16, (n >> 8) & 255, n & 255].map((v) => Math.round(v + (255 - v) * t)); return `rgb(${c.join(',')})`; };
 
-  // Dessine une roue dans un conteneur. Renvoie de quoi la piloter (surbrillance, centre).
   let compteur = 0;
   const dessiner = (boite, { options, couleur, style = 'degrade', centre = '', fichier = 'image', prefixe = '' }) => {
     boite.innerHTML = '';
@@ -83,7 +77,6 @@
       legende(i);
     };
     legende(-1);
-    // Quel secteur se trouve sous un point (coordonnées relatives au centre, en pixels) ?
     const viser = (dx, dy) => {
       const r = boite.getBoundingClientRect().width / 300;
       const d = Math.hypot(dx, dy) / r;
@@ -96,8 +89,6 @@
   };
   window.MueRoue = { dessiner, ROUES };
 
-  // ---------------------------------------------------------------------------------------------
-  // Le bureau du premier écran
   const bureau = document.querySelector('[data-bureau]');
   if (!bureau) return;
   const boite = bureau.querySelector('[data-roue]');
@@ -133,7 +124,6 @@
   };
   const viser = (x, y) => { if (roue) roue.surbriller(roue.viser(x - roue.cx, y - roue.cy)); };
 
-  // Le résultat : une copie qui naît de l'original, et la bannière de l'app.
   const resultat = (f, option) => {
     const type = typeRoue, nom = f.dataset.nom, ext = f.dataset.ext;
     let titre, sous, nouveau = null;
@@ -155,7 +145,6 @@
     clearTimeout(banniere._t); banniere._t = setTimeout(() => banniere.classList.remove('est-visible'), 2600);
     if (annonce) annonce.textContent = `${titre} : ${sous}.`;
     if (!nouveau) return;
-    // La copie apparaît à côté de l'original, en « muant » depuis lui.
     const copie = f.cloneNode(true);
     copie.dataset.nom = nouveau.nom; copie.dataset.ext = nouveau.ext; copie.dataset.type = nouveau.type;
     copie.querySelector('.fichier-nom').textContent = `${nouveau.nom}.${nouveau.ext}`;
@@ -172,7 +161,6 @@
     bureau.insertBefore(copie, boite);
     brancher(copie);
     fichiers.push(copie);
-    // Le bureau garde au plus six fichiers créés : les plus anciens s'effacent.
     const crees = fichiers.filter((g) => g.classList.contains('est-nouveau'));
     if (crees.length > 6) { const vieux = crees[0]; vieux.classList.add('est-efface'); fichiers = fichiers.filter((g) => g !== vieux); setTimeout(() => vieux.remove(), 400); }
   };
@@ -185,7 +173,6 @@
     f.style.transform = '';
   };
 
-  // Geste à la souris ou au doigt.
   const brancher = (f) => {
     f.addEventListener('pointerdown', (e) => {
       if (e.button > 0) return;
@@ -196,7 +183,6 @@
       f.setPointerCapture(e.pointerId);
       f.classList.add('est-glisse');
       clearTimeout(attente);
-      // Sans touche, la roue de conversion s'ouvre d'elle-même (tout de suite au doigt, après un temps à la souris).
       attente = setTimeout(() => { if (glisse && !roue) ouvrir(glisse.preferee || 'convertir', f, glisse.x, glisse.y); }, glisse.tactile ? 380 : 1100);
     });
     f.addEventListener('pointermove', (e) => {
@@ -209,7 +195,6 @@
     const fin = (e) => { if (!glisse || glisse.f !== f) return; clearTimeout(attente); lacher(f, e.type === 'pointerup'); glisse = null; };
     f.addEventListener('pointerup', fin);
     f.addEventListener('pointercancel', fin);
-    // Au clavier : Entrée ouvre la roue sur le fichier, les flèches choisissent, Entrée applique, Échap annule.
     f.addEventListener('keydown', (e) => {
       const [x, y] = (() => { const b = f.getBoundingClientRect(); return posDans(b.left + b.width / 2, b.top + b.height / 2); })();
       if (!roue && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); arreterDemo(); ouvrir('convertir', f, x, y); roue.surbriller(0); return; }
@@ -224,7 +209,6 @@
   };
   fichiers.forEach(brancher);
 
-  // Les touches ⇧ ⌘ ⌃ pendant le glisser.
   addEventListener('keydown', (e) => {
     if (!glisse || !TOUCHES[e.key] || e.repeat) return;
     e.preventDefault();
@@ -232,11 +216,8 @@
     ouvrir(TOUCHES[e.key], glisse.f, glisse.x, glisse.y);
     viser(glisse.x, glisse.y);
   });
-  // Au doigt, les étiquettes du bas choisissent la roue qui s'ouvrira.
   touches.forEach((t) => t.addEventListener('pointerdown', (e) => { if (glisse) { e.preventDefault(); ouvrir(t.dataset.touche, glisse.f, glisse.x, glisse.y); } }));
 
-  // ---------------------------------------------------------------------------------------------
-  // Démonstration : tant que personne n'a touché au bureau, un pointeur fait le geste tout seul.
   const pause = (ms, j) => new Promise((r, rej) => setTimeout(() => (j === demoJeton ? r() : rej()), ms));
   const allerA = async (x, y, ms, j, f) => {
     pointeur.style.transition = `left ${ms}ms cubic-bezier(.4,0,.2,1), top ${ms}ms cubic-bezier(.4,0,.2,1)`;
@@ -281,7 +262,7 @@
         lacher(f, true);
         await pause(1800, j);
       }
-    } catch { /* démonstration interrompue */ }
+    } catch {  }
   };
   const arreterDemo = () => {
     if (!demoActive) return;

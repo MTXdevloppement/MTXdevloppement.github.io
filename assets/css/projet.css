@@ -1,9 +1,7 @@
-
 html{overflow-x:clip}
 body > .nav{position:sticky;top:0;margin-bottom:calc(-1 * var(--mtx-nav-h,57px))}
 body > .nav.mtx-centree{top:14px;margin-left:50%}
 
-/* Couleurs du bandeau et du pied MTX Studio : sombres par défaut, claires avec le thème clair. */
 .mtx-gbar,.mtx-pf{--mtx-fond:#000;--mtx-encre:#f2f1ed;--mtx-doux:rgba(242,241,237,.78);--mtx-gris:#9b9a95;--mtx-fort:#fff;--mtx-filet:rgba(255,255,255,.12);--mtx-souligne:rgba(242,241,237,.35)}
 :root[data-theme="light"] .mtx-gbar,:root[data-theme="light"] .mtx-pf{--mtx-fond:#f5f5f3;--mtx-encre:#111113;--mtx-doux:rgba(17,17,19,.74);--mtx-gris:#5f5e5a;--mtx-fort:#000;--mtx-filet:rgba(0,0,0,.1);--mtx-souligne:rgba(17,17,19,.3)}
 
@@ -26,7 +24,6 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-back{display:none;align-items:center;gap:4px;min-height:44px;color:var(--mtx-encre);font-size:14px}
 .mtx-back::before{content:"‹";font-size:1.4em;line-height:.8;transform:translateY(-.04em)}
 
-/* Bouton thème clair / sombre */
 .mtx-theme{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;margin:0 -12px 0 0;padding:0;border:0;border-radius:50%;background:none;color:var(--mtx-doux);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:color .25s}
 .mtx-theme svg{grid-area:1/1;width:17px;height:17px;transition:opacity .25s,transform .45s cubic-bezier(.2,.7,0,1)}
 .mtx-i-lune,:root[data-theme="light"] .mtx-i-soleil{opacity:0;transform:rotate(-50deg) scale(.55)}
@@ -49,7 +46,6 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:6px 20px 6px 7px;border-radius:999px;background:var(--mtx-encre);color:var(--mtx-fond)!important;font-size:16px;font-weight:500;letter-spacing:-.015em;transition:background .3s}
 .mtx-btn img{width:38px;height:38px;border-radius:22.5%}
 .mtx-btn .fl{width:16px;height:16px;transition:transform .35s cubic-bezier(.2,.7,0,1)}
-/* Sur téléphone étroit, « Réalisation suivante : Knowledge AI » tient sur une ligne au lieu de casser le bouton. */
 @media (max-width:420px){.mtx-btn{gap:9px;padding-right:15px;font-size:14px;letter-spacing:-.02em}.mtx-btn span{white-space:nowrap}.mtx-btn img{width:34px;height:34px}}
 .mtx-more{display:inline-flex;align-items:center;min-height:44px;color:var(--mtx-encre)!important;font-size:16px;text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:5px;text-decoration-color:var(--mtx-souligne)!important}
 @media (hover:hover){
@@ -62,13 +58,9 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-pf-bot a{display:inline-flex;align-items:center;min-height:32px}
 @media (hover:hover){.mtx-pf-bot a:hover{color:var(--mtx-encre)}}
 
-/* Scène du pied : le téléphone du studio sur un nouveau message qui s'écrit, la même maquette que la fenêtre
-   « Contact » de l'accueil. Elle est posée par projet.js ; sans JavaScript, le pied reste tel quel.
-   Cotes des appareils en em : 1 em = largeur d'écran / 27. */
 .mtx-pf{--mtx-pw:clamp(210px,62vw,264px);--mtx-degrade:linear-gradient(90deg,#2997ff 0%,#a78bfa 40%,#ff6ec7 75%,#ffb86b 100%);--mtx-halo:rgba(255,255,255,.1);--mtx-ombre:rgba(0,0,0,.66);--mtx-bracelet:#2c2c2e;--mtx-bracelet-bord:#19191b;--mtx-mail-fond:#1c1c1e;--mtx-mail-encre:#fff;--mtx-mail-doux:rgba(235,235,245,.6);--mtx-mail-filet:rgba(120,120,128,.36);--mtx-mail-bleu:#0a84ff}
 :root[data-theme="light"] .mtx-pf{--mtx-halo:#fff;--mtx-ombre:rgba(0,0,0,.3);--mtx-bracelet:#f1efea;--mtx-bracelet-bord:#cbc9c3;--mtx-mail-fond:#fff;--mtx-mail-encre:#000;--mtx-mail-doux:rgba(60,60,67,.6);--mtx-mail-filet:rgba(60,60,67,.18);--mtx-mail-bleu:#007aff}
 
-/* Téléphone : le haut de la maquette au-dessus du texte, coupé par un fondu. */
 .mtx-sc{position:relative;height:calc(var(--mtx-pw)*1.44);margin:calc(-1*var(--mtx-pf-pt)) calc(-1*clamp(16px,4vw,56px)) 30px;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .mtx-sc::after{content:"";position:absolute;z-index:2;left:0;right:0;bottom:0;height:34%;background:linear-gradient(0deg,var(--mtx-fond) 4%,transparent);pointer-events:none}
 .mtx-sc span,.mtx-sc b{display:block}
@@ -85,7 +77,6 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-tel-touches::after{content:"";left:29.36em;top:5.6em;height:6.8em;background:linear-gradient(90deg,#2a2a2d,#55565a)}
 .mtx-tel-bord{height:100%;padding:.75em;border-radius:4.75em;background:#050506}
 .mtx-tel-ecran{position:relative;height:100%;border-radius:4em;overflow:hidden;isolation:isolate;background:#000;color:#fff;line-height:1.2;letter-spacing:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif}
-/* Reflet de la vitre : il glisse avec l'angle de la maquette (--mtx-gl). */
 .mtx-tel-ecran::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;border-radius:inherit;background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.09) 46%,rgba(255,255,255,.02) 53%,transparent 63%);background-size:280% 100%;background-position:calc(50% + var(--mtx-gl,0)*1%) 0}
 .mtx-sc .mtx-tel-etat{position:absolute;z-index:2;top:0;left:0;right:0;height:4.2em;display:flex;align-items:center;justify-content:space-between;padding:0 2.35em 0 3.4em}
 .mtx-tel-heure{font-size:1.28em;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
@@ -118,7 +109,6 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-montre-couronne{position:absolute;right:-.85em;top:3.2em;width:1em;height:2.5em;border-radius:.3em .45em .45em .3em;background:linear-gradient(180deg,#92939a,#3a3a3d 28%,#2a2a2d 72%,#77787d)}
 .mtx-montre-bouton{position:absolute;right:-.4em;top:8em;width:.5em;height:3.4em;border-radius:0 .3em .3em 0;background:#3a3a3d}
 
-/* Entrée en scène, puis arrêt quand le pied sort de l'écran. */
 .mtx-sc .mtx-tel,.mtx-sc .mtx-montre,.mtx-sc .mtx-sc-ombre{opacity:0}
 .mtx-sc.est-pret .mtx-tel{opacity:1;transition:opacity .7s ease}
 .mtx-sc.est-pret .mtx-montre{opacity:1;transition:opacity .6s ease .55s}
@@ -127,7 +117,6 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 @keyframes mtx-flotte{0%,100%{translate:0 0}50%{translate:0 -.7em}}
 @keyframes mtx-curseur{0%,100%{opacity:1}50%{opacity:0}}
 
-/* Ordinateur : le texte à gauche, la maquette à droite, coupée par le filet du bas comme par la fenêtre « Contact ». */
 @media (min-width:901px){
   .mtx-pf{--mtx-pw:clamp(200px,22vw,290px)}
   .mtx-pf-w.mtx-avec-sc{display:grid;grid-template-columns:minmax(0,1fr) calc(var(--mtx-pw)*1.62);column-gap:clamp(20px,3vw,48px)}
@@ -141,15 +130,11 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 }
 @media print{.mtx-sc{display:none}}
 
-/* Maquettes des premiers écrans : la pose de la scène du pied, appliquée à la maquette propre à chaque site.
-   projet.js écrit --mtx-rx, --mtx-ry (degrés) et --mtx-gl sur [data-mtx-pose] ; chaque site règle l'angle de
-   repos avec --mtx-bx et --mtx-by. Sans JavaScript ou en mouvement réduit, la maquette garde son angle de repos. */
 .mtx-pose{transform-style:preserve-3d;transform:rotateX(calc((var(--mtx-bx,5) + var(--mtx-rx,0))*1deg)) rotateY(calc((var(--mtx-by,-8) + var(--mtx-ry,0))*1deg))}
 .mtx-flotte{animation:mtx-flotte-px 9s ease-in-out infinite}
 .mtx-flotte-2{animation:mtx-flotte-px 9s ease-in-out -3.5s infinite}
 .mtx-flotte-3{animation:mtx-flotte-px 9s ease-in-out -6s infinite}
 .est-hors :is(.mtx-flotte,.mtx-flotte-2,.mtx-flotte-3){animation-play-state:paused}
-/* Reflet de la vitre : il glisse avec l'angle de la maquette. */
 .mtx-reflet::after{content:"";position:absolute;inset:0;z-index:40;pointer-events:none;border-radius:inherit;background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.09) 46%,rgba(255,255,255,.02) 53%,transparent 63%);background-size:280% 100%;background-position:calc(50% + var(--mtx-gl,0)*1%) 0}
 @keyframes mtx-flotte-px{0%,100%{translate:0 0}50%{translate:0 -8px}}
 @media (prefers-reduced-motion:reduce){.mtx-flotte,.mtx-flotte-2,.mtx-flotte-3{animation:none}}

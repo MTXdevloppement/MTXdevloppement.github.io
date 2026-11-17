@@ -1,5 +1,3 @@
-// Vérification du site statique : liens et fichiers internes, images, balises SEO, données structurées,
-// plan du site, poids des pages. Usage : npm run check (ou node outils/verifier.mjs).
 import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,7 +36,6 @@ for (const page of pages) {
   const sans = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<!--[\s\S]*?-->/g, '');
   const redirection = /http-equiv="refresh"/i.test(html);
 
-  // Liens et ressources internes
   const poids = { html: statSync(page).size, css: 0, js: 0 };
   for (const m of html.matchAll(/\s(?:href|src|poster)="([^"]+)"/g)) {
     const u = m[1];
@@ -65,7 +62,6 @@ for (const page of pages) {
   for (const m of sans.matchAll(/href="#([^"]+)"/g)) ok(new RegExp(`id="${m[1]}"`).test(html), `${nom} : ancre locale absente « #${m[1]} »`);
   if (redirection) continue;
 
-  // Balises essentielles
   const titre = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
   const desc = attr((html.match(/<meta name="description"[^>]*>/) || [''])[0], 'content') || '';
   ok(/<html lang="fr"/.test(html), `${nom} : attribut lang manquant`);
@@ -76,20 +72,17 @@ for (const page of pages) {
   const niveaux = [...sans.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
   niveaux.forEach((n, i) => { if (i) ok(n - niveaux[i - 1] <= 1, `${nom} : saut de niveau de titre h${niveaux[i - 1]} → h${n}`, false); });
 
-  // Images : texte alternatif et dimensions
   for (const m of sans.matchAll(/<img\b[^>]*>/g)) {
     const b = m[0];
     ok(/\salt="/.test(b), `${nom} : image sans attribut alt (${attr(b, 'src')})`);
     ok(/\swidth="\d+"/.test(b) && /\sheight="\d+"/.test(b), `${nom} : image sans dimensions (${attr(b, 'src')})`, false);
   }
 
-  // Données structurées
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
       const d = JSON.parse(m[1]);
       for (const n of d['@graph'] || [d]) {
         if (n['@type'] === 'FAQPage') {
-          // Comparaison sans tenir compte du type d'espace (normale, insécable, fine).
           const espaces = (t) => t.replace(/&#8239;|&#x202f;|&nbsp;|&#160;|[  ]/gi, ' ').replace(/&amp;/g, '&');
           for (const q of n.mainEntity) ok(espaces(sans).includes(espaces(q.name)), `${nom} : question des données structurées absente de la page « ${q.name} »`);
         }
@@ -97,7 +90,6 @@ for (const page of pages) {
     } catch (e) { ok(false, `${nom} : données structurées illisibles (${e.message})`); }
   }
 
-  // Canonique et partage (pages indexables)
   const canon = attr((html.match(/<link rel="canonical"[^>]*>/) || [''])[0], 'href');
   if (canon) {
     const cible = fichier(page, canon.replace(ORIGINE, '') || '/');
@@ -108,7 +100,6 @@ for (const page of pages) {
   ok(poids.html + poids.css + poids.js < 400_000, `${nom} : HTML + CSS + JS = ${Math.round((poids.html + poids.css + poids.js) / 1024)} Ko`, false);
 }
 
-// Plan du site et robots
 const plan = readFileSync(join(racine, 'sitemap.xml'), 'utf8');
 for (const m of plan.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   const chemin = m[1].replace(ORIGINE, '') || '/';

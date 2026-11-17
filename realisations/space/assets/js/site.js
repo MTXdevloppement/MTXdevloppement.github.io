@@ -1,15 +1,12 @@
-// Space — interactions de la page (la partie elle-même est dans orbite.js).
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const io = (cb, opts) => ('IntersectionObserver' in window ? new IntersectionObserver(cb, opts) : null);
 
-  // Apparition au défilement.
   const vus = io((en, obs) => en.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('est-vu'); obs.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
   $$('.apparait, .temps').forEach((el) => (vus ? vus.observe(el) : el.classList.add('est-vu')));
 
-  // Barre : la section en cours est soulignée.
   const liens = $$('.barre-nav a');
   const suivi = io((en) => en.forEach((e) => {
     if (!e.isIntersecting) return;
@@ -17,7 +14,6 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   if (suivi) liens.forEach((a) => { const s = $(a.getAttribute('href')); if (s) suivi.observe(s); });
 
-  // « Jouer dans la page » : amène la partie au centre et lui donne le focus clavier.
   const jouer = $('[data-jouer]'), partie = $('#partie');
   if (jouer && partie) jouer.addEventListener('click', (e) => {
     e.preventDefault();
@@ -25,7 +21,6 @@
     partie.focus({ preventScroll: true });
   });
 
-  // Cinq parfaits : cinq notes qui montent, comme dans le jeu (gamme pentatonique).
   const gamme = $('[data-gamme]'), notes = $$('[data-notes] li');
   if (gamme) {
     let audio = null;
@@ -45,7 +40,6 @@
     });
   }
 
-  // La montée : chaque palier fait défiler l'altimètre et change la couleur du ciel.
   const montee = $('[data-montee]'), alti = $('[data-alti]'), altiZone = $('[data-alti-zone]'), jauge = $('[data-alti-jauge]');
   const paliers = $$('.palier');
   if (montee && paliers.length) {
@@ -75,7 +69,6 @@
     activer(paliers[0]);
   }
 
-  // Niveaux : les réglages de Difficulty.swift, niveau par niveau.
   const niveaux = $('[data-niveaux]');
   if (niveaux) {
     const D = {
@@ -108,7 +101,6 @@
     choisir(1);
   }
 
-  // Captures : glisser à la souris, et une légère inclinaison selon la place dans la rangée.
   const defile = $('[data-defile]');
   if (defile) {
     let x0 = 0, s0 = 0, tire = false;
@@ -134,7 +126,6 @@
     }
   }
 
-  // Compteurs : ils montent jusqu'à leur valeur quand ils apparaissent.
   const compteurs = $$('[data-compte]');
   const cpt = io((en, obs) => en.forEach((e) => {
     if (!e.isIntersecting) return;

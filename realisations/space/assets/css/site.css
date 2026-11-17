@@ -1,8 +1,3 @@
-/* Space — site du jeu.
-   Direction : le site est un ciel. Thème sombre = la nuit du jeu (palette de la zone 1), thème clair = l'aube,
-   les mêmes couleurs éclaircies. Unbounded pour les titres (rondeur d'un jeu, chiffres du score),
-   Onest pour le texte. Les couleurs vives viennent du jeu lui-même : planètes, gemme, fièvre, mine. */
-
 @font-face { font-family: "Space Unbounded"; src: url("../fonts/unbounded.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
 @font-face { font-family: "Space Onest"; src: url("../fonts/onest.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 
@@ -15,9 +10,8 @@
   --courbe: cubic-bezier(.2, .8, .1, 1);
   --rebond: cubic-bezier(.34, 1.56, .64, 1);
   --marge: clamp(20px, 5vw, 64px);
-  --page: 1240px; /* largeur commune : le logo de la pilule, le héros et les sections partagent le même bord gauche */
+  --page: 1240px;
 
-  /* L'aube */
   --fond: #f6f2ec;
   --fond-2: #efe8f8;
   --carte: #fffdf9;
@@ -69,7 +63,6 @@ button { font: inherit; color: inherit; }
 .evitement:focus { top: 56px; }
 kbd { font: 600 .82em var(--texte); padding: .12em .45em; border: 1px solid var(--filet); border-bottom-width: 2px; border-radius: 6px; }
 
-/* Boutons --------------------------------------------------------------- */
 .bouton { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border: 1.5px solid transparent; border-radius: 999px; font: 600 16px/1 var(--texte); letter-spacing: -.01em; text-decoration: none; cursor: pointer; transition: transform .35s var(--rebond), background-color .25s, color .25s, border-color .25s; }
 .bouton svg { width: 14px; height: 14px; }
 .bouton-plein { background: var(--encre); color: var(--fond); }
@@ -81,7 +74,6 @@ kbd { font: 600 .82em var(--texte); padding: .12em .45em; border: 1px solid var(
 }
 .bouton:active { transform: scale(.97); }
 
-/* Barre ----------------------------------------------------------------- */
 .barre { position: sticky; top: 12px; z-index: 100; display: flex; align-items: center; gap: 22px; width: min(calc(min(var(--page), 100%) - 2 * var(--marge) + 30px), calc(100% - 24px)); margin: 12px auto 0; padding: 7px 7px 7px 14px; border: 1px solid var(--filet); border-radius: 999px; background: color-mix(in srgb, var(--fond) 78%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); }
 .marque { display: flex; align-items: center; gap: 10px; font: 700 17px/1 var(--titre); letter-spacing: -.02em; text-decoration: none; }
 .marque img { width: 32px; height: 32px; border-radius: 22.5%; }
@@ -91,7 +83,6 @@ kbd { font: 600 .82em var(--texte); padding: .12em .45em; border: 1px solid var(
 .barre-cta { min-height: 42px; padding: 0 18px; font-size: 15px; }
 @media (max-width: 880px) { .barre-nav { display: none; } .barre-cta { margin-left: auto; } }
 
-/* Héros ----------------------------------------------------------------- */
 .heros { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: clamp(28px, 4vw, 72px); max-width: var(--page); min-height: min(calc(100svh - 56px), 980px); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--marge) clamp(56px, 7vw, 96px); }
 .ciel { position: absolute; inset: -90px 0 0; z-index: -1; overflow: hidden; pointer-events: none;
   background:
@@ -123,7 +114,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .chiffres dt { color: var(--pale); font-size: 13px; }
 .chiffres dd { margin-top: 3px; font: 650 17px/1.2 var(--titre); letter-spacing: -.02em; }
 
-/* Entrée du héros */
 .js .h-ligne, .js .heros .surtitre, .js .chapo, .js .actions, .js .chiffres { animation: monte 1s var(--courbe) both; }
 .js .heros .surtitre { animation-delay: .05s; }
 .js .h-ligne:nth-child(1) { animation-delay: .12s; }
@@ -136,7 +126,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 @keyframes monte { from { opacity: 0; translate: 0 26px; } }
 @keyframes arrive { from { opacity: 0; translate: 0 60px; scale: .94; } }
 
-/* Le téléphone et la partie */
 .heros-jeu { display: grid; justify-items: center; gap: 22px; perspective: 1600px; }
 .telephone { --mtx-bx: 4; --mtx-by: -9; position: relative; width: clamp(250px, 25vw, 322px); aspect-ratio: 9 / 19.4; padding: 10px; border-radius: 52px; background: linear-gradient(140deg, #8a8b91 0%, #2b2b2f 20%, #1a1a1d 52%, #333338 80%, #9a9ba1 100%); box-shadow: var(--ombre), 0 0 0 1px rgb(255 255 255 / 8%) inset; }
 .tel-touches, .tel-touches::before, .tel-touches::after { position: absolute; width: 3px; border-radius: 2px; background: #3a3a3e; }
@@ -175,7 +164,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .est-fini .hud-score { top: 40%; translate: 0 -120%; transition: top .5s var(--courbe); }
 .heros-legende { max-width: 30em; color: var(--pale); font-size: 14px; line-height: 1.5; text-align: center; }
 
-/* Sections -------------------------------------------------------------- */
 .section { position: relative; padding: clamp(88px, 11vw, 160px) 0; }
 .enveloppe { max-width: var(--page); margin: 0 auto; padding: 0 var(--marge); }
 .etiquette { display: inline-flex; align-items: center; gap: 10px; color: var(--doux); font: 650 12px/1 var(--titre); letter-spacing: .12em; text-transform: uppercase; }
@@ -185,11 +173,9 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .tete-texte { max-width: 34em; margin-top: 22px; color: var(--doux); font-size: clamp(17px, 1.3vw, 19px); text-wrap: pretty; }
 @media (max-width: 860px) { .tete { grid-template-columns: 1fr; } }
 
-/* Apparition au défilement */
 .js .apparait { opacity: 0; translate: 0 30px; transition: opacity .9s var(--courbe), translate 1s var(--courbe); transition-delay: var(--d, 0s); }
 .js .apparait.est-vu { opacity: 1; translate: none; }
 
-/* 01 La règle */
 .temps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 64px; counter-reset: t; }
 .temps-carte { padding: 26px 26px 30px; border: 1px solid var(--filet); border-radius: 30px; background: var(--carte); }
 .temps-carte:nth-child(2) { --d: .1s; }
@@ -219,9 +205,7 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .aparte strong { color: var(--encre); font-weight: 600; }
 @media (max-width: 860px) { .temps { grid-template-columns: 1fr; } }
 
-/* 02 Le score */
 .section-score { --m: clamp(8px, 1.4vw, 20px); background: var(--fond-2); border-radius: clamp(28px, 4vw, 56px); margin: 0 var(--m); }
-/* Le panneau est en retrait de --m : son contenu le compense pour garder le bord commun. */
 .section-score .enveloppe { max-width: calc(var(--page) - 2 * var(--m)); padding-inline: calc(var(--marge) - var(--m)); }
 .points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 56px; }
 .point { position: relative; overflow: hidden; padding: 26px; border-radius: 26px; background: var(--fond); border: 1px solid var(--filet); }
@@ -242,7 +226,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .gamme h3 { font: 650 20px/1.2 var(--titre); letter-spacing: -.02em; }
 .gamme p { max-width: 36em; margin-top: 8px; opacity: .72; font-size: 15.5px; }
 .gamme-bouton { background: var(--fond); color: var(--encre); white-space: nowrap; }
-/* En sombre, le bloc n'est plus blanc : un dégradé violet, bordé d'or comme la note jouée. */
 :root[data-theme="dark"] .gamme { background: linear-gradient(120deg, #2a1660, #1a0f3e 55%, #241046); color: #f3eeff; box-shadow: inset 0 0 0 1px rgb(255 214 107 / 22%), 0 30px 60px -30px rgb(120 70 255 / 45%); }
 :root[data-theme="dark"] .gamme-bouton { background: #f3eeff; color: #1a0f3e; }
 .gamme-notes { display: flex; align-items: flex-end; gap: 6px; height: 64px; }
@@ -252,7 +235,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 @media (max-width: 860px) { .gamme { grid-template-columns: 1fr auto; } .gamme-texte { grid-column: 1 / -1; } }
 @media (max-width: 600px) { .gamme { grid-template-columns: 1fr; padding: 24px 22px; } .gamme-notes { display: none; } .gamme-bouton { justify-self: start; } }
 
-/* 03 La montée : le fond traverse les zones du jeu */
 .section-montee { --z-haut: #120a2e; --z-bas: #3b1c6e; margin-top: clamp(88px, 11vw, 160px); padding-bottom: clamp(120px, 14vw, 200px); background: linear-gradient(180deg, var(--fond), var(--z-haut) 18%, var(--z-bas) 82%, var(--fond)); color: #f3eeff; transition: --z-haut 1.2s ease, --z-bas 1.2s ease; }
 .section-montee[data-zone="1"] { --z-haut: #061a2e; --z-bas: #0e5b73; }
 .section-montee[data-zone="2"] { --z-haut: #1f0b2e; --z-bas: #8c3a62; }
@@ -303,7 +285,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
   .palier { min-height: 0; padding-bottom: 48px; }
 }
 
-/* 04 Niveaux */
 .niveaux { margin-top: 56px; padding: clamp(20px, 3vw, 36px); border: 1px solid var(--filet); border-radius: 32px; background: var(--carte); }
 .segments { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); padding: 5px; border-radius: 999px; background: var(--fond-2); }
 .segments::before { content: ""; position: absolute; left: 5px; top: 5px; bottom: 5px; width: calc((100% - 10px) / 4); border-radius: 999px; background: var(--encre); translate: calc(var(--n, 1) * 100%) 0; transition: translate .5s var(--rebond); }
@@ -322,7 +303,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
   .jauge b { min-width: 8em; font-size: 13.5px; }
 }
 
-/* 05 Écrans */
 .defile { display: flex; gap: clamp(16px, 2vw, 28px); margin-top: 56px; padding: 20px max(var(--marge), calc((100vw - var(--page)) / 2 + var(--marge))) 40px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
 .defile::-webkit-scrollbar { display: none; }
 .defile.est-tire { cursor: grabbing; scroll-snap-type: none; }
@@ -332,7 +312,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .cap figcaption { margin-top: 18px; color: var(--doux); font-size: 14.5px; line-height: 1.4; }
 .cap figcaption b { display: block; color: var(--encre); font: 650 15px/1.3 var(--titre); }
 
-/* 06 Fabrication */
 .compteurs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 56px; }
 .compteur { padding: 24px; border-top: 2px solid var(--encre); }
 .compteur:nth-child(2) { --d: .07s; } .compteur:nth-child(3) { --d: .14s; } .compteur:nth-child(4) { --d: .21s; }
@@ -349,7 +328,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .modele-note { grid-column: 1 / -1; padding-top: 18px; border-top: 1px solid var(--filet); color: var(--pale); font-size: 14.5px; }
 @media (max-width: 860px) { .modele { grid-template-columns: 1fr; } }
 
-/* 07 Questions */
 .faq { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px 72px; }
 .faq-liste { border-top: 1px solid var(--filet); }
 .faq-liste details { border-bottom: 1px solid var(--filet); }
@@ -362,7 +340,6 @@ h1 { margin-top: 24px; font: 750 clamp(44px, 6.6vw, 98px)/.94 var(--titre); lett
 .faq-liste a { color: var(--encre); text-underline-offset: 3px; }
 @media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
 
-/* Mobile */
 @media (max-width: 960px) {
   .heros { grid-template-columns: 1fr; min-height: 0; padding-top: 36px; }
   .heros-jeu { order: -1; }

@@ -1,15 +1,3 @@
-"""Musique originale des films de présentation : tout est synthétisé ici, sans échantillon ni boucle importée.
-
-    python3 outils/films/presentations/musique.py <film> <sortie.wav>
-
-Chaque film a sa fiche (FICHES) : tempo, tonalité, grille d'accords, couleur des instruments et instants des
-changements de scène. Les scènes tombent sur les mesures ; à chaque changement, un souffle monte avant et un
-coup sourd marque l'arrivée. Pas d'aléatoire non reproductible : la même fiche donne toujours le même fichier.
-
-Instruments : nappe (dents de scie limitées en bande, désaccordées), arpège pincé, basse, grosse caisse, claquement,
-charleston, souffles et impacts ; réverbération par convolution, compression latérale (la nappe et la basse
-s'effacent sous la grosse caisse), limiteur doux.
-"""
 import sys, wave
 import numpy as np
 from scipy.signal import butter, sosfilt, fftconvolve
@@ -17,8 +5,6 @@ from scipy.signal import butter, sosfilt, fftconvolve
 SR = 48000
 
 FICHES = {
-    # tempo, tonique (MIDI), grille (accords en demi-tons depuis la tonique, une mesure chacun), durée en mesures,
-    # sections : (mesure de début, couches), scènes : mesures où l'on change de scène.
     'volta': dict(bpm=120, tonique=45, mesures=18, eclat=9, grille=[[0, 3, 7, 10], [-4, 0, 3, 7], [-9, -5, 0, 3], [-2, 2, 5, 9]],
                   sections=[(0, 'nappe'), (2, 'nappe arpege'), (4, 'nappe arpege basse caisse charleston'), (12, 'nappe arpege basse caisse charleston claque'), (16, 'nappe arpege')],
                   scenes=[2, 4, 6, 8, 10, 12, 14, 16], fin=16),
@@ -44,7 +30,6 @@ def sos(kind, f, ordre=2):
     return butter(ordre, f, btype=kind, fs=SR, output='sos')
 
 def scie(f, n, eclat, phase=0.0):
-    """Dent de scie additive : pas de repliement, brillance réglée par l'atténuation des harmoniques."""
     t = np.arange(n) / SR
     out = np.zeros(n)
     kmax = int(min(48, (SR / 2.2) / f))
@@ -68,7 +53,7 @@ def ajoute(piste, debut, son):
 def rendre(nom):
     F = FICHES[nom]
     temps = 60 / F['bpm']; mesure = 4 * temps
-    duree = F['mesures'] * mesure  # la musique a exactement la durée du film
+    duree = F['mesures'] * mesure
     n = int(duree * SR)
     L = {k: np.zeros((n, 2)) for k in ('nappe', 'arpege', 'basse', 'caisse', 'claque', 'charleston', 'fx')}
     rng = np.random.default_rng(7)
@@ -124,11 +109,10 @@ def rendre(nom):
             for k in range(8):
                 nn = int(0.08 * SR); tt = np.arange(nn) / SR
                 h = sosfilt(sos('highpass', 6000), rng.standard_normal(nn)) * np.exp(-tt * 55) * (0.17 if k % 2 else 0.08)
-                h[:96] *= np.linspace(0, 1, 96)  # attaque de 2 ms : pas de transitoire que l'AAC ferait déborder
+                h[:96] *= np.linspace(0, 1, 96)
                 pan = 0.62
                 ajoute(L['charleston'][:, 0], t0 + k * temps / 2, h * (1 - pan) * 2); ajoute(L['charleston'][:, 1], t0 + k * temps / 2, h * pan * 2)
 
-    # Souffles et impacts aux changements de scène, coup final.
     for m in F['scenes'] + [F['fin']]:
         t = m * mesure
         nn = int(mesure / 2 * SR); tt = np.linspace(0, 1, nn)
@@ -140,7 +124,6 @@ def rendre(nom):
         coup += sosfilt(sos('lowpass', 1800), rng.standard_normal(nn)) * np.exp(-tt * 14) * 0.05 * fort
         ajoute(L['fx'][:, 0], t, coup); ajoute(L['fx'][:, 1], t, coup)
 
-    # Nappe adoucie, arpège en écho (croche pointée), compression latérale sous la grosse caisse.
     L['nappe'] = sosfilt(sos('lowpass', 7000), sosfilt(sos('highpass', 140), L['nappe'], axis=0), axis=0)
     d = int(temps * 0.75 * SR)
     eco = np.zeros_like(L['arpege'])
@@ -163,7 +146,7 @@ def rendre(nom):
     rev = np.stack([fftconvolve(envoi[:, i], ir[:, i])[:n] for i in range(2)], 1)
     mix = sosfilt(sos('lowpass', 16000), sosfilt(sos('highpass', 28), sec + rev * 0.9, axis=0), axis=0)
     mix = np.tanh(mix * 1.4) / np.tanh(1.4)
-    mix /= np.max(np.abs(mix)) / 0.84  # crête à −1,5 dBFS : marge pour l'encodage AAC
+    mix /= np.max(np.abs(mix)) / 0.84
     fondu = int(2.4 * SR); mix[-fondu:] *= np.linspace(1, 0, fondu)[:, None] ** 2
     mix[: int(0.02 * SR)] *= np.linspace(0, 1, int(0.02 * SR))[:, None]
     return mix

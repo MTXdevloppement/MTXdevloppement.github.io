@@ -1,10 +1,3 @@
-// Kit des films de présentation : fabrique les éléments récurrents (titres en mouvement, fenêtre Mac, iPhone,
-// pastilles, touches, curseur, fond, carton de fin) et les anime avec ../moteur.js. Tout dépend du temps seul.
-//
-//   const f = Film({ duree: 36 });
-//   const K = Kit(f, document.querySelector('.scene'));
-//   const t = K.titre(K.plan(), ['Le stock électrique,', '<em>au fil près.</em>'], { x: 140, y: 380, taille: 120 });
-//   K.montre(t, 0.4, 3.6);            // les mots montent à 0,4 s, repartent à 3,6 s
 (() => {
   window.Kit = (f, scene) => {
     const tournage = new URLSearchParams(location.search).has('tournage');
@@ -29,10 +22,8 @@
 
     const K = {
       el, place,
-      // Un plan : un calque plein cadre que l'on fait entrer, bouger et sortir d'un bloc.
       plan: (parent, z) => { const p = el('div', 'plan', parent); if (z != null) p.style.zIndex = z; return p; },
 
-      // Fond : couleur unie, halos qui dérivent (trajectoires lentes et reproductibles), grain.
       fond({ halos = [], grain = true } = {}) {
         const c = el('div', 'calque');
         c.style.zIndex = 0;
@@ -56,7 +47,6 @@
         return c;
       },
 
-      // Titre : lignes de mots dans des masques. Renvoie l'élément et ses mots.
       titre(parent, lignes, o = {}) {
         const e = place(el('div', `titre ${o.classe || ''}`, parent), o);
         if (o.align) e.style.textAlign = o.align;
@@ -64,7 +54,6 @@
         e.mots = [...e.querySelectorAll('.mot')];
         return e;
       },
-      // Les mots montent l'un après l'autre (et repartent vers le haut si une fin est donnée).
       montre(titre, t0, t1, { pas = 0.045, d = 0.75, sortie = 0.45 } = {}) {
         const h = parseFloat(getComputedStyle(titre).fontSize) * 1.15;
         titre.mots.forEach((m, i) => {
@@ -76,7 +65,6 @@
         return titre;
       },
 
-      // Voile en haut du cadre : garde les titres lisibles quand une capture zoomée passe dessous.
       voileHaut(parent, h = 260, c = 'var(--fond)') { const v = place(el('div', 'voile-haut', parent), { h }); v.style.background = `linear-gradient(${c} 45%, transparent)`; return v; },
       surtitre(parent, texte, o = {}) { return place(el('div', 'surtitre', parent, texte), o); },
       legende(parent, texte, o = {}) { return place(el('p', 'legende', parent, texte), o); },
@@ -94,7 +82,6 @@
         e.images = (Array.isArray(src) ? src : [src]).map((s) => { const i = el('img', '', ecran); i.src = s; i.alt = ''; return i; });
         return e;
       },
-      // Fondu d'une capture à la suivante dans un même cadre.
       enchaine(images, instants, d = 0.5) {
         images.forEach((img, i) => {
           if (i === 0) { if (instants[0] != null) f.piste(img, [instants[0], { o: 1 }], [instants[0] + d, { o: 0 }, 'douce']); return; }
@@ -109,7 +96,6 @@
         const e = el('div', 'curseur', parent, '<svg viewBox="0 0 32 32"><path d="M7 3.5v22.2l5.6-5.3 3.6 8.4 3.6-1.5-3.5-8.3h7.7z" fill="#111" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>');
         return e;
       },
-      // Le curseur suit des points [t, x, y] ; une onde marque chaque clic [t].
       trajet(curseur, points, clics = []) {
         f.piste(curseur, ...points.map(([t, x, y]) => [t, { x, y }, 'douce']));
         clics.forEach((t) => {
@@ -125,12 +111,10 @@
           });
         });
       },
-      // Chiffre qui défile de a à b entre deux instants.
       compte(e, t0, d, a, b, fmt = (v) => Math.round(v).toLocaleString('fr-FR')) {
         f.chaque((t) => { const p = f.av(t, t0, d, 'douce'); e.textContent = fmt(a + (b - a) * p); });
       },
 
-      // Plan qui entre, reste, sort : glissement doux ou fondu.
       sequence(plan, t0, t1, { entree = 'fondu', sortie = 'fondu', d = 0.6 } = {}) {
         const ent = { fondu: { o: 0, s: 1.02 }, bas: { o: 0, y: 120 }, droite: { o: 0, x: 200 }, zoom: { o: 0, s: 0.92 }, rien: { o: 1 } }[entree];
         const sor = { fondu: { o: 0, s: 0.985 }, haut: { o: 0, y: -120 }, gauche: { o: 0, x: -200 }, zoom: { o: 0, s: 1.08 }, rien: { o: 1 } }[sortie];

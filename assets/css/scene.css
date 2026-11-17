@@ -1,17 +1,8 @@
-/* ==========================================================================
-   MTX Studio — scène du premier écran
-   Un iPhone et une Apple Watch dessinés en CSS : l’écran d’accueil ne contient
-   que les apps du studio, on en ouvre une et elle déroule ses vraies captures.
-   La scène est fixe derrière la page, comme l’était la vidéo : la feuille des
-   réalisations passe dessus, la fenêtre « Contact » la laisse réapparaître.
-   Toutes les cotes des appareils sont en em : 1 em = largeur d’écran / 27.
-   ========================================================================== */
-
 :root {
-  --pw: clamp(150px, min(21vw, 32vh), 340px);   /* largeur de l’écran du téléphone */
-  --scene-cx: 73vw;                              /* centre du téléphone */
+  --pw: clamp(150px, min(21vw, 32vh), 340px);
+  --scene-cx: 73vw;
   --scene-cy: calc(50% + 14px);
-  --scene-reach: 0.98;                           /* débord de la montre à gauche, en largeurs d’écran */
+  --scene-reach: 0.98;
   --ios: cubic-bezier(0.32, 0.72, 0, 1);
 
   --stage-a: #ecebe7;
@@ -55,8 +46,6 @@
   }
 }
 
-/* ---------- Plateau ------------------------------------------------------ */
-
 .scene {
   position: fixed; inset: 0; z-index: 0; overflow: hidden;
   background: radial-gradient(78% 88% at var(--scene-cx) 46%, var(--stage-a) 0%, var(--stage-b) 55%, var(--stage-c) 100%);
@@ -80,8 +69,6 @@
   transition: opacity 700ms ease 200ms;
 }
 
-/* ---------- iPhone ------------------------------------------------------- */
-
 .phone {
   position: absolute; left: -14.55em; top: -30.41em; width: 29.1em; height: 60.82em;
   padding: 0.3em; border-radius: 5.05em;
@@ -102,7 +89,6 @@
   color: #fff; line-height: 1.2;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* Reflet de la vitre : il glisse avec l’angle de la maquette (--gl). */
 .phone-screen::after {
   content: ""; position: absolute; inset: 0; z-index: 9; pointer-events: none; border-radius: inherit;
   background: linear-gradient(112deg, transparent 36%, rgb(255 255 255 / 9%) 46%, rgb(255 255 255 / 2%) 53%, transparent 63%);
@@ -112,7 +98,6 @@
 
 .ios-wall-x { position: absolute; left: 50%; top: 38.4em; width: 8em; height: 10em; margin-left: -4em; }
 
-/* Barre d’état et Dynamic Island */
 .ios-status {
   position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 4.2em; margin: 0;
   display: flex; align-items: center; justify-content: space-between;
@@ -132,13 +117,11 @@
 .ios-island svg { flex: none; width: 1.5em; height: 1.5em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ios-island circle { fill: currentColor; stroke: none; }
 .ios-island b { font-size: 1.12em; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
-/* GoRun refermé, la course continue : l’activité en direct reste dans l’île. */
 .scene.is-running:not(.is-app) .ios-island { width: 15.6em; margin-left: -7.8em; }
 .scene.is-running:not(.is-app) .ios-island > * { opacity: 1; transition: opacity 260ms ease 260ms; }
 .scene.is-running:not(.is-app) .ios-home .ios-status { padding: 0 1.5em 0 1.75em; }
 .scene.is-running:not(.is-app) .ios-home .ios-signal { display: none; }
 
-/* Écran d’accueil */
 .ios-home {
   position: absolute; inset: 0; transform-origin: 50% 42%;
   transition: transform 520ms var(--ios), opacity 300ms ease;
@@ -165,7 +148,6 @@
 }
 .ios-app:active > img, .ios-app:active > i { transform: scale(0.9); filter: brightness(0.72); transition-duration: 90ms; }
 
-/* L’emplacement libre : votre app. */
 .ios-app-new > i {
   position: relative; background: rgb(255 255 255 / 7%); box-shadow: none;
   border: 0.14em dashed rgb(255 255 255 / 55%);
@@ -176,7 +158,6 @@
 }
 .ios-app-new > i::after { transform: rotate(90deg); }
 
-/* Widgets */
 .ios-widgets { position: absolute; top: 15em; left: 1.9em; right: 1.9em; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4em; }
 .ios-widget {
   position: relative; display: flex; flex-direction: column; justify-content: flex-end;
@@ -209,7 +190,6 @@
 @keyframes flow-a { 0% { transform: translateX(-101%); opacity: 1; } 30%, 84% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
 @keyframes flow-b { 0%, 30% { transform: translateX(-101%); opacity: 1; } 60%, 84% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
 
-/* Dock */
 .ios-dock {
   position: absolute; left: 1.3em; right: 1.3em; bottom: 1.3em; height: 7.3em; margin: 0; padding: 0; list-style: none;
   display: flex; align-items: center; justify-content: center; gap: 2.2em;
@@ -222,8 +202,6 @@
 .ios-app-mail svg { width: 2.9em; height: 2.9em; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .ios-app-studio > i { background: #000; box-shadow: inset 0 0 0 0.08em rgb(255 255 255 / 18%), 0 0.3em 0.8em rgb(0 0 0 / 35%); }
 .ios-app-studio svg { width: 2.15em; height: 2.7em; }
-
-/* ---------- App ouverte : zoom depuis l’icône ---------------------------- */
 
 .ios-appview {
   position: absolute; inset: 0; z-index: 5; overflow: hidden; background: #000;
@@ -266,7 +244,6 @@
 .ios-homebar:focus-visible { outline: 0.2em solid #2997ff; outline-offset: -0.5em; border-radius: 1em; }
 @media (hover: hover) { .ios-homebar:hover::before { transform: translateY(-0.22em) scaleX(1.1); } }
 
-/* Nouveau message : la vue de la fenêtre « Contact » et de l’emplacement « Votre app ». */
 .ios-mail { position: absolute; inset: 0; display: none; background: #000; color: var(--mail-ink); }
 .ios-appview[data-kind="mail"] .ios-mail { display: block; }
 .ios-mail .ios-status { color: #fff; }
@@ -284,8 +261,6 @@
 .mail-row b { padding: 0.08em 0.55em; border-radius: 1em; font-weight: 400; color: var(--mail-blue); background: color-mix(in srgb, var(--mail-blue) 14%, transparent); }
 .mail-body { padding-top: 0.95em; font-size: 1.3em; line-height: 1.42; }
 .mail-caret { display: inline-block; width: 0.12em; height: 1.15em; margin-left: 0.08em; vertical-align: -0.2em; background: var(--mail-blue); animation: blink 1s step-end infinite; }
-
-/* ---------- Apple Watch -------------------------------------------------- */
 
 .watch {
   position: absolute; left: -25.5em; top: 8.4em; width: 12.2em; height: 14.8em;
@@ -335,8 +310,6 @@
 @keyframes scene-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -0.7em; } }
 @keyframes beat { 0%, 100% { transform: scale(1); } 18% { transform: scale(1.22); } 36% { transform: scale(0.96); } }
 
-/* ---------- Entrée en scène (avec JavaScript) ---------------------------- */
-
 .js .scene .phone, .js .scene .watch, .js .scene .scene-shadow { opacity: 0; }
 .js .scene.is-ready .phone { opacity: 1; transition: opacity 700ms ease; }
 .js .scene.is-ready .watch { opacity: 1; transition: opacity 600ms ease 550ms; }
@@ -350,10 +323,7 @@
 .js .scene.is-ready .ios-widget + .ios-widget { transition-delay: 840ms; }
 .js .scene.is-ready .ios-w-flow { transition-delay: 920ms; }
 
-/* Scène masquée par le contenu : tout s’arrête. */
 .scene.is-off *, .scene.is-off *::before, .scene.is-off *::after { animation-play-state: paused !important; }
-
-/* ---------- Légende ------------------------------------------------------ */
 
 .scene-caption { font-size: 14px; line-height: 1.4; color: var(--ink); }
 .scene-caption p { margin: 0; }
@@ -383,14 +353,10 @@
 }
 .scene-caption-stage .sc-text, .scene-caption-stage .sc-actions { justify-content: center; }
 
-/* ---------- Le héros et la fenêtre « Contact » laissent passer les gestes -- */
-
 .hero, .contact { pointer-events: none; }
 .hero-kicker, .hero-title, .hero-facts, .actions > *, .sc-text, .sc-actions > *,
 .window .eyebrow, .contact-title, .quote, .address-block { pointer-events: auto; }
 .hero-kicker, .hero-title, .window .eyebrow, .contact-title, .quote { width: fit-content; max-width: 100%; }
-
-/* ---------- Mobile : le téléphone en haut, le texte par-dessus ------------- */
 
 @media (max-width: 767px) {
   :root {
@@ -401,14 +367,11 @@
   .scene-tilt { transform: rotateX(7deg) rotateY(-9deg); }
   .scene-shadow { display: none; }
   .watch { left: -23.4em; top: -15.5em; }
-  /* Le haut du téléphone (barre d’état, icônes, début des widgets) reste toujours dégagé :
-     sur un petit écran, le héros dépasse la hauteur de la fenêtre plutôt que de le recouvrir. */
   .hero { height: auto; min-height: 100vh; min-height: 100svh; padding-top: calc(var(--nav-h) + 246px); }
   .hero-kicker { font-size: 12px; letter-spacing: 0.06em; }
   .scene-caption-inline { margin-bottom: 10px; }
   .scene-caption-inline:not(.is-app) [data-sc-name], .scene-caption-inline.is-app [data-sc-legend], .scene-caption-inline .sc-of { display: none; }
   .scene-caption-inline .sc-actions > * { margin: -9px 0; padding: 9px 0; }
-  /* Le voile suit le texte, quelle que soit la hauteur de l’écran. */
   .hero > .video-wash, .window > .video-wash {
     background: linear-gradient(0deg, rgb(var(--paper-rgb) / 96%) 0%, rgb(var(--paper-rgb) / 90%) 30%, rgb(var(--paper-rgb) / 0%) 56%);
   }
@@ -421,7 +384,6 @@
 @media (min-width: 768px) {
   .scene-caption-inline { display: none; }
   .scene-caption-stage { display: block; }
-  /* Le texte s’arrête avant la maquette. */
   .hero-content { max-width: min(42rem, calc(var(--scene-cx) - var(--pw) * var(--scene-reach) - 56px)); }
 }
 @media (min-width: 768px) and (max-width: 1099px) {
@@ -431,7 +393,6 @@
     --scene-reach: 0.82;
   }
   .watch { left: -21.5em; }
-  /* Le titre garde deux lignes à côté de la maquette. */
   .hero-big { font-size: clamp(44px, min(6.4vw, 13vh), 76px); }
 }
 

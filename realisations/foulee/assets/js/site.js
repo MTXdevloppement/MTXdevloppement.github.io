@@ -317,7 +317,6 @@
     etapes[0].classList.add('actif');
   }
 
-  // La montre du héros : le cœur bat tant que la course tourne, et s'arrête avec la pause du téléphone.
   (function montreHeros() {
     const montre = $('#heros-montre'), pile = $('#proto');
     if (!montre || !pile) return;

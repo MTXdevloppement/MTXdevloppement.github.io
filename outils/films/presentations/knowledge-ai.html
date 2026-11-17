@@ -36,8 +36,7 @@
 <div class="scene" id="scene"></div>
 <script src="../moteur.js"></script>
 <script src="kit.js"></script>
-<script>
-const M = 240 / 96;                 // une mesure à 96 battements par minute : 2,5 s
+<script>const M = 240 / 96;
 const S = (n) => n * M;
 const f = Film({ duree: 16 * M });
 const scene = document.getElementById('scene');
@@ -45,7 +44,6 @@ const K = Kit(f, scene);
 const I = (n) => `img/knowledge-ai/${n}.webp`;
 K.fond({ halos: [{ c: 'rgb(91 132 255 / 28%)', x: 1550, y: 120, taille: 1400, v: 0.05 }, { c: 'rgb(91 132 255 / 12%)', x: 200, y: 1000, taille: 1100, v: 0.07, p: 2 }] });
 
-// Fenêtre de navigateur : la vraie app (localhost) ; l'écran est à l'échelle 1440 × 900 de la capture.
 const L = 1300, E = L / 1440;
 const navigateur = (parent, images, o) => {
   const n = K.place(K.el('div', 'navigateur', parent, `<div class="nav-barre"><i></i><i></i><i></i><span class="nav-adresse">127.0.0.1:5340</span></div><div class="nav-ecran"></div>`), { l: L, ...o });
@@ -54,11 +52,9 @@ const navigateur = (parent, images, o) => {
   n.ecran = ecran;
   return n;
 };
-// Caméra : amène le point (cx, cy) de l'écran de l'app (coordonnées 1440 × 900) en (X, Y) du cadre, au zoom z.
 const camera = (n, wx, wy, cles) => f.piste(n, ...cles.map(([t, cx, cy, z, X, Y, c]) => [t, { x: X - wx - z * cx * E, y: Y - wy - z * (cy * E + 48), s: z }, c || 'douce']));
 const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E, y: y * E, l: l * E, h: h * E });
 
-// 1 — Une réponse. Ses sources. Chaque phrase vérifiée. (0 → 5 s)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Une réponse.', '<em>Ses sources.</em>', 'Chaque phrase vérifiée.'], { x: 120, y: 290, taille: 104 });
@@ -83,7 +79,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   noeuds.forEach((_, i) => f.piste(p.querySelectorAll('.noeud')[i], [S(2) - 0.6, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']));
 }
 
-// 2 — Posez votre question (5 → 10 s)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(2), S(4), { d: 0.4 });
@@ -97,7 +92,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   f.piste(k, [S(2) + 2.9, { o: 0, s: 0.7 }], [S(2) + 3.2, { o: 1, s: 1 }, 'ressort'], [S(2) + 3.4, { y: 0 }], [S(2) + 3.5, { y: 10 }, 'lin'], [S(2) + 3.75, { y: 0 }, 'sortie'], [S(4) - 0.5, { o: 1 }], [S(4) - 0.2, { o: 0 }, 'douce']);
 }
 
-// 3 — Elle cherche, lit et rédige, en direct (10 → 15 s) : la vraie recherche, en accéléré.
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(4), S(6), { d: 0.4 });
@@ -117,7 +111,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   });
 }
 
-// 4 — Chaque phrase porte sa source (15 → 20 s)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(6), S(8), { d: 0.4 });
@@ -133,7 +126,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   f.piste(c, [S(6) + 2.2, { o: 0, y: 20 }], [S(6) + 2.7, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 5 — Puis elle se relit (20 → 25 s)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(8), S(10), { d: 0.4 });
@@ -148,7 +140,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   f.piste(c, [S(8) + 2.6, { o: 0, y: 20 }], [S(8) + 3.1, { o: 1, y: 0 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 6 — La carte des connaissances, la bibliothèque (25 → 30 s)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(10), S(12), { d: 0.4 });
@@ -164,7 +155,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   f.piste(c2, [S(10) + 3.0, { o: 0, x: -30 }], [S(10) + 3.5, { o: 1, x: 0 }, 'ressort'], [S(12) - 0.5, { o: 1 }], [S(12) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 7 — Le modèle tourne sur le Mac ; clair ou sombre (30 → 35 s)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 250, '#0d0d0f'), S(12), S(14), { d: 0.4 });
@@ -190,7 +180,6 @@ const vise = (n, x, y, l, h) => K.place(K.el('div', 'vise', n.ecran), { x: x * E
   });
 }
 
-// 8 — Fin (35 → 40 s)
 {
   const p = K.plan(null, 8);
   K.fin(p, { icone: '../../../realisations/knowledge-ai/assets/img/icone-512.webp', nom: 'Knowledge <em style="font-style:italic;color:var(--accent-texte)">AI</em>', ligne: 'Une IA qui lit ses sources, les cite et se relit.', t: S(14) + 0.1, taille: 132 });

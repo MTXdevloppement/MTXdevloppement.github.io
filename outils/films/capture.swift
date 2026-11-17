@@ -1,11 +1,3 @@
-// Capture hors écran avec WebKit : une image d'une page, ou toutes les images d'un film.
-//
-//   capture image <url> <largeur> <hauteur> <sortie.png> [--sombre] [--attente ms] [--js "code"] [--page]
-//   capture film  <url> <largeur> <hauteur> <ips> <dossier> [--sombre] [--de s] [--a s] [--instants 0,1.5,3]
-//
-// Un film est une page qui expose window.film = { duree, aller(t) } : aller(t) pose l'image de l'instant t (en
-// secondes) sans dépendre de l'horloge. Les images sortent en PNG (image-00000.png…), prêtes pour ffmpeg.
-// Compilation : swiftc -O capture.swift -o capture
 import AppKit
 import WebKit
 
@@ -93,7 +85,6 @@ func principal() async {
     }
     do {
       if a.contains("--page") {
-        // Toute la page : la vue prend la hauteur du document.
         let total = (await c.js("return Math.ceil(document.documentElement.scrollHeight)") as? Double) ?? h
         let haut = min(total, 30000)
         c.fenetre.setContentSize(NSSize(width: l, height: haut))
@@ -106,7 +97,6 @@ func principal() async {
     exit(0)
   }
 
-  // Film
   guard a.count >= 7, let ips = Double(a[5]) else { exit(2) }
   let dossier = a[6]
   try? FileManager.default.createDirectory(atPath: dossier, withIntermediateDirectories: true)

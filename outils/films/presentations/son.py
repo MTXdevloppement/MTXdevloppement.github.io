@@ -1,10 +1,3 @@
-"""Dernière passe de fabriquer.sh : remet la musique dans les vidéos du film en vérifiant la crête après encodage.
-
-    python3 outils/films/presentations/son.py <film> <musique.wav>
-
-L'encodeur AAC dépasse parfois la crête de la source d'un ou deux décibels sur un transitoire. On encode, on décode,
-on mesure ; au-dessus de −1 dBFS, on baisse le gain d'autant et on recommence. L'image est copiée telle quelle.
-"""
 import os, subprocess, sys, tempfile, wave
 import numpy as np
 

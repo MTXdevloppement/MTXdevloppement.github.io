@@ -1,4 +1,3 @@
-// Volta — interactions de la page.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -6,19 +5,15 @@
   const io = (cb, opts) => ('IntersectionObserver' in window ? new IntersectionObserver(cb, opts) : null);
   const nombre = (n, dec = 0) => n.toLocaleString('fr-FR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
 
-  // Apparition au défilement.
   const vus = io((en, obs) => en.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('est-vu'); obs.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
   $$('.apparait, .banc').forEach((el) => (vus ? vus.observe(el) : el.classList.add('est-vu')));
 
-  // Barre : section en cours.
   const liens = $$('.barre-nav a');
   const suivi = io((en) => en.forEach((e) => {
     if (e.isIntersecting) liens.forEach((a) => a.classList.toggle('est-ici', a.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
   if (suivi) liens.forEach((a) => { const s = $(a.getAttribute('href')); if (s) suivi.observe(s); });
 
-  // Fenêtre de l'app : le curseur va cliquer dans la barre latérale, l'écran change.
-  // Positions des entrées de la barre latérale, mesurées sur les captures (en % de la fenêtre).
   const fenetre = $('[data-fenetre]');
   if (fenetre) {
     const ecrans = $$('[data-ecran]', fenetre), onglets = $$('[data-aller]'), curseur = $('[data-curseur]', fenetre);
@@ -39,7 +34,6 @@
         curseur.classList.add('est-clic');
         setTimeout(() => curseur.classList.remove('est-clic'), 160);
         montrer(i);
-        // Le curseur repart se poser dans le contenu, comme quelqu'un qui lit.
         minuteur = setTimeout(() => {
           curseur.style.setProperty('--cx', 30 + Math.random() * 50 + '%');
           curseur.style.setProperty('--cy', 35 + Math.random() * 40 + '%');
@@ -62,7 +56,6 @@
     document.addEventListener('visibilitychange', () => { if (!document.hidden && visible) minuteur = setTimeout(suivant, 1500); });
   }
 
-  // Bornier : les chiffres montent.
   const cpt = io((en, obs) => en.forEach((e) => {
     if (!e.isIntersecting) return;
     obs.unobserve(e.target);
@@ -74,14 +67,12 @@
   }), { threshold: 0.6 });
   if (cpt) $$('[data-compte]').forEach((c) => cpt.observe(c));
 
-  // Carte « Consommation » : 26 semaines, un bâton par semaine.
   const histo = $('[data-histo]');
   if (histo) {
     const h = [62, 74, 81, 55, 66, 64, 70, 58, 63, 77, 60, 66, 72, 59, 68, 74, 65, 63, 79, 71, 67, 76, 73, 69, 77, 18];
     histo.innerHTML = h.map((v, k) => `<i style="--h:${v};--k:${k}"></i>`).join('');
   }
 
-  // Le geste : sélectionner, ⌘E, taper, ⏎. En boucle tant que la scène est visible.
   const feuille = $('[data-feuille]'), etapes = $$('[data-etapes] li');
   if (feuille) {
     const saisie = $('[data-saisie]', feuille), obtenu = $('[data-obtenu]', feuille);
@@ -110,7 +101,6 @@
     }
   }
 
-  // Calcul de rupture : les règles du README de Volta, appliquées en direct.
   const calcul = $('[data-calcul]');
   if (calcul) {
     const r = (k) => $(`[data-r="${k}"]`, calcul), o = (k) => $(`[data-o="${k}"]`, calcul), c = (k) => $(`[data-c="${k}"]`, calcul);
@@ -138,7 +128,6 @@
     maj();
   }
 
-  // Devis : les étapes s'allument une à une.
   const cycle = $('[data-cycle]');
   if (cycle) {
     const li = $$('li', cycle);
@@ -149,8 +138,6 @@
     if (obs) obs.observe(cycle); else li.forEach((x) => x.classList.add('est-passe'));
   }
 
-  // Le fil : un conducteur part du bornier, longe la marge et dessert chaque section.
-  // Il s'allume jusqu'au niveau de lecture ; les repères qu'il atteint passent « sous tension ».
   const svg = $('.fil'), fond = $('[data-fil-fond]'), courant = $('[data-fil]');
   const reperes = $$('.repere'), depart = $('.bornier');
   if (svg && depart && reperes.length) {

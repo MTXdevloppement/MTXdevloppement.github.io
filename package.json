@@ -1,7 +1,7 @@
 {
   "name": "mtx-studio-site-v5",
   "private": true,
-  "description": "Site MTX Studio : accueil et sites des réalisations (GoRun, Space, MTX Viewer, Volta, Triade, Knowledge AI, Sténo, Mue, Kompagnion, Startup3D). Site statique, sans dépendance.",
+  "description": "MTX Studio website: home page and project sites (GoRun, Space, MTX Viewer, Volta, Triade, Knowledge AI, Sténo, Mue, Kompagnion, Startup3D). Static site, no dependency.",
   "scripts": {
     "dev": "python3 -m http.server 8765 --bind 127.0.0.1",
     "check": "node outils/verifier.mjs"

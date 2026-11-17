@@ -1,4 +1,3 @@
-// Startup3D — interactions de la page.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -15,8 +14,6 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   if (suivi) liens.forEach((a) => { const s = $(a.getAttribute('href')); if (s) suivi.observe(s); });
 
-  // -------------------------------------------------------------------------------------------
-  // L'heure de l'agence : jour de 7 h à 19 h, nuit le soir (règle du thème automatique de l'app).
   const scene = $('[data-scene]');
   if (scene) {
     const curseur = $('[data-heure]', scene), sortie = $('[data-heure-sortie]', scene), cadre = $('[data-scene-cadre]', scene);
@@ -40,7 +37,6 @@
     new MutationObserver(selonTheme).observe(racine, { attributes: true, attributeFilter: ['data-theme'] });
     poser(racine.dataset.theme === 'dark' ? 22 : 14);
 
-    // Repères : un clic (ou Entrée) affiche ce que l'objet ouvre dans l'app.
     const bulle = $('[data-bulle]', scene), reperes = $$('.repere', scene);
     let minuteur = 0;
     const montrer = (r) => {
@@ -52,7 +48,6 @@
     };
     reperes.forEach((r) => { r.addEventListener('click', () => montrer(r)); r.addEventListener('mouseenter', () => montrer(r)); });
 
-    // Léger recul de la scène au défilement, comme une caméra qui prend de la hauteur.
     if (!calme) {
       let demande = 0;
       const reculer = () => { demande = 0; const r = cadre.getBoundingClientRect(); const p = Math.max(0, Math.min(1, -r.top / r.height)); cadre.style.setProperty('--zoom', (1 - p * 0.06).toFixed(4)); };
@@ -60,8 +55,6 @@
     }
   }
 
-  // -------------------------------------------------------------------------------------------
-  // Panneaux : onglets.
   const panneaux = $('[data-panneaux]');
   if (panneaux) {
     const boutons = $$('[data-panneau]', panneaux), vues = $$('.vue', panneaux);
@@ -79,8 +72,6 @@
     });
   }
 
-  // -------------------------------------------------------------------------------------------
-  // Mission d'un agent : les trois états défilent.
   const mission = $('[data-mission]');
   if (mission) {
     const li = $$('li', mission);
@@ -91,10 +82,6 @@
     if (!calme) setInterval(() => { if (!visible) return; k = (k + 1) % li.length; li.forEach((x, n) => x.classList.toggle('est-actif', n === k)); }, 2200);
   }
 
-  // -------------------------------------------------------------------------------------------
-  // Mode aménagement : un plan isométrique, un bureau à déplacer, et les règles de l'app.
-  // Le bureau devient rouge s'il chevauche un meuble, sort des murs ou coupe l'accès depuis la porte
-  // à un point d'usage (recherche de chemin sur la grille, comme la navigation de l'app).
   const sol = $('[data-plan-sol]'), plan = $('[data-plan]'), etat = $('[data-etat-plan]');
   if (sol) {
     const NS = 'http://www.w3.org/2000/svg';
@@ -124,7 +111,6 @@
       el('polygon', { class: 't-haut', points: pts(P(i, j, h), P(i + w, j, h), P(i + w, j + d, h), P(i, j + d, h)) }, g);
       return g;
     };
-    // Murs, sol, porte.
     el('polygon', { class: 't-mur-g', points: pts(P(0, 0), P(0, D), P(0, D, 70), P(0, 0, 70)) });
     el('polygon', { class: 't-mur-d', points: pts(P(0, 0), P(W, 0), P(W, 0, 70), P(0, 0, 70)) });
     el('polygon', { class: 't-porte', points: pts(P(0, PORTE[1]), P(0, PORTE[1] + 1), P(0, PORTE[1] + 1, 46), P(0, PORTE[1], 46)) });
@@ -165,7 +151,6 @@
           grille[a][b] = 'bureau';
         }
       }
-      // Accessibilité de chaque point d'usage depuis la porte.
       const bloques = [];
       FIXES.filter((o) => o.acces).forEach((o) => {
         const r = chemin(grille, o.acces);
@@ -176,7 +161,6 @@
         if (r && o.id === 'cafe') el('polyline', { class: 'chemin', points: pts(...r.map(centre)) }, gChemin);
       });
       if (!probleme && bloques.length) probleme = `Inaccessible depuis la porte : ${bloques.join(', ')}.`;
-      // Objets, du fond vers l'avant.
       [...FIXES.map((o) => ({ ...o })), { ...bureau, cl: 'o-bureau', id: 'bureau' }]
         .sort((a, b) => (a.i + a.j + (a.w + a.d) / 2) - (b.i + b.j + (b.w + b.d) / 2))
         .forEach((o) => { const g = boite(o, gObjets); if (o.id === 'bureau') g.dataset.bureau = ''; });
@@ -187,7 +171,6 @@
     };
     dessiner();
 
-    // Glisser le bureau : on inverse la projection isométrique pour retrouver la case visée.
     const versCase = (e) => {
       const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       const p = pt.matrixTransform(svg.getScreenCTM().inverse());

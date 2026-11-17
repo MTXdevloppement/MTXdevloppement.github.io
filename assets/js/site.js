@@ -1,4 +1,3 @@
-/* MTX Studio — interactions du site (JavaScript sans dépendance). */
 (() => {
   'use strict';
 
@@ -13,9 +12,6 @@
     window.setTimeout(() => { liveRegion.textContent = msg; }, 40);
   };
 
-  /* ---------------------------------------------------------------------
-     Vidéo d’arrière-plan pilotée par le mouvement horizontal de la souris
-     --------------------------------------------------------------------- */
   const video = $('[data-scrub]');
   if (video) {
     const SENSITIVITY = 0.8;
@@ -25,10 +21,6 @@
     let ready = false;
     let visible = true;
 
-    // La page s’affiche d’abord sur l’image d’attente (la première image du film).
-    // La vidéo n’est demandée qu’une fois la page chargée, ou au premier geste,
-    // et jamais si le visiteur économise ses données. Elle est gardée entière en
-    // mémoire : chaque position répond alors tout de suite, quel que soit le serveur.
     const conn = navigator.connection;
     const saveData = !!(conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')));
     let warmed = false;
@@ -72,7 +64,6 @@
       targetTime = video.currentTime || 0;
     };
 
-    // Une seule recherche à la fois : la suivante part quand la précédente est terminée.
     video.addEventListener('seeked', () => {
       seeking = false;
       if (Math.abs(video.currentTime - targetTime) >= 0.02) seek();
@@ -92,11 +83,9 @@
     };
 
     window.addEventListener('mousemove', (e) => move(e.clientX), { passive: true });
-    // Sur écran tactile, un glissé horizontal fait aussi défiler la vidéo.
     window.addEventListener('touchstart', (e) => { prevX = e.touches[0].clientX; }, { passive: true });
     window.addEventListener('touchmove', (e) => move(e.touches[0].clientX), { passive: true });
 
-    // Inutile de décoder des images quand la vidéo est cachée par le contenu.
     const zones = $$('[data-video-zone]');
     if (zones.length && 'IntersectionObserver' in window) {
       const seen = new Set();
@@ -109,9 +98,6 @@
     }
   }
 
-  /* ---------------------------------------------------------------------
-     Machine à écrire
-     --------------------------------------------------------------------- */
   const useTypewriter = (text, onUpdate, speed = 38, startDelay = 600) => {
     let index = 0;
     let interval = 0;
@@ -127,8 +113,6 @@
     return () => { window.clearTimeout(delay); window.clearInterval(interval); };
   };
 
-  // Le texte reste entier dans la page, une seule fois : la partie pas encore
-  // « tapée » est seulement transparente, ce qui réserve aussi sa place.
   const typewriter = $('[data-typewriter]');
   if (typewriter && !reduceMotion) {
     const text = typewriter.textContent.trim();
@@ -147,13 +131,9 @@
     });
   }
 
-  // Les pilules apparaissent 400 ms après le chargement, sans attendre la frappe.
   const actions = $('[data-actions]');
   if (actions) window.setTimeout(() => actions.classList.add('is-visible'), 400);
 
-  /* ---------------------------------------------------------------------
-     Barre de navigation : fond au défilement, section active
-     --------------------------------------------------------------------- */
   const navbar = $('[data-navbar]');
   if (navbar && !navbar.classList.contains('is-solid')) {
     let ticking = false;
@@ -180,9 +160,6 @@
     sections.forEach((s) => io.observe(s));
   }
 
-  /* ---------------------------------------------------------------------
-     Menu mobile
-     --------------------------------------------------------------------- */
   const toggle = $('[data-menu-toggle]');
   const menu = $('[data-menu]');
   if (toggle && menu) {
@@ -202,11 +179,6 @@
     window.matchMedia('(min-width: 900px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
   }
 
-  /* Copier l’adresse e-mail : voir assets/js/contact.js, chargé sur toutes les pages. */
-
-  /* ---------------------------------------------------------------------
-     Filtres des réalisations
-     --------------------------------------------------------------------- */
   const filters = $('[data-filters]');
   const works = $$('.work');
   if (filters && works.length) {
@@ -231,9 +203,6 @@
     }));
   }
 
-  /* ---------------------------------------------------------------------
-     Aperçus des réalisations : l'aperçu de l'autre thème se charge après la page
-     --------------------------------------------------------------------- */
   const preparerVignettes = () => {
     const go = () => document.documentElement.classList.add('vignettes-pretes');
     if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 4000 }); else setTimeout(go, 1500);
@@ -241,9 +210,6 @@
   if (document.readyState === 'complete') setTimeout(preparerVignettes, 1200);
   else window.addEventListener('load', () => setTimeout(preparerVignettes, 1200), { once: true });
 
-  /* ---------------------------------------------------------------------
-     Apparition au défilement
-     --------------------------------------------------------------------- */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
@@ -256,9 +222,6 @@
     reveals.forEach((el) => el.classList.add('is-in'));
   }
 
-  /* ---------------------------------------------------------------------
-     Phrase qui se précise mot à mot au défilement
-     --------------------------------------------------------------------- */
   const unblur = $('[data-unblur]');
   if (unblur && !reduceMotion) {
     const words = [];
@@ -277,7 +240,6 @@
           });
           node.replaceChild(frag, child);
         } else if (child.nodeType === 1 && child.classList.contains('w-accent')) {
-          // Le groupe en dégradé reste d’un seul tenant pour garder un dégradé continu.
           child.classList.add('w');
           words.push(child);
         } else if (child.nodeType === 1) {
@@ -309,9 +271,6 @@
     paint();
   }
 
-  /* ---------------------------------------------------------------------
-     Texte ajusté à la largeur (adresse e-mail, signature du pied de page)
-     --------------------------------------------------------------------- */
   const fits = $$('[data-fit]');
   const fit = () => {
     fits.forEach((box) => {
@@ -332,9 +291,6 @@
     window.addEventListener('load', fit);
   }
 
-  /* ---------------------------------------------------------------------
-     Thème clair / sombre
-     --------------------------------------------------------------------- */
   const root = document.documentElement;
   const themeButtons = $$('[data-theme-toggle]');
   if (themeButtons.length) {
@@ -348,18 +304,16 @@
         if (text) text.textContent = dark ? 'Thème clair' : 'Thème sombre';
         else { btn.setAttribute('aria-label', label); btn.title = label; }
       });
-      // La couleur de la barre du navigateur suit le thème choisi.
       $$('meta[name="theme-color"]').forEach((m) => { m.content = dark ? '#0b0b0c' : '#f4f4f2'; });
     };
     const apply = (theme) => {
       root.dataset.theme = theme;
-      try { localStorage.setItem('mtx-theme', theme); } catch { /* stockage indisponible : le choix vaut pour cette page */ }
+      try { localStorage.setItem('mtx-theme', theme); } catch {  }
       sync();
     };
     themeButtons.forEach((btn) => btn.addEventListener('click', () => {
       const next = current() === 'dark' ? 'light' : 'dark';
       if (document.startViewTransition && !reduceMotion) {
-        // Une transition interrompue (double clic, onglet masqué) ne doit pas laisser d’erreur.
         const vt = document.startViewTransition(() => apply(next));
         [vt.ready, vt.finished, vt.updateCallbackDone].forEach((p) => p && p.catch(() => {}));
       }
@@ -370,9 +324,6 @@
     sync();
   }
 
-  /* ---------------------------------------------------------------------
-     Bandeau des outils : à l’arrêt quand il est hors de l’écran
-     --------------------------------------------------------------------- */
   const marquee = $('.marquee');
   if (marquee && 'IntersectionObserver' in window) {
     new IntersectionObserver((entries) => {
@@ -380,9 +331,6 @@
     }).observe(marquee);
   }
 
-  /* ---------------------------------------------------------------------
-     Retour en haut
-     --------------------------------------------------------------------- */
   $$('[data-top]').forEach((a) => a.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });

@@ -1,16 +1,3 @@
-// MTX Studio — films de présentation des réalisations (MTX Viewer, GoRun, Sténo). Sans dépendance.
-//
-// Le film tourne sans le son tant qu'il est à l'écran, comme les autres films des sites. « Avec le son » (ou un
-// toucher sur l'image) le reprend au début avec la musique, sans boucle. Il se met en pause dès qu'il quitte l'écran
-// et reprend quand on y revient. Les chapitres sautent d'une scène à l'autre et suivent la lecture.
-// Mouvement réduit ou économie de données : rien ne se lance ni ne se charge seul, l'affiche reste jusqu'au geste ;
-// un chapitre choisi montre son image, arrêtée. Sans JavaScript : la vidéo garde les commandes du navigateur.
-//
-// Balisage : un conteneur [data-mtx-film] (data-duree en secondes) qui contient la vidéo, son cadre
-// [data-mtx-film-cadre], les commandes [data-mtx-film-son], [data-mtx-film-jouer], [data-mtx-film-plein] et, où l'on
-// veut, les chapitres [data-mtx-film-aller="secondes"] dans une liste [data-mtx-film-chapitres]. États posés sur le
-// conteneur : data-pret, data-regarde, data-lecture, data-son, data-fin, data-plein, data-calme ; --p donne
-// l'avancement du film (0 à 1), et --p sur chaque chapitre celui du chapitre.
 (() => {
   'use strict';
   const conteneurs = [...document.querySelectorAll('[data-mtx-film]')];
@@ -35,7 +22,6 @@
       .map((b) => ({ b, t: Number(b.dataset.mtxFilmAller) || 0, p: -1 }));
     let duree = Number(racine.dataset.duree) || 0;
 
-    // regarde : le visiteur a choisi le film (le son, une seule lecture). voulu : la lecture est souhaitée.
     let regarde = false;
     let voulu = !calme.matches && !econome;
     let aLEcran = false, charge = false, attente = null, chapitreChoisi = false, pauseInterne = false;
@@ -50,7 +36,6 @@
     const jouer = () => {
       charge = true;
       const promesse = video.play();
-      // Lecture refusée (économie d'énergie d'iOS, son sans geste) : le film attend qu'on le lance.
       if (promesse && promesse.catch) promesse.catch((e) => { if (!e || e.name !== 'AbortError') { voulu = false; majEtat(); } });
     };
     const arreter = () => { if (!video.paused) { pauseInterne = true; video.pause(); } };
@@ -63,7 +48,6 @@
       if (video.readyState >= 1) { video.currentTime = cible; attente = null; } else { attente = cible; charger(); }
       majTemps();
     };
-    // Le film, avec la musique : depuis le début, ou depuis le chapitre que l'on vient de choisir.
     const regarder = () => {
       regarde = true;
       video.loop = false;
@@ -77,7 +61,6 @@
     const basculer = () => {
       if (video.ended) { aller(0); voulu = true; jouer(); majEtat(); return; }
       if (video.paused) {
-        // Rien ne s'est lancé seul (mouvement réduit, économie de données) : la première lecture est celle du film.
         if (!regarde && (calme.matches || econome)) { regarder(); return; }
         voulu = true;
         jouer();
@@ -85,7 +68,6 @@
       majEtat();
     };
 
-    // La durée de chaque chapitre (--d), pour les frises dont les segments suivent les scènes.
     const mesurer = () => {
       chapitres.forEach((c, n) => {
         const fin = n + 1 < chapitres.length ? chapitres[n + 1].t : duree;
@@ -93,7 +75,6 @@
       });
     };
 
-    // Le chapitre en cours et son avancement, le fil, l'horloge.
     const centrer = () => {
       if (!liste || actif < 0 || liste.scrollWidth <= liste.clientWidth + 1) return;
       const el = chapitres[actif].b.closest('li') || chapitres[actif].b;
@@ -141,14 +122,12 @@
       if (enLecture && !image) image = requestAnimationFrame(boucle);
     };
 
-    // Pendant le film, les commandes s'effacent quand rien ne bouge ; un geste les ramène.
     const reveiller = () => {
       racine.removeAttribute('data-calme');
       clearTimeout(minuteur);
       if (regarde && !video.paused) minuteur = setTimeout(() => { if (!cadre.matches(':focus-within')) racine.setAttribute('data-calme', ''); }, 2600);
     };
 
-    // Mise en place : les commandes du site remplacent celles du navigateur.
     video.removeAttribute('controls');
     video.muted = true;
     video.loop = true;
@@ -156,7 +135,7 @@
     if (bSon) bSon.hidden = false;
     if (bJouer) bJouer.hidden = false;
     const pleinCadre = Boolean((cadre.requestFullscreen || cadre.webkitRequestFullscreen) && (document.fullscreenEnabled || document.webkitFullscreenEnabled));
-    const pleinVideo = !pleinCadre && typeof video.webkitEnterFullscreen === 'function'; // iPhone
+    const pleinVideo = !pleinCadre && typeof video.webkitEnterFullscreen === 'function';
     if (bPlein && (pleinCadre || pleinVideo)) bPlein.hidden = false;
     racine.setAttribute('data-pret', '');
 
@@ -186,14 +165,11 @@
         if (r && r.catch) r.catch(() => {});
         return;
       }
-      // iPhone : le plein écran du système, avec ses propres commandes. Il faut que le film soit ouvert.
       try { video.webkitEnterFullscreen(); } catch { if (!regarde) regarder(); }
     });
     document.addEventListener('fullscreenchange', majEtat);
     document.addEventListener('webkitfullscreenchange', majEtat);
 
-    // Un toucher sur l'image : le film avec le son ; ensuite, pause ou lecture. Au doigt, quand les commandes se sont
-    // effacées, le premier toucher les ramène seulement.
     cadre.addEventListener('pointerdown', (e) => { toucherCalme = racine.hasAttribute('data-calme') && e.pointerType !== 'mouse'; reveiller(); });
     cadre.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') reveiller(); });
     racine.addEventListener('focusin', reveiller);
@@ -209,7 +185,6 @@
       majEtat();
     }));
 
-    // À l'écran à moitié : il tourne. Presque sorti : il s'arrête. Entre les deux, rien ne change.
     if ('IntersectionObserver' in window) {
       new IntersectionObserver((entrees) => {
         const e = entrees[entrees.length - 1];

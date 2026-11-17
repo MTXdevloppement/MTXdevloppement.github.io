@@ -1,9 +1,3 @@
-/* GoRun — le film de présentation (9:16, 40 s, avec musique), en prologue « 00 » entre le héros et la démo.
-   Lecteur commun : ../../assets/css/film.css et ../../assets/js/film.js. Ici : la place du film, ses chapitres et
-   l'habillage des commandes. Le film est vertical, au format story : il tient dans la hauteur de l'écran, à droite
-   du texte sur ordinateur, sous le texte sur téléphone. Comme les téléphones et la montre de la page, il reste
-   sombre en thème clair. */
-
 .presentation {
   display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
   padding-block: clamp(4.5rem, 12vh, 8rem);
@@ -31,7 +25,6 @@
   .presentation-film { grid-column: 8 / -1; grid-row: 1 / span 2; align-self: center; width: min(100%, 27rem, (100svh - 8rem) * 9 / 16); }
 }
 
-/* Commandes posées sur le film */
 .presentation-film .mtx-film-commandes button {
   height: 44px; border-radius: 99px;
   background: rgba(10, 10, 11, .6); color: #f3f2ee;
@@ -45,7 +38,6 @@
 @media (hover: hover) { .presentation-film .mtx-film-commandes button:hover { background: rgba(10, 10, 11, .85); } }
 .presentation-film .mtx-film-fil { height: 3px; background: linear-gradient(90deg, #ff5c1f, #ff2e5c); }
 
-/* Les chapitres : le temps, la scène ; celle en cours en orange, avec son avancement. */
 .presentation-chapitres { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filet); }
 .presentation-chapitres li { border-bottom: 1px solid var(--filet); }
 .presentation-chapitres button {
@@ -69,7 +61,6 @@
 :root[data-theme="light"] .presentation-chapitres [aria-current="true"] .chiffre { color: var(--orange-texte); }
 html:not(.js) .presentation-chapitres { display: none; }
 
-/* Téléphone et tablette : une rangée de pastilles à faire glisser, sous le film. */
 @media (max-width: 999px) {
   .presentation-chapitres {
     display: flex; gap: .5rem; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;

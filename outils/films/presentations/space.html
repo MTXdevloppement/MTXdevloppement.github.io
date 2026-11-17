@@ -5,15 +5,13 @@
 <title>Film — Space</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="kit.css">
-<style>
-@font-face { font-family: "Space Unbounded"; src: url("../../../realisations/space/assets/fonts/unbounded.woff2") format("woff2"); font-weight: 200 900; }
+<style>@font-face { font-family: "Space Unbounded"; src: url("../../../realisations/space/assets/fonts/unbounded.woff2") format("woff2"); font-weight: 200 900; }
 @font-face { font-family: "Space Onest"; src: url("../../../realisations/space/assets/fonts/onest.woff2") format("woff2"); font-weight: 100 900; }
 .scene { --fond: #0d0722; --encre: #f3eeff; --doux: rgb(243 238 255 / 70%); --pale: rgb(243 238 255 / 46%); --accent: #b9a2ff; --or: #ffb627; --gemme: #5ce1e6; --mine: #ff2e4d;
   --titre: "Space Unbounded", sans-serif; --texte: "Space Onest", sans-serif; --titre-graisse: 650; --titre-espace: -.045em; }
 .titre em { color: var(--or); }
 .ciel { position: absolute; inset: 0; background: linear-gradient(180deg, var(--z1, #120a2e), var(--z2, #3b1c6e)); }
 .etoile { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff; }
-/* Le téléphone du film : mêmes proportions que celui du site, à l'échelle du cadre vertical. */
 .telephone { position: absolute; width: 560px; aspect-ratio: 9 / 19.4; padding: 18px; border-radius: 96px; background: linear-gradient(140deg, #8a8b91 0%, #2b2b2f 20%, #1a1a1d 52%, #333338 80%, #9a9ba1 100%); box-shadow: 0 80px 160px -40px rgb(0 0 0 / 85%), 0 0 0 2px rgb(255 255 255 / 8%) inset; }
 .tel-bord { position: relative; height: 100%; padding: 6px; border-radius: 80px; background: #050507; }
 .tel-ecran { position: relative; height: 100%; overflow: hidden; border-radius: 74px; background: #120a2e; }
@@ -49,8 +47,7 @@
 <div class="scene" id="scene" data-format="vertical"></div>
 <script src="../moteur.js"></script>
 <script src="kit.js"></script>
-<script>
-document.documentElement.dataset.theme = 'dark';
+<script>document.documentElement.dataset.theme = 'dark';
 const M = 240 / 128;
 const S = (n) => n * M;
 const f = Film({ duree: 16 * M });
@@ -58,12 +55,10 @@ const scene = document.getElementById('scene');
 const K = Kit(f, scene);
 const I = (n) => `img/space/${n}.webp`;
 
-// Le ciel : dégradé des zones du jeu (Theme.swift), étoiles qui scintillent et descendent.
 const ciel = K.el('div', 'ciel'); ciel.style.zIndex = 0;
 const ZONES = [['#120A2E', '#3B1C6E'], ['#061A2E', '#0E5B73'], ['#1F0B2E', '#8C3A62'], ['#070D21', '#1C2A4F'], ['#1b0f2b', '#a0522d'], ['#120A2E', '#3B1C6E']];
 const mel = (a, b, p) => { const x = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = x(a), B = x(b); return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * p)).join(' ')})`; };
 f.chaque((t) => {
-  // Les zones défilent pendant « la montée » (mesures 6 → 8), sinon la zone 1.
   const z = f.av(t, S(6) + 0.3, S(8) - S(6) - 0.6, 'lin') * (ZONES.length - 1);
   const i = Math.min(ZONES.length - 2, Math.floor(z)), p = z - i;
   ciel.style.setProperty('--z1', mel(ZONES[i][0], ZONES[i + 1][0], p));
@@ -74,9 +69,6 @@ const etoiles = Array.from({ length: 90 }, () => { const e = K.el('div', 'etoile
 f.chaque((t) => etoiles.forEach((s) => { s.e.style.transform = `translate3d(${s.x}px, ${((s.y + t * s.v) % 1920).toFixed(1)}px, 0)`; s.e.style.opacity = (0.35 + 0.45 * (0.5 + 0.5 * Math.sin(t * 2 + s.p))).toFixed(2); }));
 K.fond({ halos: [{ c: 'rgb(124 70 255 / 34%)', x: 540, y: 700, taille: 1400, v: 0.05 }], grain: true }).style.zIndex = 1;
 
-// Le téléphone et la partie : le code du jeu du site (realisations/space/assets/js/orbite.js), exécuté avec
-// l'horloge du film à la place de celle du navigateur, image par image : la partie de démonstration est
-// identique à chaque tournage.
 const tel = K.place(K.el('div', 'telephone'), { x: 260, y: 640, z: 3 });
 tel.innerHTML = `<div class="tel-bord"><div class="tel-ecran" data-ecran><canvas data-orbite></canvas>
   <div class="hud"><p class="hud-etat" data-etat>Démonstration</p><p class="hud-score" data-score>0</p><p class="hud-record"><svg viewBox="0 0 24 24"><path d="M3 18h18l-1.5-10-4.5 4-3-6-3 6-4.5-4z"/></svg><span data-record>0</span></p></div>
@@ -88,11 +80,9 @@ fetch('../../../realisations/space/assets/js/orbite.js').then((r) => r.text()).t
 });
 f.chaque((t) => { const lot = images.splice(0); lot.forEach((cb) => cb(t * 1000)); });
 
-// Les vraies captures du jeu passent dans le même téléphone.
 const montre = (src, t0, t1) => f.chaque((t) => { if (t >= t0 && t < t1 && capture.dataset.src !== src) { capture.src = I(src); capture.dataset.src = src; } });
 f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.style.opacity = enCapture ? 1 : 0; });
 
-// 1 — Un tap. Une orbite. (0 → 2 mesures)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Un tap.', 'Une orbite.'], { x: 0, y: 150, taille: 150, align: 'center', style: { right: '0' } });
@@ -102,7 +92,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   f.piste(tel, [0.4, { o: 0, y: 260, s: 0.9 }], [1.6, { o: 1, y: 0, s: 1 }, 'sortie']);
 }
 
-// 2 — La règle (2 → 4)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['La bille tourne.', '<em>Vous touchez.</em>'], { x: 0, y: 150, taille: 92, align: 'center', style: { right: '0' } });
@@ -112,7 +101,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   K.sequence(s, S(2) + 0.6, S(4) - 0.1, { entree: 'bas' });
 }
 
-// 3 — Chaque atterrissage se note (4 → 6)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Chaque atterrissage', 'se note.'], { x: 0, y: 150, taille: 74, align: 'center', style: { right: '0' } });
@@ -127,7 +115,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   });
 }
 
-// 4 — Plus on monte, plus le ciel se complique (6 → 8)
 {
   const p = K.plan(null, 6);
   const t = K.titre(p, ['Plus on monte,', 'plus le ciel', 'se complique.'], { x: 90, y: 130, taille: 84 });
@@ -144,7 +131,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   });
 }
 
-// 5 — Le vrai jeu, sur iPhone (8 → 10) : les captures de l'app
 {
   const p = K.plan(null, 6);
   const t = K.titre(p, ['Le vrai jeu,', '<em>sur iPhone.</em>'], { x: 0, y: 150, taille: 96, align: 'center', style: { right: '0' } });
@@ -156,7 +142,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   K.sequence(sous, S(8) + 0.5, S(10) - 0.1, { entree: 'bas' });
 }
 
-// 6 — Revenir chaque jour, quatre niveaux (10 → 12)
 {
   const p = K.plan(null, 6);
   const t = K.titre(p, ['Quatre niveaux,', 'quatre records.'], { x: 0, y: 150, taille: 88, align: 'center', style: { right: '0' } });
@@ -171,7 +156,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   K.sequence(sous, S(10) + 0.8, S(12) - 0.1, { entree: 'bas' });
 }
 
-// 7 — Pas une image, pas un son importés (12 → 14)
 {
   const p = K.plan(null, 6);
   const t = K.titre(p, ['Pas une image,', 'pas un son', '<em>importés.</em>'], { x: 90, y: 200, taille: 104 });
@@ -184,7 +168,6 @@ f.chaque((t) => { const enCapture = (t >= S(8) - 0.15 && t < S(12)); capture.sty
   K.sequence(K.place(K.el('p', 'sous', p, 'Planètes, étoiles, icône, effets et musique : SwiftUI et SpriteKit.'), { y: 1600 }), S(12) + 1.4, S(14) - 0.05, { entree: 'bas' });
 }
 
-// 8 — Fin (14 → 16)
 {
   const p = K.plan(null, 8);
   K.fin(p, { icone: '../../../realisations/space/assets/img/icone-512.webp', nom: 'Space', ligne: 'Le jeu d’arcade à un doigt.<br>Bientôt sur l’App Store.', t: S(14) + 0.1, taille: 140 });

@@ -1,8 +1,3 @@
-// Space — la partie jouable du premier écran.
-// Une réplique en canvas des règles du jeu (Space/Game/GameScene.swift) : la bille tourne autour d'une planète,
-// un tap la lance dans la direction où elle se trouve, une planète plus haute la capture si elle passe assez
-// près. Parfaits, bonds, gemmes, mines à partir de la 7e planète, écran qui monte tout seul, zones de couleur.
-// Tant que personne n'a touché l'écran, la partie se joue toute seule (mode démonstration).
 (() => {
   const toile = document.querySelector('[data-orbite]');
   if (!toile || !toile.getContext) return;
@@ -16,7 +11,6 @@
   const annonce = document.querySelector('[data-annonce]');
   const sonBtn = document.querySelector('[data-son]');
 
-  // Palettes des zones, reprises de Theme.swift. En thème clair, on les éclaircit : « l'aube ».
   const ZONES = [
     ['#120A2E', '#3B1C6E', ['#FF9F68', '#FFD93D', '#6BCB77', '#4D96FF', '#FF8FD8']],
     ['#061A2E', '#0E5B73', ['#FFB4A2', '#FFE66D', '#F7FFF7', '#FF9F68', '#A0E7E5']],
@@ -28,7 +22,6 @@
   const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
   const clair = () => racine.dataset.theme === 'light';
 
-  // Monde logique : 390 de large, comme le jeu (LevelGenerator(width: 390)).
   const L = 390;
   let H = 780, echelle = 1, dpr = 1;
   const VITESSE = 980, VOL_MAX = 1.6, MARGE = 24;
@@ -37,9 +30,8 @@
   let etat = 'orbite', courant = 0, angle = -Math.PI / 2, bille = { x: 0, y: 0, vx: 0, vy: 0 };
   let vol = 0, camera = 0, defile = false, vitesseDefile = 36, score = 0, serie = 0, fievre = false;
   let record = 0, demo = true, traine = [], textes = [], secousse = 0, fin = 0, zone = 0, zoneMix = 0;
-  try { record = +localStorage.getItem('space-record') || 0; } catch { /* stockage indisponible */ }
+  try { record = +localStorage.getItem('space-record') || 0; } catch {  }
 
-  // Générateur pseudo-aléatoire : une graine par partie, pour des niveaux reproductibles.
   let graine = 7;
   const alea = () => { graine = (graine * 16807) % 2147483647; return (graine - 1) / 2147483646; };
 
@@ -85,7 +77,6 @@
     if (recordEl) recordEl.textContent = record;
   };
 
-  // Son : la note de l'atterrissage monte avec la série de parfaits (gamme pentatonique), comme dans le jeu.
   let audio = null, sonActif = false;
   const NOTES = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.51];
   const note = (n, duree = 0.32) => {
@@ -97,7 +88,7 @@
       g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.18, t + 0.015);
       g.gain.exponentialRampToValueAtTime(0.0001, t + duree);
       o.connect(g).connect(audio.destination); o.start(t); o.stop(t + duree + 0.05);
-    } catch { /* audio indisponible */ }
+    } catch {  }
   };
   if (sonBtn) sonBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -122,7 +113,6 @@
 
   const capturer = (i, c) => {
     const p = planetes[i];
-    // Distance entre la trajectoire et le centre : plus elle est faible, plus l'atterrissage est « parfait ».
     const v = Math.hypot(bille.vx, bille.vy) || 1;
     const ecartCentre = Math.abs((bille.vx * (c.y - bille.y) - bille.vy * (c.x - bille.x)) / v);
     const parfait = ecartCentre < p.r * 0.4;
@@ -147,14 +137,13 @@
     etat = 'fin'; fin = 0; secousse = 0.35; serie = 0; fievre = false;
     if (!demo && score > record) {
       record = score;
-      try { localStorage.setItem('space-record', String(record)); } catch { /* stockage indisponible */ }
+      try { localStorage.setItem('space-record', String(record)); } catch {  }
       texte('NOUVEAU RECORD !', L / 2, camera + H * 0.34, FIEVRE);
     }
     afficherScore();
     if (annonce && !demo) annonce.textContent = `Partie terminée : ${score} point${score > 1 ? 's' : ''}. Record : ${record}. Touchez pour rejouer.`;
   };
 
-  // Mode démonstration : la partie se joue toute seule. Elle lance quand la bille vise la planète suivante.
   const pilote = () => {
     if (etat !== 'orbite') return;
     const p = planetes[courant], cible = planetes[courant + 1];
@@ -192,7 +181,6 @@
       if (demo && fin > 1.6) nouvellePartie(true);
     }
     traine.push([bille.x, bille.y]); if (traine.length > 14) traine.shift();
-    // La caméra suit la planète courante ; une fois le premier lancer fait, l'écran monte tout seul.
     if (etat !== 'fin') {
       const cible = posPlanete(planetes[courant], temps).y - H * 0.72;
       if (defile) { vitesseDefile = Math.min(78, 36 + courant * 0.9); camera -= vitesseDefile * dt; }
@@ -225,7 +213,6 @@
     const sx = secousse > 0 ? (Math.random() - 0.5) * 10 * secousse : 0;
     ctx.setTransform(echelle * dpr, 0, 0, echelle * dpr, sx * dpr, 0);
 
-    // Étoiles en parallaxe.
     ctx.fillStyle = jour ? 'rgba(90,60,160,.28)' : 'rgba(255,255,255,.7)';
     for (const e of etoiles) {
       const y = ((e[1] - camera * e[2]) % H + H) % H;
@@ -235,7 +222,6 @@
     ctx.globalAlpha = 1;
     ctx.translate(0, -camera);
 
-    // Lueur rouge quand la planète courante approche du bas.
     const pc = planetes[courant];
     if (defile && etat === 'orbite') {
       const reste = camera + H - (pc.y + pc.r);
@@ -250,7 +236,6 @@
     for (let i = Math.max(0, courant - 2); i < planetes.length; i++) {
       const p = planetes[i], c = posPlanete(p, temps);
       if (c.y - p.r > camera + H + 40 || c.y + p.r < camera - 80) continue;
-      // Orbite en pointillés autour de la planète courante.
       if (i === courant) {
         ctx.setLineDash([4, 7]); ctx.lineWidth = 1.5;
         ctx.strokeStyle = jour ? 'rgba(40,20,90,.35)' : 'rgba(255,255,255,.35)';
@@ -281,7 +266,6 @@
       ctx.beginPath(); ctx.moveTo(gm.x, y - 9); ctx.lineTo(gm.x + 6, y); ctx.lineTo(gm.x, y + 9); ctx.lineTo(gm.x - 6, y); ctx.closePath(); ctx.fill();
       ctx.shadowBlur = 0;
     }
-    // Traînée et bille.
     const bc = jour ? '30,16,72' : '255,255,255';
     traine.forEach((t, i) => { ctx.fillStyle = `rgba(${fievre ? '255,182,39' : bc},${(i / traine.length) * 0.4})`; ctx.beginPath(); ctx.arc(t[0], t[1], 2 + i * 0.32, 0, 6.283); ctx.fill(); });
     if (etat !== 'fin' || fin < 0.12) {
@@ -302,7 +286,6 @@
       ctx.fillText(t.t, t.x, t.y);
     }
     ctx.globalAlpha = 1;
-    // Écran de fin.
     if (etat === 'fin' && !demo && fin > 0.5) {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.fillStyle = jour ? 'rgba(247,243,238,.72)' : 'rgba(10,6,28,.62)';
@@ -331,7 +314,6 @@
     if (!image) dessiner();
   };
 
-  // Commandes : toucher l'écran, cliquer, ou la barre d'espace / Entrée quand le jeu a le focus.
   const toucher = () => {
     if (demo) { nouvellePartie(false); cadre.classList.add('est-joue'); if (annonce) annonce.textContent = 'Partie lancée. Touchez pour lancer la bille.'; return; }
     if (etat === 'fin') { if (fin > 0.5) nouvellePartie(false); return; }
@@ -351,7 +333,6 @@
   taille();
   nouvellePartie(true);
   if (calme) {
-    // Mouvement réduit : pas de démonstration ; la partie attend le premier geste.
     demo = false; if (etatEl) etatEl.textContent = 'Touchez pour jouer';
     dessiner();
     cadre.addEventListener('pointerdown', relancer, { once: true });

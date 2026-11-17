@@ -1,6 +1,3 @@
-/* Triade — site de présentation. Direction : voir DIRECTION.md.
-   Trois voix : serif (texte), sans (présentation), chasse fixe (tableur). */
-
 @font-face{font-family:"Instrument Serif";src:url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Instrument Serif";src:url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"Rethink Sans";src:url("../fonts/rethink-sans-latin-wght-normal.woff2") format("woff2");font-weight:400 800;font-style:normal;font-display:swap}
@@ -19,7 +16,6 @@
   --outil:var(--bleu);--outil-t:var(--bleu-t);
   color-scheme:light;
 }
-/* Thème sombre : choisi par le bouton du bandeau (data-theme), sinon par le système. */
 :root[data-theme="dark"]{
   --papier:#0B1024;--papier-2:#10163A;--carte:#151C40;--encre:#F1EEE6;--gris:#AAB0C6;--filet:#262E55;
   --bleu-t:#84ABFF;--vert-t:#54D390;--orange-t:#FF9D63;
@@ -52,7 +48,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .evitement{position:absolute;left:12px;top:-60px;z-index:300;padding:10px 16px;border-radius:999px;background:var(--encre);color:var(--papier);text-decoration:none;transition:top .2s}
 .evitement:focus{top:54px}
 
-/* Éléments communs ---------------------------------------------------- */
 .repere{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gris)}
 .pastilles{display:inline-flex;gap:4px}
 .pastilles i{width:9px;height:12px;border-radius:3px;background:var(--bleu)}
@@ -76,7 +71,6 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 }
 .bouton:active{transform:scale(.98)}
 
-/* Barre du site ------------------------------------------------------- */
 .barre{position:sticky;top:0;z-index:120;display:flex;align-items:center;gap:20px;height:64px;padding:0 max(var(--marge),calc((100% - 1280px) / 2 + var(--marge)));background:var(--papier);border-bottom:1px solid transparent;transition:border-color .3s}
 .barre.defile{border-bottom-color:var(--filet)}
 .marque{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-family:var(--serif);font-size:26px;letter-spacing:-.01em;text-decoration:none}
@@ -89,7 +83,6 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .barre-nav + .barre-cta{margin-left:0}
 @media (max-width:900px){.barre-nav{display:none}.barre-nav + .barre-cta{margin-left:auto}}
 
-/* Téléphone et éventail ---------------------------------------------- */
 .scene{--tel:clamp(210px,24vw,310px);position:relative;display:grid;place-items:center;padding:calc(var(--tel)*.22) 0 calc(var(--tel)*.08);isolation:isolate}
 .telephone{position:relative;z-index:2;width:var(--tel);padding:calc(var(--tel)*.03);border-radius:calc(var(--tel)*.165);background:#07090F;box-shadow:0 0 0 1.5px #2b3040,0 calc(var(--tel)*.12) calc(var(--tel)*.22) calc(var(--tel)*-.08) rgba(var(--ombre),.5)}
 .telephone img{width:100%;height:auto;border-radius:calc(var(--tel)*.137);background:#f2f2f7}
@@ -103,9 +96,6 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .f-tableur{--r:0deg;--y:-30%;z-index:2;background:linear-gradient(170deg,#2FC27A,#1A9E5C 60%)}
 .f-diapo{--r:19deg;z-index:1;background:linear-gradient(170deg,#FF8C4D,#E86B2B 60%)}
 
-/* La scène du héros : posée en volume, elle pivote avec la souris (pose commune, projet.css). Les trois feuilles
-   sont en retrait derrière le téléphone, chacune à sa profondeur, et un extrait de chaque outil flotte devant lui,
-   dans sa voix : serif pour le texte, chasse fixe pour le tableur, linéale pour la présentation. */
 .hero .scene{perspective:1500px;padding:0}
 .scene-pose{position:relative;display:grid;place-items:center;width:100%;padding:calc(var(--tel)*.22) 0 calc(var(--tel)*.08);--mtx-bx:5;--mtx-by:-5}
 .scene-pose .eventail{transform-style:preserve-3d}
@@ -138,7 +128,6 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 }
 @media print{.vol{display:none}}
 
-/* Promesse ------------------------------------------------------------ */
 .hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(20px,4vw,64px);align-items:center;max-width:1280px;margin:0 auto;padding:clamp(28px,5vw,64px) var(--marge) clamp(48px,7vw,88px)}
 .hero-texte{display:grid;gap:clamp(18px,2.2vw,28px);justify-items:start}
 .chiffres{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--filet)}
@@ -150,7 +139,7 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .chiffres div:nth-child(2) dt{color:var(--vert-t)}
 .chiffres div:nth-child(3) dt{color:var(--orange-t)}
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;padding-top:26px;overflow-x:clip}/* les feuilles en éventail débordaient de 5 px : la page glissait de côté */
+  .hero{grid-template-columns:1fr;padding-top:26px;overflow-x:clip}
   .hero .scene{--tel:clamp(190px,52vw,260px)}
   .chiffres{grid-template-columns:1fr 1fr;row-gap:18px}
   .chiffres div{flex-direction:column;gap:4px;padding-top:16px}
@@ -158,11 +147,9 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
   .chiffres div:nth-child(n+3){border-top:1px solid var(--filet)}
 }
 
-/* Sections ------------------------------------------------------------ */
 .section{max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,128px) var(--marge)}
 .entete{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,60px);max-width:900px}
 
-/* Les trois outils (interaction-signature) --------------------------- */
 .outils{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,440px);grid-template-areas:"onglets scene" "volets scene";column-gap:clamp(24px,5vw,72px);row-gap:28px;align-items:start}
 .onglets{grid-area:onglets;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .onglet{position:relative;display:flex;align-items:center;gap:12px;min-height:76px;padding:12px 14px;border:1.5px solid var(--filet);border-radius:18px;background:transparent;text-align:left;transition:background .3s,border-color .3s,transform .3s var(--courbe)}
@@ -187,7 +174,6 @@ h1 em,h2 em{font-style:italic;white-space:nowrap;background:linear-gradient(90de
 .js .volet[hidden]{display:none}
 .js .volet{animation:volet .5s var(--courbe) both}
 @keyframes volet{from{opacity:0;transform:translateY(10px)}}
-/* L'écran et la feuille de l'outil choisi */
 body[data-outil="texte"] .scene-outils [data-ecran="texte"],
 body[data-outil="tableur"] .scene-outils [data-ecran="tableur"],
 body[data-outil="diapo"] .scene-outils [data-ecran="diapo"]{opacity:1}
@@ -207,7 +193,6 @@ body[data-outil="diapo"] .scene-outils .f-diapo{--r:25deg}
 }
 @media (max-width:380px){.onglet b{font-size:14px}.onglet{padding:10px}}
 
-/* L'assistant (bande nuit) ------------------------------------------- */
 .nuit{max-width:none;background:var(--nuit);color:var(--nuit-texte);--encre:var(--nuit-texte);--gris:var(--nuit-gris);--filet:var(--nuit-filet);--outil-t:#9DBBFF}
 .nuit > *{max-width:1168px;margin-left:auto;margin-right:auto}
 .demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,400px);gap:clamp(28px,5vw,72px);align-items:start}
@@ -248,7 +233,6 @@ body[data-outil="diapo"] .scene-outils .f-diapo{--r:25deg}
   .choix{padding:16px}
 }
 
-/* Formats ------------------------------------------------------------- */
 .tableau-cadre{border:1.5px solid var(--filet);border-radius:22px;background:var(--carte);overflow:hidden}
 .formats{width:100%;border-collapse:collapse;font-size:16.5px}
 .formats th,.formats td{padding:18px 22px;text-align:left;vertical-align:top;border-bottom:1px solid var(--filet)}
@@ -272,7 +256,6 @@ body[data-outil="diapo"] .scene-outils .f-diapo{--r:25deg}
   .formats td:nth-child(3)::before{content:"Exporte"}
 }
 
-/* Vie privée ---------------------------------------------------------- */
 .avion{display:grid;grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr);gap:0;border:1.5px solid var(--filet);border-radius:26px;background:var(--carte);overflow:hidden}
 .avion-commande{display:grid;align-content:center;justify-items:start;gap:16px;padding:clamp(22px,3.4vw,40px);background:var(--papier-2);transition:background .5s}
 .interrupteur{display:inline-flex;align-items:center;gap:16px;min-height:56px}
@@ -313,7 +296,6 @@ body[data-outil="diapo"] .scene-outils .f-diapo{--r:25deg}
   .avion-liste li:nth-child(3){border-bottom:1px solid var(--filet)}
 }
 
-/* Modèles ------------------------------------------------------------- */
 .rangees{display:grid;gap:12px;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
 .rangee{display:flex;gap:10px;padding:2px var(--marge);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rangee::-webkit-scrollbar{display:none}
@@ -329,7 +311,6 @@ body[data-outil="diapo"] .scene-outils .f-diapo{--r:25deg}
   }
 }
 
-/* Questions ----------------------------------------------------------- */
 .section-faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:clamp(24px,5vw,72px);align-items:start}
 .section-faq .entete{position:sticky;top:96px;margin-bottom:0}
 .faq{border-top:1px solid var(--filet)}
@@ -346,7 +327,6 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
 .faq details p{padding:0 54px 24px 0;color:var(--gris);max-width:70ch}
 .faq a,.entete .chapo a{color:var(--outil-t);text-underline-offset:3px}
 
-/* Appel --------------------------------------------------------------- */
 .appel{position:relative;display:grid;justify-items:center;gap:22px;padding:clamp(56px,8vw,112px) var(--marge) clamp(72px,9vw,128px);text-align:center;border-top:1px solid var(--filet);overflow:hidden}
 .appel h2{max-width:16ch}
 .appel .chapo{max-width:44ch}
@@ -356,7 +336,6 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
 .eventail-appel .f-tableur{--y:2%}
 .eventail-appel .feuille svg{transform:none}
 
-/* Mouvement ----------------------------------------------------------- */
 .js [data-apparait]{opacity:0;transform:translateY(16px);transition:opacity .7s var(--courbe),transform .7s var(--courbe)}
 .js [data-apparait].vu{opacity:1;transform:none}
 .js .entete [data-apparait]:nth-child(2){transition-delay:.06s}

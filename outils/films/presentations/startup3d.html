@@ -38,8 +38,7 @@
 <div class="scene" id="scene"></div>
 <script src="../moteur.js"></script>
 <script src="kit.js"></script>
-<script>
-const M = 240 / 110;
+<script>const M = 240 / 110;
 const S = (n) => n * M;
 const f = Film({ duree: 16 * M });
 const scene = document.getElementById('scene');
@@ -48,7 +47,6 @@ const I = (n) => `img/startup3d/${n}.webp`;
 K.fond({ halos: [{ c: 'rgb(47 140 255 / 26%)', x: 1500, y: 180, taille: 1300, v: 0.06 }, { c: 'rgb(246 200 121 / 12%)', x: 280, y: 980, taille: 1100, v: 0.08, p: 1 }] });
 const NS = 'http://www.w3.org/2000/svg';
 
-// Fenêtre de l'app : capture plein écran (1600 × 1000 en points), coins arrondis.
 const LW = 1440, E = LW / 1600;
 const app = (parent, imgs, o) => {
   const w = K.mac(parent, I(imgs[0]), { l: LW, h: 1000 * E, ...o, origine: '0 0' });
@@ -58,12 +56,10 @@ const app = (parent, imgs, o) => {
 const camera = (w, wx, wy, cles) => f.piste(w, ...cles.map(([t, cx, cy, z, X, Y, c]) => [t, { x: X - wx - z * cx * E, y: Y - wy - z * cy * E, s: z }, c || 'douce']));
 const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w), { x: x * E, y: y * E }); f.piste(r, [t, { o: 0, s: 0.3 }], [t + 0.5, { o: 1, s: 1 }, 'ressort'], [t1 - 0.4, { o: 1 }], [t1, { o: 0 }, 'douce']); return r; };
 
-// 1 — Gérer son entreprise en traversant son bureau (0 → 2 mesures)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Gérer son entreprise', '<span class="leger">en traversant</span>', '<span class="leger">son bureau.</span>'], { x: 120, y: 300, taille: 118 });
   K.montre(t, 0.3, S(2) - 0.5, { pas: 0.09 });
-  // Le sol isométrique se dessine, deux meubles montent.
   const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'iso'); svg.setAttribute('viewBox', '0 0 1920 1080'); svg.setAttribute('width', 1920); svg.setAttribute('height', 1080); p.appendChild(svg);
   const cx = 1420, cy = 560, a = 64, b = 37;
   const lignes = [];
@@ -88,7 +84,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   f.piste(c, [1.5, { o: 0 }], [1.8, { o: 1 }, 'douce'], [S(2) - 0.5, { o: 1 }], [S(2) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 2 — L'agence, de jour (2 → 4)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 240), S(2), S(4), { d: 0.4 });
@@ -104,7 +99,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   });
 }
 
-// 3 — Le soir tombe (4 → 6)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 240), S(4), S(6), { d: 0.4 });
@@ -123,7 +117,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   K.sequence(K.legende(p, 'Clair de 7 h à 19 h, sombre le soir et la nuit.', { x: 74, y: 680, l: 280, taille: 26 }), S(4) + 1.2, S(6) - 0.1, { entree: 'bas' });
 }
 
-// 4 — L'ordinateur ouvre les projets (6 → 8)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 240), S(6), S(8), { d: 0.4 });
@@ -136,7 +129,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   f.piste(c, [S(6) + 2.3, { o: 0, y: 20 }], [S(6) + 2.8, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 5 — Le planning, les finances (8 → 10)
 {
   const p = K.plan(null, 5);
   K.sequence(K.voileHaut(p, 240), S(8), S(10), { d: 0.4 });
@@ -152,7 +144,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   f.piste(c2, [S(8) + 2.4, { o: 0, y: 20 }], [S(8) + 2.9, { o: 1, y: 0 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10) - 0.1, { o: 0 }, 'douce']);
 }
 
-// 6 — Le travail fait monter de niveau (10 → 12)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Le travail fait', '<span class="leger">monter de niveau.</span>'], { x: 120, y: 120, taille: 96 });
@@ -176,7 +167,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   });
 }
 
-// 7 — Clair, et rien ne quitte le navigateur (12 → 14)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Tout reste dans le navigateur.'], { x: 0, y: 70, taille: 74, align: 'center', style: { right: '0' } });
@@ -195,7 +185,6 @@ const repere = (w, x, y, t, t1) => { const r = K.place(K.el('div', 'repere', w),
   });
 }
 
-// 8 — Fin (14 → 16)
 {
   const p = K.plan(null, 8);
   K.fin(p, { icone: '../../../realisations/startup3d/assets/img/icone-512.webp', nom: 'Startup<span style="color:var(--accent)">3D</span>', ligne: 'L’entreprise en volume : on la gère en traversant son agence.', t: S(14) + 0.1 });

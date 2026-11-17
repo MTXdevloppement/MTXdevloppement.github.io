@@ -1,9 +1,5 @@
-// Sténo — le relevé de démonstration du site.
-// Version réduite de l'analyse locale de l'app (RuleExtractor) : des règles de langue, rien d'autre.
-// Tout se passe dans la page ; le texte saisi n'est envoyé nulle part.
 (() => {
   const FAMILLES = ['tache', 'date', 'personne', 'decision', 'question', 'idee', 'lieu', 'organisation', 'chiffre', 'coordonnee'];
-  // Familles qui portent sur une phrase entière (soulignées), les autres sur quelques mots (surlignées).
   const DE_PHRASE = new Set(['tache', 'decision', 'question', 'idee']);
 
   const PRENOMS = new Set(('adrien alice amélie anaïs antoine arthur aurélie baptiste benjamin camille caroline cédric charlotte chloé ' +
@@ -58,7 +54,6 @@
     const libre = (d, f) => !marques.some((m) => !DE_PHRASE.has(m.fam) && d < m.f && f > m.d);
     const marquer = (d, f, fam) => { marques.push({ d, f, fam }); };
 
-    // Phrases, avec leur position dans le texte.
     const phrases = [];
     for (const m of texte.matchAll(/[^.!?\n]+[.!?]*/g)) {
       const avant = m[0].match(/^\s*/)[0].length;
@@ -66,7 +61,7 @@
       if (t.length >= 2) phrases.push({ t, d: m.index + avant });
     }
 
-    const personnes = new Map(); // premier mot → fiche
+    const personnes = new Map();
     const vus = new Set();
     const ajouter = (fam, note) => {
       const k = fam + '|' + cle(note.texte);
@@ -77,7 +72,6 @@
 
     for (const p of phrases) {
       const dates = [];
-      // Coordonnées, puis chiffres, puis dates : dans cet ordre, pour qu'un téléphone ne devienne pas un montant.
       for (const m of p.t.matchAll(RE_TEL)) { marquer(p.d + m.index, p.d + m.index + m[0].length, 'coordonnee'); ajouter('coordonnee', { texte: m[0], detail: 'Téléphone' }); }
       for (const m of p.t.matchAll(RE_MAIL)) { marquer(p.d + m.index, p.d + m.index + m[0].length, 'coordonnee'); ajouter('coordonnee', { texte: m[0], detail: 'E-mail' }); }
       for (const m of p.t.matchAll(RE_CHIFFRE)) {
@@ -90,18 +84,16 @@
         const d = p.d + m.index, f = d + m[0].length;
         if (!libre(d, f)) continue;
         marquer(d, f, 'date');
-        // « le rendez-vous de jeudi » situe une chose, ce n'est pas une échéance.
         dates.push({ expr: m[0], i: m.index, repere: /\bde\s$/i.test(p.t.slice(0, m.index)) });
       }
 
-      // Noms propres : personnes, lieux, organisations.
       for (const m of p.t.matchAll(RE_NOM)) {
         let nom = m[0];
         const d = p.d + m.index, f = d + nom.length;
         if (!libre(d, f)) continue;
         const premier = cle(nom.split(/[\s-]/)[0]);
         const suite = p.t.slice(m.index + nom.length);
-        if (m.index === 0 && !PRENOMS.has(premier) && !RE_TITRE.test(nom)) continue; // simple majuscule de début de phrase
+        if (m.index === 0 && !PRENOMS.has(premier) && !RE_TITRE.test(nom)) continue;
         const avant = p.t.slice(0, m.index);
         let fam = 'personne';
         if (VILLES.has(cle(nom))) fam = 'lieu';
@@ -119,7 +111,6 @@
         }
       }
 
-      // La phrase elle-même : tâche, décision, question, idée, ou simple date.
       const net = p.t.replace(RE_REMPLISSAGE, '');
       const decalage = p.t.length - net.length;
       const fin = p.d + p.t.length;
@@ -177,7 +168,6 @@
     return { marques, notes, total: FAMILLES.reduce((n, f) => n + notes[f].length, 0) };
   }
 
-  // Découpe le texte en morceaux, chacun avec les familles qui le couvrent, pour l'afficher surligné.
   function morceaux(texte, marques) {
     const bornes = new Set([0, texte.length]);
     marques.forEach((m) => { bornes.add(m.d); bornes.add(m.f); });

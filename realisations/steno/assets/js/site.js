@@ -1,4 +1,3 @@
-// Sténo — interactions du site. Sans dépendance ; la page reste lisible sans ce script.
 (() => {
   const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -11,14 +10,13 @@
     io.observe(el);
   };
 
-  // ---------- La page est un mémo : l'onde de la barre et la tête de lecture suivent le défilement ----------
   const onde = $('[data-onde]');
   const teteTemps = $('[data-tete-temps]');
   const sections = $$('[data-code]').map((el) => {
     const [m, s] = el.dataset.code.split(':').map(Number);
     return { el, t: m * 60 + s };
   });
-  const FIN = 112; // 1:52, la durée du « mémo » qu'est la page
+  const FIN = 112;
   let barres = [];
   if (onde) {
     let graine = 11;
@@ -44,7 +42,6 @@
       lues = n;
     }
     if (teteTemps && sections.length) {
-      // Le temps affiché est interpolé entre les repères des sections, lus au milieu de l'écran.
       const y = scrollY + innerHeight / 2;
       let t = 0;
       for (let i = 0; i < sections.length; i += 1) {
@@ -61,7 +58,6 @@
   addEventListener('resize', demander);
   lecture();
 
-  // Lien de la section en cours.
   const liens = new Map($$('.nav-liens a').map((a) => [a.getAttribute('href').slice(1), a]));
   if ('IntersectionObserver' in window && liens.size) {
     const io = new IntersectionObserver((entrees) => {
@@ -74,7 +70,6 @@
     sections.forEach(({ el }) => io.observe(el));
   }
 
-  // ---------- Apparition des titres et des blocs ----------
   const aReveler = $$('[data-apparait]');
   aReveler.forEach((el) => {
     if (el.tagName === 'LI') el.style.setProperty('--rang', [...el.parentElement.children].indexOf(el));
@@ -86,9 +81,6 @@
     aReveler.forEach((el) => io.observe(el));
   } else aReveler.forEach((el) => el.classList.add('vu'));
 
-  // ---------- Les films : lecture à l'écran, chapitres, thème ----------
-  // Chaque film existe en clair et en sombre, en AV1 et en H.264. Il ne se charge qu'à l'approche de l'écran, ne
-  // tourne que visible, et suit le thème de la page sans perdre sa place.
   const racine = document.documentElement;
   const AV1 = (() => { try { return document.createElement('video').canPlayType('video/mp4; codecs="av01.0.08M.08"') === 'probably'; } catch { return false; } })();
   const econome = Boolean(navigator.connection && navigator.connection.saveData);
@@ -103,18 +95,15 @@
     const bouton = $('[data-film-jouer]', fig);
     const boutons = $$('[data-film-aller]', fig);
     const ecoutes = [];
-    // voulu : la lecture est souhaitée (jamais d'office en mouvement réduit ou en mode économie de données).
     let voulu = !calme && !econome, aLEcran = false, charge = false, boucle = -1, chapitre = -1, image = 0, depart = 0;
 
     const fichier = (ext) => `assets/films/${nom}-${racine.dataset.theme === 'dark' ? 'sombre' : 'clair'}${ext}`;
     const charger = (a) => {
       charge = true;
       depart = a;
-      // La source avant le préchargement : dans l'autre ordre, le navigateur entame le fichier inscrit dans le HTML.
       video.src = fichier(AV1 ? '.av1.mp4' : '.mp4') + (a > 0 ? `#t=${a.toFixed(2)}` : '');
       video.preload = 'auto';
     };
-    // Le fragment #t ne suffit pas partout (serveur sans requêtes partielles) : la tête de lecture est replacée.
     video.addEventListener('loadedmetadata', () => {
       if (depart > 0 && Math.abs(video.currentTime - depart) > 0.25) video.currentTime = depart;
       depart = 0;
@@ -122,9 +111,7 @@
     const fin = (i) => (i + 1 < debuts.length ? debuts[i + 1] : duree);
     const suivre = () => {
       image = 0;
-      // Tant que le fichier n'est pas ouvert, l'instant demandé fait foi : le bon chapitre s'allume tout de suite.
       const t = depart > 0 ? depart : video.currentTime;
-      // Un chapitre choisi tourne en boucle.
       if (boucle >= 0 && !video.seeking && !video.paused && (t >= fin(boucle) - 0.05 || t < debuts[boucle] - 0.1)) video.currentTime = debuts[boucle];
       let i = debuts.length - 1;
       while (i > 0 && t < debuts[i]) i -= 1;
@@ -147,7 +134,6 @@
       if (bouton) bouton.setAttribute('aria-label', voulu ? 'Mettre le film en pause' : 'Lire le film');
     };
     const aller = (i, { enBoucle = false } = {}) => {
-      // En mouvement réduit, tant que la lecture n'a pas été demandée : une image arrêtée du chapitre.
       const fige = calme && !voulu;
       boucle = enBoucle && !fige ? i : -1;
       const t = debuts[i] + (fige ? arrets[Math.min(i, arrets.length - 1)] : 0);
@@ -173,7 +159,6 @@
     films.set(nom, {
       aller,
       surChapitre: (fn) => ecoutes.push(fn),
-      // Le thème change : même film, même instant, autres couleurs.
       retheme() {
         video.poster = fichier('.webp');
         if (!charge) return;
@@ -184,7 +169,6 @@
   });
   if (films.size) new MutationObserver(() => films.forEach((f) => f.retheme())).observe(racine, { attributes: true, attributeFilter: ['data-theme'] });
 
-  // ---------- Le relevé : la phrase qui se range ----------
   const rel = $('[data-releve]');
   if (rel && window.StenoReleve) {
     const { analyser, morceaux, FAMILLES } = window.StenoReleve;
@@ -245,7 +229,6 @@
       const texte = saisie.value;
       const r = analyser(texte);
 
-      // La feuille : le même texte, avec ses mots relevés.
       fond.textContent = '';
       let i = 0;
       for (const m of morceaux(texte, r.marques)) {
@@ -259,7 +242,6 @@
       fond.classList.remove('frais');
       if (frais) { void fond.offsetWidth; fond.classList.add('frais'); }
 
-      // Les notes, famille par famille.
       zone.textContent = '';
       let rang = 0;
       for (const fam of FAMILLES) {
@@ -303,7 +285,6 @@
     });
     saisie.addEventListener('input', () => { MEMOS[memo].texte = saisie.value; rendre(false); });
 
-    // La légende isole une famille, dans le texte et dans les notes.
     legende.forEach((b) => b.addEventListener('click', () => {
       const actif = b.getAttribute('aria-pressed') === 'true';
       legende.forEach((x) => x.setAttribute('aria-pressed', 'false'));
@@ -315,7 +296,6 @@
     visible(rel, () => rendre(true), '0px 0px -25% 0px');
   }
 
-  // ---------- Raccourcis : cinq façons d'envoyer un mémo, cinq chapitres d'un même film ----------
   const ges = $('[data-gestes]');
   const filmGestes = films.get('gestes');
   if (ges && filmGestes) {
@@ -327,7 +307,6 @@
       c.tabIndex = ici ? 0 : -1;
       if (ici) scene.setAttribute('aria-labelledby', c.id);
     });
-    // Le film avance : l'onglet suit. Un onglet choisi : son chapitre tourne en boucle.
     filmGestes.surChapitre(marquer);
     choix.forEach((c, i) => {
       c.addEventListener('click', () => { marquer(i); filmGestes.aller(i, { enBoucle: true }); });
@@ -342,7 +321,6 @@
     });
   }
 
-  // ---------- Assistant : la réponse s'écrit ----------
   const ecrire = async (cible, texte, encore) => {
     if (calme) { cible.textContent = texte; return; }
     cible.textContent = '';
@@ -398,7 +376,6 @@
     }));
   }
 
-  // ---------- Vie privée : le point parcourt le circuit sans jamais sortir ----------
   const circuit = $('[data-circuit]');
   if (circuit) {
     const pas = () => {
@@ -409,7 +386,6 @@
     addEventListener('resize', pas);
   }
 
-  // ---------- Widget « À faire » ----------
   const widget = $('[data-widget]');
   if (widget) {
     const liste = $('[data-widget-liste]', widget);
@@ -434,7 +410,6 @@
     });
   }
 
-  // ---------- Thèmes : le réglage de l'app, branché sur la page ----------
   const themes = $('[data-themes]');
   if (themes) {
     const systeme = matchMedia('(prefers-color-scheme: dark)');
@@ -447,7 +422,7 @@
     };
     const appliquer = (choix) => {
       const theme = choix === 'system' ? (systeme.matches ? 'dark' : 'light') : choix;
-      try { if (choix === 'system') localStorage.removeItem('mtx-theme'); else localStorage.setItem('mtx-theme', choix); } catch { /* stockage indisponible */ }
+      try { if (choix === 'system') localStorage.removeItem('mtx-theme'); else localStorage.setItem('mtx-theme', choix); } catch {  }
       const poser = () => {
         racine.dataset.theme = theme;
         const fond = getComputedStyle(document.body).backgroundColor;
@@ -467,7 +442,6 @@
         appliquer(suivant.dataset.themeChoix);
       });
     });
-    // Le bouton du bandeau change aussi le thème : la sélection suit.
     new MutationObserver(refleter).observe(racine, { attributes: true, attributeFilter: ['data-theme'] });
     refleter();
   }

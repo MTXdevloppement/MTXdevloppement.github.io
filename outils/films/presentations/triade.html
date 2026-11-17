@@ -43,8 +43,7 @@
 <div class="scene" id="scene" data-format="vertical"></div>
 <script src="../moteur.js"></script>
 <script src="kit.js"></script>
-<script>
-const M = 240 / 100;
+<script>const M = 240 / 100;
 const S = (n) => n * M;
 const f = Film({ duree: 16 * M });
 const scene = document.getElementById('scene');
@@ -53,15 +52,12 @@ const I = (n) => `img/triade/${n}.webp`;
 K.fond({ halos: [{ c: 'rgb(46 112 235 / 14%)', x: 900, y: 300, taille: 1300, v: 0.05 }, { c: 'rgb(232 107 43 / 12%)', x: 150, y: 1650, taille: 1200, v: 0.07, p: 2 }] });
 const COUL = { texte: 'var(--bleu)', tableur: 'var(--vert)', diapo: 'var(--orange)' };
 
-// Un iPhone unique qui traverse le film ; ses écrans changent d'une scène à l'autre.
 const ecrans = ['bienvenue', 'lettre', 'tableur', 'formule', 'diapo', 'idee', 'redaction', 'resume', 'accueil'];
 const tel = K.tel(null, ecrans.map(I), { x: 250, y: 700, l: 580, h: 1220 });
 tel.style.zIndex = 3;
-// Instant où chaque écran laisse la place au suivant.
 K.enchaine(tel.images, [S(2) - 0.2, S(4) - 0.2, S(5) + 0.4, S(6) - 0.2, S(8) - 0.2, S(8) + 1.4, S(9) + 0.6, S(12) - 0.3, null], 0.35);
 f.piste(tel, [S(1) + 0.4, { o: 0, y: 400 }], [S(1) + 1.6, { o: 1, y: 0 }, 'sortie'], [S(10) - 0.4, { o: 1, x: 0 }], [S(10), { o: 0, x: -200 }, 'entree'], [S(12) - 0.2, { o: 0, x: 200 }], [S(12) + 0.4, { o: 1, x: 0 }, 'sortie'], [S(14) - 0.3, { o: 1 }], [S(14), { o: 0 }, 'douce']);
 
-// 1 — Trois outils de bureau. Une seule app. (0 → 2 mesures)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Trois outils', 'de bureau.', '<em>Une seule app.</em>'], { x: 90, y: 150, taille: 150 });
@@ -75,7 +71,6 @@ f.piste(tel, [S(1) + 0.4, { o: 0, y: 400 }], [S(1) + 1.6, { o: 1, y: 0 }, 'sorti
   });
 }
 
-// 2, 3, 4 — Les trois outils (2 → 8)
 const outil = (n0, cle, lignes, sous, puces) => {
   const p = K.plan(null, 5);
   const t = K.titre(p, lignes, { x: 90, y: 150, taille: 104 });
@@ -91,14 +86,12 @@ outil(2, 'texte', ['<span class="b">Texte.</span>', 'De la lettre au rapport.'],
 outil(4, 'tableur', ['<span class="v">Tableur.</span>', '146 fonctions.'], 'Des budgets, des devis, des graphiques. L’assistant explique une formule avant de l’insérer.', [['<code>=SOMME(B4:B31)</code>', 70, 1180, 1.6], ['Résultat vérifié avant insertion', 470, 1560, 2.2]]);
 outil(6, 'diapo', ['<span class="o">Présentation.</span>', 'Des diapos et vos notes.'], 'Thèmes, notes de l’orateur, mode présentation : le pitch tient dans la même app.', [['Notes de l’orateur', 80, 1200, 1.1], ['Export PDF et PowerPoint', 500, 1580, 1.5]]);
 
-// 5 — L'assistant qui ne se connecte à rien (8 → 10)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['L’assistant qui', 'ne se connecte <em>à rien.</em>'], { x: 90, y: 150, taille: 96 });
   K.montre(t, S(8) + 0.1, S(10) - 0.4);
   const s = K.place(K.el('p', 'sous', p, 'Apple Intelligence, sur l’iPhone : même en mode Avion.'), { y: 380 });
   K.sequence(s, S(8) + 0.5, S(10) - 0.1, { entree: 'bas' });
-  // Le téléphone glisse à droite, les trois gestes de l'assistant s'allument à gauche.
   f.piste(tel, [S(8), { x: 0, s: 1 }], [S(8) + 0.6, { x: 170, s: 0.82 }, 'douce'], [S(10) - 0.6, { x: 170, s: 0.82 }], [S(10), { x: 170, s: 0.82 }]);
   const e = K.place(K.el('div', 'etapes', p, '<div class="etape"><small>01</small>Une idée devient une lettre</div><div class="etape"><small>02</small>Une phrase devient une formule</div><div class="etape"><small>03</small>Un texte devient un résumé</div>'), { y: 560 });
   e.style.right = '430px';
@@ -108,7 +101,6 @@ outil(6, 'diapo', ['<span class="o">Présentation.</span>', 'Des diapos et vos n
   f.chaque((tt) => { const k = tt < S(9) + 0.6 ? 0 : 2; ets.forEach((x, i) => x.classList.toggle('actif', tt > S(8) + 1.0 && i === k)); });
 }
 
-// 6 — Coupez le réseau. Rien ne change. (10 → 12)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Coupez le réseau.', '<em>Rien ne change.</em>'], { x: 90, y: 240, taille: 112 });
@@ -121,7 +113,6 @@ outil(6, 'diapo', ['<span class="o">Présentation.</span>', 'Des diapos et vos n
   [...c.children].forEach((x, i) => f.piste(x, [S(10) + 1.5 + i * 0.25, { o: 0, x: -30 }], [S(10) + 1.9 + i * 0.25, { o: 1, x: 0 }, 'ressort'], [S(12) - 0.4, { o: 1 }], [S(12) - 0.05, { o: 0 }, 'douce']));
 }
 
-// 7 — Vos fichiers Word, Excel, PowerPoint s'ouvrent (12 → 14)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Word, Excel, PowerPoint :', '<em>ils s’ouvrent.</em>'], { x: 90, y: 150, taille: 92 });
@@ -136,7 +127,6 @@ outil(6, 'diapo', ['<span class="o">Présentation.</span>', 'Des diapos et vos n
   });
 }
 
-// 8 — Fin (14 → 16)
 {
   const p = K.plan(null, 8);
   K.fin(p, { icone: '../../../realisations/triade/assets/img/triade-icone-512.png', nom: 'Triade', ligne: 'Texte, tableur et présentation,<br>sur iPhone et iPad, même sans Internet.', t: S(14) + 0.1, taille: 160 });

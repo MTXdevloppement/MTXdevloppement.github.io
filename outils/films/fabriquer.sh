@@ -1,12 +1,4 @@
 #!/bin/zsh
-# Fabrique un film du site Sténo, en thème clair et en thème sombre : capture image par image (WebKit hors écran),
-# encodage H.264 et AV1, affiche WebP.
-#
-#   outils/films/fabriquer.sh <film> <largeur> <hauteur> <instant de l'affiche> [qualité CRF]
-#   exemple : outils/films/fabriquer.sh heros 540 675 12.4
-#
-# À lancer depuis la racine du site, serveur local ouvert (python3 -m http.server 8770). Dépendances : Xcode
-# (swiftc), ffmpeg, cwebp. Les images intermédiaires vont dans $FILMS_TMP (par défaut $TMPDIR/films-steno).
 set -e
 film=$1; l=$2; h=$3; affiche=$4; crf=${5:-26}
 ici=${0:A:h}
@@ -26,13 +18,11 @@ for theme in clair sombre; do
   compte=$("$tmp/capture" film "http://127.0.0.1:$port/outils/films/$film.html?theme=$theme" $l $h $ips "$images" $opt)
   echo "$film $theme : $compte"
   n=${compte%% *}
-  # Matrice BT.709 explicite : sans elle, ffmpeg convertit en BT.601 et les couleurs glissent.
   ffmpeg -loglevel error -y -framerate $ips -i "$images/image-%05d.png" -frames:v $n \
     -vf "scale=$((l * 2)):$((h * 2)):flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p" \
     -c:v libx264 -preset veryslow -crf $crf -profile:v high -g $ips -keyint_min $ips \
     -color_primaries bt709 -color_trc bt709 -colorspace bt709 -color_range tv \
     -movflags +faststart -an "$sortie/$film-$theme.mp4"
-  # La même en AV1, plus légère d'un tiers : servie aux navigateurs qui la lisent, H.264 pour les autres.
   ffmpeg -loglevel error -y -framerate $ips -i "$images/image-%05d.png" -frames:v $n \
     -vf "scale=$((l * 2)):$((h * 2)):flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p" \
     -c:v libsvtav1 -preset 4 -crf $((crf + 12)) -g $ips -svtav1-params tune=0 \

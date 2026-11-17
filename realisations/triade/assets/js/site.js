@@ -1,10 +1,8 @@
-// Triade — interactions du site. Sans dépendance ; la page reste lisible sans ce script.
 (() => {
   const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  // Barre : filet au défilement, section en cours.
   const barre = $('[data-barre]');
   if (barre) {
     const maj = () => barre.classList.toggle('defile', scrollY > 60);
@@ -25,7 +23,6 @@
     }
   }
 
-  // Apparition des titres et des blocs repérés.
   const aReveler = $$('[data-apparait], .eventail-appel');
   if ('IntersectionObserver' in window && !calme) {
     const io = new IntersectionObserver((entrees) => {
@@ -36,7 +33,6 @@
     aReveler.forEach((el) => el.classList.add('vu'));
   }
 
-  // Les trois outils : onglets (clic, doigt, flèches, Début, Fin).
   const onglets = $$('.onglet');
   if (onglets.length) {
     const choisir = (onglet, focus) => {
@@ -63,7 +59,6 @@
     choisir(onglets.find((o) => o.getAttribute('aria-selected') === 'true') || onglets[0]);
   }
 
-  // Démonstrations de l'assistant : captures réelles qui s'enchaînent.
   const demo = $('[data-demo]');
   if (demo) {
     const ETAPES = {
@@ -131,7 +126,6 @@
     regler(!calme);
   }
 
-  // Mode Avion : la liste de ce qui fonctionne ne change pas.
   const avion = $('[data-avion]');
   if (avion) {
     const bouton = $('[data-avion-bouton]', avion);

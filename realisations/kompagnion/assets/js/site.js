@@ -1,16 +1,11 @@
-// Kompagnion — démos de la page. Sans dépendance.
-// L'accueil à composer (Personnaliser : retirer, glisser, ajouter), la couleur d'accent, les espaces en onglets,
-// la facture recalculée et le filtre par #tag. Sans JavaScript, tout reste lisible : widgets par défaut, volets
-// les uns sous les autres, liste complète.
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const calme = matchMedia('(prefers-reduced-motion: reduce)');
   const lire = (cle) => { try { return localStorage.getItem(cle); } catch { return null; } };
-  const ecrire = (cle, v) => { try { localStorage.setItem(cle, v); } catch { /* stockage indisponible */ } };
+  const ecrire = (cle, v) => { try { localStorage.setItem(cle, v); } catch {  } };
 
-  /* Barre collante, section en cours, apparitions =============================================== */
   const barre = $('[data-barre]');
   if (barre) {
     const temoin = document.createElement('div');
@@ -32,7 +27,6 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   $$('[data-apparait]').forEach((el) => apparait.observe(el));
 
-  /* Couleur d'accent ============================================================================== */
   const pastilles = $$('[data-accent]');
   const poserAccent = (nom) => {
     if (nom === 'violet') delete document.documentElement.dataset.accent;
@@ -45,7 +39,6 @@
   const annonce = $('[data-annonce]');
   function annoncer(t) { if (annonce) { annonce.textContent = ''; requestAnimationFrame(() => { annonce.textContent = t; }); } }
 
-  /* L'accueil à composer ============================================================================ */
   const atelier = $('[data-atelier]');
   if (atelier) {
     const grille = $('[data-widgets]', atelier);
@@ -62,7 +55,6 @@
     if (date) date.textContent = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
     const tous = $$('.w', grille);
     const parNom = new Map(tous.map((w) => [w.dataset.w, w]));
-    // Descriptions des widgets, reprises de l'app (HomeWidgets.swift).
     const descriptions = {
       'projets': 'Le nombre de projets en cours.', 'demandes-ouvertes': 'Les demandes qui attendent une réponse.',
       'encaisser': 'Le total des factures envoyées, pas encore payées.', 'encaisse': 'Le total des factures payées cette année.',
@@ -76,7 +68,6 @@
     const nomDe = (w) => ($('.w-lib', w) || $('.w-titre', w) || $('b', w)).textContent.trim().replace(/^1 facture en retard$/, 'Factures en retard');
     const visibles = () => $$('.w:not([hidden])', grille);
 
-    // Mise en page mémorisée (confort du visiteur, sur cet appareil seulement).
     const memoire = lire('kompagnion-accueil');
     if (memoire) {
       const noms = memoire.split(',').filter((n) => parNom.has(n));
@@ -88,7 +79,6 @@
     }
     const memoriser = () => ecrire('kompagnion-accueil', visibles().map((w) => w.dataset.w).join(','));
 
-    // Pastille − et accessibilité de chaque carte.
     for (const w of tous) {
       const moins = document.createElement('button');
       moins.type = 'button'; moins.className = 'w-retirer'; moins.hidden = true;
@@ -98,7 +88,6 @@
       w.prepend(moins);
     }
 
-    // FLIP : les cartes glissent jusqu'à leur nouvelle place.
     const flip = (changer, sauf) => {
       const avant = new Map(visibles().map((w) => [w, w.getBoundingClientRect()]));
       changer();
@@ -198,17 +187,15 @@
     });
     atelier.addEventListener('keydown', (e) => { if (e.key === 'Escape' && edition) { basculer(false); bouton.focus(); } });
 
-    // Glisser une carte : elle suit le doigt, les autres s'écartent.
     let porte = null;
     grille.addEventListener('pointerdown', (e) => {
       const w = e.target.closest('.w');
       if (!edition || !w || e.target.closest('.w-retirer') || e.button > 0) return;
       const tactile = e.pointerType === 'touch';
       if (!tactile) e.preventDefault();
-      try { w.setPointerCapture(e.pointerId); } catch { /* pointeur déjà relâché */ }
+      try { w.setPointerCapture(e.pointerId); } catch {  }
       const r = w.getBoundingClientRect();
       porte = { w, id: e.pointerId, dx: e.clientX - r.left, dy: e.clientY - r.top, x: e.clientX, y: e.clientY, bouge: false, pret: !tactile };
-      // Au doigt, comme sur iOS : un appui maintenu soulève la carte ; un glissement rapide fait défiler l'écran.
       if (tactile) porte.minuterie = setTimeout(() => { if (porte) { porte.pret = true; w.classList.add('porte'); } }, 280);
     });
     grille.addEventListener('touchmove', (e) => { if (porte && porte.pret) e.preventDefault(); }, { passive: false });
@@ -219,7 +206,6 @@
       if (!porte.pret) { if (ecart > 8) { clearTimeout(porte.minuterie); porte = null; } return; }
       if (!porte.bouge && ecart < 4) return;
       if (!porte.bouge) { porte.bouge = true; w.classList.add('porte'); w.style.transition = 'none'; }
-      // Défilement de l'écran quand la carte approche d'un bord.
       const re = ecran.getBoundingClientRect();
       if (e.clientY < re.top + 110) ecran.scrollTop -= 10; else if (e.clientY > re.bottom - 60) ecran.scrollTop += 10;
       const place = () => { w.style.translate = '0 0'; const r = w.getBoundingClientRect(); w.style.translate = `${e.clientX - porte.dx - r.left}px ${e.clientY - porte.dy - r.top}px`; };
@@ -251,7 +237,6 @@
     grille.addEventListener('pointercancel', lacher);
   }
 
-  /* Les quatre espaces ============================================================================== */
   const espaces = $('[data-espaces]');
   if (espaces) {
     const onglets = $$('[role="tab"]', espaces);
@@ -276,7 +261,6 @@
     });
   }
 
-  /* La facture ===================================================================================== */
   const facture = $('[data-facture]');
   if (facture) {
     const euros = (n) => n.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/ /g, ' ') + ' €';
@@ -316,7 +300,6 @@
     calculer();
   }
 
-  /* Le filtre par #tag ============================================================================= */
   const tri = $('[data-tri]');
   if (tri) {
     const champ = $('[data-tri-champ]', tri);

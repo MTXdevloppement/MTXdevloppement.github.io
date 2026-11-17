@@ -1,1 +1,14 @@
 .DS_Store
+.claude/
+*.log
+xcuserdata/
+DerivedData/
+build/
+.build/
+node_modules/
+.env
+*.zip
+*.apk
+*.idsig
+*.keystore
+*.app/

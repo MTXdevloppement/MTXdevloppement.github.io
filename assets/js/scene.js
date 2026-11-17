@@ -1,7 +1,3 @@
-/* MTX Studio — scène du premier écran : l’écran d’accueil du studio.
-   Un iPhone et une Apple Watch en HTML ; on ouvre une app, elle déroule ses
-   captures réelles. JavaScript sans dépendance. Sans lui, les icônes restent
-   des liens vers les sites des réalisations. */
 (() => {
   'use strict';
 
@@ -33,7 +29,6 @@
     legend: canHover ? 'Cliquez sur une app pour l’ouvrir' : 'Touchez une app pour l’ouvrir',
   };
 
-  // Les captures sont celles des sites des réalisations : rien n’est redessiné.
   const APPS = {
     gorun: {
       name: 'GoRun', site: 'realisations/foulee/', link: ['Ouvrir le site', ' de GoRun'],
@@ -102,9 +97,9 @@
   };
   const ORDER = ['gorun', 'space', 'viewer', 'triade', 'steno', 'kompagnion'];
 
-  let current = null;       // app ouverte
-  let source = null;        // icône d’où part le zoom
-  let autoOpened = false;   // ouverte par la démonstration ou par la fenêtre Contact
+  let current = null;
+  let source = null;
+  let autoOpened = false;
   let shotIndex = 0;
   let shotTimer = 0;
   let cleanTimer = 0;
@@ -112,15 +107,12 @@
   let typeTimer = 0;
   let demoTimer = 0;
   let demoIndex = 0;
-  let userTook = false;     // le visiteur a pris la main : plus de démonstration
-  let visible = true;       // la scène est-elle à l’écran ?
+  let userTook = false;
+  let visible = true;
   let inContact = false;
-  let contactOpened = false; // le message a été ouvert par la fenêtre Contact
+  let contactOpened = false;
   let started = false;
 
-  /* ---------------------------------------------------------------------
-     Heure réelle dans la barre d’état et sur la montre
-     --------------------------------------------------------------------- */
   const clocks = $$('[data-clock]');
   const watchDate = $('[data-watch-date]');
   const tick = () => {
@@ -132,9 +124,6 @@
   tick();
   window.setInterval(tick, 20000);
 
-  /* ---------------------------------------------------------------------
-     Captures : construites à la demande, préchargées au calme
-     --------------------------------------------------------------------- */
   const sets = {};
   const buildSet = (id) => {
     if (sets[id]) return sets[id];
@@ -163,9 +152,6 @@
   };
   const preload = () => { if (!saveData) ORDER.forEach(buildSet); };
 
-  /* ---------------------------------------------------------------------
-     Légende sous le téléphone
-     --------------------------------------------------------------------- */
   const paintBars = () => {
     captions.forEach((c) => {
       $$('[data-sc-bars] i', c).forEach((bar, i) => {
@@ -189,7 +175,6 @@
       name.textContent = app ? app.name : IDLE.name;
       legend.textContent = app ? (app.shots.length ? app.shots[shotIndex][1] : app.legend) : IDLE.legend;
       if (app) {
-        // « de GoRun » est masqué dans la légende compacte du mobile, où le nom précède déjà le lien.
         const of = document.createElement('span');
         of.className = 'sc-of';
         of.textContent = app.link[1];
@@ -201,9 +186,6 @@
     paintBars();
   };
 
-  /* ---------------------------------------------------------------------
-     Captures qui se poussent, comme une navigation
-     --------------------------------------------------------------------- */
   const shotImages = () => (current && sets[current] ? $$('img', sets[current]) : []);
   const showShot = (index, instant) => {
     const imgs = shotImages();
@@ -231,9 +213,6 @@
     shotTimer = window.setInterval(() => { if (visible && !document.hidden) showShot(shotIndex + 1); }, SHOT_MS);
   };
 
-  /* ---------------------------------------------------------------------
-     Message qui s’écrit
-     --------------------------------------------------------------------- */
   const mailText = mailBody ? mailBody.innerHTML.replace(/<br\s*\/?>/gi, '\n').replace(/&nbsp;/g, ' ').trim() : '';
   const paintMail = (n) => {
     mailBody.textContent = '';
@@ -260,11 +239,7 @@
     }, 42);
   };
 
-  /* ---------------------------------------------------------------------
-     Ouvrir et refermer une app
-     --------------------------------------------------------------------- */
   const iconOf = (id) => $('.ios-grid [data-app="' + id + '"]') || $('.ios-dock [data-app="' + id + '"]');
-  // Centre de l’icône dans l’écran, en pixels de mise en page (insensible à la rotation 3D).
   const originOf = (el) => {
     const icon = (el && screen.contains(el) && el.querySelector('img, i')) || el;
     let x = icon.offsetWidth / 2;
@@ -281,7 +256,7 @@
     const app = APPS[id];
     if (!app || current === id) return;
     window.clearTimeout(swapTimer);
-    if (current) {           // une autre app est ouverte : on la referme d’abord
+    if (current) {
       close(true);
       swapTimer = window.setTimeout(() => open(id, from, auto), reduceMotion ? 0 : 460);
       return;
@@ -309,7 +284,6 @@
     void view.offsetWidth;
     scene.classList.add('is-app');
     scene.dataset.app = id;
-    // La course de GoRun continue une fois l’app refermée (île et montre), jusqu’à l’app suivante.
     scene.classList.toggle('is-running', id === 'gorun');
     home.inert = true;
     view.setAttribute('aria-hidden', 'false');
@@ -336,10 +310,6 @@
     if (!silent) paintCaption();
   };
 
-  /* ---------------------------------------------------------------------
-     Démonstration : les trois apps s’ouvrent tour à tour tant que le
-     visiteur n’a rien touché
-     --------------------------------------------------------------------- */
   const canDemo = () => !userTook && visible && !inContact && !document.hidden && window.scrollY < window.innerHeight * 0.3;
   const demo = (delay) => {
     window.clearTimeout(demoTimer);
@@ -362,9 +332,6 @@
     autoOpened = false;
   };
 
-  /* ---------------------------------------------------------------------
-     Gestes
-     --------------------------------------------------------------------- */
   scene.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-app]');
     if (trigger) {
@@ -393,9 +360,6 @@
     if (app && app.shots.length && !el.hasAttribute('aria-label')) el.setAttribute('aria-label', 'Ouvrir ' + app.name + ' dans la maquette');
   });
 
-  /* ---------------------------------------------------------------------
-     Fréquence cardiaque de la montre pendant la course
-     --------------------------------------------------------------------- */
   const bpm = $('[data-bpm]');
   if (bpm && !reduceMotion) {
     let value = 158;
@@ -406,16 +370,13 @@
     }, 1700);
   }
 
-  /* ---------------------------------------------------------------------
-     Pose de la maquette : entrée, pivot à la souris, bascule au défilement
-     --------------------------------------------------------------------- */
-  let p = 0;               // avancée du défilement sur le premier écran (0 à 1)
+  let p = 0;
   let pointerX = 0;
   let pointerY = 0;
   let lastMove = -1e9;
   let rx = 0;
   let ry = 0;
-  let face = 1;            // 1 : de trois quarts ; plus bas : tournée vers le visiteur (app ouverte)
+  let face = 1;
   let enterStart = 0;
   let raf = 0;
 
@@ -438,7 +399,7 @@
     const enter = 1 - Math.pow(1 - e, 4);
     let tx = pointerX;
     let ty = pointerY;
-    if (now - lastMove > 3200) {        // pas de souris : balancement lent
+    if (now - lastMove > 3200) {
       tx = Math.sin(now / 2700) * 0.42;
       ty = Math.cos(now / 3500) * 0.3;
     }
@@ -472,10 +433,6 @@
     readScroll();
   }
 
-  /* ---------------------------------------------------------------------
-     La scène ne tourne que lorsqu’elle est visible ; dans la fenêtre
-     « Contact », le téléphone passe sur un nouveau message
-     --------------------------------------------------------------------- */
   const zones = $$('[data-video-zone]', document);
   if (zones.length && 'IntersectionObserver' in window) {
     const seen = new Set();
@@ -502,22 +459,17 @@
   }
   document.addEventListener('visibilitychange', run);
 
-  /* ---------------------------------------------------------------------
-     Départ
-     --------------------------------------------------------------------- */
   paintCaption();
   const start = () => {
     if (started) return;
     started = true;
     scene.classList.add('is-ready');
     run();
-    // Les délais d’entrée ne doivent pas retarder les survols ensuite.
     window.setTimeout(() => scene.classList.add('is-live'), reduceMotion ? 0 : 2000);
     window.setTimeout(preload, 900);
     demo(3200);
   };
   if (document.readyState === 'complete') start();
   else window.addEventListener('load', start, { once: true });
-  // Sécurité : la maquette apparaît même si une ressource tarde.
   window.setTimeout(start, 2500);
 })();

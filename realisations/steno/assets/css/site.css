@@ -1,6 +1,3 @@
-/* Sténo — site de l'app. Direction : DIRECTION.md (la page est un mémo ; la phrase se range). */
-
-/* Trois voix (DIRECTION.md, § 4) : la parole (Bricolage Grotesque), la note (Newsreader), la machine (IBM Plex Mono). */
 @font-face{font-family:"Bricolage Titre";src:url("../fonts/bricolage-titre.woff2") format("woff2");font-weight:800;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
 @font-face{font-family:"Bricolage Grotesque";src:url("../fonts/bricolage-texte.woff2") format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
 @font-face{font-family:"Newsreader";src:url("../fonts/newsreader-italique-titre.woff2") format("woff2");font-weight:500;font-style:italic;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
@@ -8,7 +5,6 @@
 @font-face{font-family:"IBM Plex Mono";src:url("../fonts/plex-mono-400.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("../fonts/plex-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
 
-/* ---------- Jetons ---------- */
 :root{
   --papier:#fbfbfd;--papier-2:#f1f1f6;--carte:#fff;--encre:#14121a;--doux:#565363;--pale:#6e6b7c;
   --filet:#e2e2ec;--regle:rgba(86,98,214,.13);--rouge:#d93529;--rouge-texte:#c22b20;--sur-rouge:#fff;
@@ -38,14 +34,11 @@
 .f-decision,.m-decision{--c:var(--f-decision)}.f-question,.m-question{--c:var(--f-question)}.f-idee,.m-idee{--c:var(--f-idee)}
 .f-lieu,.m-lieu{--c:var(--f-lieu)}.f-organisation,.m-organisation{--c:var(--f-organisation)}
 .f-chiffre,.m-chiffre{--c:var(--f-chiffre)}.f-coordonnee,.m-coordonnee{--c:var(--f-coordonnee)}
-/* Un mot relevé dans une phrase soulignée garde la couleur de sa propre famille. */
 .m.m-date{--c:var(--f-date)}.m.m-personne{--c:var(--f-personne)}.m.m-lieu{--c:var(--f-lieu)}.m.m-organisation{--c:var(--f-organisation)}.m.m-chiffre{--c:var(--f-chiffre)}.m.m-coordonnee{--c:var(--f-coordonnee)}
 
-/* ---------- Base ---------- */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:120px}
 body{margin:0;background:var(--papier);color:var(--encre);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
-/* Le bandeau et le pied MTX Studio gardent leurs propres styles : les règles de la page visent main et la barre. */
 main :is(h1,h2,h3,p,ul,ol,dl,dd,figure){margin:0}
 main :is(ul,ol){padding:0;list-style:none}
 a{color:inherit}
@@ -57,7 +50,6 @@ em{font-style:italic}
 
 main{position:relative;max-width:1280px;margin:0 auto;padding:0 var(--gout)}
 .sec{position:relative;padding:clamp(88px,13vw,168px) 0 0}
-/* La première ligne parle (grotesque serrée), la seconde note (italique à empattements, en rouge). */
 main :is(h1,h2){font-family:var(--titre);font-weight:800;letter-spacing:-.035em;text-wrap:balance}
 main :is(h1,h2) em{white-space:nowrap;font-family:var(--note);font-style:italic;font-weight:500;font-size:1.06em;letter-spacing:-.03em;color:var(--rouge-texte)}
 main h2{font-size:clamp(36px,5.4vw,74px);line-height:.98}
@@ -67,7 +59,6 @@ main h2{font-size:clamp(36px,5.4vw,74px);line-height:.98}
 .rec{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--rouge);box-shadow:0 0 0 4px color-mix(in srgb,var(--rouge) 18%,transparent);animation:pouls 1.8s ease-in-out infinite}
 @keyframes pouls{50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--rouge) 0%,transparent);opacity:.72}}
 
-/* Boutons */
 .bouton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;transition:transform .35s var(--courbe),background-color .25s,box-shadow .35s,border-color .25s}
 .bouton .fl{font-size:15px;transition:transform .35s var(--courbe)}
 .bouton:hover .fl{transform:translateX(3px)}
@@ -78,13 +69,11 @@ main h2{font-size:clamp(36px,5.4vw,74px);line-height:.98}
 .bouton-trait:hover{border-color:var(--encre)}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 
-/* Apparitions au défilement (seulement avec JavaScript et sans mouvement réduit) */
 @media (prefers-reduced-motion:no-preference){
   .js [data-apparait]{opacity:0;transform:translateY(22px);transition:opacity .8s var(--courbe),transform .9s var(--courbe);transition-delay:calc(var(--rang,0) * 80ms)}
   .js [data-apparait].vu{opacity:1;transform:none}
 }
 
-/* ---------- Barre : un lecteur dont l'onde avance avec la page ---------- */
 .nav{z-index:100;display:flex;justify-content:center;padding:12px var(--gout) 0;pointer-events:none}
 .nav-in{position:relative;display:flex;align-items:center;gap:6px;width:min(100%,980px);height:54px;padding:0 8px 0 18px;border-radius:999px;overflow:hidden;pointer-events:auto;
   background:var(--verre);-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);
@@ -101,7 +90,6 @@ main h2{font-size:clamp(36px,5.4vw,74px);line-height:.98}
 .nav-onde i{flex:1;min-width:1px;height:calc(var(--h) * 62%);border-radius:2px;background:color-mix(in srgb,var(--encre) 6%,transparent);transition:background-color .3s}
 .nav-onde i.lu{background:color-mix(in srgb,var(--rouge) 22%,transparent)}
 
-/* ---------- La marge du cahier ---------- */
 .marge{display:none}
 @media (min-width:1080px){
   :root{--marge:104px}
@@ -114,12 +102,10 @@ main h2{font-size:clamp(36px,5.4vw,74px);line-height:.98}
   .repere{position:relative}
 }
 
-/* ---------- Héros ---------- */
 .heros{position:relative;display:grid;gap:clamp(40px,6vw,72px);align-items:center;padding:clamp(112px,10.5vw,148px) 0 0}
 .heros::before{content:"";position:absolute;z-index:-1;inset:0 calc(-1 * var(--gout)) -8% calc(-1 * var(--gout) - var(--marge));pointer-events:none;
   background:linear-gradient(var(--regle) 1px,transparent 1px) 0 14px/100% 34px;
   -webkit-mask:linear-gradient(to bottom,transparent 4%,#000 28%,#000 55%,transparent 96%);mask:linear-gradient(to bottom,transparent 4%,#000 28%,#000 55%,transparent 96%)}
-/* Sur deux lignes (téléphone), le point rouge reste sur la première et les lignes s'équilibrent. */
 .surtitre{display:inline-flex;align-items:baseline;gap:12px;color:var(--doux);font:500 12.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-wrap:balance}
 main h1{margin-top:22px;font-size:clamp(54px,15.5vw,104px);line-height:.88;letter-spacing:-.045em}
 .heros .chapo{max-width:44ch}
@@ -131,13 +117,9 @@ main h1{margin-top:22px;font-size:clamp(54px,15.5vw,104px);line-height:.88;lette
 @media (min-width:920px){
   .heros{grid-template-columns:minmax(0,1fr) auto}
   main h1{font-size:clamp(64px,8vw,116px)}
-  /* Le film tient dans le premier écran, même sur un portable. */
   .heros-scene{width:clamp(290px,min(33vw,(100vh - 290px) * .8),430px);margin:0}
 }
 
-/* ---------- Les films ----------
-   Chaque maquette est un film sans son, tourné en clair et en sombre (sources : outils/films/). Le cadre porte
-   l'affiche du thème en fond : elle est là avant le film, et reste seule en mouvement réduit. */
 .film-cadre{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:clamp(26px,3.2vw,40px);background:var(--papier-2) center/cover no-repeat;box-shadow:var(--ombre)}
 .film-cadre::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--filet);pointer-events:none}
 .film-video{display:block;width:100%;height:100%;object-fit:cover}
@@ -147,13 +129,11 @@ main h1{margin-top:22px;font-size:clamp(54px,15.5vw,104px);line-height:.88;lette
 :root[data-theme="dark"] .film-heros .film-cadre{background-image:url("../films/heros-sombre.webp")}
 :root[data-theme="dark"] .film-gestes .film-cadre{background-image:url("../films/gestes-sombre.webp")}
 :root[data-theme="dark"] .film-ile .film-cadre{background-image:url("../films/ile-sombre.webp")}
-/* Lecture et pause */
 .film-jouer{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;background:var(--papier-2);box-shadow:inset 0 0 0 1px var(--filet);font-size:15px;color:var(--encre);transition:transform .3s var(--ressort)}
 .film-jouer:active{transform:scale(.92)}
 .film-jouer .i-lecture,.film:not([data-pause]) .film-jouer .i-pause{display:block}
 .film-jouer .i-pause,.film:not([data-pause]) .film-jouer .i-lecture{display:none}
 .film-cadre .film-jouer{position:absolute;z-index:1;right:12px;bottom:12px;background:var(--verre);-webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6);box-shadow:inset 0 0 0 1px var(--verre-bord),0 6px 16px -6px rgba(0,0,0,.35)}
-/* Chapitres */
 .film-pilote{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px}
 .film-chapitres{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--papier-2);box-shadow:inset 0 0 0 1px var(--filet)}
 .film-chapitres button{position:relative;min-height:38px;padding:0 15px;border-radius:999px;color:var(--doux);font-size:14px;font-weight:500;transition:color .25s,background-color .25s,box-shadow .25s}
@@ -164,7 +144,6 @@ main h1{margin-top:22px;font-size:clamp(54px,15.5vw,104px);line-height:.88;lette
 html:not(.js) :is(.film-pilote,.film-jouer){display:none}
 @media print{.film-jouer,.film-pilote{display:none}}
 
-/* ---------- Le relevé ---------- */
 .rel{display:grid;gap:22px;margin-top:clamp(36px,5vw,60px)}
 @media (min-width:900px){.rel{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:start}.rel-source{position:sticky;top:96px}}
 .rel-onglets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
@@ -187,7 +166,6 @@ html:not(.js) .rel-fond{display:none}
 html:not(.js) .rel-saisie{position:static;height:560px;color:var(--encre);overflow:auto}
 .rel-note{margin-top:14px;color:var(--pale);font-size:13.5px;line-height:1.5;max-width:60ch}
 
-/* Les mots relevés : surlignés (quelques mots) ou soulignés (toute une phrase). Aucun changement de mise en page. */
 .m{border-radius:4px;transition:opacity .3s,background-color .3s,color .3s,text-decoration-color .3s}
 .m-date,.m-personne,.m-lieu,.m-organisation,.m-chiffre,.m-coordonnee{background:color-mix(in srgb,var(--c) 15%,transparent);box-shadow:0 0 0 2px color-mix(in srgb,var(--c) 15%,transparent);color:var(--c)}
 .m-tache,.m-decision,.m-question,.m-idee{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-skip-ink:none}
@@ -234,7 +212,6 @@ html:not(.js) .legende button{pointer-events:none}
 .preuves h3{font:700 21px/1.2 var(--sans);letter-spacing:-.022em}
 .preuves p{margin-top:8px;color:var(--doux);font-size:15.5px;line-height:1.5}
 
-/* ---------- Raccourcis ---------- */
 .ges{display:grid;gap:36px;margin-top:clamp(36px,5vw,60px);align-items:center}
 @media (min-width:900px){.ges{grid-template-columns:minmax(0,1fr) auto;gap:clamp(40px,7vw,110px)}}
 .ges-liste{display:grid;gap:6px}
@@ -250,7 +227,6 @@ html:not(.js) .ges-liste small{max-height:none;opacity:1;margin-top:6px}
 .ges-scene{display:flex;justify-content:center}
 .film-gestes{width:min(100%,420px)}
 @media (min-width:900px){.film-gestes{width:clamp(300px,31vw,420px)}}
-/* En une colonne, le film passe devant la liste : elle change de hauteur à chaque chapitre, lui ne bouge pas. */
 @media (max-width:899px){.ges-scene{order:-1}}
 .ges-liste button::after{content:"";position:absolute;left:64px;right:18px;bottom:0;height:2px;border-radius:2px;background:var(--rouge);transform-origin:left;transform:scaleX(0);opacity:0;transition:opacity .3s}
 .ges-liste [aria-selected="true"]::after{opacity:1;transform:scaleX(var(--p,0))}
@@ -259,11 +235,9 @@ html:not(.js) .ges-liste small{max-height:none;opacity:1;margin-top:6px}
 .actions-liste li{padding:9px 15px;border-radius:12px;background:var(--papier-2);box-shadow:inset 0 0 0 1px var(--filet);font:500 13.5px/1.3 var(--mono);letter-spacing:-.01em}
 .actions-liste li::before{content:"›";margin-right:8px;color:var(--rouge-texte)}
 
-/* ---------- Assistant ---------- */
 .ass{display:grid;gap:18px;margin-top:clamp(36px,5vw,60px)}
 @media (min-width:860px){.ass{grid-template-columns:1fr 1fr}}
 .ass-carte{position:relative;display:flex;flex-direction:column;min-height:440px;padding:22px;border-radius:26px;background:var(--carte);box-shadow:var(--ombre)}
-/* Le liseré d'Apple Intelligence */
 @property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}
 @keyframes tourne{to{--angle:360deg}}
 .ass-carte::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;background:conic-gradient(from var(--angle,0deg),#ff6a3d,#ff3d77,#a05cff,#3d9bff,#3de0c8,#ff6a3d);
@@ -287,7 +261,6 @@ html:not(.js) .ges-liste small{max-height:none;opacity:1;margin-top:6px}
 .ass-feuille{flex:1;padding:18px 20px;border-radius:18px;background:var(--papier-2);font:400 17.5px/1.5 var(--note);white-space:pre-wrap}
 .ass-note{margin-top:16px;color:var(--pale);font-size:13.5px;max-width:70ch}
 
-/* ---------- Vie privée ---------- */
 .circuit{display:grid;gap:0;align-items:stretch;margin-top:clamp(36px,5vw,60px)}
 .circuit-tel{position:relative;padding:26px clamp(18px,3vw,36px) 34px;border-radius:44px;border:2px solid var(--encre);background:var(--carte);box-shadow:var(--ombre)}
 .circuit-nom{margin-bottom:26px;color:var(--pale);font:500 12px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase}
@@ -312,9 +285,7 @@ html:not(.js) .ges-liste small{max-height:none;opacity:1;margin-top:6px}
 }
 @media (max-width:620px){.circuit-etapes small{display:none}.circuit-ico{width:46px;height:46px;font-size:18px}.circuit-etapes::before{top:22px}.circuit-etapes b{font-size:13.5px}.circuit-point{top:calc(26px + 12px + 26px + 17px)}}
 
-/* ---------- Écran d'accueil : widget, thèmes, île ---------- */
 .ecr{display:grid;gap:18px;margin-top:clamp(36px,5vw,60px)}
-/* Le widget occupe une bande entière (widget à gauche, légende à droite) ; thèmes et activité en direct dessous. */
 @media (min-width:860px){
   .ecr{grid-template-columns:1fr 1fr;grid-template-areas:"w w" "t i"}
   .ecr-widget{grid-area:w;flex-direction:row;align-items:center;justify-content:center;gap:clamp(32px,6vw,88px);padding-block:clamp(36px,5vw,64px)}
@@ -366,7 +337,6 @@ html:not(.js) .ecr-theme{display:none}
 
 .film-ile{width:100%}
 
-/* ---------- Questions ---------- */
 .faq{margin-top:clamp(30px,4vw,48px);border-top:1.5px solid var(--encre);max-width:900px}
 .faq details{border-bottom:1px solid var(--filet)}
 .faq summary{position:relative;display:block;padding:22px 52px 22px 0;cursor:pointer;list-style:none;font:700 clamp(20px,2.1vw,25px)/1.25 var(--sans);letter-spacing:-.022em}
@@ -377,7 +347,6 @@ html:not(.js) .ecr-theme{display:none}
 .faq p{max-width:66ch;padding:0 0 26px;color:var(--doux)}
 .faq a{color:var(--rouge-texte);text-underline-offset:3px}
 
-/* ---------- Fin du mémo ---------- */
 .appel{margin:clamp(88px,13vw,168px) 0 clamp(64px,9vw,120px);padding:clamp(40px,7vw,92px) clamp(24px,6vw,88px);border-radius:clamp(28px,4vw,48px);background:var(--rouge);color:var(--sur-rouge);overflow:hidden;isolation:isolate}
 .appel::after{content:"";position:absolute;z-index:-1;right:-4%;bottom:-18%;width:min(58%,560px);aspect-ratio:64/44;background:currentColor;opacity:.09;
   -webkit-mask:url("../img/steno-signe.svg") center/contain no-repeat;mask:url("../img/steno-signe.svg") center/contain no-repeat}
@@ -392,7 +361,6 @@ html:not(.js) .ecr-theme{display:none}
 .appel :focus-visible{outline-color:currentColor}
 @media (min-width:1080px){.appel .repere-t{position:static;margin:0}}
 
-/* ---------- Petits écrans ---------- */
 @media (max-width:860px){
   .nav-liens{display:none}
   .nav-in{padding-left:16px}
@@ -400,7 +368,6 @@ html:not(.js) .ecr-theme{display:none}
 @media (max-width:919px){
   .heros{padding-top:112px}
   .heros-scene{order:2}
-  /* Les lignes du cahier ne passent pas sous le texte courant. */
   .heros::before{-webkit-mask:linear-gradient(to bottom,transparent 1%,#000 6%,#000 16%,transparent 24%);mask:linear-gradient(to bottom,transparent 1%,#000 6%,#000 16%,transparent 24%)}
 }
 @media (max-width:560px){
@@ -409,12 +376,10 @@ html:not(.js) .ecr-theme{display:none}
   .rel-entete .rec{left:8px}
   .rel-fond,.rel-saisie{padding-left:40px;padding-right:14px;font-size:14.5px}
   .rel-notes{padding:14px}
-  /* Le film de l'île est bas : son bouton se fait plus petit pour ne pas mordre sur l'île, la zone tactile reste large. */
   .film-ile .film-jouer{width:36px;height:36px;right:8px;bottom:8px;font-size:13px}
   .film-ile .film-jouer::after{content:"";position:absolute;inset:-6px}
 }
 
-/* ---------- Mouvement réduit ---------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}

@@ -1,7 +1,3 @@
-/* Kompagnion — site de la réalisation. Direction : DIRECTION.md (l'accueil qu'on compose).
-   Fond groupé d'iOS, cartes de widgets, un seul aplat : la couleur d'accent, que le visiteur peut changer.
-   Geist pour le texte, Geist Mono pour ce qui se compte. */
-
 @font-face { font-family: "K Geist"; src: url("../../../../assets/fonts/geist-latin.woff2") format("woff2"); font-weight: 100 900; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "K Geist"; src: url("../../../../assets/fonts/geist-latin-ext.woff2") format("woff2"); font-weight: 100 900; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: "K Geist Mono"; src: url("../../../../assets/fonts/geist-mono-latin.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
@@ -30,7 +26,6 @@
   --c-indigo: #5e5ce6; --c-violet: #bf5af2; --c-cyan: #64d2ff; --c-rouge: #ff453a; --c-gris: #98989d; --c-jaune: #ffd60a;
   color-scheme: dark;
 }
-/* Couleurs d'accent de Réglages : variantes assombries (clair) ou éclaircies (sombre), texte lisible à 4,5:1. */
 :root[data-accent="bleu"] { --accent: #0062d1; }
 :root[data-accent="turquoise"] { --accent: #0b7285; }
 :root[data-accent="vert"] { --accent: #1e7d36; }
@@ -62,7 +57,6 @@ em { font-style: normal; color: var(--accent); transition: color .4s; }
 .evitement { position: absolute; left: 12px; top: -60px; z-index: 300; padding: 10px 16px; border-radius: 12px; background: var(--encre); color: var(--fond); text-decoration: none; font-weight: 600; }
 .evitement:focus { top: 56px; }
 
-/* Barre de la page ========================================================== */
 .barre { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 max(var(--gout), calc((100% - var(--large)) / 2 + var(--gout)));
   background: color-mix(in srgb, var(--fond) 78%, transparent); -webkit-backdrop-filter: blur(20px) saturate(1.8); backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid transparent; transition: border-color .3s; }
@@ -76,7 +70,6 @@ em { font-style: normal; color: var(--accent); transition: color .4s; }
 .barre-cta { min-height: 40px !important; padding: 0 16px !important; font-size: 14.5px !important; }
 @media (max-width: 1020px) { .barre-nav { display: none; } .barre-cta { margin-left: auto; } }
 
-/* Boutons =================================================================== */
 .bouton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 16px; letter-spacing: -.015em; transition: transform .3s var(--ressort), background-color .4s, color .4s, box-shadow .3s; }
 .bouton:active { transform: scale(.96); }
 .bouton-accent { background: var(--accent); color: var(--sur-accent); }
@@ -86,7 +79,6 @@ em { font-style: normal; color: var(--accent); transition: color .4s; }
 @media (hover: hover) { .bouton:hover .fl { transform: translateX(3px); } }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* Repères, titres =========================================================== */
 .repere { display: flex; align-items: center; gap: 10px; color: var(--doux); font: 500 13px/1.3 var(--mono); letter-spacing: .02em; text-transform: uppercase; }
 .repere::before { content: ""; width: 8px; height: 8px; border-radius: 3px; background: var(--accent); transition: background-color .4s; }
 .hero .repere::before { display: none; }
@@ -103,20 +95,17 @@ h2 { font-size: clamp(36px, 5.2vw, 72px); margin-top: 14px; }
 .chapo a { color: var(--encre); text-underline-offset: 3px; }
 .note { max-width: 52em; margin-top: 28px; color: var(--doux); font-size: 15px; }
 
-/* Sections ================================================================== */
 main { overflow-x: clip; }
 .section { max-width: var(--large); margin: 0 auto; padding: clamp(80px, 11vw, 150px) var(--gout) 0; }
 .entete { max-width: 860px; margin-bottom: clamp(36px, 5vw, 64px); }
 html.js [data-apparait] { opacity: 0; translate: 0 18px; transition: opacity .7s var(--courbe), translate .7s var(--courbe); }
 html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 
-/* Téléphone (cadre CSS) ===================================================== */
 .tel { position: relative; width: 100%; aspect-ratio: 660 / 1435; padding: 2.4%; border-radius: 15% / 7%;
   background: linear-gradient(145deg, #5d5e63, #1c1c1f 30%, #141416 60%, #4a4b50); box-shadow: var(--ombre-forte), inset 0 0 0 1px rgba(255, 255, 255, .14); }
 .tel img { width: 100%; height: 100%; object-fit: cover; border-radius: 12.6% / 5.8%; background: #000; }
 .tel::after { content: ""; position: absolute; top: 3.3%; left: 50%; width: 30%; height: 3.2%; border-radius: 999px; background: #000; translate: -50% 0; }
 
-/* Héros ===================================================================== */
 .hero { position: relative; max-width: var(--large); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--gout) 0; display: grid; gap: 48px; align-items: center; }
 @media (min-width: 960px) { .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(40px, 5vw, 80px); } }
 .hero .actions { margin-top: 32px; }
@@ -140,7 +129,6 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .chiffres dd { margin-top: 8px; color: var(--doux); font-size: 14.5px; line-height: 1.3; }
 @media (max-width: 720px) { .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* Atelier : l'accueil à composer ============================================ */
 .atelier { display: grid; gap: clamp(28px, 4vw, 64px); align-items: start; }
 @media (min-width: 900px) { .atelier { grid-template-columns: auto minmax(0, 1fr); } .atelier-cote { position: sticky; top: 100px; } }
 .atelier-tel { justify-self: center; width: min(100%, 400px); }
@@ -203,7 +191,6 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .w-puces small { opacity: .6; font-weight: 500; }
 .w-raccourcis span { padding: 7px 12px; border-radius: 12px; background: var(--carte-2); font-size: 13px; font-weight: 600; box-shadow: inset 0 0 0 1px var(--filet); }
 
-/* Mode édition : le tremblement d'iOS, la pastille −, la carte que l'on porte. */
 .w-retirer { position: absolute; z-index: 3; top: -7px; left: -7px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--c-gris); color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
 .w-retirer[hidden] { display: none; }
 .w-retirer::before { content: ""; position: absolute; inset: -9px; }
@@ -221,7 +208,6 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .w.arrive { animation: arrive .45s var(--ressort) both !important; }
 @keyframes arrive { from { scale: .6; opacity: 0; } }
 
-/* À côté du téléphone : étapes, catalogue, accents. */
 .etapes { counter-reset: e; display: grid; gap: 10px; }
 .etapes li { counter-increment: e; position: relative; min-height: 30px; padding: 3px 0 0 46px; color: var(--doux); font-size: 16px; }
 .etapes li::before { content: counter(e); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: var(--carte); box-shadow: var(--ombre); color: var(--encre); font: 600 14px/1 var(--mono); }
@@ -246,7 +232,6 @@ html.js [data-apparait].vu { opacity: 1; translate: 0 0; }
 .pastille[aria-pressed="true"]::before { box-shadow: 0 0 0 3px var(--carte), 0 0 0 5px var(--p); transform: scale(.88); }
 html:not(.js) .ecran-bouton, html:not(.js) .etapes, html:not(.js) .accents { display: none; }
 
-/* Les quatre espaces ======================================================== */
 .onglets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 6px; border-radius: 26px; background: var(--fond-2); }
 .onglet { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 14px; border-radius: 20px; text-align: left; transition: background-color .3s, box-shadow .3s; }
 .onglet svg { flex: none; width: 34px; height: 34px; padding: 8px; border-radius: 11px; background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); }
@@ -271,7 +256,6 @@ html:not(.js) .volet + .volet { margin-top: 64px; }
 .liste li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 10px; border-radius: 3px; background: var(--accent); transition: background-color .4s; }
 .liste b { color: var(--encre); font-weight: 600; }
 
-/* Factures ================================================================== */
 .facture { display: grid; gap: 24px; align-items: center; }
 @media (min-width: 1080px) { .facture { grid-template-columns: minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, .55fr); } }
 @media (min-width: 720px) and (max-width: 1079px) { .facture { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); } .facture-tels { display: none; } }
@@ -320,7 +304,6 @@ html:not(.js) .volet + .volet { margin-top: 64px; }
 .feuille .maj { animation: maj .6s var(--courbe); }
 @keyframes maj { from { background: color-mix(in srgb, #584feb 22%, transparent); } }
 
-/* Tags ====================================================================== */
 .tri { display: grid; gap: 24px; align-items: start; }
 @media (min-width: 900px) { .tri { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } .tri-recherche { position: sticky; top: 100px; } }
 .champ { display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 18px; border-radius: 18px; background: var(--carte); box-shadow: var(--ombre); }
@@ -344,7 +327,6 @@ html:not(.js) .volet + .volet { margin-top: 64px; }
 @media (max-width: 520px) { .tri-liste i { display: none; } }
 .tri-vide { padding: 24px; border-radius: 18px; color: var(--doux); text-align: center; box-shadow: inset 0 0 0 1.5px var(--filet); }
 
-/* Comparer ================================================================== */
 .tableau-cadre { overflow-x: auto; border-radius: 26px; background: var(--carte); box-shadow: var(--ombre); }
 .tableau-cadre:focus-visible { outline-offset: 4px; }
 .comparer { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px; }
@@ -360,7 +342,6 @@ html:not(.js) .volet + .volet { margin-top: 64px; }
 .comparer .oui::before, .comparer .non::before { content: ""; display: inline-block; width: 8px; height: 8px; margin: 0 8px 1px 0; border-radius: 50%; background: var(--c-vert); }
 .comparer .non::before { background: var(--c-gris); }
 
-/* Le film (habillage, lecteur commun) ======================================= */
 .pres { display: grid; gap: 28px; align-items: center; }
 @media (min-width: 900px) { .pres { grid-template-columns: minmax(0, 1fr) auto; gap: clamp(40px, 7vw, 110px); } }
 @media (max-width: 899px) { .pres-film { order: -1; } }
@@ -393,7 +374,6 @@ html:not(.js) .pres-chapitres { display: none; }
   .pres-chapitres button::after { display: none; }
 }
 
-/* Vos données =============================================================== */
 .faits { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .faits li { padding: 24px; border-radius: 26px; background: var(--carte); box-shadow: var(--ombre); }
 .faits-ic { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-doux); color: var(--accent); transition: color .4s; }
@@ -401,7 +381,6 @@ html:not(.js) .pres-chapitres { display: none; }
 .faits h3 { margin-top: 18px; font-size: 21px; font-weight: 650; letter-spacing: -.03em; }
 .faits p { margin-top: 6px; color: var(--doux); }
 
-/* Questions ================================================================= */
 .faq { display: grid; gap: 8px; max-width: 860px; }
 .faq details { border-radius: 22px; background: var(--carte); box-shadow: var(--ombre); }
 .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 14px 20px; cursor: pointer; list-style: none; }
@@ -414,13 +393,11 @@ html:not(.js) .pres-chapitres { display: none; }
 .plus::after { rotate: 90deg; }
 details[open] .plus::after { rotate: 0deg; }
 
-/* Appel ===================================================================== */
 .appel { max-width: 900px; margin: 0 auto; padding: clamp(100px, 13vw, 170px) var(--gout) clamp(80px, 10vw, 130px); text-align: center; display: grid; justify-items: center; }
 .appel-icone { width: 108px; height: 108px; border-radius: 24px; box-shadow: var(--ombre-forte); }
 .appel h2 { margin-top: 28px; font-size: clamp(34px, 4.6vw, 60px); }
 .appel .actions { justify-content: center; margin-top: 30px; }
 
-/* Mouvement réduit ========================================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

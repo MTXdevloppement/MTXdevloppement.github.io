@@ -1,8 +1,3 @@
-/* MTX Studio — copier l’adresse du studio, sur toutes les pages.
-   Un lien qui affiche l’adresse en clair, ou un bouton [data-copy], place
-   l’adresse dans le presse-papiers et affiche une bulle « Adresse copiée »
-   avec un raccourci vers la messagerie (message pré-rempli du lien).
-   Sans JavaScript, ces liens ouvrent simplement la messagerie. */
 (() => {
   'use strict';
 
@@ -54,7 +49,6 @@
     bulle.innerHTML = '<span class="mtx-copie-coche" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span>'
       + '<span class="mtx-copie-texte"><b>Adresse copiée</b><span></span></span>'
       + '<a class="mtx-copie-mail" tabindex="-1">Ouvrir Mail</a>';
-    // La bulle reste affichée tant que la souris ou le focus est dessus.
     bulle.addEventListener('pointerenter', () => clearTimeout(minuteur));
     bulle.addEventListener('pointerleave', programmerFermeture);
     bulle.addEventListener('focusin', () => clearTimeout(minuteur));
@@ -79,7 +73,6 @@
     const lien = bulle.querySelector('.mtx-copie-mail');
     lien.href = mailto || 'mailto:' + adresse;
     lien.tabIndex = 0;
-    // Relance l’animation si la bulle était déjà ouverte.
     bulle.classList.remove('est-visible');
     void bulle.offsetWidth;
     bulle.classList.add('est-visible');
@@ -104,7 +97,6 @@
     }
   };
 
-  // Le libellé d’un bouton [data-copy-text] passe à « Adresse copiée » un instant.
   const libelle = (bouton) => {
     const el = bouton.querySelector('[data-copy-text]');
     if (!el) return;
@@ -125,8 +117,6 @@
       adresse = cible.dataset.copy;
       mailto = cible.dataset.copyMailto || null;
     } else {
-      // Seuls les liens qui affichent l’adresse elle-même la copient ;
-      // les boutons d’action (« Écrire au studio »…) ouvrent la messagerie.
       const texte = cible.textContent.trim();
       if (!ADRESSE.test(texte)) return;
       adresse = texte;

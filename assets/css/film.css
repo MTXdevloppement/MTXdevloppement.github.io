@@ -1,14 +1,9 @@
-/* MTX Studio — lecteur commun des films de présentation (assets/js/film.js).
-   Ce fichier ne porte que la mécanique : le cadre, les commandes posées sur l'image et leurs états. Couleurs, formes et
-   place du film viennent de la feuille de chaque réalisation (realisations/<site>/assets/css/film.css). */
-
 [data-mtx-film] [hidden] { display: none !important; }
 
 .mtx-film-cadre { position: relative; overflow: hidden; isolation: isolate; background: #000; -webkit-tap-highlight-color: transparent; }
 .mtx-film-video { position: relative; z-index: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 [data-mtx-film][data-pret] .mtx-film-video { cursor: pointer; }
 
-/* Commandes : le son à gauche, lecture et plein écran à droite. */
 .mtx-film-commandes {
   position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
   display: flex; align-items: flex-end; gap: 8px;
@@ -26,7 +21,6 @@
 }
 .mtx-film-commandes svg { display: block; width: 20px; height: 20px; flex: none; }
 
-/* Une icône par état. */
 [data-mtx-film] :is(.mtx-i-son, .mtx-i-pause, .mtx-i-revoir, .mtx-i-reduire) { display: none; }
 [data-mtx-film][data-son] .mtx-i-muet { display: none; }
 [data-mtx-film][data-son] .mtx-i-son { display: block; }
@@ -37,22 +31,18 @@
 [data-mtx-film][data-plein] .mtx-i-plein { display: none; }
 [data-mtx-film][data-plein] .mtx-i-reduire { display: block; }
 
-/* « Avec le son » : une fois le film choisi, il ne reste que l'icône. */
 [data-mtx-film][data-regarde] .mtx-film-libelle { display: none; }
 
-/* Pendant le film, les commandes s'effacent quand rien ne bouge. */
 [data-mtx-film][data-calme] .mtx-film-commandes { opacity: 0; }
 [data-mtx-film][data-calme] .mtx-film-commandes > * { pointer-events: none; }
 [data-mtx-film][data-calme] .mtx-film-cadre, [data-mtx-film][data-calme] .mtx-film-video { cursor: none; }
 
-/* Fil de lecture, au ras du cadre. */
 .mtx-film-fil {
   position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; height: 3px;
   transform-origin: left; transform: scaleX(var(--p, 0));
   pointer-events: none;
 }
 
-/* Plein écran (ordinateur, iPad) : le film entier, sur fond noir. */
 .mtx-film-cadre:fullscreen {
   width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important;
   aspect-ratio: auto !important; border-radius: 0 !important; background: #000;

@@ -1,4 +1,3 @@
-
 (() => {
   'use strict';
 
@@ -351,8 +350,6 @@
   affichesVideos();
   brancherVideos();
 
-  // Scène « Ouvrir » : le cadre de sélection passe d'un site de la bibliothèque à l'autre, et l'étiquette du
-  // fichier suit. À l'arrêt hors de l'écran ; en mouvement réduit, le cadre reste sur le premier site.
   const sceneOuvrir = $('[data-scene-ouvrir]');
   if (sceneOuvrir && !reduit() && 'IntersectionObserver' in window) {
     const sites = ['atelier-lune', 'cafe-rivage', 'nuits-claires'];

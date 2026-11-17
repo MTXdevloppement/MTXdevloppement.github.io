@@ -1,4 +1,3 @@
-// Knowledge AI — interactions de la page.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -14,8 +13,6 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   if (suivi) liens.forEach((a) => { const s = $(a.getAttribute('href')); if (s) suivi.observe(s); });
 
-  // -------------------------------------------------------------------------------------------
-  // Le premier écran : une recherche complète, de la question à la réponse vérifiée.
   const SOURCES = [
     ['Traité de Verdun', 'Wikipédia · Contenu'],
     ['Francie occidentale', 'Wikipédia · Introduction'],
@@ -24,7 +21,6 @@
     ['Philippe II Auguste', 'Wikipédia · Titulature'],
     ['Traité de Turin (1860)', 'Wikipédia · Wikidata'],
   ];
-  // La réponse, découpée comme un flux : du texte, et {n} pour une citation.
   const REPONSE = [
     ['h', 'Une construction progressive'],
     ['p', 'La France ne naît pas d’un seul événement. En 843, le traité de Verdun partage l’empire carolingien et confie sa partie occidentale à Charles le Chauve {1}. Cette Francie occidentale est le noyau du futur royaume {2}.'],
@@ -86,7 +82,7 @@
           app.classList.add('est-fini');
           await attendre(7000, j);
         }
-      } catch { /* recherche interrompue */ }
+      } catch {  }
     };
     if (calme) { etapes.forEach((e) => e.classList.add('est-fait')); ecrireReponse(0, true); app.classList.add('est-fini'); }
     else {
@@ -96,8 +92,6 @@
     }
   }
 
-  // -------------------------------------------------------------------------------------------
-  // La chaîne : le trait bleu descend avec la lecture.
   const chaine = $('[data-chaine]');
   if (chaine) {
     const maillons = $$('.maillon', chaine);
@@ -114,9 +108,6 @@
     avancer();
   }
 
-  // -------------------------------------------------------------------------------------------
-  // Vérification des citations : la règle de verification.py, rejouée ici.
-  // Part des mots porteurs de sens d'une phrase qu'on retrouve dans le passage qu'elle cite.
   const verif = $('[data-verif]');
   if (verif) {
     const PASSAGES = [
@@ -159,8 +150,6 @@
     choisir(0);
   }
 
-  // -------------------------------------------------------------------------------------------
-  // La carte des connaissances : nœuds qui respirent, voisins éclairés au survol.
   const graphe = $('[data-graphe]');
   if (graphe) {
     const N = [

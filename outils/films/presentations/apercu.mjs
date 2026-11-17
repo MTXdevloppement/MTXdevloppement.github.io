@@ -1,5 +1,3 @@
-// Planche d'aperçu d'un film : quelques instants photographiés, pour relire la mise en page sans tout tourner.
-//   node outils/films/presentations/apercu.mjs <film> <sortie.png> <t1,t2,…> [colonnes]
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
@@ -18,7 +16,6 @@ await page.setViewportSize({ width: l, height: h });
 const ts = liste.split(',').map(Number);
 const images = [];
 for (const t of ts) { await page.evaluate((t) => window.film.aller(t), t); images.push((await page.screenshot({ type: 'jpeg', quality: 80 })).toString('base64')); }
-// Assemblage dans la page elle-même (canvas), réduit de moitié.
 const c = Number(cols), r = Math.ceil(ts.length / c), w = l / 2, hh = h / 2;
 const png = await page.evaluate(async ({ images, c, r, w, hh, ts }) => {
   const cv = document.createElement('canvas'); cv.width = c * w + (c - 1) * 6; cv.height = r * hh + (r - 1) * 6;

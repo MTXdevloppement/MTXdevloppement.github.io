@@ -1,8 +1,3 @@
-/* Space — le film de présentation (9:16, 30 s, avec musique originale), entre le héros et « La règle ».
-   Lecteur commun : ../../assets/css/film.css et ../../assets/js/film.js. Ici : la place du film, ses chapitres et
-   l'habillage des commandes. Le film est vertical, au format story : il tient dans la hauteur de l'écran, à droite
-   du texte sur ordinateur, sous le texte sur téléphone. */
-
 .presentation { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 .presentation-texte { display: grid; gap: 4px; align-content: start; }
 .presentation-film { --mtx-film-marge: 12px; justify-self: center; width: min(100%, 420px, (100svh - 140px) * 9 / 16); margin: 0; }
@@ -16,7 +11,6 @@
   .presentation-note { grid-column: 1 / span 6; }
 }
 
-/* Commandes posées sur le film : toujours sombres et translucides, lisibles sur toutes les images. */
 .presentation-film .mtx-film-commandes button {
   height: 44px; border-radius: 22px;
   background: rgb(10 10 12 / 66%); color: #f5f5f7;
@@ -33,7 +27,6 @@
 .presentation-note { max-width: 62em; margin-top: 16px; color: var(--pale); font-size: 14.5px; line-height: 1.5; }
 html:not(.js) .presentation-chapitres { display: none; }
 
-/* Les chapitres : le temps, la scène ; celle en cours prend la couleur du site, avec son avancement. */
 .presentation-chapitres { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--filet); }
 .presentation-chapitres li { border-bottom: 1px solid var(--filet); }
 .presentation-chapitres button {
@@ -45,12 +38,10 @@ html:not(.js) .presentation-chapitres { display: none; }
 .presentation-chapitres button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--or); transform-origin: left; transform: scaleX(var(--p, 0)); opacity: 0; transition: opacity .25s; }
 .presentation-chapitres [aria-current="true"] { color: var(--encre); }
 .presentation-chapitres [aria-current="true"] .chiffre { color: var(--or); }
-/* En clair, la couleur d'accent est trop pâle pour un texte : le repère passe à l'encre. */
 :root:not([data-theme="dark"]) .presentation-chapitres [aria-current="true"] .chiffre { color: var(--encre); }
 .presentation-chapitres [aria-current="true"]::after { opacity: 1; }
 @media (hover: hover) { .presentation-chapitres button:hover { color: var(--encre); } }
 
-/* Téléphone et tablette : une rangée de pastilles à faire glisser, sous le film. */
 @media (max-width: 999px) {
   .presentation-chapitres { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; margin-inline: calc(var(--marge) * -1); padding: 4px var(--marge) 6px; scroll-padding-inline: var(--marge); border: 0; }
   .presentation-chapitres::-webkit-scrollbar { display: none; }

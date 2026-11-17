@@ -5,8 +5,7 @@
 <title>Film — Mue</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="kit.css">
-<style>
-@font-face { font-family: "Mue Gabarito"; src: url("../../../realisations/mue/assets/fonts/gabarito.woff2") format("woff2"); font-weight: 400 900; }
+<style>@font-face { font-family: "Mue Gabarito"; src: url("../../../realisations/mue/assets/fonts/gabarito.woff2") format("woff2"); font-weight: 400 900; }
 @font-face { font-family: "Mue Hanken"; src: url("../../../realisations/mue/assets/fonts/hanken.woff2") format("woff2"); font-weight: 100 900; }
 .scene { --fond: #121117; --encre: #f1eff6; --doux: rgb(241 239 246 / 70%); --pale: rgb(241 239 246 / 46%); --accent: #9b86ff;
   --titre: "Mue Gabarito", sans-serif; --texte: "Mue Hanken", sans-serif; --titre-graisse: 750; --titre-espace: -.035em; }
@@ -23,8 +22,6 @@
 .nom-fichier { padding: 3px 10px; border-radius: 8px; }
 .choisi .nom-fichier { background: #2e6ef7; }
 .roue { position: absolute; z-index: 3; border-radius: 50%; overflow: hidden; box-shadow: 0 40px 90px -20px rgb(0 0 0 / 70%); }
-/* Dans les captures (940 px), la roue est centrée et fait 364 px de rayon : l'image est agrandie pour que le cercle
-   du cadre tombe juste à l'intérieur de la roue, sans laisser voir le fond d'écran. */
 .roue img { position: absolute; left: -15%; top: -15%; width: 130%; height: 130%; max-width: none; }
 .roue-c { clip-path: circle(46% at 50% 50%); }
 .puce { --puce-fond: rgb(30 29 38 / 92%); --puce-encre: #f1eff6; box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), 0 20px 50px -18px rgb(0 0 0 / 70%); font-size: 28px; }
@@ -40,19 +37,17 @@
 <div class="scene" id="scene"></div>
 <script src="../moteur.js"></script>
 <script src="kit.js"></script>
-<script>
-const M = 240 / 112;               // une mesure à 112 battements par minute
+<script>const M = 240 / 112;
 const f = Film({ duree: 16 * M });
 const scene = document.getElementById('scene');
 const K = Kit(f, scene);
 const I = (n) => `img/mue/${n}.webp`;
 K.fond({ halos: [{ c: 'rgb(124 108 255 / 35%)', x: 1500, y: 200, taille: 1300, v: 0.06 }, { c: 'rgb(255 138 107 / 22%)', x: 300, y: 950, taille: 1100, v: 0.08, p: 1.5 }] });
-const S = (n) => n * M;            // instant du début de la mesure n
+const S = (n) => n * M;
 
 const fichier = (parent, ext, nom, o) => K.place(K.el('div', 'fichier', parent, `<div class="page"><span>${ext}</span></div><span class="nom-fichier">${nom}</span>`), o);
 const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent, `<img src="${I(img)}" alt="">`), o); return r; };
 
-// 1 — Glissez, touchez une touche, c'est converti (mesures 0 → 2)
 {
   const p = K.plan(null, 5);
   const t1 = K.titre(p, ['Glissez.'], { x: 120, y: 250, taille: 132 });
@@ -75,7 +70,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   f.piste(sortie, [3.35, { o: 0, s: 0.6, y: 20 }], [3.75, { o: 1, s: 1, y: 0 }, 'ressort']);
 }
 
-// 2 — Une touche par intention : trois roues (mesures 2 → 4)
 {
   const p = K.plan(null, 5);
   K.sequence(p, S(2) - 0.1, S(4), { entree: 'rien', sortie: 'fondu' });
@@ -94,7 +88,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   });
 }
 
-// 3 — Ce qui entre, ce qui en sort (mesures 4 → 6)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Ce qui entre.', 'Ce qui en sort.'], { x: 120, y: 170, taille: 104 });
@@ -110,7 +103,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   f.piste(pu, [S(4) + 1.4, { o: 0, y: 20 }], [S(4) + 1.9, { o: 1, y: 0 }, 'ressort'], [S(6) - 0.5, { o: 1 }], [S(6), { o: 0 }, 'douce']);
 }
 
-// 4 — Compresser, poser sur un fond, retoucher (mesures 6 → 8)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Compresser, poser sur', 'un fond, retoucher.'], { x: 120, y: 90, taille: 84 });
@@ -125,7 +117,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   f.piste(pu, [S(7), { o: 0, y: 20 }], [S(7) + 0.5, { o: 1, y: 0 }, 'ressort'], [S(8) - 0.5, { o: 1 }], [S(8), { o: 0 }, 'douce']);
 }
 
-// 5 — Pas de fenêtre : bannières, étagère, barre des menus (mesures 8 → 10)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['Mue ne s’ouvre pas.', '<em>Il apparaît.</em>'], { x: 120, y: 190, taille: 84 });
@@ -137,7 +128,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   [[hud, 0.3], [bar, 0.8], [eta, 1.2]].forEach(([w, d]) => f.piste(w, [S(8) + d, { o: 0, y: 80, s: 0.92 }], [S(8) + d + 0.7, { o: 1, y: 0, s: 1 }, 'ressort'], [S(10) - 0.5, { o: 1 }], [S(10), { o: 0, y: -50 }, 'entree']));
 }
 
-// 6 — L'Atelier, pour ceux qui préfèrent cliquer (mesures 10 → 12)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['L’Atelier, pour ceux', 'qui préfèrent cliquer.'], { x: 120, y: 110, taille: 84 });
@@ -154,7 +144,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   });
 }
 
-// 7 — La roue se règle comme on l'aime (mesures 12 → 14)
 {
   const p = K.plan(null, 5);
   const t = K.titre(p, ['La roue se règle', 'comme on l’aime.'], { x: 0, y: 80, taille: 96, align: 'center', style: { right: '0' } });
@@ -172,7 +161,6 @@ const roue = (parent, img, o) => { const r = K.place(K.el('div', 'roue', parent,
   });
 }
 
-// 8 — Fin (mesures 14 → 16)
 {
   const p = K.plan(null, 8);
   K.fin(p, { icone: '../../../realisations/mue/assets/img/icone-512.webp', nom: 'Mue', ligne: 'Convertir, retoucher et ranger ses fichiers d’un seul geste.', t: S(14) + 0.1 });

@@ -1,11 +1,3 @@
-// Tourne un film de présentation image par image : Chromium (Playwright) ouvre la page du film, avance le temps
-// avec window.film.aller(t) et photographie chaque image ; les images partent directement dans ffmpeg (aucun
-// fichier intermédiaire), qui écrit un original presque sans perte. L'encodage pour le web se fait ensuite
-// (fabriquer.sh), à partir de cet original et de la musique.
-//
-//   node outils/films/presentations/filmer.mjs <film> <sortie.mkv> [--de 0] [--a 36] [--ips 30]
-//
-// Serveur local ouvert à la racine du site (python3 -m http.server 8765). Variable FILMS_URL pour une autre adresse.
 import { createRequire } from 'module';
 import { spawn } from 'child_process';
 const require = createRequire(import.meta.url);
@@ -28,7 +20,6 @@ await page.setViewportSize({ width: l, height: h });
 const de = opt('de', 0), a = Math.min(opt('a', duree), duree);
 const n = Math.round((a - de) * ips);
 
-// Original : H.264 4:4:4 à qualité quasi transparente, matrice BT.709 écrite explicitement.
 const ff = spawn('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'image2pipe', '-framerate', String(ips), '-i', '-',
   '-vf', 'scale=out_color_matrix=bt709:out_range=tv,format=yuv444p', '-c:v', 'libx264', '-preset', 'fast', '-crf', '10',
   '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-color_range', 'tv', sortie], { stdio: ['pipe', 'inherit', 'inherit'] });

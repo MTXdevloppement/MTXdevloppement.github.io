@@ -1,4 +1,3 @@
-// Mue — interactions de la page (le geste du premier écran est dans roue.js).
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -13,7 +12,6 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   if (suivi) liens.forEach((a) => { const s = $(a.getAttribute('href')); if (s) suivi.observe(s); });
 
-  // Onglets génériques (flèches gauche/droite, focus suivi).
   const onglets = (boutons, montrer) => {
     const choisir = (i, focus) => {
       boutons.forEach((b, k) => { b.setAttribute('aria-selected', String(k === i)); b.tabIndex = k === i ? 0 : -1; });
@@ -30,7 +28,6 @@
     return choisir;
   };
 
-  // Les trois roues : aussi au clavier, avec ⇧, ⌘ ou ⌃ seuls (le geste réel de Mue).
   const trio = $('[data-trio]');
   if (trio) {
     const panneaux = $$('.trio-panneau', trio);
@@ -46,7 +43,6 @@
     });
   }
 
-  // L'Atelier : trois vues de la fenêtre.
   const atelier = $('[data-atelier]');
   if (atelier) {
     const vues = $$('.vue', atelier);
@@ -58,7 +54,6 @@
     vues.forEach((v) => v.querySelectorAll('img').forEach((im) => im.addEventListener('load', ajuster)));
   }
 
-  // Réglages › Roue : l'aperçu suit les choix, comme dans l'app.
   const form = $('[data-reglages]'), apercu = $('[data-roue-apercu]');
   if (form && apercu && window.MueRoue) {
     const sombre = () => document.documentElement.dataset.theme !== 'light';

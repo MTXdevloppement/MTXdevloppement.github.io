@@ -1,6 +1,75 @@
-# MTX Studio — direction artistique de l’accueil
+# MTX Studio — direction artistique
 
-Le premier écran du site est une maquette interactive : un iPhone et une Apple Watch qui présentent les apps
+## 0. Architecture : un accueil qui aiguille, trois pôles qui ont chacun leur site
+
+Le visiteur arrive sur mtx-developpement.fr et choisit d’abord ce qu’il veut faire faire. Chaque pôle a son propre
+site, intégré au domaine : sa couleur, sa navigation locale, ses pages, son appel à l’action.
+
+| Adresse | Rôle |
+| --- | --- |
+| `/` | Accueil-aiguillage : trois portes (Sites internet, Applications, IA), les dix réalisations, le studio, les questions, le contact |
+| `/sites-internet/` | Pôle Web : vue d’ensemble (pour qui, création, inclus, tarifs en bref, réalisations, méthode, questions) |
+| `/sites-internet/tarifs/` | Formules, options, coûts annexes, maintenance, paiement, comparatif, simulateur de devis (`#devis`) |
+| `/sites-internet/refonte/` | Refonte : signes, audit gratuit, avant/après, ce qui est conservé, migration, questions |
+| `/applications/` | Pôle Apps : la scène iPhone et Apple Watch (ci-dessous), ce que le studio crée, réalisations, méthode, budget |
+| `/intelligence-artificielle/` | Pôle IA : réponse sourcée à vérifier, cas d’usage, données, réalisations, méthode, budget |
+
+**Ne pas perdre le client.**
+
+- La barre globale est la même partout. Elle porte le logo (retour à l’accueil), les trois pôles (le pôle en cours est
+  marqué) et le contact.
+- Sous elle, une barre locale collante porte la couleur et le nom du pôle, ses rubriques et son appel à l’action. C’est le
+  principe de la navigation locale des pages produit d’Apple.
+- Chaque pied de page liste les trois pôles.
+
+**Idée directrice : le X est un carrefour.** Le X du logo est l’endroit où les chemins se croisent, et son dégradé
+donne une couleur à chaque branche. Sur l’accueil, les trois portes partent de ce croisement. Chaque porte montre du
+vrai travail du studio :
+
+- une vraie capture de site dans un navigateur ;
+- les vraies icônes des apps ;
+- une réponse sourcée, comme le fait Knowledge AI.
+
+**Couleurs des pôles.** Ce sont des segments du dégradé du X. On les emploie en petites touches (pastille, filet, nom du
+pôle, états), jamais en grands aplats. Les variantes « encre » sont réservées au texte et ont un contraste vérifié
+(≥ 5,4:1 sur le papier, ≥ 9:1 en sombre).
+
+| Pôle | Pastille | Encre clair | Encre sombre |
+| --- | --- | --- | --- |
+| Sites internet | `#2997ff` | `#0a5bc4` | `#6cb4ff` |
+| Applications | `#ffb86b` | `#a14a00` | `#ffbd7a` |
+| IA | `#a78bfa` | `#6a42d6` | `#c2adff` |
+
+**Typographies.** Geist et Geist Mono (SIL Open Font License), hébergées sur le site :
+
+- aucune requête vers un serveur tiers, ce qui va dans le sens du RGPD et de la vitesse promis aux clients ;
+- une licence claire ;
+- un seul fichier variable pour toutes les graisses.
+
+Geist Mono sert à ce qui se compte : prix, étapes, délais.
+
+**Signatures par page.**
+
+- Accueil : la porte survolée ou ciblée au clavier s’ouvre, et sa miniature s’anime.
+- Passage d’une page à l’autre : la pastille et le nom du pôle glissent jusqu’à la barre locale, grâce aux transitions
+  de vue entre documents (amélioration progressive).
+- Sites internet : on ouvre un vrai site du studio dans le navigateur et le téléphone de la vitrine.
+- Tarifs : l’interrupteur Création / Refonte change tous les prix.
+- Refonte : un comparateur avant / après manipulé par le visiteur, sans balayage automatique.
+- IA : toucher une citation surligne le passage de la source.
+
+En mouvement réduit, on n’a aucun déplacement continu, et seuls les états finaux restent.
+
+**Réaliste.** On n’affiche ni faux avis, ni faux logos clients, ni chiffres non mesurés. Les exemples fictifs sont
+annoncés comme tels. Les coûts annexes sont écrits (domaine, hébergement après la première année, plateforme
+e-commerce, compte Apple Developer, consommation d’IA).
+
+---
+
+## Scène du pôle Applications (ancien premier écran de l’accueil)
+
+
+Le premier écran du pôle Applications (`/applications/`) est une maquette interactive : un iPhone et une Apple Watch qui présentent les apps
 du studio.
 
 ## 1. Idée directrice : l’écran d’accueil du studio

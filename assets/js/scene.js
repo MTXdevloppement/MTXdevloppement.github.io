@@ -101,6 +101,16 @@
     },
   };
   const ORDER = ['gorun', 'space', 'viewer', 'triade', 'steno', 'kompagnion'];
+  // Chemins écrits depuis la racine du site : la scène peut vivre dans un sous-dossier
+  // (data-racine="../" sur la page Applications).
+  const ROOT = scene.dataset.racine || '';
+  if (ROOT) {
+    Object.values(APPS).forEach((app) => {
+      ['site', 'icon', 'base'].forEach((k) => {
+        if (app[k] && !/^(mailto:|https?:|\/)/.test(app[k])) app[k] = ROOT + app[k];
+      });
+    });
+  }
 
   let current = null;       // app ouverte
   let source = null;        // icône d’où part le zoom

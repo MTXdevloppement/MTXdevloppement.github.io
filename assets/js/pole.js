@@ -49,7 +49,7 @@
      --------------------------------------------------------------------- */
   const show = $('[data-show]');
   if (show) {
-    const tabs = $$('[role="tab"]', show.parentElement);
+    const tabs = $$('[role="tab"][data-slide]');
     const url = $('[data-show-url]', show);
     const open = $('[data-show-open]');
     let actuel = Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true'));

@@ -1,68 +1,101 @@
-# MTX Studio — direction artistique
+# MTX Studio — direction artistique (version 2, novembre 2026)
 
-## 0. Architecture : un accueil qui aiguille, trois pôles qui ont chacun leur site
+La première version (Geist, cartes arrondies, pastilles, gros titres en deux mots, dégradé bleu-violet) reprenait
+tous les réflexes des sites générés automatiquement. Le client l’a jugée « faite par IA ». Cette version part
+d’un principe d’édition plutôt que d’un modèle de page.
 
-Le visiteur arrive sur mtx-developpement.fr et choisit d’abord ce qu’il veut faire faire. Chaque pôle a son propre
-site, intégré au domaine : sa couleur, sa navigation locale, ses pages, son appel à l’action.
+## 0. Architecture (inchangée)
 
 | Adresse | Rôle |
 | --- | --- |
-| `/` | Accueil-aiguillage : trois portes (Sites internet, Applications, IA), les dix réalisations, le studio, les questions, le contact |
-| `/sites-internet/` | Pôle Web : vue d’ensemble (pour qui, création, inclus, tarifs en bref, réalisations, méthode, questions) |
-| `/sites-internet/tarifs/` | Formules, options, coûts annexes, maintenance, paiement, comparatif, simulateur de devis (`#devis`) |
-| `/sites-internet/refonte/` | Refonte : signes, audit gratuit, avant/après, ce qui est conservé, migration, questions |
-| `/applications/` | Pôle Apps : la scène iPhone et Apple Watch (ci-dessous), ce que le studio crée, réalisations, méthode, budget |
-| `/intelligence-artificielle/` | Pôle IA : réponse sourcée à vérifier, cas d’usage, données, réalisations, méthode, budget |
+| `/` | Accueil-aiguillage : la phrase-menu, les trois collections, l’index des dix réalisations, le studio, les questions, le contact |
+| `/sites-internet/` | Pôle Web : pour qui, ce qui est compris, tarifs en bref, réalisations, méthode, questions |
+| `/sites-internet/tarifs/` | Formules, options, coûts annexes, maintenance, paiement, simulateur (`#devis`) — le comparatif avec les agences est supprimé |
+| `/sites-internet/refonte/` | Refonte : signes, audit gratuit, avant/après, ce qui est conservé, méthode, questions |
+| `/applications/` | Pôle Apps : la scène iPhone et Apple Watch (plus bas), ce que le studio crée, réalisations, méthode, budget |
+| `/intelligence-artificielle/` | Pôle IA : réponse sourcée, cas d’usage, données, réalisations, méthode, budget |
 
-**Ne pas perdre le client.**
+## 1. Idée directrice : trois collections, une couleur chacune
 
-- La barre globale est la même partout. Elle porte le logo (retour à l’accueil), les trois pôles (le pôle en cours est
-  marqué) et le contact.
-- Sous elle, une barre locale collante porte la couleur et le nom du pôle, ses rubriques et son appel à l’action. C’est le
-  principe de la navigation locale des pages produit d’Apple.
-- Chaque pied de page liste les trois pôles.
+Le studio fait trois métiers ; le visiteur doit toujours savoir dans lequel il se trouve. On reprend le principe des
+collections de livres de poche classées par couleur (Penguin, 1935 : orange pour le roman, vert pour le policier,
+bleu pour les essais) : **une couleur franche par collection**, posée en bandeau, et tout le reste en noir sur blanc.
 
-**Idée directrice : le X est un carrefour.** Le X du logo est l’endroit où les chemins se croisent, et son dégradé
-donne une couleur à chaque branche. Sur l’accueil, les trois portes partent de ce croisement. Chaque porte montre du
-vrai travail du studio :
+- **Sites internet — bleu lien** `#1f3fe0`. Le bleu des liens hypertextes, la matière même du web.
+- **Applications — rouge pastille** `#d42a1a`. Le rouge des pastilles de notification sur l’écran d’accueil.
+- **IA — jaune surligneur** `#ffd21f`. Le surligneur qui montre d’où vient une réponse : l’IA du studio cite ses sources.
+- **Le studio (accueil, pied de page) — noir** `#111`.
 
-- une vraie capture de site dans un navigateur ;
-- les vraies icônes des apps ;
-- une réponse sourcée, comme le fait Knowledge AI.
+Ce sont les trois couleurs primaires : un système qu’on comprend sans légende. On ne les mélange jamais sur une même
+surface ; seul l’accueil les montre ensemble, chacune dans son bandeau.
 
-**Couleurs des pôles.** Ce sont des segments du dégradé du X. On les emploie en petites touches (pastille, filet, nom du
-pôle, états), jamais en grands aplats. Les variantes « encre » sont réservées au texte et ont un contraste vérifié
-(≥ 5,4:1 sur le papier, ≥ 9:1 en sombre).
+**Ne pas perdre le client.** La barre globale est la même partout (MTX Studio, les trois collections, Réalisations,
+Contact). Sous elle, la barre locale du pôle est un bandeau plein à sa couleur : on ne peut pas se tromper de rayon.
 
-| Pôle | Pastille | Encre clair | Encre sombre |
+## 2. Composition
+
+- Fond blanc pur (pas de crème : c’est devenu un réflexe de générateur), texte noir, filets noirs de 2 px pour
+  structurer, filets gris de 1 px pour séparer.
+- **Titres en manchette** : chaque section s’ouvre sur un filet noir, une colonne de marge (numéro et nom de la
+  rubrique) et le titre dans les neuf colonnes de droite. La colonne de marge porte aussi les notes et conditions.
+- **Pas de cartes par réflexe.** Les listes sont des lignes réglées (numéro, intitulé, détail), les prix des lignes à
+  points de conduite comme sur un devis, les réalisations des figures avec légende. Une boîte n’existe que si on agit
+  dessus (simulateur, démonstration, formulaire).
+- Coins droits partout ; seuls les appareils dessinés (téléphone, navigateur) et les icônes d’apps gardent les leurs.
+- Accueil : une phrase-menu (« Je fabrique des sites internet, des applications et des IA utiles… ») dont chaque
+  métier est un lien souligné à sa couleur, puis les trois bandeaux-collections pleine largeur, puis l’index des
+  réalisations avec aperçu.
+- Mobile : les bandeaux restent pleine largeur, la colonne de marge passe au-dessus du titre, les tableaux deviennent
+  des fiches ligne à ligne.
+
+## 3. Palette et contrastes
+
+| Rôle | Clair | Sombre | Contraste vérifié |
 | --- | --- | --- | --- |
-| Sites internet | `#2997ff` | `#0a5bc4` | `#6cb4ff` |
-| Applications | `#ffb86b` | `#a14a00` | `#ffbd7a` |
-| IA | `#a78bfa` | `#6a42d6` | `#c2adff` |
+| Papier / encre | `#ffffff` / `#111111` | `#121212` / `#f2f2f2` | 18,9:1 |
+| Texte secondaire | `#4d4d4d` | `#b8b8b8` | ≥ 8:1 |
+| Bleu (bandeau, texte blanc) | `#1f3fe0` | idem | blanc 7,4:1 ; texte bleu en sombre `#8fa2ff` |
+| Rouge (bandeau, texte blanc) | `#d42a1a` | idem | blanc 5,1:1 ; texte rouge sur blanc `#c8281b` 5,6:1, en sombre `#ff8a7a` |
+| Jaune (bandeau, texte noir) | `#ffd21f` | idem | noir 13:1 ; jamais en texte sur blanc |
 
-**Typographies.** Geist et Geist Mono (SIL Open Font License), hébergées sur le site :
+## 4. Typographie
 
-- aucune requête vers un serveur tiers, ce qui va dans le sens du RGPD et de la vitesse promis aux clients ;
-- une licence claire ;
-- un seul fichier variable pour toutes les graisses.
+**Bricolage Grotesque** (Mathieu Triay, SIL Open Font License), un seul fichier variable hébergé sur le site, axes
+taille optique, graisse et chasse. Un dessin français par son nom et son auteur, issu des grotesques du XIXᵉ siècle :
+aux grandes tailles, ses pièges à encre et ses formes un peu brutes donnent un aspect fait main ; en texte, la taille
+optique le rend calme et lisible. Chiffres tabulaires pour les prix et les totaux. Aucune police tierce n’est chargée.
 
-Geist Mono sert à ce qui se compte : prix, étapes, délais.
+## 5. Visuels
 
-**Signatures par page.**
+- Vraies captures des sites du studio, à plat, filet de 1 px, légende dessous (« Volta — logiciel Mac de gestion de
+  stock »). Pas d’ombre portée, pas d’inclinaison.
+- Appareils (navigateur, téléphone) dessinés en HTML et CSS, sobres.
+- Le X du logo est employé en noir (ou blanc) dans l’interface ; l’icône en dégradé reste celle de l’onglet et de
+  l’écran d’accueil.
+- Exemples fictifs annoncés comme tels (garage de la refonte, documents de la démonstration IA).
 
-- Accueil : la porte survolée ou ciblée au clavier s’ouvre, et sa miniature s’anime.
-- Passage d’une page à l’autre : la pastille et le nom du pôle glissent jusqu’à la barre locale, grâce aux transitions
-  de vue entre documents (amélioration progressive).
-- Sites internet : on ouvre un vrai site du studio dans le navigateur et le téléphone de la vitrine.
-- Tarifs : l’interrupteur Création / Refonte change tous les prix.
-- Refonte : un comparateur avant / après manipulé par le visiteur, sans balayage automatique.
-- IA : toucher une citation surligne le passage de la source.
+## 6. Mouvement
 
-En mouvement réduit, on n’a aucun déplacement continu, et seuls les états finaux restent.
+- **Signature** : on entre dans une collection. Le bandeau cliqué sur l’accueil devient la barre du pôle
+  (transition de vue entre documents, amélioration progressive).
+- Secondaires : l’index des réalisations change d’aperçu au survol ou au focus ; le simulateur écrit le devis en
+  direct ; la démonstration IA surligne en jaune le passage cité.
+- Aucune apparition « fondu + montée » au défilement. En mouvement réduit, aucune transition de page ni déplacement.
 
-**Réaliste.** On n’affiche ni faux avis, ni faux logos clients, ni chiffres non mesurés. Les exemples fictifs sont
-annoncés comme tels. Les coûts annexes sont écrits (domaine, hébergement après la première année, plateforme
-e-commerce, compte Apple Developer, consommation d’IA).
+## 7. Ton
+
+Première personne (« je ») : le studio, c’est Matheo Merchez. Phrases courtes et concrètes, chiffres réels, pas de
+slogan creux, pas de faux avis, pas de chiffres non mesurés. Les conditions sont écrites à côté des prix, pas en
+petits caractères.
+
+## Références
+
+- **Principale — les collections Penguin (1935, Edward Young)** : une couleur par collection pour savoir où l’on se
+  trouve. Non repris : la couverture à trois bandes, le logo, la typographie.
+- Les grilles éditoriales suisses (Josef Müller-Brockmann) : la colonne de marge qui porte les intitulés et les notes.
+- Les devis papier : lignes, points de conduite, total, échéancier — repris dans le simulateur et les listes de prix.
+- Liste « anti-AI slop » de Refero (2026) : signes à éviter (violet, cartes partout, crème + sérif par défaut,
+  grilles symétriques, textes trop écrits).
 
 ---
 

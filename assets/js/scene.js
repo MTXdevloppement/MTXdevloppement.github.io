@@ -171,7 +171,13 @@
     sets[id] = set;
     return set;
   };
-  const preload = () => { if (!saveData) ORDER.forEach(buildSet); };
+  // Préchargement de toutes les captures (environ 1 Mo) : seulement sur grand écran, quand le navigateur est
+  // au repos. Sur téléphone, chaque app charge ses captures au moment où elle s’ouvre.
+  const preload = () => {
+    if (saveData || narrow.matches) return;
+    const idle = window.requestIdleCallback || ((fn) => window.setTimeout(fn, 1));
+    ORDER.forEach((id, i) => window.setTimeout(() => idle(() => buildSet(id)), i * 250));
+  };
 
   /* ---------------------------------------------------------------------
      Légende sous le téléphone
@@ -400,7 +406,8 @@
   scene.addEventListener('keydown', takeOver);
   $$('[data-app]').forEach((el) => {
     const app = APPS[el.dataset.app];
-    if (app && app.shots.length && !el.hasAttribute('aria-label')) el.setAttribute('aria-label', 'Ouvrir ' + app.name + ' dans la maquette');
+    // La montre garde son texte masqué : son cadran (heure, date) n’est pas un libellé.
+    if (app && app.shots.length && !el.hasAttribute('aria-label') && !el.hasAttribute('data-watch')) el.setAttribute('aria-label', 'Ouvrir ' + app.name + ' dans la maquette');
   });
 
   /* ---------------------------------------------------------------------
@@ -523,7 +530,7 @@
     run();
     // Les délais d’entrée ne doivent pas retarder les survols ensuite.
     window.setTimeout(() => scene.classList.add('is-live'), reduceMotion ? 0 : 2000);
-    window.setTimeout(preload, 900);
+    window.setTimeout(preload, 2500);
     demo(3200);
   };
   if (document.readyState === 'complete') start();

@@ -92,7 +92,7 @@
     if (!range) return;
     const poser = () => {
       ba.style.setProperty('--pos', range.value + '%');
-      range.setAttribute('aria-valuetext', `${range.value} % de l’ancien site visible`);
+      range.setAttribute('aria-valuetext', `${range.value}\u00a0% de l’ancien site visible`);
     };
     range.addEventListener('input', poser);
     poser();
@@ -159,7 +159,7 @@
         const p = plans[em.dataset.formulePrix];
         if (!p) return;
         const prefixe = em.dataset.formulePrix === 'boutique' ? 'dès ' : '';
-        em.textContent = `${prefixe}${euros(p[mode])} €`;
+        em.textContent = `${prefixe}${euros(p[mode])}\u00a0€`;
       });
     };
 
@@ -180,7 +180,7 @@
       if (champSite) champSite.hidden = mode !== 'refonte';
 
       const lignes = [{ label: `${plan.nom} · ${mode === 'refonte' ? 'refonte' : 'création'}`, prix: plan[mode] }];
-      if (pages) lignes.push({ label: `${pages} page${pages > 1 ? 's' : ''} en plus`, prix: pages * PAGE });
+      if (pages) lignes.push({ label: `${pages}\u00a0page${pages > 1 ? 's' : ''} en plus`, prix: pages * PAGE });
 
       let express = false;
       $$('[data-option]', form).forEach((cb) => {
@@ -214,9 +214,9 @@
       out('total').textContent = euros(total);
       const mini = $('[data-mini-total]', form);
       if (mini) mini.textContent = euros(total);
-      out('mois').textContent = mensuel ? `+ ${maint.dataset.nom} : ${euros(mensuel)} € par mois, sans engagement` : 'Sans maintenance : le site vous appartient, vous en faites ce que vous voulez.';
-      out('lignes').innerHTML = lignes.map((l) => `<li${l.inclus ? ' class="is-free"' : ''}><span>${esc(l.label)}</span><span>${l.inclus ? 'inclus' : euros(l.prix) + ' €'}</span></li>`).join('');
-      out('echeances').textContent = `${euros(a1)} · ${euros(a2)} · ${euros(a3)} €`;
+      out('mois').textContent = mensuel ? `+ ${maint.dataset.nom}\u202f: ${euros(mensuel)}\u00a0€ par mois, sans engagement` : 'Sans maintenance\u202f: le site vous appartient, vous en faites ce que vous voulez.';
+      out('lignes').innerHTML = lignes.map((l) => `<li${l.inclus ? ' class="is-free"' : ''}><span>${esc(l.label)}</span><span>${l.inclus ? 'inclus' : euros(l.prix) + '\u00a0€'}</span></li>`).join('');
+      out('echeances').textContent = `${euros(a1)} · ${euros(a2)} · ${euros(a3)}\u00a0€`;
       out('delai').textContent = delai;
 
       // E-mail pré-rempli avec le récapitulatif.
@@ -238,10 +238,20 @@
       out('mail').href = `mailto:${EMAIL}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps.join('\n'))}`;
     };
 
-    moins.addEventListener('click', () => { pagesInput.value = String((+pagesInput.value || 0) - 1); calculer(); });
-    plus.addEventListener('click', () => { pagesInput.value = String((+pagesInput.value || 0) + 1); calculer(); });
-    form.addEventListener('input', calculer);
-    form.addEventListener('change', calculer);
+    // L’adresse garde le mode et la formule choisis : un lien copié rouvre la même estimation de départ.
+    const majAdresse = () => {
+      if (!window.history || !history.replaceState) return;
+      const fd = new FormData(form);
+      const q = new URLSearchParams(window.location.search);
+      q.set('mode', fd.get('mode') === 'refonte' ? 'refonte' : 'creation');
+      if (fd.get('formule')) q.set('formule', fd.get('formule'));
+      history.replaceState(history.state, '', `${window.location.pathname}?${q}${window.location.hash || '#devis'}`);
+    };
+    const parGeste = () => { calculer(); majAdresse(); };
+    moins.addEventListener('click', () => { pagesInput.value = String((+pagesInput.value || 0) - 1); parGeste(); });
+    plus.addEventListener('click', () => { pagesInput.value = String((+pagesInput.value || 0) + 1); parGeste(); });
+    form.addEventListener('input', parGeste);
+    form.addEventListener('change', parGeste);
     form.addEventListener('submit', (e) => e.preventDefault());
 
     // Les boutons « Choisir » des formules présélectionnent la formule (et le mode affiché) dans le simulateur.

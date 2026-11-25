@@ -19,7 +19,7 @@
 .cover-actions { margin-top: 6px; }
 .cover-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 2px solid var(--on); margin-top: 6px; }
 .cover-facts > div { padding: 10px 12px 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--on) 40%, transparent); }
-.cover-facts dt { font-size: 14px; opacity: .85; }
+.cover-facts dt { font-size: 14px; font-weight: 500; }
 .cover-facts dd { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 /* La vitrine chevauche le bord de la couverture : moitié sur la couleur, moitié sur le blanc. */
@@ -462,7 +462,7 @@ html:not(.js) .est { display: none; }
 .hero-sub { display: block; max-width: 30em; margin: 18px 0 24px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.4; font-weight: 400; }
 .hero-facts { position: relative; z-index: 10; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 42rem; margin-top: 28px; border-top: 2px solid #fff; pointer-events: auto; }
 .hero-facts > div { padding: 8px 12px 8px 0; border-bottom: 1px solid rgb(255 255 255 / 40%); }
-.hero-facts dt { font-size: 14px; opacity: .85; }
+.hero-facts dt { font-size: 14px; font-weight: 500; }
 .hero-facts dd { font-size: 17px; font-weight: 700; }
 
 .sheet { position: relative; z-index: 2; background: var(--paper); border-top: 2px solid var(--ink); }

@@ -1,7 +1,7 @@
 # Assemble les pages statiques de mtx-developpement.fr : en-tête, barre globale, barre locale du pôle,
 # menu mobile, pied de page et données structurées communs ; le corps de chaque page vient de pages/*.html.
 # Usage (depuis la racine du dépôt) : python3 outils/generateur/gen.py .
-import json, re, html, sys, os
+import json, re, html, sys, os, hashlib
 from urllib.parse import quote
 
 SITE = sys.argv[1] if len(sys.argv) > 1 and __name__ == '__main__' else ''
@@ -31,7 +31,7 @@ ICONS = {
 }
 
 POLES = {
-    'web': dict(n='01', nom='Sites internet', court='Sites internet', home='sites-internet/', desc='Création et refonte, dès 690 €',
+    'web': dict(n='01', nom='Sites internet', court='Sites internet', home='sites-internet/', desc='Création et refonte, dès 690&nbsp;€',
         items=[('apercu', 'Vue d’ensemble', 'sites-internet/'), ('refonte', 'Refonte', 'sites-internet/refonte/'),
                ('tarifs', 'Tarifs', 'sites-internet/tarifs/'), ('realisations', 'Réalisations', 'sites-internet/#realisations'),
                ('methode', 'Méthode', 'sites-internet/#methode'), ('questions', 'Questions', 'sites-internet/#questions')],
@@ -110,7 +110,7 @@ def lnav(p):
         items.append(f'<li><a href="{lien}"{cur}>{label}</a></li>')
     titre = (f'<span class="lnav-long">{P["nom"]}</span><span class="lnav-short">{P["court"]}</span>'
              if P['court'] != P['nom'] else P['nom'])
-    return (f'<nav class="lnav" aria-label="{P["nom"]}" data-lnav>\n'
+    return (f'<nav class="lnav" aria-label="Rubriques du pôle {P["nom"]}" data-lnav>\n'
             f'  <div class="wrap lnav-in">\n'
             f'    <a class="lnav-title" href="{root}{P["home"]}"><span class="lnav-n">{P["n"]}</span>{titre}</a>\n'
             f'    <button class="lnav-toggle" type="button" aria-expanded="false" aria-controls="lnav-list" aria-label="Afficher les rubriques" data-lnav-toggle>'
@@ -175,11 +175,37 @@ def faq_ld(body, url):
         faq.append({"@type": "Question", "name": txt(q), "acceptedAnswer": {"@type": "Answer", "text": txt(a)}})
     return {"@type": "FAQPage", "@id": url + "#questions", "mainEntity": faq} if faq else None
 
+# Chaque fichier CSS ou JS est appelé avec une empreinte de son contenu (?v=…) : quand il change, l’adresse
+# change, et les navigateurs reprennent la nouvelle version sans qu’on ait à y penser.
+ASSETS = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'assets')
+
+def empreinte(chemin):
+    return hashlib.sha1(open(chemin, 'rb').read()).hexdigest()[:10]
+
+def versionne(dossier, nom):
+    nom = nom.split('?')[0]
+    return f'{nom}?v={empreinte(os.path.join(ASSETS, dossier, nom))}'
+
+def minifie_css(css):
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    css = re.sub(r'\s*([{};])\s*', r'\1', css)
+    css = re.sub(r',\s+', ',', css)
+    css = re.sub(r':\s+', ':', css)
+    return css.replace(';}', '}').strip() + '\n'
+
+def regroupe_css():
+    """Assemble site.css et pole.css (les sources) en un seul fichier minifié : mtx.css."""
+    src = [os.path.join(ASSETS, 'css', n) for n in ('site.css', 'pole.css')]
+    corps = '/* MTX Studio — fichier assemblé par outils/generateur/gen.py depuis site.css et pole.css. Ne pas modifier à la main. */\n'
+    corps += ''.join(minifie_css(open(f, encoding='utf8').read()) for f in src)
+    open(os.path.join(ASSETS, 'css', 'mtx.css'), 'w', encoding='utf8').write(corps)
+
 def head(p, ld):
     root = p['root']
     url = O + p['path']
-    css = ''.join(f'<link rel="stylesheet" href="{root}assets/css/{c}">\n' for c in p['css'])
-    js = ''.join(f'<script src="{root}assets/js/{j}" defer></script>\n' for j in p['js'])
+    css = ''.join(f'<link rel="stylesheet" href="{root}assets/css/{versionne("css", c)}">\n' for c in p['css'])
+    js = ''.join(f'<script src="{root}assets/js/{versionne("js", j)}" defer></script>\n' for j in p['js'])
     og = O + 'assets/img/' + p.get('og', 'og-mtx-studio.png')
     pole_attr = f' data-pole="{p["pole"]}"' if p.get('pole') else ''
     return f'''<!doctype html>
@@ -259,5 +285,6 @@ def build(p):
 
 if __name__ == '__main__':
     sys.path.insert(0, HERE)
+    regroupe_css()
     from config import PAGES
     for p in PAGES: build(p)

@@ -64,6 +64,12 @@ Contact). Sous elle, la barre locale du pôle est un bandeau plein à sa couleur
 taille optique, graisse et chasse. Un dessin français par son nom et son auteur, issu des grotesques du XIXᵉ siècle :
 aux grandes tailles, ses pièges à encre et ses formes un peu brutes donnent un aspect fait main ; en texte, la taille
 optique le rend calme et lisible. Chiffres tabulaires pour les prix et les totaux. Aucune police tierce n’est chargée.
+Le fichier servi est allégé (axe de chasse figé à 100 %, graisses limitées à 400–800) : 73 Ko au lieu de 131 Ko,
+même dessin. Les sites des réalisations l’emploient aussi dans le pied « Une réalisation MTX Studio ».
+
+**Fichiers.** Les styles s’écrivent dans `assets/css/site.css` (commun) et `assets/css/pole.css` (pages de pôle) ;
+le générateur les assemble et les minifie dans `assets/css/mtx.css`, seul fichier chargé par les pages. Chaque
+feuille et script est appelé avec une empreinte de son contenu (`?v=…`) : rien à incrémenter à la main.
 
 ## 5. Visuels
 

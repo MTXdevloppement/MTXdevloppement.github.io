@@ -61,16 +61,21 @@
 
   /* 3. Texte ajusté à la largeur (adresse e-mail géante) ------------------- */
   const fits = $$('[data-fit]');
+  // Lectures puis écritures groupées, dans une image d’animation : un seul recalcul de mise en page.
+  let fitQueued = false;
   const fit = () => {
-    fits.forEach((box) => {
-      const line = $('[data-fit-line]', box);
-      if (!line) return;
-      box.style.fontSize = '';
-      const w = box.clientWidth;
-      const lw = line.scrollWidth;
-      if (!w || !lw) return;
-      const size = parseFloat(getComputedStyle(box).fontSize);
-      box.style.fontSize = Math.min(size * (w / lw) * 0.995, 200) + 'px';
+    if (fitQueued) return;
+    fitQueued = true;
+    window.requestAnimationFrame(() => {
+      fitQueued = false;
+      fits.forEach((box) => { box.style.fontSize = ''; });
+      const sizes = fits.map((box) => {
+        const line = $('[data-fit-line]', box);
+        const w = box.clientWidth;
+        const lw = line ? line.scrollWidth : 0;
+        return w && lw ? Math.min(parseFloat(getComputedStyle(box).fontSize) * (w / lw) * 0.995, 200) : 0;
+      });
+      fits.forEach((box, i) => { if (sizes[i]) box.style.fontSize = sizes[i] + 'px'; });
     });
   };
   if (fits.length) {

@@ -1,13 +1,13 @@
 # Met les pages de texte (mentions légales, confidentialité, 404) à la barre, au pied de page et aux styles
 # communs. Leur contenu propre est conservé. Usage (depuis la racine du dépôt) : python3 outils/generateur/legal.py .
 # Le script peut être relancé : il remplace les blocs communs quelle que soit leur version.
+# À lancer après gen.py, qui assemble mtx.css.
 import re, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen
 
 SITE = sys.argv[1]
 PAGES = [('mentions-legales.html', './'), ('confidentialite.html', './'), ('404.html', '/')]
-CSS_V, JS_V, CONTACT_V = '20', '20', '3'
 
 for name, root in PAGES:
     path = os.path.join(SITE, name)
@@ -17,9 +17,9 @@ for name, root in PAGES:
     # En-tête : police, feuilles et scripts à jour.
     s = re.sub(r'<link rel="preload" as="font" type="font/woff2" href="[^"]*assets/fonts/[^"]+" crossorigin>',
                f'<link rel="preload" as="font" type="font/woff2" href="{root}assets/fonts/bricolage-latin.woff2" crossorigin>', s)
-    s = re.sub(r'assets/css/site\.css\?v=\d+', f'assets/css/site.css?v={CSS_V}', s)
-    s = re.sub(r'assets/js/site\.js\?v=\d+', f'assets/js/site.js?v={JS_V}', s)
-    s = re.sub(r'assets/js/contact\.js\?v=\d+', f'assets/js/contact.js?v={CONTACT_V}', s)
+    s = re.sub(r'assets/css/(?:site|mtx)\.css\?v=\w+', 'assets/css/' + gen.versionne('css', 'mtx.css'), s)
+    s = re.sub(r'assets/js/site\.js\?v=\w+', 'assets/js/' + gen.versionne('js', 'site.js'), s)
+    s = re.sub(r'assets/js/contact\.js\?v=\w+', 'assets/js/' + gen.versionne('js', 'contact.js'), s)
     s = s.replace('<meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)">', '<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">')
     s = s.replace('<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">', '<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">')
     s = re.sub(r'<body class="[^"]*">', '<body>', s)

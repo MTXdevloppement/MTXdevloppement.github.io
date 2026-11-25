@@ -1,13 +1,13 @@
 {
   "name": "MTX Studio",
   "short_name": "MTX Studio",
-  "description": "Apps pour iPhone, iPad, Apple Watch et Mac, sites web, logiciels sur mesure, systèmes d’IA et jeux, chacun avec son site.",
+  "description": "Création de sites internet, d’applications iPhone, Mac et web, et de solutions d’IA pour les entreprises.",
   "lang": "fr",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
-  "background_color": "#f4f4f2",
-  "theme_color": "#f4f4f2",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     { "src": "/assets/img/mtx-icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
     { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }

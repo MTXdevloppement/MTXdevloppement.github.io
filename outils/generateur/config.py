@@ -98,14 +98,14 @@ def web_catalog(body):
 WEB_SERVICE_DESC = "Sites vitrines, sites sur mesure et boutiques en ligne pour les entreprises de toutes tailles et de tous secteurs, créés de zéro ou refaits à partir d’un site existant : design sur mesure, rapides, adaptés au mobile et optimisés pour Google."
 
 PAGES = [
-    dict(out='index.html', path='', root='', body='accueil.html', css=['site.css?v=20', 'pole.css?v=20'], js=['site.js?v=20', 'pole.js?v=20', 'contact.js?v=3'],
+    dict(out='index.html', path='', root='', body='accueil.html', css=['mtx.css'], js=['site.js', 'contact.js'],
          title='MTX Studio · Sites internet, applications et IA',
          desc='Création de sites internet, d’applications iPhone, Mac et web, et de solutions d’IA pour les entreprises. Prix fixes, un seul interlocuteur.',
          about=O + '#studio', ld=[ORG, SITE_LD, ITEMS],
          hub=True,
          tokens={'WORKS_HUB': works(ORDRE, '', work_index), 'WORKS_PREVIEW': works(ORDRE, '', work_preview)}),
     dict(out='sites-internet/index.html', path='sites-internet/', root='../', pole='web', lnav='apercu', body='web.html',
-         css=['site.css?v=20', 'pole.css?v=20'], js=['site.js?v=20', 'pole.js?v=20', 'contact.js?v=3'],
+         css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Création de site internet pour entreprise · MTX Studio',
          desc='Création et refonte de sites internet pour les entreprises : sur mesure, rapides, bien référencés. Prix fixe dès 690 €, devis gratuit sous 48 h.',
          og='og-sites-internet.png', og_alt='MTX Studio, création de sites internet pour les entreprises',
@@ -113,21 +113,21 @@ PAGES = [
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations')],
          tokens={'WORKS_WEB': works(['volta', 'startup3d', 'knowledge-ai', 'steno', 'kompagnion', 'mue'], '../', work_fig, idp='w-')}),
     dict(out='sites-internet/tarifs/index.html', path='sites-internet/tarifs/', root='../../', pole='web', lnav='tarifs', body='web-tarifs.html',
-         css=['site.css?v=20', 'pole.css?v=20'], js=['site.js?v=20', 'pole.js?v=20', 'contact.js?v=3'],
+         css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Tarifs création de site internet · MTX Studio',
          desc='Prix d’un site internet pour entreprise : formules à prix fixe de 690 € à 2 490 €, boutique dès 2 990 €, refonte dès 590 €. Simulateur de devis.',
          og='og-sites-internet.png', og_alt='Tarifs de création de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Tarifs', 'sites-internet/tarifs/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations', web_catalog(b))]),
     dict(out='sites-internet/refonte/index.html', path='sites-internet/refonte/', root='../../', pole='web', lnav='refonte', body='web-refonte.html',
-         css=['site.css?v=20', 'pole.css?v=20'], js=['site.js?v=20', 'pole.js?v=20', 'contact.js?v=3'],
+         css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Refonte de site internet · MTX Studio',
          desc='Refonte de site internet sans perdre votre référencement : audit gratuit, redirections, site plus rapide et adapté au mobile. Prix fixe dès 590 €.',
          og='og-sites-internet.png', og_alt='Refonte de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/')], about=O + 'sites-internet/refonte/#service',
          ld=[service('sites-internet/refonte/', 'Refonte de site internet', 'Refonte de site internet', 'Refonte complète d’un site existant : audit gratuit, reprise des contenus, nouveau design, performances, plan de redirections pour conserver le référencement, suivi après la bascule.', 'Entreprises qui ont déjà un site')]),
     dict(out='applications/index.html', path='applications/', root='../', pole='app', lnav=None, body='apps.html',
-         css=['site.css?v=20', 'pole.css?v=20', 'scene.css?v=8'], js=['site.js?v=20', 'pole.js?v=20', 'scene.js?v=14', 'contact.js?v=3'],
+         css=['mtx.css', 'scene.css'], js=['site.js', 'pole.js', 'scene.js', 'contact.js'],
          title='Création d’applications iPhone, Mac et web · MTX Studio',
          desc='Création d’applications iPhone, iPad, Apple Watch et Mac, de logiciels métier et d’applications web, jusqu’à l’App Store. Devis gratuit à prix fixe.',
          og='og-applications.png', og_alt='MTX Studio, création d’applications iPhone, Mac et web',
@@ -135,7 +135,7 @@ PAGES = [
          ld=[service('applications/', 'Création d’applications iPhone, iPad, Apple Watch, Mac et web', 'Développement d’applications', 'Conception et développement d’apps natives en Swift et SwiftUI pour iPhone, iPad, Apple Watch et Mac, de logiciels métier et d’applications web, du cadrage à la publication sur l’App Store.', 'Entreprises, startups et indépendants')],
          tokens={'WORKS_APP': works(['foulee', 'space', 'viewer', 'volta', 'triade', 'steno', 'mue', 'kompagnion'], '../', work_fig, idp='a-')}),
     dict(out='intelligence-artificielle/index.html', path='intelligence-artificielle/', root='../', pole='ia', lnav=None, body='ia.html',
-         css=['site.css?v=20', 'pole.css?v=20'], js=['site.js?v=20', 'pole.js?v=20', 'contact.js?v=3'],
+         css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Intelligence artificielle pour les entreprises · MTX Studio',
          desc='Assistants IA sur vos documents qui citent leurs sources, automatisations et IA locale pour les entreprises. Données protégées, devis gratuit.',
          og='og-ia.png', og_alt='MTX Studio, intelligence artificielle pour les entreprises',
@@ -189,6 +189,9 @@ SCENE = _src[_a:_b]
 SCENE = SCENE.replace('<div class="scene" data-scene ', '<div class="scene" data-scene data-racine="../" ')
 SCENE = SCENE.replace('src="assets/', 'src="../assets/').replace('href="realisations/', 'href="../realisations/').replace('href="#studio"', 'href="../#studio"')
 SCENE = re.sub(r'href="mailto:[^"]*"', 'href="{{MAIL_APP}}"', SCENE)
+# Montre : le nom accessible vient d’un texte masqué, le cadran restant décoratif (critère WCAG 2.5.3).
+SCENE = SCENE.replace('data-watch aria-label="Apple Watch : ouvrir GoRun">', 'data-watch><span class="sr-only">Apple Watch&#8239;: ouvrir GoRun</span>')
+assert 'Apple Watch&#8239;: ouvrir GoRun' in SCENE
 assert 'data-racine' in SCENE and 'src="assets/' not in SCENE
 for p in PAGES:
     if p['out'] == 'applications/index.html':

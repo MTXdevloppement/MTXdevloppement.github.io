@@ -7,6 +7,7 @@ Le studio travaille en Swift et SwiftUI pour les plateformes Apple, et en HTML, 
 ## Studio
 
 - [Accueil de MTX Studio](https://mtx-developpement.fr/) : ce que fait le studio, les dix réalisations, les questions fréquentes et le contact.
+- [Sites internet pour entreprises](https://mtx-developpement.fr/sites-internet/) : création et refonte de sites pour les entreprises de toutes tailles et de tous secteurs. Formules à prix fixe et nets de TVA : Essentiel (une page) 690 €, Vitrine (6 pages) 1 290 €, Sur mesure (12 pages) 2 490 €, Boutique en ligne dès 2 990 € ; refonte de 590 € à 2 690 €. Options, maintenance facultative (29 € ou 79 € par mois), paiement en trois fois, simulateur de devis.
 - [Mentions légales](https://mtx-developpement.fr/mentions-legales.html) : éditeur, directeur de la publication et hébergeur.
 - [Confidentialité](https://mtx-developpement.fr/confidentialite.html) : ce que deviennent les messages reçus, ce que le site ne collecte pas.
 

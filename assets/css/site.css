@@ -632,6 +632,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .text-head { position: sticky; top: calc(var(--nav-h) + 40px); align-self: start; }
 }
 
+/* Entre 900 et 1279 px, la place manque pour tous les liens : « Studio » (aussi dans le pied de page) cède la sienne. */
+@media (min-width: 900px) and (max-width: 1279px) {
+  .desktop-links .nav-moins { display: none; }
+}
+@media (min-width: 900px) and (max-width: 1023px) {
+  .desktop-links { font-size: 16px; }
+}
+
 @media (min-width: 1280px) {
   .desktop-links { font-size: 19px; }
 }

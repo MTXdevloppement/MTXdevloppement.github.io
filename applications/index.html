@@ -81,7 +81,7 @@
 </nav>
 
 <main id="contenu">
-  <!-- Héros : le texte devant la scène iPhone et Apple Watch ================ -->
+  <!-- Couverture : le texte devant la scène iPhone et Apple Watch ================ -->
   <section class="hero" id="haut" data-hero data-video-zone aria-labelledby="titre">
     <div class="video-wash" aria-hidden="true"></div>
     <div class="hero-content">
@@ -90,24 +90,23 @@
         <p class="sc-actions"><a class="sc-link" href="#realisations" data-sc-link>Voir les réalisations</a><button class="sc-close" type="button" data-scene-close hidden>Accueil</button></p>
       </div>
 
-      <p class="hero-kicker p-kicker"><i class="pole-dot" aria-hidden="true"></i>Applications · iPhone, iPad, Mac et web</p>
+      <p class="hero-kicker"><span>02</span>Applications · iPhone, iPad, Mac et web</p>
       <h1 class="hero-title" id="titre">
-        <span class="hero-big">Des apps qu’on garde sur l’écran d’accueil.</span>
-        <span class="hero-sub">Création d’applications iPhone, iPad, Apple Watch et Mac, de logiciels métier et d’applications web&#8239;: du dessin des écrans à la publication sur l’App Store.</span>
+        <span class="hero-big">Des applications iPhone, Mac et web, du premier écran à l’App Store.</span>
+        <span class="hero-sub">Apps pour iPhone, iPad, Apple Watch et Mac, logiciels métier et applications web, dessinées et développées par la même personne.</span>
       </h1>
-
       <div class="actions">
-        <a class="pill pill-black" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app</a>
-        <a class="pill pill-white" href="#realisations">Voir les réalisations</a>
-        <a class="pill pill-white" href="#budget">Budget indicatif</a>
+        <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+        <a class="btn btn-on-line" href="#realisations">Les réalisations</a>
+        <a class="btn btn-on-line" href="#budget">Budget</a>
       </div>
     </div>
 
     <dl class="hero-facts" aria-label="Le pôle en bref">
-      <div><dt>Plateformes</dt><dd>iPhone, iPad, Watch, Mac, Web</dd></div>
+      <div><dt>Plateformes</dt><dd>iPhone, iPad, Watch, Mac, web</dd></div>
       <div><dt>Langages</dt><dd>Swift, SwiftUI, TypeScript</dd></div>
       <div><dt>Publication</dt><dd>TestFlight puis App Store</dd></div>
-      <div><dt>Budget</dt><dd>Sur devis, dès 3&#8239;900&nbsp;€</dd></div>
+      <div><dt>Budget</dt><dd>sur devis, dès 3&#8239;900&nbsp;€</dd></div>
     </dl>
   </section>
 
@@ -224,37 +223,36 @@
 
   <div class="sheet">
 
-    <!-- Ce que je crée =================================================== -->
-    <section class="section" id="creations" aria-labelledby="titre-creations">
+    <!-- Ce que je crée ===================================================== -->
+    <section class="sec" id="creations" aria-labelledby="titre-creations">
       <div class="wrap">
-        <div class="eyebrow reveal"><p class="eyebrow-label"><span>Ce que je crée</span></p></div>
-        <div class="head-row">
-          <h2 class="display reveal" id="titre-creations">Une app pour chaque écran.</h2>
-          <p class="lead reveal">Des apps natives, écrites avec les outils d’Apple pour être rapides et bien intégrées, et des applications web quand il faut toucher tous les appareils.</p>
+        <header class="sec-head">
+          <p class="sec-k"><span class="n">01</span>Ce que je crée</p>
+          <h2 class="d2 sec-t" id="titre-creations">Une app pour chaque écran, et le site qui va avec.</h2>
+          <p class="lede">Des apps natives, écrites avec les outils d’Apple pour être rapides et bien intégrées, et des applications web quand il faut toucher tous les appareils.</p>
+        </header>
+        <div class="cols">
+          <ul class="main rows rows-2">
+            <li><span class="r-n">01</span><h3>Apps pour iPhone et iPad</h3><p>En Swift et SwiftUI&#8239;: fluides, légères, avec widgets, notifications, raccourcis Siri et partage.</p><p class="r-meta">Par exemple <a href="../realisations/steno/">Sténo</a>, <a href="../realisations/kompagnion/">Kompagnion</a>, <a href="../realisations/triade/">Triade</a></p></li>
+            <li><span class="r-n">02</span><h3>Au poignet, sur Apple Watch</h3><p>Une app qui suit l’iPhone&#8239;: séance de sport, rappels, complications sur le cadran.</p><p class="r-meta">Par exemple <a href="../realisations/foulee/">GoRun</a></p></li>
+            <li><span class="r-n">03</span><h3>Logiciels métier sur Mac</h3><p>L’outil taillé pour votre façon de travailler&#8239;: stock, devis, budget, traitement de fichiers.</p><p class="r-meta">Par exemple <a href="../realisations/volta/">Volta</a>, <a href="../realisations/mue/">Mue</a></p></li>
+            <li><span class="r-n">04</span><h3>Applications web</h3><p>Espace client, tableau de bord, outil interne&#8239;: sur n’importe quel appareil, sans installation.</p><p class="r-meta">Par exemple <a href="../realisations/startup3d/">Startup3D</a>, <a href="../realisations/knowledge-ai/">Knowledge AI</a></p></li>
+            <li><span class="r-n">05</span><h3>Jeux mobiles</h3><p>Des jeux simples, nerveux et soignés pour iPhone, jouables d’un doigt.</p><p class="r-meta">Par exemple <a href="../realisations/space/">Space</a></p></li>
+            <li><span class="r-n">06</span><h3>Le site de votre app</h3><p>Chaque app du studio a son site, avec une démo dans la page. La vôtre peut avoir le sien.</p><p class="r-meta"><a href="../sites-internet/">Voir le pôle Sites internet</a></p></li>
+          </ul>
         </div>
-        <ul class="p-cards" style="--cols:3">
-          <li class="p-card reveal"><p class="p-card-k">iPhone · iPad</p><h3>Apps pour iPhone et iPad</h3><p>En Swift et SwiftUI&#8239;: fluides, légères, avec widgets, notifications, raccourcis Siri et partage.</p><p class="p-card-foot">Par exemple <a href="../realisations/steno/">Sténo</a>, <a href="../realisations/kompagnion/">Kompagnion</a>, <a href="../realisations/triade/">Triade</a></p></li>
-          <li class="p-card reveal"><p class="p-card-k">Apple Watch</p><h3>Au poignet</h3><p>Une app qui suit l’iPhone&#8239;: séance de sport, rappels, complications sur le cadran.</p><p class="p-card-foot">Par exemple <a href="../realisations/foulee/">GoRun</a></p></li>
-          <li class="p-card reveal"><p class="p-card-k">Mac</p><h3>Logiciels métier</h3><p>L’outil taillé pour votre façon de travailler&#8239;: stock, devis, budget, traitement de fichiers.</p><p class="p-card-foot">Par exemple <a href="../realisations/volta/">Volta</a>, <a href="../realisations/mue/">Mue</a></p></li>
-          <li class="p-card reveal"><p class="p-card-k">Navigateur</p><h3>Applications web</h3><p>Espace client, tableau de bord, outil interne&#8239;: utilisable sur n’importe quel appareil, sans installation.</p><p class="p-card-foot">Par exemple <a href="../realisations/startup3d/">Startup3D</a>, <a href="../realisations/knowledge-ai/">Knowledge AI</a></p></li>
-          <li class="p-card reveal"><p class="p-card-k">Jeux</p><h3>Jeux mobiles</h3><p>Des jeux simples, nerveux et soignés pour iPhone, jouables d’un doigt.</p><p class="p-card-foot">Par exemple <a href="../realisations/space/">Space</a></p></li>
-          <li class="p-card reveal"><p class="p-card-k">Et son site</p><h3>Le site de votre app</h3><p>Chaque app du studio a son site, avec une démo dans la page. La vôtre peut avoir le sien.</p><p class="p-card-foot"><a href="../sites-internet/">Voir le pôle Sites internet</a></p></li>
-        </ul>
       </div>
     </section>
 
-    <!-- Réalisations ===================================================== -->
-    <section class="section" id="realisations" aria-labelledby="titre-realisations">
+    <!-- Réalisations ======================================================= -->
+    <section class="sec" id="realisations" aria-labelledby="titre-realisations">
       <div class="wrap">
-        <div class="eyebrow reveal">
-          <p class="eyebrow-label"><span>Réalisations</span></p>
-          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Captures réelles</p>
-        </div>
-        <div class="head-row">
-          <h2 class="display reveal" id="titre-realisations">Ouvrez-en une.</h2>
-          <p class="lead reveal">Huit apps conçues et développées au studio, chacune avec son site et sa démo à manipuler. Les apps iPhone arrivent bientôt sur l’App Store.</p>
-        </div>
-        <div class="works">
+        <header class="sec-head">
+          <p class="sec-k"><span class="n">02</span>Réalisations</p>
+          <h2 class="d2 sec-t" id="titre-realisations">Huit apps conçues ici, chacune avec son site et sa démo.</h2>
+          <p class="lede">Captures réelles. Les apps iPhone arrivent bientôt sur l’App Store.</p>
+        </header>
+        <ul class="figs">
 <li class="fig" id="a-foulee">
   <a href="../realisations/foulee/" aria-describedby="a-foulee-d">
     <div class="fig-media"><picture class="work-shot work-shot-clair"><source media="(max-width: 639px)" type="image/avif" srcset="../assets/img/realisations/mobile-gorun-clair.avif"><source media="(max-width: 639px)" type="image/webp" srcset="../assets/img/realisations/mobile-gorun-clair.webp"><source type="image/avif" srcset="../assets/img/realisations/site-gorun-clair-720.avif 720w, ../assets/img/realisations/site-gorun-clair.avif 1440w, ../assets/img/realisations/site-gorun-clair-2160.avif 2160w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw"><img src="../assets/img/realisations/site-gorun-clair-720.webp" srcset="../assets/img/realisations/site-gorun-clair-720.webp 720w, ../assets/img/realisations/site-gorun-clair.webp 1440w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw" width="1440" height="900" alt="Aperçu du site de GoRun, en thème clair" loading="lazy" decoding="async"></picture><picture class="work-shot work-shot-sombre"><source media="(max-width: 639px)" type="image/avif" srcset="../assets/img/realisations/mobile-gorun-sombre.avif"><source media="(max-width: 639px)" type="image/webp" srcset="../assets/img/realisations/mobile-gorun-sombre.webp"><source type="image/avif" srcset="../assets/img/realisations/site-gorun-sombre-720.avif 720w, ../assets/img/realisations/site-gorun-sombre.avif 1440w, ../assets/img/realisations/site-gorun-sombre-2160.avif 2160w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw"><img src="../assets/img/realisations/site-gorun-sombre-720.webp" srcset="../assets/img/realisations/site-gorun-sombre-720.webp 720w, ../assets/img/realisations/site-gorun-sombre.webp 1440w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw" width="1440" height="900" alt="Aperçu du site de GoRun, en thème sombre" loading="lazy" decoding="async"></picture></div>
@@ -303,58 +301,61 @@
     <div class="fig-cap"><img class="fig-icon" src="../assets/img/realisations/icone-kompagnion.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><h3 class="fig-name">Kompagnion</h3><span class="fig-cat">App iPhone · Gestion d’entreprise</span><span class="fig-go">Essayer la démo</span><p class="fig-text" id="a-kompagnion-d">Kompagnion réunit clients, projets, demandes et factures dans votre iPhone.</p><p class="fig-tech">SwiftUI, SwiftData, PDFKit, Liquid Glass</p></div>
   </a>
 </li>
-        </div>
+        </ul>
       </div>
     </section>
 
-    <!-- Méthode ========================================================== -->
-    <section class="section" id="methode" aria-labelledby="titre-methode">
+    <!-- Méthode ============================================================ -->
+    <section class="sec" id="methode" aria-labelledby="titre-methode">
       <div class="wrap">
-        <div class="eyebrow reveal"><p class="eyebrow-label"><span>Méthode</span></p></div>
-        <div class="head-row">
-          <h2 class="display reveal" id="titre-methode">De l’idée à l’App Store.</h2>
-          <p class="lead reveal">Vous essayez votre app sur votre propre téléphone à chaque étape&#8239;: rien n’est livré sans avoir été testé par vous.</p>
-        </div>
-        <ol class="p-steps">
-          <li class="p-step reveal"><span class="p-step-n">1</span><h3>Cadrage</h3><p class="p-step-t">1 heure · gratuit</p><p>Ce que l’app doit faire, pour qui, sur quels appareils. On décide ce qui entre dans la première version.</p></li>
-          <li class="p-step reveal"><span class="p-step-n">2</span><h3>Maquette interactive</h3><p class="p-step-t">1 à 2 semaines</p><p>Les écrans principaux, cliquables, à essayer avant la moindre ligne de code. Puis le devis à prix fixe.</p></li>
-          <li class="p-step reveal"><span class="p-step-n">3</span><h3>Développement</h3><p class="p-step-t">Par étapes de deux semaines</p><p>Une version de test à chaque étape, installée sur votre iPhone avec TestFlight.</p></li>
-          <li class="p-step reveal"><span class="p-step-n">4</span><h3>Publication</h3><p class="p-step-t">App Store</p><p>Fiche, captures, textes, données de confidentialité, validation par Apple&#8239;: je m’en occupe, sur votre compte.</p></li>
-          <li class="p-step reveal"><span class="p-step-n">5</span><h3>Suivi</h3><p class="p-step-t">À la demande ou au forfait</p><p>Corrections, compatibilité avec chaque nouvelle version d’iOS, nouvelles fonctions.</p></li>
+        <header class="sec-head">
+          <p class="sec-k"><span class="n">03</span>Méthode</p>
+          <h2 class="d2 sec-t" id="titre-methode">Vous essayez l’app sur votre téléphone à chaque étape.</h2>
+          <p class="lede">Rien n’est livré sans avoir été testé par vous.</p>
+        </header>
+        <ol class="steps steps-x">
+          <li><span class="s-n">1</span><h3>Cadrage</h3><p class="s-t">1 heure · gratuit</p><p>Ce que l’app doit faire, pour qui, sur quels appareils. On décide ce qui entre dans la première version.</p></li>
+          <li><span class="s-n">2</span><h3>Maquette interactive</h3><p class="s-t">1 à 2 semaines</p><p>Les écrans principaux, cliquables, à essayer avant la moindre ligne de code. Puis le devis à prix fixe.</p></li>
+          <li><span class="s-n">3</span><h3>Développement</h3><p class="s-t">Par étapes de deux semaines</p><p>Une version de test à chaque étape, installée sur votre iPhone avec TestFlight.</p></li>
+          <li><span class="s-n">4</span><h3>Publication</h3><p class="s-t">App Store</p><p>Fiche, captures, textes, données de confidentialité, validation par Apple&#8239;: je m’en occupe, sur votre compte.</p></li>
+          <li><span class="s-n">5</span><h3>Suivi</h3><p class="s-t">À la demande ou au forfait</p><p>Corrections, compatibilité avec chaque nouvelle version d’iOS, nouvelles fonctions.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- Budget =========================================================== -->
-    <section class="section" id="budget" aria-labelledby="titre-budget">
-      <div class="wrap p-split">
-        <div>
-          <div class="eyebrow reveal"><p class="eyebrow-label"><span>Budget</span></p></div>
-          <h2 class="display reveal" id="titre-budget">Des ordres de grandeur, avant le devis.</h2>
-          <p class="lead reveal">Chaque app est différente&#8239;: elle est chiffrée à prix fixe après le cadrage et la maquette. Voici où démarrent la plupart des projets.</p>
-        </div>
-        <div class="reveal">
-          <ul class="p-budget">
-            <li><h3>Application web</h3><p>Espace client, tableau de bord ou outil interne, dans le navigateur.</p><span class="p-budget-v"><small>dès</small>3&#8239;900&nbsp;€</span></li>
-            <li><h3>App iPhone ou iPad</h3><p>Une première version soignée, d’une dizaine d’écrans, données sur l’appareil.</p><span class="p-budget-v"><small>dès</small>4&#8239;900&nbsp;€</span></li>
-            <li><h3>Logiciel Mac sur mesure</h3><p>Un outil métier comme Volta&#8239;: stock, devis, budget, exports.</p><span class="p-budget-v"><small>dès</small>5&#8239;900&nbsp;€</span></li>
-            <li><h3>App connectée</h3><p>Comptes, synchronisation entre appareils, paiements, Apple Watch ou Apple Santé.</p><span class="p-budget-v"><small>dès</small>9&#8239;900&nbsp;€</span></li>
-          </ul>
-          <p class="p-note">Fourchettes indicatives, prix nets (TVA non applicable). À prévoir en plus&#8239;: le compte Apple Developer, à votre nom (99&nbsp;€ par an), et pour une app connectée un serveur, souvent quelques dizaines d’euros par mois. Paiement échelonné selon les étapes.</p>
-          <div class="actions" style="margin-top:22px"><a class="pill pill-black" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Demander un cadrage gratuit</a></div>
+    <!-- Budget ============================================================= -->
+    <section class="sec" id="budget" aria-labelledby="titre-budget">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="sec-k"><span class="n">04</span>Budget</p>
+          <h2 class="d2 sec-t" id="titre-budget">Des ordres de grandeur, avant le devis.</h2>
+          <p class="lede">Chaque app est chiffrée à prix fixe après le cadrage et la maquette. Voici où démarrent la plupart des projets.</p>
+        </header>
+        <div class="cols">
+          <div class="main">
+            <ul class="prices prices-lg">
+              <li><span class="p-name">Application web<small>Espace client, tableau de bord ou outil interne, dans le navigateur.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>3&#8239;900&nbsp;€</span></li>
+              <li><span class="p-name">App iPhone ou iPad<small>Une première version soignée, d’une dizaine d’écrans, données sur l’appareil.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>4&#8239;900&nbsp;€</span></li>
+              <li><span class="p-name">Logiciel Mac sur mesure<small>Un outil métier comme Volta&#8239;: stock, devis, budget, exports.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>5&#8239;900&nbsp;€</span></li>
+              <li><span class="p-name">App connectée<small>Comptes, synchronisation entre appareils, paiements, Apple Watch ou Apple Santé.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>9&#8239;900&nbsp;€</span></li>
+            </ul>
+            <p class="note" style="margin-top:14px">Fourchettes indicatives, prix nets (TVA non applicable). À prévoir en plus&#8239;: le compte Apple Developer, à votre nom (99&nbsp;€ par an), et pour une app connectée un serveur, souvent quelques dizaines d’euros par mois. Paiement échelonné selon les étapes.</p>
+            <div class="actions" style="margin-top:24px"><a class="btn" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Demander un cadrage gratuit<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Questions ========================================================= -->
-    <section class="section" id="questions" aria-labelledby="titre-questions">
-      <div class="wrap faq-grid">
-        <div class="faq-head">
-          <div class="eyebrow reveal"><p class="eyebrow-label"><span>Questions</span></p></div>
-          <h2 class="display reveal" id="titre-questions">Questions fréquentes.</h2>
-          <p class="lead reveal">Une autre question&#8239;? <a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Écrivez-moi</a>, même sans vocabulaire technique.</p>
-        </div>
-        <div class="faq reveal">
+    <section class="sec" id="questions" aria-labelledby="titre-questions">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="sec-k"><span class="n">05</span>Questions</p>
+          <h2 class="d2 sec-t" id="titre-questions">Questions fréquentes</h2>
+          <p class="lede">Une autre question&#8239;? <a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Écrivez-moi</a>, même sans vocabulaire technique.</p>
+        </header>
+        <div class="cols">
+          <div class="main faq">
           <details class="faq-item" name="faq" open>
             <summary><h3>Combien coûte une application iPhone&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
             <p class="faq-a">Une première version soignée démarre autour de 4&#8239;900&nbsp;€, une app connectée (comptes, synchronisation, paiements) autour de 9&#8239;900&nbsp;€. Le prix dépend surtout du nombre d’écrans et de ce que l’app doit relier. Il est fixé par écrit après le cadrage et la maquette.</p>
@@ -387,37 +388,32 @@
             <summary><h3>Pouvez-vous reprendre une app existante&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
             <p class="faq-a">Oui, après un audit du code. Une app en Swift ou SwiftUI se reprend facilement&#8239;; une app plus ancienne ou écrite avec un autre outil peut demander une réécriture partielle, chiffrée après l’audit.</p>
           </details>
+          </div>
         </div>
       </div>
     </section>
   </div>
 
   <!-- Contact : la fenêtre laisse réapparaître la scène, sur un nouveau message -->
-  <section class="section contact" id="contact" data-float-hide aria-labelledby="titre-contact">
+  <section class="contact" id="contact" data-float-hide aria-labelledby="titre-contact">
     <div class="window" data-video-zone>
       <div class="video-wash" aria-hidden="true"></div>
       <div class="window-inner">
-        <div class="eyebrow"><p class="eyebrow-label"><span>Contact</span></p></div>
-        <h2 class="display contact-title" id="titre-contact">Parlons de votre app.</h2>
-        <blockquote class="quote">
-          <p>Une idée d’app, même encore floue&#8239;? Racontez-la en quelques lignes&#8239;: à quoi elle servirait, pour qui, sur quels appareils.</p>
-          <footer>MTX Studio · Matheo Merchez</footer>
-        </blockquote>
+        <p class="sec-k">Contact</p>
+        <h2 class="d1 contact-title" id="titre-contact">Parlons de votre app.</h2>
+        <p class="lede">Une idée d’app, même encore floue&#8239;? Racontez-la en quelques lignes&#8239;: à quoi elle servirait, pour qui, sur quels appareils.</p>
         <div class="actions">
-          <a class="pill pill-black pill-lg" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app</a>
-          <button class="pill pill-outline pill-lg" type="button" data-copy="mtxstudio@proton.me" data-copy-label="pill"><span data-copy-text>Copier l’adresse</span></button>
+          <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+          <button class="btn btn-on-line" type="button" data-copy="mtxstudio@proton.me"><span data-copy-text>Copier l’adresse</span></button>
         </div>
+        <p class="copy-status" role="status" aria-live="polite" data-copy-status></p>
       </div>
-    </div>
-    <div class="wrap address-block">
-      <a class="address" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A" data-fit><span class="address-line" data-fit-line>mtxstudio@proton.me</span></a>
-      <p class="copy-status" role="status" aria-live="polite" data-copy-status></p>
     </div>
   </section>
 
   <div class="p-float" data-float inert>
-    <a class="pill pill-black" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app</a>
-    <a class="pill pill-line" href="#budget">Budget</a>
+    <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99application&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20id%C3%A9e%20d%E2%80%99application%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%28iPhone%2C%20iPad%2C%20Apple%20Watch%2C%20Mac%2C%20navigateur%29%20%3A%0A%0ACe%20qui%20existe%20d%C3%A9j%C3%A0%20%28maquettes%2C%20site%2C%20logiciel%20actuel%29%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de mon app</a>
+    <a class="btn btn-on-line" href="#budget">Budget</a>
   </div>
 
 </main>

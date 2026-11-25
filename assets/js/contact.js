@@ -12,26 +12,24 @@
   const CSS = `
 .mtx-copie{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:2147483000;
   display:flex;align-items:center;gap:12px;max-width:calc(100vw - 32px);box-sizing:border-box;
-  padding:10px 10px 10px 12px;border-radius:999px;color:#fff;background:rgba(24,24,27,.9);
-  -webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);
-  box-shadow:0 18px 50px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.1) inset;
+  padding:10px 10px 10px 12px;border-radius:0;color:#fff;background:#111;
+  box-shadow:0 0 0 2px #fff;
   font:inherit;font-size:15px;line-height:1.2;letter-spacing:normal;text-align:left;
   opacity:0;transform:translate(-50%,24px) scale(.92);pointer-events:none;
   transition:opacity .22s ease,transform .5s cubic-bezier(.2,1.4,.4,1)}
 .mtx-copie.est-visible{opacity:1;transform:translate(-50%,0) scale(1);pointer-events:auto}
-.mtx-copie-coche{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(135deg,#2997ff,#a78bfa 45%,#ff6ec7 80%,#ffb86b)}
-.mtx-copie-coche svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.mtx-copie-coche{flex:none;width:30px;height:30px;display:grid;place-items:center;background:#ffd21f}
+.mtx-copie-coche svg{width:16px;height:16px;fill:none;stroke:#111;stroke-width:2.6}
 .mtx-copie-coche path{stroke-dasharray:20;stroke-dashoffset:20}
 .mtx-copie.est-visible .mtx-copie-coche{animation:mtx-copie-pop .55s cubic-bezier(.2,1.6,.4,1) .08s both}
 .mtx-copie.est-visible .mtx-copie-coche path{animation:mtx-copie-trait .38s ease-out .26s forwards}
 .mtx-copie-texte{display:flex;flex-direction:column;min-width:0}
 .mtx-copie-texte b{font-weight:600;white-space:nowrap}
 .mtx-copie-texte span{font-size:13px;opacity:.7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mtx-copie-mail{flex:none;margin-left:4px;padding:8px 14px;border-radius:999px;color:#18181b;background:#fff;
+.mtx-copie-mail{flex:none;margin-left:4px;padding:8px 14px;color:#111;background:#fff;
   font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
 .mtx-copie-mail:hover{background:#e9e9ee}
-.mtx-copie-mail:focus-visible{outline:2px solid #2997ff;outline-offset:2px}
+.mtx-copie-mail:focus-visible{outline:2px solid #ffd21f;outline-offset:2px}
 @keyframes mtx-copie-pop{from{transform:scale(.3)}to{transform:scale(1)}}
 @keyframes mtx-copie-trait{to{stroke-dashoffset:0}}
 @media (max-width:420px){.mtx-copie-texte span{display:none}}

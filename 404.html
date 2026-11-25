@@ -8,92 +8,92 @@
 <meta name="description" content="Cette page n’existe pas ou a changé d’adresse. Retrouvez les réalisations de MTX Studio et le contact du studio depuis l’accueil.">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/assets/img/mtx-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <script>(function(d){try{var t=localStorage.getItem('mtx-theme');if(t==='dark'||t==='light')d.dataset.theme=t}catch(e){}d.classList.add('js')})(document.documentElement)</script>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist-latin.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=10">
-<script src="/assets/js/site.js?v=10" defer></script>
-<script defer src="/assets/js/contact.js?v=1"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=20">
+<script src="/assets/js/site.js?v=20" defer></script>
+<script defer src="/assets/js/contact.js?v=3"></script>
 </head>
-<body class="page-text">
+<body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-<header class="navbar is-solid" data-navbar>
-  <a class="brand" href="/" aria-label="MTX Studio, accueil" translate="no"><span>MTX Studio</span><svg class="brand-mark" viewBox="0 0 56 70" aria-hidden="true"><use href="#x-glyph"/></svg></a>
-  <nav class="desktop-links" aria-label="Pôles et studio"><a href="/sites-internet/" data-pole="web"><i class="pole-dot" aria-hidden="true"></i>Sites internet</a><a href="/applications/" data-pole="app"><i class="pole-dot" aria-hidden="true"></i>Applications</a><a href="/intelligence-artificielle/" data-pole="ia"><i class="pole-dot" aria-hidden="true"></i>IA</a><span class="nav-sep nav-moins" aria-hidden="true"></span><a class="nav-moins" href="/#realisations">Réalisations</a><a class="nav-moins" href="/#studio">Le studio</a></nav>
-  <div class="nav-actions">
-    <button class="theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.350 5.350l1.550 1.550M17.100 17.100l1.550 1.550M5.350 18.650l1.550-1.550M17.100 6.900l1.550-1.550"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button>
-    <a class="pill pill-black nav-cta" href="/#contact">Écrire au studio</a>
-    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle><span></span><span></span><span></span></button>
+<header class="nav" data-navbar>
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="MTX Studio, accueil" translate="no"><svg viewBox="0 0 56 70" aria-hidden="true"><use href="#x-mono"/></svg><span>MTX Studio</span></a>
+    <nav class="nav-links" aria-label="Pôles et studio"><a href="/sites-internet/" data-pole="web"><i class="swatch" aria-hidden="true"></i>Sites internet</a><a href="/applications/" data-pole="app"><i class="swatch" aria-hidden="true"></i>Applications</a><a href="/intelligence-artificielle/" data-pole="ia"><i class="swatch" aria-hidden="true"></i>IA</a><span class="nav-sep" aria-hidden="true"></span><a href="/#realisations">Réalisations</a><a href="/#studio">Le studio</a></nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.55 1.55M17.1 17.1l1.55 1.55M5.35 18.65l1.55-1.55M17.1 6.9l1.55-1.55"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a8.4 8.4 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="btn nav-cta" href="/#contact">Contact</a>
+      <button class="icon-btn menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
-<nav class="mobile-overlay" id="menu-mobile" aria-label="Navigation mobile" data-menu>
-  <p class="m-label">Choisir un pôle</p>
-  <a class="m-pole" data-pole="web" href="/sites-internet/" data-close-menu><i class="pole-dot" aria-hidden="true"></i><span><b>Sites internet</b><small>Création, refonte, dès 690 €</small></span></a>
-  <a class="m-pole" data-pole="app" href="/applications/" data-close-menu><i class="pole-dot" aria-hidden="true"></i><span><b>Applications</b><small>iPhone, iPad, Mac, web</small></span></a>
-  <a class="m-pole" data-pole="ia" href="/intelligence-artificielle/" data-close-menu><i class="pole-dot" aria-hidden="true"></i><span><b>Intelligence artificielle</b><small>Assistants, automatisations, IA locale</small></span></a>
+<nav class="m-menu" id="menu-mobile" aria-label="Navigation mobile" data-menu>
+  <a class="m-coll" data-pole="web" href="/sites-internet/" data-close-menu><b>Sites internet</b><small>Création et refonte, dès 690 €</small><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+  <a class="m-coll" data-pole="app" href="/applications/" data-close-menu><b>Applications</b><small>iPhone, iPad, Apple Watch, Mac et web</small><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+  <a class="m-coll" data-pole="ia" href="/intelligence-artificielle/" data-close-menu><b>Intelligence artificielle</b><small>Assistants, automatisations, IA locale</small><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
   <div class="m-more">
     <a href="/" data-close-menu>Accueil</a>
     <a href="/#realisations" data-close-menu>Réalisations</a>
     <a href="/#studio" data-close-menu>Le studio</a>
     <a href="/#questions" data-close-menu>Questions</a>
   </div>
-  <a class="mobile-contact" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28site%20internet%2C%20application%2C%20IA%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A" data-close-menu>Écrire au studio</a>
-  <p class="mobile-meta">mtxstudio@proton.me</p>
+  <div class="m-foot">
+    <a class="btn" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28site%20internet%2C%20application%2C%20IA%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A" data-close-menu>Écrire au studio</a>
+    <p>mtxstudio@proton.me · réponse sous 48&nbsp;h ouvrées</p>
+  </div>
 </nav>
 
-<main id="contenu" class="text-main">
-  <div class="text-grid">
+<main id="contenu" class="text-page">
+  <div class="wrap">
     <header class="text-head">
-      <div class="eyebrow"><p class="eyebrow-label"><span>Erreur 404</span></p></div>
-      <h1 class="display">Cette page n’existe pas.</h1>
-      <p class="lead">Le reste du studio, lui, est bien là.</p>
+      <p class="sec-k">Erreur 404</p>
+      <h1 class="d1">Cette page n’existe pas.</h1>
+      <p class="lede">Le reste du studio, lui, est bien là.</p>
     </header>
 
     <div class="text-body">
       <p>L’adresse a peut-être changé, ou une lettre s’est glissée de travers. Les pages Services, Formules et Contact de l’ancien site n’existent plus&#8239;: choisissez votre pôle ci-dessous, ou repartez de l’accueil.</p>
-      <div class="text-actions">
-        <a class="pill pill-black pill-lg" href="/">Revenir à l’accueil</a>
-        <a class="pill pill-white pill-lg" href="/sites-internet/">Sites internet</a>
-        <a class="pill pill-white pill-lg" href="/applications/">Applications</a>
-        <a class="pill pill-white pill-lg" href="/intelligence-artificielle/">Intelligence artificielle</a>
-        <a class="pill pill-white pill-lg" href="mailto:mtxstudio@proton.me?subject=Un%20lien%20cass%C3%A9%20sur%20mtx-developpement.fr&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20suivi%20un%20lien%20qui%20m%C3%A8ne%20%C3%A0%20une%20page%20introuvable.%0A%0APage%20o%C3%B9%20j%E2%80%99ai%20trouv%C3%A9%20le%20lien%20%3A%0A%0A">Écrire au studio</a>
+      <div class="actions text-actions">
+        <a class="btn" href="/">Revenir à l’accueil</a>
+        <a class="btn btn-line" href="/sites-internet/">Sites internet</a>
+        <a class="btn btn-line" href="/applications/">Applications</a>
+        <a class="btn btn-line" href="/intelligence-artificielle/">Intelligence artificielle</a>
+        <a class="btn btn-line" href="mailto:mtxstudio@proton.me?subject=Un%20lien%20cass%C3%A9%20sur%20mtx-developpement.fr&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20suivi%20un%20lien%20qui%20m%C3%A8ne%20%C3%A0%20une%20page%20introuvable.%0A%0APage%20o%C3%B9%20j%E2%80%99ai%20trouv%C3%A9%20le%20lien%20%3A%0A%0A">Écrire au studio</a>
       </div>
     </div>
   </div>
 </main>
 
-<footer class="footer">
+<footer class="foot">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-pitch">MTX Studio conçoit des sites internet, des applications et des solutions d’IA pour les entreprises. Un seul interlocuteur, des prix écrits d’avance.</p>
-        <a class="footer-mail" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28site%20internet%2C%20application%2C%20IA%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">mtxstudio@proton.me</a>
-      </div>
-      <div class="footer-cols">
-        <nav class="footer-col" aria-labelledby="pied-web"><h2 id="pied-web"><i class="pole-dot" data-pole="web" aria-hidden="true"></i>Sites internet</h2><ul><li><a href="/sites-internet/">Vue d’ensemble</a></li><li><a href="/sites-internet/refonte/">Refonte</a></li><li><a href="/sites-internet/tarifs/">Tarifs</a></li><li><a href="/sites-internet/tarifs/#devis">Simulateur de devis</a></li></ul></nav>
-        <nav class="footer-col" aria-labelledby="pied-app"><h2 id="pied-app"><i class="pole-dot" data-pole="app" aria-hidden="true"></i>Applications</h2><ul><li><a href="/applications/">Vue d’ensemble</a></li><li><a href="/applications/#creations">Ce que je crée</a></li><li><a href="/applications/#realisations">Réalisations</a></li><li><a href="/applications/#budget">Budget</a></li></ul></nav>
-        <nav class="footer-col" aria-labelledby="pied-ia"><h2 id="pied-ia"><i class="pole-dot" data-pole="ia" aria-hidden="true"></i>Intelligence artificielle</h2><ul><li><a href="/intelligence-artificielle/">Vue d’ensemble</a></li><li><a href="/intelligence-artificielle/#usages">Cas d’usage</a></li><li><a href="/intelligence-artificielle/#donnees">Vos données</a></li><li><a href="/intelligence-artificielle/#budget">Budget</a></li></ul></nav>
-        <nav class="footer-col" aria-labelledby="pied-studio"><h2 id="pied-studio">Studio</h2><ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/#realisations">Réalisations</a></li>
-          <li><a href="/#studio">Le studio</a></li>
-          <li><a href="/#contact">Contact</a></li>
-          <li><a href="/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="/confidentialite.html">Confidentialité</a></li>
-        </ul></nav>
-      </div>
+    <div class="foot-call">
+      <p class="k">Un projet, une question&#8239;? Réponse sous 48&nbsp;h ouvrées</p>
+      <a class="foot-mail" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20pour%20MTX%20Studio&amp;body=Bonjour%20Matheo%2C%0A%0AMon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0AType%20de%20projet%20%28site%20internet%2C%20application%2C%20IA%29%20et%20appareils%20vis%C3%A9s%20%3A%0A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A" data-fit><span data-fit-line>mtxstudio@proton.me</span></a>
     </div>
-    <p class="footer-word" aria-hidden="true" data-fit><span data-fit-line>MTX Studio<svg viewBox="0 0 56 70"><use href="#x-glyph"/></svg></span></p>
-    <div class="footer-bottom">
+    <div class="foot-cols">
+      <nav class="foot-col" data-pole="web" aria-labelledby="pied-web"><h2 id="pied-web"><i class="swatch" aria-hidden="true"></i>Sites internet</h2><ul><li><a href="/sites-internet/">Vue d’ensemble</a></li><li><a href="/sites-internet/refonte/">Refonte</a></li><li><a href="/sites-internet/tarifs/">Tarifs</a></li><li><a href="/sites-internet/tarifs/#devis">Simulateur de devis</a></li></ul></nav>
+      <nav class="foot-col" data-pole="app" aria-labelledby="pied-app"><h2 id="pied-app"><i class="swatch" aria-hidden="true"></i>Applications</h2><ul><li><a href="/applications/">Vue d’ensemble</a></li><li><a href="/applications/#creations">Ce que je crée</a></li><li><a href="/applications/#realisations">Réalisations</a></li><li><a href="/applications/#budget">Budget</a></li></ul></nav>
+      <nav class="foot-col" data-pole="ia" aria-labelledby="pied-ia"><h2 id="pied-ia"><i class="swatch" aria-hidden="true"></i>Intelligence artificielle</h2><ul><li><a href="/intelligence-artificielle/">Vue d’ensemble</a></li><li><a href="/intelligence-artificielle/#usages">Cas d’usage</a></li><li><a href="/intelligence-artificielle/#donnees">Vos données</a></li><li><a href="/intelligence-artificielle/#budget">Budget</a></li></ul></nav>
+      <nav class="foot-col" aria-labelledby="pied-studio"><h2 id="pied-studio">Studio</h2><ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/#realisations">Réalisations</a></li>
+        <li><a href="/#studio">Le studio</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/mentions-legales.html">Mentions légales</a></li>
+        <li><a href="/confidentialite.html">Confidentialité</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-bottom">
       <span>© 2026 MTX Studio · Matheo Merchez EI</span>
-      <span>Sites internet · Applications · Intelligence artificielle</span>
-      <button class="footer-theme" type="button" data-theme-toggle><span data-theme-label>Thème sombre</span></button>
+      <span>Studio indépendant, partout en France</span>
+      <button class="push" type="button" data-theme-toggle><span data-theme-label>Thème sombre</span></button>
       <a href="#contenu" data-top>Haut de page ↑</a>
     </div>
   </div>
@@ -103,6 +103,7 @@
   <defs>
     <linearGradient id="g-x" x1="30" x2="70" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2997ff"/><stop offset=".4" stop-color="#a78bfa"/><stop offset=".75" stop-color="#ff6ec7"/><stop offset="1" stop-color="#ffb86b"/></linearGradient>
     <symbol id="x-glyph" viewBox="22 15 56 70"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="url(#g-x)" stroke-width="16" stroke-linecap="round"/></symbol>
+    <symbol id="x-mono" viewBox="22 15 56 70"><path d="M33 26l34 48M67 26L33 74" fill="none" stroke="currentColor" stroke-width="16"/></symbol>
   </defs>
 </svg>
 </body>

@@ -289,13 +289,18 @@
       cites.forEach((c) => c.setAttribute('aria-pressed', String(c.getAttribute('aria-controls') === id)));
       sources.forEach((s) => s.classList.toggle('is-lit', s.id === id));
     };
+    // Le survol montre la source ; un clic la fixe, un second clic sur la même citation l’éteint.
+    // (Sans ce suivi, le survol allumait la source et le clic qui suivait l’éteignait aussitôt.)
+    let fixee = '';
     cites.forEach((c) => {
+      const id = c.getAttribute('aria-controls');
       c.addEventListener('click', () => {
-        const id = c.getAttribute('aria-controls');
-        allumer(c.getAttribute('aria-pressed') === 'true' ? '' : id);
+        fixee = fixee === id ? '' : id;
+        allumer(fixee);
       });
       if (window.matchMedia('(hover: hover)').matches) {
-        c.addEventListener('mouseenter', () => allumer(c.getAttribute('aria-controls')));
+        c.addEventListener('mouseenter', () => allumer(id));
+        c.addEventListener('mouseleave', () => allumer(fixee));
       }
     });
   });

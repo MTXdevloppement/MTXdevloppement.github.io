@@ -79,93 +79,97 @@
 </nav>
 
 <main id="contenu">
-  <!-- Héros ============================================================== -->
-  <section class="p-hero" id="haut" data-hero aria-labelledby="titre">
-    <div class="p-hero-grid">
-      <div>
-        <p class="p-kicker"><i class="pole-dot" aria-hidden="true"></i>Intelligence artificielle · pour les entreprises</p>
-        <h1 id="titre">
-          <span class="p-h1-label">Solutions d’intelligence artificielle pour les entreprises</span>
-          <span class="p-big">Une IA utile, qui cite ses sources.</span>
-        </h1>
-        <p class="p-lede">Un assistant qui répond à partir de vos documents, des tâches répétitives qui se font seules, une IA intégrée à vos outils. Avec des réponses vérifiables, et vos données protégées, en local si besoin.</p>
-        <div class="actions">
-          <a class="pill pill-black pill-lg" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet</a>
-          <a class="pill pill-white pill-lg" href="#usages">Voir les cas d’usage</a>
-        </div>
-        <ul class="p-trust">
-          <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>Diagnostic gratuit de 30 minutes</li>
-          <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>Prototype sur vos vrais documents avant d’aller plus loin</li>
-          <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>Rien ne quitte l’entreprise sans votre accord</li>
-        </ul>
+  <!-- Couverture : la réponse sourcée ========================================== -->
+  <section class="cover" id="haut" data-hero aria-labelledby="titre">
+    <div class="wrap cover-grid">
+      <p class="cover-k"><span>03</span>Intelligence artificielle · pour les entreprises</p>
+      <h1 class="cover-t" id="titre">Une IA utile pour votre entreprise, qui cite ses sources.</h1>
+      <p class="cover-lede">Un assistant qui répond à partir de vos documents, des tâches répétitives qui se font seules, une IA intégrée à vos outils. Des réponses vérifiables, et vos données protégées, installées chez vous si besoin.</p>
+      <div class="actions cover-actions">
+        <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+        <a class="btn btn-on-line" href="#usages">Les cas d’usage</a>
       </div>
-
-      <div class="p-answer" data-answer>
-        <div class="p-answer-top"><b><i class="pole-dot" aria-hidden="true"></i>Assistant documentaire</b><span>Exemple fictif · documents d’une menuiserie</span></div>
-        <div class="p-answer-body">
-          <p class="p-q">Un client demande la garantie de ses fenêtres alu posées en 2025. Que lui répondre&#8239;?</p>
-          <div class="p-a">
-            <p>Ses fenêtres aluminium sont garanties <strong>dix ans pour l’étanchéité</strong><button class="p-cite" type="button" aria-controls="src-1" aria-pressed="false" aria-label="Voir la source 1">1</button> et <strong>deux ans pour les pièces mobiles</strong>, comme les poignées et les crémones<button class="p-cite" type="button" aria-controls="src-2" aria-pressed="false" aria-label="Voir la source 2">2</button>.</p>
-            <p>Il fait sa demande par e-mail au service après-vente, avec son numéro de facture et des photos du défaut<button class="p-cite" type="button" aria-controls="src-3" aria-pressed="false" aria-label="Voir la source 3">3</button>.</p>
+      <dl class="cover-facts">
+        <div><dt>Diagnostic</dt><dd>30 min, gratuit</dd></div>
+        <div><dt>Prototype</dt><dd>sur vos documents</dd></div>
+        <div><dt>Données</dt><dd>chez vous si besoin</dd></div>
+        <div><dt>Budget</dt><dd>dès 1&#8239;200&nbsp;€</dd></div>
+      </dl>
+    </div>
+    <div class="wrap cover-ba">
+      <div class="answer" data-answer>
+        <p class="answer-top"><b>Assistant documentaire</b><span>Exemple fictif · documents d’une menuiserie</span></p>
+        <div class="answer-body">
+          <div class="answer-main">
+            <p class="p-q">Un client demande la garantie de ses fenêtres alu posées en 2025. Que lui répondre&#8239;?</p>
+            <div class="p-a">
+              <p>Ses fenêtres aluminium sont garanties <strong>dix ans pour l’étanchéité</strong><button class="p-cite" type="button" aria-controls="src-1" aria-pressed="false" aria-label="Voir la source 1">1</button> et <strong>deux ans pour les pièces mobiles</strong>, comme les poignées et les crémones<button class="p-cite" type="button" aria-controls="src-2" aria-pressed="false" aria-label="Voir la source 2">2</button>.</p>
+              <p>Il fait sa demande par e-mail au service après-vente, avec son numéro de facture et des photos du défaut<button class="p-cite" type="button" aria-controls="src-3" aria-pressed="false" aria-label="Voir la source 3">3</button>.</p>
+            </div>
           </div>
-          <div class="p-sources">
+          <div class="answer-src">
+            <p class="answer-src-k">Sources citées</p>
             <p class="p-source" id="src-1"><b>Conditions générales de vente <span>art. 8.2 · p. 4</span></b><q>Les menuiseries aluminium bénéficient d’une <mark>garantie de dix ans sur l’étanchéité à l’air et à l’eau</mark>, à compter de la réception des travaux.</q></p>
             <p class="p-source" id="src-2"><b>Fiche produit Alu A70 <span>p. 2</span></b><q>Quincaillerie (poignées, crémones, paumelles)&#8239;: <mark>garantie de deux ans</mark>, pièces et main-d’œuvre.</q></p>
             <p class="p-source" id="src-3"><b>Procédure SAV <span>version 3</span></b><q>Toute demande sous garantie est adressée par e-mail au service après-vente, <mark>avec le numéro de facture et des photos</mark> du défaut.</q></p>
           </div>
         </div>
-        <p class="p-answer-foot"><span>3 documents cités</span><span>Modèle installé chez l’entreprise</span><span>Touchez un numéro pour voir le passage</span></p>
+        <p class="answer-foot"><span>3 documents cités</span><span>Modèle installé chez l’entreprise</span><span>Touchez un numéro pour voir le passage</span></p>
       </div>
     </div>
   </section>
 
-  <!-- Cas d’usage ======================================================== -->
-  <section class="section" id="usages" aria-labelledby="titre-usages">
+  <!-- Cas d’usage ============================================================ -->
+  <section class="sec" id="usages" aria-labelledby="titre-usages">
     <div class="wrap">
-      <div class="eyebrow reveal"><p class="eyebrow-label"><span>Cas d’usage</span></p></div>
-      <div class="head-row">
-        <h2 class="display reveal" id="titre-usages">Ce qu’une IA peut faire pour vous, concrètement.</h2>
-        <p class="lead reveal">Pas de promesse magique&#8239;: des tâches précises, qui prennent du temps aujourd’hui et que l’IA fait bien, sous votre contrôle.</p>
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">01</span>Cas d’usage</p>
+        <h2 class="d2 sec-t" id="titre-usages">Des tâches précises, pas de promesse magique.</h2>
+        <p class="lede">Ce qui prend du temps aujourd’hui et qu’une IA fait bien, sous votre contrôle.</p>
+      </header>
+      <div class="cols">
+        <ul class="main rows rows-2">
+          <li><span class="r-n">01</span><h3>Un assistant qui connaît vos documents</h3><p>Procédures, contrats, fiches produits, comptes rendus&#8239;: posez une question, obtenez la réponse et le passage exact d’où elle vient.</p><p class="r-meta">Comme <a href="../realisations/knowledge-ai/">Knowledge AI</a></p></li>
+          <li><span class="r-n">02</span><h3>Les tâches répétitives, faites pour vous</h3><p>Trier les e-mails entrants, lire les factures fournisseurs et préremplir la comptabilité, résumer une réunion.</p><p class="r-meta">Vous validez, l’IA prépare</p></li>
+          <li><span class="r-n">03</span><h3>La parole transformée en notes</h3><p>Mémos vocaux, appels, réunions&#8239;: transcription, puis tâches, dates, personnes et décisions relevées.</p><p class="r-meta">Comme <a href="../realisations/steno/">Sténo</a></p></li>
+          <li><span class="r-n">04</span><h3>L’IA dans vos outils</h3><p>Recherche intelligente, rédaction assistée, classement automatique, directement dans votre site, votre app ou votre logiciel.</p><p class="r-meta">Comme <a href="../realisations/triade/">Triade</a></p></li>
+          <li><span class="r-n">05</span><h3>Des agents qui exécutent</h3><p>Préparer un devis, relancer, synthétiser&#8239;: des missions confiées à des agents. Un humain valide avant tout envoi.</p><p class="r-meta">Comme <a href="../realisations/startup3d/">Startup3D</a></p></li>
+          <li><span class="r-n">06</span><h3>Pour commencer&#8239;: un diagnostic honnête</h3><p>30 minutes pour repérer les tâches où l’IA vous ferait gagner du temps, et celles où elle ne servirait à rien.</p><p class="r-meta"><a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Demander le diagnostic</a></p></li>
+        </ul>
       </div>
-      <ul class="p-cards" style="--cols:3">
-        <li class="p-card reveal"><p class="p-card-k">Documents</p><h3>Un assistant qui connaît vos documents</h3><p>Procédures, contrats, fiches produits, comptes rendus&#8239;: posez une question, obtenez la réponse et le passage exact d’où elle vient.</p><p class="p-card-foot">Comme <a href="../realisations/knowledge-ai/">Knowledge AI</a></p></li>
-        <li class="p-card reveal"><p class="p-card-k">Automatisation</p><h3>Les tâches répétitives, faites pour vous</h3><p>Trier les e-mails entrants, lire les factures fournisseurs et préremplir la comptabilité, résumer une réunion.</p><p class="p-card-foot">Vous validez, l’IA prépare</p></li>
-        <li class="p-card reveal"><p class="p-card-k">Voix</p><h3>La parole transformée en notes</h3><p>Mémos vocaux, appels, réunions&#8239;: transcription, puis tâches, dates, personnes et décisions relevées.</p><p class="p-card-foot">Comme <a href="../realisations/steno/">Sténo</a></p></li>
-        <li class="p-card reveal"><p class="p-card-k">Intégration</p><h3>L’IA dans vos outils</h3><p>Recherche intelligente, rédaction assistée, classement automatique, directement dans votre site, votre app ou votre logiciel.</p><p class="p-card-foot">Comme <a href="../realisations/triade/">Triade</a></p></li>
-        <li class="p-card reveal"><p class="p-card-k">Agents</p><h3>Des agents qui exécutent</h3><p>Des missions confiées à des agents&#8239;: préparer un devis, relancer, synthétiser. Un humain valide avant tout envoi.</p><p class="p-card-foot">Comme <a href="../realisations/startup3d/">Startup3D</a></p></li>
-        <li class="p-card reveal"><p class="p-card-k">Pour commencer</p><h3>Un diagnostic honnête</h3><p>30 minutes pour repérer les tâches où l’IA vous ferait gagner du temps, et celles où elle ne servirait à rien.</p><p class="p-card-foot"><a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Demander le diagnostic</a></p></li>
-      </ul>
     </div>
   </section>
 
-  <!-- Vos données ======================================================== -->
-  <section class="section" id="donnees" aria-labelledby="titre-donnees">
-    <div class="wrap p-split">
-      <div>
-        <div class="eyebrow reveal"><p class="eyebrow-label"><span>Vos données</span></p></div>
-        <h2 class="display reveal" id="titre-donnees">Vos données restent les vôtres.</h2>
-        <p class="lead reveal">La question n’est pas «&nbsp;quelle IA&nbsp;?&nbsp;» mais «&nbsp;où vont vos documents&nbsp;?&nbsp;». Elle est réglée au début du projet, par écrit.</p>
-      </div>
-      <ul class="p-included reveal">
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>En local quand il le faut</b><small>Le modèle tourne sur vos machines, un Mac ou un serveur&#8239;: aucun document ne sort de l’entreprise.</small></span></li>
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Sinon, des fournisseurs encadrés</b><small>Modèles hébergés en Europe, ou contrats qui excluent l’entraînement sur vos données, choisis avec vous.</small></span></li>
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Le minimum de données</b><small>Seul ce qui est nécessaire à la tâche est transmis, et rien n’est conservé sans raison.</small></span></li>
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Des réponses vérifiables</b><small>L’assistant cite ses sources et dit quand l’information n’est pas dans vos documents, au lieu d’inventer.</small></span></li>
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Un humain décide</b><small>Pour ce qui engage l’entreprise, comme un devis ou un e-mail client, l’IA propose et vous validez.</small></span></li>
-        <li><span class="p-check"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.8 9.2 10 3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><b>Transparence</b><small>Un assistant tourné vers vos clients se présente comme une IA, comme le demande le règlement européen sur l’IA.</small></span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Réalisations ======================================================= -->
-  <section class="section" id="realisations" aria-labelledby="titre-realisations">
+  <!-- Vos données ============================================================ -->
+  <section class="sec" id="donnees" aria-labelledby="titre-donnees">
     <div class="wrap">
-      <div class="eyebrow reveal"><p class="eyebrow-label"><span>Réalisations</span></p></div>
-      <div class="head-row">
-        <h2 class="display reveal" id="titre-realisations">De l’IA, déjà au travail.</h2>
-        <p class="lead reveal">Une IA locale qui cite ses sources, des mémos analysés sur l’iPhone, un traitement de texte qui rédige, des agents dans une agence en 3D. Chacune se manipule en ligne.</p>
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">02</span>Vos données</p>
+        <h2 class="d2 sec-t" id="titre-donnees">La vraie question&#8239;: où vont vos documents&#8239;?</h2>
+        <p class="lede">Elle est réglée au début du projet, par écrit, avant toute ligne de code.</p>
+      </header>
+      <div class="cols">
+        <dl class="main facts facts-lg">
+          <div><dt>En local quand il le faut</dt><dd>Le modèle tourne sur vos machines, un Mac ou un serveur&#8239;: aucun document ne sort de l’entreprise.</dd></div>
+          <div><dt>Sinon, des fournisseurs encadrés</dt><dd>Modèles hébergés en Europe, ou contrats qui excluent l’entraînement sur vos données, choisis avec vous.</dd></div>
+          <div><dt>Le minimum de données</dt><dd>Seul ce qui est nécessaire à la tâche est transmis, et rien n’est conservé sans raison.</dd></div>
+          <div><dt>Des réponses vérifiables</dt><dd>L’assistant cite ses sources et dit quand l’information n’est pas dans vos documents, au lieu d’inventer.</dd></div>
+          <div><dt>Un humain décide</dt><dd>Pour ce qui engage l’entreprise, comme un devis ou un e-mail client, l’IA propose et vous validez.</dd></div>
+          <div><dt>Transparence</dt><dd>Un assistant tourné vers vos clients se présente comme une IA, comme le demande le règlement européen sur l’IA.</dd></div>
+        </dl>
       </div>
-      <div class="works">
+    </div>
+  </section>
+
+  <!-- Réalisations ========================================================== -->
+  <section class="sec" id="realisations" aria-labelledby="titre-realisations">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">03</span>Réalisations</p>
+        <h2 class="d2 sec-t" id="titre-realisations">De l’IA déjà au travail, à essayer en ligne.</h2>
+        <p class="lede">Une IA locale qui cite ses sources, des mémos analysés sur l’iPhone, un traitement de texte qui rédige, des agents dans une agence en 3D.</p>
+      </header>
+      <ul class="figs">
 <li class="fig" id="i-knowledge-ai">
   <a href="../realisations/knowledge-ai/" aria-describedby="i-knowledge-ai-d">
     <div class="fig-media"><picture class="work-shot work-shot-clair"><source media="(max-width: 639px)" type="image/avif" srcset="../assets/img/realisations/mobile-knowledge-ai-clair.avif"><source media="(max-width: 639px)" type="image/webp" srcset="../assets/img/realisations/mobile-knowledge-ai-clair.webp"><source type="image/avif" srcset="../assets/img/realisations/site-knowledge-ai-clair-720.avif 720w, ../assets/img/realisations/site-knowledge-ai-clair.avif 1440w, ../assets/img/realisations/site-knowledge-ai-clair-2160.avif 2160w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw"><img src="../assets/img/realisations/site-knowledge-ai-clair-720.webp" srcset="../assets/img/realisations/site-knowledge-ai-clair-720.webp 720w, ../assets/img/realisations/site-knowledge-ai-clair.webp 1440w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw" width="1440" height="900" alt="Aperçu du site de Knowledge AI, en thème clair" loading="lazy" decoding="async"></picture><picture class="work-shot work-shot-sombre"><source media="(max-width: 639px)" type="image/avif" srcset="../assets/img/realisations/mobile-knowledge-ai-sombre.avif"><source media="(max-width: 639px)" type="image/webp" srcset="../assets/img/realisations/mobile-knowledge-ai-sombre.webp"><source type="image/avif" srcset="../assets/img/realisations/site-knowledge-ai-sombre-720.avif 720w, ../assets/img/realisations/site-knowledge-ai-sombre.avif 1440w, ../assets/img/realisations/site-knowledge-ai-sombre-2160.avif 2160w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw"><img src="../assets/img/realisations/site-knowledge-ai-sombre-720.webp" srcset="../assets/img/realisations/site-knowledge-ai-sombre-720.webp 720w, ../assets/img/realisations/site-knowledge-ai-sombre.webp 1440w" sizes="(min-width: 1440px) 680px, (min-width: 640px) 46vw, 92vw" width="1440" height="900" alt="Aperçu du site de Knowledge AI, en thème sombre" loading="lazy" decoding="async"></picture></div>
@@ -190,112 +194,113 @@
     <div class="fig-cap"><img class="fig-icon" src="../assets/img/realisations/icone-startup3d.webp" width="160" height="160" alt="" loading="lazy" decoding="async"><h3 class="fig-name">Startup3D</h3><span class="fig-cat">Application web · 3D temps réel</span><span class="fig-go">Entrer dans l’agence</span><p class="fig-text" id="i-startup3d-d">Startup3D met l’entreprise en volume&#8239;: on la gère en traversant son agence.</p><p class="fig-tech">React, TypeScript, Three.js, React Three Fiber</p></div>
   </a>
 </li>
-      </div>
+      </ul>
     </div>
   </section>
 
-  <!-- Méthode ============================================================ -->
-  <section class="section" id="methode" aria-labelledby="titre-methode">
+  <!-- Méthode =============================================================== -->
+  <section class="sec" id="methode" aria-labelledby="titre-methode">
     <div class="wrap">
-      <div class="eyebrow reveal"><p class="eyebrow-label"><span>Méthode</span></p></div>
-      <div class="head-row">
-        <h2 class="display reveal" id="titre-methode">Mesurer avant de promettre.</h2>
-        <p class="lead reveal">Un projet d’IA se juge sur vos documents, pas sur une démonstration. On teste d’abord sur un échantillon réel, puis on décide ensemble.</p>
-      </div>
-      <ol class="p-steps" style="--steps:4">
-        <li class="p-step reveal"><span class="p-step-n">1</span><h3>Diagnostic</h3><p class="p-step-t">30 minutes · gratuit</p><p>Vos tâches, vos documents, vos contraintes. On repère où l’IA est utile, et où elle ne l’est pas.</p></li>
-        <li class="p-step reveal"><span class="p-step-n">2</span><h3>Prototype sur vos données</h3><p class="p-step-t">1 à 2 semaines</p><p>Une première version sur un échantillon de vos vrais documents, et une série de questions-tests pour mesurer la qualité.</p></li>
-        <li class="p-step reveal"><span class="p-step-n">3</span><h3>Mise en service</h3><p class="p-step-t">2 à 6 semaines</p><p>Intégration à vos outils, accès, formation de l’équipe, documentation.</p></li>
-        <li class="p-step reveal"><span class="p-step-n">4</span><h3>Suivi</h3><p class="p-step-t">Sans engagement</p><p>Qualité des réponses, coûts d’usage, mises à jour des modèles&#8239;: un point régulier.</p></li>
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">04</span>Méthode</p>
+        <h2 class="d2 sec-t" id="titre-methode">Mesurer sur vos documents avant de promettre.</h2>
+        <p class="lede">Un projet d’IA se juge sur vos vrais cas, pas sur une démonstration. On teste d’abord sur un échantillon, puis on décide ensemble.</p>
+      </header>
+      <ol class="steps steps-x steps-4">
+        <li><span class="s-n">1</span><h3>Diagnostic</h3><p class="s-t">30 minutes · gratuit</p><p>Vos tâches, vos documents, vos contraintes. On repère où l’IA est utile, et où elle ne l’est pas.</p></li>
+        <li><span class="s-n">2</span><h3>Prototype sur vos données</h3><p class="s-t">1 à 2 semaines</p><p>Une première version sur un échantillon de vos documents, et une série de questions-tests pour mesurer la qualité.</p></li>
+        <li><span class="s-n">3</span><h3>Mise en service</h3><p class="s-t">2 à 6 semaines</p><p>Intégration à vos outils, accès, formation de l’équipe, documentation.</p></li>
+        <li><span class="s-n">4</span><h3>Suivi</h3><p class="s-t">Sans engagement</p><p>Qualité des réponses, coûts d’usage, mises à jour des modèles&#8239;: un point régulier.</p></li>
       </ol>
     </div>
   </section>
 
-  <!-- Budget ============================================================= -->
-  <section class="section" id="budget" aria-labelledby="titre-budget">
-    <div class="wrap p-split">
-      <div>
-        <div class="eyebrow reveal"><p class="eyebrow-label"><span>Budget</span></p></div>
-        <h2 class="display reveal" id="titre-budget">Des ordres de grandeur, avant le devis.</h2>
-        <p class="lead reveal">Chaque projet est chiffré à prix fixe après le diagnostic. Voici où démarrent la plupart d’entre eux.</p>
-      </div>
-      <div class="reveal">
-        <ul class="p-budget">
-          <li><h3>Automatisation d’une tâche</h3><p>Tri d’e-mails, lecture de factures, résumés de réunions.</p><span class="p-budget-v"><small>dès</small>1&#8239;200&nbsp;€</span></li>
-          <li><h3>IA intégrée à votre outil</h3><p>Recherche, rédaction assistée ou classement automatique dans votre site, app ou logiciel.</p><span class="p-budget-v"><small>dès</small>1&#8239;900&nbsp;€</span></li>
-          <li><h3>Assistant sur vos documents</h3><p>Réponses avec sources sur vos procédures, contrats et fiches produits.</p><span class="p-budget-v"><small>dès</small>2&#8239;900&nbsp;€</span></li>
-          <li><h3>IA locale</h3><p>Le même assistant, installé sur vos machines&#8239;: rien ne sort de l’entreprise.</p><span class="p-budget-v"><small>dès</small>4&#8239;900&nbsp;€</span></li>
-        </ul>
-        <p class="p-note">Fourchettes indicatives, prix nets (TVA non applicable). Coûts d’usage en plus&#8239;: avec un modèle en ligne, de quelques euros à quelques dizaines d’euros par mois selon le volume&#8239;; en local, pas d’abonnement, mais un ordinateur assez puissant.</p>
-        <div class="actions" style="margin-top:22px"><a class="pill pill-black" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Demander le diagnostic gratuit</a></div>
+  <!-- Budget =============================================================== -->
+  <section class="sec" id="budget" aria-labelledby="titre-budget">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">05</span>Budget</p>
+        <h2 class="d2 sec-t" id="titre-budget">Des ordres de grandeur, avant le devis.</h2>
+        <p class="lede">Chaque projet est chiffré à prix fixe après le diagnostic. Voici où démarrent la plupart d’entre eux.</p>
+      </header>
+      <div class="cols">
+        <div class="main">
+          <ul class="prices prices-lg">
+            <li><span class="p-name">Automatisation d’une tâche<small>Tri d’e-mails, lecture de factures, résumés de réunions.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>1&#8239;200&nbsp;€</span></li>
+            <li><span class="p-name">IA intégrée à votre outil<small>Recherche, rédaction assistée ou classement automatique dans votre site, app ou logiciel.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>1&#8239;900&nbsp;€</span></li>
+            <li><span class="p-name">Assistant sur vos documents<small>Réponses avec sources sur vos procédures, contrats et fiches produits.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>2&#8239;900&nbsp;€</span></li>
+            <li><span class="p-name">IA locale<small>Le même assistant, installé sur vos machines&#8239;: rien ne sort de l’entreprise.</small></span><span class="lead-dots" aria-hidden="true"></span><span class="p-val"><small>dès</small>4&#8239;900&nbsp;€</span></li>
+          </ul>
+          <p class="note" style="margin-top:14px">Fourchettes indicatives, prix nets (TVA non applicable). Coûts d’usage en plus&#8239;: avec un modèle en ligne, de quelques euros à quelques dizaines d’euros par mois selon le volume&#8239;; en local, pas d’abonnement, mais un ordinateur assez puissant.</p>
+          <div class="actions" style="margin-top:24px"><a class="btn" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Demander le diagnostic gratuit<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Questions ============================================================ -->
-  <section class="section" id="questions" aria-labelledby="titre-questions">
-    <div class="wrap faq-grid">
-      <div class="faq-head">
-        <div class="eyebrow reveal"><p class="eyebrow-label"><span>Questions</span></p></div>
-        <h2 class="display reveal" id="titre-questions">Questions fréquentes.</h2>
-        <p class="lead reveal">Une autre question&#8239;? <a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Écrivez-moi</a>, sans joindre de document confidentiel.</p>
-      </div>
-      <div class="faq reveal">
-        <details class="faq-item" name="faq" open>
-          <summary><h3>L’IA peut-elle se tromper&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Oui, et il faut le prévoir. C’est pourquoi les réponses citent leurs sources, l’assistant dit quand l’information n’est pas dans vos documents, et un humain valide ce qui engage l’entreprise. Avant la mise en service, la qualité est mesurée sur une série de questions-tests tirées de vos vrais cas.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Mes données confidentielles sont-elles en sécurité&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Le choix se fait au début, par écrit&#8239;: soit un modèle installé sur vos machines, et rien ne sort de l’entreprise, soit un fournisseur encadré, hébergé en Europe ou contractuellement exclu de l’entraînement sur vos données. Seul le nécessaire est transmis.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Quels modèles d’IA utilisez-vous&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Le plus adapté à la tâche&#8239;: des modèles ouverts qui tournent en local (avec Ollama, par exemple), Apple Intelligence directement sur l’iPhone et le Mac, ou des modèles en ligne d’éditeurs comme Mistral, OpenAI ou Anthropic. On compare sur vos documents avant de choisir.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Combien coûte une IA chaque mois&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Avec un modèle en ligne, de quelques euros à quelques dizaines d’euros par mois pour une PME, selon le nombre de questions et de documents. En local, il n’y a pas d’abonnement, mais il faut un ordinateur assez puissant. L’estimation est donnée dès le prototype.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Faut-il changer nos logiciels&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Rarement. L’IA se branche le plus souvent sur ce que vous utilisez déjà&#8239;: messagerie, dossiers partagés, CRM, logiciel métier, quand ils le permettent. Le diagnostic vérifie ce qui est possible.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Que demande le règlement européen sur l’IA&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Pour les usages courants d’une entreprise, l’obligation principale est la transparence&#8239;: une personne doit savoir qu’elle échange avec une IA. Les usages dits à haut risque, comme le recrutement ou l’accès au crédit, ont des règles plus strictes&#8239;; on en parle dès le diagnostic.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>En combien de temps peut-on démarrer&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Le diagnostic a lieu dans la semaine. Un prototype sur vos documents prend une à deux semaines, la mise en service deux à six semaines selon les outils à relier.</p>
-        </details>
-        <details class="faq-item" name="faq">
-          <summary><h3>Qui est propriétaire de ce qui est développé&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Vous&#8239;: le code, les réglages, les consignes données au modèle et la documentation vous sont remis. Les comptes chez les fournisseurs d’IA sont ouverts à votre nom.</p>
-        </details>
+  <section class="sec" id="questions" aria-labelledby="titre-questions">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="sec-k"><span class="n">06</span>Questions</p>
+        <h2 class="d2 sec-t" id="titre-questions">Questions fréquentes</h2>
+        <p class="lede">Une autre question&#8239;? <a href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Écrivez-moi</a>, sans joindre de document confidentiel.</p>
+      </header>
+      <div class="cols">
+        <div class="main faq">
+          <details class="faq-item" name="faq" open>
+            <summary><h3>L’IA peut-elle se tromper&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Oui, et il faut le prévoir. C’est pourquoi les réponses citent leurs sources, l’assistant dit quand l’information n’est pas dans vos documents, et un humain valide ce qui engage l’entreprise. Avant la mise en service, la qualité est mesurée sur une série de questions-tests tirées de vos vrais cas.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Mes données confidentielles sont-elles en sécurité&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Le choix se fait au début, par écrit&#8239;: soit un modèle installé sur vos machines, et rien ne sort de l’entreprise, soit un fournisseur encadré, hébergé en Europe ou contractuellement exclu de l’entraînement sur vos données. Seul le nécessaire est transmis.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Quels modèles d’IA utilisez-vous&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Le plus adapté à la tâche&#8239;: des modèles ouverts qui tournent en local (avec Ollama, par exemple), Apple Intelligence directement sur l’iPhone et le Mac, ou des modèles en ligne d’éditeurs comme Mistral, OpenAI ou Anthropic. On compare sur vos documents avant de choisir.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Combien coûte une IA chaque mois&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Avec un modèle en ligne, de quelques euros à quelques dizaines d’euros par mois pour une PME, selon le nombre de questions et de documents. En local, il n’y a pas d’abonnement, mais il faut un ordinateur assez puissant. L’estimation est donnée dès le prototype.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Faut-il changer nos logiciels&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Rarement. L’IA se branche le plus souvent sur ce que vous utilisez déjà&#8239;: messagerie, dossiers partagés, CRM, logiciel métier, quand ils le permettent. Le diagnostic vérifie ce qui est possible.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Que demande le règlement européen sur l’IA&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Pour les usages courants d’une entreprise, l’obligation principale est la transparence&#8239;: une personne doit savoir qu’elle échange avec une IA. Les usages dits à haut risque, comme le recrutement ou l’accès au crédit, ont des règles plus strictes&#8239;; on en parle dès le diagnostic.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>En combien de temps peut-on démarrer&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Le diagnostic a lieu dans la semaine. Un prototype sur vos documents prend une à deux semaines, la mise en service deux à six semaines selon les outils à relier.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><h3>Qui est propriétaire de ce qui est développé&#8239;?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+            <p class="faq-a">Vous&#8239;: le code, les réglages, les consignes données au modèle et la documentation vous sont remis. Les comptes chez les fournisseurs d’IA sont ouverts à votre nom.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Appel final ========================================================== -->
-  <section class="section" id="contact-ia" data-float-hide aria-labelledby="titre-final">
-    <div class="wrap">
-      <div class="p-final">
-        <div class="eyebrow"><p class="eyebrow-label"><span>Diagnostic gratuit</span></p></div>
-        <h2 class="display" id="titre-final">Quelle tâche voulez-vous ne plus faire&#8239;?</h2>
-        <p class="lead">Décrivez-la en quelques lignes, sans document confidentiel. On en parle 30 minutes, et vous savez si l’IA peut vraiment vous aider.</p>
-        <div class="actions">
-          <a class="pill pill-black pill-lg" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet</a>
-          <a class="pill pill-line pill-lg" href="#budget">Voir le budget</a>
-        </div>
-        <p class="p-final-facts"><span>Diagnostic gratuit</span><span>Prototype sur vos documents</span><span>Données protégées</span></p>
+  <!-- Appel final ============================================================ -->
+  <section class="band final" id="contact-ia" data-float-hide aria-labelledby="titre-final">
+    <div class="wrap final-in">
+      <p class="sec-k">Diagnostic gratuit</p>
+      <h2 class="d1 final-t" id="titre-final">Quelle tâche voulez-vous ne plus faire&#8239;?</h2>
+      <p class="lede final-lede">Décrivez-la en quelques lignes, sans document confidentiel. On en parle 30 minutes, et vous savez si l’IA peut vraiment vous aider.</p>
+      <div class="actions final-actions">
+        <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+        <a class="btn btn-on-line" href="#budget">Voir le budget</a>
       </div>
     </div>
   </section>
 
   <div class="p-float" data-float inert>
-    <a class="pill pill-black" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet</a>
-    <a class="pill pill-line" href="#budget">Budget</a>
+    <a class="btn btn-on" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20d%E2%80%99IA&amp;body=Bonjour%20Matheo%2C%0A%0ALa%20t%C3%A2che%20que%20j%E2%80%99aimerais%20confier%20%C3%A0%20une%20IA%20%3A%0A%0A%0ALes%20documents%20ou%20outils%20concern%C3%A9s%20%28sans%20donn%C3%A9es%20confidentielles%20dans%20ce%20message%29%20%3A%0A%0AMes%20contraintes%20%28confidentialit%C3%A9%2C%20budget%2C%20d%C3%A9lai%29%20%3A%0A%0A">Parler de mon projet</a>
+    <a class="btn btn-on-line" href="#budget">Budget</a>
   </div>
 
 </main>

@@ -134,15 +134,15 @@ captures, et l’emplacement vide « Votre app », passé dans le dock quand la 
 
 ## 3. Palette
 
-Aucune couleur ajoutée. Fond de plateau neutre (gris clair en thème clair, graphite en thème sombre), tiré
-des jetons existants. Le dégradé de la marque (bleu, violet, rose, orange) reste réservé au X du logo : fond
-d’écran du téléphone, emplacement « Votre app », bouton d’envoi. Les couleurs vives viennent des apps
-elles-mêmes (icônes et captures).
+Depuis la version 2, le plateau prend le rouge de la collection Applications (dégradé radial `#e4452f` →
+`#d42a1a` → `#9e1c10`, qui sert d’éclairage au téléphone), et le texte posé dessus est blanc. Le dégradé de la
+marque (bleu, violet, rose, orange) reste réservé à l’intérieur du téléphone : fond d’écran, emplacement
+« Votre app », bouton d’envoi. Les couleurs vives viennent des apps elles-mêmes (icônes et captures).
 
 ## 4. Typographies
 
-Helvetica Now pour le site (inchangé). Dans les appareils, la police du système : c’est celle des écrans
-reproduits.
+Bricolage Grotesque pour le texte autour de la scène, comme sur tout le site. Dans les appareils, la police du
+système : c’est celle des écrans reproduits.
 
 ## 5. Traitement des visuels
 

@@ -202,6 +202,17 @@ def regroupe_css():
     corps += ''.join(minifie_css(open(f, encoding='utf8').read()) for f in src)
     open(os.path.join(ASSETS, 'css', 'mtx.css'), 'w', encoding='utf8').write(corps)
 
+# Scripts intégrés à l'en-tête et politique de sécurité du contenu (CSP). GitHub Pages n'envoie pas d'en-têtes
+# personnalisés : la CSP passe par une balise meta. Les deux scripts intégrés sont autorisés par leur empreinte
+# SHA-256 ; tout autre script doit être un fichier du site. Les attributs style="" restent autorisés.
+import base64
+THEME_JS = "(function(d){try{var t=localStorage.getItem('mtx-theme');if(t==='dark'||t==='light')d.dataset.theme=t}catch(e){}d.classList.add('js')})(document.documentElement)"
+SPEC_JS = '{"prefetch":[{"where":{"href_matches":["/sites-internet/*","/applications/","/intelligence-artificielle/","/"]},"eagerness":"moderate"}]}'
+def sha(js): return "'sha256-" + base64.b64encode(hashlib.sha256(js.encode('utf8')).digest()).decode() + "'"
+CSP = ("default-src 'self'; script-src 'self' " + sha(THEME_JS) + " " + sha(SPEC_JS) + "; style-src 'self' 'unsafe-inline'; "
+       "img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-src 'self'; object-src 'none'; "
+       "base-uri 'self'; form-action 'self'; upgrade-insecure-requests")
+
 def head(p, ld):
     root = p['root']
     url = O + p['path']
@@ -218,6 +229,7 @@ def head(p, ld):
 <meta name="description" content="{p['desc']}">
 <meta name="author" content="Matheo Merchez">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
@@ -240,9 +252,9 @@ def head(p, ld):
 <link rel="icon" href="{root}assets/img/mtx-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{root}assets/img/apple-touch-icon.png">
 <link rel="manifest" href="{root}site.webmanifest">
-<script>(function(d){{try{{var t=localStorage.getItem('mtx-theme');if(t==='dark'||t==='light')d.dataset.theme=t}}catch(e){{}}d.classList.add('js')}})(document.documentElement)</script>
+<script>{THEME_JS}</script>
 <link rel="preload" as="font" type="font/woff2" href="{root}assets/fonts/bricolage-latin.woff2" crossorigin>
-{css}{js}<script type="speculationrules">{{"prefetch":[{{"where":{{"href_matches":["/sites-internet/*","/applications/","/intelligence-artificielle/","/"]}},"eagerness":"moderate"}}]}}</script>
+{css}{js}<script type="speculationrules">{SPEC_JS}</script>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False, separators=(',', ':'))}</script>
 </head>
 <body{pole_attr}>

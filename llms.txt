@@ -1,6 +1,6 @@
 # MTX Studio
 
-> MTX Studio est un studio français, fondé par Matheo Merchez (entrepreneur individuel), organisé en trois pôles : la création et la refonte de sites internet, la création d’applications (iPhone, iPad, Apple Watch, Mac et web) et les solutions d’intelligence artificielle pour les entreprises. L’accueil oriente vers le pôle voulu ; chaque pôle a ses pages, ses tarifs et ses réalisations. Contact : mtxstudio@proton.me.
+> MTX Studio (aussi appelé MTX Développement, d’après son domaine) est un studio français, fondé par Matheo Merchez (entrepreneur individuel), organisé en trois pôles : la création et la refonte de sites internet, la création d’applications (iPhone, iPad, Apple Watch, Mac et web) et les solutions d’intelligence artificielle pour les entreprises. L’accueil oriente vers le pôle voulu ; chaque pôle a ses pages, ses tarifs et ses réalisations. Contact : mtxstudio@proton.me.
 
 Le studio travaille à distance, partout en France, en visio et par e-mail. Les sites vitrines sont codés à la main (HTML, CSS, JavaScript) ; les boutiques reposent sur Shopify ou WooCommerce. Les apps sont écrites en Swift et SwiftUI ; les applications web en TypeScript, React et Python. Côté IA : assistants qui répondent à partir des documents de l’entreprise en citant leurs sources, automatisations, IA intégrée à un site, une app ou un logiciel, et IA locale (Ollama sur Mac, Apple Intelligence). Prix nets, TVA non applicable (art. 293 B du CGI).
 
@@ -9,16 +9,17 @@ Le studio travaille à distance, partout en France, en visio et par e-mail. Les 
 - [Accueil de MTX Studio](https://mtx-developpement.fr/) : choix du pôle (sites internet, applications, IA), les dix réalisations, le studio, les questions fréquentes et le contact.
 - [Mentions légales](https://mtx-developpement.fr/mentions-legales.html) : éditeur, directeur de la publication et hébergeur.
 - [Confidentialité](https://mtx-developpement.fr/confidentialite.html) : ce que deviennent les messages reçus, ce que le site ne collecte pas.
+- [Assistance des apps](https://mtx-developpement.fr/assistance/) : contact, suppression des données (aucune app ne demande de compte), conditions d’utilisation (contrat de licence standard d’Apple) et liens vers la politique de confidentialité de chaque app : [GoRun](https://mtx-developpement.fr/realisations/foulee/confidentialite/), [Space](https://mtx-developpement.fr/realisations/space/confidentialite/), [MTX Viewer](https://mtx-developpement.fr/realisations/viewer/confidentialite/), [Triade](https://mtx-developpement.fr/realisations/triade/confidentialite/), [Kompagnion](https://mtx-developpement.fr/realisations/kompagnion/confidentialite/), [Mue](https://mtx-developpement.fr/realisations/mue/confidentialite/).
 
 ## Sites internet
 
-- [Sites internet pour entreprises](https://mtx-developpement.fr/sites-internet/) : création et refonte de sites pour les entreprises de toutes tailles et de tous secteurs, ce qui est inclus, méthode en cinq étapes, réalisations, questions fréquentes.
+- [Création de site internet et de site vitrine](https://mtx-developpement.fr/sites-internet/) : création et refonte de sites vitrines, sur mesure et boutiques pour les entreprises de toutes tailles et de tous secteurs, ce qui est inclus, méthode en cinq étapes, réalisations, questions fréquentes.
 - [Tarifs](https://mtx-developpement.fr/sites-internet/tarifs/) : formules à prix fixe : Essentiel (une page) 690 €, Vitrine (jusqu’à 6 pages) 1 290 €, Sur mesure (jusqu’à 12 pages) 2 490 €, Boutique en ligne dès 2 990 € ; refonte de 590 € à 2 690 €. Options, coûts annexes (domaine, hébergement après la première année, plateforme e-commerce, frais de paiement), maintenance facultative (29 € ou 79 € par mois), paiement en trois fois, simulateur de devis.
 - [Refonte](https://mtx-developpement.fr/sites-internet/refonte/) : audit gratuit sur six points, redirections page par page, bascule sans coupure, surveillance de 30 jours.
 
 ## Applications
 
-- [Création d’applications](https://mtx-developpement.fr/applications/) : apps iPhone, iPad, Apple Watch et Mac, logiciels métier, applications web et jeux, de la maquette interactive à la publication sur l’App Store. Budgets indicatifs : application web dès 3 900 €, app iPhone ou iPad dès 4 900 €, logiciel Mac sur mesure dès 5 900 €, app connectée dès 9 900 €, sur devis à prix fixe.
+- [Applications et logiciels sur mesure](https://mtx-developpement.fr/applications/) : apps iPhone, iPad, Apple Watch et Mac, logiciels métier sur mesure, applications web et jeux, de la maquette interactive à la publication sur l’App Store. Budgets indicatifs : application web dès 3 900 €, app iPhone ou iPad dès 4 900 €, logiciel Mac sur mesure dès 5 900 €, app connectée dès 9 900 €, sur devis à prix fixe.
 
 ## Intelligence artificielle
 

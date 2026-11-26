@@ -383,3 +383,6 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .js [data-apparait]{opacity:1;transform:none}
 }
+
+/* 320 px : une feuille de l’éventail dépassait de 2 px et faisait glisser la page de côté. clip ne crée pas de zone de défilement (sticky reste actif). */
+body{overflow-x:clip}

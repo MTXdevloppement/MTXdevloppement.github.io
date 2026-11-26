@@ -24,6 +24,14 @@ for name, root in PAGES:
     s = s.replace('<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">', '<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">')
     s = re.sub(r'<body class="[^"]*">', '<body>', s)
 
+    # Politique de sécurité du contenu (la même que les pages générées), insérée ou mise à jour.
+    assert gen.THEME_JS in s, name
+    csp = f'<meta http-equiv="Content-Security-Policy" content="{gen.CSP}">'
+    if 'http-equiv="Content-Security-Policy"' in s:
+        s = re.sub(r'<meta http-equiv="Content-Security-Policy" content="[^"]*">', csp, s)
+    else:
+        s = s.replace('<meta name="referrer" content="strict-origin-when-cross-origin">', '<meta name="referrer" content="strict-origin-when-cross-origin">\n' + csp, 1)
+
     # Barre et menu mobile.
     a = s.index('<header class="nav')
     b = s.index('<main id="contenu"')

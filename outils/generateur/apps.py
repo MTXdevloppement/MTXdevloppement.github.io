@@ -80,7 +80,7 @@ APPS = [
 def table_autorisations(a):
     if not a['autorisations']:
         return '<p>Aucune. Space ne demande ni position, ni photos, ni micro, ni contacts.</p>'
-    rows = ''.join(f'<div><dt>{n}</dt><dd>{u} <span class="muted">Où restent les données&#8239;: {o.lower() if not o.startswith("Rien") else o}.</span></dd></div>' for n, u, o in a['autorisations'])
+    rows = ''.join(f'<div><dt>{n}</dt><dd>{u} <span class="muted">Où restent les données&#8239;: {o if o.startswith("Rien") else o[0].lower() + o[1:]}.</span></dd></div>' for n, u, o in a['autorisations'])
     return f'<dl>{rows}</dl>\n      <p>Chaque autorisation est demandée au moment où la fonction sert, et se retire dans les Réglages de l’appareil. Refuser n’empêche pas d’utiliser le reste de l’app.</p>'
 
 def page_confidentialite(a):

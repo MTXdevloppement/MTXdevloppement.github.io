@@ -223,7 +223,7 @@
       const entreprise = (fd.get('entreprise') || '').toString().trim();
       const site = (fd.get('site') || '').toString().trim();
       const corps = [
-        'Bonjour Matheo,', '',
+        'Bonjour,', '',
         'Voici l’estimation faite sur mtx-developpement.fr, j’aimerais un devis :', '',
         ...lignes.map((l) => `- ${l.label} : ${l.inclus ? 'inclus' : euros(l.prix) + ' €'}`),
         `Total estimé : ${euros(total)} €`,

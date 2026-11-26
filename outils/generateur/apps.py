@@ -116,7 +116,7 @@ def page_confidentialite(a):
 
       <h2>Éditeur et contact</h2>
       <dl>
-        <div><dt>Éditeur</dt><dd>Matheo Merchez EI, sous le nom MTX Studio (<a href="{root}mentions-legales.html">mentions légales</a>)</dd></div>
+        <div><dt>Éditeur</dt><dd>MTX Studio (identité complète dans les <a href="{root}mentions-legales.html">mentions légales</a>)</dd></div>
         <div><dt>Contact</dt><dd><a href="{mail(nom, 'Confidentialité')}">{MAIL}</a>, réponse sous un mois au plus</dd></div>
         <div><dt>Assistance</dt><dd><a href="{root}assistance/#{a["slug"]}">Page d’assistance</a></dd></div>
       </dl>
@@ -149,7 +149,7 @@ def page_assistance():
     <header class="text-head">
       <nav aria-label="Fil d’Ariane"><ol class="crumbs"><li><a href="{root}">MTX Studio</a></li><li aria-current="page">Assistance</li></ol></nav>
       <h1 class="d1">Assistance des apps.</h1>
-      <p class="lede">Une question, un problème, une idée pour l’une des apps de MTX Studio&#8239;? Écrivez à la personne qui les développe&#8239;: réponse sous 48&nbsp;h ouvrées.</p>
+      <p class="lede">Une question, un problème, une idée pour l’une des apps de MTX Studio&#8239;? Écrivez directement au studio qui les développe&#8239;: réponse sous 24&nbsp;h ouvrées.</p>
     </header>
 
     <div class="text-body">
@@ -168,7 +168,7 @@ def page_assistance():
       <h2>Les apps</h2>{blocs}
 
       <h2>Conditions d’utilisation</h2>
-      <p>Les apps distribuées sur l’App Store sont soumises au <a href="{EULA}" rel="noopener">contrat de licence standard d’Apple pour les apps (EULA)</a>, sauf mention contraire sur leur fiche. Elles sont fournies par Matheo Merchez EI, sous le nom MTX Studio (<a href="{root}mentions-legales.html">mentions légales</a>).</p>
+      <p>Les apps distribuées sur l’App Store sont soumises au <a href="{EULA}" rel="noopener">contrat de licence standard d’Apple pour les apps (EULA)</a>, sauf mention contraire sur leur fiche. Elles sont fournies par MTX Studio (<a href="{root}mentions-legales.html">mentions légales</a>).</p>
 
       <h2>Signaler un problème de sécurité</h2>
       <p>Si vous pensez avoir trouvé une faille dans une app ou sur ce site, écrivez à <a href="{mail_securite}">{MAIL}</a> avec l’objet «&#8239;Signalement de sécurité&#8239;». Merci de ne pas la rendre publique avant notre réponse.</p>

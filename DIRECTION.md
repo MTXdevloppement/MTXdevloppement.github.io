@@ -90,7 +90,7 @@ feuille et script est appelé avec une empreinte de son contenu (`?v=…`) : rie
 
 ## 7. Ton
 
-Première personne (« je ») : le studio, c’est Matheo Merchez. Phrases courtes et concrètes, chiffres réels, pas de
+Première personne du pluriel (« nous », « le studio »). Ne jamais nommer le fondateur (sauf dans les mentions légales, obligatoires) et ne jamais affirmer une équipe (« notre équipe », « nos développeurs ») : le « nous » reste implicite. Phrases courtes et concrètes, chiffres réels, pas de
 slogan creux, pas de faux avis, pas de chiffres non mesurés. Les conditions sont écrites à côté des prix, pas en
 petits caractères.
 

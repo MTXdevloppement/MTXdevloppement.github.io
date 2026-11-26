@@ -63,10 +63,9 @@ def works(keys, root, fn, **kw):
 
 # ---------- Données structurées ------------------------------------------------
 
-ORG = {"@type": "Organization", "@id": O + "#studio", "name": "MTX Studio", "legalName": "Matheo Merchez EI", "url": O,
+ORG = {"@type": "Organization", "@id": O + "#studio", "name": "MTX Studio", "url": O,
        "logo": O + "assets/img/apple-touch-icon.png", "image": O + "assets/img/og-mtx-studio.png", "email": "mtxstudio@proton.me",
        "description": "MTX Studio conçoit des sites internet, des applications (iPhone, iPad, Apple Watch, Mac, web) et des solutions d’intelligence artificielle pour les entreprises.",
-       "founder": {"@type": "Person", "@id": O + "#matheo", "name": "Matheo Merchez", "jobTitle": "Fondateur, designer et développeur"},
        "alternateName": ["MTX Développement", "MTX"], "areaServed": {"@type": "Country", "name": "France"}, "knowsLanguage": "fr",
        "contactPoint": {"@type": "ContactPoint", "email": "mtxstudio@proton.me", "contactType": "sales", "availableLanguage": ["fr"]},
        "knowsAbout": ["Création de sites internet", "Refonte de sites internet", "Référencement naturel", "Développement d’applications iOS", "Développement d’applications macOS", "Swift", "SwiftUI", "Applications web", "TypeScript", "React", "Python", "Intelligence artificielle", "IA locale", "Assistants documentaires", "Automatisation"],
@@ -108,7 +107,7 @@ PAGES = [
     dict(out='sites-internet/index.html', path='sites-internet/', root='../', pole='web', lnav='apercu', body='web.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Création de site internet et de site vitrine · MTX Studio',
-         desc='Création de site vitrine, sur mesure ou boutique pour entreprise : rapide, adapté au mobile, pensé pour Google. Prix fixe dès 690 €, devis sous 48 h.',
+         desc='Création de site vitrine, sur mesure ou boutique pour entreprise : rapide, adapté au mobile, pensé pour Google. Prix fixe dès 690 €, devis sous 24 h.',
          og='og-sites-internet.png', og_alt='MTX Studio, création de sites internet pour les entreprises',
          crumbs=[('Sites internet', 'sites-internet/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations')],

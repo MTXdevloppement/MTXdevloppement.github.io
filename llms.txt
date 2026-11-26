@@ -1,8 +1,8 @@
 # MTX Studio
 
-> MTX Studio (aussi appelé MTX Développement, d’après son domaine) est un studio français, fondé par Matheo Merchez (entrepreneur individuel), organisé en trois pôles : la création et la refonte de sites internet, la création d’applications (iPhone, iPad, Apple Watch, Mac et web) et les solutions d’intelligence artificielle pour les entreprises. L’accueil oriente vers le pôle voulu ; chaque pôle a ses pages, ses tarifs et ses réalisations. Contact : mtxstudio@proton.me.
+> MTX Studio (aussi appelé MTX Développement, d’après son domaine) est un studio français indépendant, organisé en trois pôles : la création et la refonte de sites internet, la création d’applications (iPhone, iPad, Apple Watch, Mac et web) et les solutions d’intelligence artificielle pour les entreprises. L’accueil oriente vers le pôle voulu ; chaque pôle a ses pages, ses tarifs et ses réalisations. Contact : mtxstudio@proton.me.
 
-Le studio travaille à distance, partout en France, en visio et par e-mail. Les sites vitrines sont codés à la main (HTML, CSS, JavaScript) ; les boutiques reposent sur Shopify ou WooCommerce. Les apps sont écrites en Swift et SwiftUI ; les applications web en TypeScript, React et Python. Côté IA : assistants qui répondent à partir des documents de l’entreprise en citant leurs sources, automatisations, IA intégrée à un site, une app ou un logiciel, et IA locale (Ollama sur Mac, Apple Intelligence). Prix nets, TVA non applicable (art. 293 B du CGI).
+Le studio travaille à distance, partout en France, en visio et par e-mail. Délais : réponse sous 24 h ouvrées, diagnostic gratuit d’une heure (en visio si besoin), devis à prix fixe sous 24 h ; sites livrés en 1 à 2 semaines (une page : 1 semaine ; vitrine : 1 à 2 semaines ; sur mesure et boutique : 2 semaines), applications en 1 à 4 mois selon l’app, projets d’IA dans un délai fixé sur demande. Les sites vitrines sont codés à la main (HTML, CSS, JavaScript) ; les boutiques reposent sur Shopify ou WooCommerce. Les apps sont écrites en Swift et SwiftUI ; les applications web en TypeScript, React et Python. Côté IA : assistants qui répondent à partir des documents de l’entreprise en citant leurs sources, automatisations, IA intégrée à un site, une app ou un logiciel, et IA locale (Ollama sur Mac, Apple Intelligence). Prix nets, TVA non applicable (art. 293 B du CGI).
 
 ## Studio
 
@@ -15,7 +15,7 @@ Le studio travaille à distance, partout en France, en visio et par e-mail. Les 
 
 - [Création de site internet et de site vitrine](https://mtx-developpement.fr/sites-internet/) : création et refonte de sites vitrines, sur mesure et boutiques pour les entreprises de toutes tailles et de tous secteurs, ce qui est inclus, méthode en cinq étapes, réalisations, questions fréquentes.
 - [Tarifs](https://mtx-developpement.fr/sites-internet/tarifs/) : formules à prix fixe : Essentiel (une page) 690 €, Vitrine (jusqu’à 6 pages) 1 290 €, Sur mesure (jusqu’à 12 pages) 2 490 €, Boutique en ligne dès 2 990 € ; refonte de 590 € à 2 690 €. Options, coûts annexes (domaine, hébergement après la première année, plateforme e-commerce, frais de paiement), maintenance facultative (29 € ou 79 € par mois), paiement en trois fois, simulateur de devis.
-- [Refonte](https://mtx-developpement.fr/sites-internet/refonte/) : audit gratuit sur six points, redirections page par page, bascule sans coupure, surveillance de 30 jours.
+- [Refonte](https://mtx-developpement.fr/sites-internet/refonte/) : audit gratuit sur six points, redirections page par page, bascule sans coupure, surveillance de 30 jours ; audit et devis sous 24 h.
 
 ## Applications
 

@@ -14,13 +14,13 @@ def mailto(subject, body):
     return f'mailto:{EMAIL}?subject={q(subject)}&amp;body={q(body)}'
 
 MAILS = {
-    'MAIL_PROJET': mailto('Un projet pour MTX Studio', 'Bonjour Matheo,\n\nMon projet en quelques lignes :\n\n\nType de projet (site internet, application, IA) et appareils visés :\n\n\nÉchéance souhaitée :\n\n'),
-    'MAIL_BONJOUR': mailto('Bonjour MTX Studio', 'Bonjour Matheo,\n\n'),
-    'MAIL_ORIENTER': mailto('Je ne sais pas par où commencer', 'Bonjour Matheo,\n\nVoici ce que j’aimerais faire (même si ce n’est pas encore clair) :\n\n\nMon entreprise et mon secteur :\n\n'),
-    'MAIL_DEVIS': mailto('Devis site internet', 'Bonjour Matheo,\n\nJe souhaite un devis pour un site internet.\n\nEntreprise et secteur :\n\nCréation ou refonte (adresse du site actuel) :\n\nCe que le site doit permettre (présenter, prendre des rendez-vous, vendre…) :\n\nÉchéance souhaitée :\n\n'),
-    'MAIL_AUDIT': mailto('Audit gratuit de mon site', 'Bonjour Matheo,\n\nPouvez-vous auditer mon site actuel ?\n\nAdresse du site :\n\nCe qui me gêne aujourd’hui :\n\nMon objectif (plus de contacts, de ventes, de réservations…) :\n\n'),
-    'MAIL_APP': mailto('Un projet d’application', 'Bonjour Matheo,\n\nMon idée d’application en quelques lignes :\n\n\nPour qui, et sur quels appareils (iPhone, iPad, Apple Watch, Mac, navigateur) :\n\nCe qui existe déjà (maquettes, site, logiciel actuel) :\n\nÉchéance souhaitée :\n\n'),
-    'MAIL_IA': mailto('Un projet d’IA', 'Bonjour Matheo,\n\nLa tâche que j’aimerais confier à une IA :\n\n\nLes documents ou outils concernés (sans données confidentielles dans ce message) :\n\nMes contraintes (confidentialité, budget, délai) :\n\n'),
+    'MAIL_PROJET': mailto('Un projet pour MTX Studio', 'Bonjour,\n\nMon projet en quelques lignes :\n\n\nType de projet (site internet, application, IA) et appareils visés :\n\n\nÉchéance souhaitée :\n\n'),
+    'MAIL_BONJOUR': mailto('Bonjour MTX Studio', 'Bonjour,\n\n'),
+    'MAIL_ORIENTER': mailto('Je ne sais pas par où commencer', 'Bonjour,\n\nVoici ce que j’aimerais faire (même si ce n’est pas encore clair) :\n\n\nMon entreprise et mon secteur :\n\n'),
+    'MAIL_DEVIS': mailto('Devis site internet', 'Bonjour,\n\nJe souhaite un devis pour un site internet.\n\nEntreprise et secteur :\n\nCréation ou refonte (adresse du site actuel) :\n\nCe que le site doit permettre (présenter, prendre des rendez-vous, vendre…) :\n\nÉchéance souhaitée :\n\n'),
+    'MAIL_AUDIT': mailto('Audit gratuit de mon site', 'Bonjour,\n\nPouvez-vous auditer mon site actuel ?\n\nAdresse du site :\n\nCe qui me gêne aujourd’hui :\n\nMon objectif (plus de contacts, de ventes, de réservations…) :\n\n'),
+    'MAIL_APP': mailto('Un projet d’application', 'Bonjour,\n\nMon idée d’application en quelques lignes :\n\n\nPour qui, et sur quels appareils (iPhone, iPad, Apple Watch, Mac, navigateur) :\n\nCe qui existe déjà (maquettes, site, logiciel actuel) :\n\nÉchéance souhaitée :\n\n'),
+    'MAIL_IA': mailto('Un projet d’IA', 'Bonjour,\n\nLa tâche que j’aimerais confier à une IA :\n\n\nLes documents ou outils concernés (sans données confidentielles dans ce message) :\n\nMes contraintes (confidentialité, budget, délai) :\n\n'),
 }
 
 ICONS = {
@@ -37,7 +37,7 @@ POLES = {
                ('methode', 'Méthode', 'sites-internet/#methode'), ('questions', 'Questions', 'sites-internet/#questions')],
         cta=('Devis gratuit', 'sites-internet/tarifs/#devis'), cta_court='Devis'),
     'app': dict(n='02', nom='Applications', court='Applications', home='applications/', desc='iPhone, iPad, Apple Watch, Mac et web',
-        items=[('creations', 'Ce que je crée', 'applications/#creations'), ('realisations', 'Réalisations', 'applications/#realisations'),
+        items=[('creations', 'Ce que nous créons', 'applications/#creations'), ('realisations', 'Réalisations', 'applications/#realisations'),
                ('methode', 'Méthode', 'applications/#methode'), ('budget', 'Budget', 'applications/#budget'),
                ('questions', 'Questions', 'applications/#questions')],
         cta=('Parler de mon app', '{{MAIL_APP}}'), cta_court='Contact'),
@@ -94,7 +94,7 @@ def navbar(p):
             f'  </div>\n'
             f'  <div class="m-foot">\n'
             f'    <a class="btn" href="{{{{MAIL_PROJET}}}}" data-close-menu>Écrire au studio</a>\n'
-            f'    <p>{EMAIL} · réponse sous 48&nbsp;h ouvrées</p>\n'
+            f'    <p>{EMAIL} · réponse sous 24&nbsp;h ouvrées</p>\n'
             f'  </div>\n'
             f'</nav>\n')
 
@@ -128,12 +128,12 @@ def footer(p):
                 + ''.join(f'<li><a href="{href(root, h)}">{t}</a></li>' for t, h in links) + '</ul></nav>')
     call = '' if p.get('hub') else (
         '    <div class="foot-call">\n'
-        '      <p class="k">Un projet, une question&#8239;? Réponse sous 48&nbsp;h ouvrées</p>\n'
+        '      <p class="k">Un projet, une question&#8239;? Réponse sous 24&nbsp;h ouvrées</p>\n'
         f'      <a class="foot-mail" href="{{{{MAIL_PROJET}}}}" data-fit><span data-fit-line>{EMAIL}</span></a>\n'
         '    </div>\n')
     cols = '\n      '.join([
         col('web', [('Vue d’ensemble', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/'), ('Tarifs', 'sites-internet/tarifs/'), ('Simulateur de devis', 'sites-internet/tarifs/#devis')]),
-        col('app', [('Vue d’ensemble', 'applications/'), ('Ce que je crée', 'applications/#creations'), ('Réalisations', 'applications/#realisations'), ('Budget', 'applications/#budget')]),
+        col('app', [('Vue d’ensemble', 'applications/'), ('Ce que nous créons', 'applications/#creations'), ('Réalisations', 'applications/#realisations'), ('Budget', 'applications/#budget')]),
         col('ia', [('Vue d’ensemble', 'intelligence-artificielle/'), ('Cas d’usage', 'intelligence-artificielle/#usages'), ('Vos données', 'intelligence-artificielle/#donnees'), ('Budget', 'intelligence-artificielle/#budget')]),
     ])
     return (f'<footer class="foot">\n  <div class="wrap">\n{call}'
@@ -149,7 +149,7 @@ def footer(p):
             f'      </ul></nav>\n'
             f'    </div>\n'
             f'    <div class="foot-bottom">\n'
-            f'      <span>© 2026 MTX Studio (MTX Développement) · Matheo Merchez EI</span>\n'
+            f'      <span>© 2026 MTX Studio (MTX Développement)</span>\n'
             f'      <span>Studio indépendant, partout en France</span>\n'
             f'      <button class="push" type="button" data-theme-toggle><span data-theme-label>Thème sombre</span></button>\n'
             f'      <a href="#contenu" data-top>Haut de page ↑</a>\n'
@@ -227,7 +227,7 @@ def head(p, ld):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{p['title']}</title>
 <meta name="description" content="{p['desc']}">
-<meta name="author" content="Matheo Merchez">
+<meta name="author" content="MTX Studio">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="{CSP}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">

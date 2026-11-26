@@ -23,11 +23,12 @@ IMG = 'assets/img/realisations/'
 def pic(root, img, theme, sizes, mobile=True, lazy=True, alt=''):
     b = f'{root}{IMG}site-{img}-{theme}'
     m = f'{root}{IMG}mobile-{img}-{theme}'
+    lz = ' loading="lazy"' if lazy else ''
     mob = (f'<source media="(max-width: 639px)" type="image/avif" srcset="{m}.avif">'
            f'<source media="(max-width: 639px)" type="image/webp" srcset="{m}.webp">') if mobile else ''
     return (f'<picture class="work-shot work-shot-{theme}">{mob}'
             f'<source type="image/avif" srcset="{b}-720.avif 720w, {b}.avif 1440w, {b}-2160.avif 2160w" sizes="{sizes}">'
-            f'<img src="{b}-720.webp" srcset="{b}-720.webp 720w, {b}.webp 1440w" sizes="{sizes}" width="1440" height="900" alt="{alt}"{" loading=\"lazy\"" if lazy else ""} decoding="async"></picture>')
+            f'<img src="{b}-720.webp" srcset="{b}-720.webp 720w, {b}.webp 1440w" sizes="{sizes}" width="1440" height="900" alt="{alt}"{lz} decoding="async"></picture>')
 
 def swatches(poles):
     return '<span class="ix-poles" aria-hidden="true">' + ''.join(f'<i class="swatch" data-pole="{k}" title="{POLE_NOMS[k]}"></i>' for k in poles) + '</span>'
@@ -99,45 +100,45 @@ WEB_SERVICE_DESC = "Sites vitrines, sites sur mesure et boutiques en ligne pour 
 
 PAGES = [
     dict(out='index.html', path='', root='', body='accueil.html', css=['mtx.css'], js=['site.js', 'contact.js'],
-         title='MTX Studio · Sites internet, applications et IA',
-         desc='Création de sites internet, d’applications iPhone, Mac et web, et de solutions d’IA pour les entreprises. Prix fixes, un seul interlocuteur.',
+         title='MTX Studio · Sites internet, applications et IA sur mesure',
+         desc='Sites internet, applications iPhone, Mac et web, logiciels et outils d’IA sur mesure pour TPE et PME. Prix fixe écrit, un seul interlocuteur.',
          about=O + '#studio', ld=[ORG, SITE_LD, ITEMS],
          hub=True,
          tokens={'WORKS_HUB': works(ORDRE, '', work_index), 'WORKS_PREVIEW': works(ORDRE, '', work_preview)}),
     dict(out='sites-internet/index.html', path='sites-internet/', root='../', pole='web', lnav='apercu', body='web.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Création de site internet pour entreprise · MTX Studio',
-         desc='Création et refonte de sites internet pour les entreprises : sur mesure, rapides, bien référencés. Prix fixe dès 690 €, devis gratuit sous 48 h.',
+         title='Création de site internet et de site vitrine · MTX Studio',
+         desc='Création de site vitrine, sur mesure ou boutique pour entreprise : rapide, adapté au mobile, pensé pour Google. Prix fixe dès 690 €, devis sous 48 h.',
          og='og-sites-internet.png', og_alt='MTX Studio, création de sites internet pour les entreprises',
          crumbs=[('Sites internet', 'sites-internet/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations')],
          tokens={'WORKS_WEB': works(['volta', 'startup3d', 'knowledge-ai', 'steno', 'kompagnion', 'mue'], '../', work_fig, idp='w-')}),
     dict(out='sites-internet/tarifs/index.html', path='sites-internet/tarifs/', root='../../', pole='web', lnav='tarifs', body='web-tarifs.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Tarifs création de site internet · MTX Studio',
-         desc='Prix d’un site internet pour entreprise : formules à prix fixe de 690 € à 2 490 €, boutique dès 2 990 €, refonte dès 590 €. Simulateur de devis.',
+         title='Prix d’un site internet : tarifs fixes dès 690 € · MTX Studio',
+         desc='Combien coûte un site internet ? Une page 690 €, vitrine 1 290 €, sur mesure 2 490 €, boutique dès 2 990 €. Frais annexes détaillés, simulateur de devis.',
          og='og-sites-internet.png', og_alt='Tarifs de création de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Tarifs', 'sites-internet/tarifs/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations', web_catalog(b))]),
     dict(out='sites-internet/refonte/index.html', path='sites-internet/refonte/', root='../../', pole='web', lnav='refonte', body='web-refonte.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Refonte de site internet · MTX Studio',
+         title='Refonte de site internet : prix fixe dès 590 € · MTX Studio',
          desc='Refonte de site internet sans perdre votre référencement : audit gratuit, redirections, site plus rapide et adapté au mobile. Prix fixe dès 590 €.',
          og='og-sites-internet.png', og_alt='Refonte de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/')], about=O + 'sites-internet/refonte/#service',
          ld=[service('sites-internet/refonte/', 'Refonte de site internet', 'Refonte de site internet', 'Refonte complète d’un site existant : audit gratuit, reprise des contenus, nouveau design, performances, plan de redirections pour conserver le référencement, suivi après la bascule.', 'Entreprises qui ont déjà un site')]),
     dict(out='applications/index.html', path='applications/', root='../', pole='app', lnav=None, body='apps.html',
          css=['mtx.css', 'scene.css'], js=['site.js', 'pole.js', 'scene.js', 'contact.js'],
-         title='Création d’applications iPhone, Mac et web · MTX Studio',
-         desc='Création d’applications iPhone, iPad, Apple Watch et Mac, de logiciels métier et d’applications web, jusqu’à l’App Store. Devis gratuit à prix fixe.',
+         title='Applications iPhone, Mac et logiciels sur mesure · MTX Studio',
+         desc='Création d’applications iPhone, iPad, Apple Watch et Mac, de logiciels métier sur mesure et d’applications web, jusqu’à l’App Store. Devis gratuit.',
          og='og-applications.png', og_alt='MTX Studio, création d’applications iPhone, Mac et web',
          crumbs=[('Applications', 'applications/')], about=O + 'applications/#service',
          ld=[service('applications/', 'Création d’applications iPhone, iPad, Apple Watch, Mac et web', 'Développement d’applications', 'Conception et développement d’apps natives en Swift et SwiftUI pour iPhone, iPad, Apple Watch et Mac, de logiciels métier et d’applications web, du cadrage à la publication sur l’App Store.', 'Entreprises, startups et indépendants')],
          tokens={'WORKS_APP': works(['foulee', 'space', 'viewer', 'volta', 'triade', 'steno', 'mue', 'kompagnion'], '../', work_fig, idp='a-')}),
     dict(out='intelligence-artificielle/index.html', path='intelligence-artificielle/', root='../', pole='ia', lnav=None, body='ia.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Intelligence artificielle pour les entreprises · MTX Studio',
-         desc='Assistants IA sur vos documents qui citent leurs sources, automatisations et IA locale pour les entreprises. Données protégées, devis gratuit.',
+         title='IA pour entreprise : assistants et automatisations · MTX Studio',
+         desc='Intelligence artificielle pour entreprise : assistant qui répond à partir de vos documents et cite ses sources, automatisations, IA locale. Devis gratuit.',
          og='og-ia.png', og_alt='MTX Studio, intelligence artificielle pour les entreprises',
          crumbs=[('Intelligence artificielle', 'intelligence-artificielle/')], about=O + 'intelligence-artificielle/#service',
          ld=[service('intelligence-artificielle/', 'Solutions d’intelligence artificielle pour les entreprises', 'Intégration d’intelligence artificielle', 'Assistants qui répondent à partir de vos documents en citant leurs sources, automatisation de tâches répétitives, IA intégrée à un site, une app ou un logiciel, et IA locale quand les données doivent rester dans l’entreprise.', 'Entreprises, PME et indépendants')],

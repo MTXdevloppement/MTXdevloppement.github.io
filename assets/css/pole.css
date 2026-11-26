@@ -156,6 +156,8 @@
 .plan-list li::before { content: ''; position: absolute; left: 0; top: 1.05em; width: 12px; height: 2px; background: var(--ink); }
 .plan-list li.is-plus { font-weight: 700; padding-left: 0; }
 .plan-list li.is-plus::before { display: none; }
+.plan-limit { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hair); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.plan-limit b { color: var(--ink); font-weight: 650; }
 .plan-delay { margin-top: auto; padding-top: 10px; font-size: 15px; }
 .plan .btn { align-self: flex-start; }
 .plans-foot { margin-top: 18px; max-width: 52em; }

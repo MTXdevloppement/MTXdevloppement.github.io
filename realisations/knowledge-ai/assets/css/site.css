@@ -4,15 +4,10 @@
    d'accent). Literata pour les titres et la réponse, Schibsted Grotesk pour l'interface, Spline Sans Mono pour
    les traces et les chiffres. */
 
-@font-face { font-family: "KAI Literata"; src: url("../fonts/literata.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "KAI Literata"; src: url("../fonts/literata-italique.woff2") format("woff2"); font-weight: 200 900; font-style: italic; font-display: swap; }
-@font-face { font-family: "KAI Schibsted"; src: url("../fonts/schibsted.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
-@font-face { font-family: "KAI Mono"; src: url("../fonts/spline-mono.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
-
 :root {
-  --serif: "KAI Literata", Georgia, serif;
-  --sans: "KAI Schibsted", system-ui, -apple-system, sans-serif;
-  --mono: "KAI Mono", ui-monospace, Menlo, monospace;
+  --serif: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --sans: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --courbe: cubic-bezier(.2, .8, .2, 1);
   --marge: clamp(20px, 5vw, 72px);
   --page: 1320px; /* largeur commune : barre, héros et sections partagent le même bord gauche */

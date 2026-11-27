@@ -27,15 +27,14 @@
 <meta name="theme-color" content="#ece4d6">
 <link rel="icon" href="assets/img/startup3d-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/red-hat-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=3">
-<link rel="stylesheet" href="../../assets/css/projet.css?v=16">
+<link rel="preload" href="../../assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=17">
 <link rel="stylesheet" href="../../assets/css/film.css?v=1">
 <link rel="stylesheet" href="assets/css/film.css?v=2">
 <script src="../../assets/js/film.js?v=1" defer></script>
 <script src="assets/js/site.js?v=1" defer></script>
-<script src="../../assets/js/projet.js?v=20" defer></script>
+<script src="../../assets/js/projet.js?v=21" defer></script>
 <script defer src="../../assets/js/contact.js?v=3"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://mtx-developpement.fr/realisations/startup3d/#app","name":"Startup3D","description":"Application de gestion d’entreprise gamifiée : l’agence existe dans une scène 3D isométrique où l’on se déplace au clic. Chaque objet ouvre un outil (projets, tâches, pauses, finances, planning) et chaque action a une conséquence réelle dans les données, stockées sur l’ordinateur.","applicationCategory":"BusinessApplication","applicationSubCategory":"Gestion d’entreprise","operatingSystem":"Navigateur web","softwareVersion":"2.0","browserRequirements":"WebGL","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/startup3d/","image":"https://mtx-developpement.fr/realisations/startup3d/assets/img/icone-512.png","screenshot":["https://mtx-developpement.fr/realisations/startup3d/assets/img/ecrans/agence-jour.webp","https://mtx-developpement.fr/realisations/startup3d/assets/img/ecrans/agence-nuit.webp"],"featureList":["Agence 3D isométrique, déplacement au clic avec recherche de chemin","Projets, tâches en kanban, clients, concentration et pauses","Finances, planning, bilan de fin de journée","Niveaux, 16 badges et récompenses visibles dans l’agence","Mode aménagement avec règles de placement et d’accessibilité","Agents IA (Claude Code, Ollama) qui traitent des missions","Thème clair, sombre ou automatique selon l’heure"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/startup3d/#page","url":"https://mtx-developpement.fr/realisations/startup3d/","name":"Startup3D : gérer son entreprise dans une agence en 3D","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/startup3d/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/startup3d/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/startup3d/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Startup3D","item":"https://mtx-developpement.fr/realisations/startup3d/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/startup3d/#questions","mainEntity":[{"@type":"Question","name":"Startup3D est-il un jeu ?","acceptedAnswer":{"@type":"Answer","text":"Non, c’est un vrai outil de gestion présenté comme un jeu. Les projets, tâches, temps et finances sont de vraies données ; la 3D, les niveaux et les badges rendent le quotidien plus lisible et plus motivant."}},{"@type":"Question","name":"Où sont stockées les données ?","acceptedAnswer":{"@type":"Answer","text":"Dans le navigateur, sur l’ordinateur (IndexedDB). Rien n’est envoyé sur un serveur. Une sauvegarde JSON s’exporte et se restaure depuis les réglages, avec validation complète avant tout remplacement."}},{"@type":"Question","name":"Les agents de l’agence sont-ils de vraies IA ?","acceptedAnswer":{"@type":"Answer","text":"Les deux existent, et l’interface le dit. Les agents simulés animent l’agence et sont étiquetés comme tels. Les agents IA, eux, traitent réellement une mission en arrière-plan avec Claude Code ou un modèle local via Ollama, par un pont local verrouillé."}},{"@type":"Question","name":"Faut-il un ordinateur puissant ?","acceptedAnswer":{"@type":"Answer","text":"Un navigateur récent avec WebGL suffit pour l’agence. Chrome, Edge ou Arc sont conseillés pour l’accès aux dossiers locaux. Les agents IA demandent Claude Code ou Ollama installés sur la machine."}},{"@type":"Question","name":"MTX Studio peut-il créer une expérience 3D pour mon activité ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Startup3D montre ce qu’apporte la 3D quand elle sert l’usage : se repérer, comprendre d’un coup d’œil, avoir envie de revenir. Décrivez votre projet à mtxstudio@proton.me."}}]}]}</script>
 </head>
@@ -59,7 +58,7 @@
     <a href="#agents">Agents IA</a>
     <a href="#coulisses">Coulisses</a>
   </nav>
-  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Une%20exp%C3%A9rience%203D%20comme%20Startup3D&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Startup3D.%20Mon%20projet%20%3A%0A%0A">Un projet en 3D&#8239;?</a>
+  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Une%20exp%C3%A9rience%203D%20comme%20Startup3D&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Startup3D.%20Mon%20projet%20%3A%0A%0A">Une app comme Startup3D&#8239;?</a>
 </header>
 
 <main id="contenu">
@@ -101,7 +100,7 @@
     <div class="enveloppe">
       <p class="etiquette apparait"><span>00</span>Le film</p>
       <div class="tete">
-        <h2 class="titre apparait" id="titre-film">Une journée à l’agence, en trente&#8209;cinq secondes.</h2>
+        <h2 class="titre apparait" id="titre-film">Startup3D en trente&#8209;cinq secondes.</h2>
         <p class="tete-texte apparait">L’agence de jour puis le soir, les projets, le planning, les finances et la progression&#8239;: les vraies captures de Startup3D, en mouvement. Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
       </div>
       <div class="presentation-film" data-mtx-film data-duree="34.91">
@@ -226,7 +225,7 @@
     <div class="enveloppe faq">
       <div>
         <p class="etiquette apparait"><span>06</span>Questions</p>
-        <h2 class="titre apparait" id="titre-questions">Avant d’entrer dans l’agence.</h2>
+        <h2 class="titre apparait" id="titre-questions">Questions fréquentes.</h2>
       </div>
       <div class="faq-liste">
         <details name="faq" open><summary><h3>Startup3D est-il un jeu&#8239;?</h3></summary><p>Non, c’est un vrai outil de gestion présenté comme un jeu. Les projets, tâches, temps et finances sont de vraies données&#8239;; la 3D, les niveaux et les badges rendent le quotidien plus lisible et plus motivant.</p></details>
@@ -243,9 +242,9 @@
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-startup3d.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
     <h2 class="mtx-pf-t" id="mtx-pf-t">Startup3D met l’entreprise en volume&#8239;: on la gère en traversant son agence.</h2>
-    <p class="mtx-pf-sub">Une interface qui donne envie de revenir&#8239;? MTX Studio conçoit l’expérience, en 2D comme en 3D, et son site avec le même soin.</p>
+    <p class="mtx-pf-sub">Une application web sur mesure&#8239;? MTX Studio la conçoit et la développe, de la maquette à la mise en ligne.</p>
     <p class="mtx-pf-tags">Application web · 3D temps réel<br>React · TypeScript · Three.js · React Three Fiber · IndexedDB</p>
-    <div class="mtx-pf-cta"><a class="mtx-btn" href="../foulee/"><img src="../../assets/img/realisations/icone-gorun.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : GoRun</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Startup3D&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Startup3D%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../foulee/"><img src="../../assets/img/realisations/icone-gorun.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante&#8239;: GoRun</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20comme%20Startup3D&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Startup3D.%20Mon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de votre projet</a></div>
     <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../sites-internet/">Sites internet</a><a href="../../applications/">Applications</a><a href="../../intelligence-artificielle/">IA</a><a href="../../#realisations">Réalisations</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Startup3D&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Startup3D%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
   </div>
 </section>

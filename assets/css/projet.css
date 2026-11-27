@@ -1,3 +1,6 @@
+/* Police unique des sites des réalisations : Bricolage Grotesque, celle de mtx-developpement.fr. */
+@font-face{font-family:"MTX Bricolage";src:url("../fonts/bricolage-latin.woff2") format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"MTX Bricolage";src:url("../fonts/bricolage-latin-ext.woff2") format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 html{overflow-x:clip}
 body > .nav{position:sticky;top:0;margin-bottom:calc(-1 * var(--mtx-nav-h,57px))}
@@ -7,7 +10,7 @@ body > .nav.mtx-centree{top:14px;margin-left:50%}
 .mtx-gbar,.mtx-pf{--mtx-fond:#000;--mtx-encre:#f2f1ed;--mtx-doux:rgba(242,241,237,.78);--mtx-gris:#9b9a95;--mtx-fort:#fff;--mtx-filet:rgba(255,255,255,.12);--mtx-souligne:rgba(242,241,237,.35)}
 :root[data-theme="light"] .mtx-gbar,:root[data-theme="light"] .mtx-pf{--mtx-fond:#f5f5f3;--mtx-encre:#111113;--mtx-doux:rgba(17,17,19,.74);--mtx-gris:#5f5e5a;--mtx-fort:#000;--mtx-filet:rgba(0,0,0,.1);--mtx-souligne:rgba(17,17,19,.3)}
 
-.mtx-gbar,.mtx-pf{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;text-align:left;box-sizing:border-box}
+.mtx-gbar,.mtx-pf{font-family:"MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;text-align:left;box-sizing:border-box}
 .mtx-pf{font-family:"MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-optical-sizing:auto;content-visibility:auto;contain-intrinsic-size:auto 640px}
 .mtx-gbar *,.mtx-pf *{box-sizing:border-box}
 .mtx-gbar a,.mtx-pf a{color:inherit;text-decoration:none}

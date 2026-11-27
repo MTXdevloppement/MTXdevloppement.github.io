@@ -14,7 +14,6 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const euros = (n) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }).format(Math.round(n));
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const EMAIL = 'mtxstudio@proton.me';
   const params = new URLSearchParams(window.location.search);
@@ -99,52 +98,19 @@
   });
 
   /* ---------------------------------------------------------------------
-     4 et 5. Formules (création / refonte) et simulateur
+     4 et 5. Formules et demande de devis (sans prix : chaque projet est chiffré à part)
      --------------------------------------------------------------------- */
   const cartes = $$('[data-plan]');
   const plans = cartes.reduce((acc, el) => {
-    acc[el.dataset.plan] = {
-      nom: el.dataset.nom,
-      creation: +el.dataset.creation,
-      refonte: +el.dataset.refonte,
-      delai: el.dataset.delai,
-      delaiExpress: el.dataset.delaiExpress,
-    };
+    acc[el.dataset.plan] = { nom: el.dataset.nom, delai: el.dataset.delai, delaiExpress: el.dataset.delaiExpress };
     return acc;
   }, {});
   const form = $('[data-est]');
   const modeInitial = params.get('mode') === 'refonte' ? 'refonte' : 'creation';
 
-  // Les prix des cartes suivent l’interrupteur ; le simulateur suit le même mode.
-  const majCartes = (mode) => {
-    const grille = $('[data-plans]');
-    if (grille && !reduceMotion) { grille.classList.add('is-switching'); window.setTimeout(() => grille.classList.remove('is-switching'), 180); }
-    window.setTimeout(() => {
-      cartes.forEach((c) => {
-        const n = $('[data-prix]', c);
-        if (n) n.textContent = euros(+c.dataset[mode]);
-        const note = $('[data-prix-note]', c);
-        if (note) note.textContent = mode === 'refonte' ? note.dataset.refonte : note.dataset.creation;
-      });
-      $$('[data-mode-label]').forEach((el) => { el.textContent = mode === 'refonte' ? 'refonte' : 'création'; });
-    }, reduceMotion ? 0 : 120);
-  };
-  const interrupteurs = $$('input[name="tarif-mode"]');
-  const poserMode = (mode, depuis) => {
-    interrupteurs.forEach((r) => { r.checked = r.value === mode; });
-    if (form && depuis !== 'form') {
-      const radio = $(`input[name="mode"][value="${mode}"]`, form);
-      if (radio && !radio.checked) { radio.checked = true; form.dispatchEvent(new Event('change')); }
-    }
-    majCartes(mode);
-  };
-  interrupteurs.forEach((r) => r.addEventListener('change', () => poserMode(r.value, 'switch')));
-  if (interrupteurs.length && modeInitial === 'refonte') poserMode('refonte');
-
   if (form && Object.keys(plans).length) {
     const sortie = $('[data-est-sum]');
     const out = (k) => $(`[data-out="${k}"]`, sortie);
-    const PAGE = +form.dataset.prixPage;
     const MAX_PAGES = 30;
     const pagesInput = $('[data-pages]', form);
     const moins = $('[data-pages-moins]', form);
@@ -154,33 +120,19 @@
     const formuleUrl = params.get('formule');
     if (formuleUrl && plans[formuleUrl]) { const r = $(`input[name="formule"][value="${formuleUrl}"]`, form); if (r) r.checked = true; }
 
-    const majChoixFormules = (mode) => {
-      $$('[data-formule-prix]', form).forEach((em) => {
-        const p = plans[em.dataset.formulePrix];
-        if (!p) return;
-        const prefixe = em.dataset.formulePrix === 'boutique' ? 'dès ' : '';
-        em.textContent = `${prefixe}${euros(p[mode])}\u00a0€`;
-      });
-    };
-
-    let modePrecedent = null;
     const calculer = () => {
       const fd = new FormData(form);
       const mode = fd.get('mode') === 'refonte' ? 'refonte' : 'creation';
-      if (modePrecedent && mode !== modePrecedent && interrupteurs.length) poserMode(mode, 'form');
-      modePrecedent = mode;
       const formule = plans[fd.get('formule')] ? fd.get('formule') : Object.keys(plans)[0];
       const plan = plans[formule];
       const pages = Math.max(0, Math.min(MAX_PAGES, parseInt(pagesInput.value, 10) || 0));
       pagesInput.value = String(pages);
       moins.disabled = pages <= 0;
       plus.disabled = pages >= MAX_PAGES;
-
-      majChoixFormules(mode);
       if (champSite) champSite.hidden = mode !== 'refonte';
 
-      const lignes = [{ label: `${plan.nom} · ${mode === 'refonte' ? 'refonte' : 'création'}`, prix: plan[mode] }];
-      if (pages) lignes.push({ label: `${pages}\u00a0page${pages > 1 ? 's' : ''} en plus`, prix: pages * PAGE });
+      const lignes = [{ label: `${plan.nom} · ${mode === 'refonte' ? 'refonte' : 'création'}` }];
+      if (pages) lignes.push({ label: `${pages} page${pages > 1 ? 's' : ''} en plus` });
 
       let express = false;
       $$('[data-option]', form).forEach((cb) => {
@@ -189,56 +141,43 @@
         cb.disabled = inclus || !!reserve;
         const label = cb.closest('.p-choice');
         if (label) label.hidden = !!reserve;
-        const prixEl = label && $('em', label);
-        if (prixEl) prixEl.textContent = inclus ? 'inclus' : prixEl.dataset.prix;
-        if (inclus) { lignes.push({ label: cb.dataset.nom, prix: 0, inclus: true }); return; }
+        const etat = label && $('em', label);
+        if (etat) etat.textContent = inclus ? 'inclus' : '';
+        if (inclus) { lignes.push({ label: cb.dataset.nom, inclus: true }); return; }
         if (!cb.checked || cb.disabled) return;
-        if (cb.dataset.option === 'express') { express = true; return; }
-        lignes.push({ label: cb.dataset.nom, prix: +cb.dataset.prixOption });
+        if (cb.dataset.option === 'express') express = true;
+        lignes.push({ label: cb.dataset.nom });
       });
 
-      let total = lignes.reduce((s, l) => s + l.prix, 0);
-      if (express) {
-        const sup = Math.round(total * 0.25);
-        lignes.push({ label: 'Livraison express (+25 %)', prix: sup });
-        total += sup;
-      }
-
       const maint = $('input[name="maintenance"]:checked', form);
-      const mensuel = maint ? +maint.dataset.prixMois : 0;
-
-      // Échéancier : 30 % à la signature, 40 % à la maquette, le solde à la mise en ligne.
-      const a1 = Math.round(total * 0.3), a2 = Math.round(total * 0.4), a3 = total - a1 - a2;
+      const suivi = maint && maint.dataset.nom ? `Maintenance ${maint.dataset.nom}` : 'Sans maintenance';
       const delai = express ? plan.delaiExpress : plan.delai;
 
-      out('total').textContent = euros(total);
-      const mini = $('[data-mini-total]', form);
-      if (mini) mini.textContent = euros(total);
-      out('mois').textContent = mensuel ? `+ ${maint.dataset.nom}\u202f: ${euros(mensuel)}\u00a0€ par mois, sans engagement` : 'Sans maintenance\u202f: le site vous appartient, vous en faites ce que vous voulez.';
-      out('lignes').innerHTML = lignes.map((l) => `<li${l.inclus ? ' class="is-free"' : ''}><span>${esc(l.label)}</span><span>${l.inclus ? 'inclus' : euros(l.prix) + '\u00a0€'}</span></li>`).join('');
-      out('echeances').textContent = `${euros(a1)} · ${euros(a2)} · ${euros(a3)}\u00a0€`;
+      out('lignes').innerHTML = lignes.map((l) => `<li${l.inclus ? ' class="is-free"' : ''}><span>${esc(l.label)}</span><span>${l.inclus ? 'inclus' : '✓'}</span></li>`).join('');
+      out('mois').textContent = suivi;
       out('delai').textContent = delai;
+      const mini = $('[data-mini-total]', form);
+      if (mini) mini.textContent = plan.nom;
 
-      // E-mail pré-rempli avec le récapitulatif.
+      // E-mail pré-rempli avec le récapitulatif : le devis chiffré revient sous 24 h ouvrées.
       const entreprise = (fd.get('entreprise') || '').toString().trim();
       const site = (fd.get('site') || '').toString().trim();
       const corps = [
         'Bonjour,', '',
-        'Voici l’estimation faite sur mtx-developpement.fr, j’aimerais un devis :', '',
-        ...lignes.map((l) => `- ${l.label} : ${l.inclus ? 'inclus' : euros(l.prix) + ' €'}`),
-        `Total estimé : ${euros(total)} €`,
-        mensuel ? `Maintenance : ${maint.dataset.nom}, ${euros(mensuel)} € par mois` : 'Maintenance : aucune pour l’instant',
+        'Voici mon projet, préparé sur mtx-developpement.fr. J’aimerais recevoir un devis :', '',
+        ...lignes.map((l) => `- ${l.label}${l.inclus ? ' (inclus)' : ''}`),
+        `- ${suivi}`,
         `Délai indicatif : ${delai}`, '',
         `Entreprise et secteur : ${entreprise}`,
         mode === 'refonte' ? `Site actuel : ${site}` : '',
         '', 'Ce que le site doit permettre (présenter, prendre des rendez-vous, vendre…) :', '', '',
         'Échéance souhaitée :', '', '',
       ].filter((l, i, a) => !(l === '' && a[i - 1] === '' && a[i - 2] === ''));
-      const sujet = `Devis site internet${entreprise ? ' · ' + entreprise : ''} (${plan.nom}, ${euros(total)} €)`;
+      const sujet = `Devis site internet${entreprise ? ' · ' + entreprise : ''} (${plan.nom}, ${mode === 'refonte' ? 'refonte' : 'création'})`;
       out('mail').href = `mailto:${EMAIL}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps.join('\n'))}`;
     };
 
-    // L’adresse garde le mode et la formule choisis : un lien copié rouvre la même estimation de départ.
+    // L’adresse garde le mode et la formule choisis : un lien copié rouvre la même demande de départ.
     const majAdresse = () => {
       if (!window.history || !history.replaceState) return;
       const fd = new FormData(form);
@@ -254,12 +193,10 @@
     form.addEventListener('change', parGeste);
     form.addEventListener('submit', (e) => e.preventDefault());
 
-    // Les boutons « Choisir » des formules présélectionnent la formule (et le mode affiché) dans le simulateur.
+    // Les boutons « Choisir » des formules présélectionnent la formule dans la demande.
     $$('[data-choisir]').forEach((a) => a.addEventListener('click', () => {
       const radio = $(`input[name="formule"][value="${a.dataset.choisir}"]`, form);
       if (radio) radio.checked = true;
-      const coche = interrupteurs.find((r) => r.checked);
-      if (coche) { const m = $(`input[name="mode"][value="${coche.value}"]`, form); if (m) m.checked = true; }
       calculer();
     }));
     calculer();

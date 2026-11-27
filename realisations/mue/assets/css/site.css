@@ -3,12 +3,9 @@
    sont celles des trois roues (bleu Convertir, violet Outils, orange Actions) et du fond d'écran macOS des captures.
    Gabarito pour les titres (géométrique, ronde comme la roue), Hanken Grotesk pour le texte. */
 
-@font-face { font-family: "Mue Gabarito"; src: url("../fonts/gabarito.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
-@font-face { font-family: "Mue Hanken"; src: url("../fonts/hanken.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-
 :root {
-  --titre: "Mue Gabarito", "Avenir Next", system-ui, sans-serif;
-  --texte: "Mue Hanken", system-ui, -apple-system, sans-serif;
+  --titre: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --texte: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   --courbe: cubic-bezier(.22, .9, .18, 1);
   --ressort: cubic-bezier(.34, 1.5, .5, 1);
   --marge: clamp(20px, 5vw, 72px);

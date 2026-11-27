@@ -31,20 +31,20 @@ ICONS = {
 }
 
 POLES = {
-    'web': dict(n='01', nom='Sites internet', court='Sites internet', home='sites-internet/', desc='Création et refonte, dès 690&nbsp;€',
+    'web': dict(n='01', nom='Sites internet', court='Sites internet', home='sites-internet/', desc='Création, refonte et boutiques',
         items=[('apercu', 'Vue d’ensemble', 'sites-internet/'), ('refonte', 'Refonte', 'sites-internet/refonte/'),
-               ('tarifs', 'Tarifs', 'sites-internet/tarifs/'), ('realisations', 'Réalisations', 'sites-internet/#realisations'),
+               ('tarifs', 'Formules', 'sites-internet/tarifs/'), ('realisations', 'Réalisations', 'sites-internet/#realisations'),
                ('methode', 'Méthode', 'sites-internet/#methode'), ('questions', 'Questions', 'sites-internet/#questions')],
         cta=('Devis gratuit', 'sites-internet/tarifs/#devis'), cta_court='Devis'),
     'app': dict(n='02', nom='Applications', court='Applications', home='applications/', desc='iPhone, iPad, Apple Watch, Mac et web',
         items=[('creations', 'Ce que nous créons', 'applications/#creations'), ('realisations', 'Réalisations', 'applications/#realisations'),
-               ('methode', 'Méthode', 'applications/#methode'), ('budget', 'Budget', 'applications/#budget'),
+               ('methode', 'Méthode', 'applications/#methode'), ('budget', 'Devis', 'applications/#budget'),
                ('questions', 'Questions', 'applications/#questions')],
         cta=('Parler de mon app', '{{MAIL_APP}}'), cta_court='Contact'),
     'ia': dict(n='03', nom='Intelligence artificielle', court='IA', home='intelligence-artificielle/', desc='Assistants, automatisations, IA locale',
         items=[('usages', 'Cas d’usage', 'intelligence-artificielle/#usages'), ('donnees', 'Vos données', 'intelligence-artificielle/#donnees'),
                ('realisations', 'Réalisations', 'intelligence-artificielle/#realisations'), ('methode', 'Méthode', 'intelligence-artificielle/#methode'),
-               ('budget', 'Budget', 'intelligence-artificielle/#budget'), ('questions', 'Questions', 'intelligence-artificielle/#questions')],
+               ('budget', 'Devis', 'intelligence-artificielle/#budget'), ('questions', 'Questions', 'intelligence-artificielle/#questions')],
         cta=('Parler de mon projet', '{{MAIL_IA}}'), cta_court='Contact'),
 }
 POLE_NAV = [('web', 'Sites internet'), ('app', 'Applications'), ('ia', 'IA')]
@@ -132,9 +132,9 @@ def footer(p):
         f'      <a class="foot-mail" href="{{{{MAIL_PROJET}}}}" data-fit><span data-fit-line>{EMAIL}</span></a>\n'
         '    </div>\n')
     cols = '\n      '.join([
-        col('web', [('Vue d’ensemble', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/'), ('Tarifs', 'sites-internet/tarifs/'), ('Simulateur de devis', 'sites-internet/tarifs/#devis')]),
-        col('app', [('Vue d’ensemble', 'applications/'), ('Ce que nous créons', 'applications/#creations'), ('Réalisations', 'applications/#realisations'), ('Budget', 'applications/#budget')]),
-        col('ia', [('Vue d’ensemble', 'intelligence-artificielle/'), ('Cas d’usage', 'intelligence-artificielle/#usages'), ('Vos données', 'intelligence-artificielle/#donnees'), ('Budget', 'intelligence-artificielle/#budget')]),
+        col('web', [('Vue d’ensemble', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/'), ('Formules', 'sites-internet/tarifs/'), ('Demande de devis', 'sites-internet/tarifs/#devis')]),
+        col('app', [('Vue d’ensemble', 'applications/'), ('Ce que nous créons', 'applications/#creations'), ('Réalisations', 'applications/#realisations'), ('Devis', 'applications/#budget')]),
+        col('ia', [('Vue d’ensemble', 'intelligence-artificielle/'), ('Cas d’usage', 'intelligence-artificielle/#usages'), ('Vos données', 'intelligence-artificielle/#donnees'), ('Devis', 'intelligence-artificielle/#budget')]),
     ])
     return (f'<footer class="foot">\n  <div class="wrap">\n{call}'
             f'    <div class="foot-cols">\n      {cols}\n'

@@ -295,7 +295,7 @@
         ctx.beginPath(); ctx.arc(bille.x + Math.cos(a) * d, bille.y + Math.sin(a) * d, 2.6, 0, 6.283); ctx.fill();
       }
     }
-    ctx.font = '800 15px "Space Unbounded", system-ui, sans-serif'; ctx.textAlign = 'center';
+    ctx.font = '800 15px "MTX Bricolage", system-ui, sans-serif'; ctx.textAlign = 'center';
     for (const t of textes) {
       ctx.globalAlpha = Math.min(1, t.vie * 1.6);
       ctx.fillStyle = jour && t.couleur === '#FFFFFF' ? '#1d1240' : t.couleur;

@@ -3,15 +3,12 @@
    les mêmes couleurs éclaircies. Unbounded pour les titres (rondeur d'un jeu, chiffres du score),
    Onest pour le texte. Les couleurs vives viennent du jeu lui-même : planètes, gemme, fièvre, mine. */
 
-@font-face { font-family: "Space Unbounded"; src: url("../fonts/unbounded.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
-@font-face { font-family: "Space Onest"; src: url("../fonts/onest.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-
 @property --z-haut { syntax: "<color>"; inherits: true; initial-value: #120a2e; }
 @property --z-bas { syntax: "<color>"; inherits: true; initial-value: #3b1c6e; }
 
 :root {
-  --titre: "Space Unbounded", "Arial Rounded MT Bold", system-ui, sans-serif;
-  --texte: "Space Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --titre: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --texte: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   --courbe: cubic-bezier(.2, .8, .1, 1);
   --rebond: cubic-bezier(.34, 1.56, .64, 1);
   --marge: clamp(20px, 5vw, 64px);

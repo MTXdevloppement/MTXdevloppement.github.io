@@ -27,15 +27,14 @@
 <meta name="theme-color" content="#fbfaf8">
 <link rel="icon" href="assets/img/knowledge-ai-icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/schibsted.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=3">
-<link rel="stylesheet" href="../../assets/css/projet.css?v=16">
+<link rel="preload" href="../../assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="../../assets/css/projet.css?v=17">
 <link rel="stylesheet" href="../../assets/css/film.css?v=1">
 <link rel="stylesheet" href="assets/css/film.css?v=2">
 <script src="../../assets/js/film.js?v=1" defer></script>
 <script src="assets/js/site.js?v=1" defer></script>
-<script src="../../assets/js/projet.js?v=20" defer></script>
+<script src="../../assets/js/projet.js?v=21" defer></script>
 <script defer src="../../assets/js/contact.js?v=3"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#app","name":"Knowledge AI","alternateName":"Knowledge AI V2","description":"Assistant personnel de recherche documentaire : un modèle d’IA local (Gemma 3 4B via Ollama) analyse la question, explore Wikipédia et Wikidata, sélectionne les passages utiles et rédige une réponse dont chaque affirmation cite sa source, puis vérifie ces citations.","applicationCategory":"ReferenceApplication","applicationSubCategory":"Recherche documentaire","operatingSystem":"macOS","softwareVersion":"2","inLanguage":"fr","url":"https://mtx-developpement.fr/realisations/knowledge-ai/","image":"https://mtx-developpement.fr/realisations/knowledge-ai/assets/img/icone-512.png","featureList":["Modèle d’IA local, Gemma 3 4B via Ollama","Exploration de Wikipédia et de Wikidata","Recherche hybride BM25 et embeddings, sélection MMR","Réponse diffusée en direct, citations numérotées","Vérification des citations et indice de fiabilité","Carte des connaissances, bibliothèque, historique","Comptes protégés, verrouillage, CSRF, SSRF et CSP"],"author":{"@id":"https://mtx-developpement.fr/#studio"},"publisher":{"@id":"https://mtx-developpement.fr/#studio"}},{"@type":"Organization","@id":"https://mtx-developpement.fr/#studio","name":"MTX Studio","url":"https://mtx-developpement.fr/","email":"mtxstudio@proton.me","logo":"https://mtx-developpement.fr/assets/img/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#page","url":"https://mtx-developpement.fr/realisations/knowledge-ai/","name":"Knowledge AI : l’assistant de recherche qui cite ses sources","inLanguage":"fr-FR","isPartOf":{"@id":"https://mtx-developpement.fr/#site"},"about":{"@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#app"},"breadcrumb":{"@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#fil"}},{"@type":"BreadcrumbList","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#fil","itemListElement":[{"@type":"ListItem","position":1,"name":"MTX Studio","item":"https://mtx-developpement.fr/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://mtx-developpement.fr/#realisations"},{"@type":"ListItem","position":3,"name":"Knowledge AI","item":"https://mtx-developpement.fr/realisations/knowledge-ai/"}]},{"@type":"FAQPage","@id":"https://mtx-developpement.fr/realisations/knowledge-ai/#questions","mainEntity":[{"@type":"Question","name":"Knowledge AI fonctionne-t-il sans Internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas entièrement. Le modèle d’IA, les embeddings, l’historique et la bibliothèque restent sur le Mac, mais la recherche documentaire interroge Wikipédia et Wikidata, ce qui demande une connexion."}},{"@type":"Question","name":"Peut-on faire confiance aux réponses ?","acceptedAnswer":{"@type":"Answer","text":"Elles sont ancrées sur des sources : chaque affirmation cite un passage, les citations vers des sources inexistantes sont retirées et chaque phrase citée est confrontée à son passage. Un indice de fiabilité et la liste des points à relire accompagnent la réponse. Le modèle peut se tromper : il faut garder un œil critique."}},{"@type":"Question","name":"Combien de temps prend une réponse ?","acceptedAnswer":{"@type":"Answer","text":"Sur un MacBook Pro M5, environ 20 secondes en mode Rapide, 30 en Standard et 45 en Approfondi, une fois le modèle chargé. Sur un Mac Intel sans GPU, comptez deux à trois minutes."}},{"@type":"Question","name":"Quelles données sont envoyées au modèle ?","acceptedAnswer":{"@type":"Answer","text":"Seulement le prénom (désactivable), les préférences et la mémoire que vous avez écrites, la question et les passages lus. Jamais le nom, l’identifiant ni le mot de passe. Et le modèle tourne sur le Mac."}},{"@type":"Question","name":"MTX Studio peut-il intégrer une IA locale dans mon outil ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Knowledge AI montre une chaîne complète : modèle local, recherche hybride, citations vérifiées et sécurité d’un service en ligne. Décrivez votre besoin à mtxstudio@proton.me."}}]}]}</script>
 </head>
@@ -59,7 +58,7 @@
     <a href="#local">En local</a>
     <a href="#securite">Sécurité</a>
   </nav>
-  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Une%20IA%20locale%20comme%20Knowledge%20AI&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Knowledge%20AI.%20Mon%20besoin%20%3A%0A%0A">Une IA pour mon outil&#8239;?</a>
+  <a class="bouton bouton-plein barre-cta" href="mailto:mtxstudio@proton.me?subject=Une%20IA%20locale%20comme%20Knowledge%20AI&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Knowledge%20AI.%20Mon%20besoin%20%3A%0A%0A">Une IA comme celle-ci&#8239;?</a>
 </header>
 
 <main id="contenu">
@@ -116,7 +115,7 @@
     <div class="enveloppe">
       <p class="note-marge apparait">Film</p>
       <div class="tete">
-        <h2 class="titre apparait" id="titre-film">Une vraie recherche, du début à la fin.</h2>
+        <h2 class="titre apparait" id="titre-film">Knowledge AI en quarante&nbsp;secondes.</h2>
         <p class="tete-texte apparait">La question, la recherche en direct, les sources citées et le rapport de vérification, sur «&#8239;Comment a été créée la France&#8239;?&#8239;». Il démarre sans le son&#8239;; mettez-le pour la musique.</p>
       </div>
       <div class="presentation-film" data-mtx-film data-duree="40">
@@ -239,7 +238,7 @@
     <div class="enveloppe faq">
       <div>
         <p class="note-marge apparait">§ 6</p>
-        <h2 class="titre apparait" id="titre-questions">Questions, avec leurs réponses.</h2>
+        <h2 class="titre apparait" id="titre-questions">Questions fréquentes.</h2>
       </div>
       <div class="faq-liste">
         <details name="faq" open><summary><h3>Knowledge AI fonctionne-t-il sans Internet&#8239;?</h3></summary><p>Pas entièrement. Le modèle d’IA, les embeddings, l’historique et la bibliothèque restent sur le Mac, mais la recherche documentaire interroge Wikipédia et Wikidata, ce qui demande une connexion.</p></details>
@@ -256,9 +255,9 @@
   <div class="mtx-pf-w">
     <p class="mtx-pf-eye"><img src="../../assets/img/realisations/icone-knowledge-ai.webp" alt="" width="40" height="40" loading="lazy" decoding="async">Une réalisation MTX Studio</p>
     <h2 class="mtx-pf-t" id="mtx-pf-t">Knowledge AI répond avec une IA qui tourne sur le Mac, et cite chacune de ses sources.</h2>
-    <p class="mtx-pf-sub">Une IA utile, fiable et maîtrisée dans votre outil&#8239;? MTX Studio conçoit la chaîne complète, du modèle à l’interface.</p>
+    <p class="mtx-pf-sub">Une IA qui répond à partir de vos propres documents&#8239;? MTX Studio conçoit la chaîne complète, du modèle à l’interface, et la teste sur vos données.</p>
     <p class="mtx-pf-tags">Application web · IA locale<br>Python · FastAPI · Next.js · React · Ollama · SQLite</p>
-    <div class="mtx-pf-cta"><a class="mtx-btn" href="../steno/"><img src="../../assets/img/realisations/icone-steno.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante : Sténo</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Knowledge%20AI&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Knowledge%20AI%20%3A%0A%0A">Écrire au studio</a></div>
+    <div class="mtx-pf-cta"><a class="mtx-btn" href="../steno/"><img src="../../assets/img/realisations/icone-steno.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><span>Réalisation suivante&#8239;: Sténo</span><svg class="fl" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="mtx-more" href="../../#realisations">Toutes les réalisations</a><a class="mtx-more" href="mailto:mtxstudio@proton.me?subject=Un%20projet%20comme%20Knowledge%20AI&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20d%C3%A9couvert%20Knowledge%20AI.%20Mon%20projet%20en%20quelques%20lignes%20%3A%0A%0A%0APour%20qui%2C%20et%20sur%20quels%20appareils%20%3A%0A%0A%C3%89ch%C3%A9ance%20souhait%C3%A9e%20%3A%0A%0A">Parler de votre projet</a></div>
     <div class="mtx-pf-bot"><span>© 2026 MTX Studio</span><nav aria-label="Pages de MTX Studio"><a href="../../">Accueil</a><a href="../../sites-internet/">Sites internet</a><a href="../../applications/">Applications</a><a href="../../intelligence-artificielle/">IA</a><a href="../../#realisations">Réalisations</a><a href="../../#contact">Contact</a></nav><nav aria-label="Informations légales"><a href="mailto:mtxstudio@proton.me?subject=Une%20question%20sur%20Knowledge%20AI&amp;body=Bonjour%2C%0A%0AJ%E2%80%99ai%20une%20question%20sur%20Knowledge%20AI%20%3A%0A%0A">mtxstudio@proton.me</a><a href="../../mentions-legales.html">Mentions légales</a><a href="../../confidentialite.html">Confidentialité</a></nav></div>
   </div>
 </section>

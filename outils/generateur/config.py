@@ -87,12 +87,10 @@ def service(path, nom, stype, desc, audience, catalog=None):
 def web_catalog(body):
     def t(s): return re.sub(r'\s+', ' ', H.unescape(re.sub(r'<[^>]+>', '', s))).replace(' ', ' ').strip()
     offers = []
-    for m in re.finditer(r'data-plan="(\w+)" data-nom="([^"]+)" data-creation="(\d+)" data-refonte="(\d+)".*?<p class="p-plan-for">(.*?)</p>', body, re.S):
-        key, nom, c, r, d = m.groups()
-        for mode, prix in (("Création", c), ("Refonte", r)):
-            offers.append({"@type": "Offer", "name": f"{mode} · {nom}", "description": t(d),
-                           "priceSpecification": {"@type": "PriceSpecification", "price": int(prix), "priceCurrency": "EUR", **({"minPrice": int(prix)} if key == "boutique" else {}), "valueAddedTaxIncluded": False},
-                           "url": O + "sites-internet/tarifs/#formules"})
+    for m in re.finditer(r'data-plan="(\w+)" data-nom="([^"]+)".*?<p class="p-plan-for">(.*?)</p>', body, re.S):
+        key, nom, d = m.groups()
+        # Sans prix : chaque site est chiffré sur devis.
+        offers.append({"@type": "Offer", "name": nom, "description": t(d), "url": O + "sites-internet/tarifs/#formules"})
     return {"@type": "OfferCatalog", "name": "Formules de sites internet", "itemListElement": offers}
 
 WEB_SERVICE_DESC = "Sites vitrines, sites sur mesure et boutiques en ligne pour les entreprises de toutes tailles et de tous secteurs, créés de zéro ou refaits à partir d’un site existant : design sur mesure, rapides, adaptés au mobile et optimisés pour Google."
@@ -100,29 +98,29 @@ WEB_SERVICE_DESC = "Sites vitrines, sites sur mesure et boutiques en ligne pour 
 PAGES = [
     dict(out='index.html', path='', root='', body='accueil.html', css=['mtx.css'], js=['site.js', 'contact.js'],
          title='MTX Studio · Sites internet, applications et IA sur mesure',
-         desc='Sites internet, applications iPhone, Mac et web, logiciels et outils d’IA sur mesure pour TPE et PME. Prix fixe écrit, un seul interlocuteur.',
+         desc='Sites internet, applications iPhone, Mac et web et outils d’IA sur mesure, conçus et codés sans sous-traitance. Prix fixe écrit, devis gratuit sous 24 h.',
          about=O + '#studio', ld=[ORG, SITE_LD, ITEMS],
          hub=True,
          tokens={'WORKS_HUB': works(ORDRE, '', work_index), 'WORKS_PREVIEW': works(ORDRE, '', work_preview)}),
     dict(out='sites-internet/index.html', path='sites-internet/', root='../', pole='web', lnav='apercu', body='web.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
          title='Création de site internet et de site vitrine · MTX Studio',
-         desc='Création de site vitrine, sur mesure ou boutique pour entreprise : rapide, adapté au mobile, pensé pour Google. Prix fixe dès 690 €, devis sous 24 h.',
+         desc='Création de site vitrine, sur mesure ou boutique pour entreprise : rapide, adapté au mobile, pensé pour Google. Prix fixe sur devis gratuit, sous 24 h.',
          og='og-sites-internet.png', og_alt='MTX Studio, création de sites internet pour les entreprises',
          crumbs=[('Sites internet', 'sites-internet/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations')],
          tokens={'WORKS_WEB': works(['volta', 'startup3d', 'knowledge-ai', 'steno', 'kompagnion', 'mue'], '../', work_fig, idp='w-')}),
     dict(out='sites-internet/tarifs/index.html', path='sites-internet/tarifs/', root='../../', pole='web', lnav='tarifs', body='web-tarifs.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Prix d’un site internet : tarifs fixes dès 690 € · MTX Studio',
-         desc='Combien coûte un site internet ? Une page 690 €, vitrine 1 290 €, sur mesure 2 490 €, boutique dès 2 990 €. Frais annexes détaillés, simulateur de devis.',
-         og='og-sites-internet.png', og_alt='Tarifs de création de site internet, MTX Studio',
+         title='Formules de site internet : vitrine, sur mesure, boutique · MTX Studio',
+         desc='Site d’une page, vitrine, sur mesure ou boutique : ce que comprend chaque formule, les frais annexes, et une demande de devis gratuite, chiffrée sous 24 h.',
+         og='og-sites-internet.png', og_alt='Formules de création de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Tarifs', 'sites-internet/tarifs/')], about=O + 'sites-internet/#service',
          ld=[lambda b: service('sites-internet/', 'Création et refonte de sites internet pour entreprises', 'Création de site internet', WEB_SERVICE_DESC, 'Entreprises, indépendants, commerces, PME, startups et associations', web_catalog(b))]),
     dict(out='sites-internet/refonte/index.html', path='sites-internet/refonte/', root='../../', pole='web', lnav='refonte', body='web-refonte.html',
          css=['mtx.css'], js=['site.js', 'pole.js', 'contact.js'],
-         title='Refonte de site internet : prix fixe dès 590 € · MTX Studio',
-         desc='Refonte de site internet sans perdre votre référencement : audit gratuit, redirections, site plus rapide et adapté au mobile. Prix fixe dès 590 €.',
+         title='Refonte de site internet sans perdre son référencement · MTX Studio',
+         desc='Refonte de site internet sans perdre votre référencement : audit gratuit, redirections, site plus rapide et adapté au mobile. Devis gratuit sous 24 h.',
          og='og-sites-internet.png', og_alt='Refonte de site internet, MTX Studio',
          crumbs=[('Sites internet', 'sites-internet/'), ('Refonte', 'sites-internet/refonte/')], about=O + 'sites-internet/refonte/#service',
          ld=[service('sites-internet/refonte/', 'Refonte de site internet', 'Refonte de site internet', 'Refonte complète d’un site existant : audit gratuit, reprise des contenus, nouveau design, performances, plan de redirections pour conserver le référencement, suivi après la bascule.', 'Entreprises qui ont déjà un site')]),

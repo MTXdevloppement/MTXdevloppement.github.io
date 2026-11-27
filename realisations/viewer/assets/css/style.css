@@ -1,22 +1,4 @@
 
-@font-face {
-  font-family: "Archivo";
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  src: url("../fonts/archivo-latin.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Martian Mono";
-  font-style: normal;
-  font-weight: 300 700;
-  font-stretch: 75% 112.5%;
-  font-display: swap;
-  src: url("../fonts/martian-mono-latin.woff2") format("woff2");
-}
-
 :root {
   --noir: #09090a;
   --bleu: #f4f4f2;
@@ -34,8 +16,8 @@
   --avert: #ffbd2a;
   --erreur: #ff6a8d;
 
-  --texte: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --mono: "Martian Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --texte: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 
   --gouttiere: clamp(16px, 4.2vw, 64px);
   --max: 1440px;
@@ -270,7 +252,7 @@ h2 {
 @media (max-width: 520px) { .actions .bouton { flex: 1 1 100%; } }
 
 @media (max-width: 599px) {
-  .heros .titre-geant, .fin .titre-geant { font-size: min(22.5vw, 108px) !important; }
+  .heros .titre-geant, .fin .titre-geant { font-size: min(18.5vw, 108px) !important; }
 }
 @media (max-width: 899px) {
   .heros .titre-geant, .fin .titre-geant { font-size: min(17vw, 150px); text-wrap: balance; white-space: normal; }

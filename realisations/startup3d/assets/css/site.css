@@ -3,12 +3,9 @@
    bleu de l'interface le jour ; bleu nuit et lumière de lampe le soir. Le thème clair de la page est le jour de
    l'agence, le thème sombre sa nuit. Red Hat Display pour les titres et le texte, Red Hat Mono pour les cotes. */
 
-@font-face { font-family: "S3D Display"; src: url("../fonts/red-hat-display.woff2") format("woff2"); font-weight: 300 900; font-display: swap; }
-@font-face { font-family: "S3D Mono"; src: url("../fonts/red-hat-mono.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
-
 :root {
-  --sans: "S3D Display", system-ui, -apple-system, sans-serif;
-  --mono: "S3D Mono", ui-monospace, Menlo, monospace;
+  --sans: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --courbe: cubic-bezier(.2, .85, .2, 1);
   --ressort: cubic-bezier(.3, 1.45, .5, 1);
   --marge: clamp(20px, 5vw, 72px);

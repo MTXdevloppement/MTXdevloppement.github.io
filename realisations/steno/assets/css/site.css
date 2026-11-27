@@ -1,13 +1,6 @@
 /* Sténo — site de l'app. Direction : DIRECTION.md (la page est un mémo ; la phrase se range). */
 
 /* Trois voix (DIRECTION.md, § 4) : la parole (Bricolage Grotesque), la note (Newsreader), la machine (IBM Plex Mono). */
-@font-face{font-family:"Bricolage Titre";src:url("../fonts/bricolage-titre.woff2") format("woff2");font-weight:800;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
-@font-face{font-family:"Bricolage Grotesque";src:url("../fonts/bricolage-texte.woff2") format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
-@font-face{font-family:"Newsreader";src:url("../fonts/newsreader-italique-titre.woff2") format("woff2");font-weight:500;font-style:italic;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
-@font-face{font-family:"Newsreader";src:url("../fonts/newsreader-texte.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2009-200A,U+2010-2015,U+2018-201E,U+2020-2022,U+2026,U+202F,U+2030,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212,U+2215}
-@font-face{font-family:"IBM Plex Mono";src:url("../fonts/plex-mono-400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url("../fonts/plex-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
-
 /* ---------- Jetons ---------- */
 :root{
   --papier:#fbfbfd;--papier-2:#f1f1f6;--carte:#fff;--encre:#14121a;--doux:#565363;--pale:#6e6b7c;
@@ -17,10 +10,10 @@
   --f-tache:#12813a;--f-date:#b4530a;--f-personne:#1d4ed8;--f-decision:#4f46e5;--f-question:#be185d;
   --f-idee:#8a6100;--f-lieu:#0f766e;--f-organisation:#8b5a2b;--f-chiffre:#7e22ce;--f-coordonnee:#0e7490;
   --verre:rgba(255,255,255,.62);--verre-bord:rgba(255,255,255,.75);
-  --titre:"Bricolage Titre","Bricolage Grotesque","Arial Black","Helvetica Neue",Arial,sans-serif;
-  --note:"Newsreader",ui-serif,"New York","Iowan Old Style",Palatino,Georgia,serif;
-  --sans:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --titre:"MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --note:"MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --sans:"MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --gout:clamp(18px,5vw,56px);--marge:0px;--courbe:cubic-bezier(.2,.7,0,1);--ressort:cubic-bezier(.3,1.35,.5,1);
   color-scheme:light;
 }
@@ -420,3 +413,6 @@ html:not(.js) .ecr-theme{display:none}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
   .circuit-point{display:none}
 }
+
+/* Bricolage est plus large que Newsreader : la seconde ligne des titres peut passer à la ligne sur téléphone. */
+@media (max-width:520px){main :is(h1,h2) em{white-space:normal}}

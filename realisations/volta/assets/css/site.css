@@ -3,12 +3,9 @@
    un seul jaune, celui de l'éclair de l'icône, réservé au courant (le fil qui s'allume, les états à surveiller).
    Chivo pour les titres et le texte, Chivo Mono pour les références, les montants et les raccourcis. */
 
-@font-face { font-family: "Volta Chivo"; src: url("../fonts/chivo.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Volta Mono"; src: url("../fonts/chivo-mono.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-
 :root {
-  --sans: "Volta Chivo", "Helvetica Neue", Arial, sans-serif;
-  --mono: "Volta Mono", ui-monospace, Menlo, monospace;
+  --sans: "MTX Bricolage",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --courbe: cubic-bezier(.16, .84, .2, 1);
   --marge: clamp(20px, 5vw, 72px);
   --page: 1320px; /* largeur commune : barre, héros et sections partagent le même bord gauche */
